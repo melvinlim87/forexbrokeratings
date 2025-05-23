@@ -232,25 +232,44 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="relative w-14 h-14 mr-3">
+                        <div className="relative w-16 h-16 mr-3">
                           <svg viewBox="0 0 51 48" className="w-full h-full">
                             <defs>
-                              <linearGradient id={`rating-gradient-${broker.id}`}>
-                                <stop offset={`${(broker.rating / 5) * 100}%`} stopColor="#FBBF24" />
-                                <stop offset={`${(broker.rating / 5) * 100}%`} stopColor="#E5E7EB" />
+                              <linearGradient id={`rating-gradient-${broker.rank}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#FFD700" />
+                                <stop offset="50%" stopColor="#FFA500" />
+                                <stop offset="100%" stopColor="#FF8C00" />
                               </linearGradient>
+                              <mask id={`rating-mask-${broker.rank}`}>
+                                <path
+                                  d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
+                                  fill="white"
+                                />
+                              </mask>
                             </defs>
+                            {/* Background star */}
                             <path
                               d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                              fill={`url(#rating-gradient-${broker.id})`}
-                              className="drop-shadow-md"
+                              fill="#E5E7EB"
+                              className="dark:fill-gray-700"
+                            />
+                            {/* Filled star with gradient and mask for progress */}
+                            <rect
+                              x="0"
+                              y="0"
+                              width={`${(broker.rating / 5) * 100}%`}
+                              height="100%"
+                              fill={`url(#rating-gradient-${broker.rank})`}
+                              mask={`url(#rating-mask-${broker.rank})`}
+                              className="drop-shadow-lg"
                             />
                             <text
                               x="50%"
                               y="55%"
                               textAnchor="middle"
-                              className="fill-gray-900 dark:fill-white font-bold text-sm"
-                            >{broker.rating}</text>
+                              className="fill-gray-900 dark:fill-white font-bold text-lg"
+                              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
+                            >{broker.rating.toFixed(1)}</text>
                           </svg>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
