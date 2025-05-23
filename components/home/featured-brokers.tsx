@@ -253,35 +253,81 @@ export default function FeaturedBrokers() {
                       <div className="flex items-center">
                         <div className="flex items-center mr-3 relative">
                           <AnimatePresence>
-                            {[...Array(5)].map((_, i) => (
+                            {[...Array(5)].map((_, i) => {
+                              const isActive = i < Math.floor(broker.rating);
+                              const delay = i * 0.15;
+                              
+                              return (
                               <motion.div
                                 key={i}
-                                initial={{ opacity: 0, scale: 0, y: 10 }}
+                                initial={{ opacity: 0, scale: 0, rotate: -180 }}
                                 animate={{ 
                                   opacity: 1, 
-                                  scale: i < Math.floor(broker.rating) ? [0, 1.2, 1] : 0.8,
-                                  y: 0,
-                                  color: i < Math.floor(broker.rating) ? "#EAB308" : "#D1D5DB"
+                                  scale: isActive ? [0, 1.4, 1] : 0.8,
+                                  rotate: 0,
+                                  filter: isActive ? [
+                                    'brightness(1) drop-shadow(0 0 0 rgba(234, 179, 8, 0))',
+                                    'brightness(1.3) drop-shadow(0 0 10px rgba(234, 179, 8, 0.5))',
+                                    'brightness(1) drop-shadow(0 0 5px rgba(234, 179, 8, 0.3))'
+                                  ] : 'none'
                                 }}
                                 transition={{ 
-                                  delay: i * 0.1,
+                                  delay,
                                   type: "spring",
-                                  stiffness: 300,
-                                  damping: 15
+                                  stiffness: 400,
+                                  damping: 20,
+                                  times: isActive ? [0, 0.6, 1] : [0, 1]
                                 }}
-                                className="mx-0.5"
+                                whileHover={isActive ? {
+                                  scale: 1.2,
+                                  rotate: [0, -15, 15, 0],
+                                  transition: {
+                                    rotate: {
+                                      repeat: Infinity,
+                                      repeatType: "reverse",
+                                      duration: 0.5
+                                    }
+                                  }
+                                } : {}}
+                                className="relative mx-0.5"
                               >
+                                {isActive && (
+                                  <motion.div
+                                    className="absolute inset-0 bg-yellow-500 rounded-full blur-lg"
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    animate={{ 
+                                      opacity: [0, 0.5, 0],
+                                      scale: [1, 1.5, 1]
+                                    }}
+                                    transition={{
+                                      delay,
+                                      duration: 1,
+                                      times: [0, 0.5, 1]
+                                    }}
+                                  />
+                                )}
                                 <Star 
                                   className={`h-4 w-4 transform transition-all duration-300 ${
-                                    i < Math.floor(broker.rating) ? 
-                                    'text-yellow-500 fill-yellow-500 hover:scale-125' : 
+                                    isActive ? 
+                                    'text-yellow-500 fill-yellow-500 drop-shadow-lg' : 
                                     'text-gray-300'
                                   }`} 
                                 />
                               </motion.div>
-                            ))}
+                            );
+                          })}
                           </AnimatePresence>
-                          <motion.span className="font-medium ml-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+                          <motion.span 
+                            className="font-medium ml-1" 
+                            initial={{ opacity: 0, x: -10 }} 
+                            animate={{ opacity: 1, x: 0 }} 
+                            transition={{ 
+                              delay: 0.8,
+                              type: "spring",
+                              stiffness: 300,
+                              damping: 25
+                            }}
+                          >
                             {broker.rating}/5</motion.span>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
