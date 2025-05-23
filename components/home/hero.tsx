@@ -175,7 +175,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700 w-[200px]"
+                  className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
                   asChild
                 >
                   <Link href={`/broker/${heroSlides[currentSlide].slug}`}>
@@ -185,14 +185,14 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20 w-[200px]"
+                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
                   asChild
                 >
                   <a 
                     href="https://example.com/broker"
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-full"
+                    className="flex items-center justify-center"
                   >
                     Visit Broker
                   </a>
