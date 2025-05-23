@@ -92,57 +92,35 @@ export default function TopHero() {
             className="flex items-center justify-center mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
           >
             <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg p-4 rounded-2xl shadow-metallic border border-white/30 flex items-center space-x-1">
               {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ 
-                    opacity: 1, 
-                    scale: 1,
-                    filter: [
-                      'brightness(1)',
-                      'brightness(1.5)',
-                      'brightness(1)'
-                    ]
+                  animate={{
+                    opacity: [0.3, 1, 0.3],
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 5, 0],
+                    filter: ['brightness(0.5)', 'brightness(2)', 'brightness(0.5)']
                   }}
                   transition={{
-                    duration: 0.4,
-                    delay: 0.3 + i * 0.15,
-                    ease: "easeOut"
+                    duration: 1.5,
+                    delay: i * 0.3,
+                    repeat: Infinity,
+                    repeatDelay: 1.5
                   }}
                   className="relative"
                 >
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, -5, 5, 0],
+                  <Star 
+                    className="w-8 h-8 text-amber-500 fill-amber-500"
+                    style={{
+                      filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                     }}
-                    transition={{
-                      duration: 0.3,
-                      delay: 0.3 + i * 0.15,
-                      ease: "easeOut"
-                    }}
-                  >
-                    <Star 
-                      className="w-8 h-8 text-amber-500 fill-amber-500"
-                      style={{
-                        filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
-                      }}
-                    />
-                  </motion.div>
+                  />
                 </motion.div>
               ))}
-              <motion.span 
-                className="ml-3 text-2xl font-bold bg-gradient-to-br from-amber-600 to-amber-400 bg-clip-text text-transparent"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 1.1 }}
-              >
-                4.8
-              </motion.span>
             </div>
           </motion.div>
 
