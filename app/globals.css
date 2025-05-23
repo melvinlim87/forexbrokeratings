@@ -18,9 +18,9 @@
 
 @layer base {
   :root {
-    --background: 220 25% 98%;
+    --background: 220 30% 97%;
     --foreground: 0 0% 3.9%;
-    --card: 220 30% 99%;
+    --card: 220 25% 99%;
     --card-foreground: 0 0% 3.9%;
     --popover: 220 30% 99%;
     --popover-foreground: 0 0% 3.9%;
@@ -46,35 +46,35 @@
   }
 
   body {
-    background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 50%, #f1f5f9 100%);
+    background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 50%, #e2e8f0 100%);
     background-image: 
-      repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(148, 163, 184, 0.05) 1px, rgba(148, 163, 184, 0.05) 2px),
-      linear-gradient(135deg, #f1f5f9 0%, #f8fafc 50%, #f1f5f9 100%);
-    background-size: 3px 3px, 100% 100%;
+      repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(148, 163, 184, 0.1) 1px, rgba(148, 163, 184, 0.1) 2px),
+      linear-gradient(135deg, #e2e8f0 0%, #f8fafc 50%, #e2e8f0 100%);
+    background-size: 4px 4px, 100% 100%;
   }
 
   .card {
-    background: linear-gradient(145deg, #f8fafc, #ffffff);
+    background: linear-gradient(145deg, #f1f5f9, #ffffff);
     border: 1px solid;
     border-image: linear-gradient(
       to right bottom,
-      rgba(203, 213, 225, 0.8),
-      rgba(148, 163, 184, 0.3)
+      rgba(148, 163, 184, 0.9),
+      rgba(203, 213, 225, 0.4)
     ) 1;
     box-shadow: 
-      0 1px 3px 0 rgb(0 0 0 / 0.1),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
-      inset 0 -1px 0 0 rgba(148, 163, 184, 0.1);
+      0 2px 4px 0 rgb(0 0 0 / 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 0 rgba(148, 163, 184, 0.2);
   }
 
   .metallic-gradient {
     background: linear-gradient(
       135deg,
-      #e2e8f0 0%,
-      #f1f5f9 25%,
+      #cbd5e1 0%,
+      #e2e8f0 25%,
       #f8fafc 50%,
-      #f1f5f9 75%,
-      #e2e8f0 100%
+      #e2e8f0 75%,
+      #cbd5e1 100%
     );
   }
 
@@ -83,9 +83,9 @@
     border-image-slice: 1;
     border-image-source: linear-gradient(
       to right,
-      rgba(203, 213, 225, 0.8),
-      rgba(148, 163, 184, 0.5) 50%,
-      rgba(203, 213, 225, 0.8)
+      rgba(148, 163, 184, 0.9),
+      rgba(203, 213, 225, 0.6) 50%,
+      rgba(148, 163, 184, 0.9)
     );
   }
 
