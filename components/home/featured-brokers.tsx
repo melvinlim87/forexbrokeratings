@@ -232,42 +232,42 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="flex items-center mr-3 relative">
-                          <AnimatePresence>
-                            {[...Array(5)].map((_, i) => {
-                              const isActive = i < Math.floor(broker.rating);                              
-                              return (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                                animate={{ 
-                                  opacity: 1, 
-                                  scale: 1,
-                                  rotate: 0
-                                }}
-                                transition={{ 
-                                  duration: 0.2
-                                }}
-                                className="relative mx-0.5"
-                              >
-                                <Star 
-                                  className={`h-4 w-4 transform transition-all duration-300 ${
-                                    isActive ? 
-                                    'text-yellow-500 fill-yellow-500' : 
-                                    'text-gray-300'
-                                  }`} 
-                                />
-                              </motion.div>
-                            );
-                          })}
-                          </AnimatePresence>
-                          <motion.span 
-                            className="font-medium ml-1" 
-                            initial={{ opacity: 0, x: -10 }} 
-                            animate={{ opacity: 1, x: 0 }} 
-                            transition={{ duration: 0.2 }}
-                          >
-                            {broker.rating}/5</motion.span>
+                        <div className="relative w-12 h-12 mr-3">
+                          <svg className="w-full h-full" viewBox="0 0 36 36">
+                            <circle
+                              cx="18"
+                              cy="18"
+                              r="15.915"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              className="text-gray-200 dark:text-gray-700"
+                            />
+                            <motion.circle
+                              cx="18"
+                              cy="18"
+                              r="15.915"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              className="text-yellow-400"
+                              strokeDasharray={`${broker.rating * 20}, 100`}
+                              strokeDashoffset="25"
+                              initial={{ pathLength: 0 }}
+                              animate={{ pathLength: broker.rating / 5 }}
+                              transition={{ duration: 1, ease: "easeOut" }}
+                            />
+                            <text
+                              x="50%"
+                              y="50%"
+                              textAnchor="middle"
+                              dy=".3em"
+                              className="fill-current font-bold text-sm"
+                            >
+                              {broker.rating}
+                            </text>
+                          </svg>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                           <ShieldCheck className="h-3 w-3 mr-1" />
