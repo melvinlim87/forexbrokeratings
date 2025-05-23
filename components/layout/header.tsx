@@ -30,7 +30,7 @@ export default function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex h-[70px] items-center">
+      <div className="container mx-auto px-4 flex h-[90px] items-center justify-between">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-2 rounded-lg">
@@ -42,7 +42,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center justify-center flex-1">
+        <nav className="hidden md:flex items-center justify-center flex-1 space-x-8">
           <NavLinks />
         </nav>
         
@@ -105,7 +105,7 @@ function NavLinks() {
         <Link
           key={link.href}
           href={link.href}
-          className="text-base font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative mx-6 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+          className="text-base font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
         >
           {link.title}
         </Link>
