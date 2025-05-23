@@ -354,6 +354,9 @@ export default function FeaturedBrokers() {
           ))}
         </div>
       </div>
+        )
+        )
+        }
     </section>
   );
 }
