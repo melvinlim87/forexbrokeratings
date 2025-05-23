@@ -11,8 +11,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'metallic': 'linear-gradient(135deg, #94a3b8 0%, #cbd5e1 20%, #f1f5f9 50%, #cbd5e1 80%, #94a3b8 100%)',
-        'metallic-hover': 'linear-gradient(135deg, #64748b 0%, #94a3b8 20%, #e2e8f0 50%, #94a3b8 80%, #64748b 100%)',
-        'metallic-active': 'linear-gradient(135deg, #475569 0%, #64748b 20%, #cbd5e1 50%, #64748b 80%, #475569 100%)',
+        'metallic-hover': 'linear-gradient(135deg, #475569 0%, #64748b 20%, #94a3b8 50%, #64748b 80%, #475569 100%)',
+        'metallic-active': 'linear-gradient(135deg, #334155 0%, #475569 20%, #64748b 50%, #475569 80%, #334155 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -85,7 +85,7 @@ const config: Config = {
       },
       boxShadow: {
         'metallic': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 0 rgba(148, 163, 184, 0.3)',
-        'metallic-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 0 rgba(148, 163, 184, 0.4)',
+        'metallic-hover': '0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 0 rgba(100, 116, 139, 0.5)',
       },
     },
   },
