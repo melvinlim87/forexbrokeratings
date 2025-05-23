@@ -127,17 +127,17 @@ export default function TopHero() {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="relative group hover:z-10 transition-all duration-300"
+                className="relative group hover:z-10 transition-all duration-300 perspective-1000"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/20 rounded-2xl backdrop-blur-xl border border-blue-300/40 
-                  shadow-[0_0_20px_rgba(59,130,246,0.3),inset_0_0_20px_rgba(59,130,246,0.2)] 
+                  shadow-[0_0_25px_rgba(59,130,246,0.3),inset_0_0_20px_rgba(59,130,246,0.2),0_0_0_1px_rgba(255,255,255,0.2)] 
                   transform transition-all duration-300 
                   group-hover:scale-105 
-                  group-hover:shadow-[0_0_35px_rgba(59,130,246,0.4),inset_0_0_25px_rgba(59,130,246,0.3)]
-                  group-hover:border-blue-400/50
-                  after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-br after:from-blue-500/10 after:to-transparent after:opacity-0 after:transition-opacity after:duration-300
+                  group-hover:shadow-[0_0_35px_rgba(59,130,246,0.4),inset_0_0_25px_rgba(59,130,246,0.3),0_0_0_1px_rgba(255,255,255,0.4)] 
+                  group-hover:border-blue-400/50 
+                  after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-br after:from-gray-100/20 after:to-white/5 after:opacity-0 after:transition-opacity after:duration-300
                   group-hover:after:opacity-100" />
-                <div className="relative p-6">
+                <div className="relative p-6 bg-gradient-to-br from-gray-100/10 to-white/5 rounded-2xl backdrop-blur-sm">
                   <div className={`bg-gradient-to-br ${item.color} p-3 rounded-xl w-fit mb-4 shadow-lg`}>
                     <div className="text-white">{item.icon}</div>
                   </div>
