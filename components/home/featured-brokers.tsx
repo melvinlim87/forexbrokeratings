@@ -267,8 +267,7 @@ export default function FeaturedBrokers() {
                                   rotate: 0,
                                   filter: isActive ? [
                                     'brightness(1) drop-shadow(0 0 0 rgba(234, 179, 8, 0))',
-                                    'brightness(1.3) drop-shadow(0 0 10px rgba(234, 179, 8, 0.5))',
-                                    'brightness(1) drop-shadow(0 0 5px rgba(234, 179, 8, 0.3))'
+                                    'brightness(1.3) drop-shadow(0 0 10px rgba(234, 179, 8, 0.5))'
                                   ] : 'none'
                                 }}
                                 transition={{ 
@@ -276,7 +275,7 @@ export default function FeaturedBrokers() {
                                   type: "spring",
                                   stiffness: 400,
                                   damping: 20,
-                                  times: isActive ? [0, 0.6, 1] : [0, 1]
+                                  times: isActive ? [0, 1] : [0, 1]
                                 }}
                                 whileHover={isActive ? {
                                   scale: 1.2,
@@ -296,13 +295,13 @@ export default function FeaturedBrokers() {
                                     className="absolute inset-0 bg-yellow-500 rounded-full blur-lg"
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ 
-                                      opacity: [0, 0.5, 0],
-                                      scale: [1, 1.5, 1]
+                                      opacity: [0, 0.5],
+                                      scale: [1, 1.5]
                                     }}
                                     transition={{
                                       delay,
                                       duration: 1,
-                                      times: [0, 0.5, 1]
+                                      times: [0, 1]
                                     }}
                                   />
                                 )}
