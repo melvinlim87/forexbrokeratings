@@ -232,14 +232,34 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="relative w-16 h-16 mr-3">
+                        <div className="relative w-20 h-20 mr-3">
                           <svg viewBox="0 0 51 48" className="w-full h-full">
                             <defs>
                               <linearGradient id={`rating-gradient-${broker.rank}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#FFD700" />
-                                <stop offset="50%" stopColor="#FFA500" />
-                                <stop offset="100%" stopColor="#FF8C00" />
+                                <stop offset="0%" stopColor="#FFD700">
+                                  <animate
+                                    attributeName="stop-color"
+                                    values="#FFD700;#FFA500;#FFD700"
+                                    dur="2s"
+                                    repeatCount="indefinite"
+                                  />
+                                </stop>
+                                <stop offset="100%" stopColor="#FF8C00">
+                                  <animate
+                                    attributeName="stop-color"
+                                    values="#FF8C00;#FFD700;#FF8C00"
+                                    dur="2s"
+                                    repeatCount="indefinite"
+                                  />
+                                </stop>
                               </linearGradient>
+                              <filter id={`glow-${broker.rank}`}>
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                  <feMergeNode in="coloredBlur"/>
+                                  <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                              </filter>
                               <mask id={`rating-mask-${broker.rank}`}>
                                 <path
                                   d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
@@ -250,8 +270,7 @@ export default function FeaturedBrokers() {
                             {/* Background star */}
                             <path
                               d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                              fill="#E5E7EB"
-                              className="dark:fill-gray-700"
+                              className="fill-gray-200 dark:fill-gray-700"
                             />
                             {/* Filled star with gradient and mask for progress */}
                             <rect
@@ -261,15 +280,29 @@ export default function FeaturedBrokers() {
                               height="100%"
                               fill={`url(#rating-gradient-${broker.rank})`}
                               mask={`url(#rating-mask-${broker.rank})`}
-                              className="drop-shadow-lg"
-                            />
+                              filter={`url(#glow-${broker.rank})`}
+                            >
+                              <animate
+                                attributeName="width"
+                                from="0"
+                                to={`${(broker.rating / 5) * 100}%`}
+                                dur="1s"
+                                fill="freeze"
+                              />
+                            </rect>
+                            {/* Rating text */}
                             <text
                               x="50%"
                               y="55%"
                               textAnchor="middle"
-                              className="fill-gray-900 dark:fill-white font-bold text-lg"
-                              style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
-                            >{broker.rating.toFixed(1)}</text>
+                              className="fill-gray-900 dark:fill-white font-bold text-xl"
+                              style={{ 
+                                filter: `url(#glow-${broker.rank})`,
+                                textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                              }}
+                            />
+                              {broker.rating.toFixed(1)}
+                            </text>
                           </svg>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
