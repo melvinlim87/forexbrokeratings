@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -232,86 +232,36 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="relative w-24 h-24 mr-3">
-                          <svg viewBox="0 0 51 48" className="w-full h-full">
-                            <defs>
-                              <linearGradient id={`rating-gradient-${broker.rank}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#FFB800">
-                                  <animate
-                                    attributeName="stop-color"
-                                    values="#FFB800;#FFD700;#FFB800"
-                                    dur="3s"
-                                    repeatCount="indefinite"
-                                  />
-                                </stop>
-                                <stop offset="100%" stopColor="#FFA500">
-                                  <animate
-                                    attributeName="stop-color"
-                                    values="#FFA500;#FFB800;#FFA500"
-                                    dur="3s"
-                                    repeatCount="indefinite"
-                                  />
-                                </stop>
-                              </linearGradient>
-                              <filter id={`glow-${broker.rank}`}>
-                                <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-                                <feComposite in="SourceGraphic" in2="coloredBlur" operator="over"/>
-                                <feMerge>
-                                  <feMergeNode in="coloredBlur"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
-                              <filter id={`inner-shadow-${broker.rank}`}>
-                                <feOffset dx="0" dy="1"/>
-                                <feGaussianBlur stdDeviation="1" result="offset-blur"/>
-                                <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
-                                <feFlood floodColor="black" floodOpacity="0.2" result="color"/>
-                                <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
-                                <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
-                              </filter>
-                              <mask id={`rating-mask-${broker.rank}`}>
-                                <path
-                                  d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                                  fill="white"
-                                />
-                              </mask>
-                            </defs>
-                            {/* Background star */}
-                            <path
-                              d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                              className="fill-gray-200/50 dark:fill-gray-700/50"
-                              filter={`url(#inner-shadow-${broker.rank})`}
+                        <motion.div 
+                          className="relative w-24 h-24 mr-3 flex items-center justify-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-400 dark:to-amber-600 rounded-full opacity-20 blur-xl" />
+                          <motion.div
+                            className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-300 to-amber-500 dark:from-amber-400 dark:to-amber-600 rounded-full shadow-xl"
+                            whileHover={{ scale: 1.05 }}
+                            style={{
+                              boxShadow: "inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.3)"
+                            }}
+                          >
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-500 dark:to-amber-700 rounded-full" 
+                              style={{
+                                clipPath: `polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)`
+                              }}
                             />
-                            {/* Filled star with gradient and mask for progress */}
-                            <motion.path
-                              d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                              fill={`url(#rating-gradient-${broker.rank})`}
-                              initial={{ pathLength: 0, opacity: 0 }}
-                              animate={{ 
-                                pathLength: broker.rating / 5,
-                                opacity: 1
-                              }}
-                              transition={{
-                                pathLength: { duration: 1, ease: "easeOut" },
-                                opacity: { duration: 0.5 }
-                              }}
-                              filter={`url(#glow-${broker.rank})`}
-                            />
-                            {/* Rating text */}
-                            <text
-                              x="50%"
-                              y="55%"
-                              textAnchor="middle"
-                              className="fill-gray-900 dark:fill-white font-bold text-2xl"
-                              style={{ 
-                                filter: `url(#glow-${broker.rank})`,
-                                textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-                              }}
+                            <motion.span 
+                              className="relative text-2xl font-bold text-white"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3, delay: 0.4 }}
+                              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}
                             >
                               {broker.rating.toFixed(1)}
-                            </text>
-                          </svg>
-                        </div>
+                            </motion.span>
+                          </motion.div>
+                        </motion.div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                           <ShieldCheck className="h-3 w-3 mr-1" />
                           Regulated
