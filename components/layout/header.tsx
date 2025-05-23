@@ -24,13 +24,13 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "fixed top-0 z-50 w-full transition-all duration-300",
         isScrolled 
-          ? "bg-transparent backdrop-blur-sm border-b border-white/20" 
+          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800" 
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex h-[90px] items-center">
+      <div className="container mx-auto px-4 flex h-24 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-2 rounded-lg">
@@ -45,18 +45,17 @@ export default function Header() {
         <nav className="hidden md:flex items-center justify-center flex-1 space-x-8">
           <NavLinks />
         </nav>
-        
         <div className="flex items-center space-x-4 flex-1 justify-end">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="hidden md:flex hover:bg-gray-200/50 dark:hover:bg-gray-800/50"
+            className="hidden md:flex hover:bg-white/20 dark:hover:bg-gray-800/20"
           >
             <Search className="h-5 w-5" />
           </Button>
           
           <Button 
-            className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+            className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20"
           >
             <BarChart className="h-4 w-4 mr-2" />
             Compare
