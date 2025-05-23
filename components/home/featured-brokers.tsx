@@ -237,6 +237,14 @@ export default function FeaturedBrokers() {
                           animate={{ opacity: 1, scale: 1 }}
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.2 }}
+                        <motion.div 
+                          className="relative flex items-center bg-gradient-to-br from-amber-100/80 to-amber-50/80 dark:from-amber-900/30 dark:to-amber-800/20 backdrop-blur-sm rounded-xl px-3 py-2 mr-3 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_10px_-3px_rgba(255,255,255,0.1)]"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            transition: { type: "spring", stiffness: 400, damping: 10 }
+                          }}
                         >
                           <div className="flex space-x-0.5">
                             {[...Array(5)].map((_, i) => {
@@ -244,7 +252,7 @@ export default function FeaturedBrokers() {
                               const filled = broker.rating >= starValue;
                               const partialFill = broker.rating % 1;
                               const isPartial = Math.floor(broker.rating) === i && partialFill > 0;
-                              
+
                               return (
                                 <motion.div
                                   key={i}
@@ -252,40 +260,59 @@ export default function FeaturedBrokers() {
                                   animate={{ opacity: 1, scale: 1 }}
                                   transition={{
                                     type: "spring",
-                                    stiffness: 300,
-                                    damping: 20,
+                                    stiffness: 500,
+                                    damping: 15,
                                     delay: i * 0.1
                                   }}
                                   className="relative"
                                 >
-                                  <div className="relative">
+                                  <motion.div 
+                                    className="relative"
+                                    whileHover={{ 
+                                      rotate: [0, -10, 10, 0],
+                                      transition: { duration: 0.5 }
+                                    }}
+                                  >
                                     {/* Background star */}
                                     <Star 
-                                      className="w-4 h-4 text-amber-200 dark:text-amber-900" 
+                                      className="w-4 h-4 text-amber-200/50 dark:text-amber-900/50" 
                                       fill="currentColor"
                                     />
                                     
                                     {/* Foreground star with clip-path animation */}
                                     <motion.div
                                       className="absolute inset-0"
-                                      initial={false}
-                                      style={{
+                                      initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                                      animate={{ 
                                         clipPath: `inset(0 ${isPartial ? `${100 - (partialFill * 100)}%` : filled ? '0%' : '100%'} 0 0)`
+                                      }}
+                                      transition={{
+                                        duration: 0.6,
+                                        delay: i * 0.1,
+                                        ease: "easeOut"
+                                      }}
+                                      style={{
+                                        filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.3))'
                                       }}
                                     >
                                       <Star 
-                                        className="w-4 h-4 text-amber-500 dark:text-amber-400" 
+                                        className="w-4 h-4 text-amber-500 dark:text-amber-400"
                                         fill="currentColor"
                                       />
                                     </motion.div>
-                                  </div>
+                                  </motion.div>
                                 </motion.div>
                               );
                             })}
                           </div>
-                          <span className="ml-2 font-semibold text-amber-700 dark:text-amber-300">
+                          <motion.span 
+                            className="ml-2 font-semibold bg-gradient-to-r from-amber-700 to-amber-600 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                          >
                             {broker.rating.toFixed(1)}
-                          </span>
+                          </motion.span>
                         </motion.div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                           <ShieldCheck className="h-3 w-3 mr-1" />
