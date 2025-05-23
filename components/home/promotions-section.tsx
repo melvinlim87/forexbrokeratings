@@ -19,7 +19,7 @@ const promotions = [
   {
     id: 1,
     broker: 'XM',
-    logo: 'https://via.placeholder.com/120x60?text=XM',
+    logo: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: '30% Welcome Bonus',
     description: 'Get up to $700 bonus on your first deposit',
     terms: [
@@ -34,7 +34,7 @@ const promotions = [
   {
     id: 2,
     broker: 'FXTM',
-    logo: 'https://via.placeholder.com/120x60?text=FXTM',
+    logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: '100% Trading Bonus',
     description: 'Double your deposit up to $1000',
     terms: [
@@ -49,7 +49,7 @@ const promotions = [
   {
     id: 3,
     broker: 'IronFX',
-    logo: 'https://via.placeholder.com/120x60?text=IronFX',
+    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Cashback Program',
     description: '$8 per standard lot traded',
     terms: [
@@ -64,7 +64,7 @@ const promotions = [
   {
     id: 4,
     broker: 'Pepperstone',
-    logo: 'https://via.placeholder.com/120x60?text=Pepperstone',
+    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Active Trader Program',
     description: 'Up to 15% commission rebates',
     terms: [

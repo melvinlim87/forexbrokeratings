@@ -14,7 +14,7 @@ const latestReviews = [
   {
     id: 1,
     name: 'XTB',
-    logo: 'https://via.placeholder.com/120x60?text=XTB',
+    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.6,
     date: 'May 2, 2025',
     summary: 'XTB offers a solid trading experience with excellent research and educational materials, making it ideal for beginners and intermediate traders.',
@@ -24,7 +24,7 @@ const latestReviews = [
   {
     id: 2,
     name: 'AvaTrade',
-    logo: 'https://via.placeholder.com/120x60?text=AvaTrade',
+    logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.5,
     date: 'April 28, 2025',
     summary: 'AvaTrade provides a feature-rich environment for forex and CFD trading, with competitive spreads and excellent educational resources.',
@@ -34,7 +34,7 @@ const latestReviews = [
   {
     id: 3,
     name: 'OANDA',
-    logo: 'https://via.placeholder.com/120x60?text=OANDA',
+    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.7,
     date: 'April 25, 2025',
     summary: 'OANDA stands out with its transparent pricing, advanced charting tools, and high-quality market analysis for experienced traders.',

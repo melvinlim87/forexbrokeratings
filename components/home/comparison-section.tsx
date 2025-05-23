@@ -38,7 +38,7 @@ const brokerComparisonData: ComparisonData = {
     {
       id: 1,
       name: 'eToro',
-      logo: 'https://via.placeholder.com/100x50?text=eToro',
+      logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: {
         userInterface: { score: 9.5, label: 'Excellent' },
         educationalContent: { score: 9.8, label: 'Extensive' },
@@ -51,7 +51,7 @@ const brokerComparisonData: ComparisonData = {
     {
       id: 2,
       name: 'Plus500',
-      logo: 'https://via.placeholder.com/100x50?text=Plus500',
+      logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: {
         userInterface: { score: 8.8, label: 'Very Good' },
         educationalContent: { score: 7.5, label: 'Good' },
@@ -64,7 +64,7 @@ const brokerComparisonData: ComparisonData = {
     {
       id: 3,
       name: 'FXTM',
-      logo: 'https://via.placeholder.com/100x50?text=FXTM',
+      logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: {
         userInterface: { score: 8.2, label: 'Good' },
         educationalContent: { score: 9.5, label: 'Excellent' },

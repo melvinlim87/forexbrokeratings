@@ -15,7 +15,7 @@ const featuredBrokers = [
   {
     id: 1,
     name: 'IronFX',
-    logo: 'https://via.placeholder.com/120x60?text=IronFX',
+    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.8,
     minDeposit: 100,
     platforms: ['MT4', 'MT5', 'WebTrader'],
@@ -28,7 +28,7 @@ const featuredBrokers = [
   {
     id: 2,
     name: 'FXTM',
-    logo: 'https://via.placeholder.com/120x60?text=FXTM',
+    logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.7,
     minDeposit: 50,
     platforms: ['MT4', 'MT5', 'FXTM Platform'],
@@ -41,7 +41,7 @@ const featuredBrokers = [
   {
     id: 3,
     name: 'Pepperstone',
-    logo: 'https://via.placeholder.com/120x60?text=Pepperstone',
+    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.9,
     minDeposit: 200,
     platforms: ['MT4', 'MT5', 'cTrader'],
@@ -54,7 +54,7 @@ const featuredBrokers = [
   {
     id: 4,
     name: 'IG',
-    logo: 'https://via.placeholder.com/120x60?text=IG',
+    logo: 'https://images.pexels.com/photos/8370724/pexels-photo-8370724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.8,
     minDeposit: 250,
     platforms: ['MT4', 'L2 Dealer', 'ProRealTime', 'IG Platform'],
