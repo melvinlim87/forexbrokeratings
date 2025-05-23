@@ -18,7 +18,7 @@
 
 @layer base {
   :root {
-    --background: 220 15% 98%;
+    --background: 220 15% 95%;
     --foreground: 0 0% 3.9%;
     --card: 220 20% 95%;
     --card-foreground: 0 0% 3.9%;
@@ -46,19 +46,16 @@
   }
 
   body {
-    position: relative;
-    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 50%, #94a3b8 100%);
+    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 50%, #94a3b8 100%) fixed;
   }
 
   section {
-    position: relative;
-    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 50%, #94a3b8 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: transparent;
   }
 
   .card {
-    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 50%, #94a3b8 100%);
+    background: linear-gradient(135deg, rgba(148, 163, 184, 0.8) 0%, rgba(203, 213, 225, 0.8) 50%, rgba(148, 163, 184, 0.8) 100%);
+    backdrop-filter: blur(8px);
     border: 1px solid;
     border-image: linear-gradient(
       to right bottom,
@@ -74,7 +71,7 @@
   }
 
   .card:hover {
-    background: linear-gradient(135deg, #64748b 0%, #94a3b8 50%, #64748b 100%);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.9) 0%, rgba(148, 163, 184, 0.9) 50%, rgba(100, 116, 139, 0.9) 100%);
     box-shadow:
       0 8px 16px -2px rgb(0 0 0 / 0.25),
       0 4px 8px -2px rgb(0 0 0 / 0.25),
@@ -83,23 +80,11 @@
   }
 
   .metallic-gradient {
-    background: linear-gradient(
-      135deg,
-      #94a3b8 0%,
-      #cbd5e1 50%,
-      #94a3b8 100%
-    );
+    background: transparent;
   }
 
   .metallic-border {
-    border: 1px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(
-      to right,
-      rgba(100, 116, 139, 1),
-      rgba(148, 163, 184, 0.95) 50%,
-      rgba(100, 116, 139, 1)
-    );
+    border: none;
   }
 
   .dark {
