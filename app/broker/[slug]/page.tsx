@@ -138,7 +138,8 @@ export async function generateStaticParams() {
     { slug: 'ironfx' },
     { slug: 'fxtm' },
     { slug: 'xm' },
-    { slug: 'pepperstone' }
+    { slug: 'pepperstone' },
+    { slug: 'xtb' }  // Added the missing 'xtb' slug
   ];
 }
 
