@@ -260,6 +260,34 @@ export default function FeaturedBrokers() {
                             >
                               {broker.rating.toFixed(1)}
                             </motion.span>
+                        <motion.div 
+                          className="relative w-24 h-24 mr-3 flex items-center justify-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-400 dark:to-amber-600 rounded-full opacity-20 blur-xl" />
+                          <motion.div
+                            className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-300 to-amber-500 dark:from-amber-400 dark:to-amber-600 rounded-full shadow-xl"
+                            whileHover={{ scale: 1.05 }}
+                            style={{
+                              boxShadow: "inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.3)"
+                            }}
+                          >
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-500 dark:to-amber-700 rounded-full" 
+                              style={{
+                                clipPath: `polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)`
+                              }}
+                            />
+                            <motion.span 
+                              className="relative text-2xl font-bold text-white"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3, delay: 0.4 }}
+                              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}
+                            >
+                              {broker.rating.toFixed(1)}
+                            </motion.span>
                           </motion.div>
                         </motion.div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
