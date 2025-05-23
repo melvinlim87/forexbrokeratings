@@ -171,6 +171,17 @@ const relatedBrokers = [
   }
 ];
 
+// Add generateStaticParams function for static site generation
+export function generateStaticParams() {
+  // Include all broker slugs that should be pre-rendered
+  return [
+    { slug: 'ironfx' },
+    { slug: 'fxtm' },
+    { slug: 'xm' },
+    { slug: 'pepperstone' }
+  ];
+}
+
 export default function BrokerProfilePage({ params }: { params: { slug: string } }) {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
