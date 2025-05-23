@@ -127,9 +127,9 @@ export default function TopHero() {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="relative group"
+                className="relative group hover:z-10"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-white/30 shadow-metallic transform transition-all duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-blue-200/30 shadow-[0_0_15px_rgba(59,130,246,0.2)] transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]" />
                 <div className="relative p-6">
                   <div className={`bg-gradient-to-br ${item.color} p-3 rounded-xl w-fit mb-4 shadow-lg`}>
                     <div className="text-white">{item.icon}</div>
