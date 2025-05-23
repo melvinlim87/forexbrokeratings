@@ -182,11 +182,16 @@ export default function Hero() {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="px-8 py-6 text-base border-white/20 text-white hover:bg-white/20"
+                  variant="secondary"
+                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
                   asChild
                 >
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href="https://example.com/broker"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full"
+                  >
                     Visit Broker
                   </a>
                 </Button>
