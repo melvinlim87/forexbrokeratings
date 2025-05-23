@@ -84,8 +84,8 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       boxShadow: {
-        'metallic': '0 4px 8px -1px rgb(0 0 0 / 0.2), 0 2px 6px -2px rgb(0 0 0 / 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 0 rgba(100, 116, 139, 0.4)',
-        'metallic-hover': '0 8px 16px -2px rgb(0 0 0 / 0.25), 0 4px 8px -2px rgb(0 0 0 / 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 0 rgba(100, 116, 139, 0.5)',
+        'metallic': '0 4px 8px -1px rgb(0 0 0 / 0.4), 0 2px 6px -2px rgb(0 0 0 / 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 0 rgba(0, 0, 0, 0.2)',
+        'metallic-hover': '0 8px 16px -2px rgb(0 0 0 / 0.5), 0 4px 8px -2px rgb(0 0 0 / 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 0 rgba(0, 0, 0, 0.3)',
       },
     },
   },
