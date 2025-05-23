@@ -132,7 +132,7 @@ const relatedBrokers = [
 ];
 
 // Add generateStaticParams function for static site generation
-export function generateStaticParams() {
+export async function generateStaticParams() {
   // Include all broker slugs that should be pre-rendered
   return [
     { slug: 'ironfx' },
