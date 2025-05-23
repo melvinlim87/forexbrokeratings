@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'metallic': 'linear-gradient(135deg, rgb(238, 242, 246) 0%, rgb(248, 250, 253) 50%, rgb(238, 242, 246) 100%)',
-        'metallic-hover': 'linear-gradient(135deg, rgb(248, 250, 253) 0%, rgb(238, 242, 246) 50%, rgb(248, 250, 253) 100%)',
-        'metallic-active': 'linear-gradient(135deg, rgb(226, 232, 240) 0%, rgb(241, 245, 249) 50%, rgb(226, 232, 240) 100%)',
+        'metallic': 'linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%, #e2e8f0 100%)',
+        'metallic-hover': 'linear-gradient(135deg, #f1f5f9 0%, #f8fafc 25%, #ffffff 50%, #f8fafc 75%, #f1f5f9 100%)',
+        'metallic-active': 'linear-gradient(135deg, #cbd5e1 0%, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%, #cbd5e1 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -84,8 +84,8 @@ const config: Config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       boxShadow: {
-        'metallic': '0 1px 2px 0 rgb(0 0 0 / 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.4)',
-        'metallic-hover': '0 2px 4px 0 rgb(0 0 0 / 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.6)',
+        'metallic': '0 1px 3px 0 rgb(0 0 0 / 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 0 rgba(148, 163, 184, 0.1)',
+        'metallic-hover': '0 4px 6px -1px rgb(0 0 0 / 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 0 rgba(148, 163, 184, 0.2)',
       },
     },
   },
