@@ -34,9 +34,9 @@ export default function Header() {
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-3 rounded-xl">
-              <Globe className="h-6 w-6 text-white" />
+              <Globe className="h-7 w-7 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
+            <span className="text-2xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
               ForexBrokerRatings
             </span>
           </Link>
@@ -49,15 +49,15 @@ export default function Header() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="hidden md:flex hover:bg-white/20 dark:hover:bg-gray-800/20"
+            className="hidden md:flex hover:bg-white/20 dark:hover:bg-gray-800/20 h-12 w-12"
           >
-            <Search className="h-5 w-5" />
+            <Search className="h-6 w-6" />
           </Button>
           
           <Button 
-            className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20"
+            className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-6 py-2.5"
           >
-            <BarChart className="h-4 w-4 mr-2" />
+            <BarChart className="h-5 w-5 mr-2" />
             Compare
           </Button>
           
@@ -104,7 +104,7 @@ function NavLinks() {
         <Link
           key={link.href}
           href={link.href} 
-          className={`text-base font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 whitespace-nowrap`}
+          className={`text-lg font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 whitespace-nowrap`}
         >
           {link.title}
         </Link>
