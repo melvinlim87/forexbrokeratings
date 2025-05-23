@@ -46,7 +46,7 @@
   }
 
   body {
-    background: linear-gradient(135deg, #64748b 0%, #94a3b8 25%, #cbd5e1 50%, #94a3b8 75%, #64748b 100%) fixed;
+    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 25%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%) fixed;
     background-attachment: fixed;
     min-height: 100vh;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
