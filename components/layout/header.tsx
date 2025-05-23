@@ -36,7 +36,7 @@ export default function Header() {
             <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-3 rounded-xl">
               <Globe className="h-7 w-7 text-white" />
             </div>
-            <span className="text-13xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
+            <span className="text-3xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
               ForexBrokerRatings
             </span>
           </Link>
