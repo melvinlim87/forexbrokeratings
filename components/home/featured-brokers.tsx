@@ -190,15 +190,18 @@ export default function FeaturedBrokers() {
               onMouseEnter={() => setHoveredCard(broker.rank)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <Card className={cn(
-                "h-full transition-all duration-300 overflow-hidden relative", 
-                hoveredCard === broker.rank ? 
-                  "shadow-lg border-blue-200 dark:border-blue-800" : 
-                  "bg-white/60 dark:bg-gray-900/60"
-              )}>
+              <Card 
+                className={cn(
+                  "h-full transition-all duration-300 overflow-hidden relative bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                  "border border-gray-200/50 dark:border-gray-700/50",
+                  "backdrop-blur-sm",
+                  "before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-br before:from-gray-200 before:via-gray-100 before:to-gray-300 dark:before:from-gray-700 dark:before:via-gray-600 dark:before:to-gray-800 before:rounded-lg before:-z-10",
+                  hoveredCard === broker.rank && "shadow-metallic-hover before:from-gray-300 before:via-gray-200 before:to-gray-400 dark:before:from-gray-600 dark:before:via-gray-500 dark:before:to-gray-700"
+                )}
+              >
                 <CardContent className="p-6 flex items-center">
                   <div className="flex items-center w-12 mr-4">
-                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-500">#{broker.rank}</span>
+                    <span className="text-3xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-200 bg-clip-text text-transparent">#{broker.rank}</span>
                   </div>
                   
                   <div className="flex-1 flex flex-col space-y-4">
