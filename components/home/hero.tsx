@@ -245,3 +245,5 @@ export default function Hero() {
     </div>
   );
 }
+
+export default Hero
