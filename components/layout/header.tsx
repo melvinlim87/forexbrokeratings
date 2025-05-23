@@ -26,17 +26,17 @@ export default function Header() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
         isScrolled 
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800" 
+          ? "bg-metallic backdrop-blur-sm border-b border-gray-200/20" 
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex h-24 items-center">
+      <div className="container mx-auto px-4 flex h-28 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
-            <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-2 rounded-lg">
+            <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-3 rounded-xl">
               <Globe className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-2">
+            <span className="text-xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
               ForexBrokerRatings
             </span>
           </Link>
