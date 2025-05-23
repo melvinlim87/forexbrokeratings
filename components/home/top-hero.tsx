@@ -127,17 +127,24 @@ export default function TopHero() {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="relative group hover:z-10"
+                className="relative group hover:z-10 transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-blue-200/30 shadow-[0_0_15px_rgba(59,130,246,0.2)] transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(59,130,246,0.3)]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/20 rounded-2xl backdrop-blur-xl border border-blue-300/40 
+                  shadow-[0_0_20px_rgba(59,130,246,0.3),inset_0_0_20px_rgba(59,130,246,0.2)] 
+                  transform transition-all duration-300 
+                  group-hover:scale-105 
+                  group-hover:shadow-[0_0_35px_rgba(59,130,246,0.4),inset_0_0_25px_rgba(59,130,246,0.3)]
+                  group-hover:border-blue-400/50
+                  after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-br after:from-blue-500/10 after:to-transparent after:opacity-0 after:transition-opacity after:duration-300
+                  group-hover:after:opacity-100" />
                 <div className="relative p-6">
                   <div className={`bg-gradient-to-br ${item.color} p-3 rounded-xl w-fit mb-4 shadow-lg`}>
                     <div className="text-white">{item.icon}</div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-900">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm group-hover:text-gray-700">
                     {item.description}
                   </p>
                 </div>
