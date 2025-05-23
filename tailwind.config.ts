@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'metallic': 'linear-gradient(135deg, rgb(238, 242, 246) 0%, rgb(248, 250, 253) 50%, rgb(238, 242, 246) 100%)',
+        'metallic-hover': 'linear-gradient(135deg, rgb(248, 250, 253) 0%, rgb(238, 242, 246) 50%, rgb(248, 250, 253) 100%)',
+        'metallic-active': 'linear-gradient(135deg, rgb(226, 232, 240) 0%, rgb(241, 245, 249) 50%, rgb(226, 232, 240) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -82,6 +82,10 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      boxShadow: {
+        'metallic': '0 1px 2px 0 rgb(0 0 0 / 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.4)',
+        'metallic-hover': '0 2px 4px 0 rgb(0 0 0 / 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.6)',
       },
     },
   },
