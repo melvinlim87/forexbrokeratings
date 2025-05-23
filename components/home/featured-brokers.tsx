@@ -192,11 +192,24 @@ export default function FeaturedBrokers() {
             >
               <Card 
                 className={cn(
-                  "h-full transition-all duration-300 overflow-hidden relative bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
-                  "border border-gray-200/50 dark:border-gray-700/50",
+                  "h-full transition-all duration-300 overflow-hidden relative",
+                  "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
                   "backdrop-blur-sm",
-                  "before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-br before:from-gray-200 before:via-gray-100 before:to-gray-300 dark:before:from-gray-700 dark:before:via-gray-600 dark:before:to-gray-800 before:rounded-lg before:-z-10",
-                  hoveredCard === broker.rank && "shadow-metallic-hover before:from-gray-300 before:via-gray-200 before:to-gray-400 dark:before:from-gray-600 dark:before:via-gray-500 dark:before:to-gray-700"
+                  "border border-transparent",
+                  "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                  "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                  "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                  "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                  "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                  "after:bg-gradient-to-br after:from-white/10 after:via-white/5 after:to-transparent",
+                  "dark:after:from-white/5 dark:after:via-white/2.5 dark:after:to-transparent",
+                  hoveredCard === broker.rank && [
+                    "shadow-xl",
+                    "before:from-gray-400 before:via-gray-200 before:to-gray-500",
+                    "dark:before:from-gray-500 dark:before:via-gray-600 dark:before:to-gray-700",
+                    "after:from-white/20 after:via-white/10 after:to-transparent",
+                    "dark:after:from-white/10 dark:after:via-white/5 dark:after:to-transparent"
+                  ]
                 )}
               >
                 <CardContent className="p-6 flex items-center">
