@@ -252,11 +252,6 @@ export default function FeaturedBrokers() {
                             />
                             <motion.span 
                               className="relative text-2xl font-bold text-white"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.3, delay: 0.4 }}
-                              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}
-                            >
                         <motion.div 
                           className="relative w-24 h-24 mr-3 flex items-center justify-center"
                           initial={{ scale: 0.8, opacity: 0 }}
@@ -295,7 +290,7 @@ export default function FeaturedBrokers() {
                     </div>
                     
                     <div>
-                      <motion.h3 
+                      <motion.h3
                         className="text-xl font-semibold text-gray-900 dark:text-white mb-1"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -308,7 +303,7 @@ export default function FeaturedBrokers() {
                       >
                         {broker.name}
                       </motion.h3>
-                      <motion.p 
+                      <motion.p
                         className="font-medium text-gray-900 dark:text-white mb-1"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -354,8 +349,5 @@ export default function FeaturedBrokers() {
         </div>
       </div>
     </section>
-          );
-        )
-        }
-  )
+  );
 }
