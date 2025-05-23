@@ -65,14 +65,14 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 py-20 relative z-10"
+        className="container mx-auto px-4 pt-40 pb-20 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center mb-10"
+            className="flex items-center justify-center mb-16"
           >
             <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg p-5 rounded-3xl shadow-metallic border border-white/30">
               <Globe className="h-10 w-10 text-gray-800" />
