@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Star, ArrowRight, Award, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -156,6 +156,15 @@ const featuredBrokers = [
 
 export default function FeaturedBrokers() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const { currentTarget, clientX, clientY } = event;
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  };
 
   return (
     <section className="py-16 bg-white dark:bg-gray-950">
@@ -184,20 +193,46 @@ export default function FeaturedBrokers() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.4, 
+                duration: 0.6, 
                 delay: index * 0.1,
                 type: "spring",
-                stiffness: 100,
-                damping: 15
+                stiffness: 120,
+                damping: 20
               }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              whileHover={{ 
+                y: -8, 
+                transition: { 
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 25
+                }
+              }}
               onMouseEnter={() => setHoveredCard(broker.rank)}
               onMouseLeave={() => setHoveredCard(null)}
+              onMouseMove={handleMouseMove}
+              style={{
+                position: 'relative',
+                perspective: '1000px'
+              }}
             >
               <Card className={cn(
-                "h-full transition-all duration-300 overflow-hidden", 
-                hoveredCard === broker.rank ? "shadow-lg border-blue-200 dark:border-blue-800" : ""
-              )} style={{ backdropFilter: "blur(8px)" }}>
+                "h-full transition-all duration-300 overflow-hidden relative", 
+                hoveredCard === broker.rank ? 
+                  "shadow-xl border-blue-200 dark:border-blue-800 bg-gradient-to-br from-white/80 to-blue-50/80 dark:from-gray-900/80 dark:to-blue-900/80" : 
+                  "bg-white/60 dark:bg-gray-900/60"
+              )} 
+              style={{ 
+                backdropFilter: "blur(8px)",
+                transform: hoveredCard === broker.rank ? 
+                  `perspective(1000px) rotateX(${(mouseY.get() - 150) / 50}deg) rotateY(${(mouseX.get() - 150) / 50}deg)` : 
+                  'none',
+                transition: 'transform 0.2s ease-out'
+              }}>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity duration-300"
+                  initial={false}
+                  animate={{ opacity: hoveredCard === broker.rank ? 1 : 0 }}
+                />
                 <CardContent className="p-6 flex items-center">
                   <div className="flex items-center w-12 mr-4">
                     <span className="text-3xl font-bold text-blue-600 dark:text-blue-500">#{broker.rank}</span>
@@ -221,21 +256,28 @@ export default function FeaturedBrokers() {
                             {[...Array(5)].map((_, i) => (
                               <motion.div
                                 key={i}
-                                initial={{ opacity: 0, scale: 0 }}
+                                initial={{ opacity: 0, scale: 0, y: 10 }}
                                 animate={{ 
                                   opacity: 1, 
-                                  scale: i < Math.floor(broker.rating) ? 1 : 0.8,
+                                  scale: i < Math.floor(broker.rating) ? [0, 1.2, 1] : 0.8,
+                                  y: 0,
                                   color: i < Math.floor(broker.rating) ? "#EAB308" : "#D1D5DB"
                                 }}
                                 transition={{ 
                                   delay: i * 0.1,
                                   type: "spring",
-                                  stiffness: 200,
-                                  damping: 10
+                                  stiffness: 300,
+                                  damping: 15
                                 }}
                                 className="mx-0.5"
                               >
-                                <Star className={`h-4 w-4 ${i < Math.floor(broker.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} />
+                                <Star 
+                                  className={`h-4 w-4 transform transition-all duration-300 ${
+                                    i < Math.floor(broker.rating) ? 
+                                    'text-yellow-500 fill-yellow-500 hover:scale-125' : 
+                                    'text-gray-300'
+                                  }`} 
+                                />
                               </motion.div>
                             ))}
                           </AnimatePresence>
@@ -252,17 +294,27 @@ export default function FeaturedBrokers() {
                     <div>
                       <motion.h3 
                         className="text-xl font-semibold text-gray-900 dark:text-white mb-1"
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ 
+                          delay: 0.2,
+                          type: "spring",
+                          stiffness: 150,
+                          damping: 20
+                        }}
                       >
                         {broker.name}
                       </motion.h3>
                       <motion.p 
                         className="font-medium text-gray-900 dark:text-white mb-1"
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
+                        transition={{ 
+                          delay: 0.3,
+                          type: "spring",
+                          stiffness: 150,
+                          damping: 20
+                        }}
                       >{broker.bestFor}</motion.p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
                     </div>
@@ -270,12 +322,22 @@ export default function FeaturedBrokers() {
                     <div className="flex items-center gap-3 pt-2">
                       <Button size="sm" variant="outline" asChild>
                         <Link href={`/broker/${broker.slug}`}>
-                          Full Review
+                          <motion.span
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            Full Review
+                          </motion.span>
                         </Link>
                       </Button>
                       <Button size="sm" className="min-w-[100px]" asChild>
                         <a href="#" target="_blank" rel="noopener noreferrer">
-                          Visit Broker
+                          <motion.span
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            Visit Broker
+                          </motion.span>
                         </a>
                       </Button>
                     </div>
