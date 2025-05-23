@@ -232,33 +232,42 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="relative w-20 h-20 mr-3">
+                        <div className="relative w-24 h-24 mr-3">
                           <svg viewBox="0 0 51 48" className="w-full h-full">
                             <defs>
                               <linearGradient id={`rating-gradient-${broker.rank}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#FFD700">
+                                <stop offset="0%" stopColor="#FFB800">
                                   <animate
                                     attributeName="stop-color"
-                                    values="#FFD700;#FFA500;#FFD700"
-                                    dur="2s"
+                                    values="#FFB800;#FFD700;#FFB800"
+                                    dur="3s"
                                     repeatCount="indefinite"
                                   />
                                 </stop>
-                                <stop offset="100%" stopColor="#FF8C00">
+                                <stop offset="100%" stopColor="#FFA500">
                                   <animate
                                     attributeName="stop-color"
-                                    values="#FF8C00;#FFD700;#FF8C00"
-                                    dur="2s"
+                                    values="#FFA500;#FFB800;#FFA500"
+                                    dur="3s"
                                     repeatCount="indefinite"
                                   />
                                 </stop>
                               </linearGradient>
                               <filter id={`glow-${broker.rank}`}>
-                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                                <feComposite in="SourceGraphic" in2="coloredBlur" operator="over"/>
                                 <feMerge>
                                   <feMergeNode in="coloredBlur"/>
                                   <feMergeNode in="SourceGraphic"/>
                                 </feMerge>
+                              </filter>
+                              <filter id={`inner-shadow-${broker.rank}`}>
+                                <feOffset dx="0" dy="1"/>
+                                <feGaussianBlur stdDeviation="1" result="offset-blur"/>
+                                <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+                                <feFlood floodColor="black" floodOpacity="0.2" result="color"/>
+                                <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+                                <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
                               </filter>
                               <mask id={`rating-mask-${broker.rank}`}>
                                 <path
@@ -270,35 +279,33 @@ export default function FeaturedBrokers() {
                             {/* Background star */}
                             <path
                               d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
-                              className="fill-gray-200 dark:fill-gray-700"
+                              className="fill-gray-200/50 dark:fill-gray-700/50"
+                              filter={`url(#inner-shadow-${broker.rank})`}
                             />
                             {/* Filled star with gradient and mask for progress */}
-                            <rect
-                              x="0"
-                              y="0"
-                              width={`${(broker.rating / 5) * 100}%`}
-                              height="100%"
+                            <motion.path
+                              d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
                               fill={`url(#rating-gradient-${broker.rank})`}
-                              mask={`url(#rating-mask-${broker.rank})`}
+                              initial={{ pathLength: 0, opacity: 0 }}
+                              animate={{ 
+                                pathLength: broker.rating / 5,
+                                opacity: 1
+                              }}
+                              transition={{
+                                pathLength: { duration: 1, ease: "easeOut" },
+                                opacity: { duration: 0.5 }
+                              }}
                               filter={`url(#glow-${broker.rank})`}
-                            >
-                              <animate
-                                attributeName="width"
-                                from="0"
-                                to={`${(broker.rating / 5) * 100}%`}
-                                dur="1s"
-                                fill="freeze"
-                              />
-                            </rect>
+                            />
                             {/* Rating text */}
                             <text
                               x="50%"
                               y="55%"
                               textAnchor="middle"
-                              className="fill-gray-900 dark:fill-white font-bold text-xl"
+                              className="fill-gray-900 dark:fill-white font-bold text-2xl"
                               style={{ 
                                 filter: `url(#glow-${broker.rank})`,
-                                textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                                textShadow: '0 2px 4px rgba(0,0,0,0.3)'
                               }}
                             >
                               {broker.rating.toFixed(1)}
