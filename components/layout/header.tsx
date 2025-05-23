@@ -24,30 +24,40 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-300 backdrop-blur-xl",
         isScrolled 
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b shadow-sm" 
-          : "bg-transparent"
+          ? "bg-gradient-to-r from-gray-200/80 via-gray-100/80 to-gray-200/80 border-b border-white/20 shadow-metallic" 
+          : "bg-gradient-to-r from-gray-200/50 via-gray-100/50 to-gray-200/50"
       )}
     >
-      <div className="container mx-auto px-4 flex h-16 items-center justify-between">
+      <div className="container mx-auto px-4 flex h-[70px] items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center mr-6">
-            <Globe className="h-8 w-8 text-primary mr-2" />
-            <span className="text-xl font-bold text-primary">ForexBrokerRatings</span>
+            <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-2 rounded-lg">
+              <Globe className="h-6 w-6 text-white" />
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-2">
+              ForexBrokerRatings
+            </span>
           </Link>
           
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             <NavLinks />
           </nav>
         </div>
         
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" className="hidden md:flex">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="hidden md:flex hover:bg-gray-200/50 dark:hover:bg-gray-800/50"
+          >
             <Search className="h-5 w-5" />
           </Button>
           
-          <Button variant="outline" className="hidden md:flex">
+          <Button 
+            className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+          >
             <BarChart className="h-4 w-4 mr-2" />
             Compare
           </Button>
@@ -95,7 +105,7 @@ function NavLinks() {
         <Link
           key={link.href}
           href={link.href}
-          className="text-sm font-medium transition-colors hover:text-primary"
+          className="text-sm font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
         >
           {link.title}
         </Link>
