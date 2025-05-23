@@ -123,14 +123,16 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               <div className="flex items-center space-x-2 mb-4">
-                <div className="h-12 w-24 relative bg-white/10 backdrop-blur-sm rounded">
+                <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2">
                   <Image
                     src={heroSlides[currentSlide].logo}
                     alt={heroSlides[currentSlide].broker}
                     layout="fill"
                     objectFit="contain"
-                    className="p-1"
                   />
+                </div>
+                <div className="text-white text-2xl font-bold">
+                  {heroSlides[currentSlide].broker}
                 </div>
               </div>
               
