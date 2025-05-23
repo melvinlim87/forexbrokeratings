@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowRight, Award, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -160,7 +160,12 @@ export default function FeaturedBrokers() {
   return (
     <section className="py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <motion.div 
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <div>
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Top 10 Forex Brokers</h2>
             <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
@@ -170,7 +175,7 @@ export default function FeaturedBrokers() {
           <Link href="/brokers" className="mt-4 md:mt-0 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400">
             View all brokers <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredBrokers.map((broker, index) => (
@@ -178,7 +183,13 @@ export default function FeaturedBrokers() {
               key={broker.rank}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
               onMouseEnter={() => setHoveredCard(broker.rank)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -186,7 +197,7 @@ export default function FeaturedBrokers() {
               <Card className={cn(
                 "h-full transition-all duration-300 overflow-hidden", 
                 hoveredCard === broker.rank ? "shadow-lg border-blue-200 dark:border-blue-800" : ""
-              )}>
+              )} style={{ backdropFilter: "blur(8px)" }}>
                 <CardContent className="p-6 flex items-center">
                   <div className="flex items-center w-12 mr-4">
                     <span className="text-3xl font-bold text-blue-600 dark:text-blue-500">#{broker.rank}</span>
@@ -201,12 +212,35 @@ export default function FeaturedBrokers() {
                         layout="fill"
                         objectFit="contain"
                         className="p-1"
+                        priority
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="flex items-center mr-3">
-                          <Star className="h-4 w-4 text-yellow-500 mr-1 fill-yellow-500" />
-                          <span className="font-medium">{broker.rating}/5</span>
+                        <div className="flex items-center mr-3 relative">
+                          <AnimatePresence>
+                            {[...Array(5)].map((_, i) => (
+                              <motion.div
+                                key={i}
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ 
+                                  opacity: 1, 
+                                  scale: i < Math.floor(broker.rating) ? 1 : 0.8,
+                                  color: i < Math.floor(broker.rating) ? "#EAB308" : "#D1D5DB"
+                                }}
+                                transition={{ 
+                                  delay: i * 0.1,
+                                  type: "spring",
+                                  stiffness: 200,
+                                  damping: 10
+                                }}
+                                className="mx-0.5"
+                              >
+                                <Star className={`h-4 w-4 ${i < Math.floor(broker.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} />
+                              </motion.div>
+                            ))}
+                          </AnimatePresence>
+                          <motion.span className="font-medium ml-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+                            {broker.rating}/5</motion.span>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                           <ShieldCheck className="h-3 w-3 mr-1" />
@@ -216,8 +250,20 @@ export default function FeaturedBrokers() {
                     </div>
                     
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{broker.name}</h3>
-                      <p className="font-medium text-gray-900 dark:text-white mb-1">{broker.bestFor}</p>
+                      <motion.h3 
+                        className="text-xl font-semibold text-gray-900 dark:text-white mb-1"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {broker.name}
+                      </motion.h3>
+                      <motion.p 
+                        className="font-medium text-gray-900 dark:text-white mb-1"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >{broker.bestFor}</motion.p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
                     </div>
                     
@@ -227,7 +273,7 @@ export default function FeaturedBrokers() {
                           Full Review
                         </Link>
                       </Button>
-                      <Button size="sm" asChild>
+                      <Button size="sm" className="min-w-[100px]" asChild>
                         <a href="#" target="_blank" rel="noopener noreferrer">
                           Visit Broker
                         </a>
