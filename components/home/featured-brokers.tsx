@@ -232,41 +232,25 @@ export default function FeaturedBrokers() {
                       />
                       </div>
                       <div className="flex items-center">
-                        <div className="relative w-12 h-12 mr-3">
-                          <svg className="w-full h-full" viewBox="0 0 36 36">
-                            <circle
-                              cx="18"
-                              cy="18"
-                              r="15.915"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              className="text-gray-200 dark:text-gray-700"
-                            />
-                            <motion.circle
-                              cx="18"
-                              cy="18"
-                              r="15.915"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              className="text-yellow-400"
-                              strokeDasharray={`${broker.rating * 20}, 100`}
-                              strokeDashoffset="25"
-                              initial={{ pathLength: 0 }}
-                              animate={{ pathLength: broker.rating / 5 }}
-                              transition={{ duration: 1, ease: "easeOut" }}
+                        <div className="relative w-14 h-14 mr-3">
+                          <svg viewBox="0 0 51 48" className="w-full h-full">
+                            <defs>
+                              <linearGradient id={`rating-gradient-${broker.id}`}>
+                                <stop offset={`${(broker.rating / 5) * 100}%`} stopColor="#FBBF24" />
+                                <stop offset={`${(broker.rating / 5) * 100}%`} stopColor="#E5E7EB" />
+                              </linearGradient>
+                            </defs>
+                            <path
+                              d="M25.5 0L31.8 18.5H51L35.7 29.9L42 48.4L25.5 36.9L9 48.4L15.3 29.9L0 18.5H19.2L25.5 0Z"
+                              fill={`url(#rating-gradient-${broker.id})`}
+                              className="drop-shadow-md"
                             />
                             <text
                               x="50%"
-                              y="50%"
+                              y="55%"
                               textAnchor="middle"
-                              dy=".3em"
-                              className="fill-current font-bold text-sm"
-                            >
-                              {broker.rating}
-                            </text>
+                              className="fill-gray-900 dark:fill-white font-bold text-sm"
+                            >{broker.rating}</text>
                           </svg>
                         </div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
