@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 // Sample data - would come from API in real implementation
 const featuredBrokers = [
   {
-    id: 1,
+    rank: 1,
     name: 'IronFX',
     logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.8,
@@ -22,11 +22,12 @@ const featuredBrokers = [
     tradingInstruments: 500,
     isRegulated: true,
     regulations: ['FCA', 'CySEC', 'ASIC'],
-    bestFor: 'Overall Trading Experience',
+    bestFor: 'Best Overall Forex Broker',
+    description: 'Excellent all-round performance with competitive spreads and advanced trading tools',
     slug: 'ironfx'
   },
   {
-    id: 2,
+    rank: 2,
     name: 'FXTM',
     logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.7,
@@ -35,11 +36,12 @@ const featuredBrokers = [
     tradingInstruments: 450,
     isRegulated: true,
     regulations: ['FCA', 'CySEC'],
-    bestFor: 'Educational Resources',
+    bestFor: 'Best for Beginners',
+    description: 'Outstanding educational resources and user-friendly trading platforms',
     slug: 'fxtm'
   },
   {
-    id: 3,
+    rank: 3,
     name: 'Pepperstone',
     logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.9,
@@ -48,11 +50,12 @@ const featuredBrokers = [
     tradingInstruments: 600,
     isRegulated: true,
     regulations: ['FCA', 'ASIC', 'CySEC', 'BaFin'],
-    bestFor: 'Low Spreads',
+    bestFor: 'Best for Professional Traders',
+    description: 'Ultra-low spreads and institutional-grade liquidity',
     slug: 'pepperstone'
   },
   {
-    id: 4,
+    rank: 4,
     name: 'IG',
     logo: 'https://images.pexels.com/photos/8370724/pexels-photo-8370724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     rating: 4.8,
@@ -61,8 +64,93 @@ const featuredBrokers = [
     tradingInstruments: 17000,
     isRegulated: true,
     regulations: ['FCA', 'ASIC', 'FSCA', 'BaFin'],
-    bestFor: 'Variety of Markets',
+    bestFor: 'Best for Market Selection',
+    description: 'Widest range of trading instruments and markets',
     slug: 'ig'
+  },
+  {
+    rank: 5,
+    name: 'XM',
+    logo: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.7,
+    minDeposit: 5,
+    platforms: ['MT4', 'MT5', 'WebTrader'],
+    tradingInstruments: 1000,
+    isRegulated: true,
+    regulations: ['CySEC', 'ASIC', 'IFSC'],
+    bestFor: 'Best for Low Minimum Deposit',
+    description: 'Ultra-low minimum deposit and multi-account options',
+    slug: 'xm'
+  },
+  {
+    rank: 6,
+    name: 'eToro',
+    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.6,
+    minDeposit: 50,
+    platforms: ['eToro Platform', 'Mobile App'],
+    tradingInstruments: 2000,
+    isRegulated: true,
+    regulations: ['FCA', 'CySEC', 'ASIC'],
+    bestFor: 'Best for Social Trading',
+    description: 'Pioneer in social trading and copy trading features',
+    slug: 'etoro'
+  },
+  {
+    rank: 7,
+    name: 'Interactive Brokers',
+    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.8,
+    minDeposit: 0,
+    platforms: ['TWS', 'IBKR Mobile', 'Impact'],
+    tradingInstruments: 25000,
+    isRegulated: true,
+    regulations: ['SEC', 'FCA', 'IIROC'],
+    bestFor: 'Best for Advanced Tools',
+    description: 'Comprehensive research and advanced trading platforms',
+    slug: 'interactive-brokers'
+  },
+  {
+    rank: 8,
+    name: 'Saxo Bank',
+    logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.7,
+    minDeposit: 2000,
+    platforms: ['SaxoTraderGO', 'SaxoTraderPRO'],
+    tradingInstruments: 40000,
+    isRegulated: true,
+    regulations: ['FCA', 'MAS', 'FINMA'],
+    bestFor: 'Best for Research',
+    description: 'Premium research and institutional-grade platforms',
+    slug: 'saxo-bank'
+  },
+  {
+    rank: 9,
+    name: 'CMC Markets',
+    logo: 'https://images.pexels.com/photos/8370724/pexels-photo-8370724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.6,
+    minDeposit: 0,
+    platforms: ['Next Generation', 'MT4'],
+    tradingInstruments: 10000,
+    isRegulated: true,
+    regulations: ['FCA', 'ASIC', 'MAS'],
+    bestFor: 'Best for Platform Technology',
+    description: 'Advanced proprietary trading platform with excellent features',
+    slug: 'cmc-markets'
+  },
+  {
+    rank: 10,
+    name: 'OANDA',
+    logo: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    rating: 4.5,
+    minDeposit: 0,
+    platforms: ['fxTrade', 'MT4'],
+    tradingInstruments: 100,
+    isRegulated: true,
+    regulations: ['FCA', 'CySEC', 'MAS'],
+    bestFor: 'Best for Transparency',
+    description: 'Transparent pricing and excellent educational resources',
+    slug: 'oanda'
   }
 ];
 
@@ -74,9 +162,9 @@ export default function FeaturedBrokers() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Featured Forex Brokers</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Top 10 Forex Brokers</h2>
             <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-              Our top-rated brokers selected based on regulation, reliability, fees, and trading experience.
+              Comprehensive ranking of the best forex brokers based on our detailed analysis.
             </p>
           </div>
           <Link href="/brokers" className="mt-4 md:mt-0 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400">
@@ -84,24 +172,29 @@ export default function FeaturedBrokers() {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {featuredBrokers.map((broker, index) => (
             <motion.div
-              key={broker.id}
+              key={broker.rank}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              onMouseEnter={() => setHoveredCard(broker.id)}
+              onMouseEnter={() => setHoveredCard(broker.rank)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               <Card className={cn(
                 "h-full transition-all duration-300 overflow-hidden", 
-                hoveredCard === broker.id ? "shadow-lg border-blue-200 dark:border-blue-800" : ""
+                hoveredCard === broker.rank ? "shadow-lg border-blue-200 dark:border-blue-800" : ""
               )}>
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
+                <CardContent className="p-6 flex items-center">
+                  <div className="flex items-center w-16 mr-6">
+                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-500">#{broker.rank}</span>
+                  </div>
+                  
+                  <div className="flex-1 grid grid-cols-12 gap-6 items-center">
+                    <div className="col-span-2">
+                      <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
                       <Image
                         src={broker.logo}
                         alt={broker.name}
@@ -109,59 +202,42 @@ export default function FeaturedBrokers() {
                         objectFit="contain"
                         className="p-1"
                       />
+                      </div>
                     </div>
                     
-                    <div className="flex items-center bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">
-                      <Star className="h-4 w-4 text-yellow-500 mr-1 fill-yellow-500" />
-                      <span className="font-medium text-gray-900 dark:text-white">{broker.rating}</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{broker.name}</h3>
-                  
-                  <div className="flex items-center mb-4">
-                    <Badge variant="secondary" className="mr-2 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-100">
-                      <ShieldCheck className="h-3 w-3 mr-1" />
-                      Regulated
-                    </Badge>
-                    <Badge variant="outline" className="bg-blue-50 dark:bg-blue-900/30 border-blue-100 dark:border-blue-800 text-blue-700 dark:text-blue-400 hover:bg-blue-100">
-                      Min ${broker.minDeposit}
-                    </Badge>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Platforms</p>
-                      <p className="text-sm text-gray-900 dark:text-gray-200">{broker.platforms.slice(0, 3).join(', ')}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Trading Instruments</p>
-                      <p className="text-sm text-gray-900 dark:text-gray-200">{broker.tradingInstruments}+</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Best For</p>
+                    <div className="col-span-3">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{broker.name}</h3>
                       <div className="flex items-center">
-                        <Award className="h-4 w-4 text-amber-500 mr-1" />
-                        <p className="text-sm font-medium text-gray-900 dark:text-gray-200">{broker.bestFor}</p>
+                        <div className="flex items-center mr-3">
+                          <Star className="h-4 w-4 text-yellow-500 mr-1 fill-yellow-500" />
+                          <span className="font-medium">{broker.rating}/5</span>
+                        </div>
+                        <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                          <ShieldCheck className="h-3 w-3 mr-1" />
+                          Regulated
+                        </Badge>
                       </div>
+                    </div>
+                    
+                    <div className="col-span-4">
+                      <p className="font-medium text-gray-900 dark:text-white mb-1">{broker.bestFor}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
+                    </div>
+                    
+                    <div className="col-span-3 flex items-center justify-end gap-3">
+                      <Button size="sm" variant="outline" asChild>
+                        <Link href={`/broker/${broker.slug}`}>
+                          Full Review
+                        </Link>
+                      </Button>
+                      <Button size="sm" asChild>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                          Visit Broker
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
-                
-                <CardFooter className="px-6 pb-6 pt-2">
-                  <div className="w-full space-y-2">
-                    <Button className="w-full" asChild>
-                      <Link href={`/broker/${broker.slug}`}>
-                        View Full Review
-                      </Link>
-                    </Button>
-                    <Button variant="outline" className="w-full" asChild>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        Visit Broker
-                      </a>
-                    </Button>
-                  </div>
-                </CardFooter>
               </Card>
             </motion.div>
           ))}
