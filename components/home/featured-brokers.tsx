@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ShieldCheck, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -232,55 +232,60 @@ export default function FeaturedBrokers() {
                       </div>
                       <div className="flex items-center">
                         <motion.div 
-                          className="relative w-24 h-24 mr-3 flex items-center justify-center"
-                          initial={{ scale: 0.8, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ duration: 0.5, delay: 0.2 }}
+                          className="relative flex items-center bg-gradient-to-br from-amber-100 to-amber-50 dark:from-amber-900/50 dark:to-amber-800/30 rounded-xl px-3 py-2 mr-3"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-400 dark:to-amber-600 rounded-full opacity-20 blur-xl" />
-                          <motion.div
-                            className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-300 to-amber-500 dark:from-amber-400 dark:to-amber-600 rounded-full shadow-xl"
-                            whileHover={{ scale: 1.05 }}
-                            style={{
-                              boxShadow: "inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.3)"
-                            }}
-                          >
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-500 dark:to-amber-700 rounded-full" 
-                              style={{
-                                clipPath: `polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)`
-                              }}
-                            />
-                            <motion.span 
-                              className="relative text-2xl font-bold text-white"
-                        <motion.div 
-                          className="relative w-24 h-24 mr-3 flex items-center justify-center"
-                          initial={{ scale: 0.8, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-400 dark:to-amber-600 rounded-full opacity-20 blur-xl" />
-                          <motion.div
-                            className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-300 to-amber-500 dark:from-amber-400 dark:to-amber-600 rounded-full shadow-xl"
-                            whileHover={{ scale: 1.05 }}
-                            style={{
-                              boxShadow: "inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.3)"
-                            }}
-                          >
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-amber-200 to-amber-400 dark:from-amber-500 dark:to-amber-700 rounded-full" 
-                              style={{
-                                clipPath: `polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)`
-                              }}
-                            />
-                            <motion.span 
-                              className="relative text-2xl font-bold text-white"
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.3, delay: 0.4 }}
-                              style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}
-                            >
-                              {broker.rating.toFixed(1)}
-                            </motion.span>
-                          </motion.div>
+                          <div className="flex space-x-0.5">
+                            {[...Array(5)].map((_, i) => {
+                              const starValue = i + 1;
+                              const filled = broker.rating >= starValue;
+                              const partialFill = broker.rating % 1;
+                              const isPartial = Math.floor(broker.rating) === i && partialFill > 0;
+                              
+                              return (
+                                <motion.div
+                                  key={i}
+                                  initial={{ opacity: 0, scale: 0 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20,
+                                    delay: i * 0.1
+                                  }}
+                                  className="relative"
+                                >
+                                  <div className="relative">
+                                    {/* Background star */}
+                                    <Star 
+                                      className="w-4 h-4 text-amber-200 dark:text-amber-900" 
+                                      fill="currentColor"
+                                    />
+                                    
+                                    {/* Foreground star with clip-path animation */}
+                                    <motion.div
+                                      className="absolute inset-0"
+                                      initial={false}
+                                      style={{
+                                        clipPath: `inset(0 ${isPartial ? `${100 - (partialFill * 100)}%` : filled ? '0%' : '100%'} 0 0)`
+                                      }}
+                                    >
+                                      <Star 
+                                        className="w-4 h-4 text-amber-500 dark:text-amber-400" 
+                                        fill="currentColor"
+                                      />
+                                    </motion.div>
+                                  </div>
+                                </motion.div>
+                              );
+                            })}
+                          </div>
+                          <span className="ml-2 font-semibold text-amber-700 dark:text-amber-300">
+                            {broker.rating.toFixed(1)}
+                          </span>
                         </motion.div>
                         <Badge variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                           <ShieldCheck className="h-3 w-3 mr-1" />
