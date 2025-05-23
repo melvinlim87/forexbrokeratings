@@ -172,7 +172,7 @@ export default function FeaturedBrokers() {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredBrokers.map((broker, index) => (
             <motion.div
               key={broker.rank}
@@ -188,12 +188,12 @@ export default function FeaturedBrokers() {
                 hoveredCard === broker.rank ? "shadow-lg border-blue-200 dark:border-blue-800" : ""
               )}>
                 <CardContent className="p-6 flex items-center">
-                  <div className="flex items-center w-16 mr-6">
+                  <div className="flex items-center w-12 mr-4">
                     <span className="text-3xl font-bold text-blue-600 dark:text-blue-500">#{broker.rank}</span>
                   </div>
                   
-                  <div className="flex-1 grid grid-cols-12 gap-6 items-center">
-                    <div className="col-span-2">
+                  <div className="flex-1 flex flex-col space-y-4">
+                    <div className="flex items-center justify-between">
                       <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
                       <Image
                         src={broker.logo}
@@ -203,10 +203,6 @@ export default function FeaturedBrokers() {
                         className="p-1"
                       />
                       </div>
-                    </div>
-                    
-                    <div className="col-span-3">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{broker.name}</h3>
                       <div className="flex items-center">
                         <div className="flex items-center mr-3">
                           <Star className="h-4 w-4 text-yellow-500 mr-1 fill-yellow-500" />
@@ -219,12 +215,13 @@ export default function FeaturedBrokers() {
                       </div>
                     </div>
                     
-                    <div className="col-span-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{broker.name}</h3>
                       <p className="font-medium text-gray-900 dark:text-white mb-1">{broker.bestFor}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
                     </div>
                     
-                    <div className="col-span-3 flex items-center justify-end gap-3">
+                    <div className="flex items-center gap-3 pt-2">
                       <Button size="sm" variant="outline" asChild>
                         <Link href={`/broker/${broker.slug}`}>
                           Full Review
