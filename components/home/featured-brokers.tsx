@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { Star, ArrowRight, Award, ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
@@ -222,14 +222,13 @@ export default function FeaturedBrokers() {
                   <div className="flex-1 flex flex-col space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
-                      <Image
-                        src={broker.logo}
-                        alt={broker.name}
-                        layout="fill"
-                        objectFit="contain"
-                        className="p-1"
-                        priority
-                      />
+                        <Image
+                          src={broker.logo}
+                          alt={broker.name}
+                          fill
+                          className="object-contain p-1"
+                          priority
+                        />
                       </div>
                       <div className="flex items-center">
                         <motion.div 
@@ -258,8 +257,6 @@ export default function FeaturedBrokers() {
                               transition={{ duration: 0.3, delay: 0.4 }}
                               style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3)" }}
                             >
-                              {broker.rating.toFixed(1)}
-                            </motion.span>
                         <motion.div 
                           className="relative w-24 h-24 mr-3 flex items-center justify-center"
                           initial={{ scale: 0.8, opacity: 0 }}
@@ -321,7 +318,9 @@ export default function FeaturedBrokers() {
                           stiffness: 150,
                           damping: 20
                         }}
-                      >{broker.bestFor}</motion.p>
+                      >
+                        {broker.bestFor}
+                      </motion.p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
                     </div>
                     
@@ -354,9 +353,9 @@ export default function FeaturedBrokers() {
           ))}
         </div>
       </div>
-        )
+    </section>
+          );
         )
         }
-    </section>
-  );
+  )
 }
