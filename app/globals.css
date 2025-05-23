@@ -18,11 +18,11 @@
 
 @layer base {
   :root {
-    --background: 220 15% 98%;
+    --background: 220 20% 97%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
-    --popover: 220 15% 98%;
+    --popover: 220 20% 97%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 98%;
@@ -34,7 +34,7 @@
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 25% 91%;
+    --border: 220 25% 93%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
@@ -106,6 +106,61 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+
+  /* Global metallic border styles */
+  .card,
+  .border,
+  [class*="border-"],
+  button,
+  input,
+  select {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 4px 8px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card:hover,
+  button:hover,
+  input:focus,
+  select:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+      0 8px 16px -2px rgb(0 0 0 / 0.15),
+      0 4px 8px -2px rgb(0 0 0 / 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Dark mode adjustments */
+  .dark .card,
+  .dark .border,
+  .dark [class*="border-"],
+  .dark button,
+  .dark input,
+  .dark select {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 8px -1px rgb(0 0 0 / 0.2),
+      0 2px 4px -2px rgb(0 0 0 / 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .card:hover,
+  .dark button:hover,
+  .dark input:focus,
+  .dark select:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 8px 16px -2px rgb(0 0 0 / 0.3),
+      0 4px 8px -2px rgb(0 0 0 / 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
   }
 }
 
