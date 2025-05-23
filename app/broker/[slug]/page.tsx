@@ -1,107 +1,211 @@
 import { BrokerProfile } from '@/components/broker/broker-profile';
 
 // Sample data - would come from API in real implementation
-const brokerData = {
-  id: 1,
-  name: 'IronFX',
-  logo: 'https://via.placeholder.com/180x90?text=IronFX',
-  rating: 4.2,
-  minDeposit: 100,
-  summary: 'IronFX offers forex and CFD trading on multiple platforms with a wide range of account types to suit different trading styles. They provide access to a good selection of markets with competitive spreads and solid customer support.',
-  tradingInfo: {
-    spreads: 'From 0.7 pips',
-    leverage: 'Up to 1:500',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'IronFX WebTrader'],
-    instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'Futures', 'Metals'],
-    accountTypes: ['Micro', 'Premium', 'VIP', 'Zero Spread'],
-    minTrade: '0.01 lots'
-  },
-  tradingFeatures: {
-    executionSpeed: 'Average 0.128 seconds',
-    orderTypes: ['Market', 'Limit', 'Stop', 'OCO', 'Trailing Stop'],
-    hedging: true,
-    scalping: true,
-    expertAdvisors: true,
-    api: false,
-    demoAccount: true
-  },
-  scores: {
-    overall: 4.2,
-    tradingInstruments: 3.4,
-    platforms: 4.4,
-    fees: 3.8,
-    security: 4.4,
-    deposit: 3.4,
-    customerService: 4.6
-  },
-  fees: {
-    trading: {
-      spread: 'Variable, from 0.7 pips',
-      commission: 'Varies by account type',
-      overnight: 'Varies by instrument'
+const brokersData = {
+  ironfx: {
+    id: 1,
+    name: 'IronFX',
+    logo: 'https://via.placeholder.com/180x90?text=IronFX',
+    rating: 4.2,
+    minDeposit: 100,
+    summary: 'IronFX offers forex and CFD trading on multiple platforms with a wide range of account types to suit different trading styles. They provide access to a good selection of markets with competitive spreads and solid customer support.',
+    tradingInfo: {
+      spreads: 'From 0.7 pips',
+      leverage: 'Up to 1:500',
+      platforms: ['MetaTrader 4', 'MetaTrader 5', 'IronFX WebTrader'],
+      instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'Futures', 'Metals'],
+      accountTypes: ['Micro', 'Premium', 'VIP', 'Zero Spread'],
+      minTrade: '0.01 lots'
     },
-    nonTrading: {
-      deposit: 'Free',
-      withdrawal: 'Free (1 per month), $50 after',
-      inactivity: '$50 after 6 months',
-      account: 'No monthly fees'
-    }
+    tradingFeatures: {
+      executionSpeed: 'Average 0.128 seconds',
+      orderTypes: ['Market', 'Limit', 'Stop', 'OCO', 'Trailing Stop'],
+      hedging: true,
+      scalping: true,
+      expertAdvisors: true,
+      api: false,
+      demoAccount: true
+    },
+    scores: {
+      overall: 4.2,
+      tradingInstruments: 3.4,
+      platforms: 4.4,
+      fees: 3.8,
+      security: 4.4,
+      deposit: 3.4,
+      customerService: 4.6
+    },
+    fees: {
+      trading: {
+        spread: 'Variable, from 0.7 pips',
+        commission: 'Varies by account type',
+        overnight: 'Varies by instrument'
+      },
+      nonTrading: {
+        deposit: 'Free',
+        withdrawal: 'Free (1 per month), $50 after',
+        inactivity: '$50 after 6 months',
+        account: 'No monthly fees'
+      }
+    },
+    depositWithdrawal: {
+      methods: ['Credit/Debit Card', 'Bank Transfer', 'Skrill', 'Neteller', 'UnionPay'],
+      depositTime: 'Instant (cards & e-wallets), 3-5 days (bank transfer)',
+      withdrawalTime: '1-3 business days (e-wallets), 5-7 days (cards & bank)',
+      baseCurrencies: ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'AUD']
+    },
+    regulation: {
+      primary: 'CySEC (Cyprus Securities and Exchange Commission)',
+      additional: ['FCA (UK)', 'ASIC (Australia)', 'FSCA (South Africa)'],
+      clientFunds: 'Segregated accounts in tier-1 banks',
+      negativeBalanceProtection: true,
+      investorCompensation: 'Up to €20,000 under CySEC',
+      riskDisclosure: 'Full risk disclosure provided'
+    },
+    customerSupport: {
+      channels: ['Live Chat', 'Email', 'Phone', 'Callback Request'],
+      hours: '24/5',
+      languages: ['English', 'Spanish', 'German', 'French', 'Italian', 'Arabic', 'Chinese'],
+      quality: 'Responsive and knowledgeable',
+      responseTime: 'Chat: < 1 minute, Email: < 24 hours'
+    },
+    education: {
+      materials: ['Trading Guides', 'Video Tutorials', 'Webinars', 'eBooks', 'Glossary'],
+      marketAnalysis: 'Daily market updates and technical analysis',
+      demo: 'Unlimited demo account'
+    },
+    pros: [
+      'Multiple regulation from top-tier authorities',
+      'Wide range of trading platforms',
+      'Extensive language support',
+      'Competitive spreads on premium accounts',
+      'Fast withdrawal processing'
+    ],
+    cons: [
+      'Higher spreads on standard accounts',
+      'Inactivity fee after 6 months',
+      'Limited cryptocurrency offerings',
+      'Advanced platforms not available on all account types'
+    ],
+    historicalData: [
+      { month: 'Jan', spread: 1.2, execution: 0.18 },
+      { month: 'Feb', spread: 1.1, execution: 0.15 },
+      { month: 'Mar', spread: 0.9, execution: 0.14 },
+      { month: 'Apr', spread: 0.8, execution: 0.13 },
+      { month: 'May', spread: 0.7, execution: 0.12 },
+      { month: 'Jun', spread: 0.8, execution: 0.13 },
+    ],
+    radarData: [
+      { subject: 'Trading Tools', A: 85 },
+      { subject: 'Research', A: 70 },
+      { subject: 'Mobile App', A: 80 },
+      { subject: 'Fees', A: 65 },
+      { subject: 'Customer Service', A: 90 },
+      { subject: 'Ease of Use', A: 75 },
+    ]
   },
-  depositWithdrawal: {
-    methods: ['Credit/Debit Card', 'Bank Transfer', 'Skrill', 'Neteller', 'UnionPay'],
-    depositTime: 'Instant (cards & e-wallets), 3-5 days (bank transfer)',
-    withdrawalTime: '1-3 business days (e-wallets), 5-7 days (cards & bank)',
-    baseCurrencies: ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'AUD']
-  },
-  regulation: {
-    primary: 'CySEC (Cyprus Securities and Exchange Commission)',
-    additional: ['FCA (UK)', 'ASIC (Australia)', 'FSCA (South Africa)'],
-    clientFunds: 'Segregated accounts in tier-1 banks',
-    negativeBalanceProtection: true,
-    investorCompensation: 'Up to €20,000 under CySEC',
-    riskDisclosure: 'Full risk disclosure provided'
-  },
-  customerSupport: {
-    channels: ['Live Chat', 'Email', 'Phone', 'Callback Request'],
-    hours: '24/5',
-    languages: ['English', 'Spanish', 'German', 'French', 'Italian', 'Arabic', 'Chinese'],
-    quality: 'Responsive and knowledgeable',
-    responseTime: 'Chat: < 1 minute, Email: < 24 hours'
-  },
-  education: {
-    materials: ['Trading Guides', 'Video Tutorials', 'Webinars', 'eBooks', 'Glossary'],
-    marketAnalysis: 'Daily market updates and technical analysis',
-    demo: 'Unlimited demo account'
-  },
-  pros: [
-    'Multiple regulation from top-tier authorities',
-    'Wide range of trading platforms',
-    'Extensive language support',
-    'Competitive spreads on premium accounts',
-    'Fast withdrawal processing'
-  ],
-  cons: [
-    'Higher spreads on standard accounts',
-    'Inactivity fee after 6 months',
-    'Limited cryptocurrency offerings',
-    'Advanced platforms not available on all account types'
-  ],
-  historicalData: [
-    { month: 'Jan', spread: 1.2, execution: 0.18 },
-    { month: 'Feb', spread: 1.1, execution: 0.15 },
-    { month: 'Mar', spread: 0.9, execution: 0.14 },
-    { month: 'Apr', spread: 0.8, execution: 0.13 },
-    { month: 'May', spread: 0.7, execution: 0.12 },
-    { month: 'Jun', spread: 0.8, execution: 0.13 },
-  ],
-  radarData: [
-    { subject: 'Trading Tools', A: 85 },
-    { subject: 'Research', A: 70 },
-    { subject: 'Mobile App', A: 80 },
-    { subject: 'Fees', A: 65 },
-    { subject: 'Customer Service', A: 90 },
-    { subject: 'Ease of Use', A: 75 },
-  ]
+  xtb: {
+    id: 5,
+    name: 'XTB',
+    logo: 'https://via.placeholder.com/180x90?text=XTB',
+    rating: 4.5,
+    minDeposit: 250,
+    summary: 'XTB is a globally recognized broker offering trading in forex, indices, commodities, and stocks. Known for their proprietary xStation 5 platform and competitive pricing structure.',
+    tradingInfo: {
+      spreads: 'From 0.1 pips',
+      leverage: 'Up to 1:30 (EU), 1:500 (Non-EU)',
+      platforms: ['xStation 5', 'MetaTrader 4', 'Mobile Apps'],
+      instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'ETFs', 'Cryptocurrencies'],
+      accountTypes: ['Standard', 'Pro'],
+      minTrade: '0.01 lots'
+    },
+    tradingFeatures: {
+      executionSpeed: 'Average 0.1 seconds',
+      orderTypes: ['Market', 'Limit', 'Stop', 'Trailing Stop'],
+      hedging: true,
+      scalping: true,
+      expertAdvisors: true,
+      api: true,
+      demoAccount: true
+    },
+    scores: {
+      overall: 4.5,
+      tradingInstruments: 4.2,
+      platforms: 4.6,
+      fees: 4.3,
+      security: 4.7,
+      deposit: 4.4,
+      customerService: 4.5
+    },
+    fees: {
+      trading: {
+        spread: 'From 0.1 pips (Pro account)',
+        commission: 'Commission-free standard account',
+        overnight: 'Varies by instrument'
+      },
+      nonTrading: {
+        deposit: 'Free',
+        withdrawal: 'Free',
+        inactivity: 'No inactivity fee',
+        account: 'No monthly fees'
+      }
+    },
+    depositWithdrawal: {
+      methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
+      depositTime: 'Instant for most methods',
+      withdrawalTime: '24-48 hours',
+      baseCurrencies: ['USD', 'EUR', 'GBP', 'PLN']
+    },
+    regulation: {
+      primary: 'FCA (UK Financial Conduct Authority)',
+      additional: ['KNF (Poland)', 'CySEC (Cyprus)', 'IFSC (Belize)'],
+      clientFunds: 'Segregated accounts',
+      negativeBalanceProtection: true,
+      investorCompensation: 'Up to £85,000 under FCA',
+      riskDisclosure: 'Comprehensive risk disclosure'
+    },
+    customerSupport: {
+      channels: ['24/5 Live Chat', 'Email', 'Phone', 'WhatsApp'],
+      hours: '24/5',
+      languages: ['English', 'Polish', 'German', 'Spanish', 'Czech', 'French', 'Italian'],
+      quality: 'Award-winning support team',
+      responseTime: 'Average response time under 30 seconds'
+    },
+    education: {
+      materials: ['Trading Academy', 'Video Courses', 'Webinars', 'Market Analysis', 'Economic Calendar'],
+      marketAnalysis: 'Daily market insights and technical analysis',
+      demo: 'Unlimited demo account access'
+    },
+    pros: [
+      'Award-winning proprietary platform',
+      'Competitive spreads and commission-free trading',
+      'Excellent educational resources',
+      'Strong regulatory oversight',
+      'No deposit or withdrawal fees'
+    ],
+    cons: [
+      'Limited cryptocurrency offerings',
+      'Higher minimum deposit than some competitors',
+      'No US clients accepted',
+      'Limited fundamental analysis tools'
+    ],
+    historicalData: [
+      { month: 'Jan', spread: 0.9, execution: 0.12 },
+      { month: 'Feb', spread: 0.8, execution: 0.11 },
+      { month: 'Mar', spread: 0.7, execution: 0.10 },
+      { month: 'Apr', spread: 0.6, execution: 0.09 },
+      { month: 'May', spread: 0.5, execution: 0.08 },
+      { month: 'Jun', spread: 0.6, execution: 0.09 },
+    ],
+    radarData: [
+      { subject: 'Trading Tools', A: 90 },
+      { subject: 'Research', A: 85 },
+      { subject: 'Mobile App', A: 95 },
+      { subject: 'Fees', A: 88 },
+      { subject: 'Customer Service', A: 92 },
+      { subject: 'Ease of Use', A: 89 },
+    ]
+  }
 };
 
 const relatedBrokers = [
@@ -131,7 +235,6 @@ const relatedBrokers = [
   }
 ];
 
-// Add generateStaticParams function for static site generation
 export async function generateStaticParams() {
   // Include all broker slugs that should be pre-rendered
   return [
@@ -139,10 +242,19 @@ export async function generateStaticParams() {
     { slug: 'fxtm' },
     { slug: 'xm' },
     { slug: 'pepperstone' },
-    { slug: 'xtb' }  // Added the missing 'xtb' slug
+    { slug: 'xtb' }
   ];
 }
 
 export default function BrokerProfilePage({ params }: { params: { slug: string } }) {
+  // Get the broker data based on the slug
+  const brokerData = brokersData[params.slug as keyof typeof brokersData];
+  
+  // If no broker data is found, you might want to handle this case
+  if (!brokerData) {
+    // You could redirect to a 404 page or show an error message
+    return <div>Broker not found</div>;
+  }
+
   return <BrokerProfile brokerData={brokerData} relatedBrokers={relatedBrokers} />;
 }
