@@ -11,8 +11,8 @@ import Link from 'next/link';
 const heroSlides = [
   {
     broker: 'Pepperstone',
-    image: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    logo: 'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: '#1 Best Overall Forex Broker',
     description: 'Award-winning broker with ultra-low spreads and lightning-fast execution',
     rating: 4.9,
@@ -22,8 +22,8 @@ const heroSlides = [
   },
   {
     broker: 'IC Markets',
-    image: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    logo: 'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: '#2 Best for Professional Traders',
     description: 'True ECN broker with institutional-grade liquidity and advanced tools',
     rating: 4.8,
@@ -33,8 +33,8 @@ const heroSlides = [
   },
   {
     broker: 'XM',
-    image: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    logo: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: '#3 Best for Beginners',
     description: 'Trusted broker with excellent educational resources and low minimum deposit',
     rating: 4.7,
@@ -173,7 +173,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
+                  className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700 w-[200px]"
                   asChild
                 >
                   <Link href={`/broker/${heroSlides[currentSlide].slug}`}>
@@ -183,7 +183,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
+                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20 w-[200px]"
                   asChild
                 >
                   <a 
