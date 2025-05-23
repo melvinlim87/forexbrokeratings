@@ -300,7 +300,7 @@ export default function FeaturedBrokers() {
                                 filter: `url(#glow-${broker.rank})`,
                                 textShadow: '0 2px 4px rgba(0,0,0,0.2)'
                               }}
-                            />
+                            >
                               {broker.rating.toFixed(1)}
                             </text>
                           </svg>
