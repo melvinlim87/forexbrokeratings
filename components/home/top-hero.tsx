@@ -184,10 +184,19 @@ export default function TopHero() {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="relative group"
+                className="relative group overflow-hidden"
               >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-cyan-300/20 to-purple-500/20 rounded-xl transform rotate-45">
+                    <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-xl" />
+                  </div>
+                </motion.div>
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-white/30 shadow-metallic"
+                  className="absolute inset-0 bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 rounded-2xl backdrop-blur-xl border border-white/30 shadow-metallic"
                   animate={{
                     scale: [1, 1.02, 1],
                     boxShadow: [
@@ -200,6 +209,17 @@ export default function TopHero() {
                     duration: 2,
                     repeat: Infinity,
                     ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                  animate={{
+                    x: ['-200%', '200%'],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear",
                   }}
                 />
                 <div className="relative p-6">
