@@ -101,7 +101,7 @@ export default function TopHero() {
                     }}
                   />
                   <Star
-                    className="w-8 h-8 text-amber-400 transition-colors duration-300"
+                    className="w-10 h-10 text-amber-400 transition-colors duration-300"
                     fill="currentColor"
                     strokeWidth={1}
                   />
