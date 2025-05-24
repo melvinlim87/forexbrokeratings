@@ -76,22 +76,22 @@ export default function TopHero() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
                   opacity: [0.3, 1, 0.3],
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 5, 0],
-                  filter: ['brightness(0.5)', 'brightness(2)', 'brightness(0.5)']
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 3, 0],
+                  filter: ['brightness(1)', 'brightness(1.5)', 'brightness(1)']
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 3,
                   delay: i * 0.3,
                   repeat: Infinity,
-                  repeatDelay: 1.5
+                  repeatDelay: 2
                 }}
                 className="relative"
               >
                 <Star 
-                  className="w-10 h-10 text-amber-500 fill-amber-500"
+                  className="w-10 h-10 text-amber-500 fill-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]"
                   style={{
-                    filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
+                    filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.8))'
                   }}
                 />
               </motion.div>
