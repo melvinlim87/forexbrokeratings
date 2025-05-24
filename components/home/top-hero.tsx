@@ -137,20 +137,41 @@ export default function TopHero() {
             {[
               {
                 icon: <Star className="h-6 w-6" />,
-                title: "200+ Brokers",
-                description: "Comprehensive analysis of top forex brokers",
+                title: "200+ Brokers", 
+                description: "Comprehensive analysis of top forex brokers", 
+                animations: {
+                  icon: {
+                    rotate: [-10, 10, -10],
+                    scale: [1, 1.2, 1],
+                    filter: ['brightness(1)', 'brightness(1.5)', 'brightness(1)']
+                  }
+                },
                 color: "from-gray-700 to-gray-900"
               },
               {
                 icon: <Shield className="h-6 w-6" />,
                 title: "Trusted Ratings",
                 description: "Trusted By More Than 100,000 Traders Worldwide",
+                animations: {
+                  icon: {
+                    y: [-2, 2, -2],
+                    scale: [1, 1.1, 1],
+                    filter: ['drop-shadow(0 0 0 rgba(59, 130, 246, 0))', 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.5))', 'drop-shadow(0 0 0 rgba(59, 130, 246, 0))']
+                  }
+                },
                 color: "from-gray-700 to-gray-900"
               },
               {
                 icon: <Users className="h-6 w-6" />,
                 title: "Brokers Mediation Centre",
                 description: "A place for brokers and traders to mediate complaints",
+                animations: {
+                  icon: {
+                    x: [-3, 3, -3],
+                    scale: [1, 1.15, 1],
+                    filter: ['brightness(1)', 'brightness(1.3)', 'brightness(1)']
+                  }
+                },
                 color: "from-gray-700 to-gray-900"
               }
             ].map((item, index) => (
@@ -165,11 +186,54 @@ export default function TopHero() {
                 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-white/30 shadow-metallic transform transition-all duration-300 group-hover:scale-105" />
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl backdrop-blur-xl border border-white/30 shadow-metallic"
+                  animate={{
+                    scale: [1, 1.02, 1],
+                    boxShadow: [
+                      "0 4px 8px -1px rgba(0, 0, 0, 0.1)",
+                      "0 8px 16px -2px rgba(0, 0, 0, 0.15)",
+                      "0 4px 8px -1px rgba(0, 0, 0, 0.1)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
                 <div className="relative p-6">
-                  <div className={`bg-gradient-to-br ${item.color} p-3 rounded-xl w-fit mb-4 shadow-lg`}>
-                    <div className="text-white">{item.icon}</div>
-                  </div>
+                  <motion.div 
+                    className={`bg-gradient-to-br ${item.color} p-3 rounded-xl w-fit mb-4 shadow-lg relative overflow-hidden`}
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      animate={{
+                        x: ['-100%', '100%'],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        repeatDelay: 0.5
+                      }}
+                    />
+                    <motion.div 
+                      className="text-white relative z-10"
+                      animate={item.animations.icon}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {item.icon}
+                    </motion.div>
+                  </motion.div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
                     {item.title}
                   </h3>
