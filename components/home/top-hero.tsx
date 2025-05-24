@@ -130,7 +130,7 @@ export default function TopHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            The Aggregated Forex Broker Ratings Across All Rating Platforms
+            The Aggregated Forex Broker Ratings Across All Rating Platforms Rated By More Than 100,000 Traders Worldwide
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
