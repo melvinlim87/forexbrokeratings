@@ -150,7 +150,7 @@ export default function TopHero() {
               {
                 icon: <Users className="h-6 w-6" />,
                 title: "Brokers Mediation Centre",
-                description: "Reviews from multiple rating platforms",
+                description: "A place for brokers and traders to mediate complaints",
                 color: "from-gray-700 to-gray-900"
               }
             ].map((item, index) => (
