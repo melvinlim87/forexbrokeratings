@@ -107,7 +107,22 @@ export default function PromotionsSection() {
               onMouseEnter={() => setHoveredCard(promo.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg">
+              <Card 
+                className={cn(
+                  "overflow-hidden relative",
+                  "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                  "backdrop-blur-sm",
+                  "border-0",
+                  "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                  "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                  "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                  "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                  "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                  "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                  "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                  "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                )}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded">
