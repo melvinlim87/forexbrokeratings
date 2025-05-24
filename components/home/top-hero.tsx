@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Star, Shield, Users } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Medal, Shield, Users } from 'lucide-react';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -88,7 +88,7 @@ export default function TopHero() {
                 }}
                 className="relative"
               >
-                <Star 
+                <Medal 
                   className="w-10 h-10 text-amber-500 fill-amber-500"
                 />
               </motion.div>
