@@ -89,55 +89,47 @@ export default function TopHero() {
                 <div className="relative">
                   <div className="relative">
                     <Star
-                      className="w-8 h-8 text-amber-700"
+                      className="w-8 h-8 text-amber-400"
                       fill="currentColor"
                       strokeWidth={1}
                       style={{
-                        filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.2))'
+                        filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.1))'
                       }}
                     />
                     
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Star
-                        className="w-5 h-5 text-amber-500"
+                        className="w-5 h-5 text-amber-300"
                         fill="currentColor"
                         strokeWidth={1}
                         style={{
-                          filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.3))'
+                          filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.2))'
                         }}
                       />
                     </div>
                   </div>
                   
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0, 0.3, 0],
-                      rotate: [0, 180, 360]
-                    }}
-                    transition={{
-                      duration: 1,
+                  <motion.div 
+                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 0.3, 0] }}
+                    transition={{ 
+                      duration: 0.8,
                       repeat: Infinity,
                       delay: i * 0.2,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
-                    }}
-                  >
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-amber-700" />
-                  </motion.div>
+                      ease: "easeInOut" 
+                    }} 
+                  />
                   
                   <motion.div
                     className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"
                     initial={{ scaleX: 0 }}
                     animate={{
                       scaleX: [0, 1, 0],
-                      opacity: [0, 0.2, 0]
+                      opacity: [0, 0.15, 0]
                     }}
                     transition={{
-                      duration: 1,
+                      duration: 0.8,
                       repeat: Infinity,
                       delay: i * 0.2,
                       ease: "easeInOut"
