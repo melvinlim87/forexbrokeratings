@@ -74,48 +74,45 @@ export default function TopHero() {
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 15,
-                    delay: i * 0.15
-                  }
-                }}
+                initial={{ opacity: 1 }}
                 className="relative group"
               >
                 <div className="relative">
                   {/* Base silver stars */}
-                  <motion.div
-                    className="relative"
-                  >
+                  <div className="relative">
                     <Star
                       className="w-10 h-10 text-gray-300"
                       fill="currentColor"
                       strokeWidth={0}
+                      style={{
+                        filter: 'drop-shadow(0 0 2px rgba(156, 163, 175, 0.3))'
+                      }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Star
                         className="w-6 h-6 text-gray-400"
                         fill="currentColor"
                         strokeWidth={0}
+                        style={{
+                          filter: 'drop-shadow(0 0 2px rgba(156, 163, 175, 0.3))'
+                        }}
                       />
                     </div>
-                  </motion.div>
+                  </div>
                   
                   {/* Gold overlay with left-to-right animation */}
                   <motion.div
                     className="absolute inset-0"
                     initial={{ clipPath: 'inset(0 100% 0 0)' }}
                     animate={{
-                      clipPath: 'inset(0 0% 0 0)'
+                      clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)']
                     }}
                     transition={{
                       duration: 0.8,
                       delay: i * 0.2,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 2
                     }}
                   >
                     <Star
@@ -123,7 +120,7 @@ export default function TopHero() {
                       fill="currentColor"
                       strokeWidth={0}
                       style={{
-                        filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.4))'
+                        filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                       }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -132,7 +129,7 @@ export default function TopHero() {
                         fill="currentColor"
                         strokeWidth={0}
                         style={{
-                          filter: 'drop-shadow(0 0 3px rgba(251, 191, 36, 0.3))'
+                          filter: 'drop-shadow(0 0 3px rgba(251, 191, 36, 0.4))'
                         }}
                       />
                     </div>
