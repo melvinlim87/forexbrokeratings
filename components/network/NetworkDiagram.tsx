@@ -152,10 +152,10 @@ export default function NetworkDiagram() {
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
+          <motion.div
             className="relative -translate-x-1/2 -translate-y-1/2"
             whileHover={{ scale: 1.05 }}
           >
-            <motion.div
             <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-48 shadow-lg">
               <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${feature.gradient} p-0.5`}>
                 <div className="relative w-full h-full">
@@ -179,7 +179,6 @@ export default function NetworkDiagram() {
                   </div>
                 </div>
               </div>
-                >
               
               <h3 className="text-base font-bold text-gray-900 dark:text-white text-center mb-1">
                 {feature.title}
