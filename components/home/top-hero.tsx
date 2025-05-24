@@ -87,7 +87,7 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
           
-          <div className="flex justify-center space-x-2 mb-12">
+          <div className="flex justify-center space-x-4 mb-12 -ml-8">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
