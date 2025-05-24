@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
@@ -86,37 +86,38 @@ export default function TopHero() {
           >
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{
-                    opacity: [0.3, 1, 0.3],
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 5, 0],
-                    filter: ['brightness(0.5)', 'brightness(2)', 'brightness(0.5)']
+          
+          <div className="flex justify-center space-x-2 mb-8">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                  opacity: [0.3, 1, 0.3],
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 5, 0],
+                  filter: ['brightness(0.5)', 'brightness(2)', 'brightness(0.5)']
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: i * 0.3,
+                  repeat: Infinity,
+                  repeatDelay: 1.5
+                }}
+                className="relative"
+              >
+                <Star 
+                  className="w-10 h-10 text-amber-500 fill-amber-500"
+                  style={{
+                    filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                   }}
-                  transition={{
-                    duration: 1.5,
-                    delay: i * 0.3,
-                    repeat: Infinity,
-                    repeatDelay: 1.5
-                  }}
-                  className="relative"
-                >
-                  <Star 
-                    className="w-10 h-10 text-amber-500 fill-amber-500"
-                    style={{
-                      filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <NetworkDiagram />
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        <NetworkDiagram />
       </motion.div>
     </div>
   );
