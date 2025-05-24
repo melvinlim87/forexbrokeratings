@@ -73,10 +73,9 @@ export default function TopHero() {
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  scale: 1,
                   transition: {
                     type: "spring",
                     stiffness: 200,
@@ -87,84 +86,56 @@ export default function TopHero() {
                 className="relative group"
               >
                 <div className="relative">
-                  {/* Outer star - starts silver */}
-                  <Star
-                    className="w-10 h-10 text-gray-300"
-                    fill="currentColor"
-                    strokeWidth={1}
-                  />
-                  
-                  {/* Inner star - starts silver */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Base silver stars */}
+                  <motion.div
+                    className="relative"
+                  >
                     <Star
-                      className="w-6 h-6 text-gray-400"
+                      className="w-10 h-10 text-gray-300"
                       fill="currentColor"
-                      strokeWidth={1}
+                      strokeWidth={0}
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Star
+                        className="w-6 h-6 text-gray-400"
+                        fill="currentColor"
+                        strokeWidth={0}
+                      />
+                    </div>
                   </div>
                   
-                  {/* Animated gold overlay - outer star */}
+                  {/* Gold overlay with left-to-right animation */}
                   <motion.div
                     className="absolute inset-0"
-                    initial={{ opacity: 0 }}
+                    initial={{ clipPath: 'inset(0 100% 0 0)' }}
                     animate={{
-                      opacity: 1
+                      clipPath: 'inset(0 0% 0 0)'
                     }}
                     transition={{
-                      duration: 0.5,
-                      delay: i * 0.2
+                      duration: 0.8,
+                      delay: i * 0.2,
+                      ease: "easeInOut"
                     }}
                   >
                     <Star
                       className="w-10 h-10 text-amber-400"
                       fill="currentColor"
-                      strokeWidth={1}
+                      strokeWidth={0}
                       style={{
                         filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.4))'
                       }}
                     />
-                  </motion.div>
-                  
-                  {/* Animated gold overlay - inner star */}
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: i * 0.2 + 0.1
-                    }}
-                  >
-                    <Star
-                      className="w-6 h-6 text-amber-300"
-                      fill="currentColor"
-                      strokeWidth={1}
-                      style={{
-                        filter: 'drop-shadow(0 0 3px rgba(251, 191, 36, 0.3))'
-                      }}
-                    />
-                  </motion.div>
-                  
-                  <motion.div
-                    className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"
-                    initial={{ scaleX: 0 }}
-                    animate={{
-                      scaleX: [0, 1, 0],
-                      opacity: [0, 0.3, 0]
-                    }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Infinity,
-                      delay: i * 0.15,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      display: i < 4 ? 'block' : 'none',
-                      transformOrigin: 'left'
-                    }}
-                  />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Star
+                        className="w-6 h-6 text-amber-300"
+                        fill="currentColor"
+                        strokeWidth={0}
+                        style={{
+                          filter: 'drop-shadow(0 0 3px rgba(251, 191, 36, 0.3))'
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
