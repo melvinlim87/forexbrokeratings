@@ -96,8 +96,8 @@ export default function TopHero() {
                   <motion.div
                     className="absolute inset-0 blur-lg bg-amber-400/30 rounded-full"
                     animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.3, 0.6, 0.3]
+                      scale: [1, 1.3, 1],
+                      opacity: [0.4, 0.7, 0.4]
                     }}
                     transition={{
                       duration: 2,
@@ -105,18 +105,32 @@ export default function TopHero() {
                       repeatType: "reverse",
                       delay: i * 0.2
                     }}
+                    style={{
+                      background: "linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(59, 130, 246, 0.4))"
+                    }}
                   />
                   <Star
-                    className="w-12 h-12 text-amber-400 transition-colors duration-300 group-hover:text-amber-300"
+                    className="w-12 h-12 transition-colors duration-300"
+                    style={{
+                      color: "transparent",
+                      fill: "url(#starGradient)",
+                      filter: "drop-shadow(0 0 8px rgba(99, 102, 241, 0.3))"
+                    }}
                     fill="currentColor"
                     strokeWidth={1}
                   />
+                  <defs>
+                    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#6366f1" />
+                      <stop offset="100%" stopColor="#3b82f6" />
+                    </linearGradient>
+                  </defs>
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     initial={false}
                     animate={{
                       scale: [1, 1.1, 1],
-                      opacity: [1, 0.8, 1]
+                      opacity: [0.8, 0.6, 0.8]
                     }}
                     transition={{
                       duration: 1.5,
@@ -126,7 +140,11 @@ export default function TopHero() {
                     }}
                   >
                     <Star
-                      className="w-12 h-12 text-amber-500"
+                      className="w-12 h-12"
+                      style={{
+                        stroke: "url(#starGradient)",
+                        filter: "drop-shadow(0 0 4px rgba(99, 102, 241, 0.5))"
+                      }}
                       fill="none"
                       strokeWidth={1.5}
                     />
