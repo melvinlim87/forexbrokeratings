@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Medal, Shield, Users } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Award, Shield, Users } from 'lucide-react';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -75,21 +75,18 @@ export default function TopHero() {
                 key={i}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
-                  opacity: [0.6, 1, 0.6],
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 3, 0],
-                  filter: ['brightness(1)', 'brightness(1.2)', 'brightness(1)']
+                  opacity: 1,
+                  scale: 1
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 0.5,
                   delay: i * 0.3,
-                  repeat: Infinity,
-                  repeatDelay: 2
+                  type: "spring"
                 }}
                 className="relative"
               >
-                <Medal 
-                  className="w-10 h-10 text-amber-500 fill-amber-500"
+                <Award 
+                  className="w-12 h-12 text-amber-500 fill-amber-500 drop-shadow-lg"
                 />
               </motion.div>
             ))}
