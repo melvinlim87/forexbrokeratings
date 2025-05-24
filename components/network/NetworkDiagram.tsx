@@ -166,7 +166,7 @@ export default function NetworkDiagram() {
           <div 
             className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20"
           >
-            <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-6 w-[450px] shadow-metallic">
+            <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-8 w-[500px] shadow-metallic">
               <div className="relative z-10">
                 <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
                   <div className="relative w-full h-full">
@@ -194,7 +194,7 @@ export default function NetworkDiagram() {
                   {feature.title}
                 </h3>
                 
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
+                <p className="text-base font-semibold text-gray-700 dark:text-gray-300 text-center leading-relaxed">
                   {feature.description}
                 </p>
               </div>
