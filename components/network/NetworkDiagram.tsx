@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Shield, Users } from 'lucide-react';
+import { Star, Shield, Users, Brain } from 'lucide-react';
 
 interface Feature {
   icon: JSX.Element;
@@ -20,7 +20,7 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 250,
+    x: 200,
     y: 150,
     angle: 0
   },
@@ -29,7 +29,7 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 550,
+    x: 600,
     y: 150,
     angle: 120
   },
@@ -38,9 +38,18 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 400,
-    y: 350,
+    x: 200,
+    y: 400,
     angle: 240
+  },
+  {
+    icon: <Brain className="h-6 w-6" />,
+    title: "AI Trading Analyser",
+    description: "Advanced AI-powered analysis of trading patterns and broker performance",
+    gradient: "from-emerald-500 via-teal-500 to-cyan-500",
+    x: 600,
+    y: 400,
+    angle: 360
   }
 ];
 
