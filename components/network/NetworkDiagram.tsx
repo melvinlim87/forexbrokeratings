@@ -29,8 +29,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 950,
-    y: 150,
+    x: 750,
+    y: 100,
     angle: 120
   },
   {
