@@ -130,7 +130,7 @@ export default function NetworkDiagram() {
                   <motion.circle
                     key={i}
                     r="3"
-                    fill="white"
+                    fill="#3B82F6"
                     filter="url(#glow)"
                     initial={{ 
                       opacity: 0,
