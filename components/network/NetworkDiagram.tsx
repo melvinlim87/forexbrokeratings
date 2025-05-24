@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Shield, Users } from 'lucide-react';
 
@@ -156,50 +156,41 @@ export default function NetworkDiagram() {
         >
           <div 
             className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500"
-            animate={{
-              boxShadow: [
-                '0 0 20px rgba(168, 85, 247, 0.2)',
-                '0 0 20px rgba(59, 130, 246, 0.2)', 
-                '0 0 20px rgba(34, 211, 238, 0.2)', 
-                '0 0 20px rgba(34, 197, 94, 0.2)'
-              ]
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           >
             <div className="relative bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-64 shadow-metallic">
               <div className="relative z-10">
-              <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
-                <div className="relative w-full h-full">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
-                  </motion.div>
-                  <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
+                  <div className="relative w-full h-full">
                     <motion.div
-                      animate={hoveredNode === index ? {
-                        rotate: [0, 360],
-                        transition: { duration: 20, repeat: Infinity, ease: "linear" }
-                      } : {}}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0"
                     >
-                      {feature.icon}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
                     </motion.div>
+                    <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                      <motion.div
+                        animate={hoveredNode === index ? {
+                          rotate: [0, 360],
+                          transition: { duration: 20, repeat: Infinity, ease: "linear" }
+                        } : {}}
+                      >
+                        {feature.icon}
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">
-                {feature.title}
-              </h3>
-              
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                {feature.description}
-              </p>
+                
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                  {feature.description}
+                </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       ))}
     </div>
