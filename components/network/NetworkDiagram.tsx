@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Shield, Users } from 'lucide-react';
@@ -197,7 +199,7 @@ export default function NetworkDiagram() {
               </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       ))}
     </div>
