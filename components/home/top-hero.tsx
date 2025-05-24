@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Star, Shield, Users } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star } from 'lucide-react';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -66,56 +66,88 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 pt-40 pb-20 relative z-10"
+        className="container mx-auto px-4 pt-16 pb-16 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center justify-center mb-16"
-          >
-            <div className="flex space-x-2">
+          <div className="flex justify-center space-x-4 mb-8">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
                   opacity: 1,
-                  scale: 1
+                  scale: [0, 1, 0.9],
                 }}
                 transition={{
-                  duration: 0.3,
-                  delay: i * 0.1
+                  type: "spring",
+                  stiffness: 200,
+                  delay: i * 0.15,
+                  duration: 0.8
                 }}
+                className="relative group"
               >
-                <Star 
-                  className="h-12 w-12 text-amber-400"
-                  fill="currentColor"
-                  strokeWidth={1}
-                />
-                <motion.div
-                  className="absolute inset-0"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.5, 1, 0.5]
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: i * 0.3
-                  }}
-                >
-                  <Star 
-                    className="h-12 w-12 text-amber-400"
-                    fill="none"
-                    strokeWidth={2}
+                <div className="relative">
+                  <motion.div
+                    className="absolute inset-0 blur-md bg-amber-400/30 rounded-full"
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0.2, 0.6, 0.2]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: i * 0.4
+                    }}
                   />
-                </motion.div>
+                  <Star
+                    className="w-10 h-10 text-amber-400 transition-colors duration-300"
+                    fill="currentColor"
+                    strokeWidth={1}
+                  />
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center"
+                    initial={false}
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 1, 0.5]
+                    }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: i * 0.2
+                    }}
+                  >
+                    <Star
+                      className="w-8 h-8 text-amber-500"
+                      fill="none"
+                      strokeWidth={1.5}
+                    />
+                  </motion.div>
+                  
+                  {/* Glowing trail effect */}
+                  <motion.div
+                    className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400/50 to-transparent"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    animate={{
+                      scaleX: [0, 1, 0],
+                      opacity: [0, 0.8, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.3
+                    }}
+                    style={{
+                      display: i < 4 ? 'block' : 'none',
+                      transformOrigin: 'left'
+                    }}
+                  />
+                </div>
               </motion.div>
             ))}
-            </div>
-          </motion.div>
+          </div>
 
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
