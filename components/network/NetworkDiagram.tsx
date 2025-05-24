@@ -168,31 +168,32 @@ export default function NetworkDiagram() {
           >
             <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-metallic">
               <div className="relative z-10">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
-                  <div className="relative w-full h-full">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
-                    </motion.div>
-                    <div className="absolute inset-[1px] bg-metallic dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
+                    <div className="relative w-full h-full">
                       <motion.div
-                        animate={hoveredNode === index ? {
-                          rotate: [0, 360],
-                          transition: { duration: 20, repeat: Infinity, ease: "linear" }
-                        } : {}}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0"
                       >
-                        {feature.icon}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
                       </motion.div>
+                      <div className="absolute inset-[1px] bg-metallic dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                        <motion.div
+                          animate={hoveredNode === index ? {
+                            rotate: [0, 360],
+                            transition: { duration: 20, repeat: Infinity, ease: "linear" }
+                          } : {}}
+                        >
+                          {feature.icon}
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                    {feature.title}
+                  </h3>
                 </div>
-                
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">
-                  {feature.title}
-                </h3>
                 
                 <p className="text-base font-semibold text-gray-700 dark:text-gray-300 text-center leading-relaxed">
                   {feature.description}
