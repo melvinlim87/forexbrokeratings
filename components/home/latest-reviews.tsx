@@ -48,7 +48,7 @@ export default function LatestReviews() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950">
+    <section className="py-16 section-gradient">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
