@@ -59,7 +59,7 @@ export default function NetworkDiagram() {
   const centerY = 225;
 
   return (
-    <div className="relative w-full h-[1500px] overflow-visible">
+    <div className="relative w-full h-[500px] overflow-visible">
       {/* Background gradient animation */}
       <motion.div
         className="absolute inset-0 opacity-20 pointer-events-none"
