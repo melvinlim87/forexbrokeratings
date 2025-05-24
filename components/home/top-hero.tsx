@@ -87,22 +87,36 @@ export default function TopHero() {
                 className="relative group"
               >
                 <div className="relative">
-                  {/* Two-tone base star */}
-                  <Star
-                    className="w-8 h-8 text-amber-400"
-                    fill="currentColor"
-                    strokeWidth={1.5}
-                    style={{
-                      filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.5))'
-                    }}
-                  />
+                  {/* Larger outer star */}
+                  <div className="relative">
+                    <Star
+                      className="w-10 h-10 text-amber-600"
+                      fill="currentColor"
+                      strokeWidth={1}
+                      style={{
+                        filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.3))'
+                      }}
+                    />
+                    
+                    {/* Smaller inner star */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Star
+                        className="w-6 h-6 text-amber-400"
+                        fill="currentColor"
+                        strokeWidth={1}
+                        style={{
+                          filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.5))'
+                        }}
+                      />
+                    </div>
+                  </div>
                   
                   {/* Star-shaped flash effect */}
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     animate={{
                       scale: [1, 1.2, 1],
-                      opacity: [0, 0.8, 0],
+                      opacity: [0, 0.6, 0],
                       rotate: [0, 180, 360]
                     }}
                     transition={{
@@ -115,7 +129,7 @@ export default function TopHero() {
                       clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
                     }}
                   >
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-300 to-amber-500" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600" />
                   </motion.div>
                   
                   {/* Connecting light beam */}
