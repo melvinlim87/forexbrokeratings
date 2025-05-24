@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Star, Shield, Users } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star } from 'lucide-react';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -75,82 +75,58 @@ export default function TopHero() {
                 key={i}
                 initial={{ opacity: 0, scale: 0, rotate: -180 }}
                 animate={{
-                  opacity: [0, 1],
-                  scale: [0, 1.4, 1],
-                  rotate: [180, 0]
+                  opacity: 1,
+                  scale: [0, 1.2, 1],
+                  rotate: 0
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 260,
-                  damping: 20,
+                  stiffness: 200,
                   delay: i * 0.3,
                   duration: 0.8
                 }}
                 whileHover={{
-                  scale: [1, 1.2, 1.1],
-                  rotate: [0, -15, 15, 0],
-                  transition: { 
-                    duration: 0.5,
-                    ease: "easeInOut"
-                  }
+                  scale: 1.2,
+                  rotate: [0, -10, 10, 0],
+                  transition: { duration: 0.3 }
                 }}
                 className="relative group"
               >
                 <div className="relative">
                   <motion.div
-                    className="absolute inset-0 blur-xl rounded-full"
+                    className="absolute inset-0 blur-lg bg-amber-400/30 rounded-full"
                     animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.3, 0.7, 0.3]
+                      scale: [1, 1.2, 1],
+                      opacity: [0.3, 0.6, 0.3]
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 2,
                       repeat: Infinity,
                       repeatType: "reverse",
                       delay: i * 0.2
                     }}
-                    style={{
-                      background: "radial-gradient(circle, rgba(234, 179, 8, 0.3), rgba(234, 179, 8, 0.1))"
-                    }}
                   />
                   <Star
-                    className="w-10 h-10 transition-all duration-300"
-                    style={{
-                      color: "transparent", 
-                      fill: "url(#starGradient)",
-                      filter: "drop-shadow(0 0 4px rgba(234, 179, 8, 0.4))"
-                    }}
+                    className="w-12 h-12 text-amber-400 transition-colors duration-300 group-hover:text-amber-300"
                     fill="currentColor"
                     strokeWidth={1}
                   />
-                  <defs>
-                    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#fbbf24" />
-                      <stop offset="50%" stopColor="#f59e0b" />
-                      <stop offset="100%" stopColor="#d97706" />
-                    </linearGradient>
-                  </defs>
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     initial={false}
                     animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [1, 0.8, 1],
-                      rotate: [0, 180, 360]
+                      scale: [1, 1.1, 1],
+                      opacity: [1, 0.8, 1]
                     }}
                     transition={{
-                      duration: 8,
+                      duration: 1.5,
                       repeat: Infinity,
-                      ease: "linear",
+                      repeatType: "reverse",
                       delay: i * 0.1
                     }}
                   >
                     <Star
-                      className="w-10 h-10"
-                      style={{
-                        stroke: "#fbbf24",
-                        filter: "drop-shadow(0 0 6px rgba(251, 191, 36, 0.6))"
-                      }}
+                      className="w-12 h-12 text-amber-500"
                       fill="none"
                       strokeWidth={1.5}
                     />
