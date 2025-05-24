@@ -8,6 +8,7 @@ import { Star, ChevronRight, Award, ShieldCheck, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 // Sample data - would come from API in real implementation
 const latestReviews = [
