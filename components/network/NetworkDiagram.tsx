@@ -205,5 +205,3 @@ export default function NetworkDiagram() {
     </div>
   );
 }
-
-export default NetworkDiagram
