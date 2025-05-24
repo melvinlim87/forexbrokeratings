@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Layers, TrendingUp, Shield, Zap, Users, Globe } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const trustFeatures = [
   {
