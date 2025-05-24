@@ -17,7 +17,7 @@ const features: Feature[] = [
     icon: <Star className="h-6 w-6" />,
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
-    gradient: "from-blue-500 via-cyan-300 to-purple-500",
+    gradient: "from-purple-500 via-blue-500 to-cyan-500",
     x: 250,
     y: 150,
     angle: 0
@@ -26,7 +26,7 @@ const features: Feature[] = [
     icon: <Shield className="h-6 w-6" />,
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
-    gradient: "from-purple-500 via-pink-300 to-red-500",
+    gradient: "from-blue-500 via-cyan-500 to-purple-500",
     x: 550,
     y: 150,
     angle: 120
@@ -35,7 +35,7 @@ const features: Feature[] = [
     icon: <Users className="h-6 w-6" />,
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
-    gradient: "from-green-500 via-teal-300 to-blue-500",
+    gradient: "from-cyan-500 via-purple-500 to-blue-500",
     x: 400,
     y: 350,
     angle: 240
@@ -66,9 +66,9 @@ export default function NetworkDiagram() {
       <svg className="absolute inset-0 w-full h-full">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(59, 130, 246, 0.2)" />
-            <stop offset="50%" stopColor="rgba(139, 92, 246, 0.2)" />
-            <stop offset="100%" stopColor="rgba(236, 72, 153, 0.2)" />
+            <stop offset="0%" stopColor="rgba(147, 51, 234, 0.2)" />
+            <stop offset="50%" stopColor="rgba(59, 130, 246, 0.2)" />
+            <stop offset="100%" stopColor="rgba(34, 211, 238, 0.2)" />
           </linearGradient>
           
           <filter id="glow">
@@ -135,7 +135,7 @@ export default function NetworkDiagram() {
           className="absolute -translate-x-1/2 -translate-y-1/2"
         >
           <div className="w-20 h-20 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
-            <div className="w-full h-full bg-white dark:bg-gray-900 rounded-full" />
+            <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full" />
           </div>
         </motion.div>
       </motion.div>
