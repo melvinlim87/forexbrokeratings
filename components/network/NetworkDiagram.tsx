@@ -152,33 +152,34 @@ export default function NetworkDiagram() {
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
-          <motion.div
             className="relative -translate-x-1/2 -translate-y-1/2"
             whileHover={{ scale: 1.05 }}
           >
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-xl transform rotate-45`}>
-                <div className="absolute inset-[2px] bg-white dark:bg-gray-900 rounded-xl" />
-              </div>
-            </motion.div>
-
-            <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-48">
+            <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-48 shadow-lg">
               <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${feature.gradient} p-0.5`}>
-                <motion.div
-                  className="w-full h-full bg-white dark:bg-gray-900 rounded-[6px] flex items-center justify-center text-gray-900 dark:text-white"
-                  animate={hoveredNode === index ? {
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 10, -10, 0],
-                  } : {}}
-                  transition={{ duration: 0.5 }}
-                >
-                  {feature.icon}
-                </motion.div>
+                <div className="relative w-full h-full">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-[6px]`} />
+                  </motion.div>
+                  <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                    <motion.div
+                      animate={hoveredNode === index ? {
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 10, -10, 0],
+                      } : {}}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {feature.icon}
+                    </motion.div>
+                  </div>
+                </div>
               </div>
+                >
               
               <h3 className="text-base font-bold text-gray-900 dark:text-white text-center mb-1">
                 {feature.title}
