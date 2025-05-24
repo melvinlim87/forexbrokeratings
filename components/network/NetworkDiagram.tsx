@@ -38,7 +38,7 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 200,
+    x: 180,
     y: 330,
     angle: 240
   },
