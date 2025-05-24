@@ -404,5 +404,3 @@ export default function FeaturedBrokers() {
     </section>
   );
 }
-
-export default FeaturedBrokers
