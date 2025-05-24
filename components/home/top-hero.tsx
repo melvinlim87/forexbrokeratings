@@ -114,14 +114,14 @@ export default function TopHero() {
                     }}
                   />
                   <Star
-                    className="w-14 h-14 transition-all duration-300"
+                    className="w-10 h-10 transition-all duration-300"
                     style={{
                       color: "transparent", 
                       fill: "url(#starGradient)",
-                      filter: "drop-shadow(0 0 8px rgba(234, 179, 8, 0.6))"
+                      filter: "drop-shadow(0 0 4px rgba(234, 179, 8, 0.4))"
                     }}
                     fill="currentColor"
-                    strokeWidth={2}
+                    strokeWidth={1}
                   />
                   <defs>
                     <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -146,13 +146,13 @@ export default function TopHero() {
                     }}
                   >
                     <Star
-                      className="w-14 h-14"
+                      className="w-10 h-10"
                       style={{
                         stroke: "#fbbf24",
-                        filter: "drop-shadow(0 0 12px rgba(251, 191, 36, 0.8))"
+                        filter: "drop-shadow(0 0 6px rgba(251, 191, 36, 0.6))"
                       }}
                       fill="none"
-                      strokeWidth={3}
+                      strokeWidth={1.5}
                     />
                   </motion.div>
                 </div>
