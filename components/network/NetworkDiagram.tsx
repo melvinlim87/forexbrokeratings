@@ -92,8 +92,6 @@ export default function NetworkDiagram() {
         </defs>
 
         {features.map((feature, index) => {
-          const nextFeature = features[(index + 1) % features.length];
-          
           return (
             <g key={index}>
               {/* Line to center */}
@@ -113,20 +111,35 @@ export default function NetworkDiagram() {
                 transition={{ duration: 1.5, delay: index * 0.2 }}
               />
               
-              {/* Curved line to next node */}
-              <motion.path
-                d={`M ${feature.x} ${feature.y} Q ${centerX} ${centerY} ${nextFeature.x} ${nextFeature.y}`}
-                stroke="url(#lineGradient)"
-                strokeWidth="1"
-                fill="none"
-                filter="url(#glow)"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: 1, 
-                  opacity: hoveredNode === index ? 0.8 : 0.4 
-                }}
-                transition={{ duration: 2, delay: index * 0.3 }}
-              />
+              {/* Flowing nodes on the line */}
+              {[...Array(3)].map((_, i) => (
+                <motion.circle
+                  key={i}
+                  r="3"
+                  fill="white"
+                  filter="url(#glow)"
+                  initial={{ 
+                    opacity: 0,
+                    pathOffset: i * 0.3 
+                  }}
+                  animate={{
+                    opacity: [0, 1, 0],
+                    pathOffset: [0, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    delay: i * 1,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  <animateMotion
+                    dur="3s"
+                    repeatCount="indefinite"
+                    path={`M ${feature.x} ${feature.y} L ${centerX} ${centerY}`}
+                  />
+                </motion.circle>
+              ))}
             </g>
           );
         })}
