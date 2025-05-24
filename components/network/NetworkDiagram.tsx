@@ -154,8 +154,8 @@ export default function NetworkDiagram() {
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
-          <motion.div
-            className="relative -translate-x-1/2 -translate-y-1/2 before:absolute before:inset-0 before:p-[1px] before:rounded-xl before:-z-10 before:bg-gradient-to-r before:from-purple-500 before:via-blue-500 before:to-cyan-500 before:to-green-500 after:absolute after:inset-0 after:p-[1px] after:rounded-xl after:-z-20 after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent"
+          <div 
+            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500"
             animate={{
               boxShadow: [
                 '0 0 20px rgba(168, 85, 247, 0.2)',
