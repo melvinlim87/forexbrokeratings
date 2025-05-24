@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star } from 'lucide-react';
@@ -102,7 +103,7 @@ export default function TopHero() {
                         strokeWidth={0}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                   
                   {/* Gold overlay with left-to-right animation */}
                   <motion.div
@@ -135,7 +136,7 @@ export default function TopHero() {
                         }}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
