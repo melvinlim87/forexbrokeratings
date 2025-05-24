@@ -20,8 +20,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 50,
-    y: 100,
+    x: 150,
+    y: 50,
     angle: 0
   },
   {
@@ -29,8 +29,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 850,
-    y: 100,
+    x: 670,
+    y: 50,
     angle: 120
   },
   {
@@ -38,8 +38,8 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 50,
-    y: 350,
+    x: 150,
+    y: 330,
     angle: 240
   },
   {
@@ -47,16 +47,16 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 850,
-    y: 350,
+    x: 670,
+    y: 330,
     angle: 360
   }
 ];
 
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const centerX = 410;
-  const centerY = 190;
+  const centerX = 410; 
+  const centerY = 200;
 
   return (
     <div className="relative w-full h-[500px] overflow-visible">
@@ -98,8 +98,8 @@ export default function NetworkDiagram() {
               <motion.line
                 x1={feature.x}
                 y1={feature.y}
-                x2={centerX}
-                y2={centerY}
+                x2={centerX + (hoveredNode === index ? 5 : 0)}
+                y2={centerY + (hoveredNode === index ? 5 : 0)}
                 stroke="url(#lineGradient)"
                 strokeWidth="1"
                 filter="url(#glow)"
