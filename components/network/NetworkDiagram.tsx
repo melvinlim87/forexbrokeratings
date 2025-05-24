@@ -82,13 +82,13 @@ export default function NetworkDiagram() {
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(59, 130, 246, 0.2)" />
-            <stop offset="50%" stopColor="rgba(96, 165, 250, 0.2)" />
-            <stop offset="100%" stopColor="rgba(147, 197, 253, 0.2)" />
+            <stop offset="0%" stopColor="rgba(59, 130, 246, 0.3)" />
+            <stop offset="50%" stopColor="rgba(96, 165, 250, 0.3)" />
+            <stop offset="100%" stopColor="rgba(147, 197, 253, 0.3)" />
           </linearGradient>
           
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge>
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -129,7 +129,7 @@ export default function NetworkDiagram() {
                 {[...Array(3)].map((_, i) => (
                   <motion.circle
                     key={i}
-                    r="3"
+                    r="4"
                     fill="#3B82F6"
                     filter="url(#glow)"
                     initial={{ 
@@ -137,18 +137,18 @@ export default function NetworkDiagram() {
                       pathOffset: i * 0.3 
                     }}
                     animate={{
-                      opacity: [0, 1, 0],
+                      opacity: [0, 0.8, 0],
                       pathOffset: [0, 1],
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 2,
                       delay: i * 1,
                       repeat: Infinity,
                       ease: "linear"
                     }}
                   >
                     <animateMotion
-                      dur="3s"
+                      dur="2s"
                       repeatCount="indefinite"
                       path={path}
                     />
