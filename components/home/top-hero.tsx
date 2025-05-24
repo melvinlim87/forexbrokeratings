@@ -66,11 +66,11 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 pt-16 pb-16 relative z-10"
+        className="container mx-auto px-4 py-32 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-4"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -79,7 +79,7 @@ export default function TopHero() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-8 font-light"
+            className="text-xl md:text-2xl text-gray-600 mb-12 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -87,7 +87,7 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
           
-          <div className="flex justify-center space-x-2 mb-8">
+          <div className="flex justify-center space-x-2 mb-16">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
@@ -107,7 +107,7 @@ export default function TopHero() {
                 className="relative"
               >
                 <Star 
-                  className="w-10 h-10 text-amber-500 fill-amber-500"
+                  className="w-12 h-12 text-amber-500 fill-amber-500"
                   style={{
                     filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                   }}
@@ -115,9 +115,8 @@ export default function TopHero() {
               </motion.div>
             ))}
           </div>
+          <NetworkDiagram />
         </div>
-
-        <NetworkDiagram />
       </motion.div>
     </div>
   );
