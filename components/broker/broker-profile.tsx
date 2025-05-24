@@ -10,7 +10,53 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
-export function BrokerProfile({ brokerData, relatedBrokers }: any) {
+// Define the type for the scores object
+interface Scores {
+  [key: string]: number;
+}
+
+// Define the type for the broker data
+interface BrokerData {
+  name: string;
+  logo: string;
+  rating: number;
+  minDeposit: number;
+  summary: string;
+  tradingInfo: Record<string, unknown>;
+  tradingFeatures: Record<string, unknown>;
+  fees: {
+    trading: Record<string, unknown>;
+    nonTrading: Record<string, unknown>;
+  };
+  depositWithdrawal: {
+    methods: string[];
+    depositTime: string;
+    withdrawalTime: string;
+    baseCurrencies: string[];
+  };
+  regulation: {
+    primary: string;
+    additional: string[];
+    clientFunds: string;
+    investorCompensation: string;
+  };
+  customerSupport: {
+    channels: string[];
+    hours: string;
+    responseTime: string;
+    languages: string[];
+  };
+  scores: Scores;
+  pros: string[];
+  cons: string[];
+}
+
+interface BrokerProfileProps {
+  brokerData: BrokerData;
+  relatedBrokers: any[];
+}
+
+export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
   const [openSection, setOpenSection] = useState<string | null>('overview');
 
   const toggleSection = (section: string) => {
@@ -433,7 +479,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Overall Rating</h3>
                 <div className="space-y-4">
-                  {Object.entries(brokerData.scores).map(([key, value]: [string, number]) => (
+                  {Object.entries(brokerData.scores).map(([key, value]: [string, unknown]) => (
                     <div key={key}>
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -444,7 +490,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                       <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                         <div 
                           className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
-                          style={{ width: `${(value / 5) * 100}%` }}
+                          style={{ width: `${(Number(value) / 5) * 100}%` }}
                         />
                       </div>
                     </div>
