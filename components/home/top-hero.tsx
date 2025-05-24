@@ -66,9 +66,20 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 pt-24 pb-16 relative z-10"
+        className="container mx-auto px-4 pt-40 pb-16 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center justify-center mb-6"
+          >
+            <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg p-5 rounded-3xl shadow-metallic border border-white/30">
+              <Globe className="h-10 w-10 text-gray-800" />
+            </div>
+          </motion.div>
+
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -79,42 +90,13 @@ export default function TopHero() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-12 font-light"
+            className="text-xl md:text-2xl text-gray-600 mb-16 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
-          
-          <div className="flex justify-center space-x-2 mb-12">
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: [0.3, 1, 0.3],
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 5, 0],
-                  filter: ['brightness(0.5)', 'brightness(2)', 'brightness(0.5)']
-                }}
-                transition={{
-                  duration: 1.5,
-                  delay: i * 0.3,
-                  repeat: Infinity,
-                  repeatDelay: 1.5
-                }}
-                className="relative"
-              >
-                <Star 
-                  className="w-12 h-12 text-amber-500 fill-amber-500"
-                  style={{
-                    filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
-                  }}
-                />
-              </motion.div>
-            ))}
-          </div>
           <NetworkDiagram />
         </div>
       </motion.div>
