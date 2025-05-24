@@ -36,7 +36,7 @@ const educationalResources = [
 
 export default function EducationSection() {
   return (
-    <section className="py-16 section-gradient">
+    <section className="py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>

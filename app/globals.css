@@ -46,42 +46,12 @@
   }
 
   body {
-    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 25%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%);
+    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 25%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%) fixed;
     background-attachment: fixed;
     min-height: 100vh;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-  }
-
-  .section-gradient {
-    position: relative;
-    isolation: isolate;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
-    backdrop-filter: blur(10px);
-  }
-
-  .section-gradient::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: 0;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    background: linear-gradient(135deg, rgba(147, 197, 253, 0.5), rgba(59, 130, 246, 0.5));
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .dark .section-gradient {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.4));
-  }
-
-  .dark .section-gradient::before {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.2));
   }
 
   section {

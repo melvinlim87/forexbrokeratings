@@ -158,7 +158,7 @@ export default function FeaturedBrokers() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-16 section-gradient">
+    <section className="py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
         <motion.div 
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
