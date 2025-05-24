@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, ArrowRight, Shield, TrendingUp } from 'lucide-react';
+import { Award, ArrowRight, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -114,7 +114,7 @@ export default function RankingsPage() {
                         {broker.name}
                       </h3>
                       <div className="flex items-center">
-                        <Star className="h-5 w-5 text-yellow-500 fill-yellow-500 mr-1" />
+                        <Award className="h-5 w-5 text-yellow-500 fill-yellow-500 mr-1" />
                         <span className="font-medium">{broker.rating}</span>
                       </div>
                     </div>

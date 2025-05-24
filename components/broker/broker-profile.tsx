@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, Shield, Check, X, ChevronDown, ChevronUp, Info } from 'lucide-react';
+import { Award, Shield, Check, X, ChevronDown, ChevronUp, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -520,7 +520,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                         <div>
                           <div className="font-medium">{broker.name}</div>
                           <div className="flex items-center text-sm">
-                            <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
+                            <Award className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
                             <span>{broker.rating}</span>
                           </div>
                         </div>
