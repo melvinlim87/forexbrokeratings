@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Award, Shield, Users } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star } from 'lucide-react';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -134,7 +134,7 @@ export default function TopHero() {
                 </div>
               </motion.div>
             ))}
-          </div>@@ .. @@
+          </div>
 
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
