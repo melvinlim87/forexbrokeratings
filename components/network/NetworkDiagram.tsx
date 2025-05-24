@@ -148,7 +148,11 @@ export default function NetworkDiagram() {
       {/* Center node */}
       <motion.div
         className="absolute pointer-events-none"
-        style={{ left: centerX, top: centerY, transform: 'translate(-50%, -50%)' }}
+        style={{ 
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)'
+        }}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -156,9 +160,9 @@ export default function NetworkDiagram() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="relative"
+          className="relative w-16 h-16"
         >
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
             <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full" />
           </div>
         </motion.div>
@@ -167,12 +171,11 @@ export default function NetworkDiagram() {
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute left-1/2 top-1/2"
+            className="absolute"
             initial={{ opacity: 0 }}
             animate={{
               opacity: [0.3, 1, 0.3],
               scale: [0.8, 1.2, 0.8],
-              rotate: 360,
             }}
             transition={{
               duration: 3,
@@ -181,7 +184,9 @@ export default function NetworkDiagram() {
               ease: "linear"
             }}
             style={{
-              transform: `translate(-50%, -50%) rotate(${i * 72}deg) translateY(-30px)`
+              left: `${50 + Math.cos((i * 72 * Math.PI) / 180) * 30}%`,
+              top: `${50 + Math.sin((i * 72 * Math.PI) / 180) * 30}%`,
+              transform: 'translate(-50%, -50%)'
             }}
           >
             <Star 
