@@ -20,8 +20,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 180,
-    y: 50,
+    x: 100,
+    y: 30,
     angle: 0
   },
   {
@@ -29,8 +29,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 700,
-    y: 50,
+    x: 720,
+    y: 30,
     angle: 120
   },
   {
@@ -38,8 +38,8 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 180,
-    y: 330,
+    x: 100,
+    y: 370,
     angle: 240
   },
   {
@@ -47,16 +47,16 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 700,
-    y: 330,
+    x: 720,
+    y: 370,
     angle: 360
   }
 ];
 
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const centerX = 410; 
-  const centerY = 200;
+  const centerX = 410;
+  const centerY = 190;
 
   return (
     <div className="relative w-full h-[500px] overflow-visible">
@@ -149,8 +149,8 @@ export default function NetworkDiagram() {
       <motion.div
         className="absolute pointer-events-none"
         style={{ 
-          left: '50%',
-          top: '50%',
+          left: centerX,
+          top: centerY,
           transform: 'translate(-50%, -50%)'
         }}
         initial={{ scale: 0, opacity: 0 }}
@@ -163,7 +163,7 @@ export default function NetworkDiagram() {
           className="relative w-16 h-16"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
-            <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full" />
+            <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full shadow-lg" />
           </div>
         </motion.div>
         
@@ -185,7 +185,7 @@ export default function NetworkDiagram() {
             }}
             style={{
               left: `${50 + Math.cos((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
-              top: `${50 + Math.sin((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
+              top: `${50 + Math.sin((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`, 
               transform: 'translate(-50%, -50%)'
             }}
           >
@@ -206,14 +206,14 @@ export default function NetworkDiagram() {
           key={index}
           className="absolute z-10"
           style={{ left: feature.x, top: feature.y }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
           <div 
-            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20"
+            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20 shadow-lg"
           >
             <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-metallic">
               <div className="relative z-10">
