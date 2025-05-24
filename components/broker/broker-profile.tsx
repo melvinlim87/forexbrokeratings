@@ -95,7 +95,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
-            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Broker Overview</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -141,7 +156,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
 
             {/* Fees Section */}
-            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Fees & Commissions</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,7 +206,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
 
             {/* Deposit & Withdrawal Section */}
-            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Deposits & Withdrawals</h2>
                 <div className="space-y-4">
@@ -220,7 +265,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
 
             {/* Regulation Section */}
-            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Regulation & Security</h2>
                 <div className="space-y-6">
@@ -256,7 +316,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
 
             {/* Customer Support Section */}
-            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Customer Support</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -295,7 +370,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Quick Actions</h3>
                 <div className="space-y-3">
@@ -310,7 +400,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
             
             {/* Overall Rating */}
-            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Overall Rating</h3>
                 <div className="space-y-4">
@@ -335,7 +440,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
             
             {/* Pros & Cons */}
-            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Pros & Cons</h3>
                 <div className="space-y-4">
@@ -366,7 +486,22 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
             </Card>
             
             {/* Related Brokers */}
-            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Similar Brokers</h3>
                 <div className="space-y-4">
