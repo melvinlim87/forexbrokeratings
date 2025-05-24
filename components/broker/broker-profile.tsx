@@ -94,9 +94,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Overview Section */}
             <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Broker Overview</h2>
@@ -142,14 +140,164 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
               </div>
             </Card>
 
-            {/* Additional sections would go here */}
+            {/* Fees Section */}
+            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Fees & Commissions</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-medium mb-3">Trading Fees</h3>
+                    <ul className="space-y-2">
+                      {Object.entries(brokerData.fees.trading).map(([key, value]) => (
+                        <li key={key} className="flex items-center justify-between">
+                          <span className="text-gray-600 dark:text-gray-400">
+                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                          </span>
+                          <span className="font-medium">{value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium mb-3">Non-Trading Fees</h3>
+                    <ul className="space-y-2">
+                      {Object.entries(brokerData.fees.nonTrading).map(([key, value]) => (
+                        <li key={key} className="flex items-center justify-between">
+                          <span className="text-gray-600 dark:text-gray-400">
+                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                          </span>
+                          <span className="font-medium">{value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Deposit & Withdrawal Section */}
+            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Deposits & Withdrawals</h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Payment Methods</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {brokerData.depositWithdrawal.methods.map((method: string) => (
+                        <Badge key={method} variant="secondary" className="bg-gray-100 dark:bg-gray-800">
+                          {method}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h3 className="text-lg font-medium mb-2">Processing Times</h3>
+                      <ul className="space-y-2">
+                        <li className="flex items-start">
+                          <span className="text-gray-600 dark:text-gray-400">Deposits: </span>
+                          <span className="ml-2 font-medium">{brokerData.depositWithdrawal.depositTime}</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-gray-600 dark:text-gray-400">Withdrawals: </span>
+                          <span className="ml-2 font-medium">{brokerData.depositWithdrawal.withdrawalTime}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-medium mb-2">Base Currencies</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {brokerData.depositWithdrawal.baseCurrencies.map((currency: string) => (
+                          <Badge key={currency} variant="outline">
+                            {currency}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Regulation Section */}
+            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Regulation & Security</h2>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Primary Regulator</h3>
+                    <p className="font-medium">{brokerData.regulation.primary}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Additional Regulations</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {brokerData.regulation.additional.map((reg: string) => (
+                        <Badge key={reg} variant="secondary" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                          {reg}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium mb-2">Security Features</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-center">
+                        <Shield className="h-5 w-5 text-green-500 mr-2" />
+                        <span>{brokerData.regulation.clientFunds}</span>
+                      </li>
+                      <li className="flex items-center">
+                        <Shield className="h-5 w-5 text-green-500 mr-2" />
+                        <span>{brokerData.regulation.investorCompensation}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Customer Support Section */}
+            <Card className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Customer Support</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-medium mb-3">Contact Channels</h3>
+                    <ul className="space-y-2">
+                      {brokerData.customerSupport.channels.map((channel: string) => (
+                        <li key={channel} className="flex items-center">
+                          <Check className="h-5 w-5 text-green-500 mr-2" />
+                          <span>{channel}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium mb-3">Support Details</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <span className="text-gray-600 dark:text-gray-400">Hours: </span>
+                        <span className="ml-2 font-medium">{brokerData.customerSupport.hours}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 dark:text-gray-400">Response Time: </span>
+                        <span className="ml-2 font-medium">{brokerData.customerSupport.responseTime}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-gray-600 dark:text-gray-400">Languages: </span>
+                        <span className="ml-2 font-medium">{brokerData.customerSupport.languages.join(', ')}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+                <h3 className="text-xl font-semibold mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <Button className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover">
                     Open Account
@@ -160,8 +308,93 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Additional sidebar components would go here */}
+            
+            {/* Overall Rating */}
+            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Overall Rating</h3>
+                <div className="space-y-4">
+                  {Object.entries(brokerData.scores).map(([key, value]: [string, number]) => (
+                    <div key={key}>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}
+                        </span>
+                        <span className="font-medium">{value}/5</span>
+                      </div>
+                      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
+                          style={{ width: `${(value / 5) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* Pros & Cons */}
+            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Pros & Cons</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-lg font-medium text-green-600 dark:text-green-500 mb-2">Pros</h4>
+                    <ul className="space-y-2">
+                      {brokerData.pros.map((pro: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                          <span>{pro}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-red-600 dark:text-red-500 mb-2">Cons</h4>
+                    <ul className="space-y-2">
+                      {brokerData.cons.map((con: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <X className="h-5 w-5 text-red-500 mr-2 mt-0.5" />
+                          <span>{con}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* Related Brokers */}
+            <Card className="bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-metallic">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Similar Brokers</h3>
+                <div className="space-y-4">
+                  {relatedBrokers.map((broker: any) => (
+                    <Link key={broker.id} href={`/broker/${broker.slug}`}>
+                      <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded mr-3">
+                          <Image
+                            src={broker.logo}
+                            alt={broker.name}
+                            layout="fill"
+                            objectFit="contain"
+                            className="p-1"
+                          />
+                        </div>
+                        <div>
+                          <div className="font-medium">{broker.name}</div>
+                          <div className="flex items-center text-sm">
+                            <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
+                            <span>{broker.rating}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
