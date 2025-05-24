@@ -20,7 +20,7 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 200,
+    x: 170,
     y: 50,
     angle: 0
   },
