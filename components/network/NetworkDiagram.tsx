@@ -16,7 +16,7 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    icon: <Star className="h-6 w-16" />,
+    icon: <Star className="h-6 w-6" />,
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
@@ -59,7 +59,7 @@ export default function NetworkDiagram() {
   const centerY = 225;
 
   return (
-    <div className="relative w-full h-[500px] overflow-visible">
+    <div className="relative w-full h-[1500px] overflow-visible">
       {/* Background gradient animation */}
       <motion.div
         className="absolute inset-0 opacity-20 pointer-events-none"
