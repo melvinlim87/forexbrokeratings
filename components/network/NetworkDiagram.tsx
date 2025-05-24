@@ -11,7 +11,7 @@ interface Feature {
   gradient: string;
   x: number;
   y: number;
-  angle: number;
+  connections: { to: number; type: 'horizontal' | 'vertical' }[];
 }
 
 const features: Feature[] = [
@@ -22,7 +22,10 @@ const features: Feature[] = [
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
     x: 170,
     y: 50,
-    angle: 0
+    connections: [
+      { to: 1, type: 'horizontal' },
+      { to: 2, type: 'vertical' }
+    ]
   },
   {
     icon: <Shield className="h-6 w-6" />,
@@ -31,7 +34,9 @@ const features: Feature[] = [
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
     x: 710,
     y: 50,
-    angle: 120
+    connections: [
+      { to: 3, type: 'vertical' }
+    ]
   },
   {
     icon: <Users className="h-6 w-6" />,
@@ -40,7 +45,9 @@ const features: Feature[] = [
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
     x: 170,
     y: 370,
-    angle: 240
+    connections: [
+      { to: 3, type: 'horizontal' }
+    ]
   },
   {
     icon: <Brain className="h-6 w-6" />,
@@ -49,14 +56,12 @@ const features: Feature[] = [
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     x: 710,
     y: 370,
-    angle: 360
+    connections: []
   }
 ];
 
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const centerX = 410;
-  const centerY = 190;
 
   return (
     <div className="relative w-full h-[500px] overflow-visible">
@@ -92,113 +97,68 @@ export default function NetworkDiagram() {
         </defs>
 
         {features.map((feature, index) => {
-          return (
-            <g key={index}>
-              {/* Line to center */}
-              <motion.line
-                x1={feature.x}
-                y1={feature.y}
-                x2={centerX + (hoveredNode === index ? 5 : 0)}
-                y2={centerY + (hoveredNode === index ? 5 : 0)}
-                stroke="url(#lineGradient)"
-                strokeWidth="1"
-                filter="url(#glow)"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: 1, 
-                  opacity: hoveredNode === index ? 0.8 : 0.4 
-                }}
-                transition={{ duration: 1.5, delay: index * 0.2 }}
-              />
-              
-              {/* Flowing nodes on the line */}
-              {[...Array(3)].map((_, i) => (
-                <motion.circle
-                  key={i}
-                  r="3"
-                  fill="white"
+          return feature.connections.map((connection, connIndex) => {
+            const targetFeature = features[connection.to];
+            const isHorizontal = connection.type === 'horizontal';
+            
+            const x1 = feature.x;
+            const y1 = feature.y;
+            const x2 = targetFeature.x;
+            const y2 = targetFeature.y;
+            
+            const path = isHorizontal
+              ? `M ${x1} ${y1} L ${x2} ${y1}`
+              : `M ${x1} ${y1} L ${x1} ${y2}`;
+            
+            return (
+              <g key={`${index}-${connIndex}`}>
+                <motion.path
+                  d={path}
+                  stroke="url(#lineGradient)"
+                  strokeWidth="1"
                   filter="url(#glow)"
-                  initial={{ 
-                    opacity: 0,
-                    pathOffset: i * 0.3 
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ 
+                    pathLength: 1, 
+                    opacity: hoveredNode === index || hoveredNode === connection.to ? 0.8 : 0.4 
                   }}
-                  animate={{
-                    opacity: [0, 1, 0],
-                    pathOffset: [0, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    delay: i * 1,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                >
-                  <animateMotion
-                    dur="3s"
-                    repeatCount="indefinite"
-                    path={`M ${feature.x} ${feature.y} L ${centerX} ${centerY}`}
-                  />
-                </motion.circle>
-              ))}
-            </g>
-          );
+                  transition={{ duration: 1.5, delay: index * 0.2 }}
+                />
+                
+                {/* Flowing nodes on the line */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.circle
+                    key={i}
+                    r="3"
+                    fill="white"
+                    filter="url(#glow)"
+                    initial={{ 
+                      opacity: 0,
+                      pathOffset: i * 0.3 
+                    }}
+                    animate={{
+                      opacity: [0, 1, 0],
+                      pathOffset: [0, 1],
+                    }}
+                    transition={{
+                      duration: 3,
+                      delay: i * 1,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
+                    <animateMotion
+                      dur="3s"
+                      repeatCount="indefinite"
+                      path={path}
+                    />
+                  </motion.circle>
+                ))}
+              </g>
+            );
+          });
         })}
       </svg>
-
-      {/* Center node */}
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{ 
-          left: centerX,
-          top: centerY,
-          transform: 'translate(-50%, -50%)'
-        }}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="relative w-16 h-16"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
-            <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full shadow-lg" />
-          </div>
-        </motion.div>
-        
-        {/* Animated stars around center circle */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 3,
-              delay: i * 0.6,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{
-              left: `${50 + Math.cos((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
-              top: `${50 + Math.sin((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`, 
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            <Star 
-              className="w-4 h-4 text-yellow-400"
-              fill="currentColor"
-              style={{
-                filter: 'drop-shadow(0 0 3px rgba(250, 204, 21, 0.5))'
-              }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
 
       {/* Feature nodes */}
       {features.map((feature, index) => (
