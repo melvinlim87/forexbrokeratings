@@ -184,13 +184,13 @@ export default function NetworkDiagram() {
               ease: "linear"
             }}
             style={{
-              left: `${50 + Math.cos((i * 72 * Math.PI) / 180) * 30}%`,
-              top: `${50 + Math.sin((i * 72 * Math.PI) / 180) * 30}%`,
+              left: `${50 + Math.cos((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
+              top: `${50 + Math.sin((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
               transform: 'translate(-50%, -50%)'
             }}
           >
             <Star 
-              className="w-3 h-3 text-yellow-400"
+              className="w-4 h-4 text-yellow-400"
               fill="currentColor"
               style={{
                 filter: 'drop-shadow(0 0 3px rgba(250, 204, 21, 0.5))'
