@@ -66,11 +66,11 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 pt-20 pb-16 relative z-10"
+        className="container mx-auto px-4 pt-32 pb-20 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-8"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -84,7 +84,7 @@ export default function TopHero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg p-4 rounded-2xl shadow-metallic border border-white/30 flex items-center space-x-1">
+            <div className="bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-metallic border border-white/30 flex items-center space-x-2">
               {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
@@ -104,7 +104,7 @@ export default function TopHero() {
                   className="relative"
                 >
                   <Star 
-                    className="w-8 h-8 text-amber-500 fill-amber-500"
+                    className="w-10 h-10 text-amber-500 fill-amber-500"
                     style={{
                       filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                     }}
@@ -115,7 +115,7 @@ export default function TopHero() {
           </motion.div>
 
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-16 font-light"
+            className="text-xl md:text-2xl text-gray-600 mb-24 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
