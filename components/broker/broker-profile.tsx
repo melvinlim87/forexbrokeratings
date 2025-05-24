@@ -65,7 +65,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
   };
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-8">
       {/* Progress bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-blue-600 dark:bg-blue-500 z-50" 
