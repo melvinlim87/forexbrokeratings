@@ -47,7 +47,7 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 800,
+    x: 850,
     y: 350,
     angle: 360
   }
