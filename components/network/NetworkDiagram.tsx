@@ -20,8 +20,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 150,
-    y: 150,
+    x: 200,
+    y: 50,
     angle: 0
   },
   {
@@ -29,7 +29,7 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 670,
+    x: 700,
     y: 50,
     angle: 120
   },
@@ -38,7 +38,7 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 150,
+    x: 200,
     y: 330,
     angle: 240
   },
@@ -47,7 +47,7 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 670,
+    x: 700,
     y: 330,
     angle: 360
   }
