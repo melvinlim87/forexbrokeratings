@@ -137,19 +137,19 @@ export default function TopHero() {
             {[
               {
                 icon: <Star className="h-6 w-6" />,
-                title: "100+ Brokers",
+                title: "200+ Brokers",
                 description: "Comprehensive analysis of top forex brokers",
                 color: "from-gray-700 to-gray-900"
               },
               {
                 icon: <Shield className="h-6 w-6" />,
-                title: "Real-time Data",
-                description: "Up-to-date ratings and market insights",
+                title: "Trusted Ratings",
+                description: "Trusted By More Than 100,000 Traders Worldwide",
                 color: "from-gray-700 to-gray-900"
               },
               {
                 icon: <Users className="h-6 w-6" />,
-                title: "Global Coverage",
+                title: "Brokers Mediation Centre",
                 description: "Reviews from multiple rating platforms",
                 color: "from-gray-700 to-gray-900"
               }
