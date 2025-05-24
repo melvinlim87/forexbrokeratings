@@ -66,28 +66,10 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 pt-24 pb-16 relative z-10"
+        className="container mx-auto px-4 pt-16 pb-16 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Forex Broker Ratings
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-600 mb-12 font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            The Aggregated Forex Broker Ratings Across All Rating Platforms
-          </motion.p>
-          
-          <div className="flex justify-center space-x-4 mb-12 -ml-4">
+          <div className="flex justify-center space-x-4 mb-8">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
@@ -115,6 +97,25 @@ export default function TopHero() {
               </motion.div>
             ))}
           </div>
+
+          <motion.h1 
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Forex Broker Ratings
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-600 mb-12 font-light"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            The Aggregated Forex Broker Ratings Across All Rating Platforms
+          </motion.p>
+          
           <NetworkDiagram />
         </div>
       </motion.div>
