@@ -148,7 +148,11 @@ export default function NetworkDiagram() {
       {/* Center node */}
       <motion.div
         className="absolute pointer-events-none"
-        style={{ left: centerX, top: centerY }}
+        style={{ 
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)'
+        }}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -156,12 +160,45 @@ export default function NetworkDiagram() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -translate-x-1/2 -translate-y-1/2"
+          className="relative"
         >
           <div className="w-20 h-20 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
             <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full" />
           </div>
         </motion.div>
+        
+        {/* Animated stars around center circle */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.2, 0.8],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 3,
+              delay: i * 0.6,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              left: '50%',
+              top: '50%',
+              transform: `translate(-50%, -50%) rotate(${i * 72}deg) translateY(-50px)`
+            }}
+          >
+            <Star 
+              className="w-4 h-4 text-yellow-400"
+              fill="currentColor"
+              style={{
+                filter: 'drop-shadow(0 0 3px rgba(250, 204, 21, 0.5))'
+              }}
+            />
+          </motion.div>
+        ))}
       </motion.div>
 
       {/* Feature nodes */}
