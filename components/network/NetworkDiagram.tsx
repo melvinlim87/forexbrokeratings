@@ -172,10 +172,15 @@ export default function NetworkDiagram() {
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
-          <div 
-            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20 shadow-lg"
+          <div className="relative -translate-x-1/2 -translate-y-1/2 hover:z-20">
+            <div className="absolute inset-0 p-[1px] rounded-xl -z-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/50 via-purple-400/50 to-green-400/50 rounded-xl blur-sm" />
+            </div>
+            <div className="absolute inset-0 p-[1px] rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-green-400/20 rounded-xl" />
+            </div>
+            <div className="relative bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-metallic border border-white/20 dark:border-gray-800/50"
           >
-            <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-metallic">
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
