@@ -87,40 +87,37 @@ export default function TopHero() {
                 className="relative group"
               >
                 <div className="relative">
-                  {/* Larger outer star */}
                   <div className="relative">
                     <Star
-                      className="w-10 h-10 text-amber-600"
+                      className="w-8 h-8 text-amber-700"
                       fill="currentColor"
                       strokeWidth={1}
                       style={{
-                        filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.3))'
+                        filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.2))'
                       }}
                     />
                     
-                    {/* Smaller inner star */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Star
-                        className="w-6 h-6 text-amber-400"
+                        className="w-5 h-5 text-amber-500"
                         fill="currentColor"
                         strokeWidth={1}
                         style={{
-                          filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.5))'
+                          filter: 'drop-shadow(0 0 1px rgba(251, 191, 36, 0.3))'
                         }}
                       />
                     </div>
                   </div>
                   
-                  {/* Star-shaped flash effect */}
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     animate={{
                       scale: [1, 1.2, 1],
-                      opacity: [0, 0.6, 0],
+                      opacity: [0, 0.3, 0],
                       rotate: [0, 180, 360]
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 1,
                       repeat: Infinity,
                       delay: i * 0.2,
                       ease: "easeInOut"
@@ -129,19 +126,18 @@ export default function TopHero() {
                       clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
                     }}
                   >
-                    <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-600" />
+                    <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-amber-700" />
                   </motion.div>
                   
-                  {/* Connecting light beam */}
                   <motion.div
                     className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"
                     initial={{ scaleX: 0 }}
                     animate={{
                       scaleX: [0, 1, 0],
-                      opacity: [0, 0.3, 0]
+                      opacity: [0, 0.2, 0]
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 1,
                       repeat: Infinity,
                       delay: i * 0.2,
                       ease: "easeInOut"
