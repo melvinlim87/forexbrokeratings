@@ -87,7 +87,7 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
           
-          <div className="flex justify-center space-x-4 mb-12 -ml-8">
+          <div className="flex justify-center space-x-4 mb-12 -ml-4">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
@@ -107,7 +107,7 @@ export default function TopHero() {
                 className="relative"
               >
                 <Star 
-                  className="w-12 h-12 text-amber-500 fill-amber-500"
+                  className="w-10 h-10 text-amber-500 fill-amber-500"
                   style={{
                     filter: 'drop-shadow(0 0 4px rgba(251, 191, 36, 0.5))'
                   }}
