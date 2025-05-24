@@ -87,47 +87,36 @@ export default function TopHero() {
                 className="relative group"
               >
                 <div className="relative">
-                  {/* Base star */}
+                  {/* Two-tone base star */}
                   <Star
                     className="w-8 h-8 text-amber-400"
                     fill="currentColor"
-                    strokeWidth={0.5}
+                    strokeWidth={1.5}
+                    style={{
+                      filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.5))'
+                    }}
                   />
                   
-                  {/* Pulsing overlay star */}
+                  {/* Star-shaped flash effect */}
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     animate={{
-                      scale: [0.95, 1.05, 0.95],
-                      opacity: [0.4, 1, 0.4]
+                      scale: [1, 1.2, 1],
+                      opacity: [0, 0.8, 0],
+                      rotate: [0, 180, 360]
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 1.5,
                       repeat: Infinity,
                       delay: i * 0.2,
                       ease: "easeInOut"
+                    }}
+                    style={{
+                      clipPath: "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)"
                     }}
                   >
-                    <Star
-                      className="w-8 h-8 text-amber-400"
-                      fill="none"
-                      strokeWidth={1.5}
-                    />
+                    <div className="w-8 h-8 bg-gradient-to-br from-amber-300 to-amber-500" />
                   </motion.div>
-                  
-                  {/* Flash effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-amber-400/20"
-                    animate={{
-                      opacity: [0, 0.8, 0]
-                    }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                      ease: "easeInOut"
-                    }}
-                  />
                   
                   {/* Connecting light beam */}
                   <motion.div
@@ -135,7 +124,7 @@ export default function TopHero() {
                     initial={{ scaleX: 0 }}
                     animate={{
                       scaleX: [0, 1, 0],
-                      opacity: [0, 0.4, 0]
+                      opacity: [0, 0.3, 0]
                     }}
                     transition={{
                       duration: 1.5,
