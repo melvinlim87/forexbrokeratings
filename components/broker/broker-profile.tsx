@@ -17,6 +17,20 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
     setOpenSection(openSection === section ? null : section);
   };
 
+  // Helper function to safely render any value type
+  const renderValue = (value: unknown): string => {
+    if (typeof value === 'boolean') {
+      return String(value);
+    }
+    if (Array.isArray(value)) {
+      return value.join(', ');
+    }
+    if (value === null || value === undefined) {
+      return '-';
+    }
+    return String(value);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -118,12 +132,12 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                   <div>
                     <h3 className="text-lg font-medium mb-3">Trading Information</h3>
                     <ul className="space-y-2">
-                      {Object.entries(brokerData.tradingInfo).map(([key, value]: [string, any]) => (
+                      {Object.entries(brokerData.tradingInfo).map(([key, value]: [string, unknown]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </span>
-                          <span className="font-medium">{value}</span>
+                          <span className="font-medium">{renderValue(value)}</span>
                         </li>
                       ))}
                     </ul>
@@ -133,7 +147,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                   <div>
                     <h3 className="text-lg font-medium mb-3">Trading Features</h3>
                     <ul className="space-y-2">
-                      {Object.entries(brokerData.tradingFeatures).map(([key, value]: [string, any]) => (
+                      {Object.entries(brokerData.tradingFeatures).map(([key, value]: [string, unknown]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -145,7 +159,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                               <X className="h-5 w-5 text-red-500" />
                             )
                           ) : (
-                            <span className="font-medium">{value}</span>
+                            <span className="font-medium">{renderValue(value)}</span>
                           )}
                         </li>
                       ))}
@@ -183,7 +197,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                           <span className="text-gray-600 dark:text-gray-400">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </span>
-                          <span className="font-medium">{value}</span>
+                          <span className="font-medium">{renderValue(value)}</span>
                         </li>
                       ))}
                     </ul>
@@ -196,7 +210,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: any) {
                           <span className="text-gray-600 dark:text-gray-400">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </span>
-                          <span className="font-medium">{value}</span>
+                          <span className="font-medium">{renderValue(value)}</span>
                         </li>
                       ))}
                     </ul>
