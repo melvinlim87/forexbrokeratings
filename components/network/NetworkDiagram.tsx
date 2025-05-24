@@ -18,8 +18,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-blue-500 via-cyan-300 to-purple-500",
-    x: 200,
-    y: 200,
+    x: 250,
+    y: 150,
     angle: 0
   },
   {
@@ -27,8 +27,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-purple-500 via-pink-300 to-red-500",
-    x: 600,
-    y: 200,
+    x: 550,
+    y: 150,
     angle: 120
   },
   {
@@ -37,7 +37,7 @@ const features: Feature[] = [
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-green-500 via-teal-300 to-blue-500",
     x: 400,
-    y: 400,
+    y: 350,
     angle: 240
   }
 ];
@@ -156,7 +156,17 @@ export default function NetworkDiagram() {
             className="relative -translate-x-1/2 -translate-y-1/2"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-48 shadow-lg">
+            <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-64 shadow-lg">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-xl`}>
+                  <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[10px]" />
+                </div>
+              </motion.div>
+              <div className="relative z-10">
               <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${feature.gradient} p-0.5`}>
                 <div className="relative w-full h-full">
                   <motion.div
@@ -180,13 +190,14 @@ export default function NetworkDiagram() {
                 </div>
               </div>
               
-              <h3 className="text-base font-bold text-gray-900 dark:text-white text-center mb-1">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">
                 {feature.title}
               </h3>
               
-              <p className="text-xs text-gray-600 dark:text-gray-400 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                 {feature.description}
               </p>
+              </div>
             </div>
           </motion.div>
         </motion.div>
