@@ -38,7 +38,7 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 100,
+    x: 170,
     y: 370,
     angle: 240
   },
@@ -47,7 +47,7 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 720,
+    x: 710,
     y: 370,
     angle: 360
   }
