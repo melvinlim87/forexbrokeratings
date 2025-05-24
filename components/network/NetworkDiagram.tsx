@@ -39,7 +39,7 @@ const features: Feature[] = [
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
     x: 150,
-    y: 350,
+    y: 450,
     angle: 240
   },
   {
