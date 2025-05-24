@@ -152,13 +152,10 @@ export default function NetworkDiagram() {
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
-          <motion.div
-            className="relative -translate-x-1/2 -translate-y-1/2"
+          <div
+            className="relative -translate-x-1/2 -translate-y-1/2 before:absolute before:inset-0 before:p-[1px] before:rounded-xl before:-z-10 before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400 dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800 after:absolute after:inset-0 after:p-[1px] after:rounded-xl after:-z-20 after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent"
           >
-            <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-64 shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-xl opacity-50">
-                <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[10px]" />
-              </div>
+            <div className="relative bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-64 shadow-metallic">
               <div className="relative z-10">
               <div className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${feature.gradient} p-0.5`}>
                 <div className="relative w-full h-full">
@@ -191,7 +188,7 @@ export default function NetworkDiagram() {
               </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       ))}
     </div>
