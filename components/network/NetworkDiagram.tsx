@@ -55,7 +55,7 @@ const features: Feature[] = [
 
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const centerX = 420;
+  const centerX = 410;
   const centerY = 225;
 
   return (
