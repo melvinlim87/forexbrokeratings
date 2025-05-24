@@ -66,7 +66,7 @@ export default function TopHero() {
       <motion.div 
         ref={containerRef}
         style={{ y: springY, opacity: springOpacity }}
-        className="container mx-auto px-4 py-32 relative z-10"
+        className="container mx-auto px-4 pt-24 pb-16 relative z-10"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1 
@@ -87,7 +87,7 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
           
-          <div className="flex justify-center space-x-2 mb-16">
+          <div className="flex justify-center space-x-2 mb-12">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
