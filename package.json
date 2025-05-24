@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -10,5 +10,9 @@
   },
   "scripts": {
     "dev": "next dev"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.21",
+    "typescript": "5.8.3"
   }
 }
