@@ -70,8 +70,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/education" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
-                  Forex Education
+                <Link href="/ai-tools" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  AI Trading Tools
                 </Link>
               </li>
               <li>

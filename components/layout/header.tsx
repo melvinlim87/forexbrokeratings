@@ -94,7 +94,7 @@ function NavLinks() {
     { title: 'Broker Reviews', href: '/brokers', split: false },
     { title: 'Comparison', href: '/compare' },
     { title: 'Rankings', href: '/rankings' },
-    { title: 'Education', href: '/education' },
+    { title: 'AI Tools', href: '/ai-tools' },
     { title: 'Blog', href: '/blog' },
   ];
   
@@ -118,7 +118,7 @@ function MobileNavLinks() {
     { title: 'Broker Reviews', href: '/brokers', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
-    { title: 'Education', href: '/education', icon: <Globe className="h-5 w-5 mr-3" /> },
+    { title: 'AI Tools', href: '/ai-tools', icon: <Globe className="h-5 w-5 mr-3" /> },
     { title: 'Blog', href: '/blog', icon: <Globe className="h-5 w-5 mr-3" /> },
   ];
   

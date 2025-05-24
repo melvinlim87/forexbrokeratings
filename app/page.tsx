@@ -5,7 +5,7 @@ import ComparisonSection from '@/components/home/comparison-section';
 import PromotionsSection from '@/components/home/promotions-section';
 import LatestReviews from '@/components/home/latest-reviews';
 import TrustedBySection from '@/components/home/trusted-by-section';
-import EducationSection from '@/components/home/education-section';
+import AIToolsSection from '@/components/home/ai-tools-section';
 import Newsletter from '@/components/home/newsletter';
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <PromotionsSection />
       <LatestReviews />
       <TrustedBySection />
-      <EducationSection />
+      <AIToolsSection />
       <Newsletter />
     </div>
   );
