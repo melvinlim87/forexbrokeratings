@@ -20,7 +20,7 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 170,
+    x: 225,
     y: 50,
     angle: 0
   },
@@ -29,7 +29,7 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 710,
+    x: 655,
     y: 50,
     angle: 120
   },
@@ -38,7 +38,7 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 170,
+    x: 225,
     y: 370,
     angle: 240
   },
@@ -47,7 +47,7 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 710,
+    x: 655,
     y: 370,
     angle: 360
   }
@@ -55,8 +55,8 @@ const features: Feature[] = [
 
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
-  const centerX = 410;
-  const centerY = 190;
+  const centerX = 440;
+  const centerY = 210;
 
   return (
     <div className="relative w-full h-[500px] overflow-visible">
@@ -94,12 +94,12 @@ export default function NetworkDiagram() {
         {features.map((feature, index) => {
           return (
             <g key={index}>
-              {/* Line to center */}
+              {/* Vertical and horizontal lines */}
               <motion.line
                 x1={feature.x}
                 y1={feature.y}
-                x2={centerX + (hoveredNode === index ? 5 : 0)}
-                y2={centerY + (hoveredNode === index ? 5 : 0)}
+                x2={feature.x}
+                y2={centerY}
                 stroke="url(#lineGradient)"
                 strokeWidth="1"
                 filter="url(#glow)"
@@ -109,6 +109,21 @@ export default function NetworkDiagram() {
                   opacity: hoveredNode === index ? 0.8 : 0.4 
                 }}
                 transition={{ duration: 1.5, delay: index * 0.2 }}
+              />
+              <motion.line
+                x1={feature.x}
+                y1={centerY}
+                x2={centerX}
+                y2={centerY}
+                stroke="url(#lineGradient)"
+                strokeWidth="1"
+                filter="url(#glow)"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ 
+                  pathLength: 1, 
+                  opacity: hoveredNode === index ? 0.8 : 0.4 
+                }}
+                transition={{ duration: 1.5, delay: index * 0.2 + 0.2 }}
               />
               
               {/* Flowing nodes on the line */}
@@ -136,7 +151,7 @@ export default function NetworkDiagram() {
                   <animateMotion
                     dur="3s"
                     repeatCount="indefinite"
-                    path={`M ${feature.x} ${feature.y} L ${centerX} ${centerY}`}
+                    path={`M ${feature.x} ${feature.y} L ${feature.x} ${centerY} L ${centerX} ${centerY}`}
                   />
                 </motion.circle>
               ))}
@@ -144,61 +159,6 @@ export default function NetworkDiagram() {
           );
         })}
       </svg>
-
-      {/* Center node */}
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{ 
-          left: centerX,
-          top: centerY,
-          transform: 'translate(-50%, -50%)'
-        }}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="relative w-16 h-16"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-[2px]">
-            <div className="w-full h-full bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full shadow-lg" />
-          </div>
-        </motion.div>
-        
-        {/* Animated stars around center circle */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 3,
-              delay: i * 0.6,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{
-              left: `${50 + Math.cos((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`,
-              top: `${50 + Math.sin((i * 72 * Math.PI) / 180 - Math.PI / 2) * 30}%`, 
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            <Star 
-              className="w-4 h-4 text-yellow-400"
-              fill="currentColor"
-              style={{
-                filter: 'drop-shadow(0 0 3px rgba(250, 204, 21, 0.5))'
-              }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
 
       {/* Feature nodes */}
       {features.map((feature, index) => (
