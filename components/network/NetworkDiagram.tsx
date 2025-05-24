@@ -16,7 +16,7 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    icon: <Star className="h-6 w-6" />,
+    icon: <Star className="h-6 w-16" />,
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
