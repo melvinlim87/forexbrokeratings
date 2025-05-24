@@ -18,8 +18,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-blue-500 via-cyan-300 to-purple-500",
-    x: 200,
-    y: 200,
+    x: 250,
+    y: 150,
     angle: 0
   },
   {
@@ -27,8 +27,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-purple-500 via-pink-300 to-red-500",
-    x: 600,
-    y: 200,
+    x: 550,
+    y: 150,
     angle: 120
   },
   {
@@ -37,7 +37,7 @@ const features: Feature[] = [
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-green-500 via-teal-300 to-blue-500",
     x: 400,
-    y: 400,
+    y: 350,
     angle: 240
   }
 ];
@@ -45,10 +45,10 @@ const features: Feature[] = [
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const centerX = 400;
-  const centerY = 300;
+  const centerY = 250;
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden">
+    <div className="relative w-full h-[400px] overflow-hidden">
       {/* Background gradient animation */}
       <motion.div
         className="absolute inset-0 opacity-20"
