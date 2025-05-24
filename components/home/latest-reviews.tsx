@@ -86,7 +86,7 @@ export default function LatestReviews() {
                   "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
                   "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                   "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-                )}
+                )}>
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
