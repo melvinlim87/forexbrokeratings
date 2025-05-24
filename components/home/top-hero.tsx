@@ -73,14 +73,14 @@ export default function TopHero() {
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{
                   opacity: 1,
                   scale: 1
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 200,
+                  stiffness: 150,
                   delay: i * 0.2,
                   duration: 0.8
                 }}
@@ -93,7 +93,7 @@ export default function TopHero() {
                       fill="currentColor"
                       strokeWidth={1}
                       style={{
-                        filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.1))'
+                        filter: 'drop-shadow(0 0 2px rgba(156, 163, 175, 0.2))'
                       }}
                     />
                     
@@ -103,30 +103,52 @@ export default function TopHero() {
                         fill="currentColor"
                         strokeWidth={1}
                         style={{
-                          filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.2))'
+                          filter: 'drop-shadow(0 0 2px rgba(156, 163, 175, 0.3))'
                         }}
                       />
                     </div>
+                    
+                    <motion.div
+                      className="absolute inset-0"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        color: ['rgb(209, 213, 219)', 'rgb(251, 191, 36)']
+                      }}
+                      transition={{
+                        duration: 0.8,
+                        delay: i * 0.2,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <Star
+                        className="w-8 h-8"
+                        fill="currentColor"
+                        strokeWidth={1}
+                        style={{
+                          filter: 'drop-shadow(0 0 3px rgba(251, 191, 36, 0.3))'
+                        }}
+                      />
+                      
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Star
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          strokeWidth={1}
+                          style={{
+                            filter: 'drop-shadow(0 0 2px rgba(251, 191, 36, 0.4))'
+                          }}
+                        />
+                      </div>
+                    </motion.div>
                   </div>
-                  
-                  <motion.div 
-                    className="absolute inset-0"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0, 0.3, 0] }}
-                    transition={{ 
-                      duration: 0.8,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                      ease: "easeInOut" 
-                    }} 
-                  />
                   
                   <motion.div
                     className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"
                     initial={{ scaleX: 0 }}
                     animate={{
                       scaleX: [0, 1, 0],
-                      opacity: [0, 0.15, 0]
+                      opacity: [0, 0.2, 0]
                     }}
                     transition={{
                       duration: 0.8,
