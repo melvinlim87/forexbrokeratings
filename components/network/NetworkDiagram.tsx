@@ -20,8 +20,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 50,
-    y: 50,
+    x: 150,
+    y: 150,
     angle: 0
   },
   {
@@ -62,7 +62,7 @@ export default function NetworkDiagram() {
     <div className="relative w-full h-[500px] overflow-hidden">
       {/* Background gradient animation */}
       <motion.div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-20 pointer-events-none"
         animate={{
           background: [
             'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3), transparent 70%)',
@@ -74,7 +74,7 @@ export default function NetworkDiagram() {
       />
 
       {/* Connection lines */}
-      <svg className="absolute inset-0 w-full h-full">
+      <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(147, 51, 234, 0.2)" />
@@ -134,7 +134,7 @@ export default function NetworkDiagram() {
 
       {/* Center node */}
       <motion.div
-        className="absolute"
+        className="absolute pointer-events-none"
         style={{ left: centerX, top: centerY }}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -155,7 +155,7 @@ export default function NetworkDiagram() {
       {features.map((feature, index) => (
         <motion.div
           key={index}
-          className="absolute"
+          className="absolute z-10"
           style={{ left: feature.x, top: feature.y }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -164,7 +164,7 @@ export default function NetworkDiagram() {
           onHoverEnd={() => setHoveredNode(null)}
         >
           <div 
-            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500"
+            className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20"
           >
             <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-64 shadow-metallic">
               <div className="relative z-10">
