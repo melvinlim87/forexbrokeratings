@@ -112,6 +112,7 @@ export default function TopHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ marginBottom: '3rem' }}
           >
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
