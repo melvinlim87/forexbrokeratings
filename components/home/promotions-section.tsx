@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { Gift, Timer, ArrowRight, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import {
   Tooltip,
   TooltipContent,

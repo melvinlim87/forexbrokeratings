@@ -211,7 +211,8 @@ export default function FeaturedBrokers() {
                     "dark:before:from-gray-500 dark:before:via-gray-600 dark:before:to-gray-700",
                     "after:from-black/30 after:via-black/20 after:to-transparent",
                     "dark:after:from-black/40 dark:after:via-black/30 dark:after:to-transparent"
-                  ])}
+                  ]
+                )}
               >
                 <CardContent className="p-6 flex items-center">
                   <div className="flex items-center w-12 mr-4">
