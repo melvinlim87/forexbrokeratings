@@ -39,7 +39,7 @@ const features: Feature[] = [
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
     x: 50,
-    y: 450,
+    y: 350,
     angle: 240
   },
   {
@@ -48,7 +48,7 @@ const features: Feature[] = [
     description: "AI-powered analysis of trading charts",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     x: 800,
-    y: 450,
+    y: 350,
     angle: 360
   }
 ];
