@@ -20,8 +20,8 @@ const features: Feature[] = [
     title: "200+ Brokers",
     description: "Comprehensive analysis of top forex brokers",
     gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 100,
-    y: 100,
+    x: 150,
+    y: 150,
     angle: 0
   },
   {
@@ -29,8 +29,8 @@ const features: Feature[] = [
     title: "Trusted Ratings",
     description: "Trusted By More Than 100,000 Traders Worldwide",
     gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 700,
-    y: 100,
+    x: 650,
+    y: 150,
     angle: 120
   },
   {
@@ -38,7 +38,7 @@ const features: Feature[] = [
     title: "Brokers Mediation Centre",
     description: "A place for brokers and traders to mediate complaints",
     gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 100,
+    x: 150,
     y: 350,
     angle: 240
   },
@@ -47,7 +47,7 @@ const features: Feature[] = [
     title: "AI Trading Analyser",
     description: "Advanced AI-powered analysis of trading patterns and broker performance",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 700,
+    x: 650,
     y: 350,
     angle: 360
   }
@@ -59,7 +59,7 @@ export default function NetworkDiagram() {
   const centerY = 225;
 
   return (
-    <div className="relative w-full h-[450px] overflow-hidden mt-12">
+    <div className="relative w-full h-[500px] overflow-hidden">
       {/* Background gradient animation */}
       <motion.div
         className="absolute inset-0 opacity-20"
