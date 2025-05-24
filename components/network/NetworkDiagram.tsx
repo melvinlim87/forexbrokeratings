@@ -146,15 +146,14 @@ export default function NetworkDiagram() {
           key={index}
           className="absolute"
           style={{ left: feature.x, top: feature.y }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: index * 0.2 }}
           onHoverStart={() => setHoveredNode(index)}
           onHoverEnd={() => setHoveredNode(null)}
         >
           <motion.div
             className="relative -translate-x-1/2 -translate-y-1/2"
-            whileHover={{ scale: 1.05 }}
           >
             <div className="relative bg-white dark:bg-gray-900 rounded-xl p-4 w-64 shadow-lg">
               <div className="absolute inset-0 bg-gradient-to-r ${feature.gradient} rounded-xl opacity-50">
@@ -173,10 +172,9 @@ export default function NetworkDiagram() {
                   <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
                     <motion.div
                       animate={hoveredNode === index ? {
-                        scale: [1, 1.2, 1],
-                        rotate: [0, 10, -10, 0],
+                        rotate: [0, 360],
+                        transition: { duration: 20, repeat: Infinity, ease: "linear" }
                       } : {}}
-                      transition={{ duration: 0.5 }}
                     >
                       {feature.icon}
                     </motion.div>
