@@ -56,7 +56,7 @@ const features: Feature[] = [
 export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const centerX = 410;
-  const centerY = 225;
+  const centerY = 205;
 
   return (
     <div className="relative w-full h-[500px] overflow-visible">
