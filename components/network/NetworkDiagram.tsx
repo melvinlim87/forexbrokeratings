@@ -48,7 +48,7 @@ const features: Feature[] = [
     description: "Advanced AI-powered analysis of trading patterns and broker performance",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     x: 750,
-    y: 350,
+    y: 450,
     angle: 360
   }
 ];
