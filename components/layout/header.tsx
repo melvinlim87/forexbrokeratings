@@ -91,7 +91,7 @@ export default function Header() {
 
 function NavLinks() {
   const links = [
-    { title: 'Broker Reviews', href: '/brokers', split: false },
+    { title: 'Broker Promotions', href: '/promotions', split: false },
     { title: 'Comparison', href: '/compare' },
     { title: 'Rankings', href: '/rankings' },
     { title: 'AI Tools', href: '/ai-tools' },
@@ -115,7 +115,7 @@ function NavLinks() {
 
 function MobileNavLinks() {
   const links = [
-    { title: 'Broker Reviews', href: '/brokers', icon: <BarChart className="h-5 w-5 mr-3" /> },
+    { title: 'Broker Promotions', href: '/promotions', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
     { title: 'AI Tools', href: '/ai-tools', icon: <Globe className="h-5 w-5 mr-3" /> },
