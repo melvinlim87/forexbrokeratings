@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star } from 'lucide-react';
+import { Globe, BarChart2, TrendingUp, Award, Shield, Users, Star, Search } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import NetworkDiagram from '../network/NetworkDiagram';
 
 export default function TopHero() {
@@ -11,6 +13,7 @@ export default function TopHero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const [searchTerm, setSearchTerm] = useState('');
   
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
   const springOpacity = useSpring(opacity, { stiffness: 100, damping: 30 });
@@ -157,6 +160,34 @@ export default function TopHero() {
           >
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
+
+          <motion.div
+            className="max-w-2xl mx-auto mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="relative flex-grow">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </div>
+                <Input
+                  type="text"
+                  placeholder="Search for brokers..."
+                  className="pl-10 py-6 w-full bg-white/10 backdrop-blur-sm border-white/20 text-gray-800 dark:text-white placeholder:text-gray-500"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <Button
+                size="lg"
+                className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
+              >
+                Find Brokers
+              </Button>
+            </div>
+          </motion.div>
           
           <NetworkDiagram />
         </div>
