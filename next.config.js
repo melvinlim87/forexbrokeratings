@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: { 
     domains: ['images.pexels.com', 'via.placeholder.com'],
     unoptimized: true 
-  },
-  webpack: (config, { isServer }) => {
-    // Disable webpack cache to prevent EIO errors
-    config.cache = false;
-    return config;
   },
 };
 
