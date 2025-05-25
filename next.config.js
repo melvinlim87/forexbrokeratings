@@ -2,7 +2,16 @@
 const nextConfig = {
   output: 'export',
   images: { 
-    domains: ['images.pexels.com', 'via.placeholder.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com'
+      }
+    ],
     unoptimized: true 
   },
   eslint: {
