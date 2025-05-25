@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: { 
     domains: ['images.pexels.com', 'via.placeholder.com'],
     unoptimized: true 
+  },
+  experimental: {
+    appDir: true
   },
   webpack: (config, { isServer }) => {
     // Disable webpack cache to prevent EIO errors
