@@ -1,0 +1,14 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: {
+    domains: ['images.pexels.com', 'via.placeholder.com'],
+    unoptimized: true
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  trailingSlash: true
+};
+
+module.exports = nextConfig;
