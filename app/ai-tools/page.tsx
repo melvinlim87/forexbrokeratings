@@ -340,7 +340,31 @@ export default function AIToolsPage() {
   );
 }
 
-function ToolCard({ tool, index, hoveredCard, setHoveredCard }) {
+// Define interface for tool object
+interface Tool {
+  id: number;
+  title: string;
+  category: string;
+  icon: React.ReactNode;
+  description: string;
+  features: string[];
+  rating: number;
+  reviews: number;
+  popular?: boolean;
+  slug: string;
+}
+
+function ToolCard({ 
+  tool, 
+  index, 
+  hoveredCard, 
+  setHoveredCard 
+}: { 
+  tool: Tool; 
+  index: number; 
+  hoveredCard: number | null; 
+  setHoveredCard: (id: number | null) => void 
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

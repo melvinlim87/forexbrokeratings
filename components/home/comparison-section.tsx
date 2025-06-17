@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import { ArrowRight, Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { fetchAllBrokerDetails } from '@/lib/supabase';
 
 type Feature = {
   score?: number;
@@ -75,7 +76,8 @@ const brokerComparisonData: ComparisonData = {
         customerSupport: { score: 9.0, label: '24/7 Multi-language' },
         minDeposit: { value: '$50' },
         mobileApp: { score: 8.5, label: 'iOS & Android' }
-      }
+      },
+      page: "https://www.fxtm.com/"
     }
   ],
   'low-fees': [
@@ -170,7 +172,103 @@ const brokerComparisonData: ComparisonData = {
 
 export default function ComparisonSection() {
   const [activeTab, setActiveTab] = useState<keyof ComparisonData>('beginner-friendly');
+  const [comparisonData, setComparisonData] = useState<ComparisonData>(brokerComparisonData);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
+  useEffect(() => {
+    async function fetchBrokers() {
+      try {
+        console.log('Fetching brokers for comparison section...');
+        const data = await fetchAllBrokerDetails();
+        
+        if (!data || data.length === 0) {
+          throw new Error('No broker data available');
+        }
+        
+        console.log('Comparison brokers data:', data);
+        
+        // Parse arrays that might be stored as strings
+        const parseArrayField = (field: string[] | string | null | undefined) => {
+          if (!field) return [];
+          if (Array.isArray(field)) return field;
+          try {
+            return JSON.parse(field);
+          } catch {
+            return [field];
+          }
+        };
+        
+        // Format and categorize brokers
+        const formattedData: ComparisonData = {
+          'beginner-friendly': [],
+          'low-fees': [],
+          'advanced-trading': []
+        };
+        
+        // Take top 3 brokers for each category
+        data.slice(0, 9).forEach((broker: any, index: number) => {
+          const formattedBroker: Broker = {
+            id: index + 1,
+            name: broker.name || `Broker ${index + 1}`,
+            logo: broker.logo || `https://via.placeholder.com/100x50?text=${broker.name || 'Broker'}`,
+            page: broker.website || '#',
+            features: {}
+          };
+          
+          // Beginner-friendly features
+          if (index < 3) {
+            formattedBroker.features = {
+              userInterface: { score: broker.userInterfaceScore || 8.0, label: broker.userInterfaceLabel || 'Good' },
+              educationalContent: { score: broker.educationalContentScore || 8.0, label: broker.educationalContentLabel || 'Good' },
+              demoAccount: { value: broker.hasDemoAccount !== false },
+              customerSupport: { score: broker.customerSupportScore || 8.0, label: broker.customerSupportLabel || '24/7 Support' },
+              minDeposit: { value: `$${broker.minDeposit || 100}` },
+              mobileApp: { score: broker.mobileAppScore || 8.0, label: broker.mobileAppLabel || 'iOS & Android' }
+            };
+            formattedData['beginner-friendly'].push(formattedBroker);
+          }
+          
+          // Low-fees features
+          if (index >= 3 && index < 6) {
+            formattedBroker.features = {
+              spreads: { value: broker.spreads || 'From 1.0 pips' },
+              commissions: { value: broker.commissions || 'Varies' },
+              overnightFees: { score: broker.overnightFeesScore || 7.5, label: broker.overnightFeesLabel || 'Average' },
+              depositFees: { value: broker.depositFees || 'Free' },
+              withdrawalFees: { value: broker.withdrawalFees || 'Varies' },
+              inactivityFees: { value: broker.inactivityFees || 'After 60 days' }
+            };
+            formattedData['low-fees'].push(formattedBroker);
+          }
+          
+          // Advanced-trading features
+          if (index >= 6 && index < 9) {
+            formattedBroker.features = {
+              tradingPlatforms: { value: parseArrayField(broker.platforms).join(', ') || 'MT4/MT5' },
+              technicalTools: { score: broker.technicalToolsScore || 8.0, label: broker.technicalToolsLabel || 'Good' },
+              fundamentalTools: { score: broker.fundamentalToolsScore || 8.0, label: broker.fundamentalToolsLabel || 'Good' },
+              tradingAlgorithms: { value: broker.hasTradingAlgorithms !== false },
+              executionSpeed: { score: broker.executionSpeedScore || 8.5, label: broker.executionSpeedLabel || 'Fast' },
+              advancedOrderTypes: { score: broker.advancedOrderTypesScore || 8.0, label: broker.advancedOrderTypesLabel || 'Comprehensive' }
+            };
+            formattedData['advanced-trading'].push(formattedBroker);
+          }
+        });
+        
+        setComparisonData(formattedData);
+      } catch (err) {
+        console.error('Error fetching comparison brokers:', err);
+        setError('Failed to load broker comparison data');
+        // Keep using the fallback data
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchBrokers();
+  }, []);
+
   // Determine which feature fields to show based on active tab
   const getFeatureRows = () => {
     switch(activeTab) {
@@ -235,8 +333,8 @@ export default function ComparisonSection() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-white dark:bg-gray-950 w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Compare Top Forex Brokers</h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
@@ -264,15 +362,15 @@ export default function ComparisonSection() {
                           <th className="px-6 py-5 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
                             Broker
                           </th>
-                          {brokerComparisonData[tabValue].map((broker) => (
+                          {comparisonData[tabValue].map((broker) => (
                             <th key={broker.id} className="px-6 py-5 text-center">
                               <div className="flex flex-col items-center">
                                 <div className="h-10 w-24 relative mb-2">
                                   <Image
                                     src={broker.logo}
                                     alt={broker.name}
-                                    layout="fill"
-                                    objectFit="contain"
+                                    fill
+                                    style={{ objectFit: "contain" }}
                                   />
                                 </div>
                                 <span className="font-semibold text-gray-900 dark:text-white">
@@ -289,7 +387,7 @@ export default function ComparisonSection() {
                             <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
                               {row.label}
                             </td>
-                            {brokerComparisonData[tabValue].map((broker) => (
+                            {comparisonData[tabValue].map((broker) => (
                               <td key={broker.id} className="px-6 py-4 text-sm text-center">
                                 {renderFeatureCell(broker, row.key)}
                               </td>
@@ -298,7 +396,7 @@ export default function ComparisonSection() {
                         ))}
                         <tr className="bg-white dark:bg-gray-950">
                           <td className="px-6 py-4"></td>
-                          {brokerComparisonData[tabValue].map((broker) => (
+                          {comparisonData[tabValue].map((broker) => (
                             <td key={broker.id} className="px-6 py-4 text-center">
                               <Button size="sm" className="w-full" asChild>
                                 <a href={broker.page} target="_blank" rel="noopener noreferrer">
@@ -317,7 +415,7 @@ export default function ComparisonSection() {
           </CardContent>
         </Card>
         
-        <div className="mt-8 text-center">
+        <div className="mt-12 max-w-7xl mx-auto">
           <Button variant="outline" size="lg" asChild>
             <Link href="/compare">
               Create Custom Comparison <ArrowRight className="ml-2 h-4 w-4" />

@@ -83,8 +83,8 @@ export default function PromotionsSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-amber-50 to-white dark:from-amber-950/20 dark:to-gray-950">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-white dark:bg-gray-950 w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center p-2 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-4">
             <Gift className="h-6 w-6 text-amber-600 dark:text-amber-500" />
@@ -97,7 +97,7 @@ export default function PromotionsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 max-w-7xl mx-auto">
           {promotions.map((promo, index) => (
             <motion.div
               key={promo.id}
@@ -130,8 +130,8 @@ export default function PromotionsSection() {
                       <Image
                         src={promo.logo}
                         alt={promo.broker}
-                        layout="fill"
-                        objectFit="contain"
+                        fill
+                        style={{ objectFit: "contain" }}
                         className="p-1"
                       />
                     </div>
@@ -177,7 +177,7 @@ export default function PromotionsSection() {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-12 text-center max-w-7xl mx-auto">
           <Button variant="outline" size="lg" asChild>
             <Link href="/promotions">
               View All Promotions <ArrowRight className="ml-2 h-4 w-4" />

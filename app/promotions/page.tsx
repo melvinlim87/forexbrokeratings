@@ -337,8 +337,8 @@ function PromotionCard({ promo, index, hoveredCard, setHoveredCard }) {
               <Image
                 src={promo.logo}
                 alt={promo.broker}
-                layout="fill"
-                objectFit="contain"
+                fill
+                style={{ objectFit: "contain" }}
                 className="p-1"
               />
             </div>

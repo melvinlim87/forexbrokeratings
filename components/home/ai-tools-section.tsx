@@ -36,32 +36,31 @@ const aiTools = [
 
 export default function AIToolsSection() {
   return (
-    <section className="py-16 bg-white dark:bg-gray-950">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">AI Trading Tools</h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-              Enhance your trading with our cutting-edge AI-powered tools and analytics.
-            </p>
-          </div>
-          <Link href="/ai-tools" className="mt-4 md:mt-0 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400">
+    <section className="py-16 bg-gray-50 dark:bg-gray-900 w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">AI Trading Tools</h2>
+          <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Enhance your trading with our cutting-edge AI-powered tools and analytics.
+          </p>
+          <Link href="/ai-tools" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
             View all tools <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-12 w-full py-8">
           {aiTools.map((tool, index) => (
             <motion.div
               key={tool.id}
+              className="h-full w-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Link href={`/ai-tools/${tool.slug}`}>
-                <Card className="h-full hover:shadow-md transition-all duration-300 cursor-pointer">
-                  <CardContent className="p-6">
+              <Link href={`/ai-tools/${tool.slug}`} className="h-full block w-full">
+                <Card className="h-full w-full flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden group">
+                  <CardContent className="p-6 flex flex-col h-full w-full">
                     <div className="flex items-center mb-4">
                       <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
                         {tool.icon}
@@ -69,22 +68,23 @@ export default function AIToolsSection() {
                       <span className="ml-2 text-sm font-medium text-blue-600 dark:text-blue-500">
                         {tool.category}
                       </span>
-                      <div className="ml-auto flex items-center text-sm text-gray-500 dark:text-gray-400">
-                        <Zap className="h-4 w-4 mr-1" />
+                      <div className="ml-auto flex items-center text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                        <Zap className="h-4 w-4 mr-1 flex-shrink-0" />
                         <span>AI-Powered</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 min-h-[3rem]">
                       {tool.title}
                     </h3>
                     
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-grow">
                       {tool.description}
                     </p>
                     
-                    <div className="flex items-center text-blue-600 dark:text-blue-500 font-medium mt-4">
-                      Try now <ArrowRight className="ml-2 h-4 w-4" />
+                    <div className="mt-auto pt-2 text-blue-600 dark:text-blue-400 font-medium flex items-center group-hover:translate-x-1 transition-transform duration-200">
+                      Try now 
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                     </div>
                   </CardContent>
                 </Card>

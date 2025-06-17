@@ -1,0 +1,542 @@
+{
+  "name": "Part 2 - Facebook Pages Scrape",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "minutesInterval": 0,
+              "hoursInterval": 24
+            }
+          ],
+          "triggerAtTime": "03:00"
+        },
+        "timezone": "Asia/Singapore"
+      },
+      "id": "a9b8c7d6-e5f4-g3h2-i1j0-k9l8m7n6o5p4",
+      "name": "Cron Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/zuzka~facebook-pages-scraper/runs",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{$env.MCP_KEY}}"
+            },
+            {
+              "name": "search",
+              "value": "financial advisors singapore"
+            },
+            {
+              "name": "maxPagesPerQuery",
+              "value": 20
+            },
+            {
+              "name": "resultsLimit",
+              "value": 50
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true,
+              "maxRedirects": 5
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "method": "POST",
+        "continueOnFail": true
+      },
+      "id": "b9c8d7e6-f5g4-h3i2-j1k0-l9m8n7o6p5q4",
+      "name": "HTTP Request (Apify FB Pages)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        400,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$node[\"HTTP Request (Apify FB Pages)\"].statusCode}}",
+              "operation": "equal",
+              "value2": 201
+            }
+          ],
+          "string": [
+            {
+              "value1": "={{$node[\"HTTP Request (Apify FB Pages)\"].json.status}}",
+              "operation": "equal",
+              "value2": "CREATED"
+            }
+          ]
+        },
+        "combineOperation": "and"
+      },
+      "id": "c9d8e7f6-g5h4-i3j2-k1l0-m9n8o7p6q5r4",
+      "name": "IF (HTTP Success)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Get the run ID from the Apify response\nconst runId = items[0].json.data.id;\n\n// Wait for 30 seconds to allow the scraper to start collecting data\nawait new Promise(resolve => setTimeout(resolve, 30000));\n\n// Return the run ID for the next node to check results\nreturn [{\n  json: {\n    runId: runId\n  }\n}];"
+      },
+      "id": "d9e8f7g6-h5i4-j3k2-l1m0-n9o8p7q6r5s4",
+      "name": "Function (Get Run ID)",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        800,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.apify.com/v2/actor-runs/{{$node[\"Function (Get Run ID)\"].json.runId}}/dataset/items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{$env.MCP_KEY}}"
+            },
+            {
+              "name": "format",
+              "value": "json"
+            }
+          ]
+        },
+        "options": {},
+        "continueOnFail": true
+      },
+      "id": "e9f8g7h6-i5j4-k3l2-m1n0-o9p8q7r6s5t4",
+      "name": "HTTP Request (Get Results)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1000,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$node[\"HTTP Request (Get Results)\"].statusCode}}",
+              "operation": "equal",
+              "value2": 200
+            }
+          ],
+          "boolean": [
+            {
+              "value1": "={{Array.isArray($node[\"HTTP Request (Get Results)\"].json) && $node[\"HTTP Request (Get Results)\"].json.length > 0}}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "and"
+      },
+      "id": "f9g8h7i6-j5k4-l3m2-n1o0-p9q8r7s6t5u4",
+      "name": "IF (Results Available)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "try {\n  // Get the Facebook pages data\n  const pages = items[0].json;\n  \n  if (!Array.isArray(pages) || pages.length === 0) {\n    return [{ json: { error: \"No Facebook pages found\" } }];\n  }\n  \n  // Map and extract relevant fields\n  return pages.map(page => ({\n    json: {\n      name: page.name || \"Unknown Page\",\n      url: page.url || \"\",\n      category: page.category || \"Uncategorized\",\n      likes: page.likes || 0,\n      followers: page.followers || 0,\n      about: page.about || \"\",\n      phone: page.phone || \"\",\n      address: page.address || \"\",\n      website: page.website || \"\",\n      fb_page_id: page.pageId || `unknown-${Date.now()}`,\n      source: \"Facebook\",\n      date_added: new Date().toISOString(),\n      status: \"new\"\n    }\n  }));\n} catch (error) {\n  return [{ json: { error: error.message } }];\n}"
+      },
+      "id": "g9h8i7j6-k5l4-m3n2-o1p0-q9r8s7t6u5v4",
+      "name": "Function (Parse & Map Fields)",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{!$json.hasOwnProperty('error')}}",
+              "operation": "equal",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "h9i8j7k6-l5m4-n3o2-p1q0-r9s8t7u6v5w4",
+      "name": "IF (Parse Success)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "lookup",
+        "documentId": "={{$env.LEADS_SHEET_ID}}",
+        "sheetName": "Leads",
+        "lookupColumn": "FB Page ID",
+        "lookupValue": "={{$json.fb_page_id}}",
+        "options": {
+          "continue": {
+            "output": {
+              "maxMatches": 1
+            }
+          }
+        },
+        "continueOnFail": true
+      },
+      "id": "i9j8k7l6-m5n4-o3p2-q1r0-s9t8u7v6w5x4",
+      "name": "Google Sheets (Lookup)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        200
+      ],
+      "credentials": {
+        "googleServiceAccount": {
+          "id": "1",
+          "name": "Google Service Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$node[\"Google Sheets (Lookup)\"].json.length}}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "j9k8l7m6-n5o4-p3q2-r1s0-t9u8v7w6x5y4",
+      "name": "IF (New Lead)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "append",
+        "documentId": "={{$env.LEADS_SHEET_ID}}",
+        "sheetName": "Leads",
+        "columns": [
+          {
+            "column": "Name",
+            "value": "={{$json.name}}"
+          },
+          {
+            "column": "URL",
+            "value": "={{$json.url}}"
+          },
+          {
+            "column": "Category",
+            "value": "={{$json.category}}"
+          },
+          {
+            "column": "Likes",
+            "value": "={{$json.likes}}"
+          },
+          {
+            "column": "Followers",
+            "value": "={{$json.followers}}"
+          },
+          {
+            "column": "About",
+            "value": "={{$json.about}}"
+          },
+          {
+            "column": "Phone",
+            "value": "={{$json.phone}}"
+          },
+          {
+            "column": "Address",
+            "value": "={{$json.address}}"
+          },
+          {
+            "column": "Website",
+            "value": "={{$json.website}}"
+          },
+          {
+            "column": "FB Page ID",
+            "value": "={{$json.fb_page_id}}"
+          },
+          {
+            "column": "Source",
+            "value": "={{$json.source}}"
+          },
+          {
+            "column": "Date Added",
+            "value": "={{$json.date_added}}"
+          },
+          {
+            "column": "Status",
+            "value": "={{$json.status}}"
+          }
+        ],
+        "continueOnFail": true
+      },
+      "id": "k9l8m7n6-o5p4-q3r2-s1t0-u9v8w7x6y5z4",
+      "name": "Google Sheets (Append)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2200,
+        200
+      ],
+      "credentials": {
+        "googleServiceAccount": {
+          "id": "1",
+          "name": "Google Service Account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "l9m8n7o6-p5q4-r3s2-t1u0-v9w8x7y6z5a4",
+      "name": "No Operation (Skip Existing)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "m9n8o7p6-q5r4-s3t2-u1v0-w9x8y7z6a5b4",
+      "name": "No Operation (Parse Error)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "n9o8p7q6-r5s4-t3u2-v1w0-x9y8z7a6b5c4",
+      "name": "No Operation (No Results)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "o9p8q7r6-s5t4-u3v2-w1x0-y9z8a7b6c5d4",
+      "name": "No Operation (HTTP Error)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        600,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Cron Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Apify FB Pages)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Apify FB Pages)": {
+      "main": [
+        [
+          {
+            "node": "IF (HTTP Success)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (HTTP Success)": {
+      "main": [
+        [
+          {
+            "node": "Function (Get Run ID)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation (HTTP Error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function (Get Run ID)": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Get Results)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Get Results)": {
+      "main": [
+        [
+          {
+            "node": "IF (Results Available)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (Results Available)": {
+      "main": [
+        [
+          {
+            "node": "Function (Parse & Map Fields)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation (No Results)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function (Parse & Map Fields)": {
+      "main": [
+        [
+          {
+            "node": "IF (Parse Success)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (Parse Success)": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets (Lookup)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation (Parse Error)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets (Lookup)": {
+      "main": [
+        [
+          {
+            "node": "IF (New Lead)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (New Lead)": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets (Append)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation (Skip Existing)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "Leads Generation",
+      "color": "#ff0000"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2023-01-01T00:00:00.000Z",
+  "versionId": "87654321-4321-4321-4321-123456789012"
+}

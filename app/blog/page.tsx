@@ -237,7 +237,21 @@ export default function BlogPage() {
   );
 }
 
-function FeaturedPostCard({ post, index }) {
+// Define interface for blog post object
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  date: string;
+  readTime: number;
+  image: string;
+  featured?: boolean;
+  slug: string;
+}
+
+function FeaturedPostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -252,8 +266,8 @@ function FeaturedPostCard({ post, index }) {
               <Image
                 src={post.image}
                 alt={post.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
               />
             </div>
             <CardContent className="p-6 md:w-3/5 flex flex-col">
@@ -285,7 +299,7 @@ function FeaturedPostCard({ post, index }) {
   );
 }
 
-function BlogPostCard({ post, index }) {
+function BlogPostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -299,8 +313,8 @@ function BlogPostCard({ post, index }) {
             <Image
               src={post.image}
               alt={post.title}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
             />
           </div>
           <CardContent className="p-6">

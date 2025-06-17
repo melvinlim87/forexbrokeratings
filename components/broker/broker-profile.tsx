@@ -100,8 +100,8 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                   <Image
                     src={brokerData.logo}
                     alt={brokerData.name}
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div>
@@ -572,8 +572,8 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                           <Image
                             src={broker.logo}
                             alt={broker.name}
-                            layout="fill"
-                            objectFit="contain"
+                            fill
+                            style={{ objectFit: "contain" }}
                             className="p-1"
                           />
                         </div>

@@ -7,8 +7,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
+import { supabase, fetchAllBrokerDetails } from '@/lib/supabase';
 
-const heroSlides = [
+interface HeroSlide {
+  broker: string;
+  image: string;
+  logo: string;
+  title: string;
+  description: string;
+  rating: number;
+  reviews: string;
+  features: string[];
+  slug: string;
+  url: string;
+}
+
+const defaultHeroSlides: HeroSlide[] = [
   {
     broker: 'Pepperstone',
     image: 'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -18,7 +32,8 @@ const heroSlides = [
     rating: 4.9,
     reviews: '3,547',
     features: ['Raw spreads from 0.0 pips', 'Ultra-fast execution', 'Top-tier regulation'],
-    slug: 'pepperstone'
+    slug: 'pepperstone',
+    url: 'https://www.pepperstone.com'
   },
   {
     broker: 'IC Markets',
@@ -29,7 +44,8 @@ const heroSlides = [
     rating: 4.8,
     reviews: '2,892',
     features: ['True ECN connectivity', 'Institutional liquidity', '500+ trading instruments'],
-    slug: 'ic-markets'
+    slug: 'ic-markets',
+    url: 'https://www.icmarkets.com'
   },
   {
     broker: 'XM',
@@ -40,15 +56,55 @@ const heroSlides = [
     rating: 4.7,
     reviews: '4,124',
     features: ['$5 minimum deposit', 'Extensive education', 'Multi-language support'],
-    slug: 'xm'
+    slug: 'xm',
+    url: 'https://www.xm.com'
   }
 ];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(defaultHeroSlides);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch top brokers from Supabase
+  useEffect(() => {
+    const fetchTopBrokers = async () => {
+      try {
+        const brokers = await fetchAllBrokerDetails();
+        
+        // Take top 3 brokers by rating
+        const topBrokers = brokers.slice(0, 3);
+        
+        // Format the data for hero slides
+        const formattedSlides = topBrokers.map((broker, index) => ({
+          broker: broker.name,
+          image: broker.image || `https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1920`,
+          logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+          title: `#${index + 1} ${broker.bestFor || 'Top Rated Forex Broker'}`,
+          description: broker.description || 'A reliable broker with competitive trading conditions',
+          rating: broker.rating || 4.5,
+          reviews: '1,000+', // Default value since we don't have review count in the database
+          features: broker.pros?.slice(0, 3) || ['Competitive spreads', 'Multiple trading platforms', 'Regulated'],
+          slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`,
+          url: broker.url || '#'
+        }));
+        
+        setHeroSlides(formattedSlides.length > 0 ? formattedSlides : defaultHeroSlides);
+      } catch (error) {
+        console.error('Error fetching top brokers:', error);
+        setHeroSlides(defaultHeroSlides);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchTopBrokers();
+  }, []);
 
   useEffect(() => {
+    if (heroSlides.length === 0) return;
+    
     const timer = setInterval(() => {
       if (!isAnimating) {
         setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -56,9 +112,11 @@ export default function Hero() {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [isAnimating]);
+  }, [isAnimating, heroSlides.length]);
 
   const handleSlideChange = (direction: 'next' | 'prev') => {
+    if (heroSlides.length === 0) return;
+    
     setIsAnimating(true);
     if (direction === 'next') {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -68,53 +126,55 @@ export default function Hero() {
     setTimeout(() => setIsAnimating(false), 500);
   };
   
+  // Get current slide data with fallback
+  const currentSlideData = heroSlides[currentSlide] || defaultHeroSlides[0];
+
   return (
-    <div className="relative h-[600px] md:h-[700px] overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+    <div className="relative h-[600px] md:h-[700px] overflow-hidden flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      {isLoading ? (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-white text-lg">Loading...</p>
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
           <div className="relative h-full">
             <Image
-              src={heroSlides[currentSlide].image}
+              src={currentSlideData.image}
               alt="Hero background"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               quality={100}
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
 
-      <div className="absolute inset-0 flex items-center justify-between z-10 pointer-events-none">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-12 w-12 ml-4 pointer-events-auto text-white hover:bg-white/20"
-          onClick={() => handleSlideChange('prev')}
-        >
-          <ChevronLeft className="h-8 w-8" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-12 w-12 mr-4 pointer-events-auto text-white hover:bg-white/20"
-          onClick={() => handleSlideChange('next')}
-        >
-          <ChevronRight className="h-8 w-8" />
-        </Button>
+      <div className="absolute inset-0 flex items-center z-10 pointer-events-none">
+        <div className="container mx-auto px-4 w-full flex justify-between">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-12 w-12 pointer-events-auto text-white hover:bg-white/20"
+            onClick={() => handleSlideChange('prev')}
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-12 w-12 pointer-events-auto text-white hover:bg-white/20"
+            onClick={() => handleSlideChange('next')}
+          >
+            <ChevronRight className="h-8 w-8" />
+          </Button>
+        </div>
       </div>
 
-      <div className="absolute inset-0 flex items-center z-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
+      <div className="absolute inset-0 flex items-center z-20 w-full">
+        <div className="container mx-auto w-full">
+          <div className="max-w-5xl mx-auto text-center">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, y: 20 }}
@@ -122,63 +182,69 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2">
+              <div className="flex flex-col items-center mb-6">
+                <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2 mb-3">
                   <Image
-                    src={heroSlides[currentSlide].logo}
-                    alt={heroSlides[currentSlide].broker}
-                    layout="fill"
-                    objectFit="contain"
+                    src={currentSlideData.logo || '/placeholder-logo.png'}
+                    alt={currentSlideData.broker || 'Broker'}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="(max-width: 128px) 100vw, 128px"
                   />
                 </div>
-                <div className="text-white text-2xl font-bold">
-                  {heroSlides[currentSlide].broker}
-                </div>
+                <h2 className="text-white text-3xl font-bold">
+                  {currentSlideData.broker || 'Top Forex Broker'}
+                </h2>
               </div>
               
-              <div className="flex items-center space-x-2 mb-4">
+              <div className="flex flex-col items-center justify-center space-y-2 mb-6">
+                <div className="flex items-center justify-center space-x-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className={`h-6 w-6 ${
-                      i < Math.floor(heroSlides[currentSlide].rating)
+                      i < Math.floor(currentSlideData.rating || 0)
                         ? 'text-yellow-400 fill-yellow-400'
                         : 'text-gray-400'
                     }`}
                   />
                 ))}
-                <span className="text-white font-medium ml-2">
-                  {heroSlides[currentSlide].rating}/5 ({heroSlides[currentSlide].reviews} reviews)
+                <span className="text-white font-medium">
+                  {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(1) : '4.5')}/5
                 </span>
               </div>
+              <div className="text-white/80 text-sm">
+                {currentSlideData.reviews || '1,000+'} reviews
+              </div>
+              </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                {heroSlides[currentSlide].title}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                {currentSlideData.title || 'Top Rated Forex Broker'}
               </h1>
               
-              <p className="text-xl text-gray-200 mb-6">
-                {heroSlides[currentSlide].description}
+              <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                {currentSlideData.description || 'A reliable broker with competitive trading conditions'}
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                {heroSlides[currentSlide].features.map((feature, index) => (
+              <div className="flex flex-wrap justify-center gap-3 mb-10">
+                {(currentSlideData.features || ['Competitive spreads', 'Multiple trading platforms', 'Regulated']).map((feature, index) => (
                   <div
                     key={index}
                     className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
                   >
-                    <Check className="h-4 w-4 text-green-400 mr-2" />
+                    <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
                     <span className="text-sm text-white">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
                   className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
                   asChild
                 >
-                  <Link href={`/broker/${heroSlides[currentSlide].slug}`}>
+                  <Link href={`/broker/${currentSlideData.slug}`}>
                     View Full Review
                   </Link>
                 </Button>
@@ -189,7 +255,7 @@ export default function Hero() {
                   asChild
                 >
                   <a 
-                    href="https://example.com/broker"
+                    href={currentSlideData.url}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center"

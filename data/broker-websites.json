@@ -1,0 +1,88 @@
+{
+  "brokerWebsites": [
+    {
+      "name": "XM",
+      "url": "https://www.xm.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.8,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "eToro",
+      "url": "https://www.etoro.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.7,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "Pepperstone",
+      "url": "https://www.pepperstone.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.9,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "IG",
+      "url": "https://www.ig.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.8,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "FXTM",
+      "url": "https://www.forextime.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.6,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "AvaTrade",
+      "url": "https://www.avatrade.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.5,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "OANDA",
+      "url": "https://www.oanda.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.7,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "IC Markets",
+      "url": "https://www.icmarkets.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.8,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "Plus500",
+      "url": "https://www.plus500.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.4,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "FxGecko",
+      "url": "https://fxgecko.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.2,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "TrustedFinance",
+      "url": "https://trustedfinance.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.3,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    },
+    {
+      "name": "ForexBrokers",
+      "url": "https://forexbrokers.com",
+      "hasNewsOrBlog": true,
+      "rating": 4.6,
+      "timestamp": "2025-06-11T14:13:52+08:00"
+    }
+  ]
+}

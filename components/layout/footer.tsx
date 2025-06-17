@@ -3,9 +3,9 @@ import { Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+    <footer className="bg-gray-50 dark:bg-gray-900 border-t w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <Globe className="h-6 w-6 text-primary mr-2" />
@@ -121,14 +121,16 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-          <p className="text-base text-gray-500 dark:text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} ForexBrokerRatings.com. All rights reserved.
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">
-            Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors. 
-            The high degree of leverage can work against you as well as for you.
-          </p>
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <p className="text-base text-gray-500 dark:text-gray-400 text-center">
+              &copy; {new Date().getFullYear()} ForexBrokerRatings.com. All rights reserved.
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">
+              Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors. 
+              The high degree of leverage can work against you as well as for you.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

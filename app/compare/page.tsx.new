@@ -1,0 +1,288 @@
+"use client";
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { CheckCircle, XCircle, Star, ChevronDown, ChevronUp, Search, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import { supabase } from '@/lib/supabase';
+
+// Fallback data in case Supabase fetch fails
+const brokers = [
+  {
+    id: 1,
+    name: 'IronFX',
+    logo: 'https://via.placeholder.com/120x60?text=IronFX',
+    rating: 4.2,
+    minDeposit: 100,
+    spreads: 'From 0.7 pips',
+    leverage: 'Up to 1:500',
+    platforms: ['MT4', 'MT5', 'WebTrader'],
+    regulations: ['FCA', 'CySEC', 'ASIC'],
+    tradingInstruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'Metals'],
+    accountTypes: ['Micro', 'Premium', 'VIP', 'Zero Spread'],
+    depositMethods: ['Credit/Debit Card', 'Bank Transfer', 'Skrill', 'Neteller', 'UnionPay'],
+    customerSupport: ['Live Chat', 'Email', 'Phone'],
+    education: ['Video Tutorials', 'Webinars', 'eBooks', 'Glossary'],
+    pros: ['Multiple regulations', 'Wide range of platforms', 'Competitive spreads on premium accounts'],
+    cons: ['Higher spreads on standard accounts', 'Inactivity fee after 6 months'],
+    slug: 'ironfx'
+  },
+  // ... other brokers data
+];
+
+interface Broker {
+  id: number;
+  name: string;
+  logo: string;
+  rating: number;
+  minDeposit: number;
+  spreads: string;
+  leverage: string;
+  platforms: string[];
+  regulations: string[];
+  tradingInstruments: string[];
+  accountTypes: string[];
+  depositMethods: string[];
+  customerSupport: string[];
+  education: string[];
+  pros: string[];
+  cons: string[];
+  slug: string;
+}
+
+export default function ComparePage() {
+  // State management
+  const [brokersData, setBrokersData] = useState<Broker[]>(brokers);
+  const [selectedBrokers, setSelectedBrokers] = useState<number[]>([]);
+  const [openCategory, setOpenCategory] = useState<string>('overview');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // Layout classes for consistency
+  const containerClasses = "container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl";
+  const sectionClasses = "bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 p-6 mb-8 w-full";
+  const buttonClasses = "w-full sm:w-auto";
+  const gridClasses = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6";
+  const cardClasses = "border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center text-center min-h-[200px]";
+
+  // Handler functions
+  const addBroker = (brokerId: number) => {
+    if (!selectedBrokers.includes(brokerId) && selectedBrokers.length < 3) {
+      setSelectedBrokers([...selectedBrokers, brokerId]);
+    }
+  };
+
+  const removeBroker = (brokerId: number) => {
+    setSelectedBrokers(selectedBrokers.filter(id => id !== brokerId));
+  };
+
+  // Filter and process data
+  const selectedBrokerDetails = brokersData.filter(broker => 
+    selectedBrokers.includes(broker.id)
+  );
+
+  const availableBrokers = brokersData.filter(
+    broker => !selectedBrokers.includes(broker.id)
+  );
+
+  // Render helper functions
+  const renderCheckOrX = (value: boolean | string[] | undefined, item?: string) => {
+    if (Array.isArray(value) && item) {
+      return value.includes(item) ? (
+        <CheckCircle className="h-5 w-5 text-green-500" />
+      ) : (
+        <XCircle className="h-5 w-5 text-red-500" />
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+      {/* Hero Section */}
+      <div className="bg-blue-600 dark:bg-blue-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Compare Forex Brokers
+            </h1>
+            <p className="text-lg text-blue-100 mb-6 max-w-3xl mx-auto">
+              Select up to 3 brokers to compare their features, fees, platforms, and more.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Content */}
+      <div className={containerClasses}>
+        {selectedBrokers.length === 0 ? (
+          <div className={sectionClasses}>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+              Select Brokers to Compare
+            </h2>
+            <div className={gridClasses}>
+              {brokersData.slice(0, 6).map((broker) => (
+                <Card key={broker.id} className={cardClasses}>
+                  <div className="mb-4">
+                    <Image 
+                      src={broker.logo} 
+                      alt={broker.name} 
+                      width={120} 
+                      height={60} 
+                      className="mx-auto"
+                    />
+                  </div>
+                  <h3 className="text-lg font-medium mb-2">{broker.name}</h3>
+                  <div className="flex items-center mb-4">
+                    <Star className="h-5 w-5 text-yellow-400 mr-1" />
+                    <span className="text-sm text-gray-600 dark:text-gray-300">
+                      {broker.rating.toFixed(1)}
+                    </span>
+                  </div>
+                  <Button 
+                    onClick={() => addBroker(broker.id)}
+                    className="w-full"
+                  >
+                    Add to Compare
+                  </Button>
+                </Card>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">Compare Brokers</h2>
+              <Button 
+                variant="outline" 
+                onClick={() => setSelectedBrokers([])}
+              >
+                Clear All
+              </Button>
+            </div>
+            
+            {/* Selected Brokers */}
+            <div className="overflow-x-auto">
+              <div className="min-w-max">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {selectedBrokerDetails.map((broker) => (
+                    <Card key={broker.id} className="p-6">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <Image 
+                            src={broker.logo} 
+                            alt={broker.name} 
+                            width={120} 
+                            height={60}
+                            className="mb-2"
+                          />
+                          <h3 className="text-lg font-semibold">{broker.name}</h3>
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                            <span className="text-sm">
+                              {broker.rating.toFixed(1)}
+                            </span>
+                          </div>
+                        </div>
+                        <Button 
+                          variant="ghost" 
+                          size="icon"
+                          onClick={() => removeBroker(broker.id)}
+                        >
+                          <X className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="text-sm">
+                          <span className="font-medium">Min. Deposit:</span> ${broker.minDeposit}
+                        </div>
+                        <div className="text-sm">
+                          <span className="font-medium">Spreads:</span> {broker.spreads}
+                        </div>
+                        <div className="text-sm">
+                          <span className="font-medium">Leverage:</span> {broker.leverage}
+                        </div>
+                      </div>
+                      <Button className="w-full mt-4" asChild>
+                        <Link href={`/brokers/${broker.slug}`}>
+                          View Details
+                        </Link>
+                      </Button>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Comparison Table */}
+            <div className={sectionClasses}>
+              <h3 className="text-lg font-semibold mb-4">Detailed Comparison</h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                    <tr>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Platforms
+                      </td>
+                      {selectedBrokerDetails.map((broker) => (
+                        <td key={broker.id} className="px-4 py-3 text-sm">
+                          {broker.platforms.join(', ')}
+                        </td>
+                      ))}
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Regulations
+                      </td>
+                      {selectedBrokerDetails.map((broker) => (
+                        <td key={broker.id} className="px-4 py-3 text-sm">
+                          {broker.regulations.join(', ')}
+                        </td>
+                      ))}
+                    </tr>
+                    {/* Add more comparison rows as needed */}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            {/* Add More Brokers */}
+            {availableBrokers.length > 0 && (
+              <div className={sectionClasses}>
+                <h3 className="text-lg font-semibold mb-4">Add More Brokers</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {availableBrokers.slice(0, 3).map((broker) => (
+                    <Button
+                      key={broker.id}
+                      variant="outline"
+                      className="justify-start"
+                      onClick={() => addBroker(broker.id)}
+                    >
+                      <Image 
+                        src={broker.logo} 
+                        alt={broker.name} 
+                        width={80} 
+                        height={40} 
+                        className="mr-2"
+                      />
+                      {broker.name}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

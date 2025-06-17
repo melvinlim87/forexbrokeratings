@@ -33,6 +33,7 @@
     "@radix-ui/react-toast": "^1.2.14",
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@supabase/supabase-js": "^2.50.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
@@ -51,6 +52,7 @@
     "recharts": "^2.15.3",
     "sonner": "^2.0.5",
     "tailwind-merge": "^2.0.0",
+    "use-debounce": "^10.0.5",
     "vaul": "^1.1.2"
   },
   "devDependencies": {

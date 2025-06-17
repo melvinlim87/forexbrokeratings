@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,8 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { supabase, fetchAllBrokerDetails } from '@/lib/supabase';
 
-// Sample data - would come from API in real implementation
+// Fallback data in case Supabase fetch fails
 const featuredBrokers = [
   {
     rank: 1,
@@ -24,6 +25,7 @@ const featuredBrokers = [
     regulations: ['FCA', 'CySEC', 'ASIC'],
     bestFor: 'Best Overall Forex Broker',
     description: 'Excellent all-round performance with competitive spreads and advanced trading tools',
+    url: 'https://www.ironfx.com',
     slug: 'ironfx'
   },
   {
@@ -37,7 +39,8 @@ const featuredBrokers = [
     isRegulated: true,
     regulations: ['FCA', 'CySEC'],
     bestFor: 'Best for Beginners',
-    description: 'Outstanding educational resources and user-friendly trading platforms',
+    description: 'User-friendly platform with excellent educational resources and low minimum deposit',
+    url: 'https://www.fxtm.com',
     slug: 'fxtm'
   },
   {
@@ -50,8 +53,9 @@ const featuredBrokers = [
     tradingInstruments: 600,
     isRegulated: true,
     regulations: ['FCA', 'ASIC', 'CySEC', 'BaFin'],
-    bestFor: 'Best for Professional Traders',
-    description: 'Ultra-low spreads and institutional-grade liquidity',
+    bestFor: 'Best for Experienced Traders',
+    description: 'Advanced trading features with tight spreads and fast execution speeds',
+    url: 'https://www.pepperstone.com',
     slug: 'pepperstone'
   },
   {
@@ -66,6 +70,7 @@ const featuredBrokers = [
     regulations: ['FCA', 'ASIC', 'FSCA', 'BaFin'],
     bestFor: 'Best for Market Selection',
     description: 'Widest range of trading instruments and markets',
+    url: 'https://www.ig.com',
     slug: 'ig'
   },
   {
@@ -80,6 +85,7 @@ const featuredBrokers = [
     regulations: ['CySEC', 'ASIC', 'IFSC'],
     bestFor: 'Best for Low Minimum Deposit',
     description: 'Ultra-low minimum deposit and multi-account options',
+    url: 'https://www.xm.com',
     slug: 'xm'
   },
   {
@@ -94,6 +100,7 @@ const featuredBrokers = [
     regulations: ['FCA', 'CySEC', 'ASIC'],
     bestFor: 'Best for Social Trading',
     description: 'Pioneer in social trading and copy trading features',
+    url: 'https://www.etoro.com',
     slug: 'etoro'
   },
   {
@@ -108,6 +115,7 @@ const featuredBrokers = [
     regulations: ['SEC', 'FCA', 'IIROC'],
     bestFor: 'Best for Advanced Tools',
     description: 'Comprehensive research and advanced trading platforms',
+    url: 'https://www.interactivebrokers.com',
     slug: 'interactive-brokers'
   },
   {
@@ -121,7 +129,8 @@ const featuredBrokers = [
     isRegulated: true,
     regulations: ['FCA', 'MAS', 'FINMA'],
     bestFor: 'Best for Research',
-    description: 'Premium research and institutional-grade platforms',
+    description: 'Comprehensive market analysis tools and educational resources for informed trading',
+    url: 'https://www.saxobank.com',
     slug: 'saxo-bank'
   },
   {
@@ -155,7 +164,94 @@ const featuredBrokers = [
 ];
 
 export default function FeaturedBrokers() {
+  const [brokers, setBrokers] = useState<any[]>([]);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState('all');
+  
+  useEffect(() => {
+    async function fetchBrokers() {
+      try {
+        console.log('Fetching top 5 brokers from Supabase using fetchAllBrokerDetails...');
+        const data = await fetchAllBrokerDetails();
+        
+        console.log('Featured brokers data:', data);
+        
+        if (data && data.length > 0) {
+          // Format the brokers data to match our expected structure
+          const formattedBrokers = data.slice(0, 5).map((broker: any, index: number) => {
+            // Parse arrays that might be stored as strings
+            const parseArrayField = (field: string[] | string | null | undefined) => {
+              if (!field) return [];
+              if (Array.isArray(field)) return field;
+              
+              // Handle string values
+              if (typeof field === 'string') {
+                // Check if it looks like a JSON array
+                if (field.trim().startsWith('[') && field.trim().endsWith(']')) {
+                  try {
+                    // Sanitize the string before parsing
+                    const sanitized = field
+                      .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // Remove control characters
+                      .replace(/\\(?!["\\/bfnrt])/g, '\\\\'); // Escape unescaped backslashes
+                    
+                    const parsed = JSON.parse(sanitized);
+                    return Array.isArray(parsed) ? parsed : [field];
+                  } catch (e) {
+                    console.error('JSON parse error:', e);
+                    // If parsing fails, treat as a single item
+                    return [field];
+                  }
+                }
+                // If it doesn't look like JSON, treat as a single item
+                return [field];
+              }
+              
+              // Fallback for any other type
+              return [String(field)];
+            };
+            
+            return {
+              rank: index + 1,
+              name: broker.name || `Broker ${index + 1}`,
+              logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+              rating: broker.rating || 4.5,
+              minDeposit: broker.min_deposits || 100,
+              platforms: parseArrayField(broker.platforms),
+              tradingInstruments: broker.tradingInstruments || 500,
+              isRegulated: broker.isRegulated !== false,
+              regulations: parseArrayField(broker.regulators),
+              bestFor: broker.bestFor || 'Forex Trading',
+              description: broker.description || 'A reliable forex broker offering competitive trading conditions.',
+              url: broker.url || '#',
+              slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
+            };
+          });
+          
+          setBrokers(formattedBrokers);
+        }
+      } catch (err) {
+        console.error('Error fetching featured brokers:', err);
+        setError('Failed to load featured brokers');
+        // Don't use fallback data, show error state instead
+        setBrokers([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchBrokers();
+  }, []);
+
+  const filteredBrokers = activeTab === 'all' 
+    ? brokers 
+    : brokers.filter(broker => {
+        if (activeTab === 'beginners') return broker.minDeposit <= 100;
+        if (activeTab === 'professional') return broker.tradingInstruments >= 1000;
+        if (activeTab === 'lowfees') return broker.minDeposit <= 50;
+        return true;
+      });
 
   return (
     <section className="py-16 bg-white dark:bg-gray-950">
@@ -369,6 +465,7 @@ export default function FeaturedBrokers() {
                       >
                         {broker.bestFor}
                       </motion.p>
+
                       <p className="text-sm text-gray-600 dark:text-gray-400">{broker.description}</p>
                     </div>
                     
@@ -383,8 +480,8 @@ export default function FeaturedBrokers() {
                           </motion.span>
                         </Link>
                       </Button>
-                      <Button size="sm" className="min-w-[100px]" asChild>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" asChild>
+                        <a href={broker.url || '#'} target="_blank" rel="noopener noreferrer">
                           <motion.span
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

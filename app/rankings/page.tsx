@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,8 +8,9 @@ import { Award, ArrowRight, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { fetchAllBrokerDetails } from '@/lib/supabase';
 
-// Sample data - would come from API in real implementation
+// Fallback data in case Supabase fetch fails
 const rankedBrokers = [
   {
     rank: 1,
@@ -54,6 +55,64 @@ const rankedBrokers = [
 
 export default function RankingsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [brokers, setBrokers] = useState<any[]>(rankedBrokers);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  useEffect(() => {
+    async function fetchBrokers() {
+      try {
+        console.log('Fetching brokers for rankings page using fetchAllBrokerDetails...');
+        const data = await fetchAllBrokerDetails();
+        
+        console.log('Brokers data for rankings page:', data);
+        
+        if (data && data.length > 0) {
+          // Format the brokers data to match our expected structure
+          const formattedBrokers = data.map((broker: any, index: number) => {
+            // Parse array fields that might be stored as JSON strings
+            const parseArrayField = (field: any) => {
+              if (!field) return [];
+              if (Array.isArray(field)) return field;
+              try {
+                return JSON.parse(field);
+              } catch {
+                return [field];
+              }
+            };
+            
+            return {
+              rank: index + 1,
+              name: broker.name || `Broker ${index + 1}`,
+              logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+              rating: broker.rating || 4.0,
+              minDeposit: broker.minDeposit || 100,
+              features: parseArrayField(broker.features) || [
+                'Competitive spreads',
+                'Fast execution',
+                'Multiple platforms'
+              ],
+              regulations: parseArrayField(broker.regulations) || ['Regulated'],
+              tradingPlatforms: parseArrayField(broker.platforms) || ['MT4', 'MT5'],
+              pros: parseArrayField(broker.pros) || ['Professional trading services'],
+              cons: parseArrayField(broker.cons) || ['Limited educational resources'],
+              slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
+            };
+          });
+          
+          setBrokers(formattedBrokers);
+        }
+      } catch (err) {
+        console.error('Error fetching brokers for rankings page:', err);
+        setError('Failed to load broker rankings');
+        // Keep the fallback data
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchBrokers();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -82,8 +141,19 @@ export default function RankingsPage() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="space-y-8">
-          {rankedBrokers.map((broker, index) => (
+        {loading ? (
+          <div className="flex justify-center items-center py-12">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+            <p className="ml-4 text-gray-600 dark:text-gray-400">Loading broker rankings...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-500">{error}</p>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">Showing fallback data instead.</p>
+          </div>
+        ) : (
+          <div className="space-y-8">
+            {brokers.map((broker, index) => (
             <motion.div
               key={broker.rank}
               initial={{ opacity: 0, y: 20 }}
@@ -105,8 +175,8 @@ export default function RankingsPage() {
                         <Image
                           src={broker.logo}
                           alt={broker.name}
-                          layout="fill"
-                          objectFit="contain"
+                          fill
+                          style={{ objectFit: "contain" }}
                           className="p-2"
                         />
                       </div>
@@ -126,7 +196,7 @@ export default function RankingsPage() {
                             Key Features
                           </h4>
                           <ul className="space-y-2">
-                            {broker.features.map((feature, i) => (
+                            {broker.features.map((feature: string, i: number) => (
                               <li key={i} className="flex items-start text-sm">
                                 <TrendingUp className="h-4 w-4 text-blue-500 mr-2 mt-0.5" />
                                 <span className="text-gray-700 dark:text-gray-300">{feature}</span>
@@ -141,12 +211,8 @@ export default function RankingsPage() {
                               Regulation
                             </h4>
                             <div className="flex flex-wrap gap-1">
-                              {broker.regulations.map((reg) => (
-                                <Badge 
-                                  key={reg} 
-                                  variant="outline"
-                                  className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800"
-                                >
+                              {broker.regulations.map((reg: string) => (
+                                <Badge key={reg} variant="outline">
                                   <Shield className="h-3 w-3 mr-1" />
                                   {reg}
                                 </Badge>
@@ -158,9 +224,9 @@ export default function RankingsPage() {
                             <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
                               Trading Platforms
                             </h4>
-                            <div className="flex flex-wrap gap-1">
-                              {broker.tradingPlatforms.map((platform) => (
-                                <Badge key={platform} variant="secondary">
+                            <div className="flex flex-wrap gap-1 mb-4">
+                              {broker.tradingPlatforms.map((platform: string, i: number) => (
+                                <Badge key={i} variant="secondary" className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800">
                                   {platform}
                                 </Badge>
                               ))}
@@ -175,7 +241,7 @@ export default function RankingsPage() {
                             Pros
                           </h4>
                           <ul className="space-y-2">
-                            {broker.pros.map((pro, i) => (
+                            {broker.pros.map((pro: string, i: number) => (
                               <li key={i} className="flex items-start text-sm">
                                 <svg className="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -191,7 +257,7 @@ export default function RankingsPage() {
                             Cons
                           </h4>
                           <ul className="space-y-2">
-                            {broker.cons.map((con, i) => (
+                            {broker.cons.map((con: string, i: number) => (
                               <li key={i} className="flex items-start text-sm">
                                 <svg className="h-4 w-4 text-red-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -229,8 +295,9 @@ export default function RankingsPage() {
                 </CardContent>
               </Card>
             </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

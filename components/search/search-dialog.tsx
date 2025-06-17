@@ -167,8 +167,8 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                   <Image
                     src={broker.logo}
                     alt={broker.name}
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                     className="p-1"
                   />
                 </div>

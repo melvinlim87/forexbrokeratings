@@ -1,6 +1,11 @@
 import { BrokerProfile } from '@/components/broker/broker-profile';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { supabase, fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
 
-// Sample data - would come from API in real implementation
+// Fallback data in case Supabase fetch fails
 const brokersData = {
   ironfx: {
     id: 1,
@@ -236,31 +241,283 @@ const relatedBrokers = [
 ];
 
 export async function generateStaticParams() {
-  // Include all broker slugs that should be pre-rendered
-  return [
-    { slug: 'ironfx' },
-    { slug: 'fxtm' },
-    { slug: 'xm' },
-    { slug: 'pepperstone' },
-    { slug: 'xtb' },
-    { slug: 'oanda' },
-    { slug: 'ig' },
-    { slug: 'etoro' },
-    { slug: 'interactive-brokers' },
-    { slug: 'saxo-bank' },
-    { slug: 'avatrade' }
-  ];
+  // Fetch all broker details from Supabase
+  try {
+    const brokers = await fetchAllBrokerDetails();
+    // Map the brokers to slug params
+    return brokers.map(broker => ({
+      slug: broker.name.toLowerCase().replace(/\s+/g, '-')
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    // Fallback to static list if Supabase fetch fails
+    return [
+      { slug: 'ironfx' },
+      { slug: 'fxtm' },
+      { slug: 'xm' },
+      { slug: 'pepperstone' },
+      { slug: 'xtb' },
+      { slug: 'oanda' },
+    ];
+  }
 }
 
-export default function BrokerProfilePage({ params }: { params: { slug: string } }) {
-  // Get the broker data based on the slug
-  const brokerData = brokersData[params.slug as keyof typeof brokersData];
+// Function to check if the user's IP is from Singapore
+function checkSingaporeIP(ip: string): boolean {
+  // This is a placeholder implementation
+  // In a real application, you would use a proper IP geolocation service
+  // For example, you could use a library like 'geoip-lite' or an API like ipinfo.io
   
-  // If no broker data is found, you might want to handle this case
-  if (!brokerData) {
-    // You could redirect to a 404 page or show an error message
-    return <div>Broker not found</div>;
-  }
+  // For now, we'll just check if the IP starts with specific ranges commonly used in Singapore
+  // This is NOT accurate and is just for demonstration purposes
+  const sgIPRanges = ['8.128.', '8.129.', '45.126.', '116.12.', '116.13.', '165.21.', '203.116.'];
+  
+  // If IP is from Singapore, return true
+  // In a real implementation, you would use proper IP geolocation
+  return sgIPRanges.some(range => ip.startsWith(range));
+}
 
-  return <BrokerProfile brokerData={brokerData} relatedBrokers={relatedBrokers} />;
+// Function to convert Supabase broker data to the format expected by BrokerProfile component
+function formatBrokerData(broker: BrokerDetails) {
+  // Safety check - if broker is null or undefined, return a default object
+  if (!broker) {
+    console.error('Broker data is null or undefined');
+    return brokersData.xtb; // Return a default broker from static data
+  }
+  
+  // Handle arrays that might be stored as strings in Supabase
+  const parseArrayField = (field: string[] | string | null | undefined) => {
+    if (!field) return [];
+    if (Array.isArray(field)) return field;
+    try {
+      // Try to parse as JSON if it's a string
+      return JSON.parse(field as string);
+    } catch (e) {
+      console.log(`Error parsing field: ${field}`, e);
+      // If parsing fails, return as single item array
+      return [field];
+    }
+  };
+
+  // Format the broker data to match the expected structure
+  return {
+    id: broker.id,
+    name: broker.name,
+    logo: broker.logo || `https://via.placeholder.com/180x90?text=${broker.name}`,
+    rating: broker.rating || 4.0,
+    minDeposit: broker.minDeposit || 100,
+    summary: broker.description || `${broker.name} offers forex and CFD trading services.`,
+    tradingInfo: {
+      spreads: broker.spreads || 'Variable',
+      leverage: broker.leverage || 'Up to 1:30',
+      platforms: parseArrayField(broker.platforms),
+      instruments: parseArrayField(broker.instruments),
+      accountTypes: ['Standard', 'Premium'],
+      minTrade: '0.01 lots'
+    },
+    tradingFeatures: {
+      executionSpeed: 'Average 0.2 seconds',
+      orderTypes: ['Market', 'Limit', 'Stop'],
+      hedging: true,
+      scalping: true,
+      expertAdvisors: true,
+      api: false,
+      demoAccount: true
+    },
+    scores: {
+      overall: broker.rating || 4.0,
+      tradingInstruments: 4.0,
+      platforms: 4.0,
+      fees: 4.0,
+      security: 4.0,
+      deposit: 4.0,
+      customerService: 4.0
+    },
+    fees: {
+      trading: {
+        spread: broker.spreads || 'Variable',
+        commission: 'Varies by account type',
+        overnight: 'Varies by instrument'
+      },
+      nonTrading: {
+        deposit: 'Free',
+        withdrawal: 'Free',
+        inactivity: 'Varies',
+        account: 'No monthly fees'
+      }
+    },
+    depositWithdrawal: {
+      methods: ['Credit/Debit Card', 'Bank Transfer', 'E-wallets'],
+      depositTime: 'Instant for most methods',
+      withdrawalTime: '1-3 business days',
+      baseCurrencies: ['USD', 'EUR', 'GBP']
+    },
+    regulation: {
+      primary: parseArrayField(broker.regulators)[0] || 'Regulated',
+      additional: parseArrayField(broker.regulators).slice(1),
+      clientFunds: 'Segregated accounts',
+      negativeBalanceProtection: true,
+      investorCompensation: 'Varies by regulator',
+      riskDisclosure: 'Full risk disclosure provided'
+    },
+    customerSupport: {
+      channels: ['Live Chat', 'Email', 'Phone'],
+      hours: '24/5',
+      languages: ['English', 'Other languages vary'],
+      quality: 'Professional support team',
+      responseTime: 'Varies'
+    },
+    education: {
+      materials: ['Trading Guides', 'Video Tutorials', 'Webinars'],
+      marketAnalysis: 'Market analysis and news',
+      demo: 'Demo account available'
+    },
+    pros: parseArrayField(broker.pros),
+    cons: parseArrayField(broker.cons),
+    historicalData: [
+      { month: 'Jan', spread: 1.0, execution: 0.2 },
+      { month: 'Feb', spread: 1.0, execution: 0.2 },
+      { month: 'Mar', spread: 1.0, execution: 0.2 },
+      { month: 'Apr', spread: 1.0, execution: 0.2 },
+      { month: 'May', spread: 1.0, execution: 0.2 },
+      { month: 'Jun', spread: 1.0, execution: 0.2 },
+    ],
+    radarData: [
+      { subject: 'Trading Tools', A: 80 },
+      { subject: 'Research', A: 75 },
+      { subject: 'Mobile App', A: 85 },
+      { subject: 'Fees', A: 70 },
+      { subject: 'Customer Service', A: 80 },
+      { subject: 'Ease of Use', A: 75 },
+    ]
+  };
+}
+
+// Function to fetch related brokers
+async function fetchRelatedBrokers(currentBrokerId: string) {
+  try {
+    // Fetch 3 random brokers that are not the current broker
+    const { data, error } = await supabase
+      .from('broker_details')
+      .select('id, name, logo, rating, minDeposit')
+      .neq('id', currentBrokerId)
+      .limit(3);
+    
+    if (error) throw error;
+    
+    console.log('Related brokers data:', data);
+    
+    // Safety check - if data is null or empty, return static data
+    if (!data || data.length === 0) {
+      console.log('No related brokers found, using fallback data');
+      return relatedBrokers;
+    }
+    
+    // Format the related brokers data
+    return data.map(broker => ({
+      id: broker.id || `broker-${Math.random().toString(36).substring(2, 9)}`,
+      name: broker.name || 'Broker',
+      logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+      rating: broker.rating || 4.0,
+      minDeposit: broker.minDeposit || 100,
+      slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : 'broker'
+    }));
+  } catch (error) {
+    console.error('Error fetching related brokers:', error);
+    return relatedBrokers; // Fallback to static data
+  }
+}
+
+export default async function BrokerProfilePage({ params }: { params: { slug: string } }) {
+  // Get the client's IP address from headers
+  const headersList = headers();
+  const forwardedFor = headersList.get('x-forwarded-for');
+  const clientIP = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
+  
+  // Check if the user is from Singapore
+  // If user's IP is from Singapore, redirect to the restricted page
+  if (checkSingaporeIP(clientIP)) {
+    // If this is a Singapore IP, redirect to the restricted page
+    console.log('Singapore IP detected:', clientIP);
+    return redirect('/restricted');
+  }
+  
+  try {
+    console.log(`Attempting to fetch broker with slug: ${params.slug}`);
+    
+    // First check if we have a static broker with this slug
+    const staticBroker = brokersData[params.slug as keyof typeof brokersData];
+    
+    // Try to fetch from Supabase
+    let broker = null;
+    try {
+      // Fetch all brokers from Supabase
+      const brokers = await fetchAllBrokerDetails();
+      console.log(`Fetched ${brokers?.length || 0} brokers for slug lookup`);
+      
+      if (brokers && brokers.length > 0) {
+        // Find the broker with matching slug
+        const normalizedSlug = params.slug.toLowerCase();
+        broker = brokers.find(b => {
+          if (!b || !b.name) return false;
+          return b.name.toLowerCase().replace(/\s+/g, '-') === normalizedSlug;
+        });
+      }
+    } catch (supabaseError) {
+      console.error('Error fetching from Supabase:', supabaseError);
+      // Continue with static data if available
+    }
+    
+    // If no broker found in Supabase but we have static data, use that
+    if (!broker && staticBroker) {
+      console.log('Using static data for broker:', params.slug);
+      return <BrokerProfile brokerData={staticBroker} relatedBrokers={relatedBrokers} />;
+    }
+    
+    // If we found a broker in Supabase
+    if (broker) {
+      console.log(`Found broker with slug ${params.slug}:`, broker);
+      
+      // Format the broker data
+      const formattedBroker = formatBrokerData(broker);
+      
+      // Fetch related brokers
+      let relatedBrokersData;
+      try {
+        relatedBrokersData = await fetchRelatedBrokers(broker.id);
+      } catch (relatedError) {
+        console.error('Error fetching related brokers:', relatedError);
+        relatedBrokersData = relatedBrokers; // Use static data
+      }
+      
+      return <BrokerProfile brokerData={formattedBroker} relatedBrokers={relatedBrokersData} />;
+    }
+    
+    // If we get here, we couldn't find the broker in Supabase or static data
+    console.log(`No broker found with slug: ${params.slug}`);
+    return <div className="container mx-auto px-4 py-16 text-center">
+      <h1 className="text-3xl font-bold mb-4">Broker Not Found</h1>
+      <p className="mb-8">We couldn't find a broker with the name "{params.slug}".</p>
+      <Button asChild>
+        <Link href="/">Return to Home</Link>
+      </Button>
+    </div>;
+  } catch (error) {
+    console.error('Error in BrokerProfilePage:', error);
+    
+    // Final fallback to static data if available
+    const staticBroker = brokersData[params.slug as keyof typeof brokersData];
+    if (staticBroker) {
+      console.log('Error occurred, using static data as final fallback');
+      return <BrokerProfile brokerData={staticBroker} relatedBrokers={relatedBrokers} />;
+    }
+    
+    return <div className="container mx-auto px-4 py-16 text-center">
+      <h1 className="text-3xl font-bold mb-4">Error Loading Broker</h1>
+      <p className="mb-8">There was an error loading the broker information. Please try again later.</p>
+      <Button asChild>
+        <Link href="/">Return to Home</Link>
+      </Button>
+    </div>;
+  }
 }
