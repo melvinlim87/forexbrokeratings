@@ -1,12 +1,20 @@
 import { supabase } from './supabase';
 
-// Function to fetch broker promotions by broker_detail_id
-export async function fetchBrokerPromotions(brokerDetailId: string) {
-  const { data, error } = await supabase
+// Function to fetch broker promotions
+// If brokerDetailId is provided, fetches promotions for that specific broker
+// If no brokerDetailId is provided, fetches all promotions
+export async function fetchBrokerPromotions(brokerDetailId?: string) {
+  let query = supabase
     .from('broker_promotions')
     .select('*')
-    .eq('broker_detail_id', brokerDetailId)
     .order('created_at', { ascending: false });
+  
+  // Only filter by broker_detail_id if it's provided
+  if (brokerDetailId) {
+    query = query.eq('broker_detail_id', brokerDetailId);
+  }
+  
+  const { data, error } = await query;
   
   if (error) {
     throw new Error(error.message);
