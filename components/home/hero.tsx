@@ -272,29 +272,6 @@ export default function Hero() {
           </div>
         </div>
         
-        {/* Search bar section at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 bg-black/30 backdrop-blur-sm py-6">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4">
-              <div className="relative flex-grow">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <Search className="h-5 w-5 text-gray-400" />
-                </div>
-                <Input
-                  type="text"
-                  placeholder="Search for brokers..."
-                  className="pl-10 py-6 w-full bg-white/10 backdrop-blur-sm border-white/20 text-white placeholder:text-gray-400"
-                />
-              </div>
-              <Button
-                size="lg"
-                className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
-              >
-                Find Brokers
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">

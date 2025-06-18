@@ -19,7 +19,7 @@ const rankedBrokers = [
     rating: 4.9,
     minDeposit: 200,
     features: ['Raw spreads from 0.0 pips', 'Ultra-fast execution', 'Top-tier regulation'],
-    regulations: ['FCA', 'ASIC', 'CySEC', 'BaFin', 'DFSA'],
+    regulators: ['FCA', 'ASIC', 'CySEC', 'BaFin', 'DFSA'],
     tradingPlatforms: ['MT4', 'MT5', 'cTrader'],
     pros: ['Excellent spreads', 'Fast execution', 'Advanced platform options'],
     cons: ['Higher minimum deposit', 'Limited educational content'],
@@ -254,7 +254,7 @@ export default function RankingsPage() {
                               Regulation
                             </h4>
                             <div className="flex flex-wrap gap-1">
-                              {broker.regulations.map((reg: string) => (
+                              {broker.regulators?.map((reg: string) => (
                                 <Badge key={reg} variant="outline">
                                   <Shield className="h-3 w-3 mr-1" />
                                   {reg}
@@ -323,12 +323,12 @@ export default function RankingsPage() {
 
                       <div className="space-y-2 w-full">
                         <Button className="w-full" asChild>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
+                          <a href={broker.website} target="_blank" rel="noopener noreferrer">
                             Visit Broker
                           </a>
                         </Button>
                         <Button variant="outline" className="w-full" asChild>
-                          <Link href={`/broker/${broker.slug}`}>
+                          <Link href={`/broker/${broker.slug}`} ta>
                             Read Review <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>

@@ -10,24 +10,41 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Type definitions for broker data
 export type BrokerDetails = {
-  id: string;
+  id: number;
   name: string;
-  url: string;
+  website: string;
   logo?: string;
   description?: string;
-  rating?: number;
-  yearEstablished?: number;
+  rating?: string;
+  year_published?: string;
   headquarters?: string;
+  country?: string;
   regulators?: string[];
+  licenses?: string[];
+  is_regulated?: boolean;
   instruments?: string[];
   platforms?: string[];
-  minDeposit?: number;
-  leverage?: string;
-  spreads?: string;
+  min_deposit?: string;
+  min_withdrawl?: string;
+  deposit_fees?: string;
+  withdrawal_fees?: string;
+  deposit_process_time?: string;
+  withdrawal_process_time?: string;
+  leverage_max?: string;
+  spread_eur_usd?: string;
   pros?: string[];
   cons?: string[];
-  created_at?: string;
-  updated_at?: string;
+  environment: number;
+  user_experience: number;
+  sw: number;
+  regulations: number;
+  risk_control: number;
+  promotions: number;
+  email: string;
+  phone_numbers: string[];
+  channels: string[];
+  availability: string;
+  response_time: string;
 };
 
 // Function to fetch broker websites
@@ -47,13 +64,12 @@ export async function fetchBrokerWebsites() {
 export async function fetchAllBrokerDetails() {
   const { data, error } = await supabase
     .from('broker_details')
-    .select('*')
-    .order('rating', { ascending: false });
+    .select('*');
   
   if (error) {
     throw new Error(error.message);
   }
-  
+
   return data;
 }
 

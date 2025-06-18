@@ -173,10 +173,7 @@ export default function FeaturedBrokers() {
   useEffect(() => {
     async function fetchBrokers() {
       try {
-        console.log('Fetching top 5 brokers from Supabase using fetchAllBrokerDetails...');
         const data = await fetchAllBrokerDetails();
-        
-        console.log('Featured brokers data:', data);
         
         if (data && data.length > 0) {
           // Format the brokers data to match our expected structure
@@ -220,7 +217,7 @@ export default function FeaturedBrokers() {
               minDeposit: broker.min_deposits || 100,
               platforms: parseArrayField(broker.platforms),
               tradingInstruments: broker.tradingInstruments || 500,
-              isRegulated: broker.isRegulated !== false,
+              isRegulated: broker.is_regulated !== false,
               regulations: parseArrayField(broker.regulators),
               bestFor: broker.bestFor || 'Forex Trading',
               description: broker.description || 'A reliable forex broker offering competitive trading conditions.',

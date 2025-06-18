@@ -1,137 +1,256 @@
 import BrokerProfile from '@/components/broker/broker-profile';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { IPChecker } from '@/components/ip-checker';
 import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
 
-// Fallback data in case Supabase fetch fails
-const brokersData = {
-  ironfx: {
-    id: 1,
-    name: 'IronFX',
-    logo: 'https://via.placeholder.com/180x90?text=IronFX',
-    rating: 4.2,
-    minDeposit: 100,
-    summary: 'IronFX offers forex and CFD trading on multiple platforms with a wide range of account types to suit different trading styles. They provide access to a good selection of markets with competitive spreads and solid customer support.',
-    tradingInfo: {
-      spreads: 'From 0.7 pips',
-      leverage: 'Up to 1:500',
-      platforms: ['MetaTrader 4', 'MetaTrader 5', 'IronFX WebTrader'],
-      instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'Futures', 'Metals'],
-      accountTypes: ['Micro', 'Premium', 'VIP', 'Zero Spread'],
-      minTrade: '0.01 lots'
-    },
-    tradingFeatures: {
-      executionSpeed: 'Average 0.128 seconds',
-      orderTypes: ['Market', 'Limit', 'Stop', 'OCO', 'Trailing Stop'],
-      hedging: true,
-      scalping: true,
-      expertAdvisors: true,
-      api: false,
-      demoAccount: true
-    },
-    scores: {
-      overall: 4.2,
-      tradingInstruments: 3.4,
-      platforms: 4.4,
-      fees: 3.8,
-      security: 4.4,
-      deposit: 3.4,
-      customerService: 4.6
-    },
+// Define the BrokerData interface to match the expected structure in BrokerProfile
+interface BrokerData {
+  id: number;
+  created_at: string;
+  name: string;
+  source: string;
+  website: string;
+  logo: string;
+  image: string | null;
+  description: string;
+  summary: string;
+  rating: string;
+  year_published: string;
+  headquarters: string;
+  country: string;
+  offices: string[];
+  employees: number | null;
+  address: string;
+  regulators: string[];
+  licenses: string[];
+  is_regulated: boolean;
+  instruments: string[];
+  spread_eur_usd: string;
+  leverage_max: string;
+  account_types: string[];
+  base_currencies: string[];
+  platforms: string[];
+  deposit_methods: string[];
+  withdraw_methods: string[];
+  min_deposit: string;
+  min_withdrawl: string;
+  deposit_fees: string | null;
+  withdrawal_fees: string | null;
+  deposit_process_time: string;
+  withdrawal_process_time: string;
+  languages: string[];
+  availability: string;
+  channels: string[];
+  phone_numbers: string[];
+  email: string;
+  response_time: string;
+  pros: string[];
+  cons: string[];
+  fees: {
+    trading: {
+      spread: string;
+      commission: string;
+      overnight: string;
+    };
+    nonTrading: {
+      deposit: string;
+      withdrawal: string;
+      inactivity: string;
+      account: string;
+    };
+  };
+  scores: {
+    overall: number;
+    tradingInstruments: number;
+    platforms: number;
+    fees: number;
+    security: number;
+    deposit: number;
+    customerService: number;
+  };
+  sw: number;
+  regulations: number;
+  risk_control: number;
+  promotions: number;
+  user_experience: number;
+  environment: number;
+}
+
+// Function to parse array fields that might be stored as strings in the database
+const parseArrayField = (field: string[] | string | null | undefined): string[] => {
+  if (!field) return [];
+  if (Array.isArray(field)) return field;
+  try {
+    const parsed = JSON.parse(field as string);
+    return Array.isArray(parsed) ? parsed : [parsed];
+  } catch (e) {
+    return [String(field)];
+  }
+};
+
+// Function to format broker data for the UI
+function formatBrokerData(broker: BrokerDetails): BrokerData {
+  if (!broker) {
+    return getDefaultBroker('default');
+  }
+
+  return {
+    id: broker.id || 0,
+    name: broker.name,
+    source: 'manual',
+    website: broker.website || '#',
+    logo: broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name)}`,
+    image: null,
+    description: broker.description || `${broker.name} offers forex and CFD trading services.`,
+    summary: broker.description || `${broker.name} offers forex and CFD trading services.`,
+    rating: broker.rating || '3.5',
+    year_published: broker.year_published || new Date().getFullYear().toString(),
+    headquarters: broker.headquarters || 'Not specified',
+    country: broker.country || 'International',
+    offices: [],
+    employees: null,
+    address: broker.headquarters || 'Not specified',
+    regulators: parseArrayField(broker.regulators),
+    licenses: parseArrayField(broker.licenses),
+    is_regulated: broker.is_regulated || false,
+    instruments: parseArrayField(broker.instruments),
+    spread_eur_usd: broker.spread_eur_usd || '1.5 pips',
+    leverage_max: broker.leverage_max || '1:30',
+    account_types: parseArrayField(broker.account_types) || ['Standard', 'Premium'],
+    base_currencies: parseArrayField(broker.base_currencies) || ['USD', 'EUR', 'GBP'],
+    platforms: parseArrayField(broker.platforms),
+    deposit_methods: parseArrayField(broker.deposit_methods) || ['Bank Transfer', 'Credit Card', 'E-wallets'],
+    withdraw_methods: parseArrayField(broker.withdraw_methods) || ['Bank Transfer', 'Credit Card', 'E-wallets'],
+    min_deposit: broker.min_deposit?.toString() || '100',
+    min_withdrawl: broker.min_withdrawl?.toString() || '50',
+    deposit_fees: broker.deposit_fees || '0%',
+    withdrawal_fees: broker.withdrawal_fees || '0%',
+    deposit_process_time: broker.deposit_process_time || '1-3 business days',
+    withdrawal_process_time: broker.withdrawal_process_time || '1-3 business days',
+    languages: parseArrayField(broker.languages) || ['English'],
+    availability: broker.availability || '24/5',
+    channels: parseArrayField(broker.channels) || ['Email'],
+    phone_numbers: parseArrayField(broker.phone_numbers) || [],
+    email: broker.email || 'support@example.com',
+    response_time: broker.response_time || '24 hours',
+    pros: parseArrayField(broker.pros) || [],
+    cons: parseArrayField(broker.cons) || [],
+    environment: broker.environment || 4.0,
+    user_experience: broker.user_experience || 4.0,
+    sw: broker.sw || 4.0,
+    regulations: broker.regulations || 4.0,
+    risk_control: broker.risk_control || 4.0,
+    promotions: broker.promotions || 4.0,
     fees: {
       trading: {
-        spread: 'Variable, from 0.7 pips',
+        spread: broker.spread_eur_usd || '1.5 pips',
         commission: 'Varies by account type',
         overnight: 'Varies by instrument'
       },
       nonTrading: {
         deposit: 'Free',
-        withdrawal: 'Free (1 per month), $50 after',
-        inactivity: '$50 after 6 months',
+        withdrawal: 'Free (1 per month)',
+        inactivity: 'After 6 months',
         account: 'No monthly fees'
       }
     },
-    depositWithdrawal: {
-      methods: ['Credit/Debit Card', 'Bank Transfer', 'Skrill', 'Neteller', 'UnionPay'],
-      depositTime: 'Instant (cards & e-wallets), 3-5 days (bank transfer)',
-      withdrawalTime: '1-3 business days (e-wallets), 5-7 days (cards & bank)',
-      baseCurrencies: ['USD', 'EUR', 'GBP', 'JPY', 'CHF', 'AUD']
+    scores: {
+      overall: 4.0,
+      tradingInstruments: 4.0,
+      platforms: 4.0,
+      fees: 4.0,
+      security: 4.0,
+      deposit: 4.0,
+      customerService: 4.0
+    }
+  };
+}
+
+function getDefaultBroker(slug: string): BrokerData {
+  const name = slug.split('-').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
+  
+  return {
+    id: 0,
+    name,
+    logo: `https://via.placeholder.com/180x90?text=${name}`,
+    rating: '3.5',
+    summary: `${name} offers forex and CFD trading services.`,
+    description: `${name} offers forex and CFD trading services.`,
+    headquarters: 'Not specified',
+    country: 'International',
+    regulators: [],
+    licenses: [],
+    is_regulated: false,
+    instruments: ['Forex', 'Indices', 'Commodities'],
+    platforms: ['MetaTrader 4', 'Web Platform'],
+    min_deposit: '100',
+    min_withdrawl: '50',
+    deposit_fees: '0%',
+    withdrawal_fees: '0%',
+    deposit_process_time: '1-3 business days',
+    withdrawal_process_time: '1-3 business days',
+    leverage_max: '1:30',
+    spread_eur_usd: '1.5 pips',
+    pros: ['Competitive spreads', 'User-friendly platform'],
+    cons: ['Limited educational resources'],
+    created_at: new Date().toISOString(),
+    source: 'manual',
+    website: '#',
+    image: null,
+    year_published: '2023',
+    offices: [],
+    employees: null,
+    address: 'Not specified',
+    account_types: ['Standard', 'Premium'],
+    base_currencies: ['USD', 'EUR', 'GBP'],
+    deposit_methods: ['Bank Transfer', 'Credit Card', 'E-wallets'],
+    withdraw_methods: ['Bank Transfer', 'Credit Card', 'E-wallets'],
+    languages: ['English'],
+    availability: '24/5',
+    channels: ['Live Chat', 'Email'],
+    phone_numbers: [],
+    email: 'support@example.com',
+    response_time: '24 hours',
+    fees: {
+      trading: {
+        spread: '1.5 pips',
+        commission: 'Varies by account type',
+        overnight: 'Varies by instrument'
+      },
+      nonTrading: {
+        deposit: 'Free',
+        withdrawal: 'Free (1 per month)',
+        inactivity: 'After 6 months',
+        account: 'No monthly fees'
+      }
     },
-    regulation: {
-      primary: 'CySEC (Cyprus Securities and Exchange Commission)',
-      additional: ['FCA (UK)', 'ASIC (Australia)', 'FSCA (South Africa)'],
-      clientFunds: 'Segregated accounts in tier-1 banks',
-      negativeBalanceProtection: true,
-      investorCompensation: 'Up to €20,000 under CySEC',
-      riskDisclosure: 'Full risk disclosure provided'
-    },
-    customerSupport: {
-      channels: ['Live Chat', 'Email', 'Phone', 'Callback Request'],
-      hours: '24/5',
-      languages: ['English', 'Spanish', 'German', 'French', 'Italian', 'Arabic', 'Chinese'],
-      quality: 'Responsive and knowledgeable',
-      responseTime: 'Chat: < 1 minute, Email: < 24 hours'
-    },
-    education: {
-      materials: ['Trading Guides', 'Video Tutorials', 'Webinars', 'eBooks', 'Glossary'],
-      marketAnalysis: 'Daily market updates and technical analysis',
-      demo: 'Unlimited demo account'
-    },
-    pros: [
-      'Multiple regulation from top-tier authorities',
-      'Wide range of trading platforms',
-      'Extensive language support',
-      'Competitive spreads on premium accounts',
-      'Fast withdrawal processing'
-    ],
-    cons: [
-      'Higher spreads on standard accounts',
-      'Inactivity fee after 6 months',
-      'Limited cryptocurrency offerings',
-      'Advanced platforms not available on all account types'
-    ],
-    historicalData: [
-      { month: 'Jan', spread: 1.2, execution: 0.18 },
-      { month: 'Feb', spread: 1.1, execution: 0.15 },
-      { month: 'Mar', spread: 0.9, execution: 0.14 },
-      { month: 'Apr', spread: 0.8, execution: 0.13 },
-      { month: 'May', spread: 0.7, execution: 0.12 },
-      { month: 'Jun', spread: 0.8, execution: 0.13 },
-    ],
-    radarData: [
-      { subject: 'Trading Tools', A: 85 },
-      { subject: 'Research', A: 70 },
-      { subject: 'Mobile App', A: 80 },
-      { subject: 'Fees', A: 65 },
-      { subject: 'Customer Service', A: 90 },
-      { subject: 'Ease of Use', A: 75 },
-    ]
-  },
+    scores: {
+      overall: 3.5,
+      tradingInstruments: 3.5,
+      platforms: 3.5,
+      fees: 3.5,
+      security: 3.5,
+      deposit: 3.5,
+      customerService: 3.5
+    }
+  };
+}
+
+// Fallback data in case Supabase fetch fails
+const brokersData: Record<string, BrokerData> = {
   xtb: {
     id: 5,
     name: 'XTB',
     logo: 'https://via.placeholder.com/180x90?text=XTB',
-    rating: 4.5,
-    minDeposit: 250,
+    rating: '4.5',
+    min_deposit: '250',
     summary: 'XTB is a globally recognized broker offering trading in forex, indices, commodities, and stocks. Known for their proprietary xStation 5 platform and competitive pricing structure.',
-    tradingInfo: {
-      spreads: 'From 0.1 pips',
-      leverage: 'Up to 1:30 (EU), 1:500 (Non-EU)',
-      platforms: ['xStation 5', 'MetaTrader 4', 'Mobile Apps'],
-      instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'ETFs', 'Cryptocurrencies'],
-      accountTypes: ['Standard', 'Pro'],
-      minTrade: '0.01 lots'
-    },
-    tradingFeatures: {
-      executionSpeed: 'Average 0.1 seconds',
-      orderTypes: ['Market', 'Limit', 'Stop', 'Trailing Stop'],
-      hedging: true,
-      scalping: true,
-      expertAdvisors: true,
-      api: true,
-      demoAccount: true
-    },
+    spread_eur_usd: 'From 0.1 pips',
+    leverage_max: 'Up to 1:30 (EU), 1:500 (Non-EU)',
+    platforms: ['xStation 5', 'MetaTrader 4', 'Mobile Apps'],
+    instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'ETFs', 'Cryptocurrencies'],
+    account_types: ['Standard', 'Pro'],
     scores: {
       overall: 4.5,
       tradingInstruments: 4.2,
@@ -154,32 +273,19 @@ const brokersData = {
         account: 'No monthly fees'
       }
     },
-    depositWithdrawal: {
-      methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
-      depositTime: 'Instant for most methods',
-      withdrawalTime: '24-48 hours',
-      baseCurrencies: ['USD', 'EUR', 'GBP', 'PLN']
-    },
-    regulation: {
-      primary: 'FCA (UK Financial Conduct Authority)',
-      additional: ['KNF (Poland)', 'CySEC (Cyprus)', 'IFSC (Belize)'],
-      clientFunds: 'Segregated accounts',
-      negativeBalanceProtection: true,
-      investorCompensation: 'Up to £85,000 under FCA',
-      riskDisclosure: 'Comprehensive risk disclosure'
-    },
-    customerSupport: {
-      channels: ['24/5 Live Chat', 'Email', 'Phone', 'WhatsApp'],
-      hours: '24/5',
-      languages: ['English', 'Polish', 'German', 'Spanish', 'Czech', 'French', 'Italian'],
-      quality: 'Award-winning support team',
-      responseTime: 'Average response time under 30 seconds'
-    },
-    education: {
-      materials: ['Trading Academy', 'Video Courses', 'Webinars', 'Market Analysis', 'Economic Calendar'],
-      marketAnalysis: 'Daily market insights and technical analysis',
-      demo: 'Unlimited demo account access'
-    },
+    deposit_methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
+    withdraw_methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
+    deposit_fees: 'Free',
+    withdrawal_fees: 'Free',
+    deposit_process_time: 'Instant for most methods',
+    withdrawal_process_time: '24-48 hours',
+    base_currencies: ['USD', 'EUR', 'GBP', 'PLN'],
+    regulators: ['FCA (UK Financial Conduct Authority)', 'KNF (Poland)', 'CySEC (Cyprus)', 'IFSC (Belize)'],
+    languages: ['English', 'Polish', 'German', 'Spanish', 'Czech', 'French', 'Italian'],
+    channels: ['24/5 Live Chat', 'Email', 'Phone', 'WhatsApp'],
+    phone_numbers: ['+48 123 456 789', '+48 987 654 321'],
+    email: 'support@xtb.com',
+    response_time: 'Average response time under 30 seconds',
     pros: [
       'Award-winning proprietary platform',
       'Competitive spreads and commission-free trading',
@@ -193,25 +299,83 @@ const brokersData = {
       'No US clients accepted',
       'Limited fundamental analysis tools'
     ],
-    historicalData: [
-      { month: 'Jan', spread: 0.9, execution: 0.12 },
-      { month: 'Feb', spread: 0.8, execution: 0.11 },
-      { month: 'Mar', spread: 0.7, execution: 0.10 },
-      { month: 'Apr', spread: 0.6, execution: 0.09 },
-      { month: 'May', spread: 0.5, execution: 0.08 },
-      { month: 'Jun', spread: 0.6, execution: 0.09 },
-    ],
-    radarData: [
-      { subject: 'Trading Tools', A: 90 },
-      { subject: 'Research', A: 85 },
-      { subject: 'Mobile App', A: 95 },
-      { subject: 'Fees', A: 88 },
-      { subject: 'Customer Service', A: 92 },
-      { subject: 'Ease of Use', A: 89 },
-    ]
+    environment: 4.5,
+    user_experience: 4.7,
+    sw: 3.9,
+    regulations: 3.1,
+    risk_control: 3.5,
+    promotions: 4.4,
   }
 };
 
+export default async function BrokerProfilePage({ 
+  params 
+}: { 
+  params: { slug: string } 
+}) {
+  try {
+    // Try to fetch from Supabase first
+    let brokerData: BrokerData;
+    console.log('Fetching broker data for slug:', params.slug);
+    try {
+      console.log('Fetching all brokers from Supabase...');
+      const brokers = await fetchAllBrokerDetails();
+      console.log('Fetched brokers:', brokers?.length || 0);
+      
+      const broker = brokers?.find(b => {
+        const slug = b.name.toLowerCase().replace(/\s+/g, '-');
+        console.log(`Checking broker: ${b.name} (slug: ${slug})`);
+        return slug === params.slug;
+      });
+      
+      if (broker) {
+        console.log('Found broker in database:', broker.name);
+        console.log('Broker metrics:', {
+          environment: broker.environment,
+          user_experience: broker.user_experience,
+          sw: broker.sw,
+          regulations: broker.regulations,
+          risk_control: broker.risk_control,
+          promotions: broker.promotions
+        });
+        brokerData = formatBrokerData(broker);
+      } else {
+        console.log('Broker not found in database, falling back to static data');
+        brokerData = brokersData[params.slug] || getDefaultBroker(params.slug);
+      }
+    } catch (error) {
+      console.error('Error fetching broker data:', error);
+      // Fall back to static data if there's an error
+      brokerData = brokersData[params.slug] || getDefaultBroker(params.slug);
+    }
+
+    // Fetch related brokers - convert ID to string to match expected type
+    const relatedBrokers = await fetchRelatedBrokers(brokerData.id.toString());
+
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <IPChecker />
+        <BrokerProfile 
+          brokerData={brokerData} 
+          relatedBrokers={relatedBrokers} 
+        />
+      </div>
+    );
+  } catch (error) {
+    console.error('Error in BrokerProfilePage:', error);
+    // Return a fallback UI if something goes wrong
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center py-12">
+          <h1 className="text-2xl font-bold mb-4">Broker Not Found</h1>
+          <p className="text-gray-600">The broker you're looking for doesn't exist or an error occurred.</p>
+        </div>
+      </div>
+    );
+  }
+}
+
+// This is just for reference, the actual related brokers data is now fetched dynamically
 const relatedBrokers = [
   {
     id: 2,
@@ -275,120 +439,6 @@ function checkSingaporeIP(ip: string): boolean {
   return sgIPRanges.some(range => ip.startsWith(range));
 }
 
-// Function to convert Supabase broker data to the format expected by BrokerProfile component
-function formatBrokerData(broker: BrokerDetails) {
-  // Safety check - if broker is null or undefined, return a default object
-  if (!broker) {
-    return brokersData.xtb; // Return a default broker from static data
-  }
-  
-  // Handle arrays that might be stored as strings in Supabase
-  const parseArrayField = (field: string[] | string | null | undefined) => {
-    if (!field) return [];
-    if (Array.isArray(field)) return field;
-    try {
-      // Try to parse as JSON if it's a string
-      return JSON.parse(field as string);
-    } catch (e) {
-        // If parsing fails, return as single item array
-      return [field];
-    }
-  };
-
-  // Format the broker data to match the expected structure
-  return {
-    id: broker.id,
-    name: broker.name,
-    logo: broker.logo || `https://via.placeholder.com/180x90?text=${broker.name}`,
-    rating: broker.rating || 4.0,
-    minDeposit: broker.minDeposit || 100,
-    summary: broker.description || `${broker.name} offers forex and CFD trading services.`,
-    tradingInfo: {
-      spreads: broker.spreads || 'Variable',
-      leverage: broker.leverage || 'Up to 1:30',
-      platforms: parseArrayField(broker.platforms),
-      instruments: parseArrayField(broker.instruments),
-      accountTypes: ['Standard', 'Premium'],
-      minTrade: '0.01 lots'
-    },
-    tradingFeatures: {
-      executionSpeed: 'Average 0.2 seconds',
-      orderTypes: ['Market', 'Limit', 'Stop'],
-      hedging: true,
-      scalping: true,
-      expertAdvisors: true,
-      api: false,
-      demoAccount: true
-    },
-    scores: {
-      overall: broker.rating || 4.0,
-      tradingInstruments: 4.0,
-      platforms: 4.0,
-      fees: 4.0,
-      security: 4.0,
-      deposit: 4.0,
-      customerService: 4.0
-    },
-    fees: {
-      trading: {
-        spread: broker.spreads || 'Variable',
-        commission: 'Varies by account type',
-        overnight: 'Varies by instrument'
-      },
-      nonTrading: {
-        deposit: 'Free',
-        withdrawal: 'Free',
-        inactivity: 'Varies',
-        account: 'No monthly fees'
-      }
-    },
-    depositWithdrawal: {
-      methods: ['Credit/Debit Card', 'Bank Transfer', 'E-wallets'],
-      depositTime: 'Instant for most methods',
-      withdrawalTime: '1-3 business days',
-      baseCurrencies: ['USD', 'EUR', 'GBP']
-    },
-    regulation: {
-      primary: parseArrayField(broker.regulators)[0] || 'Regulated',
-      additional: parseArrayField(broker.regulators).slice(1),
-      clientFunds: 'Segregated accounts',
-      negativeBalanceProtection: true,
-      investorCompensation: 'Varies by regulator',
-      riskDisclosure: 'Full risk disclosure provided'
-    },
-    customerSupport: {
-      channels: ['Live Chat', 'Email', 'Phone'],
-      hours: '24/5',
-      languages: ['English', 'Other languages vary'],
-      quality: 'Professional support team',
-      responseTime: 'Varies'
-    },
-    education: {
-      materials: ['Trading Guides', 'Video Tutorials', 'Webinars'],
-      marketAnalysis: 'Market analysis and news',
-      demo: 'Demo account available'
-    },
-    pros: parseArrayField(broker.pros),
-    cons: parseArrayField(broker.cons),
-    historicalData: [
-      { month: 'Jan', spread: 1.0, execution: 0.2 },
-      { month: 'Feb', spread: 1.0, execution: 0.2 },
-      { month: 'Mar', spread: 1.0, execution: 0.2 },
-      { month: 'Apr', spread: 1.0, execution: 0.2 },
-      { month: 'May', spread: 1.0, execution: 0.2 },
-      { month: 'Jun', spread: 1.0, execution: 0.2 },
-    ],
-    radarData: [
-      { subject: 'Trading Tools', A: 80 },
-      { subject: 'Research', A: 75 },
-      { subject: 'Mobile App', A: 85 },
-      { subject: 'Fees', A: 70 },
-      { subject: 'Customer Service', A: 80 },
-      { subject: 'Ease of Use', A: 75 },
-    ]
-  };
-}
-
 // Function to fetch related brokers
 async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetails[]> {
   try {
@@ -405,152 +455,3 @@ async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetai
   }
 }
 
-// Function to get a default broker when none is found
-function getDefaultBroker(slug: string) {
-  return {
-    id: 'default',
-    name: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-    logo: 'https://via.placeholder.com/180x90?text=Broker',
-    rating: 4.0,
-    minDeposit: 100,
-    summary: 'This broker information is not available at the moment. Please check back later or contact support for more information.',
-    tradingInfo: {
-      spreads: 'N/A',
-      leverage: 'N/A',
-      platforms: ['N/A'],
-      instruments: ['N/A'],
-      accountTypes: ['N/A'],
-      minTrade: 'N/A'
-    },
-    tradingFeatures: {
-      executionSpeed: 'N/A',
-      orderTypes: ['N/A'],
-      hedging: false,
-      scalping: false,
-      expertAdvisors: false,
-      api: false,
-      demoAccount: false
-    },
-    scores: {
-      overall: 4.0,
-      tradingInstruments: 4.0,
-      platforms: 4.0,
-      fees: 4.0,
-      security: 4.0,
-      deposit: 4.0,
-      customerService: 4.0
-    },
-    fees: {
-      trading: {
-        spread: 'N/A',
-        commission: 'N/A',
-        overnight: 'N/A'
-      },
-      nonTrading: {
-        deposit: 'N/A',
-        withdrawal: 'N/A',
-        inactivity: 'N/A',
-        account: 'N/A'
-      }
-    },
-    depositWithdrawal: {
-      methods: ['N/A'],
-      depositTime: 'N/A',
-      withdrawalTime: 'N/A',
-      baseCurrencies: ['N/A']
-    },
-    regulation: {
-      primary: 'N/A',
-      additional: ['N/A'],
-      clientFunds: 'N/A',
-      negativeBalanceProtection: false,
-      investorCompensation: 'N/A',
-      riskDisclosure: 'N/A'
-    },
-    customerSupport: {
-      channels: ['N/A'],
-      hours: 'N/A',
-      languages: ['N/A'],
-      quality: 'N/A',
-      responseTime: 'N/A'
-    },
-    education: {
-      materials: ['N/A'],
-      marketAnalysis: 'N/A',
-      demo: 'N/A'
-    },
-    pros: ['N/A'],
-    cons: ['N/A']
-  };
-}
-
-export default async function BrokerProfilePage({ params }: { params: { slug: string } }) {
-  try {
-    const staticBroker = brokersData[params.slug as keyof typeof brokersData] || getDefaultBroker(params.slug);
-    
-    // Try to fetch from Supabase
-    let broker: BrokerDetails | null = null;
-    try {
-      // Fetch all brokers from Supabase
-      const brokers = await fetchAllBrokerDetails();
-      
-      if (brokers && brokers.length > 0) {
-        // Find the broker with matching slug
-        const normalizedSlug = params.slug.toLowerCase();
-        broker = brokers.find(b => {
-          if (!b || !b.name) return false;
-          return b.name.toLowerCase().replace(/\s+/g, '-') === normalizedSlug;
-        }) || null;
-      }
-    } catch (supabaseError) {
-
-      // Continue with static data if available
-    }
-    
-    // If we found a broker in Supabase, format and use it
-    if (broker) {
-      
-      try {
-        const formattedBroker = formatBrokerData(broker);
-        const related = await fetchRelatedBrokers(broker.id.toString());
-        
-        return (
-          <>
-            <IPChecker />
-            <BrokerProfile 
-              brokerData={formattedBroker} 
-              relatedBrokers={related.length > 0 ? related : relatedBrokers} 
-            />
-          </>
-        );
-      } catch (formatError) {
-        console.error('Error formatting broker data:', formatError);
-        // Fall through to use static data or default
-      }
-    }
-    
-    // If no broker found in Supabase but we have static data, use that
-
-    return (
-      <>
-        <IPChecker />
-        <BrokerProfile 
-          brokerData={staticBroker} 
-          relatedBrokers={relatedBrokers} 
-        />
-      </>
-    );
-  } catch (error) {
-    // If we have an error, use the default broker data
-    const defaultBroker = getDefaultBroker(params.slug);
-    return (
-      <>
-        <IPChecker />
-        <BrokerProfile 
-          brokerData={defaultBroker} 
-          relatedBrokers={[]} 
-        />
-      </>
-    );
-  }
-}

@@ -158,7 +158,7 @@ export default function ComparePage() {
                     <div className="flex items-center">
                       <Star className="h-4 w-4 text-yellow-400 mr-1" />
                       <span className="text-sm text-gray-600">
-                        {typeof broker.rating === 'number' ? broker.rating.toFixed(1) : 'N/A'}
+                        {typeof broker.rating === 'string' ? broker.rating : 'N/A'}
                       </span>
                     </div>
                   </div>
