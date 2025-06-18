@@ -55,64 +55,102 @@ const rankedBrokers = [
 
 export default function RankingsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const [brokers, setBrokers] = useState<any[]>(rankedBrokers);
+  const [brokers, setBrokers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const itemsPerPage = 6;
   
-  useEffect(() => {
-    async function fetchBrokers() {
-      try {
-        console.log('Fetching brokers for rankings page using fetchAllBrokerDetails...');
-        const data = await fetchAllBrokerDetails();
-        
-        console.log('Brokers data for rankings page:', data);
-        
-        if (data && data.length > 0) {
-          // Format the brokers data to match our expected structure
-          const formattedBrokers = data.map((broker: any, index: number) => {
-            // Parse array fields that might be stored as JSON strings
-            const parseArrayField = (field: any) => {
-              if (!field) return [];
-              if (Array.isArray(field)) return field;
-              try {
-                return JSON.parse(field);
-              } catch {
-                return [field];
-              }
-            };
-            
-            return {
-              rank: index + 1,
-              name: broker.name || `Broker ${index + 1}`,
-              logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
-              rating: broker.rating || 4.0,
-              minDeposit: broker.minDeposit || 100,
-              features: parseArrayField(broker.features) || [
-                'Competitive spreads',
-                'Fast execution',
-                'Multiple platforms'
-              ],
-              regulations: parseArrayField(broker.regulations) || ['Regulated'],
-              tradingPlatforms: parseArrayField(broker.platforms) || ['MT4', 'MT5'],
-              pros: parseArrayField(broker.pros) || ['Professional trading services'],
-              cons: parseArrayField(broker.cons) || ['Limited educational resources'],
-              slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
-            };
-          });
-          
-          setBrokers(formattedBrokers);
-        }
-      } catch (err) {
-        console.error('Error fetching brokers for rankings page:', err);
-        setError('Failed to load broker rankings');
-        // Keep the fallback data
-      } finally {
-        setLoading(false);
-      }
-    }
+  const fetchBrokers = async (pageNumber: number, isInitialLoad = false) => {
+    if (isInitialLoad) setLoading(true);
+    else setLoadingMore(true);
     
-    fetchBrokers();
+    try {
+      const data = await fetchAllBrokerDetails();
+      
+      if (data && data.length > 0) {
+        // Format the brokers data to match our expected structure
+        const startIndex = (pageNumber - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedData = data.slice(startIndex, endIndex);
+        
+        const formattedBrokers = paginatedData.map((broker: any, index: number) => {
+          // Parse array fields that might be stored as JSON strings
+          const parseArrayField = (field: any) => {
+            if (!field) return [];
+            if (Array.isArray(field)) return field;
+            try {
+              return JSON.parse(field);
+            } catch {
+              return [field];
+            }
+          };
+          
+          return {
+            rank: startIndex + index + 1,
+            name: broker.name || `Broker ${startIndex + index + 1}`,
+            logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+            rating: broker.rating || 4.0,
+            minDeposit: broker.minDeposit || 100,
+            features: parseArrayField(broker.features) || [
+              'Competitive spreads',
+              'Fast execution',
+              'Multiple platforms'
+            ],
+            regulations: parseArrayField(broker.regulations) || ['Regulated'],
+            tradingPlatforms: parseArrayField(broker.platforms) || ['MT4', 'MT5'],
+            pros: parseArrayField(broker.pros) || ['Professional trading services'],
+            cons: parseArrayField(broker.cons) || ['Limited educational resources'],
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+          };
+        });
+        
+        setBrokers(prev => isInitialLoad ? formattedBrokers : [...prev, ...formattedBrokers]);
+        setHasMore(endIndex < data.length);
+      } else if (pageNumber === 1) {
+        // If no data from API, use fallback data for first page
+        setBrokers(rankedBrokers);
+        setHasMore(false);
+      } else {
+        setHasMore(false);
+      }
+    } catch (err) {
+      if (pageNumber === 1) {
+        setError('Failed to load broker rankings');
+        setBrokers(rankedBrokers);
+        setHasMore(false);
+      }
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  };
+  
+  // Initial load
+  useEffect(() => {
+    fetchBrokers(1, true);
   }, []);
+  
+  // Handle scroll for infinite loading
+  useEffect(() => {
+    const handleScroll = () => {
+      if (loading || loadingMore || !hasMore) return;
+      
+      const scrollPosition = window.innerHeight + document.documentElement.scrollTop;
+      const bottomPosition = document.documentElement.offsetHeight - 200; // 200px from bottom
+      
+      if (scrollPosition > bottomPosition) {
+        const nextPage = page + 1;
+        setPage(nextPage);
+        fetchBrokers(nextPage);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [page, loading, loadingMore, hasMore]);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -153,6 +191,11 @@ export default function RankingsPage() {
           </div>
         ) : (
           <div className="space-y-8">
+            {!loading && brokers.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-gray-600 dark:text-gray-400">No brokers found.</p>
+              </div>
+            )}
             {brokers.map((broker, index) => (
             <motion.div
               key={broker.rank}
@@ -296,6 +339,18 @@ export default function RankingsPage() {
               </Card>
             </motion.div>
             ))}
+            
+            {loadingMore && (
+              <div className="flex justify-center py-8">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
+              </div>
+            )}
+            
+            {!loading && !loadingMore && !hasMore && brokers.length > 0 && (
+              <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+                You've reached the end of the list
+              </div>
+            )}
           </div>
         )}
       </div>
