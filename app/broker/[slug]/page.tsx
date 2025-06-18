@@ -1,9 +1,8 @@
-import { BrokerProfile } from '@/components/broker/broker-profile';
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import BrokerProfile from '@/components/broker/broker-profile';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { supabase, fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
+import { IPChecker } from '@/components/ip-checker';
+import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
 
 // Fallback data in case Supabase fetch fails
 const brokersData = {
@@ -249,7 +248,6 @@ export async function generateStaticParams() {
       slug: broker.name.toLowerCase().replace(/\s+/g, '-')
     }));
   } catch (error) {
-    console.error('Error generating static params:', error);
     // Fallback to static list if Supabase fetch fails
     return [
       { slug: 'ironfx' },
@@ -281,7 +279,6 @@ function checkSingaporeIP(ip: string): boolean {
 function formatBrokerData(broker: BrokerDetails) {
   // Safety check - if broker is null or undefined, return a default object
   if (!broker) {
-    console.error('Broker data is null or undefined');
     return brokersData.xtb; // Return a default broker from static data
   }
   
@@ -293,8 +290,7 @@ function formatBrokerData(broker: BrokerDetails) {
       // Try to parse as JSON if it's a string
       return JSON.parse(field as string);
     } catch (e) {
-      console.log(`Error parsing field: ${field}`, e);
-      // If parsing fails, return as single item array
+        // If parsing fails, return as single item array
       return [field];
     }
   };
@@ -394,66 +390,109 @@ function formatBrokerData(broker: BrokerDetails) {
 }
 
 // Function to fetch related brokers
-async function fetchRelatedBrokers(currentBrokerId: string) {
+async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetails[]> {
   try {
-    // Fetch 3 random brokers that are not the current broker
-    const { data, error } = await supabase
-      .from('broker_details')
-      .select('id, name, logo, rating, minDeposit')
-      .neq('id', currentBrokerId)
-      .limit(3);
+    // Fetch all brokers and filter out the current one
+    const brokers = await fetchAllBrokerDetails();
+    if (!brokers) return [];
     
-    if (error) throw error;
-    
-    console.log('Related brokers data:', data);
-    
-    // Safety check - if data is null or empty, return static data
-    if (!data || data.length === 0) {
-      console.log('No related brokers found, using fallback data');
-      return relatedBrokers;
-    }
-    
-    // Format the related brokers data
-    return data.map(broker => ({
-      id: broker.id || `broker-${Math.random().toString(36).substring(2, 9)}`,
-      name: broker.name || 'Broker',
-      logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
-      rating: broker.rating || 4.0,
-      minDeposit: broker.minDeposit || 100,
-      slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : 'broker'
-    }));
+    // Filter out the current broker and take up to 5 others
+    return brokers
+      .filter(broker => broker.id !== currentBrokerId)
+      .slice(0, 5);
   } catch (error) {
-    console.error('Error fetching related brokers:', error);
-    return relatedBrokers; // Fallback to static data
+    return []; // Return empty array as fallback
   }
 }
 
+// Function to get a default broker when none is found
+function getDefaultBroker(slug: string) {
+  return {
+    id: 'default',
+    name: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+    logo: 'https://via.placeholder.com/180x90?text=Broker',
+    rating: 4.0,
+    minDeposit: 100,
+    summary: 'This broker information is not available at the moment. Please check back later or contact support for more information.',
+    tradingInfo: {
+      spreads: 'N/A',
+      leverage: 'N/A',
+      platforms: ['N/A'],
+      instruments: ['N/A'],
+      accountTypes: ['N/A'],
+      minTrade: 'N/A'
+    },
+    tradingFeatures: {
+      executionSpeed: 'N/A',
+      orderTypes: ['N/A'],
+      hedging: false,
+      scalping: false,
+      expertAdvisors: false,
+      api: false,
+      demoAccount: false
+    },
+    scores: {
+      overall: 4.0,
+      tradingInstruments: 4.0,
+      platforms: 4.0,
+      fees: 4.0,
+      security: 4.0,
+      deposit: 4.0,
+      customerService: 4.0
+    },
+    fees: {
+      trading: {
+        spread: 'N/A',
+        commission: 'N/A',
+        overnight: 'N/A'
+      },
+      nonTrading: {
+        deposit: 'N/A',
+        withdrawal: 'N/A',
+        inactivity: 'N/A',
+        account: 'N/A'
+      }
+    },
+    depositWithdrawal: {
+      methods: ['N/A'],
+      depositTime: 'N/A',
+      withdrawalTime: 'N/A',
+      baseCurrencies: ['N/A']
+    },
+    regulation: {
+      primary: 'N/A',
+      additional: ['N/A'],
+      clientFunds: 'N/A',
+      negativeBalanceProtection: false,
+      investorCompensation: 'N/A',
+      riskDisclosure: 'N/A'
+    },
+    customerSupport: {
+      channels: ['N/A'],
+      hours: 'N/A',
+      languages: ['N/A'],
+      quality: 'N/A',
+      responseTime: 'N/A'
+    },
+    education: {
+      materials: ['N/A'],
+      marketAnalysis: 'N/A',
+      demo: 'N/A'
+    },
+    pros: ['N/A'],
+    cons: ['N/A']
+  };
+}
+
 export default async function BrokerProfilePage({ params }: { params: { slug: string } }) {
-  // Get the client's IP address from headers
-  const headersList = headers();
-  const forwardedFor = headersList.get('x-forwarded-for');
-  const clientIP = forwardedFor ? forwardedFor.split(',')[0].trim() : '127.0.0.1';
-  
-  // Check if the user is from Singapore
-  // If user's IP is from Singapore, redirect to the restricted page
-  if (checkSingaporeIP(clientIP)) {
-    // If this is a Singapore IP, redirect to the restricted page
-    console.log('Singapore IP detected:', clientIP);
-    return redirect('/restricted');
-  }
-  
   try {
-    console.log(`Attempting to fetch broker with slug: ${params.slug}`);
-    
-    // First check if we have a static broker with this slug
-    const staticBroker = brokersData[params.slug as keyof typeof brokersData];
+    const staticBroker = brokersData[params.slug as keyof typeof brokersData] || getDefaultBroker(params.slug);
     
     // Try to fetch from Supabase
-    let broker = null;
+    let broker: BrokerDetails | null = null;
     try {
       // Fetch all brokers from Supabase
       const brokers = await fetchAllBrokerDetails();
-      console.log(`Fetched ${brokers?.length || 0} brokers for slug lookup`);
       
       if (brokers && brokers.length > 0) {
         // Find the broker with matching slug
@@ -461,63 +500,57 @@ export default async function BrokerProfilePage({ params }: { params: { slug: st
         broker = brokers.find(b => {
           if (!b || !b.name) return false;
           return b.name.toLowerCase().replace(/\s+/g, '-') === normalizedSlug;
-        });
+        }) || null;
       }
     } catch (supabaseError) {
-      console.error('Error fetching from Supabase:', supabaseError);
+
       // Continue with static data if available
     }
     
-    // If no broker found in Supabase but we have static data, use that
-    if (!broker && staticBroker) {
-      console.log('Using static data for broker:', params.slug);
-      return <BrokerProfile brokerData={staticBroker} relatedBrokers={relatedBrokers} />;
-    }
-    
-    // If we found a broker in Supabase
+    // If we found a broker in Supabase, format and use it
     if (broker) {
-      console.log(`Found broker with slug ${params.slug}:`, broker);
       
-      // Format the broker data
-      const formattedBroker = formatBrokerData(broker);
-      
-      // Fetch related brokers
-      let relatedBrokersData;
       try {
-        relatedBrokersData = await fetchRelatedBrokers(broker.id);
-      } catch (relatedError) {
-        console.error('Error fetching related brokers:', relatedError);
-        relatedBrokersData = relatedBrokers; // Use static data
+        const formattedBroker = formatBrokerData(broker);
+        const related = await fetchRelatedBrokers(broker.id.toString());
+        
+        return (
+          <>
+            <IPChecker />
+            <BrokerProfile 
+              brokerData={formattedBroker} 
+              relatedBrokers={related.length > 0 ? related : relatedBrokers} 
+            />
+          </>
+        );
+      } catch (formatError) {
+        console.error('Error formatting broker data:', formatError);
+        // Fall through to use static data or default
       }
-      
-      return <BrokerProfile brokerData={formattedBroker} relatedBrokers={relatedBrokersData} />;
     }
     
-    // If we get here, we couldn't find the broker in Supabase or static data
-    console.log(`No broker found with slug: ${params.slug}`);
-    return <div className="container mx-auto px-4 py-16 text-center">
-      <h1 className="text-3xl font-bold mb-4">Broker Not Found</h1>
-      <p className="mb-8">We couldn't find a broker with the name "{params.slug}".</p>
-      <Button asChild>
-        <Link href="/">Return to Home</Link>
-      </Button>
-    </div>;
+    // If no broker found in Supabase but we have static data, use that
+
+    return (
+      <>
+        <IPChecker />
+        <BrokerProfile 
+          brokerData={staticBroker} 
+          relatedBrokers={relatedBrokers} 
+        />
+      </>
+    );
   } catch (error) {
-    console.error('Error in BrokerProfilePage:', error);
-    
-    // Final fallback to static data if available
-    const staticBroker = brokersData[params.slug as keyof typeof brokersData];
-    if (staticBroker) {
-      console.log('Error occurred, using static data as final fallback');
-      return <BrokerProfile brokerData={staticBroker} relatedBrokers={relatedBrokers} />;
-    }
-    
-    return <div className="container mx-auto px-4 py-16 text-center">
-      <h1 className="text-3xl font-bold mb-4">Error Loading Broker</h1>
-      <p className="mb-8">There was an error loading the broker information. Please try again later.</p>
-      <Button asChild>
-        <Link href="/">Return to Home</Link>
-      </Button>
-    </div>;
+    // If we have an error, use the default broker data
+    const defaultBroker = getDefaultBroker(params.slug);
+    return (
+      <>
+        <IPChecker />
+        <BrokerProfile 
+          brokerData={defaultBroker} 
+          relatedBrokers={[]} 
+        />
+      </>
+    );
   }
 }

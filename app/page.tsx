@@ -12,7 +12,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <TopHero />
+      <div className="w-full">
+        <TopHero />
+      </div>
       <div className="px-4 sm:px-6 lg:px-8">
         <Hero />
         <FeaturedBrokers />

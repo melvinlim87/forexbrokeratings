@@ -88,7 +88,9 @@ export default function TopHero() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-metallic min-h-[600px] px-4 sm:px-6 lg:px-8">
+    <div className="relative w-full overflow-hidden bg-metallic min-h-[600px]">
+      {/* Content container with max-width and centered content */}
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -333,6 +335,7 @@ export default function TopHero() {
           <NetworkDiagram />
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

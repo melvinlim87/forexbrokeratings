@@ -56,7 +56,7 @@ interface BrokerProfileProps {
   relatedBrokers: any[];
 }
 
-export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
   const [openSection, setOpenSection] = useState<string | null>('overview');
 
   const toggleSection = (section: string) => {
@@ -97,12 +97,16 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2">
+                {brokerData.logo ? (
                   <Image
                     src={brokerData.logo}
                     alt={brokerData.name}
                     fill
                     style={{ objectFit: "contain" }}
                   />
+                ) : 
+                  null
+                }
                 </div>
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
@@ -181,7 +185,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                       {Object.entries(brokerData.tradingInfo).map(([key, value]: [string, unknown]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                            {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
                           </span>
                           <span className="font-medium">{renderValue(value)}</span>
                         </li>
@@ -196,7 +200,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                       {Object.entries(brokerData.tradingFeatures).map(([key, value]: [string, unknown]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                            {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
                           </span>
                           {typeof value === 'boolean' ? (
                             value ? (
@@ -241,7 +245,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                       {Object.entries(brokerData.fees.trading).map(([key, value]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                            {key.charAt(0).toUpperCase() + key.slice(1).  replace(/([A-Z])/g, ' $1').trim()}
                           </span>
                           <span className="font-medium">{renderValue(value)}</span>
                         </li>
@@ -254,7 +258,7 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                       {Object.entries(brokerData.fees.nonTrading).map(([key, value]) => (
                         <li key={key} className="flex items-center justify-between">
                           <span className="text-gray-600 dark:text-gray-400">
-                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                            {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}
                           </span>
                           <span className="font-medium">{renderValue(value)}</span>
                         </li>
@@ -569,13 +573,14 @@ export function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps
                     <Link key={broker.id} href={`/broker/${broker.slug}`}>
                       <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                         <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded mr-3">
-                          <Image
-                            src={broker.logo}
-                            alt={broker.name}
-                            fill
-                            style={{ objectFit: "contain" }}
-                            className="p-1"
-                          />
+                          {broker.logo ? (
+                            <Image
+                              src={broker.logo}
+                              alt={broker.name}
+                              fill
+                              style={{ objectFit: "contain" }}
+                              className="p-1"
+                            /> ) : null}
                         </div>
                         <div>
                           <div className="font-medium">{broker.name}</div>
