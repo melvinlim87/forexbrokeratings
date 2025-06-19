@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -22,11 +22,23 @@ import {
   CheckCircle
 } from 'lucide-react';
 import Image from 'next/image';
-import { rankedBrokers } from '@/lib/rankings';
+import { fetchTopBroker, BrokerDetails } from '@/lib/supabase';
 
 export default function RankingsPage() {
+  const [brokers, setBrokers] = useState<BrokerDetails[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('overall');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+
+  useEffect(() => {
+    async function fetchBrokers() {
+      setLoading(true);
+      const data = await fetchTopBroker();
+      setBrokers(data || []);
+      setLoading(false);
+    }
+    fetchBrokers();
+  }, []);
 
   const categories = [
     {
@@ -66,10 +78,22 @@ export default function RankingsPage() {
     }
   ];
 
-  const currentBrokers = rankedBrokers[selectedCategory] || [];
-  const sortedBrokers = [...currentBrokers].sort((a, b) => {
-    return sortOrder === 'desc' ? b.score - a.score : a.score - b.score;
-  });
+  const getCategoryBrokers = () => {
+    switch (selectedCategory) {
+      case 'spreads':
+        return [...brokers].sort((a, b) => parseFloat(a.spread_eur_usd || '0') - parseFloat(b.spread_eur_usd || '0'));
+      case 'regulation':
+        return [...brokers].sort((a, b) => (b.regulations || 0) - (a.regulations || 0));
+      case 'execution':
+        return [...brokers].sort((a, b) => (b.environment || 0) - (a.environment || 0));
+      case 'beginners':
+        return [...brokers].sort((a, b) => (b.user_experience || 0) - (a.user_experience || 0));
+      case 'overall':
+      default:
+        return [...brokers].sort((a, b) => (sortOrder === 'desc' ? (parseFloat(b.rating || '0') - parseFloat(a.rating || '0')) : (parseFloat(a.rating || '0') - parseFloat(b.rating || '0'))));
+    }
+  };
+  const sortedBrokers = getCategoryBrokers();
 
   const getRankBadgeColor = (rank: number) => {
     if (rank === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white';
@@ -79,6 +103,8 @@ export default function RankingsPage() {
     if (rank <= 10) return 'bg-gradient-to-r from-green-500 to-green-600 text-white';
     return 'bg-gradient-to-r from-gray-500 to-gray-600 text-white';
   };
+
+  const safe = (val?: string | number) => val ?? 'N/A';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-slate-900 to-black">
@@ -315,7 +341,7 @@ export default function RankingsPage() {
                         </div>
                         <div className="flex items-center space-x-4">
                           <div className="text-center">
-                            <div className="text-2xl font-bold text-white">{currentBrokers.length}</div>
+                            <div className="text-2xl font-bold text-white">{sortedBrokers.length}</div>
                             <div className="text-white/80 text-sm">Brokers</div>
                           </div>
                           <Button
@@ -360,8 +386,8 @@ export default function RankingsPage() {
                               {/* Rank and Broker Info */}
                               <div className="flex items-center space-x-6 flex-1">
                                 {/* Rank Badge */}
-                                <div className={`w-12 h-12 rounded-full ${getRankBadgeColor(broker.rank)} flex items-center justify-center font-bold text-lg shadow-lg`}>
-                                  #{broker.rank}
+                                <div className={`w-12 h-12 rounded-full ${getRankBadgeColor(parseFloat(broker.ranking))} flex items-center justify-center font-bold text-lg shadow-lg`}>
+                                  #{index + 1}
                                 </div>
 
                                 {/* Broker Logo and Name */}
@@ -380,10 +406,10 @@ export default function RankingsPage() {
                                     <div className="flex items-center space-x-3">
                                       <div className="flex items-center">
                                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
-                                        <span className="text-cyan-200 font-medium">{broker.rating}/10</span>
+                                        <span className="text-cyan-200 font-medium">{broker.rating}/5</span>
                                       </div>
                                       <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
-                                        Est. {broker.established}
+                                        Est. {broker.year_published}
                                       </Badge>
                                     </div>
                                   </div>
@@ -392,16 +418,16 @@ export default function RankingsPage() {
                                 {/* Key Metrics */}
                                 <div className="hidden lg:flex items-center space-x-8 flex-1">
                                   <div className="text-center">
-                                    <div className="text-cyan-400 font-bold text-lg">{broker.minSpread}</div>
+                                    <div className="text-cyan-400 font-bold text-lg">{broker.spread_eur_usd}</div>
                                     <div className="text-white/60 text-xs">Min Spread</div>
                                   </div>
                                   <div className="text-center">
-                                    <div className="text-purple-400 font-bold text-lg">{broker.maxLeverage}</div>
+                                    <div className="text-purple-400 font-bold text-lg">{broker.leverage_max}</div>
                                     <div className="text-white/60 text-xs">Max Leverage</div>
                                   </div>
                                   <div className="text-center">
                                     <div className="text-green-400 font-bold text-lg">
-                                      ${broker.minDeposit === 0 ? 'No Min' : broker.minDeposit}
+                                      {broker.min_deposit}
                                     </div>
                                     <div className="text-white/60 text-xs">Min Deposit</div>
                                   </div>
@@ -409,7 +435,7 @@ export default function RankingsPage() {
 
                                 {/* Regulation Badges */}
                                 <div className="hidden md:flex flex-wrap gap-1 max-w-xs">
-                                  {broker.regulatedBy.slice(0, 3).map((regulator) => (
+                                  {broker.regulators?.slice(0, 2).map((regulator) => (
                                     <Badge 
                                       key={regulator}
                                       variant="secondary" 
@@ -418,12 +444,12 @@ export default function RankingsPage() {
                                       {regulator}
                                     </Badge>
                                   ))}
-                                  {broker.regulatedBy.length > 3 && (
+                                  {broker.regulators?.length > 2 && (
                                     <Badge 
                                       variant="secondary" 
                                       className="bg-gray-500/20 text-gray-300 border-gray-500/30 text-xs"
                                     >
-                                      +{broker.regulatedBy.length - 3}
+                                      +{broker.regulators?.length - 2}
                                     </Badge>
                                   )}
                                 </div>
@@ -433,16 +459,18 @@ export default function RankingsPage() {
                               <div className="flex items-center space-x-4">
                                 <div className="text-center">
                                   <div className={`text-3xl font-bold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent`}>
-                                    {broker.score}
+                                    {broker.rating}
                                   </div>
                                   <div className="text-white/60 text-xs">Score</div>
                                 </div>
-                                <Button 
-                                  className={`bg-gradient-to-r ${category.gradient} hover:opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105`}
-                                >
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  Visit
-                                </Button>
+                                <a href={broker.website} target="_blank" rel="noopener noreferrer">
+                                  <Button 
+                                    className={`bg-gradient-to-r ${category.gradient} hover:opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105`}
+                                  >
+                                    <ExternalLink className="w-4 h-4 mr-2" />
+                                      Visit
+                                  </Button>
+                                </a>
                               </div>
                             </div>
 
@@ -450,16 +478,16 @@ export default function RankingsPage() {
                             <div className="lg:hidden mt-4 pt-4 border-t border-white/10">
                               <div className="grid grid-cols-3 gap-4 text-center">
                                 <div>
-                                  <div className="text-cyan-400 font-bold">{broker.minSpread}</div>
+                                  <div className="text-cyan-400 font-bold">{broker.spread_eur_usd}</div>
                                   <div className="text-white/60 text-xs">Min Spread</div>
                                 </div>
                                 <div>
-                                  <div className="text-purple-400 font-bold">{broker.maxLeverage}</div>
+                                  <div className="text-purple-400 font-bold">{broker.leverage_max}</div>
                                   <div className="text-white/60 text-xs">Max Leverage</div>
                                 </div>
                                 <div>
                                   <div className="text-green-400 font-bold">
-                                    ${broker.minDeposit === 0 ? 'No Min' : broker.minDeposit}
+                                    {broker.min_deposit}
                                   </div>
                                   <div className="text-white/60 text-xs">Min Deposit</div>
                                 </div>

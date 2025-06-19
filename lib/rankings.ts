@@ -8,7 +8,7 @@ export interface RankedBroker {
   minSpread: string;
   maxLeverage: string;
   minDeposit: number;
-  regulatedBy: string[];
+  regulators: string[];
   established: number;
   specialties: string[];
 }
@@ -25,7 +25,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 200,
-      regulatedBy: ["ASIC", "CySEC", "FSA"],
+      regulators: ["ASIC", "CySEC", "FSA"],
       established: 2007,
       specialties: ["ECN Trading", "Raw Spreads", "Fast Execution"]
     },
@@ -39,7 +39,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.1 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["ASIC", "CySEC"],
+      regulators: ["ASIC", "CySEC"],
       established: 2005,
       specialties: ["Multi-Platform", "Copy Trading", "VPS Hosting"]
     },
@@ -53,7 +53,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:400",
       minDeposit: 0,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin"],
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin"],
       established: 2010,
       specialties: ["TradingView", "Smart Tools", "Social Trading"]
     },
@@ -67,7 +67,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:888",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"],
+      regulators: ["CySEC", "IFSC", "ASIC"],
       established: 2009,
       specialties: ["Low Deposit", "Bonuses", "Education"]
     },
@@ -81,7 +81,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 0,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC"],
       established: 1996,
       specialties: ["Transparency", "API Access", "Advanced Charts"]
     },
@@ -95,7 +95,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 100,
-      regulatedBy: ["CFTC", "NFA", "FCA"],
+      regulators: ["CFTC", "NFA", "FCA"],
       established: 2001,
       specialties: ["DMA Pricing", "Research", "US Regulated"]
     },
@@ -109,7 +109,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:30",
       minDeposit: 250,
-      regulatedBy: ["FCA", "ASIC", "MAS"],
+      regulators: ["FCA", "ASIC", "MAS"],
       established: 1974,
       specialties: ["17K+ Markets", "Charting", "Risk Management"]
     },
@@ -123,7 +123,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.7 pips",
       maxLeverage: "1:30",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS"],
+      regulators: ["FCA", "CySEC", "ASIC", "MAS"],
       established: 2008,
       specialties: ["User-Friendly", "No Commission", "Mobile Trading"]
     },
@@ -137,7 +137,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:30",
       minDeposit: 50,
-      regulatedBy: ["CySEC", "FCA", "ASIC"],
+      regulators: ["CySEC", "FCA", "ASIC"],
       established: 2007,
       specialties: ["Social Trading", "Copy Trading", "Crypto"]
     },
@@ -151,7 +151,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.9 pips",
       maxLeverage: "1:400",
       minDeposit: 100,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA"],
+      regulators: ["CBI", "ASIC", "FSA", "FSCA"],
       established: 2006,
       specialties: ["Education", "Multi-Regulated", "Trading Central"]
     },
@@ -165,7 +165,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2008,
       specialties: ["High Leverage", "Instant Withdrawals", "Low Deposit"]
     },
@@ -179,7 +179,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC"],
+      regulators: ["FCA", "CySEC", "ASIC"],
       established: 2001,
       specialties: ["MetaTrader Supreme", "Education", "Analytics"]
     },
@@ -193,7 +193,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSCA"],
+      regulators: ["FCA", "CySEC", "FSCA"],
       established: 2006,
       specialties: ["Multi-Platform", "NDD Execution", "Institutional"]
     },
@@ -207,7 +207,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSA"],
+      regulators: ["FCA", "CySEC", "FSA"],
       established: 2014,
       specialties: ["Raw Spreads", "ECN", "Institutional Liquidity"]
     },
@@ -221,7 +221,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "FSA", "FSCA"],
+      regulators: ["CySEC", "FSA", "FSCA"],
       established: 2010,
       specialties: ["High Leverage", "Bonuses", "Copy Trading"]
     },
@@ -235,7 +235,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2011,
       specialties: ["Education", "Copy Trading", "Micro Accounts"]
     },
@@ -249,7 +249,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSA", "CySEC"],
+      regulators: ["FSA", "CySEC"],
       established: 1998,
       specialties: ["PAMM Accounts", "Social Trading", "Analytics"]
     },
@@ -263,7 +263,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FSC"],
+      regulators: ["CySEC", "FSC"],
       established: 2009,
       specialties: ["CopyFX", "R Trader", "Analytics"]
     },
@@ -277,7 +277,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "3.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSC", "CySEC"],
+      regulators: ["FSC", "CySEC"],
       established: 2007,
       specialties: ["Contests", "Bonuses", "ForexCopy"]
     },
@@ -291,7 +291,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:3000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "IFSC"],
+      regulators: ["CySEC", "IFSC"],
       established: 2009,
       specialties: ["High Leverage", "Bonuses", "Mobile Trading"]
     }
@@ -307,7 +307,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 200,
-      regulatedBy: ["ASIC", "CySEC", "FSA"],
+      regulators: ["ASIC", "CySEC", "FSA"],
       established: 2007,
       specialties: ["True ECN", "Raw Spreads", "Institutional Liquidity"]
     },
@@ -321,7 +321,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:400",
       minDeposit: 0,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin"],
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin"],
       established: 2010,
       specialties: ["Razor Account", "ECN", "Tight Spreads"]
     },
@@ -335,7 +335,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSA"],
+      regulators: ["FCA", "CySEC", "FSA"],
       established: 2014,
       specialties: ["Pro Account", "Raw Spreads", "ECN"]
     },
@@ -349,7 +349,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FSC"],
+      regulators: ["CySEC", "FSC"],
       established: 2009,
       specialties: ["ECN Account", "Raw Spreads", "R Trader"]
     },
@@ -363,7 +363,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.1 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["ASIC", "CySEC"],
+      regulators: ["ASIC", "CySEC"],
       established: 2005,
       specialties: ["Raw Account", "ECN", "IRESS"]
     },
@@ -377,7 +377,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2008,
       specialties: ["Zero Account", "Raw Spreads", "Professional"]
     },
@@ -391,7 +391,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC"],
+      regulators: ["FCA", "CySEC", "ASIC"],
       established: 2001,
       specialties: ["Zero.MT4", "Raw Spreads", "ECN"]
     },
@@ -405,7 +405,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:3000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "IFSC"],
+      regulators: ["CySEC", "IFSC"],
       established: 2009,
       specialties: ["ECN Account", "Zero Spread", "Raw Pricing"]
     },
@@ -419,7 +419,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:30",
       minDeposit: 250,
-      regulatedBy: ["FCA", "ASIC", "MAS"],
+      regulators: ["FCA", "ASIC", "MAS"],
       established: 1974,
       specialties: ["DMA", "Tight Spreads", "Professional"]
     },
@@ -433,7 +433,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSA", "CySEC"],
+      regulators: ["FSA", "CySEC"],
       established: 1998,
       specialties: ["ECN Account", "Raw Spreads", "Professional"]
     },
@@ -447,7 +447,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSCA"],
+      regulators: ["FCA", "CySEC", "FSCA"],
       established: 2006,
       specialties: ["cTrader", "Raw Spreads", "ECN"]
     },
@@ -461,7 +461,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.7 pips",
       maxLeverage: "1:30",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS"],
+      regulators: ["FCA", "CySEC", "ASIC", "MAS"],
       established: 2008,
       specialties: ["Dynamic Spreads", "No Commission", "Competitive"]
     },
@@ -475,7 +475,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 0,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC"],
       established: 1996,
       specialties: ["Transparent Pricing", "Fractional Units", "Core Plus"]
     },
@@ -489,7 +489,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 100,
-      regulatedBy: ["CFTC", "NFA", "FCA"],
+      regulators: ["CFTC", "NFA", "FCA"],
       established: 2001,
       specialties: ["Commission Account", "DMA", "Institutional"]
     },
@@ -503,7 +503,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.9 pips",
       maxLeverage: "1:400",
       minDeposit: 100,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA"],
+      regulators: ["CBI", "ASIC", "FSA", "FSCA"],
       established: 2006,
       specialties: ["Fixed Spreads", "Variable Spreads", "Professional"]
     },
@@ -517,7 +517,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:30",
       minDeposit: 50,
-      regulatedBy: ["CySEC", "FCA", "ASIC"],
+      regulators: ["CySEC", "FCA", "ASIC"],
       established: 2007,
       specialties: ["Variable Spreads", "Social Trading", "Copy Trading"]
     },
@@ -531,7 +531,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:888",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"],
+      regulators: ["CySEC", "IFSC", "ASIC"],
       established: 2009,
       specialties: ["Standard Account", "Micro Account", "Zero Account"]
     },
@@ -545,7 +545,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "FSA", "FSCA"],
+      regulators: ["CySEC", "FSA", "FSCA"],
       established: 2010,
       specialties: ["Zero Spread", "Premium Account", "VIP"]
     },
@@ -559,7 +559,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2011,
       specialties: ["Standard Account", "Cent Account", "ECN Zero"]
     },
@@ -573,7 +573,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "3.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSC", "CySEC"],
+      regulators: ["FSC", "CySEC"],
       established: 2007,
       specialties: ["Standard Account", "Eurica Account", "Cent Account"]
     }
@@ -589,7 +589,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 0,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC", "IIROC", "MAS"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC", "IIROC", "MAS"],
       established: 1996,
       specialties: ["Tier 1 Regulation", "Segregated Funds", "Transparency"]
     },
@@ -603,7 +603,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 100,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC", "IIROC"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC", "IIROC"],
       established: 2001,
       specialties: ["US Regulated", "Tier 1", "Institutional Grade"]
     },
@@ -617,7 +617,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:30",
       minDeposit: 250,
-      regulatedBy: ["FCA", "ASIC", "MAS", "BaFin", "CONSOB"],
+      regulators: ["FCA", "ASIC", "MAS", "BaFin", "CONSOB"],
       established: 1974,
       specialties: ["FTSE 250", "50+ Years", "Global Regulation"]
     },
@@ -631,7 +631,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:400",
       minDeposit: 0,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin", "FSCA"],
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin", "FSCA"],
       established: 2010,
       specialties: ["Multi-Regulated", "Tier 1", "Client Protection"]
     },
@@ -645,7 +645,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 200,
-      regulatedBy: ["ASIC", "CySEC", "FSA", "FSCA"],
+      regulators: ["ASIC", "CySEC", "FSA", "FSCA"],
       established: 2007,
       specialties: ["ASIC Regulated", "Segregated Funds", "Compensation"]
     },
@@ -659,7 +659,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.1 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["ASIC", "CySEC", "FSCA", "SVG FSA"],
+      regulators: ["ASIC", "CySEC", "FSCA", "SVG FSA"],
       established: 2005,
       specialties: ["ASIC Regulated", "Award Winning", "Client Protection"]
     },
@@ -673,7 +673,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.7 pips",
       maxLeverage: "1:30",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS", "FSCA"],
+      regulators: ["FCA", "CySEC", "ASIC", "MAS", "FSCA"],
       established: 2008,
       specialties: ["LSE Listed", "Multi-Regulated", "Segregated Funds"]
     },
@@ -687,7 +687,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:30",
       minDeposit: 50,
-      regulatedBy: ["CySEC", "FCA", "ASIC", "FINRA"],
+      regulators: ["CySEC", "FCA", "ASIC", "FINRA"],
       established: 2007,
       specialties: ["Multi-Regulated", "Social Trading", "Investor Protection"]
     },
@@ -701,7 +701,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "EFSA"],
+      regulators: ["FCA", "CySEC", "ASIC", "EFSA"],
       established: 2001,
       specialties: ["20+ Years", "Multi-Regulated", "Client Protection"]
     },
@@ -715,7 +715,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSCA", "SCB"],
+      regulators: ["FCA", "CySEC", "FSCA", "SCB"],
       established: 2006,
       specialties: ["Multi-Regulated", "Segregated Funds", "Compensation"]
     },
@@ -729,7 +729,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:888",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "IFSC", "ASIC", "FSA"],
+      regulators: ["CySEC", "IFSC", "ASIC", "FSA"],
       established: 2009,
       specialties: ["Multi-Regulated", "Global Presence", "Client Protection"]
     },
@@ -743,7 +743,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.9 pips",
       maxLeverage: "1:400",
       minDeposit: 100,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA", "ADGM"],
+      regulators: ["CBI", "ASIC", "FSA", "FSCA", "ADGM"],
       established: 2006,
       specialties: ["Multi-Regulated", "Global Licenses", "Segregated Funds"]
     },
@@ -757,7 +757,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSA", "FSCA"],
+      regulators: ["FCA", "CySEC", "FSA", "FSCA"],
       established: 2014,
       specialties: ["FCA Regulated", "Segregated Funds", "Compensation"]
     },
@@ -771,7 +771,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "FCA", "FSA", "FSCA"],
+      regulators: ["CySEC", "FCA", "FSA", "FSCA"],
       established: 2008,
       specialties: ["Multi-Regulated", "Global Presence", "Client Protection"]
     },
@@ -785,7 +785,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "FSA", "FSCA", "DFSA"],
+      regulators: ["CySEC", "FSA", "FSCA", "DFSA"],
       established: 2010,
       specialties: ["Multi-Regulated", "Segregated Funds", "Awards"]
     },
@@ -799,7 +799,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FCA", "FSA", "FSCA"],
+      regulators: ["CySEC", "FCA", "FSA", "FSCA"],
       established: 2011,
       specialties: ["Multi-Regulated", "Global Presence", "Client Protection"]
     },
@@ -813,7 +813,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSA", "CySEC", "CRFIN"],
+      regulators: ["FSA", "CySEC", "CRFIN"],
       established: 1998,
       specialties: ["25+ Years", "Multi-Regulated", "Global Presence"]
     },
@@ -827,7 +827,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FSC", "IFSC"],
+      regulators: ["CySEC", "FSC", "IFSC"],
       established: 2009,
       specialties: ["Multi-Regulated", "Global Licenses", "Client Protection"]
     },
@@ -841,7 +841,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:3000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"],
+      regulators: ["CySEC", "IFSC", "ASIC"],
       established: 2009,
       specialties: ["Multi-Regulated", "Global Presence", "Awards"]
     },
@@ -855,7 +855,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "3.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSC", "CySEC", "BVI FSC"],
+      regulators: ["FSC", "CySEC", "BVI FSC"],
       established: 2007,
       specialties: ["Multi-Regulated", "Global Presence", "Awards"]
     }
@@ -871,7 +871,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 200,
-      regulatedBy: ["ASIC", "CySEC", "FSA"],
+      regulators: ["ASIC", "CySEC", "FSA"],
       established: 2007,
       specialties: ["True ECN", "0.4ms Latency", "Institutional Liquidity"]
     },
@@ -885,7 +885,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:400",
       minDeposit: 0,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin"],
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin"],
       established: 2010,
       specialties: ["Smart Trader Tools", "VPS", "Ultra-Fast Execution"]
     },
@@ -899,7 +899,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.1 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["ASIC", "CySEC"],
+      regulators: ["ASIC", "CySEC"],
       established: 2005,
       specialties: ["IRESS Platform", "VPS Hosting", "Fast Execution"]
     },
@@ -913,7 +913,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSA"],
+      regulators: ["FCA", "CySEC", "FSA"],
       established: 2014,
       specialties: ["Institutional Liquidity", "ECN", "Low Latency"]
     },
@@ -927,7 +927,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2008,
       specialties: ["Instant Execution", "Market Execution", "Professional"]
     },
@@ -941,7 +941,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 0,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC"],
       established: 1996,
       specialties: ["Fractional Units", "No Requotes", "Transparent"]
     },
@@ -955,7 +955,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC"],
+      regulators: ["FCA", "CySEC", "ASIC"],
       established: 2001,
       specialties: ["MetaTrader Supreme", "VPS", "Fast Execution"]
     },
@@ -969,7 +969,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 100,
-      regulatedBy: ["CFTC", "NFA", "FCA"],
+      regulators: ["CFTC", "NFA", "FCA"],
       established: 2001,
       specialties: ["DMA Execution", "Institutional", "Advanced Platform"]
     },
@@ -983,7 +983,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSCA"],
+      regulators: ["FCA", "CySEC", "FSCA"],
       established: 2006,
       specialties: ["NDD Execution", "cTrader", "Multi-Platform"]
     },
@@ -997,7 +997,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FSC"],
+      regulators: ["CySEC", "FSC"],
       established: 2009,
       specialties: ["R Trader", "ECN Execution", "Fast Processing"]
     },
@@ -1011,7 +1011,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:30",
       minDeposit: 250,
-      regulatedBy: ["FCA", "ASIC", "MAS"],
+      regulators: ["FCA", "ASIC", "MAS"],
       established: 1974,
       specialties: ["DMA", "Advanced Platform", "Professional"]
     },
@@ -1025,7 +1025,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:888",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"],
+      regulators: ["CySEC", "IFSC", "ASIC"],
       established: 2009,
       specialties: ["No Requotes", "99.35% Execution", "Reliable"]
     },
@@ -1039,7 +1039,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSA", "CySEC"],
+      regulators: ["FSA", "CySEC"],
       established: 1998,
       specialties: ["ECN Execution", "Professional", "Institutional"]
     },
@@ -1053,7 +1053,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.7 pips",
       maxLeverage: "1:30",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS"],
+      regulators: ["FCA", "CySEC", "ASIC", "MAS"],
       established: 2008,
       specialties: ["Proprietary Platform", "Fast Execution", "Reliable"]
     },
@@ -1067,7 +1067,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.9 pips",
       maxLeverage: "1:400",
       minDeposit: 100,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA"],
+      regulators: ["CBI", "ASIC", "FSA", "FSCA"],
       established: 2006,
       specialties: ["Multi-Platform", "Reliable", "Professional"]
     },
@@ -1081,7 +1081,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:30",
       minDeposit: 50,
-      regulatedBy: ["CySEC", "FCA", "ASIC"],
+      regulators: ["CySEC", "FCA", "ASIC"],
       established: 2007,
       specialties: ["Social Trading", "Copy Trading", "User-Friendly"]
     },
@@ -1095,7 +1095,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "FSA", "FSCA"],
+      regulators: ["CySEC", "FSA", "FSCA"],
       established: 2010,
       specialties: ["Fast Execution", "Multiple Platforms", "Reliable"]
     },
@@ -1109,7 +1109,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2011,
       specialties: ["Fast Execution", "Multiple Platforms", "Reliable"]
     },
@@ -1123,7 +1123,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:3000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "IFSC"],
+      regulators: ["CySEC", "IFSC"],
       established: 2009,
       specialties: ["Fast Execution", "Multiple Platforms", "High Leverage"]
     },
@@ -1137,7 +1137,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "3.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSC", "CySEC"],
+      regulators: ["FSC", "CySEC"],
       established: 2007,
       specialties: ["Multiple Platforms", "Global Presence", "Contests"]
     }
@@ -1153,7 +1153,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:30",
       minDeposit: 50,
-      regulatedBy: ["CySEC", "FCA", "ASIC"],
+      regulators: ["CySEC", "FCA", "ASIC"],
       established: 2007,
       specialties: ["Social Trading", "Copy Trading", "User-Friendly"]
     },
@@ -1167,7 +1167,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:888",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"],
+      regulators: ["CySEC", "IFSC", "ASIC"],
       established: 2009,
       specialties: ["$5 Min Deposit", "Education", "Webinars"]
     },
@@ -1181,7 +1181,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:400",
       minDeposit: 0,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin"],
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin"],
       established: 2010,
       specialties: ["No Min Deposit", "TradingView", "Education"]
     },
@@ -1195,7 +1195,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 0,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC"],
+      regulators: ["CFTC", "NFA", "FCA", "ASIC"],
       established: 1996,
       specialties: ["No Min Deposit", "Education", "Transparency"]
     },
@@ -1209,7 +1209,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.7 pips",
       maxLeverage: "1:30",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS"],
+      regulators: ["FCA", "CySEC", "ASIC", "MAS"],
       established: 2008,
       specialties: ["Simple Platform", "Demo Account", "User-Friendly"]
     },
@@ -1223,7 +1223,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.9 pips",
       maxLeverage: "1:400",
       minDeposit: 100,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA"],
+      regulators: ["CBI", "ASIC", "FSA", "FSCA"],
       established: 2006,
       specialties: ["Education", "Trading Central", "Webinars"]
     },
@@ -1237,7 +1237,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.1 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["ASIC", "CySEC"],
+      regulators: ["ASIC", "CySEC"],
       established: 2005,
       specialties: ["Copy Trading", "Education", "Support"]
     },
@@ -1251,7 +1251,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2008,
       specialties: ["$1 Min Deposit", "Instant Withdrawals", "Support"]
     },
@@ -1265,7 +1265,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.3 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FCA", "FSA"],
+      regulators: ["CySEC", "FCA", "FSA"],
       established: 2011,
       specialties: ["Education", "Micro Accounts", "Copy Trading"]
     },
@@ -1279,7 +1279,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "1.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 5,
-      regulatedBy: ["CySEC", "FSA", "FSCA"],
+      regulators: ["CySEC", "FSA", "FSCA"],
       established: 2010,
       specialties: ["$5 Min Deposit", "Education", "Copy Trading"]
     },
@@ -1293,7 +1293,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "ASIC"],
+      regulators: ["FCA", "CySEC", "ASIC"],
       established: 2001,
       specialties: ["Education", "Webinars", "Analytics"]
     },
@@ -1307,7 +1307,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:30",
       minDeposit: 250,
-      regulatedBy: ["FCA", "ASIC", "MAS"],
+      regulators: ["FCA", "ASIC", "MAS"],
       established: 1974,
       specialties: ["Education", "Research", "Analysis"]
     },
@@ -1321,7 +1321,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.8 pips",
       maxLeverage: "1:50",
       minDeposit: 100,
-      regulatedBy: ["CFTC", "NFA", "FCA"],
+      regulators: ["CFTC", "NFA", "FCA"],
       established: 2001,
       specialties: ["Education", "Research", "Analysis"]
     },
@@ -1335,7 +1335,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSA", "CySEC"],
+      regulators: ["FSA", "CySEC"],
       established: 1998,
       specialties: ["$1 Min Deposit", "Education", "Analytics"]
     },
@@ -1349,7 +1349,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 200,
-      regulatedBy: ["ASIC", "CySEC", "FSA"],
+      regulators: ["ASIC", "CySEC", "FSA"],
       established: 2007,
       specialties: ["Education", "Support", "Professional"]
     },
@@ -1363,7 +1363,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSA"],
+      regulators: ["FCA", "CySEC", "FSA"],
       established: 2014,
       specialties: ["Education", "Support", "Analytics"]
     },
@@ -1377,7 +1377,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.6 pips",
       maxLeverage: "1:500",
       minDeposit: 100,
-      regulatedBy: ["FCA", "CySEC", "FSCA"],
+      regulators: ["FCA", "CySEC", "FSCA"],
       established: 2006,
       specialties: ["Education", "Support", "Multi-Platform"]
     },
@@ -1391,7 +1391,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.0 pips",
       maxLeverage: "1:2000",
       minDeposit: 10,
-      regulatedBy: ["CySEC", "FSC"],
+      regulators: ["CySEC", "FSC"],
       established: 2009,
       specialties: ["CopyFX", "Analytics", "Education"]
     },
@@ -1405,7 +1405,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "0.5 pips",
       maxLeverage: "1:3000",
       minDeposit: 1,
-      regulatedBy: ["CySEC", "IFSC"],
+      regulators: ["CySEC", "IFSC"],
       established: 2009,
       specialties: ["$1 Min Deposit", "Bonuses", "Education"]
     },
@@ -1419,7 +1419,7 @@ export const rankedBrokers: Record<string, RankedBroker[]> = {
       minSpread: "3.0 pips",
       maxLeverage: "1:1000",
       minDeposit: 1,
-      regulatedBy: ["FSC", "CySEC"],
+      regulators: ["FSC", "CySEC"],
       established: 2007,
       specialties: ["$1 Min Deposit", "Contests", "ForexCopy"]
     }

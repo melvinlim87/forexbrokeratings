@@ -33,7 +33,7 @@ interface Promotion {
     logo: string;
     rating: number;
     established: number;
-    regulatedBy: string[];
+    regulators: string[];
   };
   promotion: {
     title: string;
@@ -59,7 +59,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.8,
       established: 2018,
-      regulatedBy: ['CySEC', 'FCA', 'ASIC']
+      regulators: ['CySEC', 'FCA', 'ASIC']
     },
     promotion: {
       title: '$1,000 Cash Bonus',
@@ -83,7 +83,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.9,
       established: 2007,
-      regulatedBy: ['ASIC', 'CySEC', 'FSA']
+      regulators: ['ASIC', 'CySEC', 'FSA']
     },
     promotion: {
       title: 'Free VPS Hosting',
@@ -106,7 +106,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.7,
       established: 2009,
-      regulatedBy: ['CySEC', 'IFSC', 'ASIC']
+      regulators: ['CySEC', 'IFSC', 'ASIC']
     },
     promotion: {
       title: '$30 No Deposit Bonus',
@@ -129,7 +129,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.8,
       established: 2010,
-      regulatedBy: ['ASIC', 'FCA', 'CySEC', 'BaFin']
+      regulators: ['ASIC', 'FCA', 'CySEC', 'BaFin']
     },
     promotion: {
       title: 'Smart Trader Cashback',
@@ -152,7 +152,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/7413915/pexels-photo-7413915.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.8,
       established: 2005,
-      regulatedBy: ['ASIC', 'CySEC']
+      regulators: ['ASIC', 'CySEC']
     },
     promotion: {
       title: '100% Deposit Bonus',
@@ -175,7 +175,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/8370421/pexels-photo-8370421.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.6,
       established: 2006,
-      regulatedBy: ['CBI', 'ASIC', 'FSA', 'FSCA']
+      regulators: ['CBI', 'ASIC', 'FSA', 'FSCA']
     },
     promotion: {
       title: 'Welcome Bonus Package',
@@ -198,7 +198,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/7567526/pexels-photo-7567526.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.5,
       established: 2008,
-      regulatedBy: ['CySEC', 'FCA', 'FSA']
+      regulators: ['CySEC', 'FCA', 'FSA']
     },
     promotion: {
       title: 'Unlimited Leverage',
@@ -221,7 +221,7 @@ const promotions: Promotion[] = [
       logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       rating: 4.4,
       established: 2010,
-      regulatedBy: ['CySEC', 'FSA', 'FSCA']
+      regulators: ['CySEC', 'FSA', 'FSCA']
     },
     promotion: {
       title: 'Copy Trading Bonus',
@@ -470,7 +470,7 @@ export default function PromotionsPage() {
                         <div>
                           <span className="text-emerald-400 text-sm">Regulated By:</span>
                           <div className="flex flex-wrap gap-1 mt-1">
-                            {featuredPromotion.broker.regulatedBy.map((reg) => (
+                            {featuredPromotion.broker.regulators.map((reg) => (
                               <Badge key={reg} className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs">
                                 {reg}
                               </Badge>
@@ -600,7 +600,7 @@ export default function PromotionsPage() {
 
                         {/* Regulation */}
                         <div className="flex flex-wrap gap-1 mb-4">
-                          {item.broker.regulatedBy.slice(0, 3).map((reg) => (
+                          {item.broker.regulators.slice(0, 3).map((reg) => (
                             <Badge key={reg} className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
                               {reg}
                             </Badge>

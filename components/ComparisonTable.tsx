@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Table,
@@ -13,32 +13,69 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { ArrowUpDown, Star, ExternalLink } from 'lucide-react';
+import { ArrowUpDown, Star, ExternalLink, AlertCircle } from 'lucide-react';
 import { TrendingUp } from 'lucide-react';
-import { brokers, Broker } from '@/lib/brokers';
-import Image from 'next/image';
 
-type SortField = 'name' | 'rating' | 'minSpread' | 'minDeposit';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BrokerDetails, fetchTopBroker } from '@/lib/supabase';
+
+type SortField = 'name' | 'rating' | 'spread_eur_usd' | 'min_deposit';
 type SortDirection = 'asc' | 'desc';
 
 export default function ComparisonTable() {
   const [sortField, setSortField] = useState<SortField>('rating');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [brokers, setBrokers] = useState<BrokerDetails[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadBrokers = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchTopBroker();
+        setBrokers(data);
+      } catch (err) {
+        console.error('Failed to fetch brokers:', err);
+        setError('Failed to load brokers. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBrokers();
+  }, []);
 
   const sortedBrokers = [...brokers].sort((a, b) => {
-    const aValue = a[sortField];
-    const bValue = b[sortField];
-    
-    if (typeof aValue === 'string' && typeof bValue === 'string') {
+    if (sortField === 'name') {
       return sortDirection === 'asc' 
-        ? aValue.localeCompare(bValue)
-        : bValue.localeCompare(aValue);
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
     }
     
-    if (typeof aValue === 'number' && typeof bValue === 'number') {
+    if (sortField === 'rating') {
+      const aRating = parseFloat(a.rating || '0');
+      const bRating = parseFloat(b.rating || '0');
       return sortDirection === 'asc' 
-        ? aValue - bValue
-        : bValue - aValue;
+        ? aRating - bRating
+        : bRating - aRating;
+    }
+    
+    if (sortField === 'spread_eur_usd') {
+      const aSpread = parseFloat(a.spread_eur_usd || '0');
+      const bSpread = parseFloat(b.spread_eur_usd || '0');
+      return sortDirection === 'asc' 
+        ? aSpread - bSpread
+        : bSpread - aSpread;
+    }
+    
+    if (sortField === 'min_deposit') {
+      const aDeposit = parseFloat(a.min_deposit || '0');
+      const bDeposit = parseFloat(b.min_deposit || '0');
+      return sortDirection === 'asc' 
+        ? aDeposit - bDeposit
+        : bDeposit - aDeposit;
     }
     
     return 0;
@@ -69,6 +106,29 @@ export default function ComparisonTable() {
   return (
     <section className="py-20 bg-gradient-to-b from-black/40 to-black/60">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {error && (
+          <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-6 text-center mb-8">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-500/20 mb-4">
+              <AlertCircle className="w-6 h-6 text-red-400" />
+            </div>
+            <h3 className="text-lg font-medium text-red-100 mb-2">Something went wrong</h3>
+            <p className="text-red-200 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 text-sm font-medium text-white bg-red-500/20 hover:bg-red-500/30 rounded-lg transition-colors border border-red-500/30"
+            >
+              Try Again
+            </button>
+          </div>
+        )}
+        
+        {loading ? (
+          <div className="space-y-4">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="h-16 bg-white/5 rounded-lg animate-pulse" />
+            ))}
+          </div>
+        ) : (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,13 +137,13 @@ export default function ComparisonTable() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Top 10 <span className="text-cyan-400">Broker Comparison</span>
+            Top 6 <span className="text-cyan-400">Broker Comparison</span>
           </h2>
           <p className="text-xl text-cyan-100 max-w-2xl mx-auto">
             Comprehensive comparison of the top-rated forex brokers in the market
           </p>
         </motion.div>
-
+        )}
         {/* Desktop Table */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -106,11 +166,11 @@ export default function ComparisonTable() {
                     <SortButton field="rating">Rating</SortButton>
                   </TableHead>
                   <TableHead className="text-cyan-300 font-semibold">
-                    <SortButton field="minSpread">Min Spread</SortButton>
+                    <SortButton field="spread_eur_usd">Min Spread</SortButton>
                   </TableHead>
                   <TableHead className="text-cyan-300 font-semibold">Max Leverage</TableHead>
                   <TableHead className="text-cyan-300 font-semibold">
-                    <SortButton field="minDeposit">Min Deposit</SortButton>
+                    <SortButton field="min_deposit">Min Deposit</SortButton>
                   </TableHead>
                   <TableHead className="text-cyan-300 font-semibold">Regulated By</TableHead>
                   <TableHead className="text-cyan-300 font-semibold">Action</TableHead>
@@ -133,7 +193,7 @@ export default function ComparisonTable() {
                       <div className="flex items-center gap-3">
                         <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/20">
                           <Image
-                            src={broker.logo}
+                            src={broker.logo || ''}
                             alt={`${broker.name} logo`}
                             fill
                             className="object-cover"
@@ -142,40 +202,43 @@ export default function ComparisonTable() {
                         </div>
                         <div>
                           <div className="font-semibold text-white">{broker.name}</div>
-                          <div className="text-sm text-cyan-200">Est. {broker.established}</div>
+                          <div className="text-sm text-cyan-200">Est. {broker.year_published}</div>
                         </div>
                       </div>
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
                         <div className="flex items-center">
-                          {[...Array(10)].map((_, i) => (
-                            <Star 
-                              key={i} 
-                              className={`w-3 h-3 ${i < Math.floor(broker.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'}`} 
-                            />
-                          ))}
+                          {[...Array(5)].map((_, i) => {
+                            const rating = parseFloat(broker.rating || '0');
+                            return (
+                              <Star 
+                                key={i} 
+                                className={`w-3 h-3 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'}`} 
+                              />
+                            );
+                          })}
                         </div>
-                        <span className="font-semibold text-white">{broker.rating}/10</span>
+                        <span className="font-semibold text-white">{parseFloat(broker.rating || '0').toFixed(1)}/5</span>
                         <span className="text-sm text-white/60">reviews</span>
                       </div>
                     </TableCell>
                     <TableCell>
-                      <span className="font-semibold text-cyan-400">
-                        {broker.minSpread === 0 ? 'From 0' : broker.minSpread} pips
-                      </span>
+                        <span className="font-semibold text-cyan-400">
+                          {!broker.spread_eur_usd || parseFloat(broker.spread_eur_usd) === 0 ? 'From 0' : parseFloat(broker.spread_eur_usd).toFixed(2)} pips
+                        </span>
                     </TableCell>
                     <TableCell>
-                      <span className="font-semibold text-purple-400">{broker.maxLeverage}</span>
+                        <span className="font-semibold text-purple-400">{broker.leverage_max}</span>
                     </TableCell>
                     <TableCell>
-                      <span className="font-semibold text-green-400">
-                        ${broker.minDeposit === 0 ? 'No minimum' : broker.minDeposit}
-                      </span>
+                        <span className="font-semibold text-green-400">
+                          {broker.min_deposit}
+                        </span>
                     </TableCell>
                     <TableCell>
                       <div className="flex flex-wrap gap-1">
-                        {broker.regulatedBy.slice(0, 2).map((regulator) => (
+                        {broker.regulators?.slice(0, 2).map((regulator) => (
                           <Badge 
                             key={regulator} 
                             variant="secondary" 
@@ -183,13 +246,13 @@ export default function ComparisonTable() {
                           >
                             {regulator}
                           </Badge>
-                        ))}
-                        {broker.regulatedBy.length > 2 && (
+                        )) || 'N/A'}
+                        {broker.regulators && broker.regulators.length > 2 && (
                           <Badge 
                             variant="secondary" 
                             className="bg-gray-500/20 text-gray-300 border-gray-500/30 text-xs"
                           >
-                            +{broker.regulatedBy.length - 2}
+                            +{broker.regulators.length - 2}
                           </Badge>
                         )}
                       </div>
@@ -229,7 +292,7 @@ export default function ComparisonTable() {
                       </div>
                       <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/20">
                         <Image
-                          src={broker.logo}
+                          src={broker.logo || ''}
                           alt={`${broker.name} logo`}
                           fill
                           className="object-cover"
@@ -240,46 +303,44 @@ export default function ComparisonTable() {
                         <h3 className="font-semibold text-white">{broker.name}</h3>
                         <div className="flex items-center gap-1">
                           <div className="flex items-center">
-                            {[...Array(10)].map((_, i) => (
+                          {[...Array(10)].map((_, i) => {
+                            const rating = parseFloat(broker.rating || '0');
+                            return (
                               <Star 
                                 key={i} 
-                                className={`w-2 h-2 ${i < Math.floor(broker.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'}`} 
+                                className={`w-3 h-3 ${i < Math.floor(rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'}`} 
                               />
-                            ))}
-                          </div>
-                          <span className="text-sm text-cyan-200 ml-1">{broker.rating}/10</span>
+                            );
+                          })}
                         </div>
+                        <span className="text-sm text-cyan-200 ml-1">{broker.rating || 'N/A'}/10</span>
                       </div>
                     </div>
-                    <Button 
-                      size="sm" 
-                      className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white"
-                    >
-                      Visit
-                    </Button>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
+
+                  <div className="mt-4 space-y-4">
                     <div>
-                      <div className="text-sm text-white/60">Min Spread</div>
+                      <div className="text-sm text-white/60">Min Deposit</div>
+                      <div className="font-semibold text-green-400">
+                        ${!broker.min_deposit || parseFloat(broker.min_deposit) === 0 ? 'No minimum' : parseFloat(broker.min_deposit).toFixed(2)}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-sm text-white/60">Spread (EUR/USD)</div>
                       <div className="font-semibold text-cyan-400">
-                        {broker.minSpread === 0 ? 'From 0' : broker.minSpread} pips
+                        {!broker.spread_eur_usd || parseFloat(broker.spread_eur_usd) === 0 ? 'From 0' : parseFloat(broker.spread_eur_usd).toFixed(2)} pips
                       </div>
                     </div>
                     <div>
                       <div className="text-sm text-white/60">Max Leverage</div>
-                      <div className="font-semibold text-purple-400">{broker.maxLeverage}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm text-white/60">Min Deposit</div>
-                      <div className="font-semibold text-green-400">
-                        ${broker.minDeposit === 0 ? 'No minimum' : broker.minDeposit}
+                      <div className="font-semibold text-purple-400">
+                        {broker.leverage_max || 'N/A'}
                       </div>
                     </div>
                     <div>
                       <div className="text-sm text-white/60">Regulated By</div>
                       <div className="flex flex-wrap gap-1 mt-1">
-                        {broker.regulatedBy.slice(0, 2).map((regulator) => (
+                        {broker.regulators?.slice(0, 2).map((regulator) => (
                           <Badge 
                             key={regulator} 
                             variant="secondary" 
@@ -287,10 +348,36 @@ export default function ComparisonTable() {
                           >
                             {regulator}
                           </Badge>
-                        ))}
+                        )) || 'N/A'}
+                        {broker.regulators && broker.regulators.length > 2 && (
+                          <Badge 
+                            variant="secondary" 
+                            className="bg-gray-500/20 text-gray-300 border-gray-500/30 text-xs"
+                          >
+                            +{broker.regulators.length - 2}
+                          </Badge>
+                        )}
                       </div>
                     </div>
                   </div>
+                  <div className="flex flex-col gap-2 mt-4">
+  <a
+    href={broker.website}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-4 py-2 rounded flex items-center justify-center gap-2"
+  >
+    <ExternalLink className="w-4 h-4" />
+    Visit Broker
+  </a>
+  <Link
+    href={`/brokers/${broker.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+    className="w-full bg-cyan-800/80 hover:bg-cyan-700 text-white px-4 py-2 rounded flex items-center justify-center gap-2"
+  >
+    View Details
+  </Link>
+</div>
+                </div>
                 </div>
               </Card>
             </motion.div>

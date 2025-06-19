@@ -54,7 +54,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Promotional Popup */}
-      <PromotionalPopup />
+      {/* <PromotionalPopup /> */}
       
       {/* Background Image with Parallax Effect */}
       <motion.div 

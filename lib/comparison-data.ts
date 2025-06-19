@@ -8,7 +8,7 @@ export interface ComparisonBroker {
     maxLeverage: string;
     minDeposit: number;
     established: number;
-    regulatedBy: string[];
+    regulators: string[];
   };
   ratings: {
     overall: number;
@@ -51,7 +51,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:500",
       minDeposit: 200,
       established: 2007,
-      regulatedBy: ["ASIC", "CySEC", "FSA"]
+      regulators: ["ASIC", "CySEC", "FSA"]
     },
     ratings: {
       overall: 9.6,
@@ -92,7 +92,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:500",
       minDeposit: 100,
       established: 2005,
-      regulatedBy: ["ASIC", "CySEC"]
+      regulators: ["ASIC", "CySEC"]
     },
     ratings: {
       overall: 9.4,
@@ -133,7 +133,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:400",
       minDeposit: 0,
       established: 2010,
-      regulatedBy: ["ASIC", "FCA", "CySEC", "BaFin"]
+      regulators: ["ASIC", "FCA", "CySEC", "BaFin"]
     },
     ratings: {
       overall: 9.2,
@@ -174,7 +174,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:888",
       minDeposit: 5,
       established: 2009,
-      regulatedBy: ["CySEC", "IFSC", "ASIC"]
+      regulators: ["CySEC", "IFSC", "ASIC"]
     },
     ratings: {
       overall: 9.0,
@@ -215,7 +215,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:50",
       minDeposit: 0,
       established: 1996,
-      regulatedBy: ["CFTC", "NFA", "FCA", "ASIC"]
+      regulators: ["CFTC", "NFA", "FCA", "ASIC"]
     },
     ratings: {
       overall: 8.8,
@@ -256,7 +256,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:50",
       minDeposit: 100,
       established: 2001,
-      regulatedBy: ["CFTC", "NFA", "FCA"]
+      regulators: ["CFTC", "NFA", "FCA"]
     },
     ratings: {
       overall: 8.6,
@@ -297,7 +297,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:30",
       minDeposit: 250,
       established: 1974,
-      regulatedBy: ["FCA", "ASIC", "MAS"]
+      regulators: ["FCA", "ASIC", "MAS"]
     },
     ratings: {
       overall: 8.4,
@@ -338,7 +338,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:30",
       minDeposit: 100,
       established: 2008,
-      regulatedBy: ["FCA", "CySEC", "ASIC", "MAS"]
+      regulators: ["FCA", "CySEC", "ASIC", "MAS"]
     },
     ratings: {
       overall: 8.2,
@@ -379,7 +379,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:30",
       minDeposit: 50,
       established: 2007,
-      regulatedBy: ["CySEC", "FCA", "ASIC"]
+      regulators: ["CySEC", "FCA", "ASIC"]
     },
     ratings: {
       overall: 8.0,
@@ -420,7 +420,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:400",
       minDeposit: 100,
       established: 2006,
-      regulatedBy: ["CBI", "ASIC", "FSA", "FSCA"]
+      regulators: ["CBI", "ASIC", "FSA", "FSCA"]
     },
     ratings: {
       overall: 7.8,
@@ -461,7 +461,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:2000",
       minDeposit: 1,
       established: 2008,
-      regulatedBy: ["CySEC", "FCA", "FSA"]
+      regulators: ["CySEC", "FCA", "FSA"]
     },
     ratings: {
       overall: 7.6,
@@ -502,7 +502,7 @@ export const comparisonBrokers: ComparisonBroker[] = [
       maxLeverage: "1:500",
       minDeposit: 100,
       established: 2001,
-      regulatedBy: ["FCA", "CySEC", "ASIC"]
+      regulators: ["FCA", "CySEC", "ASIC"]
     },
     ratings: {
       overall: 7.4,

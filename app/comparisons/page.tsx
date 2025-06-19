@@ -27,24 +27,34 @@ import {
   Grip
 } from 'lucide-react';
 import Image from 'next/image';
-import { comparisonBrokers, type ComparisonBroker } from '@/lib/comparison-data';
+import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
+
+import { useEffect } from 'react';
 
 export default function ComparisonsPage() {
-  const [selectedBrokers, setSelectedBrokers] = useState<ComparisonBroker[]>([]);
-  const [draggedBroker, setDraggedBroker] = useState<ComparisonBroker | null>(null);
+  const [allBrokers, setAllBrokers] = useState<BrokerDetails[]>([]);
+  const [selectedBrokers, setSelectedBrokers] = useState<BrokerDetails[]>([]);
+  const [draggedBroker, setDraggedBroker] = useState<BrokerDetails | null>(null);
   const [activeCategory, setActiveCategory] = useState('overview');
   const dropZoneRef = useRef<HTMLDivElement>(null);
-
   const maxComparisons = 4;
+
+  useEffect(() => {
+    async function fetchBrokers() {
+      const data = await fetchAllBrokerDetails();
+      setAllBrokers(data || []);
+    }
+    fetchBrokers();
+  }, []);
 
   // Memoize filtered and sorted brokers to avoid duplicates
   const availableBrokers = useMemo(() => {
-    return comparisonBrokers.filter(broker => 
+    return allBrokers.filter(broker => 
       !selectedBrokers.find(selected => selected.id === broker.id)
     );
-  }, [selectedBrokers]);
+  }, [allBrokers, selectedBrokers]);
 
-  const handleDragStart = (broker: ComparisonBroker) => {
+  const handleDragStart = (broker: BrokerDetails) => {
     setDraggedBroker(broker);
   };
 
@@ -66,13 +76,13 @@ export default function ComparisonsPage() {
     setDraggedBroker(null);
   };
 
-  const addBroker = (broker: ComparisonBroker) => {
+  const addBroker = (broker: BrokerDetails) => {
     if (selectedBrokers.length < maxComparisons && !selectedBrokers.find(b => b.id === broker.id)) {
       setSelectedBrokers([...selectedBrokers, broker]);
     }
   };
 
-  const removeBroker = (brokerId: string) => {
+  const removeBroker = (brokerId: number) => {
     setSelectedBrokers(selectedBrokers.filter(b => b.id !== brokerId));
   };
 
@@ -81,12 +91,26 @@ export default function ComparisonsPage() {
   };
 
   const getScoreColor = (score: number) => {
-    if (score >= 9) return 'text-green-400';
-    if (score >= 7) return 'text-yellow-400';
+    if (score >= 4.5) return 'text-green-400';
+    if (score >= 3) return 'text-yellow-400';
     return 'text-red-400';
   };
 
-  const getRiskLevel = (level: string) => {
+  // Example: Calculate an overall rating from Supabase fields
+  const getOverallRating = (broker: BrokerDetails) => {
+    // You can customize this formula based on your needs
+    const rating = parseFloat(broker.rating || '0');
+    return rating;
+  };
+
+  // Example: Calculate risk level from Supabase fields
+  const getRiskLevel = (broker: BrokerDetails) => {
+    if (broker.risk_control >= 8) return 'Low';
+    if (broker.risk_control >= 5) return 'Medium';
+    return 'High';
+  };
+
+  const getRiskLevelColor = (level: string) => {
     const colors = {
       'Low': 'bg-green-500/20 text-green-300 border-green-500/30',
       'Medium': 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
@@ -118,7 +142,7 @@ export default function ComparisonsPage() {
             </p>
             <div className="flex items-center justify-center space-x-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400">{comparisonBrokers.length}+</div>
+                <div className="text-3xl font-bold text-cyan-400">{selectedBrokers.length}+</div>
                 <div className="text-cyan-200">Brokers Available</div>
               </div>
               <div className="text-center">
@@ -220,15 +244,12 @@ export default function ComparisonsPage() {
                 <div className="space-y-6">
                   {/* Comparison Categories */}
                   <Tabs value={activeCategory} onValueChange={setActiveCategory}>
-                    <TabsList className="grid w-full grid-cols-5 bg-white/10 backdrop-blur-sm border border-white/20">
+                    <TabsList className="grid w-full grid-cols-4 bg-white/10 backdrop-blur-sm border border-white/20">
                       <TabsTrigger value="overview" className="text-white data-[state=active]:bg-white/20">
                         Overview
                       </TabsTrigger>
                       <TabsTrigger value="ratings" className="text-white data-[state=active]:bg-white/20">
                         Ratings
-                      </TabsTrigger>
-                      <TabsTrigger value="promotions" className="text-white data-[state=active]:bg-white/20">
-                        Promotions
                       </TabsTrigger>
                       <TabsTrigger value="regulations" className="text-white data-[state=active]:bg-white/20">
                         Regulations
@@ -257,7 +278,7 @@ export default function ComparisonsPage() {
                                     <h4 className="font-bold text-white">{broker.name}</h4>
                                     <div className="flex items-center">
                                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
-                                      <span className="text-cyan-200 text-sm">{broker.overview.rating}/10</span>
+                                      <span className="text-cyan-200 text-sm">{broker.rating}/5</span>
                                     </div>
                                   </div>
                                 </div>
@@ -275,23 +296,23 @@ export default function ComparisonsPage() {
                               <div className="grid grid-cols-2 gap-2 text-sm">
                                 <div>
                                   <span className="text-white/60">Min Spread:</span>
-                                  <div className="text-cyan-400 font-semibold">{broker.overview.minSpread}</div>
+                                  <div className="text-cyan-400 font-semibold">{broker.spread_eur_usd}</div>
                                 </div>
                                 <div>
                                   <span className="text-white/60">Max Leverage:</span>
-                                  <div className="text-purple-400 font-semibold">{broker.overview.maxLeverage}</div>
+                                  <div className="text-purple-400 font-semibold">{broker.leverage_max}</div>
                                 </div>
                                 <div>
                                   <span className="text-white/60">Min Deposit:</span>
-                                  <div className="text-green-400 font-semibold">${broker.overview.minDeposit}</div>
+                                  <div className="text-green-400 font-semibold">${broker.min_deposit}</div>
                                 </div>
                                 <div>
                                   <span className="text-white/60">Founded:</span>
-                                  <div className="text-white font-semibold">{broker.overview.established}</div>
+                                  <div className="text-white font-semibold">{broker.year_published}</div>
                                 </div>
                               </div>
                               <div className="flex flex-wrap gap-1">
-                                {broker.overview.regulatedBy.slice(0, 2).map((reg) => (
+                                {broker.regulators?.slice(0, 2).map((reg) => (
                                   <Badge key={reg} className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
                                     {reg}
                                   </Badge>
@@ -310,11 +331,12 @@ export default function ComparisonsPage() {
                           <thead>
                             <tr className="border-b border-white/20">
                               <th className="text-left text-white font-semibold p-3">Broker</th>
-                              <th className="text-center text-white font-semibold p-3">Overall</th>
-                              <th className="text-center text-white font-semibold p-3">Spreads</th>
-                              <th className="text-center text-white font-semibold p-3">Execution</th>
-                              <th className="text-center text-white font-semibold p-3">Platform</th>
-                              <th className="text-center text-white font-semibold p-3">Support</th>
+                              <th className="text-center text-white font-semibold p-3">Environment</th>
+                              <th className="text-center text-white font-semibold p-3">User Experience</th>
+                              <th className="text-center text-white font-semibold p-3">SW</th>
+                              <th className="text-center text-white font-semibold p-3">Regulations</th>
+                              <th className="text-center text-white font-semibold p-3">Risk Control</th>
+                              <th className="text-center text-white font-semibold p-3">Promotions</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -333,78 +355,39 @@ export default function ComparisonsPage() {
                                   </div>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className={`font-bold text-lg ${getScoreColor(broker.ratings.overall)}`}>
-                                    {broker.ratings.overall}/10
+                                  <span className={`font-bold text-lg ${getScoreColor(parseFloat(broker.environment || '0'))}`}>
+                                    {broker.environment ? parseFloat(broker.environment) : 0}/5
                                   </span>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className={`font-bold ${getScoreColor(broker.ratings.spreads)}`}>
-                                    {broker.ratings.spreads}/10
+                                  <span className={`font-bold ${getScoreColor(parseFloat(broker.user_experience || '0'))}`}>
+                                    {broker.user_experience ? parseFloat(broker.user_experience) : 0}/5
                                   </span>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className={`font-bold ${getScoreColor(broker.ratings.execution)}`}>
-                                    {broker.ratings.execution}/10
+                                  <span className={`font-bold ${getScoreColor(parseFloat(broker.sw || '0'))}`}>
+                                    {broker.sw ? parseFloat(broker.sw) : 0}/5
                                   </span>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className={`font-bold ${getScoreColor(broker.ratings.platform)}`}>
-                                    {broker.ratings.platform}/10
+                                  <span className={`font-bold ${getScoreColor(parseFloat(broker.regulations || '0'))}`}>
+                                    {broker.regulations ? parseFloat(broker.regulations) : 0}/5
                                   </span>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className={`font-bold ${getScoreColor(broker.ratings.support)}`}>
-                                    {broker.ratings.support}/10
+                                  <span className={`font-bold ${getScoreColor(parseFloat(broker.risk_control || '0'))}`}>
+                                    {broker.risk_control ? parseFloat(broker.risk_control) : 0}/5
+                                  </span>
+                                </td>
+                                <td className="text-center p-3">
+                                  <span className={`font-bold ${getScoreColor(parseFloat(broker.promotions || '0'))}`}>
+                                    {broker.promotions ? parseFloat(broker.promotions) : 0}/5
                                   </span>
                                 </td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
-                      </div>
-                    </TabsContent>
-
-                    {/* Promotions Tab */}
-                    <TabsContent value="promotions" className="mt-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {selectedBrokers.map((broker) => (
-                          <Card key={broker.id} className="bg-white/10 backdrop-blur-sm border-white/20">
-                            <CardHeader className="pb-3">
-                              <div className="flex items-center justify-between">
-                                <h4 className="font-bold text-white">{broker.name}</h4>
-                                <Button
-                                  onClick={() => removeBroker(broker.id)}
-                                  size="sm"
-                                  variant="ghost"
-                                  className="text-red-400 hover:text-red-300 hover:bg-red-500/20"
-                                >
-                                  <X className="w-4 h-4" />
-                                </Button>
-                              </div>
-                            </CardHeader>
-                            <CardContent className="space-y-4">
-                              <div>
-                                <h5 className="text-cyan-400 font-semibold mb-2">Welcome Bonus</h5>
-                                <p className="text-white text-sm">{broker.promotions.welcomeBonus}</p>
-                              </div>
-                              <div>
-                                <h5 className="text-purple-400 font-semibold mb-2">Deposit Bonus</h5>
-                                <p className="text-white text-sm">{broker.promotions.depositBonus}</p>
-                              </div>
-                              <div>
-                                <h5 className="text-green-400 font-semibold mb-2">Special Offers</h5>
-                                <div className="space-y-1">
-                                  {broker.promotions.specialOffers.map((offer, index) => (
-                                    <div key={index} className="flex items-center text-sm text-cyan-200">
-                                      <CheckCircle className="w-3 h-3 text-green-400 mr-2" />
-                                      {offer}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
                       </div>
                     </TabsContent>
 
@@ -430,7 +413,7 @@ export default function ComparisonsPage() {
                               <div>
                                 <h5 className="text-cyan-400 font-semibold mb-2">Regulators</h5>
                                 <div className="flex flex-wrap gap-1">
-                                  {broker.regulations.regulators.map((reg) => (
+                                  {broker.regulators?.map((reg) => (
                                     <Badge key={reg} className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
                                       {reg}
                                     </Badge>
@@ -440,19 +423,8 @@ export default function ComparisonsPage() {
                               <div>
                                 <h5 className="text-purple-400 font-semibold mb-2">Licenses</h5>
                                 <div className="space-y-1">
-                                  {broker.regulations.licenses.map((license, index) => (
+                                  {broker.licenses?.map((license, index) => (
                                     <div key={index} className="text-sm text-cyan-200">{license}</div>
-                                  ))}
-                                </div>
-                              </div>
-                              <div>
-                                <h5 className="text-green-400 font-semibold mb-2">Client Protection</h5>
-                                <div className="space-y-1">
-                                  {broker.regulations.clientProtection.map((protection, index) => (
-                                    <div key={index} className="flex items-center text-sm text-cyan-200">
-                                      <Shield className="w-3 h-3 text-green-400 mr-2" />
-                                      {protection}
-                                    </div>
                                   ))}
                                 </div>
                               </div>
@@ -470,9 +442,8 @@ export default function ComparisonsPage() {
                             <tr className="border-b border-white/20">
                               <th className="text-left text-white font-semibold p-3">Broker</th>
                               <th className="text-center text-white font-semibold p-3">Platforms</th>
-                              <th className="text-center text-white font-semibold p-3">Assets</th>
-                              <th className="text-center text-white font-semibold p-3">Execution</th>
-                              <th className="text-center text-white font-semibold p-3">Risk Level</th>
+                              <th className="text-center text-white font-semibold p-3">Availability</th>
+                              <th className="text-center text-white font-semibold p-3">Response Time</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -492,7 +463,7 @@ export default function ComparisonsPage() {
                                 </td>
                                 <td className="text-center p-3">
                                   <div className="flex flex-wrap gap-1 justify-center">
-                                    {broker.trading.platforms.slice(0, 2).map((platform) => (
+                                    {broker.platforms?.slice(0, 2).map((platform) => (
                                       <Badge key={platform} className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 text-xs">
                                         {platform}
                                       </Badge>
@@ -500,15 +471,10 @@ export default function ComparisonsPage() {
                                   </div>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className="text-white font-medium">{broker.trading.assets}+</span>
+                                  <span className="text-white font-medium">{broker.availability}</span>
                                 </td>
                                 <td className="text-center p-3">
-                                  <span className="text-cyan-400 font-medium">{broker.trading.executionSpeed}</span>
-                                </td>
-                                <td className="text-center p-3">
-                                  <Badge className={getRiskLevel(broker.trading.riskLevel)}>
-                                    {broker.trading.riskLevel}
-                                  </Badge>
+                                  <span className="text-cyan-400 font-medium">{broker.response_time}</span>
                                 </td>
                               </tr>
                             ))}
@@ -555,7 +521,7 @@ export default function ComparisonsPage() {
                             <h3 className="font-bold text-white">{broker.name}</h3>
                             <div className="flex items-center">
                               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
-                              <span className="text-cyan-200 text-sm">{broker.overview.rating}/10</span>
+                              <span className="text-cyan-200 text-sm">{broker.rating}/5</span>
                             </div>
                           </div>
                         </div>
@@ -565,16 +531,16 @@ export default function ComparisonsPage() {
                       <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
                         <div>
                           <span className="text-white/60">Min Spread:</span>
-                          <div className="text-cyan-400 font-semibold">{broker.overview.minSpread}</div>
+                          <div className="text-cyan-400 font-semibold">{broker.spread_eur_usd}</div>
                         </div>
                         <div>
                           <span className="text-white/60">Max Leverage:</span>
-                          <div className="text-purple-400 font-semibold">{broker.overview.maxLeverage}</div>
+                          <div className="text-purple-400 font-semibold">{broker.leverage_max}</div>
                         </div>
                       </div>
 
                       <div className="flex flex-wrap gap-1 mb-4">
-                        {broker.overview.regulatedBy.slice(0, 2).map((reg) => (
+                        {broker.regulators?.slice(0, 2).map((reg) => (
                           <Badge key={reg} className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
                             {reg}
                           </Badge>
