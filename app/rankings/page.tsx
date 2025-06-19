@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, ArrowRight, Shield, TrendingUp } from 'lucide-react';
+import { Award, ArrowRight, ArrowUpRight, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,7 +23,8 @@ const rankedBrokers = [
     tradingPlatforms: ['MT4', 'MT5', 'cTrader'],
     pros: ['Excellent spreads', 'Fast execution', 'Advanced platform options'],
     cons: ['Higher minimum deposit', 'Limited educational content'],
-    slug: 'pepperstone'
+    slug: 'pepperstone',
+    website: 'https://www.pepperstone.com'
   },
   {
     rank: 2,
@@ -36,7 +37,8 @@ const rankedBrokers = [
     tradingPlatforms: ['MT4', 'MT5', 'cTrader'],
     pros: ['Deep liquidity', 'Low spreads', 'Fast execution speeds'],
     cons: ['Basic research tools', 'Limited educational content'],
-    slug: 'ic-markets'
+    slug: 'ic-markets',
+    website: 'https://www.icmarkets.com'
   },
   {
     rank: 3,
@@ -49,7 +51,8 @@ const rankedBrokers = [
     tradingPlatforms: ['MT4', 'MT5'],
     pros: ['Ultra-low minimum deposit', 'No deposit fees', 'Multi-language support'],
     cons: ['Average trading platform', 'Limited research tools'],
-    slug: 'xm'
+    slug: 'xm',
+    website: 'https://www.xm.com'
   }
 ];
 
@@ -92,6 +95,7 @@ export default function RankingsPage() {
             rank: startIndex + index + 1,
             name: broker.name || `Broker ${startIndex + index + 1}`,
             logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
+            website: broker.website,
             rating: broker.rating || 4.0,
             minDeposit: broker.minDeposit || 100,
             features: parseArrayField(broker.features) || [
@@ -108,6 +112,7 @@ export default function RankingsPage() {
         });
         
         setBrokers(prev => isInitialLoad ? formattedBrokers : [...prev, ...formattedBrokers]);
+        
         setHasMore(endIndex < data.length);
       } else if (pageNumber === 1) {
         // If no data from API, use fallback data for first page
@@ -322,13 +327,33 @@ export default function RankingsPage() {
                       </div>
 
                       <div className="space-y-2 w-full">
-                        <Button className="w-full" asChild>
-                          <a href={broker.website} target="_blank" rel="noopener noreferrer">
-                            Visit Broker
+                        {broker.website ? (
+                          <a 
+                            href={broker.website} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="w-full block"
+                          >
+                            <Button className="w-full hover:bg-primary/90 transition-colors cursor-pointer">
+                              <span className="flex items-center justify-center">
+                                Visit Broker <ArrowUpRight className="ml-2 h-4 w-4" />
+                              </span>
+                            </Button>
                           </a>
-                        </Button>
+                        ) : (
+                          <Button 
+                            className="w-full cursor-not-allowed opacity-70" 
+                            variant="outline"
+                            disabled
+                            title="Website not available"
+                          >
+                            <span className="flex items-center justify-center">
+                              Visit Broker <ArrowUpRight className="ml-2 h-4 w-4" />
+                            </span>
+                          </Button>
+                        )}
                         <Button variant="outline" className="w-full" asChild>
-                          <Link href={`/broker/${broker.slug}`} ta>
+                          <Link href={`/broker/${broker.slug}`}>
                             Read Review <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>

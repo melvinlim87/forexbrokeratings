@@ -14,19 +14,42 @@ interface Broker {
   id: string;
   name: string;
   logo: string;
-  minDeposit: string;
-  spreads: string;
-  leverage: string;
+  min_deposit: string;
+  min_withdrawl: string;
+  spread_eur_usd: string;
+  leverage_max: string;
   platforms: string[];
-  regulations: string[];
-  accountTypes: string[];
-  depositMethods: string[];
-  customerSupport: string[];
+  regulators: string[];
+  account_types: string[];
+  deposit_methods: string[];
+  withdraw_methods: string[];
+  base_currencies: string[];
+  instruments: string[];
+  deposit_fees: string | null;
+  withdrawal_fees: string | null;
+  deposit_process_time: string;
+  withdrawal_process_time: string;
+  languages: string[];
+  availability: string;
+  channels: string[];
+  phone_numbers: string[];
+  email: string;
+  response_time: string;
   pros: string[];
   cons: string[];
   slug: string;
-  rating?: number;
-  description?: string;
+  rating: number;
+  sw: number;
+  regulations: number;
+  risk_control: number;
+  promotions: number;
+  user_experience: number;
+  environment: number;
+  headquarters: string;
+  country: string;
+  is_regulated: boolean;
+  year_published: string;
+  description: string;
 }
 
 export default function ComparePage() {
@@ -42,28 +65,52 @@ export default function ComparePage() {
       try {
         const { data, error } = await supabase
           .from('broker_details')
-          .select('*');
+          .select('*')
+          .order('name', { ascending: true });
 
         if (error) throw error;
 
         // Transform the data to match our Broker interface
         const formattedBrokers = data.map((broker: any) => ({
-          id: broker.id,
+          id: broker.id.toString(),
           name: broker.name || 'Unnamed Broker',
           logo: broker.logo || '/default-broker-logo.png',
-          minDeposit: broker.min_deposit ? `$${broker.min_deposit}` : 'Not specified',
-          spreads: broker.spread_type || 'Variable',
-          leverage: broker.max_leverage ? `1:${broker.max_leverage}` : 'Not specified',
+          min_deposit: broker.min_deposit || 'Not specified',
+          min_withdrawl: broker.min_withdrawl || 'Not specified',
+          spread_eur_usd: broker.spread_eur_usd || 'Variable',
+          leverage_max: broker.leverage_max || 'Not specified',
           platforms: Array.isArray(broker.platforms) ? broker.platforms : [],
-          regulations: Array.isArray(broker.regulators) ? broker.regulators : [],
-          accountTypes: Array.isArray(broker.account_types) ? broker.account_types : [],
-          depositMethods: Array.isArray(broker.deposit_methods) ? broker.deposit_methods : [],
-          customerSupport: Array.isArray(broker.customer_support) ? broker.customer_support : [],
+          regulators: Array.isArray(broker.regulators) ? broker.regulators : [],
+          account_types: Array.isArray(broker.account_types) ? broker.account_types : [],
+          deposit_methods: Array.isArray(broker.deposit_methods) ? broker.deposit_methods : [],
+          withdraw_methods: Array.isArray(broker.withdraw_methods) ? broker.withdraw_methods : [],
+          base_currencies: Array.isArray(broker.base_currencies) ? broker.base_currencies : [],
+          instruments: Array.isArray(broker.instruments) ? broker.instruments : [],
+          deposit_fees: broker.deposit_fees || null,
+          withdrawal_fees: broker.withdrawal_fees || null,
+          deposit_process_time: broker.deposit_process_time || '1-3 business days',
+          withdrawal_process_time: broker.withdrawal_process_time || '1-3 business days',
+          languages: Array.isArray(broker.languages) ? broker.languages : ['English'],
+          availability: broker.availability || '24/5',
+          channels: Array.isArray(broker.channels) ? broker.channels : ['Email', 'Live Chat'],
+          phone_numbers: Array.isArray(broker.phone_numbers) ? broker.phone_numbers : [],
+          email: broker.email || 'support@example.com',
+          response_time: broker.response_time || '24 hours',
           pros: Array.isArray(broker.pros) ? broker.pros : [],
           cons: Array.isArray(broker.cons) ? broker.cons : [],
-          slug: broker.slug || broker.name.toLowerCase().replace(/\s+/g, '-'),
-          rating: broker.rating || 0,
-          description: broker.description || '',
+          slug: broker.slug || (broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : ''),
+          rating: typeof broker.rating === 'number' ? broker.rating : 0,
+          sw: typeof broker.sw === 'number' ? broker.sw : 4.0,
+          regulations: typeof broker.regulations === 'number' ? broker.regulations : 4.0,
+          risk_control: typeof broker.risk_control === 'number' ? broker.risk_control : 4.0,
+          promotions: typeof broker.promotions === 'number' ? broker.promotions : 4.0,
+          user_experience: typeof broker.user_experience === 'number' ? broker.user_experience : 4.0,
+          environment: typeof broker.environment === 'number' ? broker.environment : 4.0,
+          headquarters: broker.headquarters || 'Not specified',
+          country: broker.country || 'International',
+          is_regulated: !!broker.is_regulated,
+          year_published: broker.year_published || new Date().getFullYear().toString(),
+          description: broker.description || `${broker.name || 'This broker'} offers forex and CFD trading services.`
         }));
 
         setBrokers(formattedBrokers);
@@ -247,31 +294,192 @@ export default function ComparePage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
+                {/* Basic Info */}
+                <tr className="bg-gray-50">
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-sm font-semibold text-gray-700 uppercase tracking-wider">Basic Information</td>
+                </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Minimum Deposit</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {broker.minDeposit}
+                      {broker.min_deposit || 'N/A'}
                     </td>
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Spreads</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Minimum Withdrawal</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {broker.spreads}
+                      {broker.min_withdrawl || 'N/A'}
                     </td>
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Leverage</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">EUR/USD Spread</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {broker.leverage}
+                      {broker.spread_eur_usd || 'N/A'}
                     </td>
                   ))}
                 </tr>
-                {/* Add more comparison rows as needed */}
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Max Leverage</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {broker.leverage_max ? `1:${broker.leverage_max}` : 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+
+                {/* Trading Conditions */}
+                <tr className="bg-gray-50">
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-sm font-semibold text-gray-700 uppercase tracking-wider">Trading Conditions</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Account Types</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 text-sm text-gray-500">
+                      {broker.account_types?.join(', ') || 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Trading Platforms</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 text-sm text-gray-500">
+                      {broker.platforms?.join(', ') || 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Instruments</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 text-sm text-gray-500">
+                      {broker.instruments?.slice(0, 3).join(', ')}
+                      {broker.instruments?.length > 3 && '...'}
+                    </td>
+                  ))}
+                </tr>
+
+                {/* Fees & Payments */}
+                <tr className="bg-gray-50">
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-sm font-semibold text-gray-700 uppercase tracking-wider">Fees & Payments</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Deposit Fees</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {broker.deposit_fees || 'No fees'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Withdrawal Fees</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {broker.withdrawal_fees || 'No fees'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Deposit Methods</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 text-sm text-gray-500">
+                      {broker.deposit_methods?.join(', ') || 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+
+                {/* Broker Ratings */}
+                <tr className="bg-gray-50">
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-sm font-semibold text-gray-700 uppercase tracking-wider">Ratings</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Overall Rating</td>
+                  {selectedBrokers.map((broker) => {
+                    const avgRating = (
+                      (broker.sw +
+                      broker.regulations +
+                      broker.risk_control +
+                      broker.promotions +
+                      broker.user_experience +
+                      broker.environment) / 6
+                    ).toFixed(1);
+                    return (
+                      <td key={broker.id} className="px-6 py-4 whitespace-nowrap">
+                        <div className="flex items-center">
+                          <span className="text-yellow-500 font-medium">{avgRating}</span>
+                          <span className="text-gray-400 ml-1">/5</span>
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Regulation Status</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap">
+                      {broker.is_regulated ? (
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                          Regulated
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                          Not Regulated
+                        </span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+
+                {/* Contact Information */}
+                <tr className="bg-gray-50">
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-sm font-semibold text-gray-700 uppercase tracking-wider">Contact & Support</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Email</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm">
+                      {broker.email ? (
+                        <a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">
+                          {broker.email}
+                        </a>
+                      ) : 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Phone</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm">
+                      {broker.phone_numbers?.length ? (
+                        <div className="space-y-1">
+                          {broker.phone_numbers.map((phone, i) => (
+                            <a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="block text-blue-600 hover:underline">
+                              {phone}
+                            </a>
+                          ))}
+                        </div>
+                      ) : 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Support Channels</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 text-sm text-gray-500">
+                      {broker.channels?.join(', ') || 'N/A'}
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Response Time</td>
+                  {selectedBrokers.map((broker) => (
+                    <td key={broker.id} className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {broker.response_time || 'N/A'}
+                    </td>
+                  ))}
+                </tr>
               </tbody>
             </table>
           </div>

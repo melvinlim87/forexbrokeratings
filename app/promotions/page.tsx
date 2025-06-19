@@ -34,6 +34,10 @@ export interface BrokerPromotion {
   valid_until?: string;
   category?: string;
   terms_list?: string[];
+  condition?: string;
+  url?: string;
+  broker: BrokerData;
+  link?: string;
 }
 
 // Type for broker data from API

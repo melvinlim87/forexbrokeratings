@@ -51,8 +51,8 @@ export default function PromotionCard({
   }
 
   // Original card with broker info
-  const brokerName = promo.broker?.name || 'Broker';
-  const brokerLogo = promo.broker?.logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(brokerName)}&background=random`;
+  const brokerName = promo.broker_name || 'Broker';
+  const brokerLogo = promo.broker_logo || `https://ui-avatars.com/api/?name=${encodeURIComponent(brokerName)}&background=random`;
 
   return (
     <motion.div
@@ -89,9 +89,6 @@ export default function PromotionCard({
                     <h3 className="font-medium text-gray-900 dark:text-white">
                       {brokerName}
                     </h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      {promo.category || 'Promotion'}
-                    </p>
                   </div>
                 </div>
                 
@@ -133,7 +130,7 @@ export default function PromotionCard({
           <div className="px-6 pb-6 pt-2">
             <Button className="w-full" asChild>
               <a 
-                href={promo.url} 
+                href={promo.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center"
