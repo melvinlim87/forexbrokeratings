@@ -26,6 +26,7 @@ type Broker = {
   logo: string;
   features: BrokerFeatures;
   page: string;
+  slug: string;
 };
 
 type ComparisonData = {
@@ -50,7 +51,8 @@ const brokerComparisonData: ComparisonData = {
         minDeposit: { value: '$50' },
         mobileApp: { score: 9.2, label: 'iOS & Android' }
       },
-      page: "https://www.etoro.com/"
+      page: "https://www.etoro.com/",
+      slug: "etoro"
     },
     {
       id: 2,
@@ -64,7 +66,8 @@ const brokerComparisonData: ComparisonData = {
         minDeposit: { value: '$100' },
         mobileApp: { score: 8.7, label: 'iOS & Android' }
       },
-      page: "https://www.plus500.com/"
+      page: "https://www.plus500.com/",
+      slug: "plus500"
     },
     {
       id: 3,
@@ -78,7 +81,8 @@ const brokerComparisonData: ComparisonData = {
         minDeposit: { value: '$50' },
         mobileApp: { score: 8.5, label: 'iOS & Android' }
       },
-      page: "https://www.fxtm.com/"
+      page: "https://www.fxtm.com/",
+      slug: "fxtm"
     }
   ],
   'low-fees': [
@@ -94,7 +98,8 @@ const brokerComparisonData: ComparisonData = {
         withdrawalFees: { value: 'Free (some methods)' },
         inactivityFees: { value: 'None' }
       },
-      page: "https://www.icmarkets.com/"
+      page: "https://www.icmarkets.com/",
+      slug: "icmarkets"
     },
     {
       id: 2,
@@ -108,7 +113,8 @@ const brokerComparisonData: ComparisonData = {
         withdrawalFees: { value: 'Free' },
         inactivityFees: { value: 'None' }
       },
-      page: "https://www.pepperstone.com/"
+      page: "https://www.pepperstone.com/",
+      slug: "pepperstone"
     },
     {
       id: 3,
@@ -122,7 +128,8 @@ const brokerComparisonData: ComparisonData = {
         withdrawalFees: { value: 'Free (first monthly)' },
         inactivityFees: { value: 'After 90 days' }
       },
-      page: "https://www.xm.com/" 
+      page: "https://www.xm.com/",
+      slug: "xm" 
     }
   ],
   'advanced-trading': [
@@ -138,7 +145,8 @@ const brokerComparisonData: ComparisonData = {
         executionSpeed: { score: 9.5, label: 'Ultra-fast' },
         advancedOrderTypes: { score: 9.7, label: 'Comprehensive' }
       },
-      page: "https://www.saxobank.com/"
+      page: "https://www.saxobank.com/",
+      slug: "saxobank"
     },
     {
       id: 2,
@@ -152,7 +160,8 @@ const brokerComparisonData: ComparisonData = {
         executionSpeed: { score: 9.7, label: 'Ultra-fast' },
         advancedOrderTypes: { score: 9.9, label: 'Most extensive' }
       },
-      page: "https://www.interactivebrokers.com/" 
+      page: "https://www.interactivebrokers.com/",
+      slug: "interactivebrokers" 
     },
     {
       id: 3,
@@ -166,7 +175,8 @@ const brokerComparisonData: ComparisonData = {
         executionSpeed: { score: 9.3, label: 'Very fast' },
         advancedOrderTypes: { score: 9.4, label: 'Very comprehensive' }
       },
-      page: "https://www.dukascopy.com/"  
+      page: "https://www.dukascopy.com/",
+      slug: "dukascopy"  
     }
   ],
   'promotions': [
@@ -177,7 +187,8 @@ const brokerComparisonData: ComparisonData = {
       features: {
         promotion: {value: 'Leverage, Bonuses'}
       },
-      page: "https://www.saxobank.com/"
+      page: "https://www.saxobank.com/",
+      slug: "saxobank"
     },
     {
       id: 2,
@@ -186,7 +197,8 @@ const brokerComparisonData: ComparisonData = {
       features: {
         promotion: {value: 'Deposit Bonus, Cashback, Referral Bonus'}
       },
-      page: "https://www.interactivebrokers.com/" 
+      page: "https://www.interactivebrokers.com/",
+      slug: "interactivebrokers"   
     },
     {
       id: 3,
@@ -195,7 +207,8 @@ const brokerComparisonData: ComparisonData = {
       features: {
         promotion: {value: 'Deposit Bonus, Leverage, Referral Bonus'}
       },
-      page: "https://www.dukascopy.com/"  
+      page: "https://www.dukascopy.com/",
+      slug: "dukascopy"  
     }
   ]
 };
@@ -215,8 +228,6 @@ export default function ComparisonSection() {
         if (!data || data.length === 0) {
           throw new Error('No broker data available');
         }
-        
-        console.log('Comparison brokers data:', data);
         
         // Parse arrays that might be stored as strings
         const parseArrayField = (field: string[] | string | null | undefined) => {
@@ -263,7 +274,8 @@ export default function ComparisonSection() {
               riskControl: { score: broker.risk_control, label: broker.risk_control?.toString() },
               minDeposit: { value: broker.min_deposit },
               regulations: { score: broker.regulations, label: broker.regulations?.toString() }
-            }
+            },
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
           };
           formattedData['beginner-friendly'].push(formattedBroker);
         });
@@ -280,7 +292,8 @@ export default function ComparisonSection() {
               minDeposit: { value: broker.min_deposit },
               minWithdrawl: { value: broker.min_withdrawl },
               availability: { value: broker.availability }
-            }
+            },
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
           };
           formattedData['low-fees'].push(formattedBroker);
         });
@@ -296,7 +309,8 @@ export default function ComparisonSection() {
               baseCurrencies: { value: Array.isArray(broker.base_currencies) ? broker.base_currencies.join(', ') : broker.base_currencies },
               responseTime: { value: broker.response_time },
               spreadEurUsd: { value: broker.spread_eur_usd }
-            }
+            },
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
           };
           formattedData['advanced-trading'].push(formattedBroker);
         });
@@ -310,7 +324,8 @@ export default function ComparisonSection() {
             features: {
               promotion: { value: typeof broker.promotions === 'number' ? broker.promotions : parseFloat(broker.promotions) || 0 },
               category: { value: Array.isArray(broker.promotion_categories) ? broker.promotion_categories.join(', ') : '' }
-            }
+            },
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
           };
           formattedData['promotions'].push(formattedBroker);
         });
@@ -366,7 +381,7 @@ export default function ComparisonSection() {
   const renderFeatureCell = (broker: Broker, featureKey: string) => {
     const feature = broker.features[featureKey];
 
-    if (!feature) return <span className="text-gray-400">-</span>;
+    if (!feature) return <span className="text-xl font-medium text-gray-400">-</span>;
     
     if (typeof feature.value === 'boolean') {
       return feature.value ? 
@@ -375,14 +390,21 @@ export default function ComparisonSection() {
     }
     
     if (feature.value) {
-      return <span className="font-medium">{feature.value}</span>;
+      return <span className="text-xl font-medium">{feature.value}</span>;
     }
     
     if (feature.score && feature.label) {
+      let score_color = '';
+      if (feature.score >= 4) {
+        score_color = 'text-green-500';
+      } else if (feature.score >= 3) {
+        score_color = 'text-yellow-500';
+      } else {
+        score_color = 'text-red-500';
+      }
       return (
         <div>
-          <div className="font-medium">{feature.label}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">{feature.score}/5</div>
+          <div className={`text-xl font-medium text-black dark:text-gray-400 ${score_color}`}>{feature.score} / 5</div>
         </div>
       );
     }
@@ -459,13 +481,13 @@ export default function ComparisonSection() {
                             <td key={broker.id} className="px-6 py-4 text-center">
                               <Button size="sm" className="w-full" asChild>
                               <a
-                                href={broker.page || '#'}
+                                href={`/broker/${broker.slug}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-black font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
                                 style={{ pointerEvents: broker.page ? 'auto' : 'none', opacity: broker.page ? 1 : 0.6 }}
                               >
-                                Visit Site
+                                Visit
                               </a>
                               </Button>
                             </td>
