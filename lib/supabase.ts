@@ -205,3 +205,25 @@ export async function fetchUniquePromotions() {
 
   return uniquePromotions as BrokerPromotionWithBrokerDetails[];
 }
+
+// Function to fetch all brokers with their related broker_promotions and a promotion_categories array
+export async function fetchAllBrokersWithPromotionCategories() {
+  const { data, error } = await supabase
+    .from('broker_details')
+    .select(`*, broker_promotions(category)`);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  // Add promotion_categories array to each broker
+  const brokersWithCategories = (data || []).map((broker: any) => ({
+    ...broker,
+    promotion_categories: Array.isArray(broker.broker_promotions)
+      ? broker.broker_promotions.map((promo: any) => promo.category).filter(Boolean)
+      : []
+  }));
+
+  return brokersWithCategories;
+}
+

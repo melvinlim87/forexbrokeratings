@@ -8,7 +8,7 @@ import { ArrowRight, Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { fetchAllBrokerDetails } from '@/lib/supabase';
+import { fetchAllBrokersWithPromotionCategories } from '@/lib/supabase';
 
 type Feature = {
   score?: number;
@@ -207,10 +207,10 @@ export default function ComparisonSection() {
   const [error, setError] = useState<string | null>(null);
   
   useEffect(() => {
-    async function fetchBrokers() {
+    const fetchBrokers = async () => {
       try {
         console.log('Fetching brokers for comparison section...');
-        const data = await fetchAllBrokerDetails();
+        const data = await fetchAllBrokersWithPromotionCategories();
         
         if (!data || data.length === 0) {
           throw new Error('No broker data available');
@@ -236,117 +236,136 @@ export default function ComparisonSection() {
           'advanced-trading': [],
           'promotions': []
         };
-        
-        // Take top 3 brokers for each category
-        data.slice(0, 9).forEach((broker: any, index: number) => {
+
+        function getRandomItems<T>(arr: T[], n: number): T[] {
+          const shuffled = arr.slice();
+          for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          }
+          return shuffled.slice(0, n);
+        }
+
+        const beginnerBrokers = getRandomItems(data, 3);
+        const lowFeesBrokers = getRandomItems(data, 3);
+        const advancedBrokers = getRandomItems(data, 3);
+
+        beginnerBrokers.forEach((broker: any, index: number) => {
           const formattedBroker: Broker = {
-            id: index + 1,
+            id: broker.id,
             name: broker.name || `Broker ${index + 1}`,
             logo: broker.logo || `https://via.placeholder.com/100x50?text=${broker.name || 'Broker'}`,
             page: broker.website || '#',
-            features: {}
+            features: {
+              userExperience: { score: broker.user_experience, label: broker.user_experience?.toString() },
+              environment: { score: broker.environment, label: broker.environment?.toString() },
+              sw: { score: broker.sw, label: broker.sw?.toString() },
+              riskControl: { score: broker.risk_control, label: broker.risk_control?.toString() },
+              minDeposit: { value: broker.min_deposit },
+              regulations: { score: broker.regulations, label: broker.regulations?.toString() }
+            }
           };
-          
-          // Beginner-friendly features
-          if (index < 3) {
-            formattedBroker.features = {
-              userInterface: { score: broker.userInterfaceScore || 8.0, label: broker.userInterfaceLabel || 'Good' },
-              educationalContent: { score: broker.educationalContentScore || 8.0, label: broker.educationalContentLabel || 'Good' },
-              demoAccount: { value: broker.hasDemoAccount !== false },
-              customerSupport: { score: broker.customerSupportScore || 8.0, label: broker.customerSupportLabel || '24/7 Support' },
-              minDeposit: { value: `$${broker.minDeposit || 100}` },
-              mobileApp: { score: broker.mobileAppScore || 8.0, label: broker.mobileAppLabel || 'iOS & Android' }
-            };
-            formattedData['beginner-friendly'].push(formattedBroker);
-          }
-          
-          // Low-fees features
-          if (index >= 3 && index < 6) {
-            formattedBroker.features = {
-              spreads: { value: broker.spreads || 'From 1.0 pips' },
-              commissions: { value: broker.commissions || 'Varies' },
-              overnightFees: { score: broker.overnightFeesScore || 7.5, label: broker.overnightFeesLabel || 'Average' },
-              depositFees: { value: broker.depositFees || 'Free' },
-              withdrawalFees: { value: broker.withdrawalFees || 'Varies' },
-              inactivityFees: { value: broker.inactivityFees || 'After 60 days' }
-            };
-            formattedData['low-fees'].push(formattedBroker);
-          }
-          
-          // Advanced-trading features
-          if (index >= 6 && index < 9) {
-            formattedBroker.features = {
-              tradingPlatforms: { value: parseArrayField(broker.platforms).join(', ') || 'MT4/MT5' },
-              technicalTools: { score: broker.technicalToolsScore || 8.0, label: broker.technicalToolsLabel || 'Good' },
-              fundamentalTools: { score: broker.fundamentalToolsScore || 8.0, label: broker.fundamentalToolsLabel || 'Good' },
-              tradingAlgorithms: { value: broker.hasTradingAlgorithms !== false },
-              executionSpeed: { score: broker.executionSpeedScore || 8.5, label: broker.executionSpeedLabel || 'Fast' },
-              advancedOrderTypes: { score: broker.advancedOrderTypesScore || 8.0, label: broker.advancedOrderTypesLabel || 'Comprehensive' }
-            };
-            formattedData['advanced-trading'].push(formattedBroker);
-            formattedBroker.features = {
-              promotion: { value: broker.promotions || 'None' }
-            };
-            formattedData['promotions'].push(formattedBroker);
-          }
+          formattedData['beginner-friendly'].push(formattedBroker);
         });
-        
+
+        lowFeesBrokers.forEach((broker: any, index: number) => {
+          const formattedBroker: Broker = {
+            id: broker.id,
+            name: broker.name || `Broker ${index + 1}`,
+            logo: broker.logo || `https://via.placeholder.com/100x50?text=${broker.name || 'Broker'}`,
+            page: broker.website || '#',
+            features: {
+              depositProcessTime: { value: broker.deposit_process_time },
+              withdrawalProcessTime: { value: broker.withdrawal_process_time },
+              minDeposit: { value: broker.min_deposit },
+              minWithdrawl: { value: broker.min_withdrawl },
+              availability: { value: broker.availability }
+            }
+          };
+          formattedData['low-fees'].push(formattedBroker);
+        });
+
+        advancedBrokers.forEach((broker: any, index: number) => {
+          const formattedBroker: Broker = {
+            id: broker.id,
+            name: broker.name || `Broker ${index + 1}`,
+            logo: broker.logo || `https://via.placeholder.com/100x50?text=${broker.name || 'Broker'}`,
+            page: broker.website || '#',
+            features: {
+              instruments: { value: Array.isArray(broker.instruments) ? broker.instruments.join(', ') : broker.instruments },
+              baseCurrencies: { value: Array.isArray(broker.base_currencies) ? broker.base_currencies.join(', ') : broker.base_currencies },
+              responseTime: { value: broker.response_time },
+              spreadEurUsd: { value: broker.spread_eur_usd }
+            }
+          };
+          formattedData['advanced-trading'].push(formattedBroker);
+        });
+
+        getRandomItems(data, 3).forEach((broker: any, index: number) => {
+          const formattedBroker: Broker = {
+            id: broker.id,
+            name: broker.name || `Broker ${index + 1}`,
+            logo: broker.logo || `https://via.placeholder.com/100x50?text=${broker.name || 'Broker'}`,
+            page: broker.website || '#',
+            features: {
+              promotion: { value: typeof broker.promotions === 'number' ? broker.promotions : parseFloat(broker.promotions) || 0 },
+              category: { value: Array.isArray(broker.promotion_categories) ? broker.promotion_categories.join(', ') : '' }
+            }
+          };
+          formattedData['promotions'].push(formattedBroker);
+        });
+
         setComparisonData(formattedData);
       } catch (err) {
         console.error('Error fetching comparison brokers:', err);
         setError('Failed to load broker comparison data');
-        // Keep using the fallback data
       } finally {
         setLoading(false);
       }
     }
-    
+
     fetchBrokers();
   }, []);
 
-  // Determine which feature fields to show based on active tab
   const getFeatureRows = () => {
-    switch(activeTab) {
+    switch (activeTab) {
       case 'beginner-friendly':
         return [
-          { key: 'userInterface', label: 'User Interface' },
-          { key: 'educationalContent', label: 'Educational Content' },
-          { key: 'demoAccount', label: 'Free Demo Account' },
-          { key: 'customerSupport', label: 'Customer Support' },
+          { key: 'userExperience', label: 'User Experience' },
+          { key: 'environment', label: 'Environment' },
+          { key: 'sw', label: 'SW' },
+          { key: 'riskControl', label: 'Risk Control' },
           { key: 'minDeposit', label: 'Minimum Deposit' },
-          { key: 'mobileApp', label: 'Mobile App' }
+          { key: 'regulations', label: 'Regulations' }
         ];
       case 'low-fees':
         return [
-          { key: 'spreads', label: 'Spreads' },
-          { key: 'commissions', label: 'Commissions' },
-          { key: 'overnightFees', label: 'Overnight Fees' },
-          { key: 'depositFees', label: 'Deposit Fees' },
-          { key: 'withdrawalFees', label: 'Withdrawal Fees' },
-          { key: 'inactivityFees', label: 'Inactivity Fees' }
+          { key: 'depositProcessTime', label: 'Deposit Process Time' },
+          { key: 'withdrawalProcessTime', label: 'Withdrawal Process Time' },
+          { key: 'minDeposit', label: 'Minimum Deposit' },
+          { key: 'minWithdrawl', label: 'Minimum Withdrawal' },
+          { key: 'availability', label: 'Availability' }
         ];
       case 'advanced-trading':
         return [
-          { key: 'tradingPlatforms', label: 'Trading Platforms' },
-          { key: 'technicalTools', label: 'Technical Analysis Tools' },
-          { key: 'apiAccess', label: 'API Access' },
-          { key: 'tradingAlgorithms', label: 'Algorithmic Trading' },
-          { key: 'executionSpeed', label: 'Execution Speed' },
-          { key: 'advancedOrderTypes', label: 'Advanced Order Types' }
+          { key: 'instruments', label: 'Instruments' },
+          { key: 'baseCurrencies', label: 'Base Currencies' },
+          { key: 'responseTime', label: 'Response Time' },
+          { key: 'spreadEurUsd', label: 'Spread EUR USD' }
         ];
       case 'promotions':
         return [
           { key: 'promotion', label: 'Promotion' },
+          { key: 'category', label: 'Category' },
         ];
       default:
         return [];
     }
   };
-  
-  // Render appropriate cell content based on feature type
+
   const renderFeatureCell = (broker: Broker, featureKey: string) => {
     const feature = broker.features[featureKey];
-    
+
     if (!feature) return <span className="text-gray-400">-</span>;
     
     if (typeof feature.value === 'boolean') {
@@ -363,7 +382,7 @@ export default function ComparisonSection() {
       return (
         <div>
           <div className="font-medium">{feature.label}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">{feature.score}/10</div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">{feature.score}/5</div>
         </div>
       );
     }
@@ -461,13 +480,13 @@ export default function ComparisonSection() {
           </CardContent>
         </Card>
         
-        <div className="mt-12 max-w-7xl mx-auto ">
+        {/* <div className="mt-12 max-w-7xl mx-auto ">
           <Button variant="outline" size="lg" asChild>
             <Link href="/compare">
               Create Custom Comparison <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
