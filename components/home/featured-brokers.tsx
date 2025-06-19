@@ -119,7 +119,7 @@ export default function FeaturedBrokers() {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Top 10 Forex Brokers</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">Top 10 Forex Brokers</h2>
             <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
               Comprehensive ranking of the best forex brokers based on our detailed analysis.
             </p>
@@ -132,102 +132,87 @@ export default function FeaturedBrokers() {
           </Link>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {brokers.map((broker) => (
-            <motion.div
-              key={broker.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: broker.rank * 0.1 }}
-            >
-              <Card 
-                className={cn(
-                  'h-full transition-all duration-300',
-                  hoveredCard === broker.rank ? 'shadow-lg -translate-y-1' : 'shadow-md hover:shadow-lg'
-                )}
-                onMouseEnter={() => setHoveredCard(broker.rank)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg mr-4">
-                        {broker.logo ? (
-                          <Image 
-                            src={broker.logo} 
-                            alt={broker.name}
-                            width={48}
-                            height={48}
-                            className="h-12 w-12 object-contain"
-                          />
-                        ) : (
-                          <div className="h-12 w-12 bg-gray-200 dark:bg-gray-700 rounded" />
-                        )}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg">{broker.name}</h3>
-                        <div className="flex items-center mt-1">
-                          <div className="flex items-center">
-                            <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                            <span className="ml-1 text-sm font-medium text-gray-900 dark:text-white">
-                              {broker.avgRating?.toFixed(1) || 'N/A'}
-                            </span>
-                          </div>
-                          {broker.is_regulated && (
-                            <Badge variant="outline" className="ml-2 border-green-200 text-green-800 dark:border-green-900 dark:text-green-200">
-                              <ShieldCheck className="h-3 w-3 mr-1" />
-                              Regulated
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 h-8 w-8 rounded-full flex items-center justify-center font-bold">
-                      {broker.rank}
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
-                    {broker.description || 'A reliable forex broker offering competitive trading conditions.'}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3 text-sm mb-4">
-                    <div>
-                      <div className="text-gray-500 dark:text-gray-400">Min. Deposit</div>
-                      <div className="font-medium">{broker.min_deposit || 'N/A'}</div>
-                    </div>
-                    <div>
-                      <div className="text-gray-500 dark:text-gray-400">Platforms</div>
-                      <div className="font-medium">
-                        {Array.isArray(broker.platforms) ? broker.platforms.slice(0, 2).join(', ') : 'N/A'}
-                        {Array.isArray(broker.platforms) && broker.platforms.length > 2 && '...'}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-wrap gap-1">
-                      {Array.isArray(broker.regulators) && broker.regulators.slice(0, 2).map((regulator, i) => (
-                        <Badge key={i} variant="outline" className="text-xs">
-                          {regulator}
-                        </Badge>
-                      ))}
-                      {Array.isArray(broker.regulators) && broker.regulators.length > 2 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{broker.regulators.length - 2} more
-                        </Badge>
+        <div className="overflow-x-auto rounded-2xl shadow-lg from-gray-950/90 via-gray-900/90 to-gray-950/95 p-1">
+          <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950">
+          <thead className="bg-white">
+            <tr>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Rank</th>
+              <th className="px-4 py-3 font-semibold text-gray-800">Broker</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Rating</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Spread</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Max Leverage</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Deposit</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Regulated By</th>
+              <th className="px-4 py-3 font-semibold text-center text-gray-800">Action</th>
+            </tr>
+          </thead>
+            <tbody className="bg-gray-50">
+              {brokers.map((broker, idx) => (
+                <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-50 transition">
+                  <td className="px-4 py-3 text-center">
+                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow">
+                      #{broker.rank || idx + 1}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
+                      {broker.logo ? (
+                        <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" />
+                      ) : (
+                        <span className="text-lg font-bold text-black">{broker.name?.charAt(0)}</span>
                       )}
                     </div>
-                    <Button asChild size="sm">
-                      <Link href={`/broker/${broker.slug || broker.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                        View Details
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <div>
+                      <div className="font-semibold text-black leading-tight">{broker.name}</div>
+                      <div className="text-xs text-gray-400">{broker.year_published || ''}</div>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <div className="flex items-center justify-center gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} className={`w-4 h-4 ${i < Math.round(broker.avgRating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
+                      ))}
+                      <span className="ml-1 text-xs text-gray-600">{broker.avgRating?.toFixed(2)}</span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-center text-cyan-600 font-medium">
+                    {broker.spread_eur_usd || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center text-blue-600 font-medium">
+                    {broker.leverage_max || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center text-green-600 font-medium">
+                    {broker.min_deposit || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    {broker.regulators && Array.isArray(broker.regulators) && broker.regulators.length > 0 ? (
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        {broker.regulators?.slice(0, 2).map((regulator, i) => (
+                          <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{regulator}</span>
+                        ))}
+                        {broker.regulators && broker.regulators.length > 2 && (
+                          <span className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>+{broker.regulators.length - 2}</span>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-gray-400">-</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <a
+                      href={broker.website || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                      style={{ pointerEvents: broker.website ? 'auto' : 'none', opacity: broker.website ? 1 : 0.6 }}
+                    >
+                      Visit
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

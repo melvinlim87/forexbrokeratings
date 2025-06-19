@@ -66,6 +66,11 @@ export default function Hero() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(defaultHeroSlides);
   const [isLoading, setIsLoading] = useState(true);
+  const bgImages = [
+    'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1920',  
+  ]
 
   // Fetch top brokers from Supabase
   useEffect(() => {
@@ -130,7 +135,7 @@ export default function Hero() {
   const currentSlideData = heroSlides[currentSlide] || defaultHeroSlides[0];
 
   return (
-    <div className="relative h-[600px] md:h-[700px] overflow-hidden flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="relative h-[600px] md:h-[700px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-lg">Loading...</p>
@@ -146,7 +151,7 @@ export default function Hero() {
               quality={100}
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-900/80 to-black/60" />
           </div>
         </AnimatePresence>
       )}

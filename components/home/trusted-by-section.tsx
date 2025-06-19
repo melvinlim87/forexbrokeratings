@@ -3,47 +3,65 @@
 import { motion } from 'framer-motion';
 import { Layers, TrendingUp, Shield, Zap, Users, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 const trustFeatures = [
   {
-    icon: <Shield className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Strict Regulatory Standards',
-    description: 'We only recommend brokers that comply with top-tier financial regulations from authorities like FCA, ASIC, CySEC, and more.'
+    icon: <Shield className="h-8 w-8 text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30 p-1 rounded-full" />, // Unbiased & Transparent
+    badge: {
+      text: '100% Independent',
+      className: 'bg-cyan-300 text-black dark:bg-cyan-800 dark:text-black',
+    },
+    title: 'Unbiased & Transparent',
+    description: 'Independent analysis with no broker partnerships. Our ratings are based purely on performance data, regulatory compliance, and verified user feedback.',
+    checklist: [
+      'No affiliate bias',
+      'Transparent methodology',
+      'Public rating criteria',
+    ],
   },
   {
-    icon: <Layers className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Comprehensive Analysis',
-    description: 'Each broker undergoes a thorough 100-point evaluation covering everything from trading costs to platform functionality.'
+    icon: <Layers className="h-8 w-8 text-purple-500 bg-purple-100 dark:bg-purple-900/30 p-1 rounded-full" />, // Real-Time Market Data
+    badge: {
+      text: '24/7 Monitoring',
+      className: 'bg-purple-300 text-black dark:bg-purple-800 dark:text-black',
+    },
+    title: 'Real-Time Market Data',
+    description: 'Live spreads, execution speeds, and slippage data updated every 15 minutes from institutional-grade APIs and direct broker feeds.',
+    checklist: [
+      'Live spread tracking',
+      'Execution analysis',
+      'Performance metrics',
+    ],
   },
   {
-    icon: <TrendingUp className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Real Trading Experience',
-    description: 'Our experts open real accounts with each broker to test the complete trading experience from start to finish.'
+    icon: <Users className="h-8 w-8 text-green-600 bg-green-100 dark:bg-green-900/30 p-1 rounded-full" />, // Verified Community
+    badge: {
+      text: '50k+ Reviews',
+      className: 'bg-green-300 text-black dark:bg-green-800 dark:text-black',
+    },
+    title: 'Verified Community',
+    description: 'Authentic reviews from verified traders with account verification. Every review undergoes multi-layer validation to ensure authenticity.',
+    checklist: [
+      'Account verification',
+      'Anti-spam protection',
+      'Moderated feedback',
+    ],
   },
-  {
-    icon: <Zap className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Monthly Updates',
-    description: 'All broker data is verified and updated monthly to ensure you always have the most current information.'
-  },
-  {
-    icon: <Users className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Trader Community Input',
-    description: 'We incorporate feedback from our community of 100,000+ traders to enhance our broker evaluations.'
-  },
-  {
-    icon: <Globe className="h-8 w-8 text-blue-600 dark:text-blue-500" />,
-    title: 'Global Perspective',
-    description: 'Our international team tests broker services from multiple regions to verify global availability and service.'
-  }
+
 ];
 
+import { useState } from 'react';
+
 export default function TrustedBySection() {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
           <motion.h2 
-            className="text-3xl font-bold text-gray-900 dark:text-white"
+            className="text-3xl font-bold text-gray-900 dark:text-black"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,32 +82,44 @@ export default function TrustedBySection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-7xl mx-auto">
           {trustFeatures.map((feature, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
               className={cn(
-                "relative p-6 rounded-lg",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
-                "backdrop-blur-sm",
-                "border-0",
-                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
-                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
-                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
-                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
-                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                "h-full flex flex-col transition-all duration-300",
+                hoveredCard === index
+                  ? "shadow-2xl shadow-cyan-200/40 dark:shadow-cyan-900/30 -translate-y-2 z-10"
+                  : "shadow-metallic hover:shadow-2xl hover:shadow-cyan-200/40 hover:-translate-y-2 hover:z-10"
               )}
             >
-              <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-full w-fit mb-4">
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+              <Card className="h-full flex flex-col">
+                <CardContent className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>{feature.icon}</div>
+                    <Badge className={feature.badge?.className ?? ''}>{feature.badge?.text ?? ''}</Badge>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">{feature.description}</p>
+                  <div className="space-y-2 mt-auto">
+                    <h4 className="text-sm font-medium text-gray-700">Highlights:</h4>
+                    <ul className="space-y-1">
+                      {feature.checklist?.map((item, i) => (
+                        <li key={i} className="flex items-start text-sm">
+                          <svg className="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

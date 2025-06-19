@@ -47,6 +47,41 @@ export type BrokerDetails = {
   response_time: string;
 };
 
+// Type for joined broker_promotions with selected broker_details fields
+export type BrokerPromotionWithBrokerDetails = {
+  id: number;
+  broker_detail_id: number;
+  title: string;
+  description: string;
+  condition: string;
+  link: string;
+  category: string;
+  is_featured: boolean;
+  created_at: string;
+  broker_details: {
+    name: string;
+    website: string;
+    logo?: string;
+    rating?: string;
+    leverage_max?: string;
+    min_deposit?: string;
+    pros?: string[];
+    cons?: string[];
+    environment: number;
+    user_experience: number;
+    sw: number;
+    regulations: number;
+    risk_control: number;
+    promotions: number;
+    email: string;
+    phone_numbers: string[];
+    channels: string[];
+    availability: string;
+    response_time: string;
+  };
+};
+
+
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
   const { data, error } = await supabase
@@ -117,4 +152,56 @@ export async function saveBrokerContent(content: {
   }
   
   return data;
+}
+
+// Function to fetch broker promotions joined with broker_details fields
+export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotionWithBrokerDetails[]> {
+  const { data, error } = await supabase
+    .from('broker_promotions')
+    .select(`
+      id,
+      broker_detail_id,
+      title,
+      description,
+      condition,
+      link,
+      category,
+      is_featured,
+      created_at,
+      broker_details (name, website, logo, rating)
+    `);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data as BrokerPromotionWithBrokerDetails[];
+}
+
+// Function to get unique promotions
+export async function fetchUniquePromotions() {
+  const { data, error } = await supabase
+  .from('broker_promotions')
+  .select(`
+    id,
+    broker_detail_id,
+    title,
+    description,
+    condition,
+    link,
+    category,
+    is_featured,
+    created_at,
+    broker_details (name, website, logo, rating, leverage_max, min_deposit, pros)
+  `)
+  .order('created_at', { ascending: false });
+
+  const uniquePromotions = Array.from(
+    new Map(data?.map(item => [item.broker_detail_id, item])).values()
+  );
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return uniquePromotions as BrokerPromotionWithBrokerDetails[];
 }

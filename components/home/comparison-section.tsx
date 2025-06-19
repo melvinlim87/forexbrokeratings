@@ -32,6 +32,7 @@ type ComparisonData = {
   'beginner-friendly': Broker[];
   'low-fees': Broker[];
   'advanced-trading': Broker[];
+  'promotions': Broker[];
 };
 
 // Sample data - would come from API in real implementation
@@ -167,6 +168,35 @@ const brokerComparisonData: ComparisonData = {
       },
       page: "https://www.dukascopy.com/"  
     }
+  ],
+  'promotions': [
+    {
+      id: 1,
+      name: 'Saxo Bank',
+      logo: 'https://via.placeholder.com/100x50?text=SaxoBank',
+      features: {
+        promotion: {value: 'Leverage, Bonuses'}
+      },
+      page: "https://www.saxobank.com/"
+    },
+    {
+      id: 2,
+      name: 'Interactive Brokers',
+      logo: 'https://via.placeholder.com/100x50?text=IBKR',
+      features: {
+        promotion: {value: 'Deposit Bonus, Cashback, Referral Bonus'}
+      },
+      page: "https://www.interactivebrokers.com/" 
+    },
+    {
+      id: 3,
+      name: 'Dukascopy',
+      logo: 'https://via.placeholder.com/100x50?text=Dukascopy',
+      features: {
+        promotion: {value: 'Deposit Bonus, Leverage, Referral Bonus'}
+      },
+      page: "https://www.dukascopy.com/"  
+    }
   ]
 };
 
@@ -203,7 +233,8 @@ export default function ComparisonSection() {
         const formattedData: ComparisonData = {
           'beginner-friendly': [],
           'low-fees': [],
-          'advanced-trading': []
+          'advanced-trading': [],
+          'promotions': []
         };
         
         // Take top 3 brokers for each category
@@ -253,6 +284,10 @@ export default function ComparisonSection() {
               advancedOrderTypes: { score: broker.advancedOrderTypesScore || 8.0, label: broker.advancedOrderTypesLabel || 'Comprehensive' }
             };
             formattedData['advanced-trading'].push(formattedBroker);
+            formattedBroker.features = {
+              promotion: { value: broker.promotions || 'None' }
+            };
+            formattedData['promotions'].push(formattedBroker);
           }
         });
         
@@ -298,6 +333,10 @@ export default function ComparisonSection() {
           { key: 'tradingAlgorithms', label: 'Algorithmic Trading' },
           { key: 'executionSpeed', label: 'Execution Speed' },
           { key: 'advancedOrderTypes', label: 'Advanced Order Types' }
+        ];
+      case 'promotions':
+        return [
+          { key: 'promotion', label: 'Promotion' },
         ];
       default:
         return [];
@@ -346,14 +385,15 @@ export default function ComparisonSection() {
           <CardContent className="p-0">
             <Tabs value={activeTab} onValueChange={(value: string) => setActiveTab(value as keyof ComparisonData)} className="w-full">
               <div className="bg-gray-100 dark:bg-gray-800 px-4 py-4 sm:px-6">
-                <TabsList className="w-full grid grid-cols-3 bg-gray-200 dark:bg-gray-700">
+                <TabsList className="w-full grid grid-cols-4 bg-gray-200 dark:bg-gray-700">
                   <TabsTrigger value="beginner-friendly">For Beginners</TabsTrigger>
                   <TabsTrigger value="low-fees">Lowest Fees</TabsTrigger>
                   <TabsTrigger value="advanced-trading">Advanced Trading</TabsTrigger>
+                  <TabsTrigger value="promotions">Promotions</TabsTrigger>
                 </TabsList>
               </div>
               
-              {(['beginner-friendly', 'low-fees', 'advanced-trading'] as const).map((tabValue) => (
+              {(['beginner-friendly', 'low-fees', 'advanced-trading', 'promotions'] as const).map((tabValue) => (
                 <TabsContent key={tabValue} value={tabValue} className="mt-0">
                   <div className="overflow-x-auto">
                     <table className="w-full">
@@ -388,7 +428,7 @@ export default function ComparisonSection() {
                               {row.label}
                             </td>
                             {comparisonData[tabValue].map((broker) => (
-                              <td key={broker.id} className="px-6 py-4 text-sm text-center">
+                              <td key={broker.id} className="px-6 py-4 text-sm text-center justify-center align-middle">
                                 {renderFeatureCell(broker, row.key)}
                               </td>
                             ))}
@@ -399,9 +439,15 @@ export default function ComparisonSection() {
                           {comparisonData[tabValue].map((broker) => (
                             <td key={broker.id} className="px-6 py-4 text-center">
                               <Button size="sm" className="w-full" asChild>
-                                <a href={broker.page} target="_blank" rel="noopener noreferrer">
-                                  Visit Site
-                                </a>
+                              <a
+                                href={broker.page || '#'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-black font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                                style={{ pointerEvents: broker.page ? 'auto' : 'none', opacity: broker.page ? 1 : 0.6 }}
+                              >
+                                Visit Site
+                              </a>
                               </Button>
                             </td>
                           ))}
@@ -415,7 +461,7 @@ export default function ComparisonSection() {
           </CardContent>
         </Card>
         
-        <div className="mt-12 max-w-7xl mx-auto">
+        <div className="mt-12 max-w-7xl mx-auto ">
           <Button variant="outline" size="lg" asChild>
             <Link href="/compare">
               Create Custom Comparison <ArrowRight className="ml-2 h-4 w-4" />

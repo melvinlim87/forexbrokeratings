@@ -22,7 +22,7 @@ export default function Home() {
         <PromotionsSection />
         <LatestReviews />
         <TrustedBySection />
-        <AIToolsSection />
+        {/* <AIToolsSection /> */}
       </div>
       <Newsletter />
     </div>
