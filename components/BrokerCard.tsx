@@ -78,7 +78,7 @@ export default function BrokerCard({ broker, index }: BrokerCardProps) {
                 <div className="flex items-center text-sm text-cyan-200">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
                   <span className="font-medium">{broker.rating || 'N/A'}</span>
-                  <span className="ml-1 text-white/60">/10</span>
+                  <span className="ml-1 text-white/60">/5</span>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function BrokerCard({ broker, index }: BrokerCardProps) {
               aria-label={`Broker score: ${score} out of 100`}
             >
               <span className="text-white font-bold">{score}</span>
-              <span className="text-xs text-cyan-200 ml-1">/100</span>
+              <span className="text-xs text-cyan-200 ml-1">/5</span>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ export default function BrokerCard({ broker, index }: BrokerCardProps) {
                 Max Leverage
               </div>
               <div className="text-white font-bold">
-                {broker.maxLeverage || 'N/A'}
+                {broker.leverage_max || 'N/A'}
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function BrokerCard({ broker, index }: BrokerCardProps) {
             <div className="bg-black/20 rounded-lg p-3">
               <div className="text-cyan-200 text-sm font-medium mb-1">EUR/USD Spread</div>
               <div className="text-white font-bold">
-                {broker.minSpread ? `${broker.minSpread} pips` : 'N/A'}
+                {broker.spread_eur_usd ? `${broker.spread_eur_usd} pips` : 'N/A'}
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@ export default function BrokerCard({ broker, index }: BrokerCardProps) {
               </div>
               
               <Link 
-                href={`/brokers/${broker.id}`}
+                href={`/brokers/${broker.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
                 className="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center group/link"
                 aria-label={`View details for ${broker.name}`}
               >

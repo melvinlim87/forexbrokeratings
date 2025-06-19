@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -25,231 +25,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
-
-interface Promotion {
-  id: string;
-  broker: {
-    name: string;
-    logo: string;
-    rating: number;
-    established: number;
-    regulators: string[];
-  };
-  promotion: {
-    title: string;
-    type: 'cash_bonus' | 'deposit_bonus' | 'no_deposit' | 'cashback' | 'vps' | 'spread_discount';
-    value: string;
-    description: string;
-    requirements: string[];
-    terms: string;
-    validUntil: string;
-    featured?: boolean;
-  };
-  benefits: string[];
-  minDeposit: number;
-  maxLeverage: string;
-  platforms: string[];
-}
-
-const promotions: Promotion[] = [
-  {
-    id: 'rs-finance-featured',
-    broker: {
-      name: 'RS Finance',
-      logo: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.8,
-      established: 2018,
-      regulators: ['CySEC', 'FCA', 'ASIC']
-    },
-    promotion: {
-      title: '$1,000 Cash Bonus',
-      type: 'cash_bonus',
-      value: 'Up to $1,000',
-      description: 'Get instant cash bonus when you trade 10 lots within your first month. No strings attached - withdraw immediately after meeting requirements.',
-      requirements: ['Trade 10 lots within 30 days', 'Minimum deposit $250', 'Complete account verification'],
-      terms: 'New clients only. T&C apply.',
-      validUntil: '2024-12-31',
-      featured: true
-    },
-    benefits: ['Instant cash withdrawal', 'No trading restrictions', 'Professional support', 'Advanced trading tools'],
-    minDeposit: 250,
-    maxLeverage: '1:400',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'WebTrader']
-  },
-  {
-    id: 'ic-markets-vps',
-    broker: {
-      name: 'IC Markets',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.9,
-      established: 2007,
-      regulators: ['ASIC', 'CySEC', 'FSA']
-    },
-    promotion: {
-      title: 'Free VPS Hosting',
-      type: 'vps',
-      value: 'Worth $30/month',
-      description: 'Get complimentary Virtual Private Server hosting for ultra-fast execution and 24/7 uptime. Perfect for algorithmic trading and scalping strategies.',
-      requirements: ['Minimum deposit $1,000', 'Trade 5 lots per month', 'Maintain account balance above $500'],
-      terms: 'VPS provided by BeeksFX. Fair usage policy applies.',
-      validUntil: 'Ongoing'
-    },
-    benefits: ['Ultra-low latency', '99.9% uptime guarantee', 'Pre-installed MT4/MT5', '24/7 technical support'],
-    minDeposit: 1000,
-    maxLeverage: '1:500',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'cTrader']
-  },
-  {
-    id: 'xm-no-deposit',
-    broker: {
-      name: 'XM Group',
-      logo: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.7,
-      established: 2009,
-      regulators: ['CySEC', 'IFSC', 'ASIC']
-    },
-    promotion: {
-      title: '$30 No Deposit Bonus',
-      type: 'no_deposit',
-      value: '$30 Free',
-      description: 'Start trading immediately with $30 free bonus. No deposit required - just verify your account and start trading with real money.',
-      requirements: ['Complete account verification', 'No deposit required', 'Trade within 30 days'],
-      terms: 'Profits withdrawable after trading 5 micro lots. Max withdrawal $100.',
-      validUntil: 'Ongoing'
-    },
-    benefits: ['No deposit required', 'Real trading conditions', 'Keep your profits', 'Educational resources'],
-    minDeposit: 0,
-    maxLeverage: '1:888',
-    platforms: ['MetaTrader 4', 'MetaTrader 5']
-  },
-  {
-    id: 'pepperstone-cashback',
-    broker: {
-      name: 'Pepperstone',
-      logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.8,
-      established: 2010,
-      regulators: ['ASIC', 'FCA', 'CySEC', 'BaFin']
-    },
-    promotion: {
-      title: 'Smart Trader Cashback',
-      type: 'cashback',
-      value: 'Up to $5 per lot',
-      description: 'Earn cashback on every trade with Smart Trader Tools. The more you trade, the more you earn back automatically.',
-      requirements: ['Use Smart Trader Tools', 'Trade minimum 1 lot per month', 'Maintain active account'],
-      terms: 'Cashback credited monthly. Minimum payout $10.',
-      validUntil: 'Ongoing'
-    },
-    benefits: ['Automatic cashback', 'No minimum volume', 'Monthly payments', 'Smart trading tools included'],
-    minDeposit: 0,
-    maxLeverage: '1:400',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'cTrader', 'TradingView']
-  },
-  {
-    id: 'fp-markets-deposit',
-    broker: {
-      name: 'FP Markets',
-      logo: 'https://images.pexels.com/photos/7413915/pexels-photo-7413915.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.8,
-      established: 2005,
-      regulators: ['ASIC', 'CySEC']
-    },
-    promotion: {
-      title: '100% Deposit Bonus',
-      type: 'deposit_bonus',
-      value: 'Up to $500',
-      description: 'Double your trading capital with 100% deposit bonus. Trade with twice the buying power and maximize your profit potential.',
-      requirements: ['Minimum deposit $100', 'Trade 10 lots within 60 days', 'Complete account verification'],
-      terms: 'Bonus cannot be withdrawn. Profits from bonus trades are withdrawable.',
-      validUntil: '2024-11-30'
-    },
-    benefits: ['Double trading capital', 'All profits withdrawable', 'Copy trading available', 'Professional support'],
-    minDeposit: 100,
-    maxLeverage: '1:500',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'IRESS']
-  },
-  {
-    id: 'avatrade-education',
-    broker: {
-      name: 'AvaTrade',
-      logo: 'https://images.pexels.com/photos/8370421/pexels-photo-8370421.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.6,
-      established: 2006,
-      regulators: ['CBI', 'ASIC', 'FSA', 'FSCA']
-    },
-    promotion: {
-      title: 'Welcome Bonus Package',
-      type: 'deposit_bonus',
-      value: 'Up to $10,000',
-      description: 'Comprehensive welcome package including deposit bonus, free education, and Trading Central signals for new traders.',
-      requirements: ['Minimum deposit $100', 'Complete trading course', 'Trade 5 lots within 90 days'],
-      terms: 'Bonus terms vary by region. Educational materials included.',
-      validUntil: 'Ongoing'
-    },
-    benefits: ['Trading education included', 'Trading Central signals', 'Multi-platform access', 'Dedicated support'],
-    minDeposit: 100,
-    maxLeverage: '1:400',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'AvaTradeGO']
-  },
-  {
-    id: 'exness-unlimited',
-    broker: {
-      name: 'Exness',
-      logo: 'https://images.pexels.com/photos/7567526/pexels-photo-7567526.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.5,
-      established: 2008,
-      regulators: ['CySEC', 'FCA', 'FSA']
-    },
-    promotion: {
-      title: 'Unlimited Leverage',
-      type: 'spread_discount',
-      value: 'Up to 1:2000',
-      description: 'Trade with unlimited leverage for qualified accounts. Perfect for experienced traders looking for maximum capital efficiency.',
-      requirements: ['Complete 10 trades', 'Pass trading assessment', 'Maintain good trading history'],
-      terms: 'Available for experienced traders only. Risk management required.',
-      validUntil: 'Ongoing'
-    },
-    benefits: ['Unlimited leverage potential', 'Instant withdrawals', 'Professional accounts', 'Advanced risk management'],
-    minDeposit: 1,
-    maxLeverage: '1:2000',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'Exness Terminal']
-  },
-  {
-    id: 'hotforex-copy',
-    broker: {
-      name: 'HotForex',
-      logo: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      rating: 4.4,
-      established: 2010,
-      regulators: ['CySEC', 'FSA', 'FSCA']
-    },
-    promotion: {
-      title: 'Copy Trading Bonus',
-      type: 'deposit_bonus',
-      value: 'Up to $2,000',
-      description: 'Special bonus for copy trading accounts. Follow successful traders and earn bonus on your deposits for copy trading activities.',
-      requirements: ['Minimum deposit $500', 'Copy at least 3 traders', 'Maintain copy trading for 30 days'],
-      terms: 'Bonus applicable to copy trading only. Performance fees may apply.',
-      validUntil: '2024-12-15'
-    },
-    benefits: ['Copy successful traders', 'Performance tracking', 'Risk management tools', 'Social trading community'],
-    minDeposit: 500,
-    maxLeverage: '1:1000',
-    platforms: ['MetaTrader 4', 'MetaTrader 5', 'HotForex App']
-  }
-];
-
-const getPromotionIcon = (type: string) => {
-  switch (type) {
-    case 'cash_bonus': return DollarSign;
-    case 'deposit_bonus': return TrendingUp;
-    case 'no_deposit': return Gift;
-    case 'cashback': return Target;
-    case 'vps': return Zap;
-    case 'spread_discount': return Award;
-    default: return Gift;
-  }
-};
+import { fetchBrokerPromotionsWithDetails, BrokerPromotionWithBrokerDetails } from '@/lib/supabase';
 
 const getPromotionGradient = (type: string) => {
   switch (type) {
@@ -265,13 +41,29 @@ const getPromotionGradient = (type: string) => {
 
 export default function PromotionsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [promotions, setPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const featuredPromotion = promotions.find(p => p.promotion.featured);
-  const regularPromotions = promotions.filter(p => !p.promotion.featured);
+  useEffect(() => {
+    async function loadPromotions() {
+      setLoading(true);
+      try {
+        const data = await fetchBrokerPromotionsWithDetails();
+        setPromotions(data || []);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadPromotions();
+  }, []);
 
-  const filteredPromotions = selectedCategory === 'all' 
-    ? regularPromotions 
-    : regularPromotions.filter(p => p.promotion.type === selectedCategory);
+  const featuredPromotion = promotions.find(p => p.is_featured);
+  const regularPromotions = promotions.filter(p => !p.is_featured);
+
+  // Optionally filter by category if you have a type/category field
+  const filteredPromotions = selectedCategory === 'all'
+    ? regularPromotions
+    : regularPromotions.filter(p => p.title?.toLowerCase().includes(selectedCategory));
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-slate-900 to-black">
@@ -352,41 +144,39 @@ export default function PromotionsPage() {
                     <div>
                       <div className="flex items-center mb-6">
                         <Image
-                          src={featuredPromotion.broker.logo}
-                          alt={featuredPromotion.broker.name}
+                          src={featuredPromotion.broker_details.logo}
+                          alt={featuredPromotion.broker_details.name}
                           width={64}
                           height={64}
                           className="rounded-full mr-4 ring-4 ring-emerald-400/30"
                         />
                         <div>
-                          <h3 className="text-2xl font-bold text-white">{featuredPromotion.broker.name}</h3>
+                          <h3 className="text-2xl font-bold text-white">{featuredPromotion.broker_details.name}</h3>
                           <div className="flex items-center">
                             <Star className="w-5 h-5 fill-emerald-400 text-emerald-400 mr-1" />
-                            <span className="text-emerald-200 font-medium">{featuredPromotion.broker.rating}/5</span>
-                            <span className="text-white/60 ml-2">• Est. {featuredPromotion.broker.established}</span>
+                            <span className="text-emerald-200 font-medium">{featuredPromotion.broker_details.rating}/5</span>
+                            <span className="text-white/60 ml-2">• Est. {featuredPromotion.broker_details.year_published}</span>
                           </div>
                         </div>
                       </div>
 
                       <div className="mb-6">
                         <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                          {featuredPromotion.promotion.title}
+                          {featuredPromotion.title}
                         </h4>
                         <p className="text-xl text-cyan-100 mb-4">
-                          {featuredPromotion.promotion.description}
+                          {featuredPromotion.description}
                         </p>
-                        <div className="text-3xl font-bold text-emerald-400 mb-4">
+                        {/* <div className="text-3xl font-bold text-emerald-400 mb-4">
                           {featuredPromotion.promotion.value}
-                        </div>
+                        </div> */}
                       </div>
 
                       <div className="grid grid-cols-2 gap-4 mb-6">
-                        {featuredPromotion.benefits.slice(0, 4).map((benefit, index) => (
-                          <div key={index} className="flex items-center text-cyan-100">
-                            <CheckCircle className="w-5 h-5 text-emerald-400 mr-2 flex-shrink-0" />
-                            <span className="text-sm">{benefit}</span>
-                          </div>
-                        ))}
+                        <div className="flex items-center text-cyan-100">
+                          <CheckCircle className="w-5 h-5 text-emerald-400 mr-2 flex-shrink-0" />
+                          <span className="text-sm">{!featuredPromotion.condition ? 'No condition required' : featuredPromotion.condition}</span>
+                        </div>
                       </div>
 
                       <Button 
@@ -394,12 +184,12 @@ export default function PromotionsPage() {
                         className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
                       >
                         <ExternalLink className="w-5 h-5 mr-2" />
-                        Claim $1,000 Bonus Now
+                        Claim Bonus Now
                       </Button>
                     </div>
 
                     {/* Right Side - Details */}
-                    <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-emerald-400/20">
+                    {/* <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-emerald-400/20">
                       <h5 className="text-xl font-bold text-white mb-4 flex items-center">
                         <AlertTriangle className="w-5 h-5 text-emerald-400 mr-2" />
                         Promotion Details
@@ -418,7 +208,6 @@ export default function PromotionsPage() {
                           </ul>
                         </div>
 
-                        {/* Bonus Structure */}
                         <div>
                           <h6 className="text-emerald-400 font-semibold mb-3">Bonus Structure:</h6>
                           <div className="space-y-3">
@@ -484,7 +273,7 @@ export default function PromotionsPage() {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </CardContent>
               </Card>
@@ -523,7 +312,7 @@ export default function PromotionsPage() {
           {/* Promotions Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPromotions.map((item, index) => {
-              const PromotionIcon = getPromotionIcon(item.promotion.type);
+              // const PromotionIcon = getPromotionIcon(item.promotion.type);
               
               return (
                 <motion.div
@@ -538,56 +327,48 @@ export default function PromotionsPage() {
                     <CardContent className="p-6 h-full flex flex-col">
                       {/* Promotion Type Badge */}
                       <div className="flex items-center justify-between mb-4">
-                        <Badge className={`bg-gradient-to-r ${getPromotionGradient(item.promotion.type)} text-white border-none px-3 py-1 text-xs font-bold`}>
-                          <PromotionIcon className="w-3 h-3 mr-1" />
-                          {item.promotion.type.replace('_', ' ').toUpperCase()}
+                        <Badge className={`bg-gradient-to-r ${getPromotionGradient(item.category)} text-white border-none px-3 py-1 text-xs font-bold`}>
+                          {/* <PromotionIcon className="w-3 h-3 mr-1" /> */}
+                          {item.category.replace('_', ' ').toUpperCase()}
                         </Badge>
-                        {item.promotion.validUntil !== 'Ongoing' && (
-                          <div className="flex items-center text-xs text-orange-400">
-                            <Clock className="w-3 h-3 mr-1" />
-                            Until {item.promotion.validUntil}
-                          </div>
-                        )}
                       </div>
 
                       {/* Broker Info */}
                       <div className="flex items-center mb-4">
                         <Image
-                          src={item.broker.logo}
-                          alt={item.broker.name}
+                          src={item.broker_details.logo}
+                          alt={item.broker_details.name}
                           width={48}
                           height={48}
                           className="rounded-full mr-3 ring-2 ring-white/20"
                         />
                         <div>
-                          <h3 className="text-lg font-bold text-white">{item.broker.name}</h3>
+                          <h3 className="text-lg font-bold text-white">{item.broker_details.name}</h3>
                           <div className="flex items-center">
                             <Star className="w-4 h-4 fill-cyan-400 text-cyan-400 mr-1" />
-                            <span className="text-cyan-200 text-sm">{item.broker.rating}/5</span>
+                            <span className="text-cyan-200 text-sm">{item.broker_details.rating}/5</span>
                           </div>
                         </div>
                       </div>
 
                       {/* Promotion Details */}
                       <div className="flex-1 mb-4">
-                        <h4 className="text-xl font-bold text-white mb-2">{item.promotion.title}</h4>
-                        <div className="text-2xl font-bold text-cyan-400 mb-3">{item.promotion.value}</div>
+                        <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
+                        <div className="text-2xl font-bold text-cyan-400 mb-3">{item.value}</div>
                         <p className="text-cyan-100 text-sm leading-relaxed mb-4">
-                          {item.promotion.description}
+                          {item.description}
                         </p>
 
                         {/* Key Benefits */}
                         <div className="space-y-2 mb-4">
-                          {item.benefits.slice(0, 3).map((benefit, benefitIndex) => (
-                            <div key={benefitIndex} className="flex items-center text-sm text-cyan-200">
+                            <div className="flex items-center text-sm text-cyan-200">
                               <CheckCircle className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" />
-                              {benefit}
+                              {item.condition ? item.condition : "No condition required"}
                             </div>
-                          ))}
                         </div>
 
                         {/* Trading Info */}
-                        <div className="grid grid-cols-2 gap-3 mb-4">
+                        {/* <div className="grid grid-cols-2 gap-3 mb-4">
                           <div className="bg-black/20 rounded-lg p-2 text-center">
                             <div className="text-cyan-400 font-bold text-sm">${item.minDeposit}</div>
                             <div className="text-white/70 text-xs">Min Deposit</div>
@@ -596,11 +377,11 @@ export default function PromotionsPage() {
                             <div className="text-purple-400 font-bold text-sm">{item.maxLeverage}</div>
                             <div className="text-white/70 text-xs">Max Leverage</div>
                           </div>
-                        </div>
+                        </div> */}
 
                         {/* Regulation */}
                         <div className="flex flex-wrap gap-1 mb-4">
-                          {item.broker.regulators.slice(0, 3).map((reg) => (
+                          {item.broker_details.regulators?.slice(0, 3).map((reg) => (
                             <Badge key={reg} className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
                               {reg}
                             </Badge>
@@ -609,17 +390,19 @@ export default function PromotionsPage() {
                       </div>
 
                       {/* CTA Button */}
-                      <Button 
-                        className={`w-full bg-gradient-to-r ${getPromotionGradient(item.promotion.type)} hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-all duration-300 group-hover:scale-105`}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Claim This Offer
-                      </Button>
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        <Button 
+                          className={`w-full bg-gradient-to-r ${getPromotionGradient(item.category)} hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-all duration-300 group-hover:scale-105`}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Claim This Offer
+                        </Button>
+                      </a>
 
                       {/* Terms */}
-                      <p className="text-white/60 text-xs mt-3 text-center">
+                      {/* <p className="text-white/60 text-xs mt-3 text-center">
                         {item.promotion.terms}
-                      </p>
+                      </p> */}
                     </CardContent>
                   </Card>
                 </motion.div>

@@ -13,7 +13,7 @@ function slugify(name: string) {
 export default async function BrokerDetailsPage({ params }: BrokerDetailsPageProps) {
   const brokers: BrokerDetails[] = await fetchTopBroker();
   const broker = brokers.find(b => slugify(b.name) === params.slug);
-
+    
   if (!broker) return notFound();
 
   return (

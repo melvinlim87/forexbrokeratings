@@ -130,6 +130,7 @@ export type BrokerPromotionWithBrokerDetails = {
   description: string;
   condition: string;
   link: string;
+  category: string;
   is_featured: boolean;
   created_at: string;
   broker_details: {
@@ -151,6 +152,7 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
       description,
       condition,
       link,
+      category,
       is_featured,
       created_at,
       broker_details (name, website, logo, rating)
