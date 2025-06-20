@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { HexagonChart } from './hexagon-chart';
 import { cn } from '@/lib/utils';
+import { BrokerDetails } from '@/lib/supabase';
 
 // Define the type for the scores object
 interface Scores {
@@ -68,7 +69,7 @@ interface BrokerData {
 }
 
 interface BrokerProfileProps {
-  brokerData: BrokerData;
+  brokerData: BrokerDetails;
   relatedBrokers: any[];
 }
 
@@ -107,7 +108,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2">
+                <div className="h-20 w-20 relative bg-white/10 backdrop-blur-sm rounded p-2">
                 {brokerData.logo ? (
                   <Image
                     src={brokerData.logo}
@@ -177,8 +178,13 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   variant="outline" 
                   className="w-full"
                   onClick={() => {
-                    // TODO: Implement add to compare functionality
-                    console.log('Add to compare:', brokerData.id);
+                    if (typeof window !== 'undefined') {
+                      // Save broker id to localStorage using compare-utils
+                      import('@/components/broker/compare-utils').then(utils => {
+                        utils.setCompareSelection(brokerData.id?.toString());
+                        window.location.href = '/compare';
+                      });
+                    }
                   }}
                 >
                   Add to Compare
@@ -693,15 +699,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   {relatedBrokers.map((broker: any) => (
                     <Link key={broker.id} href={`/broker/${broker.slug || broker.id}`}>
                       <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded mr-3">
-                          {console.log('chedck logo', broker.logo)}
+                        <div className="h-20 w-20 relative bg-gray-100 dark:bg-gray-800 rounded-lg mr-3">
                           {broker.logo ? (
                             <Image
                               src={broker.logo}
                               alt={broker.name}
                               fill
                               style={{ objectFit: "contain" }}
-                              className="p-1"
+                              className="rounded-lg"
                             /> ) : null}
                         </div>
                         <div>

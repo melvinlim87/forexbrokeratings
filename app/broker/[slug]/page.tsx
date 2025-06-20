@@ -88,7 +88,7 @@ const parseArrayField = (field: string[] | string | null | undefined): string[] 
 };
 
 // Function to format broker data for the UI
-function formatBrokerData(broker: BrokerDetails): BrokerData {
+function formatBrokerData(broker: BrokerDetails): BrokerDetails {
   if (!broker) {
     return getDefaultBroker('default');
   }
@@ -165,7 +165,7 @@ function formatBrokerData(broker: BrokerDetails): BrokerData {
   };
 }
 
-function getDefaultBroker(slug: string): BrokerData {
+function getDefaultBroker(slug: string): BrokerDetails {
   const name = slug.split('-').map(word => 
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ');
@@ -238,7 +238,7 @@ function getDefaultBroker(slug: string): BrokerData {
 }
 
 // Fallback data in case Supabase fetch fails
-const brokersData: Record<string, BrokerData> = {
+const brokersData: Record<string, BrokerDetails> = {
   xtb: {
     id: 5,
     name: 'XTB',
@@ -313,45 +313,32 @@ export default async function BrokerProfilePage({
 }: { 
   params: { slug: string } 
 }) {
+  // Only fetch from Supabase, no static fallback
   try {
-    // Try to fetch from Supabase first
-    let brokerData: BrokerData;
-    console.log('Fetching broker data for slug:', params.slug);
-    try {
-      console.log('Fetching all brokers from Supabase...');
-      const brokers = await fetchAllBrokerDetails();
-      console.log('Fetched brokers:', brokers?.length || 0);
-      
-      const broker = brokers?.find(b => {
-        const slug = b.name.toLowerCase().replace(/\s+/g, '-');
-        console.log(`Checking broker: ${b.name} (slug: ${slug})`);
-        return slug === params.slug;
-      });
-      
-      if (broker) {
-        console.log('Found broker in database:', broker.name);
-        console.log('Broker metrics:', {
-          environment: broker.environment,
-          user_experience: broker.user_experience,
-          sw: broker.sw,
-          regulations: broker.regulations,
-          risk_control: broker.risk_control,
-          promotions: broker.promotions
-        });
-        brokerData = formatBrokerData(broker);
-      } else {
-        console.log('Broker not found in database, falling back to static data');
-        brokerData = brokersData[params.slug] || getDefaultBroker(params.slug);
-      }
-    } catch (error) {
-      console.error('Error fetching broker data:', error);
-      // Fall back to static data if there's an error
-      brokerData = brokersData[params.slug] || getDefaultBroker(params.slug);
+    console.log('Fetching all brokers from Supabase...');
+    const data = await fetchAllBrokerDetails();
+    console.log('Fetched data:', data?.length || 0);
+    
+    const broker = data.find(b => {
+      const slug = b.name.toLowerCase().replace(/\s+/g, '-');
+      console.log(`Checking broker: ${b.name} (slug: ${slug})`);
+      return slug === params.slug;
+    });
+    
+    if (!broker) {
+      // If not found in Supabase, show not found UI
+      return (
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center py-12">
+            <h1 className="text-2xl font-bold mb-4">Broker Not Found</h1>
+            <p className="text-gray-600">The broker you're looking for doesn't exist in our database.</p>
+          </div>
+        </div>
+      );
     }
-
+    const brokerData = formatBrokerData(broker);
     // Fetch related brokers - convert ID to string to match expected type
     const relatedBrokers = await fetchRelatedBrokers(brokerData.id.toString());
-
     return (
       <div className="container mx-auto px-4 py-8">
         <IPChecker />

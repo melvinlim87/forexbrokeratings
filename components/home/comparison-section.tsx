@@ -451,11 +451,22 @@ export default function ComparisonSection() {
           <CardContent className="p-0">
             <Tabs value={activeTab} onValueChange={(value: string) => setActiveTab(value as keyof ComparisonData)} className="w-full">
               <div className="bg-gray-100 dark:bg-gray-800 px-4 py-4 sm:px-6">
-                <TabsList className="w-full grid grid-cols-4 bg-gray-200 dark:bg-gray-700">
-                  <TabsTrigger value="beginner-friendly">For Beginners</TabsTrigger>
-                  <TabsTrigger value="low-fees">Lowest Fees</TabsTrigger>
-                  <TabsTrigger value="advanced-trading">Advanced Trading</TabsTrigger>
-                  <TabsTrigger value="promotions">Promotions</TabsTrigger>
+                <TabsList
+                  className="w-full bg-gray-200 dark:bg-gray-700 
+                    flex md:grid md:grid-cols-4
+                    overflow-x-auto md:overflow-visible
+                    no-scrollbar
+                    rounded-lg
+                    p-1
+                    mb-2
+                    md:mb-0
+                    md:rounded-md
+                    md:p-0
+                    ">
+                  <TabsTrigger value="beginner-friendly" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">For Beginners</TabsTrigger>
+                  <TabsTrigger value="low-fees" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Lowest Fees</TabsTrigger>
+                  <TabsTrigger value="advanced-trading" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Advanced Trading</TabsTrigger>
+                  <TabsTrigger value="promotions" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Promotions</TabsTrigger>
                 </TabsList>
               </div>
               

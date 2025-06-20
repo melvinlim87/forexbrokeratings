@@ -250,27 +250,27 @@ export default function TopHero() {
                     )}
                   </div>
                   <div className="relative p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
-  <Input
-    type="text"
-    placeholder="Search for brokers..."
-    className="pl-10 py-6 w-full bg-white border-none rounded-xl text-gray-800 dark:text-white placeholder:text-gray-500 focus:ring-2 focus:ring-blue-400"
-    value={searchTerm}
-    onChange={(e) => {
-      setSearchTerm(e.target.value);
-      setShowResults(true);
-    }}
-    onFocus={() => setShowResults(true)}
-  />
-  {searchTerm && (
-    <button
-      type="button"
-      onClick={() => setSearchTerm('')}
-      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
-    >
-      ✕
-    </button>
-  )}
-</div>
+                    <Input
+                      type="text"
+                      placeholder="Search for brokers..."
+                      className="pl-10 py-6 w-full bg-white border-none rounded-xl text-gray-800 dark:text-white placeholder:text-gray-500 focus:ring-2 focus:ring-blue-400"
+                      value={searchTerm}
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                        setShowResults(true);
+                      }}
+                      onFocus={() => setShowResults(true)}
+                    />
+                    {searchTerm && (
+                      <button
+                        type="button"
+                        onClick={() => setSearchTerm('')}
+                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
                 </div>
                 <Button
                   type="submit"
