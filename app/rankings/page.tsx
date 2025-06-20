@@ -219,13 +219,13 @@ export default function RankingsPage() {
                       <div className="text-4xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-200 bg-clip-text text-transparent mb-4">
                         #{broker.rank}
                       </div>
-                      <div className="h-16 w-32 relative bg-gray-100 dark:bg-gray-800 rounded mb-3">
+                      <div className="h-28 w-28 relative bg-gray-100 dark:bg-gray-800 rounded-xl mb-3">
                         <Image
                           src={broker.logo}
                           alt={broker.name}
                           fill
                           style={{ objectFit: "contain" }}
-                          className="p-2"
+                          className="rounded-xl"
                         />
                       </div>
                       <h3 className="text-xl font-semibold text-center text-gray-900 dark:text-white mb-2">

@@ -14,9 +14,9 @@ export default function Home() {
     <div className="flex flex-col">
       <div className="w-full">
         <TopHero />
+        <Hero />
       </div>
       <div className="px-4 sm:px-6 lg:px-8">
-        <Hero />
         <FeaturedBrokers />
         <ComparisonSection />
         <PromotionsSection />

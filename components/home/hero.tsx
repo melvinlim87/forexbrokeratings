@@ -151,17 +151,18 @@ export default function Hero() {
               quality={100}
               priority
             />
+            <div className="absolute inset-0" />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-900/80 to-black/60" />
           </div>
         </AnimatePresence>
       )}
 
-      <div className="absolute inset-0 flex items-center z-10 pointer-events-none">
+      <div className="absolute inset-0 flex items-center z-30">
         <div className="container mx-auto px-4 w-full flex justify-between">
           <Button
             variant="ghost"
             size="icon"
-            className="h-12 w-12 pointer-events-auto text-white hover:bg-white/20"
+            className="h-12 w-12 text-white hover:bg-white/20 z-40"
             onClick={() => handleSlideChange('prev')}
           >
             <ChevronLeft className="h-8 w-8" />
@@ -169,7 +170,7 @@ export default function Hero() {
           <Button
             variant="ghost"
             size="icon"
-            className="h-12 w-12 pointer-events-auto text-white hover:bg-white/20"
+            className="h-12 w-12 text-white hover:bg-white/20 z-40"
             onClick={() => handleSlideChange('next')}
           >
             <ChevronRight className="h-8 w-8" />
@@ -177,7 +178,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute inset-0 flex items-center z-20 w-full">
+      <div className="absolute inset-0 flex items-center z-20 w-full pointer-events-none">
         <div className="container mx-auto w-full">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
@@ -188,16 +189,17 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               <div className="flex flex-col items-center mb-6">
-                <div className="h-16 w-32 relative bg-white/10 backdrop-blur-sm rounded p-2 mb-3">
+                <div className="h-32 w-32 relative bg-white/10 backdrop-blur-sm rounded-xl p-2 mb-3">
                   <Image
                     src={currentSlideData.logo || '/placeholder-logo.png'}
                     alt={currentSlideData.broker || 'Broker'}
                     fill
                     style={{ objectFit: "contain" }}
+                    className='rounded-xl'
                     sizes="(max-width: 128px) 100vw, 128px"
                   />
                 </div>
-                <h2 className="text-white text-3xl font-bold">
+                <h2 className="text-white/80 text-3xl font-bold">
                   {currentSlideData.broker || 'Top Forex Broker'}
                 </h2>
               </div>
@@ -218,12 +220,12 @@ export default function Hero() {
                   {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(1) : '4.5')}/5
                 </span>
               </div>
-              <div className="text-white/80 text-sm">
+              <div className="text-white text-sm">
                 {currentSlideData.reviews || '1,000+'} reviews
               </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{textShadow: '4px 4px 8px #000000'}}>
                 {currentSlideData.title || 'Top Rated Forex Broker'}
               </h1>
               

@@ -154,13 +154,13 @@ export default function LatestReviews() {
                 <Card className="h-full flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
+                      <div className="h-24 w-24 relative bg-gray-100 dark:bg-gray-800 rounded-xl">
                         <Image
                           src={review.logo}
                           alt={review.name}
                           fill
                           style={{ objectFit: "contain" }}
-                          className="p-1"
+                          className="rounded-xl"
                         />
                       </div>
                       <div className="flex items-center gap-1">

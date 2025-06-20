@@ -134,12 +134,13 @@ export default function PromotionsSection() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center">
-                        <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded">
+                        <div className="h-20 w-20 relative bg-gray-100 dark:bg-gray-800 rounded-xl">
                           <Image
                             src={promo.broker_details.logo || getFallbackLogo(promo.broker_details.name || 'Broker')}
                             alt={promo.broker_details.name || 'Broker'}
                             fill
                             style={{ objectFit: "contain" }}
+                            className='rounded-xl'
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.src = getFallbackLogo(promo.broker_details.name || 'Broker');
@@ -206,7 +207,7 @@ export default function PromotionsSection() {
                       href={promo.link || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                    className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
                       style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                     >
                       Claim Offer

@@ -99,7 +99,8 @@ export async function fetchBrokerWebsites() {
 export async function fetchAllBrokerDetails() {
   const { data, error } = await supabase
     .from('broker_details')
-    .select('*');
+    .select('*')
+    .order('rating', { ascending: false });
   
   if (error) {
     throw new Error(error.message);

@@ -250,16 +250,21 @@ export default function ComparisonSection() {
 
         function getRandomItems<T>(arr: T[], n: number): T[] {
           const shuffled = arr.slice();
+          let specificItems = [];
           for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            if (shuffled[i].id === 28 || shuffled[i].id === 31) {
+              specificItems.push(shuffled[i]);
+            }
           }
-          return shuffled.slice(0, n);
+          
+          return specificItems.concat(shuffled.slice(0, n));
         }
 
-        const beginnerBrokers = getRandomItems(data, 3);
-        const lowFeesBrokers = getRandomItems(data, 3);
-        const advancedBrokers = getRandomItems(data, 3);
+        const beginnerBrokers = getRandomItems(data, 1);
+        const lowFeesBrokers = getRandomItems(data, 1);
+        const advancedBrokers = getRandomItems(data, 1);
 
         beginnerBrokers.forEach((broker: any, index: number) => {
           const formattedBroker: Broker = {
@@ -315,7 +320,7 @@ export default function ComparisonSection() {
           formattedData['advanced-trading'].push(formattedBroker);
         });
 
-        getRandomItems(data, 3).forEach((broker: any, index: number) => {
+        getRandomItems(data, 1).forEach((broker: any, index: number) => {
           const formattedBroker: Broker = {
             id: broker.id,
             name: broker.name || `Broker ${index + 1}`,
@@ -381,7 +386,7 @@ export default function ComparisonSection() {
   const renderFeatureCell = (broker: Broker, featureKey: string) => {
     const feature = broker.features[featureKey];
 
-    if (!feature) return <span className="text-xl font-medium text-gray-400">-</span>;
+    if (!feature) return <span className="text-md font-medium text-gray-400">-</span>;
     
     if (typeof feature.value === 'boolean') {
       return feature.value ? 
@@ -390,7 +395,7 @@ export default function ComparisonSection() {
     }
     
     if (feature.value) {
-      return <span className="text-xl font-medium">{feature.value}</span>;
+      return <span className="text-md font-medium">{feature.value}</span>;
     }
     
     if (feature.score && feature.label) {
@@ -404,7 +409,7 @@ export default function ComparisonSection() {
       }
       return (
         <div>
-          <div className={`text-xl font-medium text-black dark:text-gray-400 ${score_color}`}>{feature.score} / 5</div>
+          <div className={`text-md font-medium text-black dark:text-gray-400 ${score_color}`}>{feature.score} / 5</div>
         </div>
       );
     }
@@ -446,11 +451,12 @@ export default function ComparisonSection() {
                           {comparisonData[tabValue].map((broker) => (
                             <th key={broker.id} className="px-6 py-5 text-center">
                               <div className="flex flex-col items-center">
-                                <div className="h-10 w-24 relative mb-2">
+                                <div className="h-24 w-24 relative mb-2 rounded-xl">
                                   <Image
                                     src={broker.logo}
                                     alt={broker.name}
                                     fill
+                                    className='rounded-xl'
                                     style={{ objectFit: "contain" }}
                                   />
                                 </div>
@@ -465,7 +471,7 @@ export default function ComparisonSection() {
                       <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
                         {getFeatureRows().map((row) => (
                           <tr key={row.key} className="bg-white dark:bg-gray-950">
-                            <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
+                            <td className="px-6 py-4 text-xl font-medium text-gray-900 dark:text-white">
                               {row.label}
                             </td>
                             {comparisonData[tabValue].map((broker) => (
