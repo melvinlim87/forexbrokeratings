@@ -3,12 +3,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Star, Search, Loader2 } from 'lucide-react';
+import { Star, Search, Loader2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import NetworkDiagram from '../network/NetworkDiagram';
-import { fetchAllBrokerDetails } from '@/lib/supabase';
+import { BrokerDetails, fetchAllBrokerDetails } from '@/lib/supabase';
 import { useDebounce } from 'use-debounce';
+import Image from 'next/image';
 
 interface Broker {
   id: string;
@@ -26,7 +27,7 @@ export default function TopHero() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
-  const [searchResults, setSearchResults] = useState<Broker[]>([]);
+  const [searchResults, setSearchResults] = useState<BrokerDetails[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -292,36 +293,57 @@ export default function TopHero() {
                   ) : searchResults.length > 0 ? (
                     <div>
                       {searchResults.map((broker) => (
-                        <button
-                          key={broker.id}
-                          type="button"
-                          className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center space-x-3"
-                          onClick={() => handleBrokerSelect(broker)}
-                        >
-                          {broker.logo && (
-                            <div className="h-8 w-8 relative">
-                              <img
-                                src={broker.logo}
-                                alt={broker.name}
-                                className="h-full w-full object-contain"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).style.display = 'none';
-                                }}
-                              />
+                        <div
+                        key={broker.id}
+                        onClick={() => handleBrokerSelect(broker)}
+                        className="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors border-b border-gray-100 dark:border-gray-800 last:border-b-0"
+                      >
+                        <div className="h-14 w-14 flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mr-4 border border-gray-200 dark:border-gray-700">
+                          {broker.logo ? (
+                            <Image
+                              src={broker.logo}
+                              alt={broker.name}
+                              width={40}
+                              height={40}
+                              className="h-10 w-10 object-contain p-1"
+                            />
+                          ) : (
+                            <div className="h-10 w-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded">
+                              <span className="text-xs font-medium text-gray-500">
+                                {broker.name.charAt(0).toUpperCase()}
+                              </span>
                             </div>
                           )}
-                          <div>
-                            <div className="font-medium text-gray-900 dark:text-white">
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
                               {broker.name}
-                            </div>
-                            {typeof broker.rating === 'number' && !isNaN(broker.rating) ? (
-                              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                                <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
-                                {broker.rating.toFixed(1)}
+                            </h4>
+                            {typeof broker.rating !== 'undefined' && (
+                              <div className="flex items-center ml-2">
+                                <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
+                                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                                  {broker.rating}
+                                </span>
                               </div>
-                            ) : null}
+                            )}
                           </div>
-                        </button>
+                          <div className="mt-1 flex items-center flex-wrap gap-1">
+                            {broker.spread_eur_usd && (
+                              <span className="text-xs text-blue-600 dark:text-blue-400">
+                                Spread: {broker.spread_eur_usd} pips
+                              </span>
+                            )}
+                            {broker.leverage_max && (
+                              <span className="text-xs text-purple-600 dark:text-purple-400">
+                                Leverage: 1:{broker.leverage_max}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-gray-400 ml-2 flex-shrink-0" />
+                      </div>
                       ))}
                     </div>
                   ) : searchTerm ? (
