@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Check, X, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -390,8 +390,8 @@ export default function ComparisonSection() {
     
     if (typeof feature.value === 'boolean') {
       return feature.value ? 
-        <Check className="h-5 w-5 text-green-500" /> : 
-        <X className="h-5 w-5 text-red-500" />;
+        <Check className="h-5 w-5 text-green-500 mx-auto" /> : 
+        <X className="h-5 w-5 text-red-500 mx-auto" />;
     }
     
     if (feature.value) {
@@ -399,17 +399,37 @@ export default function ComparisonSection() {
     }
     
     if (feature.score && feature.label) {
-      let score_color = '';
-      if (feature.score >= 4) {
-        score_color = 'text-green-500';
-      } else if (feature.score >= 3) {
-        score_color = 'text-yellow-500';
-      } else {
-        score_color = 'text-red-500';
-      }
+      const score = Math.min(5, Math.max(0, feature.score)); // Ensure score is between 0-5
+      const fullStars = Math.floor(score);
+      const hasHalfStar = score % 1 >= 0.25 && score % 1 < 0.75;
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+      
       return (
-        <div>
-          <div className={`text-md font-medium text-black dark:text-gray-400 ${score_color}`}>{feature.score} / 5</div>
+        <div className="flex flex-col items-center space-y-1">
+          <div className="flex justify-center items-center space-x-0.5">
+            {/* Full stars */}
+            {Array(fullStars).fill(0).map((_, i) => (
+              <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            ))}
+            
+            {/* Half star */}
+            {hasHalfStar && (
+              <div className="relative h-4 w-4">
+                <Star className="absolute h-4 w-4 text-gray-300 dark:text-gray-600" />
+                <div className="absolute left-0 top-0 h-full w-1/2 overflow-hidden">
+                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                </div>
+              </div>
+            )}
+            
+            {/* Empty stars */}
+            {Array(emptyStars).fill(0).map((_, i) => (
+              <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
+            ))}
+          </div>
+          <span className="text-md font-medium text-gray-500 dark:text-gray-400">
+            {score.toFixed(1)}/5
+          </span>
         </div>
       );
     }
@@ -445,7 +465,7 @@ export default function ComparisonSection() {
                     <table className="w-full">
                       <thead>
                         <tr className="bg-white dark:bg-gray-950">
-                          <th className="px-6 py-5 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
+                          <th className="px-6 py-5 text-left text-lg font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
                             Broker
                           </th>
                           {comparisonData[tabValue].map((broker) => (
