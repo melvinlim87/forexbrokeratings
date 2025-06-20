@@ -177,13 +177,39 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   size="lg" 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      // Save broker id to localStorage using compare-utils
-                      import('@/components/broker/compare-utils').then(utils => {
-                        utils.setCompareSelection(brokerData.id?.toString());
-                        window.location.href = '/compare';
-                      });
+                  onClick={async () => {
+                    if (typeof window === 'undefined') return;
+                    
+                    try {
+                      // Dynamically import the compare-utils
+                      const { setCompareSelection } = await import('@/components/broker/compare-utils');
+                      
+                      // Prepare broker data to be stored
+                      const brokerInfo = {
+                        id: brokerData.id?.toString(),
+                        name: brokerData.name,
+                        logo: brokerData.logo,
+                        rating: brokerData.rating,
+                        spread_eur_usd: brokerData.spread_eur_usd,
+                        leverage_max: brokerData.leverage_max,
+                        regulators: brokerData.regulators,
+                        min_deposit: brokerData.min_deposit
+                      };
+                      
+                      // Store the broker data in localStorage
+                      localStorage.setItem('compare_broker_data', JSON.stringify([brokerInfo]));
+                      
+                      // Also save the ID for backward compatibility
+                      if (brokerData.id) {
+                        setCompareSelection(brokerData.id.toString());
+                      }
+                      
+                      // Redirect to compare page
+                      window.location.href = '/compare';
+                    } catch (error) {
+                      console.error('Error preparing comparison:', error);
+                      // Fallback to simple redirect if there's an error
+                      window.location.href = '/compare';
                     }
                   }}
                 >

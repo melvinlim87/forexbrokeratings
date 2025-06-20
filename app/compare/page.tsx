@@ -59,12 +59,41 @@ export default function ComparePage() {
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Fetch brokers from Supabase
+  // Fetch brokers from Supabase and check for pre-selected brokers
   useEffect(() => {
     const fetchBrokers = async () => {
       try {
         const formattedBrokers = await fetchAllBrokerDetails();
         setBrokers(formattedBrokers);
+        
+        // Check for pre-selected broker data in localStorage
+        const storedBrokerData = typeof window !== 'undefined' ? 
+          localStorage.getItem('compare_broker_data') : null;
+        
+        if (storedBrokerData) {
+          try {
+            const parsedBrokers = JSON.parse(storedBrokerData);
+            if (Array.isArray(parsedBrokers) && parsedBrokers.length > 0) {
+              // Map stored broker data to the full broker objects
+              const selected = parsedBrokers.map(storedBroker => {
+                const fullBroker = formattedBrokers.find(b => 
+                  b.id?.toString() === storedBroker.id
+                );
+                return fullBroker || storedBroker;
+              }).filter(Boolean);
+              
+              if (selected.length > 0) {
+                setSelectedBrokers(selected);
+              }
+              
+              // Clear the stored data after using it
+              localStorage.removeItem('compare_broker_data');
+            }
+          } catch (e) {
+            console.error('Error parsing stored broker data:', e);
+            localStorage.removeItem('compare_broker_data');
+          }
+        }
       } catch (err) {
         console.error('Error fetching brokers:', err);
         setError('Failed to load brokers. Please try again later.');
