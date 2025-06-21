@@ -19,10 +19,9 @@ interface Promotion {
   };
 }
 
-function getCountryFromIp(ip: string): 'Malaysia' | 'Singapore' | null {
-  // Simple check for demo; in production, use a geo IP API
-  if (ip.startsWith('115.') || ip.startsWith('175.')) return 'Malaysia';
-  if (ip.startsWith('116.') || ip.startsWith('101.')) return 'Singapore';
+function getCountryFromIp(ip_country: string): 'Malaysia' | 'Singapore' | null {
+  
+  if (ip_country == 'SG') return 'Singapore';
   return 'Malaysia';
 }
 
@@ -34,17 +33,16 @@ export default function PromotionPopup() {
   useEffect(() => {
     async function fetchPromo() {
       // Get user IP
-    //   const ipRes = await fetch('https://api.ipify.org?format=json');
-    //   const ipData = await ipRes.json();
-    //   const country = getCountryFromIp(ipData.ip);
-    //   if (!country) {
-    //     setLoading(false);
-    //     return;
-    //   }
+      const ipRes = await fetch('https://ipapi.co/json/');
+      const ipData = await ipRes.json();
+      const country = getCountryFromIp(ipData.country);
+      if (!country) {
+        setLoading(false);
+        return;
+      }
       // Fetch promo
       try {
-        const promos = await fetchFeaturedPromotion('Malaysia');
-        console.log('check feature promo',promos);
+        const promos = await fetchFeaturedPromotion(country);
         if (Array.isArray(promos) && promos.length > 0) {
           setPromotion(promos[0]);
           setShow(true);
