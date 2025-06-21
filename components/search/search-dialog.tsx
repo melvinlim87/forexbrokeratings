@@ -49,7 +49,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
         const allBrokers = await fetchAllBrokerDetails();
         const filtered = allBrokers.filter(broker => 
           broker.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-          (broker.description && broker.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
+          (broker.name && broker.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
         ).slice(0, 5); // Limit to 5 results
         
         setResults(filtered);

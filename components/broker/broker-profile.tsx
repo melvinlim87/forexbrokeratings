@@ -908,7 +908,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 <h3 className="text-xl font-semibold mb-4">Similar Brokers</h3>
                 <div className="space-y-4">
                   {relatedBrokers.map((broker: any) => (
-                    <Link key={broker.id} href={`/broker/${broker.slug || broker.id}`}>
+                    <Link key={broker.id} href={`/broker/${broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : broker.id}`}>
                       <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                         <div className="h-20 w-20 relative bg-white rounded-lg mr-3">
                           {broker.logo ? (
