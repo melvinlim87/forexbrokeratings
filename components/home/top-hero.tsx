@@ -332,12 +332,12 @@ export default function TopHero() {
                           <div className="mt-1 flex items-center flex-wrap gap-1">
                             {broker.spread_eur_usd && (
                               <span className="text-xs text-blue-600 dark:text-blue-400">
-                                Spread: {broker.spread_eur_usd} pips
+                                Spread: {broker.spread_eur_usd}
                               </span>
                             )}
                             {broker.leverage_max && (
                               <span className="text-xs text-purple-600 dark:text-purple-400">
-                                Leverage: 1:{broker.leverage_max}
+                                Leverage: {broker.leverage_max}
                               </span>
                             )}
                           </div>

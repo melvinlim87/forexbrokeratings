@@ -36,6 +36,7 @@ export type BrokerDetails = {
   cons?: string[];
   environment: number;
   user_experience: number;
+  user_traffic: number;
   sw: number;
   regulations: number;
   risk_control: number;
@@ -203,6 +204,7 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
         environment,
         user_experience,
         sw,
+        user_traffic,
         regulations,
         risk_control,
         promotions,

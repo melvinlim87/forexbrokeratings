@@ -236,7 +236,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               </p>
             </div>
             
-            <div className="flex flex-col gap-3 min-w-[200px]">
+            <div className="flex flex-col gap-3 min-w-[220px]">
                 <Link 
                   href={brokerData.website || "#"} 
                   target="_blank" 
@@ -790,7 +790,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         data={[
                           { 
                             label: 'User Traffic', 
-                            value: brokerData.sw,
+                            value: brokerData.user_traffic,
                             maxValue: 5 
                           },
                           { 
@@ -909,30 +909,59 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 <div className="space-y-4">
                   {relatedBrokers.map((broker: any) => (
                     <Link key={broker.id} href={`/broker/${broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : broker.id}`}>
-                      <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <div className="h-20 w-20 relative bg-white rounded-lg mr-3">
+                      <div
+                        className="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors border-b border-gray-100 dark:border-gray-800 last:border-b-0"
+                      >
+                        <div className="h-14 w-14 flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mr-4 border border-gray-200 dark:border-gray-700">
                           {broker.logo ? (
                             <Image
                               src={broker.logo}
                               alt={broker.name}
-                              fill
-                              style={{ objectFit: "contain" }}
-                              className="rounded-lg bg-white"
-                            /> ) : null}
+                              width={40}
+                              height={40}
+                              className="h-14 w-14 object-contain rounded-lg"
+                            />
+                          ) : (
+                            <div className="h-10 w-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded">
+                              <span className="text-xs font-medium text-gray-500">
+                                {broker.name.charAt(0).toUpperCase()}
+                              </span>
+                            </div>
+                          )}
                         </div>
-                        <div>
-                          <div className="font-medium">{broker.name}</div>
-                          <div className="flex items-center text-sm">
-                            <Award className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
-                            <span>{broker.rating}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                              {broker.name}
+                            </h4>
+                            {typeof broker.rating !== 'undefined' && (
+                              <div className="flex items-center ml-2">
+                                <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
+                                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                                  {broker.rating}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="mt-1 flex items-center flex-wrap gap-1">
+                            {broker.spread_eur_usd && (
+                              <span className="text-xs text-blue-600 dark:text-blue-400">
+                                Spread: {broker.spread_eur_usd}
+                              </span>
+                            )}
+                            {broker.leverage_max && (
+                              <span className="text-xs text-purple-600 dark:text-purple-400">
+                                Leverage: {broker.leverage_max}
+                              </span>
+                            )}
                           </div>
                         </div>
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                </Link>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
           </div>
         </div>
       </div>

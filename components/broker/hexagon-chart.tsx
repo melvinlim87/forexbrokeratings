@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface HexagonChartProps {
@@ -25,15 +25,38 @@ export function HexagonChart({ data, size = 200, className }: HexagonChartProps)
     return { x, y };
   });
 
-  // Calculate data points
+  // Animation state
+  const [progress, setProgress] = useState(0);
+  const animationRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    let start: number | null = null;
+    const duration = 900; // ms
+    function animate(ts: number) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      const p = Math.min(elapsed / duration, 1);
+      setProgress(p);
+      if (p < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    }
+    animationRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [data]);
+
+  // Calculate animated data points
   const dataPoints = data.map((item, i) => {
-    const valueRadius = (item.value / item.maxValue) * radius * 0.9; // 90% of max radius
+    const animatedValue = item.value * progress;
+    const valueRadius = (animatedValue / item.maxValue) * radius * 0.9; // 90% of max radius
     const angleRad = i * angle - Math.PI / 2;
     return {
       x: center + valueRadius * Math.cos(angleRad),
       y: center + valueRadius * Math.sin(angleRad),
       label: item.label,
-      value: item.value,
+      value: animatedValue.toFixed(2),
     };
   });
 

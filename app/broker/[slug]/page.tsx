@@ -134,10 +134,10 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
     promotions: broker.promotions || 0,
     environment: broker.environment || 0,
     user_experience: broker.user_experience || 0,
+    user_traffic: broker.user_traffic || 0,
     sw: broker.sw || 0,
     regulations: broker.regulations || 0,
     risk_control: broker.risk_control || 0,
-    
   };
 }
 
@@ -187,6 +187,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
     promotions: 0,
     environment: 0,
     user_experience: 0,
+    user_traffic: 0,
     sw: 0,
     regulations: 0,
     risk_control: 0,
@@ -224,7 +225,6 @@ export default async function BrokerProfilePage({
     const brokerData = formatBrokerData(broker);
     // Fetch related brokers - convert ID to string to match expected type
     const relatedBrokers = await fetchRelatedBrokers(brokerData.id.toString());
-    
     
     return (
       <div className="container mx-auto px-4 py-8">
