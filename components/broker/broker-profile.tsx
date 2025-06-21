@@ -189,7 +189,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </div>
                       </div>
                     <Badge variant="outline" className="ml-3 bg-white/10 backdrop-blur-sm">
-                      {brokerData.min_deposit || 'N/A'}
+                      Min Deposit: {brokerData.min_deposit || 'N/A'}
                     </Badge>
                   </div>
                 </div>
