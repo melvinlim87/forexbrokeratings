@@ -12,6 +12,7 @@ interface PromotionCardProps {
   hoveredCard: string | null;
   setHoveredCard: (id: string | null) => void;
   hideBrokerInfo?: boolean;
+  conditions?: string[];
 }
 
 export default function PromotionCard({ 
@@ -92,7 +93,7 @@ export default function PromotionCard({
                   </div>
                 </div>
                 
-                {promo.featured && (
+                {promo.is_featured && (
                   <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-xs font-medium px-2 py-0.5 rounded-full">
                     Featured
                   </div>
@@ -108,16 +109,16 @@ export default function PromotionCard({
               </p>
 
               <div className="space-y-2 mb-4">
-                {terms.length > 0 && (
+                {promo.conditions && promo.conditions?.length > 0 && (
                   <div className="text-sm">
                     <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">Terms:</p>
                     <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
-                      {terms.slice(0, 3).map((term, i) => (
+                      {promo.conditions?.slice(0, 3).map((term, i) => (
                         <li key={i} className="text-sm">{term}</li>
                       ))}
-                      {terms.length > 3 && (
+                      {promo.conditions.length > 3 && (
                         <li className="text-sm font-medium text-amber-600 dark:text-amber-400">
-                          +{terms.length - 3} more terms
+                          +{promo.conditions.length - 3} more terms
                         </li>
                       )}
                     </ul>

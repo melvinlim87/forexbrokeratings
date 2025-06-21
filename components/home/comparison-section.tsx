@@ -248,20 +248,6 @@ export default function ComparisonSection() {
           'promotions': []
         };
 
-        function getRandomItems<T>(arr: T[], n: number): T[] {
-          const shuffled = arr.slice();
-          let specificItems = [];
-          for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            if (shuffled[i].id === 28 || shuffled[i].id === 31) {
-              specificItems.push(shuffled[i]);
-            }
-          }
-          
-          return specificItems.concat(shuffled.slice(0, n));
-        }
-
         const beginnerBrokers = getRandomItems(data, 1);
         const lowFeesBrokers = getRandomItems(data, 1);
         const advancedBrokers = getRandomItems(data, 1);
@@ -280,7 +266,7 @@ export default function ComparisonSection() {
               minDeposit: { value: broker.min_deposit },
               regulations: { score: broker.regulations, label: broker.regulations?.toString() }
             },
-            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
           };
           formattedData['beginner-friendly'].push(formattedBroker);
         });
@@ -298,7 +284,7 @@ export default function ComparisonSection() {
               minWithdrawl: { value: broker.min_withdrawl },
               availability: { value: broker.availability }
             },
-            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
           };
           formattedData['low-fees'].push(formattedBroker);
         });
@@ -315,7 +301,7 @@ export default function ComparisonSection() {
               responseTime: { value: broker.response_time },
               spreadEurUsd: { value: broker.spread_eur_usd }
             },
-            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
           };
           formattedData['advanced-trading'].push(formattedBroker);
         });
@@ -330,7 +316,7 @@ export default function ComparisonSection() {
               promotion: { value: typeof broker.promotions === 'number' ? broker.promotions : parseFloat(broker.promotions) || 0 },
               category: { value: Array.isArray(broker.promotion_categories) ? broker.promotion_categories.join(', ') : '' }
             },
-            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
           };
           formattedData['promotions'].push(formattedBroker);
         });
@@ -346,6 +332,19 @@ export default function ComparisonSection() {
 
     fetchBrokers();
   }, []);
+
+  function getRandomItems<T extends { id?: number }>(arr: T[], n: number): T[] {
+    const shuffled = arr.slice();
+    const specificItems: T[] = [];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      if (shuffled[i].id === 28 || shuffled[i].id === 31) {
+        specificItems.push(shuffled[i]);
+      }
+    }
+    return specificItems.concat(shuffled.slice(0, n));
+  }
 
   const getFeatureRows = () => {
     switch (activeTab) {

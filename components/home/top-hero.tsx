@@ -83,7 +83,7 @@ export default function TopHero() {
     }
   };
   
-  const handleBrokerSelect = (broker: Broker) => {
+  const handleBrokerSelect = (broker: BrokerDetails) => {
     router.push(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`);
     setShowResults(false);
   };

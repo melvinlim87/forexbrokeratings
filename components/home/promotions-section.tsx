@@ -14,7 +14,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { fetchUniquePromotions } from '@/lib/supabase';
+import { fetchUniquePromotions, BrokerPromotionWithBrokerDetails } from '@/lib/supabase';
 
 interface BrokerPromotionWithDetails {
   id: string;
@@ -31,7 +31,7 @@ interface BrokerPromotionWithDetails {
 
 export default function PromotionsSection() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const [promotions, setPromotions] = useState<BrokerPromotionWithDetails[]>([]);
+  const [promotions, setPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -106,14 +106,14 @@ export default function PromotionsSection() {
               <p className="text-gray-500 dark:text-gray-400">No promotions available at the moment.</p>
             </div>
           ) : (
-            promotions.map((promo: BrokerPromotionWithDetails, index: number) => (
+            promotions.map((promo: BrokerPromotionWithBrokerDetails, index: number) => (
               <motion.div
                 key={promo.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                onMouseEnter={() => setHoveredCard(promo.id)}
+                onMouseEnter={() => setHoveredCard(promo.id?.toString())}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <Card 

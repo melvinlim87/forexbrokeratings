@@ -38,6 +38,7 @@ export interface BrokerPromotion {
   url?: string;
   broker: BrokerData;
   link?: string;
+  conditions?: string[];
 }
 
 // Type for broker data from API

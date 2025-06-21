@@ -303,7 +303,7 @@ export default function BrokersPage() {
                         <h3 className="text-xl font-semibold text-center">{broker.name}</h3>
                         <div className="flex items-center mt-2">
                           {Array.from({ length: 5 }).map((_, i) => {
-                            const rating = parseFloat(broker.rating);
+                            const rating = typeof broker.rating === 'string' ? parseFloat(broker.rating) : broker.rating || 0;
                             return (
                               <Star
                                 key={i}
@@ -318,7 +318,7 @@ export default function BrokersPage() {
                             );
                           })}
                           <span className="ml-2 text-sm font-medium">
-                            {broker.rating}
+                            {typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1)}
                           </span>
                         </div>
                       </div>

@@ -96,19 +96,14 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
   return {
     id: broker.id || 0,
     name: broker.name,
-    source: 'manual',
     website: broker.website || '#',
     logo: broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name)}`,
-    image: null,
     description: broker.description || `${broker.name} offers forex and CFD trading services.`,
     summary: broker.description || `${broker.name} offers forex and CFD trading services.`,
     rating: broker.rating || '3.5',
     year_published: broker.year_published || new Date().getFullYear().toString(),
     headquarters: broker.headquarters || 'Not specified',
     country: broker.country || 'International',
-    offices: [],
-    employees: null,
-    address: broker.headquarters || 'Not specified',
     regulators: parseArrayField(broker.regulators),
     licenses: parseArrayField(broker.licenses),
     is_regulated: broker.is_regulated || false,
@@ -134,36 +129,15 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
     response_time: broker.response_time || '24 hours',
     pros: parseArrayField(broker.pros) || [],
     cons: parseArrayField(broker.cons) || [],
-    environment: broker.environment || 4.0,
-    user_experience: broker.user_experience || 4.0,
-    sw: broker.sw || 4.0,
-    regulations: broker.regulations || 4.0,
-    risk_control: broker.risk_control || 4.0,
-    promotions: broker.promotions || 4.0,
-    fees: {
-      trading: {
-        spread: broker.spread_eur_usd || '1.5 pips',
-        commission: 'Varies by account type',
-        overnight: 'Varies by instrument'
-      },
-      nonTrading: {
-        deposit: 'Free',
-        withdrawal: 'Free (1 per month)',
-        inactivity: 'After 6 months',
-        account: 'No monthly fees'
-      }
-    },
-    scores: {
-      overall: 4.0,
-      tradingInstruments: 4.0,
-      platforms: 4.0,
-      fees: 4.0,
-      security: 4.0,
-      deposit: 4.0,
-      customerService: 4.0
-    },
     badges: parseArrayField(broker.badges) || [],
     promotion_details: broker.promotion_details || [],
+    promotions: broker.promotions || 0,
+    environment: broker.environment || 0,
+    user_experience: broker.user_experience || 0,
+    sw: broker.sw || 0,
+    regulations: broker.regulations || 0,
+    risk_control: broker.risk_control || 0,
+    
   };
 }
 
@@ -196,14 +170,8 @@ function getDefaultBroker(slug: string): BrokerDetails {
     spread_eur_usd: '1.5 pips',
     pros: ['Competitive spreads', 'User-friendly platform'],
     cons: ['Limited educational resources'],
-    created_at: new Date().toISOString(),
-    source: 'manual',
     website: '#',
-    image: null,
     year_published: '2023',
-    offices: [],
-    employees: null,
-    address: 'Not specified',
     account_types: ['Standard', 'Premium'],
     base_currencies: ['USD', 'EUR', 'GBP'],
     deposit_methods: ['Bank Transfer', 'Credit Card', 'E-wallets'],
@@ -214,102 +182,16 @@ function getDefaultBroker(slug: string): BrokerDetails {
     phone_numbers: [],
     email: 'support@example.com',
     response_time: '24 hours',
-    fees: {
-      trading: {
-        spread: '1.5 pips',
-        commission: 'Varies by account type',
-        overnight: 'Varies by instrument'
-      },
-      nonTrading: {
-        deposit: 'Free',
-        withdrawal: 'Free (1 per month)',
-        inactivity: 'After 6 months',
-        account: 'No monthly fees'
-      }
-    },
-    scores: {
-      overall: 3.5,
-      tradingInstruments: 3.5,
-      platforms: 3.5,
-      fees: 3.5,
-      security: 3.5,
-      deposit: 3.5,
-      customerService: 3.5
-    },
     badges: [],
+    promotion_details: [],
+    promotions: 0,
+    environment: 0,
+    user_experience: 0,
+    sw: 0,
+    regulations: 0,
+    risk_control: 0,
   };
 }
-
-// Fallback data in case Supabase fetch fails
-const brokersData: Record<string, BrokerDetails> = {
-  xtb: {
-    id: 5,
-    name: 'XTB',
-    logo: 'https://via.placeholder.com/180x90?text=XTB',
-    rating: '4.5',
-    min_deposit: '250',
-    summary: 'XTB is a globally recognized broker offering trading in forex, indices, commodities, and stocks. Known for their proprietary xStation 5 platform and competitive pricing structure.',
-    spread_eur_usd: 'From 0.1 pips',
-    leverage_max: 'Up to 1:30 (EU), 1:500 (Non-EU)',
-    platforms: ['xStation 5', 'MetaTrader 4', 'Mobile Apps'],
-    instruments: ['Forex', 'Indices', 'Commodities', 'Stocks', 'ETFs', 'Cryptocurrencies'],
-    account_types: ['Standard', 'Pro'],
-    scores: {
-      overall: 4.5,
-      tradingInstruments: 4.2,
-      platforms: 4.6,
-      fees: 4.3,
-      security: 4.7,
-      deposit: 4.4,
-      customerService: 4.5
-    },
-    fees: {
-      trading: {
-        spread: 'From 0.1 pips (Pro account)',
-        commission: 'Commission-free standard account',
-        overnight: 'Varies by instrument'
-      },
-      nonTrading: {
-        deposit: 'Free',
-        withdrawal: 'Free',
-        inactivity: 'No inactivity fee',
-        account: 'No monthly fees'
-      }
-    },
-    deposit_methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
-    withdraw_methods: ['Credit/Debit Card', 'Bank Transfer', 'PayPal', 'Skrill', 'Neteller'],
-    deposit_fees: 'Free',
-    withdrawal_fees: 'Free',
-    deposit_process_time: 'Instant for most methods',
-    withdrawal_process_time: '24-48 hours',
-    base_currencies: ['USD', 'EUR', 'GBP', 'PLN'],
-    regulators: ['FCA (UK Financial Conduct Authority)', 'KNF (Poland)', 'CySEC (Cyprus)', 'IFSC (Belize)'],
-    languages: ['English', 'Polish', 'German', 'Spanish', 'Czech', 'French', 'Italian'],
-    channels: ['24/5 Live Chat', 'Email', 'Phone', 'WhatsApp'],
-    phone_numbers: ['+48 123 456 789', '+48 987 654 321'],
-    email: 'support@xtb.com',
-    response_time: 'Average response time under 30 seconds',
-    pros: [
-      'Award-winning proprietary platform',
-      'Competitive spreads and commission-free trading',
-      'Excellent educational resources',
-      'Strong regulatory oversight',
-      'No deposit or withdrawal fees'
-    ],
-    cons: [
-      'Limited cryptocurrency offerings',
-      'Higher minimum deposit than some competitors',
-      'No US clients accepted',
-      'Limited fundamental analysis tools'
-    ],
-    environment: 4.5,
-    user_experience: 4.7,
-    sw: 3.9,
-    regulations: 3.1,
-    risk_control: 3.5,
-    promotions: 4.4,
-  }
-};
 
 export default async function BrokerProfilePage({ 
   params 

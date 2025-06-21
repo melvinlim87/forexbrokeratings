@@ -138,7 +138,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             </div>
           </div>
         )}
-      <div className="bg-metallic pt-28 pb-16 relative overflow-hidden">
+      <div className="bg-metallic pt-10 pb-10 relative overflow-hidden rounded-lg">
         <div
           className="absolute inset-0"
           style={{
@@ -170,7 +170,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl px-3 py-1.5">
                         <div className="flex space-x-0.5">
                           {[1, 2, 3, 4, 5].map((star) => {
-                          const rating = parseFloat(brokerData.rating) || 0;
+                          const rating = brokerData.rating ? parseFloat(brokerData.rating) || 0 : 0;
                           return (
                             <Star
                               key={star}
@@ -327,6 +327,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         key={promo.id || idx}
                         className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
                       >
+                        {/* Promo Country */}
+                        {promo.country && (
+                          <div className="mb-1 text-lg text-black font-medium">
+                            {promo.country} Only
+                          </div>
+                        )}
                         {/* Promo Badge/Category */}
                         <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
                           {promo.categories?.map((category, idx) => (
@@ -586,7 +592,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Address</span>
-                        <span className="font-medium text-right">{brokerData.address || 'N/A'}</span>
+                        <span className="font-medium text-right">{brokerData.headquarters || 'N/A'}</span>
                       </li>
                     </ul>
                   </div>
@@ -872,7 +878,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
-                      style={{ width: `${(parseFloat(brokerData.rating) / 5) * 100}%` }}
+                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 5) * 100}%` }}
                     />
                   </div>
                 </div>

@@ -191,14 +191,39 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
       is_featured,
       status,
       created_at,
-      broker_details (name, website, logo, rating)
+      broker_details (
+        name,
+        website,
+        logo,
+        rating,
+        leverage_max,
+        min_deposit,
+        pros,
+        cons,
+        environment,
+        user_experience,
+        sw,
+        regulations,
+        risk_control,
+        promotions,
+        email,
+        phone_numbers,
+        channels,
+        availability,
+        response_time
+      )
     `)
     .eq('status', true);
 
   if (error) {
     throw new Error(error.message);
   }
-  return data as BrokerPromotionWithBrokerDetails[];
+
+  const fixedData = (data || []).map((item: any) => ({
+    ...item,
+    broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
+  })) as BrokerPromotionWithBrokerDetails[];
+  return fixedData;
 }
 
 // Function to get unique promotions
@@ -228,7 +253,11 @@ export async function fetchUniquePromotions() {
     throw new Error(error.message);
   }
 
-  return uniquePromotions as BrokerPromotionWithBrokerDetails[];
+  const fixedData = (uniquePromotions || []).map((item: any) => ({
+    ...item,
+    broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
+  })) as BrokerPromotionWithBrokerDetails[];
+  return fixedData;
 }
 
 // Function to fetch all brokers with their related broker_promotions and a promotion_categories array
@@ -282,7 +311,12 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
   if (error) {
     throw new Error(error.message);
   }
-  return data as BrokerPromotionWithBrokerDetails[];
+
+  const fixedData = (data || []).map((item: any) => ({
+    ...item,
+    broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
+  })) as BrokerPromotionWithBrokerDetails[];
+  return fixedData;
 }
 
 
@@ -316,5 +350,10 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
   if (error) {
     throw new Error(error.message);
   }
-  return data as BrokerPromotionWithBrokerDetails[];
+
+  const fixedData = (data || []).map((item: any) => ({
+    ...item,
+    broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
+  })) as BrokerPromotionWithBrokerDetails[];
+  return fixedData;
 }

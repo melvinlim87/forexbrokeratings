@@ -120,7 +120,9 @@ export default function ComparePage() {
   };
 
   const removeBroker = (brokerId: string) => {
-    setSelectedBrokers(selectedBrokers.filter(broker => broker.id !== brokerId));
+    setSelectedBrokers(prevBrokers => 
+      prevBrokers.filter(broker => String(broker.id) !== String(brokerId))
+    );
   };
 
   // Render helper functions
@@ -171,10 +173,10 @@ export default function ComparePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {selectedBrokers.map((broker) => (
             <Card key={broker.id} className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-800">
-              <X className="h-4 w-4 self-end cursor-pointer" onClick={() => removeBroker(broker.id)} />
+              <X className="h-4 w-4 self-end cursor-pointer" onClick={() => removeBroker(String(broker.id))} />
               <div className="flex items-center gap-3 mb-2">
                 <Image
-                  src={broker.logo}
+                  src={broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name || 'Broker')}`}
                   alt={broker.name}
                   width={48}
                   height={48}
@@ -184,7 +186,7 @@ export default function ComparePage() {
                   <h3 className="font-bold text-base text-black dark:text-black mb-1 text-center">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? broker.rating : broker.rating?.toFixed(1) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/5</span>
                   </div>
                 </div>
@@ -248,7 +250,7 @@ export default function ComparePage() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <Image
-                  src={broker.logo}
+                  src={broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name || 'Broker')}`}
                   alt={broker.name}
                   width={48}
                   height={48}
@@ -258,7 +260,7 @@ export default function ComparePage() {
                   <h3 className="font-bold text-base text-black dark:text-black mb-1">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? broker.rating : broker.rating?.toFixed(1) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/5</span>
                   </div>
                 </div>
@@ -304,7 +306,7 @@ export default function ComparePage() {
                     <th key={broker.id} className="px-6 py-3">
                       <div className="flex items-center justify-center space-x-2">
                         <Image
-                          src={broker.logo}
+                          src={broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name || 'Broker')}`}
                           alt={broker.name}
                           width={24}
                           height={24}
@@ -381,7 +383,7 @@ export default function ComparePage() {
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.instruments?.slice(0, 3).join(', ')}
-                      {broker.instruments?.length > 3 && '...'}
+                      {broker.instruments && broker.instruments.length > 3 && '...'}
                     </td>
                   ))}
                 </tr>
