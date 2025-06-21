@@ -427,14 +427,22 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Trading Platforms</span>
-                        <span className="font-medium text-right">
-                          {brokerData.platforms?.length ? brokerData.platforms.join(', ') : 'N/A'}
+                        <span className="font-medium text-right break-all flex flex-wrap gap-2 md:gap-1 justify-end">
+                          {(brokerData.platforms ?? []).length > 0
+                            ? (brokerData.platforms ?? []).map((p, i) => (
+                                <span key={i} className="whitespace-nowrap">{p}{i < (brokerData.platforms?.length ?? 0) - 1 ? ',' : ''}</span>
+                              ))
+                            : 'N/A'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Instruments</span>
-                        <span className="font-medium text-right">
-                          {brokerData.instruments?.length ? brokerData.instruments.join(', ') : 'N/A'}
+                        <span className="font-medium text-right break-all flex flex-wrap gap-2 md:gap-1 justify-end">
+                          {(brokerData.instruments ?? []).length > 0
+                            ? (brokerData.instruments ?? []).map((inst, i) => (
+                                <span key={i} className="whitespace-nowrap">{inst}{i < (brokerData.instruments?.length ?? 0) - 1 ? ',' : ''}</span>
+                              ))
+                            : 'N/A'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
@@ -450,10 +458,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Account Types</span>
-                        <div>
+                        <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.account_types?.map((account_type, index) => (
-                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{account_type}</span>
-                          )) }
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{account_type}</span>
+                          ))}
                         </div>
                         {/* <span className="font-medium text-right">
                           {brokerData.account_types?.length ? brokerData.account_types.join(', ') : 'N/A'}
@@ -461,10 +469,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Base Currencies</span>
-                        <div>
+                        <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.base_currencies?.map((base_currency, index) => (
-                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{base_currency}</span>
-                          )) }
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{base_currency}</span>
+                          ))}
                         </div>
                         {/* <span className="font-medium text-right">
                           {brokerData.base_currencies?.length ? brokerData.base_currencies.join(', ') : 'N/A'}
@@ -480,10 +488,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Languages</span>
-                        <div>
-                          {brokerData.languages?.map((language, index) => (
-                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{language}</span>
-                          )) }
+                        <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
+                          {brokerData.languages?.length ? brokerData.languages.map((language, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{language}</span>
+                          )) : <span className="text-gray-400">N/A</span>}
                         </div>
                         {/* <span className="font-medium text-right">
                           {brokerData.languages?.length ? brokerData.languages.join(', ') : 'N/A'}
@@ -505,10 +513,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Regulators</span>
-                        <div>
-                          {brokerData.regulators?.map((regulator, index) => (
-                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{regulator}</span>
-                          )) }
+                        <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
+                          {brokerData.regulators?.length ? brokerData.regulators.map((regulator, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{regulator}</span>
+                          )) : <span className="text-gray-400">N/A</span>}
                         </div>
                       </li>
                       <li className="flex items-center justify-between">
@@ -670,10 +678,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Withdrawal Methods</h3>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {brokerData.withdraw_methods?.length ? (
-                        brokerData.withdraw_methods.map((method) => (
-                          <Badge key={method} variant="outline" className="bg-gray-100 dark:bg-gray-800">
-                            {method}
-                          </Badge>
+                        brokerData.withdraw_methods.map((method, index) => (
+                          <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>
                         ))
                       ) : (
                         <span className="text-gray-500">No withdrawal methods listed</span>
@@ -706,9 +712,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           {brokerData.withdraw_methods?.length ? (
                             <div className="flex flex-wrap gap-1 justify-end max-w-[200px]">
                               {brokerData.withdraw_methods.map((method, idx) => (
-                                <Badge key={idx} variant="outline" className="text-xs">
-                                  {method}
-                                </Badge>
+                                <span key={idx} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>
                               ))}
                             </div>
                           ) : 'N/A'}
