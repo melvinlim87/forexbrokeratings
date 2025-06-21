@@ -328,18 +328,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
                       >
                         {/* Promo Badge/Category */}
-                        <div className="mb-2">
+                        <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
                           {promo.categories?.map((category, idx) => (
                             <span
                               key={idx}
                               className={
-                                category === 'PROMOTION'
-                                  ? 'bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                (category === 'PROMOTION'
+                                  ? 'bg-purple-500 text-white '
                                   : category === 'CASH BONUS'
-                                  ? 'bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                  ? 'bg-pink-500 text-white '
                                   : category === 'LIMITED OFFER'
-                                  ? 'bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
-                                  : 'bg-gray-300 text-gray-800 px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                  ? 'bg-green-500 text-white '
+                                  : 'bg-gray-300 text-gray-800 ') +
+                                'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
                               }
                             >
                               {category}

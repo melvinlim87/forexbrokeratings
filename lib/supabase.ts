@@ -217,7 +217,8 @@ export async function fetchUniquePromotions() {
     created_at,
     broker_details (name, website, logo, rating, leverage_max, min_deposit, pros)
   `)
-  .order('created_at', { ascending: false });
+  .order('created_at', { ascending: false })
+  .eq('status', true);
 
   const uniquePromotions = Array.from(
     new Map(data?.map(item => [item.broker_detail_id, item])).values()
@@ -275,7 +276,42 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
       broker_details (name, website, logo, rating)
     `)
     .eq('broker_detail_id', brokerId)
-    .eq('status', true);
+    .eq('status', true)
+    .eq('is_featured', false);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data as BrokerPromotionWithBrokerDetails[];
+}
+
+
+// Function to fetch featured promotion
+export async function fetchFeaturedPromotion(): Promise<BrokerPromotionWithBrokerDetails[]> {
+  const { data, error } = await supabase
+    .from('broker_promotions')
+    .select(`
+      id,
+      broker_detail_id,
+      title,
+      description,
+      condition,
+      conditions,
+      link,
+      category,
+      categories,
+      summary,
+      images,
+      country,
+      valid_till,
+      is_featured,
+      status,
+      created_at,
+      broker_details (name, website, logo, rating)
+    `)
+    .eq('status', true)
+    .eq('is_featured', true)
+    .single();
 
   if (error) {
     throw new Error(error.message);
