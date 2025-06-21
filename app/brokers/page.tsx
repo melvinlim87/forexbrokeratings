@@ -40,6 +40,7 @@ interface Broker {
   bestFor?: string;
   description?: string;
   url?: string;
+  website?: string;
 }
 
 export default function BrokersPage() {
@@ -105,6 +106,7 @@ export default function BrokersPage() {
               bestFor: broker.bestFor || 'Forex Trading',
               description: broker.description || 'A reliable forex broker offering competitive trading conditions.',
               url: broker.url || '#',
+              website: broker.website || '#',
               slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
             };
           });
@@ -301,7 +303,7 @@ export default function BrokersPage() {
                         <h3 className="text-xl font-semibold text-center">{broker.name}</h3>
                         <div className="flex items-center mt-2">
                           {Array.from({ length: 5 }).map((_, i) => {
-                            const rating = typeof broker.rating === 'number' ? broker.rating : 0;
+                            const rating = parseFloat(broker.rating);
                             return (
                               <Star
                                 key={i}
@@ -316,7 +318,7 @@ export default function BrokersPage() {
                             );
                           })}
                           <span className="ml-2 text-sm font-medium">
-                            {typeof broker.rating === 'number' ? broker.rating.toFixed(1) : 'N/A'}
+                            {broker.rating}
                           </span>
                         </div>
                       </div>
@@ -332,10 +334,8 @@ export default function BrokersPage() {
                         <div className="mb-4">
                           <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Regulators</p>
                           <div className="flex flex-wrap gap-2">
-                            {broker.regulations.map((reg) => (
-                              <Badge key={reg} variant="outline">
-                                {reg}
-                              </Badge>
+                            {broker.regulations.map((reg, index) => (
+                              <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{reg}</span>
                             ))}
                           </div>
                         </div>
@@ -343,10 +343,8 @@ export default function BrokersPage() {
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Trading Platforms</p>
                           <div className="flex flex-wrap gap-2">
-                            {broker.tradingPlatforms.map((platform) => (
-                              <Badge key={platform} variant="secondary">
-                                {platform}
-                              </Badge>
+                            {broker.tradingPlatforms.map((platform, index) => (
+                              <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{platform}</span>
                             ))}
                           </div>
                         </div>
@@ -390,7 +388,7 @@ export default function BrokersPage() {
                         
                         <div className="space-y-2 w-full">
                           <Button className="w-full" asChild>
-                            <a href={broker.url || '#'} target="_blank" rel="noopener noreferrer">
+                            <a href={broker.website || '#'} target="_blank" rel="noopener noreferrer">
                               Visit Broker
                             </a>
                           </Button>

@@ -7,11 +7,13 @@ import LatestReviews from '@/components/home/latest-reviews';
 import TrustedBySection from '@/components/home/trusted-by-section';
 import AIToolsSection from '@/components/home/ai-tools-section';
 import Newsletter from '@/components/home/newsletter';
+import PromotionPopup from '@/components/home/PromotionPopup';
 
 export default function Home() {
 
   return (
     <div className="flex flex-col">
+      <PromotionPopup />
       <div className="w-full">
         <TopHero />
         <Hero />

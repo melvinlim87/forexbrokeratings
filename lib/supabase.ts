@@ -286,8 +286,8 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
 }
 
 
-// Function to fetch featured promotion
-export async function fetchFeaturedPromotion(): Promise<BrokerPromotionWithBrokerDetails[]> {
+// Function to fetch featured promotion according to country
+export async function fetchFeaturedPromotion(country: string): Promise<BrokerPromotionWithBrokerDetails[]> {
   const { data, error } = await supabase
     .from('broker_promotions')
     .select(`
@@ -311,7 +311,7 @@ export async function fetchFeaturedPromotion(): Promise<BrokerPromotionWithBroke
     `)
     .eq('status', true)
     .eq('is_featured', true)
-    .single();
+    .eq('country', country);
 
   if (error) {
     throw new Error(error.message);

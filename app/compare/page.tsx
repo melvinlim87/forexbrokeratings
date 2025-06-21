@@ -181,7 +181,7 @@ export default function ComparePage() {
                   className="rounded-lg bg-white object-contain"
                 />
                 <div>
-                  <h3 className="font-bold text-base text-black dark:text-black mb-1">{broker.name}</h3>
+                  <h3 className="font-bold text-base text-black dark:text-black mb-1 text-center">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? broker.rating : broker.rating?.toFixed(1) || 'N/A'}</span>
@@ -301,8 +301,19 @@ export default function ComparePage() {
                 <tr>
                   <th className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Broker</th>
                   {selectedBrokers.map((broker) => (
-                    <th key={broker.id} className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                      {broker.name}
+                    <th key={broker.id} className="px-6 py-3">
+                      <div className="flex items-center justify-center space-x-2">
+                        <Image
+                          src={broker.logo}
+                          alt={broker.name}
+                          width={24}
+                          height={24}
+                          className="rounded-lg bg-white object-contain"
+                        />
+                        <span className="text-md font-medium text-black uppercase tracking-wider">
+                          {broker.name}
+                        </span>
+                      </div>
                     </th>
                   ))}
                 </tr>
