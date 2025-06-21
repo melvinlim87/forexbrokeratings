@@ -88,12 +88,11 @@ export default function PromotionPopup() {
             <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
                 <TimerIcon className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-500 text-xs font-medium">
-                    Valid Till: {new Date(promotion.valid_till).toLocaleDateString('en-US', {
+                    Valid Till: <br /> 
+                    {new Date(promotion.valid_till).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
                     })}
                 </span>
             </div>
