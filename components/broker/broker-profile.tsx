@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -74,6 +75,11 @@ interface BrokerProfileProps {
 }
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  const [previewBadge, setPreviewBadge] = useState<string|null>(null);
+  // Promotion image carousel modal state
+  const [promoPreviewOpen, setPromoPreviewOpen] = useState(false);
+  const [previewPromoImages, setPreviewPromoImages] = useState<string[]>([]);
+  const [previewPromoImageIdx, setPreviewPromoImageIdx] = useState(0);
   const [openSection, setOpenSection] = useState<string | null>('overview');
   console.log('checking current broker data',brokerData)
   const toggleSection = (section: string) => {
@@ -96,6 +102,42 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
 
   return (
     <div className="min-h-screen">
+       {/* Promo Images Carousel Modal */}
+       {promoPreviewOpen && previewPromoImages.length > 0 && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setPromoPreviewOpen(false)}>
+            <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-xl w-full flex flex-col items-center" onClick={e => e.stopPropagation()}>
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                onClick={() => setPromoPreviewOpen(false)}
+                aria-label="Close preview"
+              >
+                ×
+              </button>
+              <div className="flex items-center justify-center w-full">
+                <button
+                  className="px-2 text-2xl text-gray-400 hover:text-gray-700"
+                  onClick={() => setPreviewPromoImageIdx((previewPromoImageIdx - 1 + previewPromoImages.length) % previewPromoImages.length)}
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+                <img
+                  src={previewPromoImages[previewPromoImageIdx].startsWith('/') || previewPromoImages[previewPromoImageIdx].startsWith('http') ? previewPromoImages[previewPromoImageIdx] : `/assets/images/promotions/${previewPromoImages[previewPromoImageIdx]}`}
+                  alt={`Promotion Preview ${previewPromoImageIdx + 1}`}
+                  className="max-h-[120vh] w-auto rounded-xl border border-gray-200 shadow-lg mx-4 bg-white object-contain"
+                />
+                <button
+                  className="px-2 text-2xl text-gray-400 hover:text-gray-700"
+                  onClick={() => setPreviewPromoImageIdx((previewPromoImageIdx + 1) % previewPromoImages.length)}
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+              </div>
+              <div className="mt-2 text-xs text-gray-500">{previewPromoImageIdx + 1} / {previewPromoImages.length}</div>
+            </div>
+          </div>
+        )}
       <div className="bg-metallic pt-28 pb-16 relative overflow-hidden">
         <div
           className="absolute inset-0"
@@ -153,6 +195,42 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
               
+              {brokerData.badges && brokerData.badges.length > 0 && (
+                <div className="my-4 p-4 rounded-xl shadow-inner border flex flex-col bg-gray-100/80 dark:bg-gray-900/70 border-gray-200 dark:border-gray-700">
+                  <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
+                  <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full">
+                    {brokerData.badges.map((src: string, idx: number) => {
+                      const imgSrc = src.startsWith('/') || src.startsWith('http')
+                        ? src
+                        : `/assets/images/badges/${src}`;
+                      return (
+                        <img
+                          key={idx}
+                          src={imgSrc}
+                          alt={`badge-${idx}`}
+                          className="h-24 w-auto rounded border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer"
+                          style={{ objectFit: 'contain', padding: '8px' }}
+                          onClick={() => setPreviewBadge(imgSrc)}
+                        />
+                      );
+                    })}
+                  </div>
+                  {previewBadge && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setPreviewBadge(null)}>
+                      <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-lg w-full flex flex-col items-center">
+                        <button
+                          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                          onClick={e => { e.stopPropagation(); setPreviewBadge(null); }}
+                          aria-label="Close preview"
+                        >
+                          ×
+                        </button>
+                        <img src={previewBadge} alt="Award Preview" className="max-h-[60vh] w-auto rounded-xl border border-gray-200 shadow-lg" style={{ background: '#fff', objectFit: 'contain' }} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
               <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
                 {brokerData.summary}
               </p>
@@ -241,6 +319,87 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             >
               <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">Promotions</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {brokerData.promotion_details && brokerData.promotion_details.length > 0 ? (
+                    brokerData.promotion_details.map((promo, idx) => (
+                      <div
+                        key={promo.id || idx}
+                        className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
+                      >
+                        {/* Promo Badge/Category */}
+                        <div className="mb-2">
+                          {promo.categories?.map((category, idx) => (
+                            <span
+                              key={idx}
+                              className={
+                                category === 'PROMOTION'
+                                  ? 'bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                  : category === 'CASH BONUS'
+                                  ? 'bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                  : category === 'LIMITED OFFER'
+                                  ? 'bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold mr-2'
+                                  : 'bg-gray-300 text-gray-800 px-3 py-1 rounded-full text-xs font-bold mr-2'
+                              }
+                            >
+                              {category}
+                            </span>
+                          ))}
+                        </div>
+                        {/* Promo Image */}
+                        {promo.images && promo.images.length > 0 && (
+                          <img
+                            src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                            alt={promo.title}
+                            className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                            onClick={() => {
+                              setPreviewPromoImages(promo.images);
+                              setPreviewPromoImageIdx(0);
+                              setPromoPreviewOpen(true);
+                            }}
+                          />
+                        )}
+                        {/* Promo Title */}
+                        <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
+                        {/* Promo Description */}
+                        <div className="text-gray-700 text-md mb-4 flex-1">{promo.summary || promo.description}</div>
+                        {/* Promo Features/Conditions */}
+                        {promo.conditions && promo.conditions.length > 0 && (
+                          <ul className="mb-4 text-xs text-gray-600 space-y-1">
+                            {promo.conditions.map((cond: string, i: number) => (
+                              <li key={i} className="flex items-center gap-2">
+                                <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
+                                {cond}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {/* Promo Button */}
+                        <a
+                          href={promo.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={
+                            promo.category === 'CASHBACK'
+                              ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                              : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                          }
+                          style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
+                        >
+                          Claim This Offer
+                        </a>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="col-span-2 text-center text-gray-400">No promotions available</div>
+                  )}
+                </div>
+              </div>
+            </Card>
+
+            {/* Overview */}
+            <Card className="mt-6">
+            <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Broker Overview</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Trading Info */}

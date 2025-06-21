@@ -52,6 +52,7 @@ export type BrokerDetails = {
   languages: string[];
   summary: string;
   badges: string[];
+  promotion_details: BrokerPromotionWithBrokerDetails[];
 };
 
 // Type for joined broker_promotions with selected broker_details fields
@@ -64,6 +65,7 @@ export type BrokerPromotionWithBrokerDetails = {
   conditions: string[];
   link: string;
   category: string;
+  categories: string[];
   summary: string;
   images: string[];
   country: string;
@@ -181,6 +183,7 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
       conditions,
       link,
       category,
+      categories,
       summary,
       images,
       country,
@@ -248,3 +251,34 @@ export async function fetchAllBrokersWithPromotionCategories() {
   return brokersWithCategories;
 }
 
+// Function to fetch broker promotions by broker id
+export async function fetchPromotionsByBrokerId(brokerId: string): Promise<BrokerPromotionWithBrokerDetails[]> {
+  const { data, error } = await supabase
+    .from('broker_promotions')
+    .select(`
+      id,
+      broker_detail_id,
+      title,
+      description,
+      condition,
+      conditions,
+      link,
+      category,
+      categories,
+      summary,
+      images,
+      country,
+      valid_till,
+      is_featured,
+      status,
+      created_at,
+      broker_details (name, website, logo, rating)
+    `)
+    .eq('broker_detail_id', brokerId)
+    .eq('status', true);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data as BrokerPromotionWithBrokerDetails[];
+}

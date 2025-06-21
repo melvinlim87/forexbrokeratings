@@ -1,6 +1,6 @@
 import BrokerProfile from '@/components/broker/broker-profile';
 import { IPChecker } from '@/components/ip-checker';
-import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
+import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, BrokerDetails } from '@/lib/supabase';
 
 // Define the BrokerData interface to match the expected structure in BrokerProfile
 interface BrokerData {
@@ -163,6 +163,7 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
       customerService: 4.0
     },
     badges: parseArrayField(broker.badges) || [],
+    promotion_details: broker.promotion_details || [],
   };
 }
 
@@ -317,13 +318,10 @@ export default async function BrokerProfilePage({
 }) {
   // Only fetch from Supabase, no static fallback
   try {
-    console.log('Fetching all brokers from Supabase...');
     const data = await fetchAllBrokerDetails();
-    console.log('Fetched data:', data?.length || 0);
     
     const broker = data.find(b => {
       const slug = b.name.toLowerCase().replace(/\s+/g, '-');
-      console.log(`Checking broker: ${b.name} (slug: ${slug})`);
       return slug === params.slug;
     });
     
@@ -338,9 +336,14 @@ export default async function BrokerProfilePage({
         </div>
       );
     }
+    // Fetch promotions for the selected broker
+    const promotion_details = await fetchPromotionsByBrokerId(broker.id.toString());
+    broker.promotion_details = promotion_details;
     const brokerData = formatBrokerData(broker);
     // Fetch related brokers - convert ID to string to match expected type
     const relatedBrokers = await fetchRelatedBrokers(brokerData.id.toString());
+    
+    
     return (
       <div className="container mx-auto px-4 py-8">
         <IPChecker />
