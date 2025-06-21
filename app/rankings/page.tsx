@@ -90,7 +90,7 @@ export default function RankingsPage() {
               return [field];
             }
           };
-          
+          console.log('check broker here', broker)
           return {
             rank: startIndex + index + 1,
             name: broker.name || `Broker ${startIndex + index + 1}`,
@@ -107,7 +107,9 @@ export default function RankingsPage() {
             tradingPlatforms: parseArrayField(broker.platforms) || ['MT4', 'MT5'],
             pros: parseArrayField(broker.pros) || ['Professional trading services'],
             cons: parseArrayField(broker.cons) || ['Limited educational resources'],
-            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`
+            slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`,
+            spread_eur_usd: broker.spread_eur_usd,
+            leverage_max: broker.leverage_max,
           };
         });
         
@@ -201,169 +203,104 @@ export default function RankingsPage() {
                 <p className="text-gray-600 dark:text-gray-400">No brokers found.</p>
               </div>
             )}
-            {brokers.map((broker, index) => (
-            <motion.div
-              key={broker.rank}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredCard(broker.rank)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <Card 
-                className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10 before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400 dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800 after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20 after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <div className="md:col-span-3 lg:col-span-2 flex flex-col items-center justify-center">
-                      <div className="text-4xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-200 bg-clip-text text-transparent mb-4">
-                        #{broker.rank}
-                      </div>
-                      <div className="h-28 w-28 relative bg-gray-100 dark:bg-gray-800 rounded-xl mb-3">
-                        <Image
-                          src={broker.logo}
-                          alt={broker.name}
-                          fill
-                          style={{ objectFit: "contain" }}
-                          className="rounded-xl"
-                        />
-                      </div>
-                      <h3 className="text-xl font-semibold text-center text-gray-900 dark:text-white mb-2">
-                        {broker.name}
-                      </h3>
-                      <div className="flex items-center">
-                        <Award className="h-5 w-5 text-yellow-500 fill-yellow-500 mr-1" />
-                        <span className="font-medium">{broker.rating}</span>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-7 lg:col-span-7">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Key Features
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.features.map((feature: string, i: number) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <TrendingUp className="h-4 w-4 text-blue-500 mr-2 mt-0.5" />
-                                <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <div className="mb-4">
-                            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                              Regulation
-                            </h4>
-                            <div className="flex flex-wrap gap-1">
-                              {broker.regulators?.map((reg: string) => (
-                                <Badge key={reg} variant="outline">
-                                  <Shield className="h-3 w-3 mr-1" />
-                                  {reg}
-                                </Badge>
-                              ))}
+            {(() => {
+              // Split into two columns: left (first 5), right (next 5)
+              const left = brokers.slice(0, 5);
+              const right = brokers.slice(5, 10);
+              return (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto">
+                  <div className="space-y-8">
+                    {left.map((broker, index) => (
+                      <Link key={broker.rank} href={`/broker/${broker.slug}`}>
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: index * 0.1 }}
+                          onMouseEnter={() => setHoveredCard(broker.rank)}
+                          onMouseLeave={() => setHoveredCard(null)}
+                        >
+                          <Card className="flex flex-row items-center gap-4 px-6 py-6 mb-4 border border-gray-200 dark:border-gray-800 shadow w-full min-w-0">
+                            {/* Ranking Badge */}
+                            <div className="flex flex-col items-center mr-4 min-w-[4px]">
+                              <div className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-md text-white bg-gradient-to-br from-yellow-400 to-orange-400">
+                                #{broker.rank}
+                              </div>
                             </div>
-                          </div>
-
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                              Trading Platforms
-                            </h4>
-                            <div className="flex flex-wrap gap-1 mb-4">
-                              {broker.tradingPlatforms.map((platform: string, i: number) => (
-                                <Badge key={i} variant="secondary" className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800">
-                                  {platform}
-                                </Badge>
-                              ))}
+                            {/* Logo */}
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[32px]">
+                              <Image src={broker.logo} alt={broker.name} width={32} height={32} className="object-contain h-14 w-14" />
                             </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Pros
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.pros.map((pro: string, i: number) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <svg className="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span className="text-gray-700 dark:text-gray-300">{pro}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Cons
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.cons.map((con: string, i: number) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <svg className="h-4 w-4 text-red-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span className="text-gray-700 dark:text-gray-300">{con}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-2 lg:col-span-3 flex flex-col justify-center items-center md:items-end">
-                      <div className="mb-4 text-center md:text-right">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Min. Deposit</p>
-                        <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                          ${broker.minDeposit}
-                        </p>
-                      </div>
-
-                      <div className="space-y-2 w-full">
-                        {broker.website ? (
-                          <a 
-                            href={broker.website} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="w-full block"
-                          >
-                            <Button className="w-full hover:bg-primary/90 transition-colors cursor-pointer">
-                              <span className="flex items-center justify-center">
-                                Visit Broker <ArrowUpRight className="ml-2 h-4 w-4" />
-                              </span>
-                            </Button>
-                          </a>
-                        ) : (
-                          <Button 
-                            className="w-full cursor-not-allowed opacity-70" 
-                            variant="outline"
-                            disabled
-                            title="Website not available"
-                          >
-                            <span className="flex items-center justify-center">
-                              Visit Broker <ArrowUpRight className="ml-2 h-4 w-4" />
-                            </span>
-                          </Button>
-                        )}
-                        <Button variant="outline" className="w-full" asChild>
-                          <Link href={`/broker/${broker.slug}`}>
-                            Read Review <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
+                            {/* Main Info */}
+                            <div className="flex-1 min-w-0 w-full flex flex-row items-center gap-4">
+                              <span className="text-lg font-bold text-gray-900 dark:text-white w-40 truncate">{broker.name}</span>
+                              {/* Key stats row */}
+                              <div className="flex flex-col items-start w-28">
+                                <span className="text-cyan-400 font-bold text-base">{broker.spread_eur_usd}</span>
+                                <span className="text-xs text-gray-400">Min Spread</span>
+                              </div>
+                              <div className="flex flex-col items-start w-28">
+                                <span className="text-purple-400 font-bold text-base">{broker.leverage_max}</span>
+                                <span className="text-xs text-gray-400">Max Leverage</span>
+                              </div>
+                              <div className="flex flex-col items-end w-16 gap-2">
+                                <div className="flex items-center">
+                                  <span className="text-2xl font-extrabold text-yellow-400 mr-1">{broker.score || broker.rating || '—'}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </Card>
+                        </motion.div>
+                      </Link>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-            ))}
+                  <div className="space-y-8">
+                    {right.map((broker, index) => (
+                      <Link key={broker.rank} href={`/broker/${broker.slug}`}>
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: index * 0.1 }}
+                          onMouseEnter={() => setHoveredCard(broker.rank)}
+                          onMouseLeave={() => setHoveredCard(null)}
+                        >
+                          <Card className="flex flex-row items-center gap-4 px-6 py-6 mb-4 border border-gray-200 dark:border-gray-800 shadow w-full min-w-0">
+                            {/* Ranking Badge */}
+                            <div className="flex flex-col items-center mr-4 min-w-[4px]">
+                              <div className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-md text-white bg-gradient-to-br from-yellow-400 to-orange-400">
+                                #{broker.rank}
+                              </div>
+                            </div>
+                            {/* Logo */}
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[32px]">
+                              <Image src={broker.logo} alt={broker.name} width={32} height={32} className="object-contain h-14 w-14" />
+                            </div>
+                            {/* Main Info */}
+                            <div className="flex-1 min-w-0 w-full flex flex-row items-center gap-4">
+                              <span className="text-lg font-bold text-gray-900 dark:text-white w-40 truncate">{broker.name}</span>
+                              {/* Key stats row */}
+                              <div className="flex flex-col items-start w-28">
+                                <span className="text-cyan-400 font-bold text-base">{broker.spread_eur_usd}</span>
+                                <span className="text-xs text-gray-400">Min Spread</span>
+                              </div>
+                              <div className="flex flex-col items-start w-28">
+                                <span className="text-purple-400 font-bold text-base">{broker.leverage_max}</span>
+                                <span className="text-xs text-gray-400">Max Leverage</span>
+                              </div>
+                              <div className="flex flex-col items-end w-16 gap-2">
+                                <div className="flex items-center">
+                                  <span className="text-2xl font-extrabold text-yellow-400 mr-1">{broker.score || broker.rating || '—'}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </Card>
+                        </motion.div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+
             
             {loadingMore && (
               <div className="flex justify-center py-8">

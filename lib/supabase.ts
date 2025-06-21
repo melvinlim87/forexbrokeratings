@@ -51,6 +51,7 @@ export type BrokerDetails = {
   withdraw_methods: string[];
   languages: string[];
   summary: string;
+  badges: string[];
 };
 
 // Type for joined broker_promotions with selected broker_details fields
@@ -60,9 +61,15 @@ export type BrokerPromotionWithBrokerDetails = {
   title: string;
   description: string;
   condition: string;
+  conditions: string[];
   link: string;
   category: string;
+  summary: string;
+  images: string[];
+  country: string;
+  valid_till: string;
   is_featured: boolean;
+  status: boolean;
   created_at: string;
   broker_details: {
     name: string;
@@ -171,12 +178,19 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
       title,
       description,
       condition,
+      conditions,
       link,
       category,
+      summary,
+      images,
+      country,
+      valid_till,
       is_featured,
+      status,
       created_at,
       broker_details (name, website, logo, rating)
-    `);
+    `)
+    .eq('status', true);
 
   if (error) {
     throw new Error(error.message);

@@ -75,7 +75,7 @@ interface BrokerProfileProps {
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
   const [openSection, setOpenSection] = useState<string | null>('overview');
-
+  console.log('checking current broker data',brokerData)
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
   };
@@ -108,7 +108,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
-                <div className="h-20 w-20 relative bg-white/10 backdrop-blur-sm rounded p-2">
+                <div className="h-20 w-20 relative bg-white backdrop-blur-sm rounded p-2">
                 {brokerData.logo ? (
                   <Image
                     src={brokerData.logo}
@@ -248,16 +248,16 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Trading Information</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Minimum Deposit</span>
+                        <span className="text-gray-600 dark:text-green-400">Minimum Deposit</span>
                         <span className="font-medium">{brokerData.min_deposit || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Maximum Leverage</span>
+                        <span className="text-gray-600 dark:text-blue-400">Maximum Leverage</span>
                         <span className="font-medium">{brokerData.leverage_max || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">EUR/USD Spread</span>
-                        <span className="font-medium">{brokerData.spread_eur_usd || 'N/A'}</span>
+                        <span className="font-medium text-cyan-600">{brokerData.spread_eur_usd || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Trading Platforms</span>
@@ -284,15 +284,25 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Account Types</span>
-                        <span className="font-medium text-right">
+                        <div>
+                          {brokerData.account_types?.map((account_type, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{account_type}</span>
+                          )) }
+                        </div>
+                        {/* <span className="font-medium text-right">
                           {brokerData.account_types?.length ? brokerData.account_types.join(', ') : 'N/A'}
-                        </span>
+                        </span> */}
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Base Currencies</span>
-                        <span className="font-medium text-right">
+                        <div>
+                          {brokerData.base_currencies?.map((base_currency, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{base_currency}</span>
+                          )) }
+                        </div>
+                        {/* <span className="font-medium text-right">
                           {brokerData.base_currencies?.length ? brokerData.base_currencies.join(', ') : 'N/A'}
-                        </span>
+                        </span> */}
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Customer Support</span>
@@ -304,9 +314,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Languages</span>
-                        <span className="font-medium text-right">
+                        <div>
+                          {brokerData.languages?.map((language, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{language}</span>
+                          )) }
+                        </div>
+                        {/* <span className="font-medium text-right">
                           {brokerData.languages?.length ? brokerData.languages.join(', ') : 'N/A'}
-                        </span>
+                        </span> */}
                       </li>
                     </ul>
                   </div>
@@ -324,15 +339,22 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Regulators</span>
-                        <span className="font-medium text-right">
-                          {brokerData.regulators?.length ? brokerData.regulators.join(', ') : 'N/A'}
-                        </span>
+                        <div>
+                          {brokerData.regulators?.map((regulator, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{regulator}</span>
+                          )) }
+                        </div>
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Licenses</span>
-                        <span className="font-medium text-right">
+                        <div>
+                          {brokerData.licenses?.map((license, index) => (
+                            <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{license}</span>
+                          )) }
+                        </div>  
+                        {/* <span className="font-medium text-right">
                           {brokerData.licenses?.length ? brokerData.licenses.join(', ') : 'N/A'}
-                        </span>
+                        </span> */}
                       </li>
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Headquarters</span>
@@ -436,11 +458,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Deposit Methods</h3>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {brokerData.deposit_methods?.length ? (
-                        brokerData.deposit_methods.map((method) => (
-                          <Badge key={method} variant="outline" className="bg-gray-100 dark:bg-gray-800">
-                            {method}
-                          </Badge>
-                        ))
+                      brokerData.deposit_methods.map((method, index) => (
+                          <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>                        ))
                       ) : (
                         <span className="text-gray-500">No deposit methods listed</span>
                       )}
@@ -471,10 +490,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         <div className="text-right">
                           {brokerData.deposit_methods?.length ? (
                             <div className="flex flex-wrap gap-1 justify-end max-w-[200px]">
-                              {brokerData.deposit_methods.map((method, idx) => (
-                                <Badge key={idx} variant="outline" className="text-xs">
-                                  {method}
-                                </Badge>
+                              {brokerData.deposit_methods.map((method, index) => (
+                                <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>                        
                               ))}
                             </div>
                           ) : 'N/A'}
@@ -600,44 +617,46 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             >
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 text-center">Broker Metrics</h3>
-                <div className="flex justify-center -mt-4">
-                  <div className="border p-4 rounded-lg">
-                    <HexagonChart 
-                      data={[
-                        { 
-                          label: 'SW', 
-                          value: brokerData.sw,
-                          maxValue: 5 
-                        },
-                        { 
-                          label: 'Regulations', 
-                          value: brokerData.regulations,
-                          maxValue: 5 
-                        },
-                        { 
-                          label: 'Risk', 
-                          value: brokerData.risk_control,
-                          maxValue: 5 
-                        },
-                        { 
-                          label: 'Promos', 
-                          value: brokerData.promotions,
-                          maxValue: 5 
-                        },
-                        { 
-                          label: 'UX', 
-                          value: brokerData.user_experience,
-                          maxValue: 5 
-                        },
-                        { 
-                          label: 'Env', 
-                          value: brokerData.environment,
-                          maxValue: 5 
-                        },
-                      ]} 
-                      size={240}
-                    />
-                  </div>
+                <div className="flex justify-center">
+                  <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
+                    <div className="bg-white rounded-lg">
+                      <HexagonChart 
+                        data={[
+                          { 
+                            label: 'User Traffic', 
+                            value: brokerData.sw,
+                            maxValue: 5 
+                          },
+                          { 
+                            label: 'Regulations', 
+                            value: brokerData.regulations,
+                            maxValue: 5 
+                          },
+                          { 
+                            label: 'Risk Control', 
+                            value: brokerData.risk_control,
+                            maxValue: 5 
+                          },
+                          { 
+                            label: 'Promotions', 
+                            value: brokerData.promotions,
+                            maxValue: 5 
+                          },
+                          { 
+                            label: 'User Ratings', 
+                            value: brokerData.user_experience,
+                            maxValue: 5 
+                          },
+                          { 
+                            label: 'Environment', 
+                            value: brokerData.environment,
+                            maxValue: 5 
+                          },
+                        ]} 
+                        size={240}
+                      />
+                    </div>
+                  </div>  
                 </div>
                 <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
                   <p>Overall Rating: <span className="font-semibold text-foreground">
@@ -725,14 +744,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   {relatedBrokers.map((broker: any) => (
                     <Link key={broker.id} href={`/broker/${broker.slug || broker.id}`}>
                       <div className="flex items-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <div className="h-20 w-20 relative bg-gray-100 dark:bg-gray-800 rounded-lg mr-3">
+                        <div className="h-20 w-20 relative bg-white rounded-lg mr-3">
                           {broker.logo ? (
                             <Image
                               src={broker.logo}
                               alt={broker.name}
                               fill
                               style={{ objectFit: "contain" }}
-                              className="rounded-lg"
+                              className="rounded-lg bg-white"
                             /> ) : null}
                         </div>
                         <div>

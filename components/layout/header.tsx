@@ -37,7 +37,7 @@ export default function Header() {
             <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-3 rounded-xl">
               <Globe className="h-7 w-7 text-white" />
             </div>
-            <span className="hidden md:inline-block text-3xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
+            <span className="hidden md:inline-block text-2xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
               Forex Broker Ratings
             </span>
           </Link>
@@ -98,7 +98,7 @@ export default function Header() {
 
 function NavLinks() {
   const links = [
-    { title: 'Broker Promotions', href: '/promotions', split: false },
+    { title: 'Promotions', href: '/promotions', split: false },
     { title: 'Comparison', href: '/compare' },
     { title: 'Rankings', href: '/rankings' },
     { title: 'AI Tools', href: '/ai-tools' },
@@ -122,7 +122,7 @@ function NavLinks() {
 
 function MobileNavLinks() {
   const links = [
-    { title: 'Broker Promotions', href: '/promotions', icon: <BarChart className="h-5 w-5 mr-3" /> },
+    { title: 'Promotions', href: '/promotions', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
     { title: 'AI Tools', href: '/ai-tools', icon: <Globe className="h-5 w-5 mr-3" /> },

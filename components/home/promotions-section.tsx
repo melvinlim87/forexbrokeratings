@@ -185,7 +185,7 @@ export default function PromotionsSection() {
 
                     <div className="flex flex-col gap-2 mb-4">
                       {promo.broker_details?.pros && promo.broker_details?.pros.map((feature: string, index: number) => (
-                        <div key={index} className="flex items-center text-sm text-cyan-400">
+                        <div key={index} className="flex items-center text-sm text-emerald-800">
                           <CheckCircle className="w-4 h-4 text-emerald-400 mr-2 flex-shrink-0" />
                           {feature}
                         </div>                    

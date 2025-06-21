@@ -49,7 +49,7 @@ export function HexagonChart({ data, size = 200, className }: HexagonChartProps)
         {/* Background hexagon */}
         <polygon
           points={polygonPoints}
-          className="fill-none stroke-gray-200 dark:stroke-gray-700"
+          className="fill-none stroke-indigo-600 dark:stroke-indigo-600"
           strokeWidth="1"
         />
 
@@ -64,17 +64,22 @@ export function HexagonChart({ data, size = 200, className }: HexagonChartProps)
             <polygon
               key={i}
               points={pointsStr}
-              className="fill-none stroke-gray-100 dark:stroke-gray-800"
-              strokeWidth="1"
-              strokeDasharray="2,2"
+              className="fill-none stroke-indigo-300 dark:stroke-indigo-300"
             />
           );
         })}
 
-        {/* Data area */}
+        {/* Data area with gradient */}
+        <defs>
+          <linearGradient id="hexagon-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#409eff"/>
+            <stop offset="100%" stopColor="#a166f4"/>
+          </linearGradient>
+        </defs>
         <polygon
           points={dataPolygonPoints}
-          className="fill-blue-500/20 stroke-blue-500 dark:fill-blue-400/20 dark:stroke-blue-400"
+          fill="url(#hexagon-gradient)"
+          stroke="#409eff"
           strokeWidth="1.5"
         />
 
@@ -85,13 +90,13 @@ export function HexagonChart({ data, size = 200, className }: HexagonChartProps)
               cx={point.x}
               cy={point.y}
               r="4"
-              className="fill-blue-500 dark:fill-blue-400"
+              className="fill-indigo-500 dark:fill-indigo-500"
             />
             <text
               x={point.x}
               y={point.y - 8}
               textAnchor="middle"
-              className="text-[10px] font-medium fill-gray-700 dark:fill-gray-300"
+              className="text-[10px] font-medium fill-black dark:fill-black"
             >
               {point.label}
             </text>
@@ -99,7 +104,7 @@ export function HexagonChart({ data, size = 200, className }: HexagonChartProps)
               x={point.x}
               y={point.y + 20}
               textAnchor="middle"
-              className="text-xs font-bold fill-blue-600 dark:fill-blue-400"
+              className="text-xs fill-black dark:fill-black"
             >
               {point.value}
             </text>

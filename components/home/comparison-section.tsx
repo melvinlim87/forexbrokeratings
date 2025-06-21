@@ -441,7 +441,7 @@ export default function ComparisonSection() {
     <section className="py-16 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Compare Top Forex Brokers</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Ranking Comparison</h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
             Find the perfect broker for your trading style with our detailed side-by-side comparisons.
           </p>

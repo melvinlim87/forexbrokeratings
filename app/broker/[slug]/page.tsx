@@ -161,7 +161,8 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
       security: 4.0,
       deposit: 4.0,
       customerService: 4.0
-    }
+    },
+    badges: parseArrayField(broker.badges) || [],
   };
 }
 
@@ -233,7 +234,8 @@ function getDefaultBroker(slug: string): BrokerDetails {
       security: 3.5,
       deposit: 3.5,
       customerService: 3.5
-    }
+    },
+    badges: [],
   };
 }
 

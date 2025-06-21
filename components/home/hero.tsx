@@ -178,7 +178,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute inset-0 flex items-center z-20 w-full pointer-events-none">
+      <div className="absolute inset-0 flex items-center z-50 w-full pointer-events-none">
         <div className="container mx-auto w-full">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
@@ -195,7 +195,7 @@ export default function Hero() {
                     alt={currentSlideData.broker || 'Broker'}
                     fill
                     style={{ objectFit: "contain" }}
-                    className='rounded-xl'
+                    className='rounded-xl bg-white'
                     sizes="(max-width: 128px) 100vw, 128px"
                   />
                 </div>
@@ -245,7 +245,7 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45">
                 <Button
                   size="lg"
                   className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
