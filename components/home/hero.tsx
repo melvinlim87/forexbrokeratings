@@ -135,7 +135,7 @@ export default function Hero() {
   const currentSlideData = heroSlides[currentSlide] || defaultHeroSlides[0];
 
   return (
-    <div className="relative h-[600px] md:h-[700px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
+    <div className="relative h-[700px] md:h-[700px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-lg">Loading...</p>
@@ -188,8 +188,8 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex flex-col items-center mb-6">
-                <div className="h-32 w-32 relative bg-white/10 backdrop-blur-sm rounded-xl p-2 mb-3">
+              <div className="flex flex-col items-center pb-8 space-y-6 md:mb-6 md:space-y-4">
+                <div className="h-32 w-32 relative bg-white/10 backdrop-blur-sm rounded-xl p-2 pb-3 md:mb-3">
                   <Image
                     src={currentSlideData.logo || '/placeholder-logo.png'}
                     alt={currentSlideData.broker || 'Broker'}
@@ -204,7 +204,7 @@ export default function Hero() {
                 </h2>
               </div>
               
-              <div className="flex flex-col items-center justify-center space-y-2 mb-6">
+              <div className="flex flex-col items-center justify-center space-y-4 pb-8 md:space-y-2 md:mb-6">
                 <div className="flex items-center justify-center space-x-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -245,7 +245,7 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45 p-10">
                 <Button
                   size="lg"
                   className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
