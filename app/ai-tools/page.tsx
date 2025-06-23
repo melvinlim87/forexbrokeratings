@@ -262,12 +262,13 @@ export default function AIToolsPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <motion.div 
-              className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-8"
+              className="relative bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-8"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
+              <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
               <div className="bg-white dark:bg-gray-800 p-3 rounded-full w-fit mb-4">
                 <Brain className="h-6 w-6 text-blue-600 dark:text-blue-500" />
               </div>
@@ -275,23 +276,21 @@ export default function AIToolsPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-5">
                 Get personalized trading insights and recommendations powered by advanced machine learning algorithms.
               </p>
-              <div className="relative mt-4">
-                <Button disabled className="w-full cursor-not-allowed opacity-80">
-                  Coming Soon <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-                <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-xl">
-                  <span className="text-lg font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
-                </div>
-              </div>
+              <Button asChild disabled className='cursor-not-allowed'>
+                <Link href="#" >
+                  Try Assistant <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </motion.div>
             
             <motion.div 
-              className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-8"
+              className="relative bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-8"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
+              <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
               <div className="bg-white dark:bg-gray-800 p-3 rounded-full w-fit mb-4">
                 <Bot className="h-6 w-6 text-amber-600 dark:text-amber-500" />
               </div>
@@ -299,14 +298,11 @@ export default function AIToolsPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-5">
                 Deploy AI-powered trading bots that execute trades based on your custom strategies and risk parameters.
               </p>
-              <div className="relative mt-4">
-                <Button disabled className="w-full cursor-not-allowed opacity-80">
-                  Coming Soon <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-                <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-xl">
-                  <span className="text-lg font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
-                </div>
-              </div>
+              <Button variant="secondary" asChild disabled className='cursor-not-allowed'>
+                <Link href="#">
+                  Create Bot <ChevronRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </motion.div>
           </div>
 
