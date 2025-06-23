@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Shield, Check, X, Star, TimerIcon } from 'lucide-react';
+import { Shield, Check, X, Star, TimerIcon, UserCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -827,6 +827,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                           <div className="flex items-center gap-2">
+                            <UserCircle2 className="h-6 w-6 text-gray-400 mr-1" />
                             <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
                             <span className="text-xs text-gray-400 flex items-center">
                               <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
