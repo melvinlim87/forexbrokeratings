@@ -225,11 +225,11 @@ export default function Hero() {
               </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{textShadow: '4px 4px 8px #000000'}}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-2" style={{textShadow: '4px 4px 8px #000000'}}>
                 {currentSlideData.title || 'Top Rated Forex Broker'}
               </h1>
               
-              <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-3xl mx-auto px-4">
                 {currentSlideData.description || 'A reliable broker with competitive trading conditions'}
               </p>
 

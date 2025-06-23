@@ -12,62 +12,6 @@ import { HexagonChart } from './hexagon-chart';
 import { cn } from '@/lib/utils';
 import { BrokerDetails } from '@/lib/supabase';
 
-// Define the type for the scores object
-interface Scores {
-  [key: string]: number;
-}
-
-// Define the type for the broker data
-interface BrokerData {
-  id: number;
-  created_at: string;
-  name: string;
-  source: string;
-  website: string;
-  logo: string;
-  image: string | null;
-  description: string;
-  summary: string;
-  rating: string;
-  year_published: string;
-  headquarters: string;
-  country: string;
-  offices: string[];
-  employees: number | null;
-  address: string;
-  regulators: string[];
-  licenses: string[];
-  is_regulated: boolean;
-  instruments: string[];
-  spread_eur_usd: string;
-  leverage_max: string;
-  account_types: string[];
-  base_currencies: string[];
-  platforms: string[];
-  deposit_methods: string[];
-  withdraw_methods: string[];
-  min_deposit: string;
-  min_withdrawl: string;
-  deposit_fees: string | null;
-  withdrawal_fees: string | null;
-  deposit_process_time: string;
-  withdrawal_process_time: string;
-  languages: string[];
-  availability: string;
-  channels: string[] | null;
-  phone_numbers: string[];
-  email: string;
-  response_time: string;
-  pros: string[];
-  cons: string[];
-  sw: number;
-  regulations: number;
-  risk_control: number;
-  promotions: number;
-  user_experience: number;
-  environment: number;
-}
-
 interface BrokerProfileProps {
   brokerData: BrokerDetails;
   relatedBrokers: any[];
@@ -80,7 +24,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [previewPromoImages, setPreviewPromoImages] = useState<string[]>([]);
   const [previewPromoImageIdx, setPreviewPromoImageIdx] = useState(0);
   const [openSection, setOpenSection] = useState<string | null>('overview');
-  console.log('checking current broker data',brokerData)
+  
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
   };
@@ -193,9 +137,11 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   </div>
                 </div>
               </div>
-              
+              <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
+                {brokerData.summary}
+              </p>
               {brokerData.badges && brokerData.badges.length > 0 && (
-                <div className="my-4 p-4 rounded-xl shadow-inner border flex flex-col bg-gray-100/80 dark:bg-gray-900/70 border-gray-200 dark:border-gray-700">
+                <div className="my-4 p-4 rounded-xl flex flex-col ">
                   <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
                   <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full">
                     {brokerData.badges.map((src: string, idx: number) => {
@@ -230,9 +176,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   )}
                 </div>
               )}
-              <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
-                {brokerData.summary}
-              </p>
             </div>
             
             <div className="flex flex-col gap-3 min-w-[220px]">
