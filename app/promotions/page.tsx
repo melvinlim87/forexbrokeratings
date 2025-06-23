@@ -208,11 +208,7 @@ export default function PromotionsPage() {
               return promo ? (
                 <div
                   key={promo.id || idx}
-                  className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100 cursor-pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
-                  }}
+                  className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
                 >
                   {promo.valid_till && (
                     <div className="mb-2">
@@ -325,11 +321,7 @@ export default function PromotionsPage() {
             {filteredAllPromotions.map((promo, idx) => (
               <div
                 key={promo.id || idx}
-                className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100 cursor-pointer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
-              }}
+                className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
               >
                 {/* Promo Badge/Category */}
                 <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
@@ -419,7 +411,7 @@ export default function PromotionsPage() {
                       ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
                       : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
                   }
-                  style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6, zIndex: 1 }}
+                  style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                 >
                   Claim This Offer
                 </a>
