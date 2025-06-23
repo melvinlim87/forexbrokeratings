@@ -57,7 +57,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/regulation" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   Regulation
                 </Link>
               </li>
@@ -80,12 +80,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/guides" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   Guides
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   News
                 </Link>
               </li>
@@ -98,12 +98,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/methodology" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   Methodology
                 </Link>
               </li>
@@ -113,7 +113,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                <Link href="#" className="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
