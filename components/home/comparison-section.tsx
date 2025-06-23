@@ -410,7 +410,6 @@ export default function ComparisonSection() {
             {Array(fullStars).fill(0).map((_, i) => (
               <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
             ))}
-            
             {/* Half star */}
             {hasHalfStar && (
               <div className="relative h-4 w-4">
@@ -420,20 +419,24 @@ export default function ComparisonSection() {
                 </div>
               </div>
             )}
-            
             {/* Empty stars */}
             {Array(emptyStars).fill(0).map((_, i) => (
               <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
             ))}
           </div>
-          <span className="text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
+          {/* Mobile: show just score label */}
+          <span className="block md:hidden text-sm font-medium text-gray-500 dark:text-gray-400">
+            {score.toFixed(1)}/5
+          </span>
+          {/* Desktop: show score label under stars */}
+          <span className="hidden md:block text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
             {score.toFixed(1)}/5
           </span>
         </div>
       );
     }
     
-    return <span className="text-gray-400">-</span>;
+    return <span className="text-sm md:text-lg font-medium">{feature.label}</span>;
   };
 
   return (
@@ -471,7 +474,7 @@ export default function ComparisonSection() {
               
               {(['beginner-friendly', 'low-fees', 'advanced-trading', 'promotions'] as const).map((tabValue) => (
                 <TabsContent key={tabValue} value={tabValue} className="mt-0">
-                  <div className="overflow-x-auto">
+                  <div className="overflow-x-auto hidden md:block">
                     <table className="w-full">
                       <thead>
                         <tr className="bg-white dark:bg-gray-950">
@@ -511,26 +514,45 @@ export default function ComparisonSection() {
                             ))}
                           </tr>
                         ))}
-                        <tr className="bg-white dark:bg-gray-950">
-                          <td className="px-6 py-4"></td>
-                          {comparisonData[tabValue].map((broker) => (
-                            <td key={broker.id} className="px-6 py-4 text-center">
-                              <Button size="sm" className="w-full" asChild>
-                              <a
-                                href={`/broker/${broker.slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-black font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
-                                style={{ pointerEvents: broker.page ? 'auto' : 'none', opacity: broker.page ? 1 : 0.6 }}
-                              >
-                                Visit
-                              </a>
-                              </Button>
-                            </td>
-                          ))}
-                        </tr>
                       </tbody>
                     </table>
+                  </div>
+                  {/* Mobile Cards (below md) */}
+                  <div className="flex flex-col gap-4 md:hidden">
+                    {comparisonData[tabValue].map((broker) => (
+                      <div key={broker.id} className="bg-white dark:bg-gray-950 rounded-xl shadow p-4 flex flex-col gap-2">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
+                            {broker.logo ? (
+                              <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" />
+                            ) : (
+                              <span className="text-lg font-bold text-black">{broker.name?.charAt(0)}</span>
+                            )}
+                          </div>
+                          <div>
+                            <div className="font-semibold text-black dark:text-white leading-tight">{broker.name}</div>
+                          </div>
+                        </div>
+                        {getFeatureRows().map((row) => (
+                          <div key={row.key} className="flex items-center gap-2 py-1 border-b border-gray-100 dark:border-gray-900 last:border-0">
+                            <span className="text-gray-600 dark:text-gray-300 font-medium w-32 flex-shrink-0">{row.label}:</span>
+                            <span className="text-gray-900 dark:text-white">{renderFeatureCell(broker, row.key)}</span>
+                          </div>
+                        ))}
+                        <div className="mt-3">
+                          <Button size="sm" className="w-full" asChild>
+                            <a
+                              href={`/broker/${broker.slug}`}
+                              target="_blank"
+                              className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                              rel="noopener noreferrer"
+                            >
+                              View Full Review
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </TabsContent>
               ))}

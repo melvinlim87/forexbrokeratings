@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Award, Shield, Check, X, ChevronDown, ChevronUp, Info, Star } from 'lucide-react';
+import { Shield, Check, X, Star, TimerIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -805,6 +804,55 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               </div>
             </Card>
 
+            {/* Broker Reviews Section */}
+            <Card className={cn(
+              "overflow-hidden relative mt-6",
+              "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+              "backdrop-blur-sm",
+              "border-0",
+              "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+              "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+              "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+              "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+              "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+              "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+              "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+              "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+            )}>
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
+                {brokerData.reviews && brokerData.reviews.length > 0 ? (
+                  <div className="space-y-6">
+                    {brokerData.reviews.map((review, idx) => (
+                      <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
+                            <span className="text-xs text-gray-400 flex items-center">
+                              <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
+                              {new Date(review.created_at).toLocaleDateString()}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1 mt-2 md:mt-0">
+                            {[1,2,3,4,5].map(star => (
+                              <Star key={star} className={cn(
+                                "h-4 w-4",
+                                parseFloat(review.rating) >= star ? "text-yellow-400 fill-current" : "text-gray-300"
+                              )} />
+                            ))}
+                            <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
+                          </div>
+                        </div>
+                        <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>
+                        <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-gray-400 text-center">No reviews available.</div>
+                )}
+              </div>
+            </Card>
 
           </div>
 

@@ -53,6 +53,7 @@ export type BrokerDetails = {
   languages: string[];
   summary: string;
   badges: string[];
+  reviews: BrokerReviews[];
   promotion_details: BrokerPromotionWithBrokerDetails[];
 };
 
@@ -96,6 +97,22 @@ export type BrokerPromotionWithBrokerDetails = {
     response_time: string;
   };
 };
+
+
+// Type for joined broker reviews with selected broker_details fields
+export type BrokerReviews = {
+  id: number;
+  broker_details_id: number;
+  name: string;
+  rating: string;
+  title: string;
+  content: string;
+  status: boolean;
+  is_featured: boolean;
+  created_at: string;
+  comment_at: string;
+};
+
 
 
 // Function to fetch broker websites
@@ -321,7 +338,6 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
   return fixedData;
 }
 
-
 // Function to fetch featured promotion according to country
 export async function fetchFeaturedPromotion(country: string): Promise<BrokerPromotionWithBrokerDetails[]> {
   const { data, error } = await supabase
@@ -358,4 +374,19 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
   return fixedData;
+}
+
+// Function to fetch broker reviews by broker id
+export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerReviews[]> {
+  const { data, error } = await supabase
+    .from('broker_reviews')
+    .select(`*`)
+    .eq('broker_details_id', brokerId)
+    .eq('status', true);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data || []) as BrokerReviews[];
 }

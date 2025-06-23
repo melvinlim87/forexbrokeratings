@@ -1,7 +1,5 @@
-export const dynamic = "force-dynamic";
-
 import BrokerProfile from '@/components/broker/broker-profile';
-import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, BrokerDetails } from '@/lib/supabase';
+import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, BrokerDetails } from '@/lib/supabase';
 
 // Function to parse array fields that might be stored as strings in the database
 const parseArrayField = (field: string[] | string | null | undefined): string[] => {
@@ -16,10 +14,12 @@ const parseArrayField = (field: string[] | string | null | undefined): string[] 
 };
 
 // Function to format broker data for the UI
-function formatBrokerData(broker: BrokerDetails): BrokerDetails {
+async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
   if (!broker) {
     return getDefaultBroker('default');
   }
+
+  const reviews = await fetchReviewsByBrokerId(broker.id.toString());
 
   return {
     id: broker.id || 0,
@@ -66,6 +66,7 @@ function formatBrokerData(broker: BrokerDetails): BrokerDetails {
     sw: broker.sw || 0,
     regulations: broker.regulations || 0,
     risk_control: broker.risk_control || 0,
+    reviews: reviews || [],
   };
 }
 
@@ -119,6 +120,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
     sw: 0,
     regulations: 0,
     risk_control: 0,
+    reviews: [],
   };
 }
 
@@ -150,9 +152,9 @@ export default async function BrokerProfilePage({
     // Fetch promotions for the selected broker
     const promotion_details = await fetchPromotionsByBrokerId(broker.id.toString());
     broker.promotion_details = promotion_details;
-    const brokerData = formatBrokerData(broker);
+    const brokerData = await formatBrokerData(broker);
     // Fetch related brokers - convert ID to string to match expected type
-    const relatedBrokers = await fetchRelatedBrokers(brokerData.id.toString());
+    const relatedBrokers = await fetchRelatedBrokers(broker.id.toString());
     
     return (
       <div className="container mx-auto px-4 py-8">
