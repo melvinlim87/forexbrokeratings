@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "serve": "npx serve@latest out",
-    "dev:network": "next dev -- --port 80 --hostname 192.168.0.249"
+    "dev:network": "rm -r .next -Force && next dev -- --port 80 --hostname 192.168.0.249"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

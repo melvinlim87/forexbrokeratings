@@ -261,9 +261,9 @@ export default function ComparisonSection() {
             features: {
               userExperience: { score: broker.user_experience, label: broker.user_experience?.toString() },
               environment: { score: broker.environment, label: broker.environment?.toString() },
-              sw: { score: broker.sw, label: broker.sw?.toString() },
+              user_traffic: { score: broker.user_traffic, label: broker.user_traffic?.toString() },
               riskControl: { score: broker.risk_control, label: broker.risk_control?.toString() },
-              minDeposit: { value: broker.min_deposit },
+              userRating: { score: broker.rating, label: broker.rating?.toString() },
               regulations: { score: broker.regulations, label: broker.regulations?.toString() }
             },
             slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
@@ -352,9 +352,9 @@ export default function ComparisonSection() {
         return [
           { key: 'userExperience', label: 'User Experience' },
           { key: 'environment', label: 'Environment' },
-          { key: 'sw', label: 'SW' },
+          { key: 'user_traffic', label: 'User Traffic' },
           { key: 'riskControl', label: 'Risk Control' },
-          { key: 'minDeposit', label: 'Minimum Deposit' },
+          { key: 'userRating', label: 'User Rating' },
           { key: 'regulations', label: 'Regulations' }
         ];
       case 'low-fees':
@@ -385,7 +385,7 @@ export default function ComparisonSection() {
   const renderFeatureCell = (broker: Broker, featureKey: string) => {
     const feature = broker.features[featureKey];
 
-    if (!feature) return <span className="text-md font-medium text-gray-400">-</span>;
+    if (!feature) return <span className="text-sm md:text-lg font-medium text-gray-400">-</span>;
     
     if (typeof feature.value === 'boolean') {
       return feature.value ? 
@@ -394,7 +394,7 @@ export default function ComparisonSection() {
     }
     
     if (feature.value) {
-      return <span className="text-md font-medium">{feature.value}</span>;
+      return <span className="text-sm md:text-lg font-medium">{feature.value}</span>;
     }
     
     if (feature.score && feature.label) {
@@ -405,7 +405,7 @@ export default function ComparisonSection() {
       
       return (
         <div className="flex flex-col items-center space-y-1">
-          <div className="flex justify-center items-center space-x-0.5">
+          <div className="hidden md:flex justify-center items-center space-x-0.5">
             {/* Full stars */}
             {Array(fullStars).fill(0).map((_, i) => (
               <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -426,7 +426,7 @@ export default function ComparisonSection() {
               <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
             ))}
           </div>
-          <span className="text-md font-medium text-gray-500 dark:text-gray-400">
+          <span className="text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
             {score.toFixed(1)}/5
           </span>
         </div>
@@ -440,8 +440,8 @@ export default function ComparisonSection() {
     <section className="py-16 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Ranking Comparison</h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">Ranking Comparison</h2>
+          <p className="mt-4 text-lg sm:text-md lg:text-lg text-gray-600 dark:text-gray-400">
             Find the perfect broker for your trading style with our detailed side-by-side comparisons.
           </p>
         </div>
@@ -475,13 +475,13 @@ export default function ComparisonSection() {
                     <table className="w-full">
                       <thead>
                         <tr className="bg-white dark:bg-gray-950">
-                          <th className="px-6 py-5 text-left text-lg font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
+                          <th className="px-6 py-5 text-left text-lg sm:text-sm lg:text-lg font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
                             Broker
                           </th>
                           {comparisonData[tabValue].map((broker) => (
                             <th key={broker.id} className="px-6 py-5 text-center">
                               <div className="flex flex-col items-center">
-                                <div className="h-24 w-24 relative mb-2 rounded-xl">
+                                <div className="h-0 md:h-32 w-0 md:w-32 relative mb-2 rounded-xl">
                                   <Image
                                     src={broker.logo}
                                     alt={broker.name}
@@ -490,7 +490,7 @@ export default function ComparisonSection() {
                                     style={{ objectFit: "contain" }}
                                   />
                                 </div>
-                                <span className="font-semibold text-gray-900 dark:text-white">
+                                <span className="font-semibold text-lg sm:text-sm lg:text-lg text-gray-900 dark:text-white">
                                   {broker.name}
                                 </span>
                               </div>
@@ -501,11 +501,11 @@ export default function ComparisonSection() {
                       <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
                         {getFeatureRows().map((row) => (
                           <tr key={row.key} className="bg-white dark:bg-gray-950">
-                            <td className="px-6 py-4 text-xl font-medium text-gray-900 dark:text-white">
+                            <td className="px-6 py-4 text-sm md:text-lg font-medium text-gray-900 dark:text-white">
                               {row.label}
                             </td>
                             {comparisonData[tabValue].map((broker) => (
-                              <td key={broker.id} className="px-6 py-4 text-sm text-center justify-center align-middle">
+                              <td key={broker.id} className="px-6 py-4 text-sm md:text-2xl text-center justify-center align-middle">
                                 {renderFeatureCell(broker, row.key)}
                               </td>
                             ))}
