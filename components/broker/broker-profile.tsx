@@ -5,6 +5,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Check, X, Star, TimerIcon, UserCircle2 } from 'lucide-react';
+
+// Ensures date is always formatted as dd/MM/yyyy for SSR/CSR consistency
+function formatDateDMY(date: string | number | Date): string {
+  const d = new Date(date);
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -154,7 +164,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           src={imgSrc}
                           alt={`badge-${idx}`}
                           className="h-24 w-auto rounded border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer"
-                          style={{ objectFit: 'contain', padding: '8px' }}
+                          style={{ objectFit: 'contain' }}
                           onClick={() => setPreviewBadge(imgSrc)}
                         />
                       );
@@ -774,7 +784,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
                             <span className="text-xs text-gray-400 flex items-center">
                               <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
-                              {new Date(review.created_at).toLocaleDateString()}
+                              {formatDateDMY(review.comment_at)}
                             </span>
                           </div>
                           <div className="flex items-center gap-1 mt-2 md:mt-0">

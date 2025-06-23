@@ -144,7 +144,6 @@ export default function FeaturedBrokers() {
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Max Leverage</th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Deposit</th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Regulated By</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Action</th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
