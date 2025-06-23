@@ -275,11 +275,14 @@ export default function AIToolsPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-5">
                 Get personalized trading insights and recommendations powered by advanced machine learning algorithms.
               </p>
-              <Button asChild>
-                <Link href="/ai-tools/assistant">
-                  Try Assistant <ChevronRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <div className="relative mt-4">
+                <Button disabled className="w-full cursor-not-allowed opacity-80">
+                  Coming Soon <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-xl">
+                  <span className="text-lg font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
+                </div>
+              </div>
             </motion.div>
             
             <motion.div 
@@ -296,17 +299,25 @@ export default function AIToolsPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-5">
                 Deploy AI-powered trading bots that execute trades based on your custom strategies and risk parameters.
               </p>
-              <Button variant="secondary" asChild>
-                <Link href="/ai-tools/bots">
-                  Create Bot <ChevronRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <div className="relative mt-4">
+                <Button disabled className="w-full cursor-not-allowed opacity-80">
+                  Coming Soon <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-xl">
+                  <span className="text-lg font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
+                </div>
+              </div>
             </motion.div>
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             All AI Tools
           </h2>
+          <div className="mb-8 flex justify-center">
+            <span className="inline-block bg-yellow-200 text-yellow-900 font-semibold rounded-full px-6 py-2 text-lg shadow-lg">
+              🚧 All AI Tools Coming Soon!
+            </span>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredTools.map((tool, index) => (
               <ToolCard 
@@ -374,8 +385,8 @@ function ToolCard({
       onMouseEnter={() => setHoveredCard(tool.id)}
       onMouseLeave={() => setHoveredCard(null)}
     >
-      <Link href={`/ai-tools/${tool.slug}`}>
-        <Card className="h-full hover:shadow-md transition-all duration-300 cursor-pointer">
+      <div className="relative h-full">
+        <Card className="h-full hover:shadow-md transition-all duration-300 cursor-not-allowed opacity-80">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
@@ -389,15 +400,12 @@ function ToolCard({
                 <span>AI-Powered</span>
               </div>
             </div>
-            
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
               {tool.title}
             </h3>
-            
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               {tool.description}
             </p>
-
             <div className="flex flex-wrap gap-2 mb-4">
               {tool.features.slice(0, 2).map((feature, i) => (
                 <Badge key={i} variant="secondary" className="text-xs">
@@ -410,20 +418,24 @@ function ToolCard({
                 </Badge>
               )}
             </div>
-            
             <div className="flex items-center justify-between mt-4">
               <div className="flex items-center">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                 <span className="ml-1 text-sm font-medium">{tool.rating}</span>
                 <span className="ml-1 text-xs text-gray-500">({tool.reviews})</span>
               </div>
-              <div className="flex items-center text-blue-600 dark:text-blue-500 font-medium">
-                Try now <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="flex items-center text-gray-400 font-medium">
+                <span className="mr-2">Coming Soon</span>
+                <ArrowRight className="h-4 w-4" />
               </div>
+            </div>
+            {/* Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-lg">
+              <span className="text-xl font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
             </div>
           </CardContent>
         </Card>
-      </Link>
+      </div>
     </motion.div>
   );
 }

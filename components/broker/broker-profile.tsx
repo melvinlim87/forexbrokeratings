@@ -250,7 +250,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Promotion sections */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
@@ -310,7 +310,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           <img
                             src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
                             alt={promo.title}
-                            className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                            className="w-full h-60 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer rounded-xl"
                             onClick={() => {
                               setPreviewPromoImages(promo.images);
                               setPreviewPromoImageIdx(0);

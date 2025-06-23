@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Search, AlertCircle, Sparkles, Gift, Timer, ArrowRight } from 'lucide-react';
+import { Search, AlertCircle, Sparkles, Gift, TimerIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { fetchBrokerPromotions } from '@/lib/supabase-promotions';
-import { fetchAllBrokerDetails } from '@/lib/supabase';
+import { fetchFeaturedPromotion, fetchBrokerPromotionsWithDetails, BrokerPromotionWithBrokerDetails } from '@/lib/supabase';
 import BrokerPromotionsCard from '@/components/promotions/BrokerPromotionsCard';
 import PromotionCard from '@/components/promotions/PromotionCard';
 import PromotionCardSkeleton from '@/components/promotions/PromotionCardSkeleton';
@@ -39,6 +38,8 @@ export interface BrokerPromotion {
   broker: BrokerData;
   link?: string;
   conditions?: string[];
+  country?: string;
+  images?: string[];
 }
 
 // Type for broker data from API
@@ -74,80 +75,45 @@ export default function PromotionsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [promotions, setPromotions] = useState<BrokerPromotion[]>([]);
-  const [featuredPromotions, setFeaturedPromotions] = useState<BrokerPromotion[]>([]);
-  const [brokers, setBrokers] = useState<Record<string, Broker>>({});
+  const [featuredPromotions, setFeaturedPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
+  const [allPromotions, setAllPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
-  const [categories] = useState(defaultCategories);
 
-  // Fetch promotions and broker data
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        
-        // Fetch all broker details first
-        const brokersData = await fetchAllBrokerDetails();
-        
-        // Create a map of broker details for easy lookup
-        const brokersMap = brokersData.reduce((acc, broker) => ({
-          ...acc,
-          [broker.id]: broker
-        }), {});
-        
-        setBrokers(brokersMap);
-
-        // Fetch promotions and enhance with broker data
-        const promotionsData = await fetchBrokerPromotions();
-        const enhancedPromotions = promotionsData.map((promo: any) => ({
-          ...promo,
-          broker_name: brokersMap[promo.broker_detail_id]?.name || 'Unknown Broker',
-          broker_logo: brokersMap[promo.broker_detail_id]?.logo || null,
-          broker_slug: brokersMap[promo.broker_detail_id]?.slug || ''
-        }));
-        
-        setPromotions(enhancedPromotions);
-        
-        // Set random featured promotions
-        const featured = [...enhancedPromotions]
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 4);
-        setFeaturedPromotions(featured);
-        
+        // Fetch featured
+        const promos = await fetchFeaturedPromotion('');
+        setFeaturedPromotions(promos.slice(0, 4));
+        // Fetch all promotions
+        const allPromosRaw = await fetchBrokerPromotionsWithDetails();
+        setAllPromotions(allPromosRaw);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching data:', err);
         setError('Failed to load promotions. Please try again later.');
         setLoading(false);
       }
     };
-    
     fetchData();
   }, []);
 
   // Filter promotions based on search query
-  const filteredPromotions = searchQuery
-    ? promotions.filter(promo => 
-        promo.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        promo.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (promo.broker_name || '').toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : promotions;
-
-  // Group filtered promotions by broker
-  const promotionsByBroker = filteredPromotions.reduce<Record<string, BrokerPromotion[]>>((acc, promo) => {
-    const brokerId = promo.broker_detail_id;
-    if (!acc[brokerId]) {
-      acc[brokerId] = [];
-    }
-    acc[brokerId].push(promo);
-    return acc;
-  }, {});
-
-  // Get broker info
-  const getBrokerInfo = (brokerId: string) => {
-    return brokers[brokerId] || { id: brokerId, name: 'Unknown Broker', logo: null, slug: '' };
+  // Search filter for both featured and all promotions
+  const filterPromos = (promos: BrokerPromotionWithBrokerDetails[]) => {
+    if (!searchQuery) return promos;
+    const q = searchQuery.toLowerCase();
+    return promos.filter(promo =>
+      (promo.title && promo.title.toLowerCase().includes(q)) ||
+      (promo.description && promo.description.toLowerCase().includes(q)) ||
+      (promo.broker_details?.name && promo.broker_details.name.toLowerCase().includes(q)) ||
+      (Array.isArray(promo.conditions) && promo.conditions.some(cond => cond.toLowerCase().includes(q)))
+    );
   };
+
+  const filteredFeaturedPromotions = filterPromos(featuredPromotions);
+  const filteredAllPromotions = filterPromos(allPromotions);
+
 
   if (loading) {
     return (
@@ -227,58 +193,241 @@ export default function PromotionsPage() {
             Featured Promotions
           </h2>
         </div>
-        
-        {featuredPromotions.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredPromotions.map((promo, index) => (
-              <PromotionCard 
-                key={promo.id}
-                promo={promo}
-                index={index}
-                hoveredCard={hoveredCard}
-                setHoveredCard={setHoveredCard}
-                hideBrokerInfo={false}
-              />
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[1,2,3,4].map((i) => (
+              <PromotionCardSkeleton key={i} />
             ))}
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-500">{error}</div>
+        ) : filteredFeaturedPromotions.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[0, 1, 2, 3].map((idx) => {
+              const promo = filteredFeaturedPromotions[idx];
+              return promo ? (
+                <div
+                  key={promo.id || idx}
+                  className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
+                  }}
+                >
+                  {promo.valid_till && (
+                    <div className="mb-2">
+                      <span className="inline-flex items-center bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
+                        <span className="mr-1">🔥</span> {promo.category}
+                      </span>
+                    </div>
+                  )}
+                  {/* Promo Country */}
+                  <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
+                  {/* Powered by section */}
+                  <div className="flex items-center rounded-xl px-3 py-2">
+                    <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                    <img
+                      src={promo.broker_details?.logo || '/assets/images/default-broker-logo.png'}
+                      alt={promo.broker_details?.name || 'Broker'}
+                      className="h-8 w-8 rounded-full border mr-2"
+                    />
+                    <a href={`/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
+                    }}>
+                      <span className="font-bold text-cyan-700 text-lg">{promo.broker_details?.name || 'Broker'}</span>
+                    </a>
+                  </div>
+                  {/* Expiry section */}
+                  {promo.valid_till && (
+                    <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
+                      <TimerIcon className="h-4 w-4 text-gray-400" />
+                      <span className="text-gray-500 text-xs font-medium">
+                        Valid Till: <br />
+                        {promo.valid_till
+                          ? new Date(promo.valid_till).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric',
+                            })
+                          : 'N/A'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                  {/* Promo Image */}
+                  {promo.images && promo.images.length > 0 && (
+                    <img
+                      src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                      alt={promo.title}
+                      className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                    />
+                  )}
+                  {/* Promo Title */}
+                  <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
+                  {/* Promo Description */}
+                  <div className="text-gray-700 text-md mb-4 flex-1">{promo.description}</div>
+                  {/* Promo Features/Conditions */}
+                  {promo.conditions && promo.conditions.length > 0 && (
+                    <ul className="mb-4 text-xs text-gray-600 space-y-1">
+                      {promo.conditions.map((cond: string, i: number) => (
+                        <li key={i} className="flex items-center gap-2">
+                          <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
+                          {cond}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {/* Promo Button */}
+                  <a
+                    href={promo.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      promo.category === 'CASHBACK'
+                        ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                        : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                    }
+                    style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
+                  >
+                    Claim This Offer
+                  </a>
+                </div>
+              ) : (
+                <div key={idx} className="bg-white rounded-xl shadow p-6 h-full border border-gray-100 opacity-0" />
+              );
+            })}
           </div>
         ) : (
           <p className="text-muted-foreground">No featured promotions available at the moment.</p>
         )}
       </section>
 
-      {/* All Promotions Grouped by Broker */}
-      <section>
-        <h2 className="text-2xl font-bold mb-6">All Promotions</h2>
-        
-        {Object.entries(promotionsByBroker).length > 0 ? (
-          <div className="space-y-8">
-            {Object.entries(promotionsByBroker).map(([brokerId, brokerPromotions]) => {
-              const broker = getBrokerInfo(brokerId);
-              return (
-                <BrokerPromotionsCard
-                  key={brokerId}
-                  brokerName={broker.name}
-                  brokerLogo={broker.logo}
-                  promotions={brokerPromotions}
-                  hoveredCard={hoveredCard}
-                  setHoveredCard={setHoveredCard}
-                />
-              );
-            })}
+      {/* All Promotions Section */}
+      <section className="mb-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold flex items-center">
+            <Gift className="h-5 w-5 mr-2 text-purple-500" />
+            All Promotions
+          </h2>
+        </div>
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1,2,3,4,5,6].map((i) => (
+              <PromotionCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-500">{error}</div>
+        ) : filteredAllPromotions.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredAllPromotions.map((promo, idx) => (
+              <div
+                key={promo.id || idx}
+                className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
+              }}
+              >
+                {/* Promo Badge/Category */}
+                <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
+                  {promo.categories?.map((category, idx) => (
+                    <span
+                      key={idx}
+                      className={
+                        (category === 'PROMOTION'
+                          ? 'bg-purple-500 text-white '
+                          : category === 'CASH BONUS'
+                          ? 'bg-pink-500 text-white '
+                          : category === 'LIMITED OFFER'
+                          ? 'bg-green-500 text-white '
+                          : 'bg-gray-300 text-gray-800 ') +
+                        'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
+                      }
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
+                {/* Promo Country */}
+                <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
+                  {/* Powered by section */}
+                  <div className="flex items-center rounded-xl px-3 py-2">
+                    <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                    <img
+                      src={promo.broker_details?.logo || '/assets/images/default-broker-logo.png'}
+                      alt={promo.broker_details?.name || 'Broker'}
+                      className="h-8 w-8 rounded-full border mr-2"
+                    />
+                    <a href={`/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = `/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`;
+                    }}>
+                      <span className="font-bold text-cyan-700 text-lg">{promo.broker_details?.name || 'Broker'}</span>
+                    </a>
+                  </div>
+                  {/* Expiry section */}
+                  {promo.valid_till && (
+                    <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
+                      <TimerIcon className="h-4 w-4 text-gray-400" />
+                      <span className="text-gray-500 text-xs font-medium">
+                        Valid Till: <br />
+                        {promo.valid_till
+                          ? new Date(promo.valid_till).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })
+                        : 'N/A'}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                {/* Promo Image */}
+                {promo.images && promo.images.length > 0 && (
+                  <img
+                    src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                    alt={promo.title}
+                    className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                  />
+                )}
+                {/* Promo Title */}
+                <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
+                {/* Promo Description */}
+                <div className="text-gray-700 text-md mb-4 flex-1">{promo.description}</div>
+                {/* Promo Features/Conditions */}
+                {promo.conditions && promo.conditions.length > 0 && (
+                  <ul className="mb-4 text-xs text-gray-600 space-y-1">
+                    {promo.conditions.map((cond: string, i: number) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
+                        {cond}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {/* Promo Button */}
+                <a
+                  href={promo.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    promo.category === 'CASHBACK'
+                      ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                      : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                  }
+                  style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6, zIndex: 1 }}
+                >
+                  Claim This Offer
+                </a>
+              </div>
+            ))}
           </div>
         ) : (
-          <div className="text-center">
-            <p className="text-muted-foreground">No promotions found matching your search.</p>
-            {searchQuery && (
-              <Button 
-                variant="outline" 
-                className="mt-4"
-                onClick={() => setSearchQuery('')}
-              >
-                Clear search
-              </Button>
-            )}
-          </div>
+          <p className="text-muted-foreground">No promotions available at the moment.</p>
         )}
       </section>
     </div>

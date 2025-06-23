@@ -22,7 +22,7 @@ const blogPosts = [
   {
     id: 1,
     title: 'Understanding Forex Market Volatility in 2025',
-    excerpt: 'Learn how to navigate the increasingly volatile forex markets and identify trading opportunities.',
+    excerpt: 'How to navigate global events, central bank moves, and tech-driven volatility in the forex market for 2025.',
     category: 'Market Analysis',
     author: 'Sarah Johnson',
     date: '2025-05-28',
@@ -34,7 +34,7 @@ const blogPosts = [
   {
     id: 2,
     title: 'Top 5 Technical Indicators Every Forex Trader Should Know',
-    excerpt: 'Master these essential technical indicators to improve your trading strategy and decision-making.',
+    excerpt: 'Discover the most effective technical indicators for trend, momentum, and volatility in forex trading.',
     category: 'Technical Analysis',
     author: 'Michael Chen',
     date: '2025-06-02',
@@ -46,7 +46,7 @@ const blogPosts = [
   {
     id: 3,
     title: 'How Central Bank Policies Affect Currency Pairs',
-    excerpt: 'Understand the relationship between monetary policy decisions and forex market movements.',
+    excerpt: 'A practical look at how interest rates, QE, and guidance from central banks move forex markets.',
     category: 'Fundamental Analysis',
     author: 'Emma Roberts',
     date: '2025-05-15',
@@ -58,38 +58,38 @@ const blogPosts = [
   {
     id: 4,
     title: 'Risk Management Strategies for Forex Traders',
-    excerpt: 'Learn effective risk management techniques to protect your capital and maximize returns.',
+    excerpt: 'Proven techniques to protect your capital and build consistent trading results in forex.',
     category: 'Risk Management',
-    author: 'David Wilson',
-    date: '2025-06-05',
+    author: 'David Kim',
+    date: '2025-05-10',
     readTime: 7,
-    image: 'https://images.pexels.com/photos/6781351/pexels-photo-6781351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    featured: true,
+    image: 'https://images.pexels.com/photos/4386366/pexels-photo-4386366.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    featured: false,
     slug: 'risk-management-strategies'
   },
   {
     id: 5,
-    title: 'The Psychology of Successful Forex Trading',
-    excerpt: 'Discover how emotional discipline and psychological factors influence trading outcomes.',
-    category: 'Trading Psychology',
-    author: 'Jessica Lee',
-    date: '2025-05-20',
-    readTime: 9,
+    title: 'Forex Trading Basics',
+    excerpt: 'A beginner’s roadmap to forex trading, key terms, and how to get started safely.',
+    category: 'Education',
+    author: 'Jane Smith',
+    date: '2025-06-15',
+    readTime: 4,
     image: 'https://images.pexels.com/photos/6801647/pexels-photo-6801647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     featured: false,
-    slug: 'psychology-successful-trading'
+    slug: 'forex-trading-basics'
   },
   {
     id: 6,
-    title: 'Emerging Currency Pairs to Watch in 2025',
-    excerpt: 'Explore promising emerging market currencies and potential trading opportunities.',
-    category: 'Market Analysis',
-    author: 'Robert Zhang',
-    date: '2025-06-08',
-    readTime: 6,
+    title: 'Choosing a Forex Broker',
+    excerpt: 'What to look for in a broker, red flags, and how to compare your options for safe trading.',
+    category: 'Guide',
+    author: 'John Lee',
+    date: '2025-06-18',
+    readTime: 3,
     image: 'https://images.pexels.com/photos/6781443/pexels-photo-6781443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     featured: false,
-    slug: 'emerging-currency-pairs-2025'
+    slug: 'choosing-a-forex-broker'
   }
 ];
 

@@ -45,6 +45,10 @@
     --radius: 0.5rem;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 25%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%) fixed;
     background-attachment: fixed;

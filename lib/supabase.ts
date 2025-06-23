@@ -232,7 +232,9 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
         response_time
       )
     `)
-    .eq('status', true);
+    .eq('status', true)
+    .eq('is_featured', false)
+    ;
 
   if (error) {
     throw new Error(error.message);
@@ -324,8 +326,7 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
       broker_details (name, website, logo, rating)
     `)
     .eq('broker_detail_id', brokerId)
-    .eq('status', true)
-    .eq('is_featured', false);
+    .eq('status', true);
 
   if (error) {
     throw new Error(error.message);
@@ -363,7 +364,7 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
     `)
     .eq('status', true)
     .eq('is_featured', true)
-    .eq('country', country);
+    .like('country', `%${country}%`)
 
   if (error) {
     throw new Error(error.message);

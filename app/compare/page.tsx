@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CheckCircle, XCircle, Star, Search, X, Loader2 } from 'lucide-react';
@@ -55,6 +55,30 @@ interface Broker {
 export default function ComparePage() {
   const [brokers, setBrokers] = useState<BrokerDetails[]>([]);
   const [selectedBrokers, setSelectedBrokers] = useState<BrokerDetails[]>([]);
+  const [showScrollToComparison, setShowScrollToComparison] = useState(true);
+  // Auto-scroll to comparison section when 3 brokers are selected
+  // Only scroll when selectedBrokers changes from less than 3 to exactly 3
+  const prevSelectedCount = useRef(selectedBrokers.length);
+  useEffect(() => {
+    if (prevSelectedCount.current !== 3 && selectedBrokers.length === 3) {
+      const section = document.getElementById('comparison-section');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+    prevSelectedCount.current = selectedBrokers.length;
+  }, [selectedBrokers]);
+
+  // Hide scroll to comparison button when below comparison section
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById('comparison-section');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      setShowScrollToComparison(rect.bottom > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [selectedBrokers]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -223,6 +247,21 @@ export default function ComparePage() {
             </Card>
           ))}
         </div>
+        {/* Toast-style floating Scroll to Comparison button */}
+        {selectedBrokers.length > 0 && showScrollToComparison && (
+          <div className="fixed left-1/2 bottom-8 z-50 transform -translate-x-1/2 animate-fade-in">
+            <Button
+              type="button"
+              className="rounded-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg text-lg"
+              onClick={() => {
+                const section = document.getElementById('comparison-section');
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Scroll to Comparison
+            </Button>
+          </div>
+        )}
       </div>
 
       {/* Broker Search and Selection */}
@@ -293,11 +332,52 @@ export default function ComparePage() {
         </div>
       </div>
 
+
+      {/* Comparison Section Anchor */}
+      <div id="comparison-section" />
       {/* Comparison Table */}
       {selectedBrokers.length > 0 && (
         <div className="mt-12">
           <h2 className="text-xl font-semibold mb-6">Comparison</h2>
-          <div className="overflow-x-auto">
+
+          {/* Mobile Vertical Cards */}
+          <div className="flex flex-col gap-6 md:hidden">
+            {selectedBrokers.map((broker) => (
+              <div key={broker.id} className="rounded-xl border border-gray-200 bg-white shadow p-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <Image
+                    src={broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name || 'Broker')}`}
+                    alt={broker.name}
+                    width={40}
+                    height={40}
+                    className="rounded-lg bg-white object-contain"
+                  />
+                  <span className="text-lg font-bold text-black uppercase tracking-wider">{broker.name}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between"><span className="font-medium">Minimum Deposit:</span> <span>{broker.min_deposit || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Minimum Withdrawal:</span> <span>{broker.min_withdrawl || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">EUR/USD Spread:</span> <span>{broker.spread_eur_usd || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Max Leverage:</span> <span>{broker.leverage_max ? `1:${broker.leverage_max}` : 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Account Types:</span> <span>{broker.account_types?.join(', ') || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Trading Platforms:</span> <span>{broker.platforms?.join(', ') || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Instruments:</span> <span>{broker.instruments?.slice(0, 3).join(', ')}{broker.instruments && broker.instruments.length > 3 && '...'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Deposit Fees:</span> <span>{broker.deposit_fees || 'No fees'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Withdrawal Fees:</span> <span>{broker.withdrawal_fees || 'No fees'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Deposit Methods:</span> <span>{broker.deposit_methods?.join(', ') || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Overall Rating:</span> <span>{(((broker.sw + broker.regulations + broker.risk_control + broker.promotions + broker.user_experience + broker.environment) / 6).toFixed(1))} /5</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Regulation Status:</span> <span>{broker.is_regulated ? 'Regulated' : 'Not Regulated'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Email:</span> <span>{broker.email ? (<a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">{broker.email}</a>) : 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Phone:</span> <span>{broker.phone_numbers?.length ? broker.phone_numbers.map((phone, i) => (<a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline ml-1">{phone}</a>)) : 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Support Channels:</span> <span>{broker.channels?.join(', ') || 'N/A'}</span></div>
+                  <div className="flex justify-between"><span className="font-medium">Response Time:</span> <span>{broker.response_time || 'N/A'}</span></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table */}
+          <div className="overflow-x-auto hidden md:block">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
