@@ -12,6 +12,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 export type BrokerDetails = {
   id: number;
   name: string;
+  slug: string;
   website: string;
   logo?: string;
   description?: string;
@@ -113,7 +114,35 @@ export type BrokerReviews = {
   comment_at: string;
 };
 
+// Type definitions for Blog data
+export type BlogContents = {
+  id: number;
+  title: string;
+  slug: string;
+  url: string;
+  content: string;
+  images: string[];
+  metas: string[];
+  keywords: string[];
+  status: boolean
+  created_at: string;
+};
 
+// Type definitions for Regulators
+export type Regulators = {
+  id: number;
+  name: string;
+  slug: string;
+  tier: string;
+  code: string;
+  leverage_cap: string;
+  jurisdiction: string[];
+  image: string[];
+  published_year: string;
+  notes: string;
+  source: string;
+  created_at: string;
+};
 
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
@@ -390,4 +419,60 @@ export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerRe
   }
 
   return (data || []) as BrokerReviews[];
+}
+
+
+// Function to fetch blog contents
+export async function fetchBlogContents() {
+  const { data, error } = await supabase
+    .from('broker_website_contents')
+    .select('*')
+    .eq('status', true);
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to fetch blog contents by id
+export async function fetchBlogContentsById(id: string) {
+  const { data, error } = await supabase
+    .from('broker_website_contents')
+    .select('*')
+    .eq('status', true)
+    .eq('id', id)
+    .single();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to fetch blog contents by slug
+export async function fetchBlogContentsBySlug(slug: string) {
+  const { data, error } = await supabase
+    .from('broker_website_contents')
+    .select('*')
+    .eq('status', true)
+    .eq('slug', slug)
+    .single();
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+// Function to fetch regulators
+export async function fetchRegulators() {
+  const { data, error } = await supabase
+    .from('regulators')
+    .select('*')
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
 }

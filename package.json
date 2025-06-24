@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "serve": "npx serve@latest out",
-    "dev:network": "next dev -- --port 80 --hostname 192.168.0.249"
+    "dev:network": "next dev -- --port 80 --hostname 192.168.0.52"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

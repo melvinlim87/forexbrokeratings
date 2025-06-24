@@ -213,10 +213,15 @@ function getDummyPost(slug: string) {
   return dummyPosts.find(post => post.slug === slug) || null;
 }
 
+import { fetchBlogContents } from '@/lib/supabase';
+
 export async function generateStaticParams() {
-  // Generate static params from dummy data
-  return dummyPosts.map(post => ({ slug: post.slug }));
+  // Fetch all blog posts from Supabase
+  const data = await fetchBlogContents();
+  if (!data) return [];
+  return data.map((item: any) => ({ slug: item.slug }));
 }
+
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = getDummyPost(params.slug);
@@ -227,10 +232,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getDummyPost(params.slug);
+import { fetchBlogContentsBySlug } from '@/lib/supabase';
+import { notFound } from 'next/navigation';
 
-  if (!post) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  // Fetch the blog post from Supabase by slug
+  const data = await fetchBlogContentsBySlug(params.slug);
+
+  if (!data) {
     return (
       <main className="max-w-3xl mx-auto px-4 py-12">
         <h1 className="text-2xl font-bold mb-4 text-red-600">Blog Not Found</h1>
@@ -239,34 +248,29 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     );
   }
 
+  let htmlContent = '';
+  try {
+    htmlContent = JSON.parse(data.content);
+  } catch {
+    htmlContent = data.content || '';
+  }
+
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
       {/* Cover Image */}
-      {post.coverImage && (
-        <img src={post.coverImage} alt={post.title} className="rounded-lg w-full mb-6 max-h-80 object-cover" />
+      {data.images?.[0] && (
+        <img src={data.images[0]} alt={data.title} className="rounded-lg w-full mb-6 max-h-80 object-cover" />
       )}
       {/* Title and Meta */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
-        <h1 className="text-3xl font-bold mb-1 md:mb-0">{post.title}</h1>
-        <div className="flex flex-wrap gap-2 items-center">
-          <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-200">{post.category}</span>
-          <span className="inline-block text-gray-400 text-xs">{post.readingTime}</span>
-        </div>
+        <h1 className="text-3xl font-bold mb-1 md:mb-0">{data.title}</h1>
       </div>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between text-gray-500 mb-4 text-sm gap-2">
-        <span>By <span className="font-medium text-gray-700 dark:text-gray-200">{post.author}</span></span>
-        <span>{post.date}</span>
+        <span>{data.created_at ? new Date(data.created_at).toLocaleDateString('en-GB') : ''}</span>
       </div>
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {post.tags && post.tags.map((tag: string) => (
-          <span key={tag} className="inline-block bg-gray-200 dark:bg-gray-700 text-xs px-2 py-1 rounded-full text-gray-700 dark:text-gray-100">{tag}</span>
-        ))}
-      </div>
-      {/* Summary */}
-      <div className="mb-6 text-lg text-gray-700 dark:text-gray-200 italic">{post.summary}</div>
       {/* Content */}
-      <article className="prose prose-lg dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.content }} />
+      <article className="prose prose-lg dark:prose-invert" dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </main>
   );
 }
+

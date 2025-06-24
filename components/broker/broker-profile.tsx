@@ -27,6 +27,32 @@ interface BrokerProfileProps {
   relatedBrokers: any[];
 }
 
+// Type guard for promo.conditions (table)
+function isTableCondition(
+  cond: any
+): cond is { type: 'table'; headers: string[]; rows: string[][]; extra?: string[]; warning?: string } {
+  return (
+    cond &&
+    typeof cond === 'object' &&
+    cond.type === 'table' &&
+    Array.isArray(cond.headers) &&
+    Array.isArray(cond.rows)
+  );
+}
+
+// Type guard for promo.conditions (list)
+function isListCondition(
+  cond: any
+): cond is { type: 'list'; items: string[]; extra?: string[]; warning?: string } {
+  return (
+    cond &&
+    typeof cond === 'object' &&
+    cond.type === 'list' &&
+    Array.isArray(cond.items)
+  );
+}
+
+
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
   const [previewBadge, setPreviewBadge] = useState<string|null>(null);
   // Promotion image carousel modal state
@@ -305,35 +331,74 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             </span>
                           ))}
                         </div>
-                        {/* Promo Image */}
-                        {promo.images && promo.images.length > 0 && (
-                          <img
-                            src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
-                            alt={promo.title}
-                            className="w-full h-60 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer rounded-xl"
-                            onClick={() => {
-                              setPreviewPromoImages(promo.images);
-                              setPreviewPromoImageIdx(0);
-                              setPromoPreviewOpen(true);
-                            }}
-                          />
-                        )}
                         {/* Promo Title */}
                         <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
                         {/* Promo Description */}
-                        <div className="text-gray-700 text-md mb-4 flex-1">{promo.summary || promo.description}</div>
+                        <div className="text-gray-700 text-md mb-4 ">{promo.summary || promo.description}</div>
                         {/* Promo Features/Conditions */}
-                        {promo.conditions && promo.conditions.length > 0 && (
-                          <ul className="mb-4 text-xs text-gray-600 space-y-1">
-                            {promo.conditions.map((cond: string, i: number) => (
-                              <li key={i} className="flex items-center gap-2">
-                                <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
-                                {cond}
-                              </li>
-                            ))}
-                          </ul>
+                        {/* Type guard for table-type promo.conditions */}
+                        {isTableCondition(promo.conditions) && (
+                          <div className="mb-4">
+                            <table className="w-full text-xs text-gray-700 border border-gray-200 rounded-lg overflow-hidden">
+                              <thead className="bg-blue-50">
+                                <tr>
+                                  {promo.conditions.headers.map((header, idx) => (
+                                    <th key={idx} className="py-2 px-3 font-bold text-gray-900 border-b">{header}</th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {promo.conditions.rows.map((row, i) => (
+                                  <tr key={i} className="even:bg-gray-50">
+                                    {row.map((cell, j) => (
+                                      <td key={j} className="py-2 px-3 border-b">{cell}</td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                              <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                                {promo.conditions.extra.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                              <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                                {promo.conditions.warning}
+                              </div>
+                            )}
+                          </div>
                         )}
-                        {/* Promo Button */}
+
+                        {/* Type guard for list-type promo.conditions */}
+                        {isListCondition(promo.conditions) && (
+                          <div className="mb-4">
+                            <ul className="text-xs text-gray-700 list-disc list-inside">
+                              {promo.conditions.items.map((item, i) => (
+                                <li key={i}>{item}</li>
+                              ))}
+                            </ul>
+                            {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                              <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                                {promo.conditions.extra.map((item, i) => (
+                                  <li key={i}>{item}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                              <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                                {promo.conditions.warning}
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Promo Button Instructional Text */}
+                        <div className="text-xs text-gray-500 mb-2">
+                          Sign up with our referral link, trade the required lots, and tell RS Finance support you saw this on Forex Broker Ratings to get your cash bonus.
+                        </div>
                         <a
                           href={promo.link}
                           target="_blank"

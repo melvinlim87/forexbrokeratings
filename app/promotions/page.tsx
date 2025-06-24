@@ -203,22 +203,33 @@ export default function PromotionsPage() {
           <div className="text-center text-red-500">{error}</div>
         ) : filteredFeaturedPromotions.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[0, 1, 2, 3].map((idx) => {
-              const promo = filteredFeaturedPromotions[idx];
-              return promo ? (
-                <div
-                  key={promo.id || idx}
-                  className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
-                >
-                  {promo.valid_till && (
-                    <div className="mb-2">
-                      <span className="inline-flex items-center bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
-                        <span className="mr-1">🔥</span> {promo.category}
-                      </span>
-                    </div>
-                  )}
-                  {/* Promo Country */}
-                  <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
+            {filteredFeaturedPromotions.map((promo, idx) => (
+              <div
+                key={promo.id || idx}
+                className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
+              >
+                {/* Promo Badge/Category */}
+                <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
+                  {promo.categories?.map((category, idx) => (
+                    <span
+                      key={idx}
+                      className={
+                        (category === 'PROMOTION'
+                          ? 'bg-purple-500 text-white '
+                          : category === 'CASH BONUS'
+                          ? 'bg-pink-500 text-white '
+                          : category === 'LIMITED OFFER'
+                          ? 'bg-green-500 text-white '
+                          : 'bg-gray-300 text-gray-800 ') +
+                        'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
+                      }
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
+                {/* Promo Country */}
+                <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
                   {/* Powered by section */}
                   <div className="flex items-center rounded-xl px-3 py-2">
                     <span className="text-xs text-gray-500 mr-2">Powered by</span>
@@ -252,48 +263,82 @@ export default function PromotionsPage() {
                     </div>
                   )}
                 </div>
-                  {/* Promo Image */}
-                  {promo.images && promo.images.length > 0 && (
-                    <img
-                      src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
-                      alt={promo.title}
-                      className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
-                    />
-                  )}
-                  {/* Promo Title */}
-                  <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
-                  {/* Promo Description */}
-                  <div className="text-gray-700 text-md mb-4 flex-1">{promo.description}</div>
-                  {/* Promo Features/Conditions */}
-                  {promo.conditions && promo.conditions.length > 0 && (
-                    <ul className="mb-4 text-xs text-gray-600 space-y-1">
-                      {promo.conditions.map((cond: string, i: number) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
-                          {cond}
-                        </li>
+                {/* Promo Title */}
+                <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
+                {/* Promo Description */}
+                <div className="text-gray-700 text-md mb-4">{promo.description}</div>
+                {/* Promo Features/Conditions */}
+                {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && promo.conditions.type === 'table' && (
+                  <div className="mb-4">
+                    <table className="w-full text-xs text-gray-700 border border-gray-200 rounded-lg overflow-hidden">
+                      <thead className="bg-blue-50">
+                        <tr>
+                          {promo.conditions.headers.map((header: string, idx: number) => (
+                            <th key={idx} className="py-2 px-3 font-bold text-gray-900 border-b">{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {promo.conditions.rows.map((row: string[], i: number) => (
+                          <tr key={i} className="even:bg-gray-50">
+                            {row.map((cell: string, j: number) => (
+                              <td key={j} className="py-2 px-3 border-b">{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                      <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                        {promo.conditions.extra.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                      <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                        {promo.conditions.warning}
+                      </div>
+                    )}
+                  </div>
+                )}
+                {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && promo.conditions.type === 'list' && (
+                  <div className="mb-4">
+                    <ul className="text-xs text-gray-700 list-disc list-inside">
+                      {promo.conditions.items.map((item: string, i: number) => (
+                        <li key={i}>{item}</li>
                       ))}
                     </ul>
-                  )}
-                  {/* Promo Button */}
-                  <a
-                    href={promo.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={
-                      promo.category === 'CASHBACK'
-                        ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
-                        : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
-                    }
-                    style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
-                  >
-                    Claim This Offer
-                  </a>
-                </div>
-              ) : (
-                <div key={idx} className="bg-white rounded-xl shadow p-6 h-full border border-gray-100 opacity-0" />
-              );
-            })}
+                    {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                      <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                        {promo.conditions.extra.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                      <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                        {promo.conditions.warning}
+                      </div>
+                    )}
+                  </div>
+                )}
+                {/* Promo Button */}
+                <a
+                  href={promo.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    promo.category === 'CASHBACK'
+                      ? 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-orange-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                      : 'mt-auto inline-flex items-center justify-center w-full px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm shadow hover:brightness-110 transition disabled:opacity-50'
+                  }
+                  style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
+                >
+                  Claim This Offer
+                </a>
+              </div>
+            ))}
           </div>
         ) : (
           <p className="text-muted-foreground">No featured promotions available at the moment.</p>
@@ -378,28 +423,65 @@ export default function PromotionsPage() {
                     </div>
                   )}
                 </div>
-                {/* Promo Image */}
-                {promo.images && promo.images.length > 0 && (
-                  <img
-                    src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
-                    alt={promo.title}
-                    className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
-                  />
-                )}
                 {/* Promo Title */}
                 <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
                 {/* Promo Description */}
-                <div className="text-gray-700 text-md mb-4 flex-1">{promo.description}</div>
+                <div className="text-gray-700 text-md mb-4">{promo.description}</div>
                 {/* Promo Features/Conditions */}
-                {promo.conditions && promo.conditions.length > 0 && (
-                  <ul className="mb-4 text-xs text-gray-600 space-y-1">
-                    {promo.conditions.map((cond: string, i: number) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full" />
-                        {cond}
-                      </li>
-                    ))}
-                  </ul>
+                {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && promo.conditions.type === 'table' && (
+                  <div className="mb-4">
+                    <table className="w-full text-xs text-gray-700 border border-gray-200 rounded-lg overflow-hidden">
+                      <thead className="bg-blue-50">
+                        <tr>
+                          {promo.conditions.headers.map((header: string, idx: number) => (
+                            <th key={idx} className="py-2 px-3 font-bold text-gray-900 border-b">{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {promo.conditions.rows.map((row: string[], i: number) => (
+                          <tr key={i} className="even:bg-gray-50">
+                            {row.map((cell: string, j: number) => (
+                              <td key={j} className="py-2 px-3 border-b">{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                      <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                        {promo.conditions.extra.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                      <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                        {promo.conditions.warning}
+                      </div>
+                    )}
+                  </div>
+                )}
+                {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && promo.conditions.type === 'list' && (
+                  <div className="mb-4">
+                    <ul className="text-xs text-gray-700 list-disc list-inside">
+                      {promo.conditions.items.map((item: string, i: number) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                    {promo.conditions.extra && promo.conditions.extra.length > 0 && (
+                      <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                        {promo.conditions.extra.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {promo.conditions.warning && promo.conditions.warning.length > 0 && (
+                      <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                        {promo.conditions.warning}
+                      </div>
+                    )}
+                  </div>
                 )}
                 {/* Promo Button */}
                 <a
