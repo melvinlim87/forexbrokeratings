@@ -8,7 +8,11 @@ interface HexagonChartProps {
     label: string;
     value: number;
     maxValue: number;
-  }[][]; // Array of datasets (each dataset is an array of points)
+  }[] | {
+    label: string;
+    value: number;
+    maxValue: number;
+  }[][]; // Accepts single or multiple datasets
   size?: number;
   className?: string;
   showBg?: boolean;
@@ -54,8 +58,14 @@ export function HexagonChart({ data, size = 200, className, showBg = true, strok
   const defaultStrokeColors = ["#00c7d4", "#f59e42", "#7c3aed"];
   const usedStrokeColors = strokeColors && strokeColors.length > 0 ? strokeColors : defaultStrokeColors;
 
-  // If only one dataset, treat it as single chart for backward compatibility
-  const datasets = Array.isArray(data[0]) ? (data as HexagonChartProps["data"]) : [data as HexagonChartProps["data"][0]];
+  // Type guard to check if data is a 2D array (array of arrays)
+  function isDatasetArray(arr: any): arr is { label: string; value: number; maxValue: number; }[][] {
+    return Array.isArray(arr) && Array.isArray(arr[0]);
+  }
+  // Ensure datasets is always a 2D array
+  const datasets: { label: string; value: number; maxValue: number; }[][] = isDatasetArray(data)
+    ? data as { label: string; value: number; maxValue: number; }[][]
+    : [data as { label: string; value: number; maxValue: number; }[]];
 
   // Create grid
   const polygonPoints = points.map(p => `${p.x},${p.y}`).join(' ');
