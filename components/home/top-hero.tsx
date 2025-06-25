@@ -64,7 +64,7 @@ export default function TopHero() {
         
         setSearchResults(filtered);
       } catch (error) {
-        console.error('Error searching brokers:', error);
+        // console.error('Error searching brokers:', error);
         setSearchResults([]);
       } finally {
         setIsSearching(false);

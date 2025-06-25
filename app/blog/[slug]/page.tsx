@@ -224,7 +224,7 @@ export async function generateStaticParams() {
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getDummyPost(params.slug);
+  const post = await fetchBlogContentsBySlug(params.slug);
   if (!post) return { title: 'Blog Not Found' };
   return {
     title: post.title,
@@ -259,7 +259,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     <main className="max-w-3xl mx-auto px-4 py-12">
       {/* Cover Image */}
       {data.images?.[0] && (
-        <img src={data.images[0]} alt={data.title} className="rounded-lg w-full mb-6 max-h-80 object-cover" />
+        <img src={data.images ? typeof data.images == 'string' ? JSON.parse(data.images)[0] : data.images[0] : ""} alt={data.title} className="rounded-lg w-full mb-6 max-h-80 object-cover" />
       )}
       {/* Title and Meta */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">

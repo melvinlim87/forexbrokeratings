@@ -17,7 +17,6 @@ export function IPChecker() {
         
         // Check if the IP is from Singapore
         if (data.country === 'SG') {
-          console.log('Singapore IP detected, redirecting...');
           router.push('/restricted');
         }
       } catch (error) {

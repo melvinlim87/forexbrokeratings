@@ -97,7 +97,7 @@ export default function Hero() {
         
         setHeroSlides(formattedSlides.length > 0 ? formattedSlides : defaultHeroSlides);
       } catch (error) {
-        console.error('Error fetching top brokers:', error);
+        // console.error('Error fetching top brokers:', error);
         setHeroSlides(defaultHeroSlides);
       } finally {
         setIsLoading(false);

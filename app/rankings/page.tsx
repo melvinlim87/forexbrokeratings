@@ -90,7 +90,6 @@ export default function RankingsPage() {
               return [field];
             }
           };
-          console.log('check broker here', broker)
           return {
             rank: startIndex + index + 1,
             name: broker.name || `Broker ${startIndex + index + 1}`,

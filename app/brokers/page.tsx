@@ -55,7 +55,6 @@ export default function BrokersPage() {
   useEffect(() => {
     async function fetchBrokers() {
       try {
-        console.log('Fetching brokers data using fetchAllBrokerDetails...');
         const data = await fetchAllBrokerDetails();
         
         if (data && data.length > 0) {
@@ -79,7 +78,6 @@ export default function BrokersPage() {
                     const parsed = JSON.parse(sanitized);
                     return Array.isArray(parsed) ? parsed : [field];
                   } catch (e) {
-                    console.error('JSON parse error:', e);
                     // If parsing fails, treat as a single item
                     return [field];
                   }
@@ -114,7 +112,6 @@ export default function BrokersPage() {
           setBrokersData(formattedBrokers);
         }
       } catch (err) {
-        console.error('Error fetching brokers:', err);
         setError('Failed to load brokers data');
       } finally {
         setLoading(false);
@@ -388,8 +385,8 @@ export default function BrokersPage() {
                         
                         <div className="space-y-2 w-full">
                           <Button className="w-full" asChild>
-                            <a href={broker.website || '#'} target="_blank" rel="noopener noreferrer">
-                              Visit Broker
+                            <a href={broker.website || '#'} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 mt-2 rounded-lg font-bold text-lg bg-gradient-to-r bg-gradient-to-br from-gray-700 to-gray-900 text-white shadow hover:brightness-110 transition">
+                              Visit {broker.name}
                             </a>
                           </Button>
                           <Button variant="outline" className="w-full" asChild>

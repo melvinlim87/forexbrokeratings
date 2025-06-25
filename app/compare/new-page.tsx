@@ -53,7 +53,7 @@ export default function ComparePage() {
         
         setBrokers(data || []);
       } catch (error) {
-        console.error('Error fetching brokers:', error);
+        // console.error('Error fetching brokers:', error);
       } finally {
         setIsLoading(false);
       }

@@ -4,18 +4,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Search, Filter, Calendar, Clock, User, ArrowRight, BookOpen } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { fetchBlogContents, BlogContents } from '@/lib/supabase';
 
 // ...other imports remain unchanged
@@ -90,7 +80,7 @@ function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
           <div className="flex flex-col md:flex-row h-full">
             <div className="md:w-2/5 relative h-60 md:h-auto">
               <Image
-                src={post.images?.[0] || "/assets/images/blog-default.jpg"}
+                src={post.images ? typeof post.images == 'string' ? JSON.parse(post.images)[0] : post.images[0] : "/assets/images/blog-default.jpg"}
                 alt={post.title}
                 fill
                 style={{ objectFit: "cover" }}

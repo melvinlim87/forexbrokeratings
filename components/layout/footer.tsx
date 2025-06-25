@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <Globe className="h-6 w-6 text-primary mr-2" />
-              <span className="text-xl font-bold">ForexBrokerRatings</span>
+              <span className="text-xl font-bold">Forex Broker Ratings</span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
               ForexBrokerRatings.com provides unbiased forex broker reviews and comparisons to help traders find the most trusted brokers.

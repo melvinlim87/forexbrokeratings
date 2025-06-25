@@ -54,7 +54,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
         
         setResults(filtered);
       } catch (error) {
-        console.error('Error searching brokers:', error);
+        // console.error('Error searching brokers:', error);
         setResults([]);
       } finally {
         setIsSearching(false);

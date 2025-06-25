@@ -222,7 +222,6 @@ export default function ComparisonSection() {
   useEffect(() => {
     const fetchBrokers = async () => {
       try {
-        console.log('Fetching brokers for comparison section...');
         const data = await fetchAllBrokersWithPromotionCategories();
         
         if (!data || data.length === 0) {
@@ -323,7 +322,7 @@ export default function ComparisonSection() {
 
         setComparisonData(formattedData);
       } catch (err) {
-        console.error('Error fetching comparison brokers:', err);
+        // console.error('Error fetching comparison brokers:', err);
         setError('Failed to load broker comparison data');
       } finally {
         setLoading(false);
@@ -484,7 +483,7 @@ export default function ComparisonSection() {
                           {comparisonData[tabValue].map((broker) => (
                             <th key={broker.id} className="px-6 py-5 text-center">
                               <div className="flex flex-col items-center">
-                                <div className="h-0 md:h-32 w-0 md:w-32 relative mb-2 rounded-xl">
+                                <div className="h-0 md:h-24 w-0 md:w-24 relative mb-2 rounded-xl">
                                   <Image
                                     src={broker.logo}
                                     alt={broker.name}

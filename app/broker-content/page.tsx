@@ -20,11 +20,9 @@ export default function BrokerContentPage() {
     try {
       // Use the utility function from lib/supabase.ts
       const data = await fetchBrokerContent();
-      console.log(data);
       setContent(data || []);
       setError(null);
     } catch (err: any) {
-      console.error("Error fetching broker content:", err);
       setError(err.message);
     } finally {
       setLoading(false);

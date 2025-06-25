@@ -47,7 +47,7 @@ export default function FeaturedBrokers() {
           setError('No broker data available');
         }
       } catch (err) {
-        console.error('Error fetching brokers:', err);
+        // console.error('Error fetching brokers:', err);
         setError('Failed to load brokers. Please try again later.');
       } finally {
         setLoading(false);
@@ -197,8 +197,7 @@ export default function FeaturedBrokers() {
                     ) : (
                       <span className="text-gray-400">-</span>
                     )}
-                  </td>
-                  
+                  </td>           
                 </tr>
               ))}
             </tbody>

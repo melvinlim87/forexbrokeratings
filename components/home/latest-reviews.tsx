@@ -54,10 +54,7 @@ export default function LatestReviews() {
   useEffect(() => {
     async function fetchLatestReviews() {
       try {
-        console.log('Fetching latest broker reviews from Supabase using fetchAllBrokerDetails...');
         const data = await fetchAllBrokerDetails();
-        
-        console.log('Latest reviews data:', data);
         
         // Take only the first 3 brokers for latest reviews
         const latestBrokers = data.slice(0, 3);
@@ -101,7 +98,7 @@ export default function LatestReviews() {
         
         setReviews(formattedReviews);
       } catch (err) {
-        console.error('Error fetching latest reviews:', err);
+        // console.error('Error fetching latest reviews:', err);
         setError('Failed to load reviews');
         // Keep the fallback data
       } finally {
@@ -120,9 +117,9 @@ export default function LatestReviews() {
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Fresh insights from our expert analysis of forex brokers.
           </p>
-          <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
+          {/* <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
             View all reviews <ChevronRight className="ml-1 h-4 w-4" />
-          </Link>
+          </Link> */}
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 max-w-7xl mx-auto">
@@ -202,7 +199,7 @@ export default function LatestReviews() {
                   
                   <div className="mt-auto pt-4">
                     <Button variant="outline" className="w-full" asChild>
-                      <Link href={`/brokers/${review.slug || review.id}`}>
+                      <Link href={`/broker/${review.slug || review.id}`}>
                         Read Full Review
                       </Link>
                     </Button>

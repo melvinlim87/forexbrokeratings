@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Shield, Check, X, Star, TimerIcon, UserCircle2 } from 'lucide-react';
+import { Shield, Check, X, Star, TimerIcon, UserCircle2, Info } from 'lucide-react';
 
 // Ensures date is always formatted as dd/MM/yyyy for SSR/CSR consistency
 function formatDateDMY(date: string | number | Date): string {
@@ -263,7 +263,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       // Redirect to compare page
                       window.location.href = '/compare';
                     } catch (error) {
-                      console.error('Error preparing comparison:', error);
+                      // console.error('Error preparing comparison:', error);
                       // Fallback to simple redirect if there's an error
                       window.location.href = '/compare';
                     }
@@ -396,7 +396,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         )}
 
                         {/* Promo Button Instructional Text */}
-                        <div className="text-xs text-gray-500 mb-2">
+                        <div className="text-xs text-gray-500 mb-2 flex ">
+                          <Info className="h-8 w-8 text-gray-400 mr-1" />
                           Sign up with our referral link, trade the required lots, and tell RS Finance support you saw this on Forex Broker Ratings to get your cash bonus.
                         </div>
                         <a
@@ -1070,11 +1071,11 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           </div>
                         </div>
                       </div>
-                </Link>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                    </Link>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ export default function PromotionsSection() {
         const promos = await fetchUniquePromotions();
         setPromotions(promos.slice(0, 3));
       } catch (err) {
-        console.error('Error fetching promotions:', err);
+        // console.error('Error fetching promotions:', err);
         setError('Failed to load promotions. Please try again later.');
       } finally {
         setLoading(false);
@@ -207,7 +207,7 @@ export default function PromotionsSection() {
                       href={promo.link || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                      className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
                       style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                     >
                       Claim Offer

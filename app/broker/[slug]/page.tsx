@@ -24,6 +24,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
   return {
     id: broker.id || 0,
     name: broker.name,
+    slug: broker.slug || 'default',
     website: broker.website || '#',
     logo: broker.logo || `https://via.placeholder.com/180x90?text=${encodeURIComponent(broker.name)}`,
     description: broker.description || `${broker.name} offers forex and CFD trading services.`,
@@ -78,6 +79,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
   return {
     id: 0,
     name,
+    slug,
     logo: `https://via.placeholder.com/180x90?text=${name}`,
     rating: '3.5',
     summary: `${name} offers forex and CFD trading services.`,
@@ -166,7 +168,6 @@ export default async function BrokerProfilePage({
       </div>
     );
   } catch (error) {
-    console.error('Error in BrokerProfilePage:', error);
     // Return a fallback UI if something goes wrong
     return (
       <div className="container mx-auto px-4 py-8">

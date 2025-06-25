@@ -18,7 +18,6 @@ export async function setupTables(config: {
       port: config.port
     });
 
-    console.log('🔧 Creating `users` table if not exists...');
     await connection.execute(`
       CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,7 +27,6 @@ export async function setupTables(config: {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
-    console.log('📥 Inserting sample data into `users`...');
     const sampleUsers = [
       ['Alice', 'alice@example.com'],
       ['Bob', 'bob@example.com'],
@@ -48,7 +46,6 @@ export async function setupTables(config: {
       }
     }
 
-    console.log('✅ Table creation and data insertion complete!');
     await connection.end();
   } catch (error) {
     console.error('❌ Failed to set up tables:', error);

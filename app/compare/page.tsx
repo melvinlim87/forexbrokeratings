@@ -114,12 +114,12 @@ export default function ComparePage() {
               localStorage.removeItem('compare_broker_data');
             }
           } catch (e) {
-            console.error('Error parsing stored broker data:', e);
+            // console.error('Error parsing stored broker data:', e);
             localStorage.removeItem('compare_broker_data');
           }
         }
       } catch (err) {
-        console.error('Error fetching brokers:', err);
+        // console.error('Error fetching brokers:', err);
         setError('Failed to load brokers. Please try again later.');
       } finally {
         setLoading(false);
@@ -239,8 +239,6 @@ export default function ComparePage() {
               </Button> */}
             </Card>
           ))}
-
-          
           {Array(3 - selectedBrokers.length).fill(0).map((_, index) => (
             <Card key={`empty-${index}`} className="border-2 border-dashed border-gray-300 min-h-[100px] flex items-center justify-center">
               <span className="text-gray-400">Select a broker</span>

@@ -54,10 +54,10 @@ async function updateImageProps(filePath) {
     
     if (modified) {
       await writeFile(filePath, content, 'utf8');
-      console.log(`Updated: ${filePath}`);
+      // File updated: ${filePath}
     }
   } catch (error) {
-    console.error(`Error processing ${filePath}:`, error);
+    // console.error(`Error processing ${filePath}:`, error);
   }
 }
 
@@ -66,13 +66,13 @@ async function main() {
   const rootDir = path.resolve(__dirname, '..');
   const files = await findFiles(rootDir);
   
-  console.log(`Found ${files.length} files to process`);
+  // Processing ${files.length} files
   
   for (const file of files) {
     await updateImageProps(file);
   }
   
-  console.log('Done!');
+  // Processing complete
 }
 
 main().catch(console.error);
