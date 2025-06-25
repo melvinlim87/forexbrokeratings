@@ -254,8 +254,13 @@ export default function ComparePage() {
               type="button"
               className="rounded-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg text-lg"
               onClick={() => {
-                const section = document.getElementById('comparison-section');
-                if (section) section.scrollIntoView({ behavior: 'smooth' });
+                const header = document.querySelector('header');
+                const target = document.getElementById('comparison-section');
+                if (target) {
+                  const headerHeight = header ? header.offsetHeight : 0;
+                  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
               }}
             >
               Scroll to Comparison
