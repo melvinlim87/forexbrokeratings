@@ -3,7 +3,7 @@ import React from 'react';
 const sections = [
   {
     id: 'who-we-are',
-    title: '1 Who We Are & Scope',
+    title: '1. Who We Are & Scope',
     content: (
       <>
         <p>ForexBrokerRatings.com (“FBR,” “we,” “our,” “us”) is an independent publisher that analyses and reviews retail foreign-exchange (“forex”) brokers. We operate the website <a href="https://forexbrokeratings.com" className="text-cyan-600 underline" target="_blank" rel="noopener noreferrer">https://forexbrokeratings.com</a> (the “Site”). We do not provide brokerage services or personalised investment advice. This Privacy Policy governs all personal data processed via the Site, APIs, email, and any future mobile applications.</p>
@@ -12,7 +12,7 @@ const sections = [
   },
   {
     id: 'frameworks',
-    title: '2 Legal Frameworks',
+    title: '2. Legal Frameworks',
     content: (
       <>
         <p>We designed this Policy to comply with—or provide equivalent protection to—the world’s leading privacy regimes:</p>
@@ -40,7 +40,7 @@ const sections = [
   },
   {
     id: 'data-we-collect',
-    title: '3 Information We Collect',
+    title: '3. Information We Collect',
     content: (
       <>
         <div className="overflow-x-auto">
@@ -67,7 +67,7 @@ const sections = [
   },
   {
     id: 'bases',
-    title: '4 Purposes & Legal Bases',
+    title: '4. Purposes & Legal Bases',
     content: (
       <>
         <div className="overflow-x-auto">
@@ -93,7 +93,7 @@ const sections = [
   },
   {
     id: 'cookies',
-    title: '5 Cookies & Tracking',
+    title: '5. Cookies & Tracking',
     content: (
       <>
         <p>We use session & persistent cookies plus similar technologies (e.g., localStorage) for: analytics, affiliate attribution, and UI preferences. You can control cookies via browser settings; disabling them may degrade some features (e.g., broker-comparison filters).</p>
@@ -102,11 +102,11 @@ const sections = [
   },
   {
     id: 'transfers',
-    title: '6 Global Data Transfers',
+    title: '6. Global Data Transfers',
     content: (
       <>
         <p>Our servers are hosted in [select cloud region]. If your data is transferred cross-border, we rely on:</p>
-        <ul className="list-disc ml-6 my-2">
+        <ul className="list-disc pl-10 my-2">
           <li>Standard Contractual Clauses (SCCs) for EEA/UK transfers</li>
           <li>UK Addendum to SCCs (where applicable)</li>
           <li>Implementing adequacy decisions, Binding Corporate Rules, or other recognised safeguards</li>
@@ -116,11 +116,11 @@ const sections = [
   },
   {
     id: 'sharing',
-    title: '7 How We Share Information',
+    title: '7. How We Share Information',
     content: (
       <>
         <p>We never sell personal data. We share only with:</p>
-        <ol className="list-decimal ml-6 my-2">
+        <ol className="list-decimal pl-10 my-2">
           <li>Service providers (hosting, analytics, email) bound by confidentiality & data-processing agreements.</li>
           <li>Affiliate networks / brokers to validate referral conversions—limited to click ID & timestamp.</li>
           <li>Advisers & auditors under NDA.</li>
@@ -132,7 +132,7 @@ const sections = [
   },
   {
     id: 'retention',
-    title: '8 Data Retention',
+    title: '8. Data Retention',
     content: (
       <>
         <p>We retain data only as long as necessary for each purpose, plus any statutory retention period (e.g., 5 yrs for tax). Afterward, data is anonymised or securely erased using NIST SP-800-88 methods.</p>
@@ -141,10 +141,10 @@ const sections = [
   },
   {
     id: 'security',
-    title: '9 Security Measures',
+    title: '9. Security Measures',
     content: (
       <>
-        <ul className="list-disc ml-6 my-2">
+        <ul className="list-disc pl-10 my-2">
           <li>HTTPS/TLS 1.3 encryption in transit</li>
           <li>At-rest encryption (AES-256) on production databases</li>
           <li>WAF & DDoS filtration, rate limiting</li>
@@ -158,7 +158,7 @@ const sections = [
   },
   {
     id: 'rights',
-    title: '10 Your Rights',
+    title: '10. Your Rights',
     content: (
       <>
         <div className="overflow-x-auto">
@@ -183,7 +183,7 @@ const sections = [
   },
   {
     id: 'automated',
-    title: '11 Automated Decision-Making',
+    title: '11. Automated Decision-Making',
     content: (
       <>
         <p>We do not use profiling or automated decisions that produce legal or similarly significant effects (GDPR Art. 22).</p>
@@ -192,7 +192,7 @@ const sections = [
   },
   {
     id: 'thirdparties',
-    title: '12 Third-Party Links',
+    title: '12. Third-Party Links',
     content: (
       <>
         <p>Outbound links to brokers & resources have independent privacy practices. Review their policies before providing personal data. We disclaim liability for third-party content or data handling.</p>
@@ -201,7 +201,7 @@ const sections = [
   },
   {
     id: 'children',
-    title: '13 Children’s Privacy',
+    title: '13. Children’s Privacy',
     content: (
       <>
         <p>The Site is not directed to children under 13. If you are a parent/guardian and believe your child provided data, contact us and we will delete it.</p>

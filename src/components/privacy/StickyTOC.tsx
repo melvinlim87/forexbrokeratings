@@ -5,28 +5,28 @@ import { Disclosure } from '@headlessui/react';
 import { ChevronDown } from 'lucide-react';
 
 const toc = [
-  { id: 'who-we-are', label: '1 Who We Are & Scope' },
-  { id: 'frameworks', label: '2 Legal Frameworks' },
-  { id: 'data-we-collect', label: '3 Information We Collect' },
-  { id: 'bases', label: '4 Purposes & Legal Bases' },
-  { id: 'cookies', label: '5 Cookies & Tracking' },
-  { id: 'transfers', label: '6 Global Data Transfers' },
-  { id: 'sharing', label: '7 How We Share Information' },
-  { id: 'retention', label: '8 Data Retention' },
-  { id: 'security', label: '9 Security Measures' },
-  { id: 'rights', label: '10 Your Rights' },
-  { id: 'automated', label: '11 Automated Decision-Making' },
-  { id: 'thirdparties', label: '12 Third-Party Links' },
-  { id: 'children', label: '13 Children’s Privacy' },
-  { id: 'changes', label: '14 Changes to This Policy' },
+  { id: 'who-we-are', label: '1. Who We Are & Scope' },
+  { id: 'frameworks', label: '2. Legal Frameworks' },
+  { id: 'data-we-collect', label: '3. Information We Collect' },
+  { id: 'bases', label: '4. Purposes & Legal Bases' },
+  { id: 'cookies', label: '5. Cookies & Tracking' },
+  { id: 'transfers', label: '6. Global Data Transfers' },
+  { id: 'sharing', label: '7. How We Share Information' },
+  { id: 'retention', label: '8. Data Retention' },
+  { id: 'security', label: '9. Security Measures' },
+  { id: 'rights', label: '10. Your Rights' },
+  { id: 'automated', label: '11. Automated Decision-Making' },
+  { id: 'thirdparties', label: '12. Third-Party Links' },
+  { id: 'children', label: '13. Children’s Privacy' },
+  { id: 'changes', label: '14. Changes to This Policy' },
 ];
 
 export default function StickyTOC({ mobileOnly }: { mobileOnly?: boolean }) {
   const tocList = (
     <nav aria-label="Table of contents" className="sticky top-[100px]">
-      <ul className="border-l-4 border-cyan-500 pl-4 space-y-2 px-4">
+      <ul className="pl-4 space-y-2">
         {toc.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} className='border-b border-gray-200 dark:border-gray-800'>
             <ScrollLink
               to={item.id}
               smooth
