@@ -319,6 +319,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               className={
                                 (category === 'PROMOTION'
                                   ? 'bg-purple-500 text-white '
+                                  : category === 'FREE VPS'
+                                  ? 'bg-blue-500 text-white '
                                   : category === 'CASH BONUS'
                                   ? 'bg-pink-500 text-white '
                                   : category === 'LIMITED OFFER'
