@@ -24,7 +24,7 @@ const toc = [
 export default function StickyTOC({ mobileOnly }: { mobileOnly?: boolean }) {
   const tocList = (
     <nav aria-label="Table of contents" className="sticky top-[100px]">
-      <ul className="border-l-4 border-cyan-500 pl-4 space-y-2">
+      <ul className="border-l-4 border-cyan-500 pl-4 space-y-2 px-4">
         {toc.map((item) => (
           <li key={item.id}>
             <ScrollLink

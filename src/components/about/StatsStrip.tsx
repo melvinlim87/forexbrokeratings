@@ -48,20 +48,15 @@ function Counter({ value, prefix = '', suffix = '' }: { value: number; prefix?: 
 }
 
 const StatsStrip = () => (
-  <section className="w-full my-10 bg-[#f8fafc] dark:bg-slate-900 rounded-xl flex flex-row justify-between items-stretch py-8 px-2 text-[#0b1e3c] dark:text-white shadow-sm border border-gray-100 dark:border-slate-800">
-    {stats.map((stat, idx) => (
-      <React.Fragment key={stat.label}>
-        {idx !== 0 && (
-          <div className="hidden md:flex items-center mx-6">
-            <div className="h-14 w-px bg-gray-300 dark:bg-slate-700" />
-          </div>
-        )}
-        <div className="flex flex-col items-center min-w-[140px] px-2">
+  <section className="w-full my-10 bg-[#f8fafc] dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 py-8 px-2 text-[#0b1e3c] dark:text-white">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-0 w-full">
+      {stats.map((stat) => (
+        <div key={stat.label} className="flex flex-col items-center justify-center w-full pt-4">
           <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-          <div className="text-sm mt-1 opacity-80 text-[#0b1e3c] dark:text-gray-200 text-center leading-snug">{stat.label}</div>
+          <div className="text-sm mt-2 opacity-80 text-[#0b1e3c] dark:text-gray-200 text-center leading-snug">{stat.label}</div>
         </div>
-      </React.Fragment>
-    ))}
+      ))}
+    </div>
   </section>
 );
 
