@@ -20,7 +20,7 @@ export default function Newsletter() {
   };
   
   return (
-    <section className="py-20 bg-blue-50 dark:bg-blue-900/20">
+    <section className="py-10 bg-blue-50 dark:bg-blue-900/20">
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto overflow-hidden shadow-xl border-0">
           <div className="grid grid-cols-1 md:grid-cols-5">

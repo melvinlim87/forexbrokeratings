@@ -20,7 +20,6 @@ const team = [
 
 const TeamPeek = () => (
   <section className="my-10">
-    <h2 className="text-2xl font-semibold mb-6 text-center">Meet the Team</h2>
     <div className="flex flex-wrap justify-center gap-6">
       {team.map((member) => (
         <div key={member.name} className="bg-white dark:bg-slate-900 rounded-lg shadow p-5 w-64 text-center hover:shadow-md transition-shadow">
