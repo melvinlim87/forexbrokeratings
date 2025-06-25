@@ -31,15 +31,14 @@ export default function NewsSlugPage({ params }: NewsPageProps) {
 
   return (
     <article className="prose dark:prose-invert mx-auto">
-      <h1 className="mb-2 text-2xl font-bold">{article.title}</h1>
-      <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">{article.date} • {article.category}</div>
+      <h1 className="mb-2 text-2xl font-bold">{article.headline}</h1>
+      <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">{article.publishedAt} • {article.category}</div>
       <img
-        src={article.image || '/mock/news-default.jpg'}
-        alt={article.title}
+        src={'/mock/news-default.jpg'}
+        alt={article.headline}
         className="rounded w-full mb-4 max-h-64 object-cover"
       />
       <div className="mb-6 text-lg leading-relaxed">{article.summary}</div>
-      <div className="text-base leading-relaxed whitespace-pre-line">{article.content}</div>
     </article>
   );
 }
