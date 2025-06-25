@@ -3,7 +3,7 @@ import { BookOpen, ArrowRight } from 'lucide-react';
 
 export default function GuidesLandingPage() {
   return (
-    <main className="bg-[#fff9f3] min-h-screen pb-24">
+    <main className="bg-[#f8f9fc] min-h-screen pb-24">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Guides & How-Tos</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Master forex trading with our expert guides, walkthroughs, and comparison tools.</h2>
