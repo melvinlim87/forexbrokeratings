@@ -902,37 +902,44 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <div className="bg-white rounded-lg">
                       <HexagonChart 
                         data={[
-                          { 
-                            label: 'User Traffic', 
-                            value: brokerData.user_traffic,
-                            maxValue: 5 
-                          },
-                          { 
-                            label: 'Regulations', 
-                            value: brokerData.regulations,
-                            maxValue: 5 
-                          },
-                          { 
-                            label: 'Risk Control', 
-                            value: brokerData.risk_control,
-                            maxValue: 5 
-                          },
-                          { 
-                            label: 'Promotions', 
-                            value: brokerData.promotions,
-                            maxValue: 5 
-                          },
-                          { 
-                            label: 'User Ratings', 
-                            value: brokerData.user_experience,
-                            maxValue: 5 
-                          },
-                          { 
-                            label: 'Environment', 
-                            value: brokerData.environment,
-                            maxValue: 5 
-                          },
-                        ]} 
+                          [
+                            { 
+                              label: 'User Traffic', 
+                              value: brokerData.user_traffic || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'Regulations', 
+                              value: brokerData.regulations || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'Risk Control', 
+                              value: brokerData.risk_control || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'Promotions', 
+                              value: brokerData.promotions || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'User Ratings', 
+                              value: brokerData.user_experience || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'Trading Platform', 
+                              value: brokerData.environment || 0,
+                              maxValue: 5 
+                            },
+                            { 
+                              label: 'Environment', 
+                              value: brokerData.environment || 0,
+                              maxValue: 5 
+                            },
+                          ]
+                        ]}
                         size={240}
                       />
                     </div>

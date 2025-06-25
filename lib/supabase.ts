@@ -1,12 +1,34 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase client configuration
-// In production, these should be environment variables
-const supabaseUrl = 'https://vsqwjqywvflfyumilhyx.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzcXdqcXl3dmZsZnl1bWlsaHl4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0OTYxMjMxNiwiZXhwIjoyMDY1MTg4MzE2fQ.EhdZ_Nb0atRBib6DH9rjoHW5xT0wsFZAmTczZAdgsCQ';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+// Validate environment variables
+if (!supabaseUrl || !supabaseKey) {
+  const errorMessage = `Missing Supabase environment variables.\n\n` +
+    `Please check your .env.local file and ensure the following variables are set:\n` +
+    `- NEXT_PUBLIC_SUPABASE_URL\n` +
+    `- NEXT_PUBLIC_SUPABASE_ANON_KEY\n\n` +
+    `Current values:\n` +
+    `- NEXT_PUBLIC_SUPABASE_URL: ${supabaseUrl ? 'Set' : 'Missing'}\n` +
+    `- NEXT_PUBLIC_SUPABASE_ANON_KEY: ${supabaseKey ? 'Set' : 'Missing'}`;
+  
+  throw new Error('Configuration error: Missing required environment variables');
+}
 
 // Create a single supabase client for interacting with your database
-export const supabase = createClient(supabaseUrl, supabaseKey);
+let supabaseClient;
+
+try {
+  supabaseClient = createClient(supabaseUrl, supabaseKey);
+  console.log('Supabase client initialized successfully');
+} catch (error) {
+  console.error('Failed to initialize Supabase client:', error);
+  throw new Error('Failed to initialize Supabase client. Please check your configuration.');
+}
+
+export const supabase = supabaseClient;
 
 // Type definitions for broker data
 export type BrokerDetails = {
