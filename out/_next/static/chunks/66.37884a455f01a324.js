@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[66],{7066:function(e,t,n){n.d(t,{setCompareSelection:function(){return c}});function c(e){localStorage.setItem("compare_broker_1",e)}}}]);
