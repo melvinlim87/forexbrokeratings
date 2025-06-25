@@ -160,29 +160,10 @@ export default function RankingsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      <div className="bg-metallic pt-28 pb-16 relative overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 2 }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
-          }}
-        />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Top Rated Forex Brokers
-            </h1>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              Comprehensive rankings of the best forex brokers based on our detailed analysis and evaluation criteria.
-            </p>
-          </div>
-        </div>
-      </div>
+      <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Top Rated Forex Brokers</h1>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Comprehensive rankings of the best forex brokers based on our detailed analysis and evaluation criteria.</h2>
+      </header>
 
       <div className="container mx-auto px-4 py-12">
         {loading ? (

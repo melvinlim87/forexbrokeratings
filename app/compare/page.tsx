@@ -189,8 +189,6 @@ export default function ComparePage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Compare Forex Brokers</h1>
-      
       {/* Selected Brokers */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Selected Brokers ({selectedBrokers.length}/3)</h2>
