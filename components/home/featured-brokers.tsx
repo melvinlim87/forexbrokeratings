@@ -148,7 +148,7 @@ export default function FeaturedBrokers() {
             </thead>
             <tbody className="bg-gray-50">
               {brokers.map((broker, idx) => (
-                <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-100 transition cursor-pointer" onClick={() => broker.website && window.open(broker.website, '_blank', 'noopener,noreferrer')}>
+                <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-100 transition cursor-pointer" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
                   <td className="px-4 py-3 text-center">
                     <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow">
                       #{broker.rank || idx + 1}
