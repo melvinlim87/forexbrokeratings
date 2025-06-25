@@ -2,83 +2,10 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 
-// Dummy data for this file only
-const regulators = [
-  {
-    tier: "1",
-    code: "FCA",
-    name: "Financial Conduct Authority",
-    jurisdiction: "United Kingdom",
-    leverageCap: "30:1 retail FX",
-    fundProtection: "FSCS up to £85,000",
-    notes: "Strictest client fund rules, regular audits, investor compensation.",
-    source: "https://register.fca.org.uk/",
-    flag: "gb",
-  },
-  {
-    tier: "1",
-    code: "ASIC",
-    name: "Australian Securities & Investments Commission",
-    jurisdiction: "Australia",
-    leverageCap: "30:1 retail FX",
-    fundProtection: "No statutory comp scheme",
-    notes: "Robust enforcement, leverage caps, no compensation scheme.",
-    source: "https://connectonline.asic.gov.au/",
-    flag: "au",
-  },
-  {
-    tier: "2",
-    code: "FSCA",
-    name: "Financial Sector Conduct Authority",
-    jurisdiction: "South Africa",
-    leverageCap: "No cap",
-    fundProtection: "No statutory comp scheme",
-    notes: "Popular for global brokers, moderate oversight.",
-    source: "https://www.fsca.co.za/",
-    flag: "za",
-  },
-  {
-    tier: "3",
-    code: "FSA Seychelles",
-    name: "Financial Services Authority Seychelles",
-    jurisdiction: "Seychelles",
-    leverageCap: "Unlimited",
-    fundProtection: "No statutory comp scheme",
-    notes: "Minimal oversight, used by global/offshore brokers.",
-    source: "https://fsaseychelles.sc/",
-    flag: "sc",
-  },
-];
+import { fetchRegulators, Regulators, fetchAllBrokerDetails } from "@/lib/supabase";
 
-const brokers = [
-  {
-    name: "FP Markets",
-    primaryTier1: ["ASIC", "CySEC"],
-    otherLicences: [
-      { regulator: "FSCA", licenceNo: "50926", entity: "FP Markets Pty Ltd", tier: "2" },
-      { regulator: "SVG", licenceNo: "Registration", entity: "FP Markets LLC", tier: "3" },
-    ],
-    overallTier: "1",
-  },
-  {
-    name: "RS Finance",
-    primaryTier1: [],
-    otherLicences: [
-      { regulator: "ASIC", licenceNo: "Unverified", entity: "RS Finance Pty Ltd", tier: "2" },
-    ],
-    overallTier: "Unregulated",
-  },
-  {
-    name: "Trade Nation",
-    primaryTier1: ["FCA", "ASIC"],
-    otherLicences: [
-      { regulator: "FSCA", licenceNo: "49846", entity: "Trade Nation Financial South Africa (Pty) Ltd", tier: "2" },
-      { regulator: "SCB", licenceNo: "SIA-F216", entity: "Trade Nation Ltd Bahamas", tier: "2" },
-      { regulator: "FSA Seychelles", licenceNo: "SD150", entity: "Trade Nation Ltd Seychelles", tier: "3" },
-    ],
-    overallTier: "1",
-  },
-];
+// Remove static brokers array
+
 
 const tierColors: Record<string, string> = {
   "1": "bg-green-600 text-white",
@@ -95,11 +22,35 @@ const RegulationsPage = () => {
   const [expandedBroker, setExpandedBroker] = useState<string | null>(null);
   const [tabIdx, setTabIdx] = useState(0);
   const [search, setSearch] = useState("");
+  const [regulators, setRegulators] = useState<Regulators[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  // Brokers state
+  const [brokers, setBrokers] = useState<any[]>([]);
+  const [brokersLoading, setBrokersLoading] = useState(true);
+  const [brokersError, setBrokersError] = useState<string | null>(null);
 
-  // Filter brokers by search
-  const filteredBrokers = brokers.filter((b) =>
-    b.name.toLowerCase().includes(search.toLowerCase())
-  );
+  React.useEffect(() => {
+    fetchRegulators()
+      .then((data) => {
+        setRegulators(data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+    // Fetch brokers from Supabase
+    fetchAllBrokerDetails()
+      .then((data) => {
+        setBrokers(data || []);
+        setBrokersLoading(false);
+      })
+      .catch((err) => {
+        setBrokersError(err.message);
+        setBrokersLoading(false);
+      });
+  }, []);
 
   // Group regulators by tier
   const regulatorsByTier = [
@@ -115,6 +66,13 @@ const RegulationsPage = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (loading || brokersLoading) {
+    return <div className="min-h-screen flex items-center justify-center text-xl text-gray-500">Loading data...</div>;
+  }
+  if (error || brokersError) {
+    return <div className="min-h-screen flex items-center justify-center text-xl text-red-500">Failed to load: {error || brokersError}</div>;
+  }
 
   return (
     <div className="bg-[#f8f9fc] min-h-screen font-sans">
@@ -158,28 +116,40 @@ const RegulationsPage = () => {
             ))}
           </Tab.List>
           <Tab.Panels>
-            {regulatorsByTier.map((tierRegs, idx) => (
-              <Tab.Panel key={idx} className="bg-white rounded-b shadow p-2 md:p-4">
-                <ul className="divide-y divide-gray-100">
-                  {tierRegs.map((reg) => (
-                    <li key={reg.code} className="py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                      <div className="flex items-center gap-3">
-                        <span className={`fi fi-${reg.flag} w-7 h-5 rounded overflow-hidden border`} title={reg.jurisdiction}></span>
-                        <span className="font-bold text-[#0b1e3c] text-lg">{reg.code}</span>
-                        <span className="text-gray-700">{reg.name}</span>
+          {regulatorsByTier.map((tierRegs: Regulators[], idx: number) => (
+            <Tab.Panel key={idx} className="bg-white rounded-b shadow p-2 md:p-4">
+              <ul className="flex flex-wrap gap-4">
+                {tierRegs.map((reg: Regulators) => (
+                  <li
+                    key={reg.code}
+                    className="flex flex-row items-center gap-4 rounded-xl px-4 py-3 bg-white w-full shadow-md min-h-[120px] w-full"
+                  >
+                    {/* Left: Logo */}
+                    <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-white rounded-lg border border-gray-100">
+                      <img src={reg.image} alt={reg.name} className="w-16 h-16 object-contain" />
+                    </div>
+                    {/* Center: Info */}
+                    <div className="flex-1 min-w-0 flex flex-col gap-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[#0b1e3c] font-bold text-2xl truncate max-w-[200px]">{reg.name}</span>
+                        <span className="text-gray-600 text-base font-semibold truncate max-w-[120px]">{reg.code}</span>
+                        <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">{Array.isArray(reg.jurisdiction) ? reg.jurisdiction.join(", ") : reg.jurisdiction}</span>
+                        <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">Established in {reg.published_year || 'N/A'}</span>
                       </div>
-                      <div className="flex flex-wrap gap-3 text-sm">
-                        <span className="bg-[#e8f7fa] px-2 py-1 rounded">Leverage: {reg.leverageCap}</span>
-                        <span className="bg-[#e8f7fa] px-2 py-1 rounded">Funds: {reg.fundProtection}</span>
-                        <a href={reg.source} target="_blank" rel="noopener noreferrer" className="underline text-[#00c7d4]">Register</a>
-                      </div>
-                      <div className="text-gray-500 text-xs md:w-1/3">{reg.notes}</div>
-                    </li>
-                  ))}
-                </ul>
-              </Tab.Panel>
-            ))}
-          </Tab.Panels>
+                      {reg.notes && (
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">
+                            {reg.notes}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Tab.Panel>
+          ))}
+        </Tab.Panels>
         </Tab.Group>
       </section>
 
@@ -195,62 +165,131 @@ const RegulationsPage = () => {
           aria-label="Search brokers"
         />
         <div className="overflow-x-auto rounded shadow bg-white">
-          <table className="min-w-full text-sm">
-            <thead className="bg-[#e8f7fa]">
-              <tr>
-                <th className="p-2 text-left">Broker</th>
-                <th className="p-2 text-left">Primary Tier-1 Licence(s)</th>
-                <th className="p-2 text-left">Other Licences</th>
-                <th className="p-2 text-left">Reg-Tier Badge</th>
-                <th className="p-2 text-left">Details</th>
+  <table className="min-w-full text-sm hidden md:table">
+    <thead className="bg-[#e8f7fa]">
+      <tr>
+        <th className="p-2 text-left">Broker</th>
+        <th className="p-2 text-left">Primary Tier-1 Licence(s)</th>
+        <th className="p-2 text-left">Other Licences</th>
+        <th className="p-2 text-left">Reg-Tier Badge</th>
+        <th className="p-2 text-left">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {brokers
+        .filter((b: any) => (b.name || "").toLowerCase().includes(search.toLowerCase()))
+        .map((broker: any) => {
+          // Derive primaryTier1, otherLicences, overallTier from broker fields if needed
+          // Fallbacks for demo: treat 'licenses' as otherLicences, 'regulators' as primaryTier1
+          const primaryTier1 = Array.isArray(broker.regulators) ? broker.regulators : [];
+          const otherLicences = Array.isArray(broker.licenses)
+            ? broker.licenses.map((lic: string, idx: number) => ({
+                regulator: lic,
+                licenceNo: broker.license_numbers?.[idx] || '',
+                entity: broker.name,
+                tier: broker.tier || '2',
+              }))
+            : [];
+          const overallTier = broker.tier || (broker.is_regulated ? "1" : "Unregulated");
+          return (
+            <React.Fragment key={broker.id || broker.name}>
+              <tr className="border-b">
+                <td className="p-2 font-semibold text-[#0b1e3c]">{broker.name}</td>
+                <td className="p-2">
+                  {primaryTier1.length ? primaryTier1.join(", ") : <span className="text-gray-400">None</span>}
+                </td>
+                <td className="p-2">
+                  {otherLicences.length ? otherLicences.map((l: any) => l.regulator).join(", ") : <span className="text-gray-400">None</span>}
+                </td>
+                <td className="p-2">
+                  <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[overallTier])}>{overallTier}</span>
+                </td>
+                <td className="p-2">
+                  <button
+                    aria-expanded={expandedBroker === broker.name}
+                    aria-controls={`details-${broker.name}`}
+                    onClick={() => setExpandedBroker(expandedBroker === broker.name ? null : broker.name)}
+                    className="transition-colors px-3 py-1 rounded bg-[#e8f7fa] hover:bg-[#00c7d4]/20 text-[#0b1e3c]"
+                  >
+                    <span className="sr-only">Show details</span>
+                    <svg className={`inline w-4 h-4 transform transition-transform ${expandedBroker === broker.name ? "rotate-90" : "rotate-0"}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredBrokers.map((broker) => (
-                <React.Fragment key={broker.name}>
-                  <tr className="border-b">
-                    <td className="p-2 font-semibold text-[#0b1e3c]">{broker.name}</td>
-                    <td className="p-2">
-                      {broker.primaryTier1.length ? broker.primaryTier1.join(", ") : <span className="text-gray-400">None</span>}
-                    </td>
-                    <td className="p-2">
-                      {broker.otherLicences.length ? broker.otherLicences.map(l => l.regulator).join(", ") : <span className="text-gray-400">None</span>}
-                    </td>
-                    <td className="p-2">
-                      <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[broker.overallTier])}>{broker.overallTier}</span>
-                    </td>
-                    <td className="p-2">
-                      <button
-                        aria-expanded={expandedBroker === broker.name}
-                        aria-controls={`details-${broker.name}`}
-                        onClick={() => setExpandedBroker(expandedBroker === broker.name ? null : broker.name)}
-                        className="transition-colors px-3 py-1 rounded bg-[#e8f7fa] hover:bg-[#00c7d4]/20 text-[#0b1e3c]"
-                      >
-                        <span className="sr-only">Show details</span>
-                        <svg className={`inline w-4 h-4 transform transition-transform ${expandedBroker === broker.name ? "rotate-90" : "rotate-0"}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                      </button>
-                    </td>
-                  </tr>
-                  {expandedBroker === broker.name && (
-                    <tr id={`details-${broker.name}`}>
-                      <td colSpan={5} className="bg-[#f8f9fc] p-4">
-                        <ul className="space-y-2">
-                          {broker.otherLicences.map((lic, idx) => (
-                            <li key={idx} className="flex flex-col md:flex-row md:items-center md:gap-4 text-sm">
-                              <span className="font-semibold text-[#0b1e3c]">{lic.entity}</span>
-                              <span className="text-gray-600">{lic.regulator} <span className="text-gray-400">{lic.licenceNo}</span></span>
-                              <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[lic.tier])}>{lic.tier}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  )}
-                </React.Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              {expandedBroker === broker.name && (
+                <tr id={`details-${broker.name}`}>
+                  <td colSpan={5} className="bg-[#f8f9fc] p-4">
+                    <ul className="space-y-2">
+                      {otherLicences.map((lic: any, idx: number) => (
+                        <li key={idx} className="flex flex-col md:flex-row md:items-center md:gap-4 text-sm">
+                          <span className="font-semibold text-[#0b1e3c]">{lic.entity}</span>
+                          <span className="text-gray-600">{lic.regulator} <span className="text-gray-400">{lic.licenceNo}</span></span>
+                          <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[lic.tier])}>{lic.tier}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          );
+        })}
+    </tbody>
+  </table>
+  {/* Mobile vertical cards */}
+  <div className="flex flex-col gap-4 md:hidden p-2">
+    {brokers
+      .filter((b: any) => (b.name || "").toLowerCase().includes(search.toLowerCase()))
+      .map((broker: any) => {
+        const primaryTier1 = Array.isArray(broker.regulators) ? broker.regulators : [];
+        const otherLicences = Array.isArray(broker.licenses)
+          ? broker.licenses.map((lic: string, idx: number) => ({
+              regulator: lic,
+              licenceNo: broker.license_numbers?.[idx] || '',
+              entity: broker.name,
+              tier: broker.tier || '2',
+            }))
+          : [];
+        const overallTier = broker.tier || (broker.is_regulated ? "1" : "Unregulated");
+        return (
+          <div key={broker.id || broker.name} className="bg-white rounded shadow border border-gray-100">
+            <div className="flex flex-col gap-2 p-3">
+              <div className="flex items-center justify-between">
+                <span className="font-semibold text-[#0b1e3c] text-lg">{broker.name}</span>
+                <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[overallTier])}>{overallTier}</span>
+              </div>
+              <div className="flex flex-col gap-1 mt-1">
+                <span className="text-xs text-gray-500">Primary Tier-1 Licence(s): <span className="font-medium text-[#0b1e3c]">{primaryTier1.length ? primaryTier1.join(", ") : "None"}</span></span>
+                <span className="text-xs text-gray-500">Other Licences: <span className="font-medium text-[#0b1e3c]">{otherLicences.length ? otherLicences.map((l: any) => l.regulator).join(", ") : "None"}</span></span>
+              </div>
+              <button
+                aria-expanded={expandedBroker === broker.name}
+                aria-controls={`details-${broker.name}`}
+                onClick={() => setExpandedBroker(expandedBroker === broker.name ? null : broker.name)}
+                className="transition-colors px-3 py-1 mt-2 rounded bg-[#e8f7fa] hover:bg-[#00c7d4]/20 text-[#0b1e3c] w-fit self-end"
+              >
+                <span className="sr-only">Show details</span>
+                <svg className={`inline w-4 h-4 transform transition-transform ${expandedBroker === broker.name ? "rotate-90" : "rotate-0"}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </button>
+              {expandedBroker === broker.name && (
+                <div id={`details-${broker.name}`} className="bg-[#f8f9fc] mt-2 rounded p-2">
+                  <ul className="space-y-2">
+                    {otherLicences.map((lic: any, idx: number) => (
+                      <li key={idx} className="flex flex-col gap-1 text-sm">
+                        <span className="font-semibold text-[#0b1e3c]">{lic.entity}</span>
+                        <span className="text-gray-600">{lic.regulator} <span className="text-gray-400">{lic.licenceNo}</span></span>
+                        <span className={classNames("inline-block px-2 py-1 rounded text-xs font-bold", tierColors[lic.tier])}>{lic.tier}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+  </div>
+</div>
       </section>
 
       {/* CalloutDisclaimer */}

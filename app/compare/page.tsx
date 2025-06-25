@@ -354,23 +354,87 @@ export default function ComparePage() {
                   />
                   <span className="text-lg font-bold text-black uppercase tracking-wider">{broker.name}</span>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between"><span className="font-medium">Minimum Deposit:</span> <span>{broker.min_deposit || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Minimum Withdrawal:</span> <span>{broker.min_withdrawl || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">EUR/USD Spread:</span> <span>{broker.spread_eur_usd || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Max Leverage:</span> <span>{broker.leverage_max ? `1:${broker.leverage_max}` : 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Account Types:</span> <span>{broker.account_types?.join(', ') || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Trading Platforms:</span> <span>{broker.platforms?.join(', ') || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Instruments:</span> <span>{broker.instruments?.slice(0, 3).join(', ')}{broker.instruments && broker.instruments.length > 3 && '...'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Deposit Fees:</span> <span>{broker.deposit_fees || 'No fees'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Withdrawal Fees:</span> <span>{broker.withdrawal_fees || 'No fees'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Deposit Methods:</span> <span>{broker.deposit_methods?.join(', ') || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Overall Rating:</span> <span>{(((broker.sw + broker.regulations + broker.risk_control + broker.promotions + broker.user_experience + broker.environment) / 6).toFixed(1))} /5</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Regulation Status:</span> <span>{broker.is_regulated ? 'Regulated' : 'Not Regulated'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Email:</span> <span>{broker.email ? (<a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">{broker.email}</a>) : 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Phone:</span> <span>{broker.phone_numbers?.length ? broker.phone_numbers.map((phone, i) => (<a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline ml-1">{phone}</a>)) : 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Support Channels:</span> <span>{broker.channels?.join(', ') || 'N/A'}</span></div>
-                  <div className="flex justify-between"><span className="font-medium">Response Time:</span> <span>{broker.response_time || 'N/A'}</span></div>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="font-medium">Minimum Deposit:</span> 
+                    <span>{broker.min_deposit || 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Minimum Withdrawal:</span> 
+                    <span>{broker.min_withdrawl || 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">EUR/USD Spread:</span> 
+                    <span>{broker.spread_eur_usd || 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Max Leverage:</span> 
+                    <span>{broker.leverage_max ? `1:${broker.leverage_max}` : 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Account Types:</span> 
+                    <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">
+                      {broker.account_types?.map((account_type, i) => (
+                        <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{account_type}</span>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Trading Platforms:</span> 
+                    <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">
+                      {broker.platforms?.map((platform, i) => (
+                        <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{platform}</span>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <span className="font-medium">Instruments:</span>
+                    <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">
+                      {broker.instruments?.map((instrument, i) => (
+                        <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{instrument}</span>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Deposit Fees:</span> 
+                    <span>{broker.deposit_fees || 'No fees'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Withdrawal Fees:</span> 
+                    <span>{broker.withdrawal_fees || 'No fees'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Deposit Methods:</span> 
+                    <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">
+                      {broker.deposit_methods?.map((deposit_method, i) => (
+                        <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{deposit_method}</span>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Overall Rating:</span> 
+                    <span>{(((broker.sw + broker.regulations + broker.risk_control + broker.promotions + broker.user_experience + broker.environment) / 6).toFixed(1))} /5</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Regulation Status:</span> 
+                    <span>{broker.is_regulated ? 'Regulated' : 'Not Regulated'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Email:</span> 
+                    <span>{broker.email ? (<a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">{broker.email}</a>) : 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Phone:</span> 
+                    <span>{broker.phone_numbers?.length ? broker.phone_numbers.map((phone, i) => (<a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline ml-1">{phone}</a>)) : 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Support Channels:</span> 
+                    <span>{broker.channels?.join(', ') || 'N/A'}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">Response Time:</span> 
+                    <span>{broker.response_time || 'N/A'}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -446,7 +510,15 @@ export default function ComparePage() {
                   <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Account Types</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
-                      {broker.account_types?.join(', ') || 'N/A'}
+                      {broker.account_types && Array.isArray(broker.account_types) && broker.account_types.length > 0 ? (
+                        <div className="flex flex-wrap gap-1 align-center justify-center">
+                          {broker.account_types?.map((account_type, i) => (
+                            <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{account_type}</span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -454,16 +526,31 @@ export default function ComparePage() {
                   <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Trading Platforms</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
-                      {broker.platforms?.join(', ') || 'N/A'}
+                      {broker.platforms && Array.isArray(broker.platforms) && broker.platforms.length > 0 ? (
+                        <div className="flex flex-wrap gap-1 align-center justify-center">
+                          {broker.platforms?.map((platform, i) => (
+                            <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{platform}</span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
                     </td>
-                  ))}
+                    ))}
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Instruments</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
-                      {broker.instruments?.slice(0, 3).join(', ')}
-                      {broker.instruments && broker.instruments.length > 3 && '...'}
+                      {broker.instruments && Array.isArray(broker.instruments) && broker.instruments.length > 0 ? (
+                        <div className="flex flex-wrap gap-1 align-center justify-center">
+                          {broker.instruments?.map((instrument, i) => (
+                            <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{instrument}</span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -492,7 +579,15 @@ export default function ComparePage() {
                   <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Deposit Methods</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
-                      {broker.deposit_methods?.join(', ') || 'N/A'}
+                      {broker.deposit_methods && Array.isArray(broker.deposit_methods) && broker.deposit_methods.length > 0 ? (
+                        <div className="flex flex-wrap gap-1 align-center justify-center">
+                          {broker.deposit_methods?.map((deposit_method, i) => (
+                            <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{deposit_method}</span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
                     </td>
                   ))}
                 </tr>

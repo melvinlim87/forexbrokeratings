@@ -137,7 +137,7 @@ export type Regulators = {
   code: string;
   leverage_cap: string;
   jurisdiction: string[];
-  image: string[];
+  image: string;
   published_year: string;
   notes: string;
   source: string;
@@ -475,4 +475,38 @@ export async function fetchRegulators() {
   }
   
   return data;
+}
+
+// Type for join table (optional, for clarity)
+export type BrokerDetailRegulatorJoin = {
+  id: number;
+  broker_detail_id: number;
+  regulator_id: number;
+};
+
+// Fetch all regulators for a broker_detail_id via join table
+export async function fetchRegulatorsById(broker_detail_id: number): Promise<Regulators[]> {
+  // Get all regulator_ids for this broker_detail_id
+  const { data: joins, error: joinError } = await supabase
+    .from('broker_detail_regulators')
+    .select('regulator_id')
+    .eq('broker_detail_id', broker_detail_id);
+
+  if (joinError) {
+    throw new Error(joinError.message);
+  }
+  if (!joins || joins.length === 0) return [];
+
+  const regulatorIds = joins.map((j: { regulator_id: number }) => j.regulator_id);
+
+  // Fetch all regulators with those ids
+  const { data: regulators, error: regError } = await supabase
+    .from('regulators')
+    .select('*')
+    .in('id', regulatorIds);
+
+  if (regError) {
+    throw new Error(regError.message);
+  }
+  return regulators || [];
 }
