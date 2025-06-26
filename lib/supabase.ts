@@ -166,6 +166,27 @@ export type Regulators = {
   created_at: string;
 };
 
+// Type definitions for News
+export type News = {
+  id: string;
+  headline: string;
+  slug: string;
+  summary: string;
+  category: string;
+  source: string;
+  tags: string[];
+  created_at: string;
+};
+
+export type Subscribers = {
+  id: number;
+  name: string;
+  email: string;
+  country_code: string;
+  mobileno: string;
+  created_at: string;
+};
+
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
   const { data, error } = await supabase
@@ -531,4 +552,36 @@ export async function fetchRegulatorsById(broker_detail_id: number): Promise<Reg
     throw new Error(regError.message);
   }
   return regulators || [];
+}
+
+// Function to fetch news
+export async function fetchNews() {
+  const { data, error } = await supabase
+    .from('news')
+    .select('*')
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to save subscribers
+export async function saveSubscribers(subscriber: Subscribers) {
+  const { data, error } = await supabase
+    .from('subscribers')
+    .insert([{
+      name: subscriber.name,
+      email: subscriber.email,
+      country_code: subscriber.country_code,
+      mobileno: subscriber.mobileno,
+      created_at: subscriber.created_at,
+    }]);
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
 }

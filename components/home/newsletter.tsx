@@ -6,16 +6,55 @@ import { Mail, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
+import { saveSubscribers } from '@/lib/supabase';
 
 export default function Newsletter() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  const handleSubmit = (e: React.FormEvent) => {
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  function validateEmail(email: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle submission logic here
-    if (email) {
+    setError('');
+    setSuccess(false);
+    if (!name.trim()) {
+      setError('Name is required.');
+      return;
+    }
+    if (!email) {
+      setError('Email is required.');
+      return;
+    }
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setLoading(true);
+    try {
+      await saveSubscribers({
+        id: undefined as any, // Let Supabase auto-increment
+        name,
+        email,
+        country_code: '',
+        mobileno: '',
+        created_at: new Date().toISOString(),
+      });
+      setSuccess(true);
       setIsSubmitted(true);
+      setName('');
+      setEmail('');
+    } catch (err) {
+      console.log(err)
+      setError('Failed to subscribe. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -45,19 +84,35 @@ export default function Newsletter() {
                 
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="gap-3">
+                      <Input
+                        type="text"
+                        placeholder="Enter your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="flex-grow mb-2"
+                        disabled={loading}
+                      />
                       <Input
                         type="email"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="flex-grow"
+                        className="flex-grow mb-2"
+                        disabled={loading}
                       />
-                      <Button type="submit" className="whitespace-nowrap">
-                        Subscribe
+                      <Button type="submit" className="whitespace-nowrap" disabled={loading}>
+                        {loading ? 'Subscribing…' : 'Subscribe'}
                       </Button>
                     </div>
+                    {error && (
+                      <div className="text-red-600 text-xs mt-1" role="alert">{error}</div>
+                    )}
+                    {success && (
+                      <div className="text-green-700 text-xs mt-1" role="status">Successfully subscribed!</div>
+                    )}
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       We respect your privacy. Unsubscribe at any time.
                     </p>
@@ -72,7 +127,8 @@ export default function Newsletter() {
                     <div>
                       <p className="font-medium text-green-800 dark:text-green-300">Thanks for subscribing!</p>
                       <p className="text-sm text-green-700 dark:text-green-400 mt-1">
-                        We've sent a confirmation email to <span className="font-medium">{email}</span>
+                        {/* We've sent a confirmation email to <span className="font-medium">{email}</span> */}
+                        We'll keep you updated with the latest broker reviews, news, and insights.
                       </p>
                     </div>
                   </div>

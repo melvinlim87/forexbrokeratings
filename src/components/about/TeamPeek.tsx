@@ -2,12 +2,12 @@ import React from 'react';
 
 const team = [
   {
-    name: 'Melvin Lim',
+    name: 'David Lim',
     role: 'Founder & Lead Reviewer',
     bio: 'Retail trader. Data geek. Built FBR to help others avoid the mistakes he made.'
   },
   {
-    name: 'Jun Wei',
+    name: 'Kelvin',
     role: 'Co-Founder & Product',
     bio: 'Product builder. Obsessed with transparency and user experience.'
   },

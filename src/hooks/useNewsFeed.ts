@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import type { NewsItem } from '../types/news';
+import { fetchNews, type News } from '../../lib/supabase';
 
 export interface UseNewsFeedOptions {
   category?: string;
@@ -10,14 +10,12 @@ export interface UseNewsFeedOptions {
 export function useNewsFeed({ category = 'All', search = '' }: UseNewsFeedOptions) {
   const [pageSize] = useState(8);
 
-  return useInfiniteQuery<{ items: NewsItem[]; nextPage?: number }>({
+  return useInfiniteQuery<{ items: News[]; nextPage?: number }>({
     queryKey: ['news', category, search],
     queryFn: async ({ pageParam = 1 }) => {
       const page = Number(pageParam) || 1;
-      // For dev, fetch from mock JSON
-      const url = `/mock/news.json`;
-      const res = await fetch(url);
-      const allData: NewsItem[] = await res.json();
+      // Fetch from Supabase
+      const allData: News[] = await fetchNews();
       // Filter by category and search
       let filtered = allData;
       if (category && category !== 'All') {
@@ -29,7 +27,7 @@ export function useNewsFeed({ category = 'All', search = '' }: UseNewsFeedOption
           (item) =>
             item.headline.toLowerCase().includes(q) ||
             item.summary.toLowerCase().includes(q) ||
-            item.tags.some((t) => t.toLowerCase().includes(q))
+            (item.tags && item.tags.some((t) => t.toLowerCase().includes(q)))
         );
       }
       // Pagination

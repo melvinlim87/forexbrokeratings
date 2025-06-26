@@ -1,5 +1,8 @@
 import React from 'react';
 import type { NewsItem } from '../../types/news';
+import type { News } from '@/lib/supabase';
+
+type NewsCardItem = NewsItem | News;
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Timer } from 'lucide-react';
@@ -12,7 +15,7 @@ const categoryColors: Record<string, string> = {
   Education: 'bg-green-100 text-green-800',
 };
 
-const NewsCard: React.FC<{ item: NewsItem }> = ({ item }) => (
+const NewsCard: React.FC<{ item: NewsCardItem }> = ({ item }) => (
   <article
     className="w-full rounded-lg border border-[#e6e8ec] bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow duration-150 p-4 mt-2 mb-2"
     tabIndex={0}
@@ -26,7 +29,7 @@ const NewsCard: React.FC<{ item: NewsItem }> = ({ item }) => (
     </p>
     <div className="flex flex-wrap gap-2 items-center text-xs mt-2 text-[#6b7280]">
       <span className="flex items-center bg-gray-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">
-        <Timer className="w-4 h-4 mr-1 pt-0.5 pb-0.5" /> {dayjs(item.publishedAt).fromNow()}
+        <Timer className="w-4 h-4 mr-1 pt-0.5 pb-0.5" /> {dayjs(item.created_at).fromNow()}
       </span>
       <span className={`px-2 py-0.5 rounded-full font-medium ${categoryColors[item.category] || 'bg-gray-200 text-gray-700'}`}>{item.category}</span>
       <span className="bg-gray-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">{item.source}</span>
