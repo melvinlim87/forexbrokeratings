@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'standalone',
   images: {
     domains: ['images.pexels.com', 'via.placeholder.com'],
     unoptimized: true

@@ -38,14 +38,25 @@ export default function Newsletter() {
     }
     setLoading(true);
     try {
-      await saveSubscribers({
-        id: undefined as any, // Let Supabase auto-increment
-        name,
-        email,
-        country_code: '',
-        mobileno: '',
-        created_at: new Date().toISOString(),
-      });
+      // await saveSubscribers({
+      //   id: undefined as any, // Let Supabase auto-increment
+      //   name,
+      //   email,
+      //   country_code: '',
+      //   mobileno: '',
+      //   created_at: new Date().toISOString(),
+      // });
+      // Send welcome email
+      try {
+        await fetch('/api/send-welcome-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name }),
+        });
+      } catch (e) {
+        // Optionally log or toast, but don't block success
+        console.warn('Welcome email failed to send', e);
+      }
       setSuccess(true);
       setIsSubmitted(true);
       setName('');
