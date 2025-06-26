@@ -6,9 +6,15 @@ interface NewsPageProps {
   params: { slug: string };
 }
 
+// Helper to sanitize slugs for safe filenames/paths
+function sanitizeSlug(slug: string) {
+  // Replace invalid filename characters with '-'
+  return slug.replace(/[\\/:*?"<>|]/g, '-');
+}
+
 export async function generateStaticParams() {
   const news: News[] = await fetchNews();
-  return news.map((item) => ({ slug: item.slug })) ?? [];
+  return news.map((item) => ({ slug: sanitizeSlug(item.slug) })) ?? [];
 }
 
 export default async function NewsSlugPage(props: { params: { slug: string } }) {
