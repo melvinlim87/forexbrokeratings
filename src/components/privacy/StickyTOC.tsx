@@ -30,7 +30,7 @@ export default function StickyTOC({ mobileOnly }: { mobileOnly?: boolean }) {
             <ScrollLink
               to={item.id}
               smooth
-              offset={-32}
+              offset={-72} // Offset for fixed header height (72px)
               duration={300}
               className="block cursor-pointer text-base text-gray-700 dark:text-gray-200 hover:text-cyan-600 focus:text-cyan-600 transition-colors py-1"
               activeClass="font-bold text-cyan-600"

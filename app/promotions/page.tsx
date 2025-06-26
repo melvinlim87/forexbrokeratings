@@ -214,11 +214,13 @@ export default function PromotionsPage() {
                     <span
                       key={idx}
                       className={
-                        (category === 'PROMOTION'
+                        (category.includes('PROMO')
                           ? 'bg-purple-500 text-white '
-                          : category === 'CASH BONUS'
+                          : category.includes('BONUS')
                           ? 'bg-pink-500 text-white '
-                          : category === 'LIMITED OFFER'
+                          : category.includes('FREE')
+                          ? 'bg-blue-500 text-white '
+                          : category.includes('LIMITED')
                           ? 'bg-green-500 text-white '
                           : 'bg-gray-300 text-gray-800 ') +
                         'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
@@ -356,11 +358,13 @@ export default function PromotionsPage() {
                     <span
                       key={idx}
                       className={
-                        (category === 'PROMOTION'
+                        (category.includes('PROMO')
                           ? 'bg-purple-500 text-white '
-                          : category === 'CASH BONUS'
+                          : category.includes('BONUS')
                           ? 'bg-pink-500 text-white '
-                          : category === 'LIMITED OFFER'
+                          : category.includes('FREE')
+                          ? 'bg-blue-500 text-white '
+                          : category.includes('LIMITED')
                           ? 'bg-green-500 text-white '
                           : 'bg-gray-300 text-gray-800 ') +
                         'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
@@ -406,30 +410,30 @@ export default function PromotionsPage() {
                   )}
                 </div>
                 {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && (promo.conditions as any).type === 'list' && (() => {
-  type ListCondition = { type: 'list'; items: string[]; extra?: string[]; warning?: string };
-  const listCond = promo.conditions as ListCondition;
-  return (
-    <div className="mb-4">
-      <ul className="text-xs text-gray-700 list-disc list-inside">
-        {listCond.items.map((item: string, i: number) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
-      {listCond.extra && listCond.extra.length > 0 && (
-        <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
-          {listCond.extra.map((item: string, i: number) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      )}
-      {listCond.warning && listCond.warning.length > 0 && (
-        <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
-          {listCond.warning}
-        </div>
-      )}
-    </div>
-  );
-})()}
+                  type ListCondition = { type: 'list'; items: string[]; extra?: string[]; warning?: string };
+                  const listCond = promo.conditions as ListCondition;
+                  return (
+                    <div className="mb-4">
+                      <ul className="text-xs text-gray-700 list-disc list-inside">
+                        {listCond.items.map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                      {listCond.extra && listCond.extra.length > 0 && (
+                        <ul className="mt-2 text-xs text-gray-500 list-disc list-inside">
+                          {listCond.extra.map((item: string, i: number) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      )}
+                      {listCond.warning && listCond.warning.length > 0 && (
+                        <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
+                          {listCond.warning}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
 
                 {/* Promo Button */}
                 <a

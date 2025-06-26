@@ -27,11 +27,11 @@ export default function AboutPage() {
           <CorePillarsGrid />
         </section>
         {/* Team Section with floating card effect */}
-        <section className="relative bg-white/95 dark:bg-slate-900/95 rounded-2xl shadow-2xl p-8 border border-cyan-100 dark:border-slate-800 overflow-visible">
+        {/* <section className="relative bg-white/95 dark:bg-slate-900/95 rounded-2xl shadow-2xl p-8 border border-cyan-100 dark:border-slate-800 overflow-visible">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-1 rounded bg-gradient-to-r from-cyan-400 to-blue-400 opacity-60" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-700 dark:text-cyan-300 text-center">Meet the Team</h2>
           <TeamPeek />
-        </section>
+        </section> */}
         {/* Newsletter with top border accent */}
         <section className="rounded-xl shadow p-6 border-t-4 border-cyan-400 dark:border-cyan-700 bg-white/95 dark:bg-slate-900/95">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-1 rounded bg-gradient-to-r from-cyan-400 to-blue-400 opacity-60" />

@@ -150,7 +150,7 @@ export default function FeaturedBrokers() {
               {brokers.map((broker, idx) => (
                 <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-100 transition cursor-pointer" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
                   <td className="px-4 py-3 text-center">
-                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow">
+                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-sm md:text-lg shadow">
                       #{broker.rank || idx + 1}
                     </span>
                   </td>
@@ -163,8 +163,8 @@ export default function FeaturedBrokers() {
                       )}
                     </div>
                     <div>
-                      <div className="font-semibold text-black leading-tight">{broker.name}</div>
-                      <div className="text-xs text-gray-400">{broker.year_published || ''}</div>
+                      <div className="font-semibold text-black leading-tight text-sm md:text-lg ">{broker.name}</div>
+                      <div className="text-sm md:text-md text-gray-400">{broker.year_published || ''}</div>
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center">
@@ -172,16 +172,16 @@ export default function FeaturedBrokers() {
                       {Array.from({ length: 5 }).map((_, i) => (
                         <svg key={i} className={`w-4 h-4 ${i < Math.round(broker.avgRating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
                       ))}
-                      <span className="ml-1 text-xs text-gray-600">{broker.avgRating?.toFixed(2)}</span>
+                      <span className="ml-1 text-sm md:text-lg text-gray-600">{broker.avgRating?.toFixed(2)}</span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-center text-cyan-600 font-medium">
+                  <td className="px-4 py-3 text-center text-cyan-600 font-medium text-sm md:text-lg ">
                     {broker.spread_eur_usd || 'N/A'}
                   </td>
-                  <td className="px-4 py-3 text-center text-blue-600 font-medium">
+                  <td className="px-4 py-3 text-center text-blue-600 font-medium text-sm md:text-lg ">
                     {broker.leverage_max || 'N/A'}
                   </td>
-                  <td className="px-4 py-3 text-center text-green-600 font-medium">
+                  <td className="px-4 py-3 text-center text-green-600 font-medium text-sm md:text-lg ">
                     {broker.min_deposit || 'N/A'}
                   </td>
                   <td className="px-4 py-3 text-center">

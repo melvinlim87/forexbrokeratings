@@ -317,13 +317,13 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             <span
                               key={idx}
                               className={
-                                (category === 'PROMOTION'
+                                (category.includes('PROMO')
                                   ? 'bg-purple-500 text-white '
-                                  : category === 'FREE VPS'
-                                  ? 'bg-blue-500 text-white '
-                                  : category === 'CASH BONUS'
+                                  : category.includes('BONUS')
                                   ? 'bg-pink-500 text-white '
-                                  : category === 'LIMITED OFFER'
+                                  : category.includes('FREE')
+                                  ? 'bg-blue-500 text-white '
+                                  : category.includes('LIMITED')
                                   ? 'bg-green-500 text-white '
                                   : 'bg-gray-300 text-gray-800 ') +
                                 'px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap mr-2'
@@ -932,11 +932,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             },
                             { 
                               label: 'Trading Platform', 
-                              value: brokerData.environment || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'Environment', 
                               value: brokerData.environment || 0,
                               maxValue: 5 
                             },

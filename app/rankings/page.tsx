@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, ArrowRight, ArrowUpRight, Shield, TrendingUp } from 'lucide-react';
+import { Award, ArrowRight, ArrowUpRight, Shield, TrendingUp, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -57,6 +57,7 @@ const rankedBrokers = [
 ];
 
 export default function RankingsPage() {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [brokers, setBrokers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -64,7 +65,7 @@ export default function RankingsPage() {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const itemsPerPage = 6;
+  const itemsPerPage = 10;
   
   const fetchBrokers = async (pageNumber: number, isInitialLoad = false) => {
     if (isInitialLoad) setLoading(true);
@@ -74,6 +75,7 @@ export default function RankingsPage() {
       const data = await fetchAllBrokerDetails();
       
       if (data && data.length > 0) {
+
         // Format the brokers data to match our expected structure
         const startIndex = (pageNumber - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -109,6 +111,7 @@ export default function RankingsPage() {
             slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${startIndex + index + 1}`,
             spread_eur_usd: broker.spread_eur_usd,
             leverage_max: broker.leverage_max,
+            regulators: broker.regulators,
           };
         });
         
@@ -191,90 +194,194 @@ export default function RankingsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto">
                   <div className="space-y-8">
                     {left.map((broker, index) => (
-                      <Link key={broker.rank} href={`/broker/${broker.slug}`}>
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: index * 0.1 }}
-                          onMouseEnter={() => setHoveredCard(broker.rank)}
-                          onMouseLeave={() => setHoveredCard(null)}
-                        >
-                          <Card className="flex flex-row items-center gap-4 px-6 py-6 mb-4 border border-gray-200 dark:border-gray-800 shadow w-full min-w-0">
-                            {/* Ranking Badge */}
-                            <div className="flex flex-col items-center mr-4 min-w-[4px]">
-                              <div className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-md text-white bg-gradient-to-br from-yellow-400 to-orange-400">
+                      <motion.div
+                        key={broker.rank}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        onMouseEnter={() => setHoveredCard(broker.rank)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                      >
+                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 dark:border-gray-800 shadow-lg rounded-xl bg-white dark:bg-gray-900 w-full min-w-0 transition hover:shadow-xl">
+                          {/* Top: Rank & Logo Row */}
+                          <div className="flex flex-row items-center gap-4">
+                            <div className="flex flex-col items-center min-w-[4px]">
+                              <div className="rounded-full w-10 h-10 flex items-center justify-center font-extrabold text-lg text-white bg-gradient-to-br from-yellow-400 to-orange-400 shadow">
                                 #{broker.rank}
                               </div>
                             </div>
-                            {/* Logo */}
-                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[32px]">
-                              <Image src={broker.logo} alt={broker.name} width={32} height={32} className="object-contain h-14 w-14" />
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 flex items-center justify-center min-w-[40px]">
+                              <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
-                            {/* Main Info */}
-                            <div className="flex-1 min-w-0 w-full flex flex-row items-center gap-4">
-                              <span className="text-lg font-bold text-gray-900 dark:text-white w-40 truncate">{broker.name}</span>
-                              {/* Key stats row */}
-                              <div className="flex flex-col items-start w-28">
-                                <span className="text-cyan-400 font-bold text-base">{broker.spread_eur_usd}</span>
-                                <span className="text-xs text-gray-400">Min Spread</span>
+                            <div className="flex flex-col flex-1 min-w-0">
+                              <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
+                              <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a>
+                            </div>
+                            <div className="flex flex-col items-end min-w-[60px]">
+                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
+                              <span className="text-xs text-gray-400">Rating</span>
+                            </div>
+                          </div>
+                          {/* Divider */}
+                          <div className="border-t border-gray-100 dark:border-gray-800 my-2" />
+                          {/* Accordion for Regulators & Platforms */}
+                          <Button
+                            variant="ghost"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
+                            aria-expanded={openAccordion === `info-${broker.rank}`}
+                          >
+                            <span className='text-sm md:text-lg'>Regulators & Platforms</span>
+                            <ChevronDown className={`ml-2 transition-transform ${openAccordion === `info-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
+                          </Button>
+                          {openAccordion === `info-${broker.rank}` && (
+                            <div className="flex flex-wrap md:flex-nowrap gap-2 items-center justify-between">
+                              <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
+                                <span className="text-xs font-semibold text-gray-500">Regulators</span>
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {broker.regulators?.map((reg: string, i: number) => (
+                                    <span key={i} className="bg-cyan-50 text-cyan-800 px-2 py-0.5 rounded text-xs font-medium border border-cyan-300" style={{borderRadius: '1.25rem'}}>{reg}</span>
+                                  ))}
+                                </div>
                               </div>
-                              <div className="flex flex-col items-start w-28">
-                                <span className="text-purple-400 font-bold text-base">{broker.leverage_max}</span>
-                                <span className="text-xs text-gray-400">Max Leverage</span>
-                              </div>
-                              <div className="flex flex-col items-end w-16 gap-2">
-                                <div className="flex items-center">
-                                  <span className="text-2xl font-extrabold text-yellow-400 mr-1">{broker.score || broker.rating || '—'}</span>
+                              <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
+                                <span className="text-xs font-semibold text-gray-500">Platforms</span>
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {broker.tradingPlatforms?.map((platform: string, i: number) => (
+                                    <span key={i} className="bg-blue-50 text-blue-800 px-2 py-0.5 rounded text-xs font-medium border border-blue-200" style={{borderRadius: '1.25rem'}}>{platform}</span>
+                                  ))}
                                 </div>
                               </div>
                             </div>
-                          </Card>
-                        </motion.div>
-                      </Link>
+                          )}
+                          {/* Accordion for Pros & Cons */}
+                          <Button
+                            variant="ghost"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
+                            aria-expanded={openAccordion === `proscons-${broker.rank}`}
+                          >
+                            <span className='text-sm md:text-lg'>Pros & Cons</span>
+                            <ChevronDown className={`ml-2 transition-transform ${openAccordion === `proscons-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
+                          </Button>
+                          {openAccordion === `proscons-${broker.rank}` && (
+                            <div className="flex flex-col md:flex-row gap-4 w-full">
+                              <div className="flex-1">
+                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">Pros</span>
+                                <ul className="list-disc list-inside text-xs text-green-700 dark:text-green-300 mt-1 space-y-0.5">
+                                  {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
+                                    <li key={i}>{pro}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <div className="flex-1">
+                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">Cons</span>
+                                <ul className="list-disc list-inside text-xs text-red-700 dark:text-red-300 mt-1 space-y-0.5">
+                                  {broker.cons?.slice(0, 3).map((con: string, i: number) => (
+                                    <li key={i}>{con}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          )}
+                        </Card>
+                      </motion.div>
                     ))}
                   </div>
                   <div className="space-y-8">
                     {right.map((broker, index) => (
-                      <Link key={broker.rank} href={`/broker/${broker.slug}`}>
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: index * 0.1 }}
-                          onMouseEnter={() => setHoveredCard(broker.rank)}
-                          onMouseLeave={() => setHoveredCard(null)}
-                        >
-                          <Card className="flex flex-row items-center gap-4 px-6 py-6 mb-4 border border-gray-200 dark:border-gray-800 shadow w-full min-w-0">
-                            {/* Ranking Badge */}
-                            <div className="flex flex-col items-center mr-4 min-w-[4px]">
-                              <div className="rounded-full w-8 h-8 flex items-center justify-center font-bold text-md text-white bg-gradient-to-br from-yellow-400 to-orange-400">
+                      <motion.div
+                        key={broker.rank}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        onMouseEnter={() => setHoveredCard(broker.rank)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                      >
+                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 dark:border-gray-800 shadow-lg rounded-xl bg-white dark:bg-gray-900 w-full min-w-0 transition hover:shadow-xl">
+                          {/* Top: Rank & Logo Row */}
+                          <div className="flex flex-row items-center gap-4">
+                            <div className="flex flex-col items-center min-w-[4px]">
+                              <div className="rounded-full w-10 h-10 flex items-center justify-center font-extrabold text-lg text-white bg-gradient-to-br from-yellow-400 to-orange-400 shadow">
                                 #{broker.rank}
                               </div>
                             </div>
-                            {/* Logo */}
-                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 flex items-center justify-center min-w-[32px]">
-                              <Image src={broker.logo} alt={broker.name} width={32} height={32} className="object-contain h-14 w-14" />
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 flex items-center justify-center min-w-[40px]">
+                              <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
-                            {/* Main Info */}
-                            <div className="flex-1 min-w-0 w-full flex flex-row items-center gap-4">
-                              <span className="text-lg font-bold text-gray-900 dark:text-white w-40 truncate">{broker.name}</span>
-                              {/* Key stats row */}
-                              <div className="flex flex-col items-start w-28">
-                                <span className="text-cyan-400 font-bold text-base">{broker.spread_eur_usd}</span>
-                                <span className="text-xs text-gray-400">Min Spread</span>
+                            <div className="flex flex-col flex-1 min-w-0">
+                              <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
+                              <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a>
+                            </div>
+                            <div className="flex flex-col items-end min-w-[60px]">
+                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
+                              <span className="text-xs text-gray-400">Rating</span>
+                            </div>
+                          </div>
+                          {/* Divider */}
+                          <div className="border-t border-gray-100 dark:border-gray-800 my-2" />
+                          {/* Accordion for Regulators & Platforms */}
+                          <Button
+                            variant="ghost"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
+                            aria-expanded={openAccordion === `info-${broker.rank}`}
+                          >
+                            <span className='text-sm md:text-lg'>Regulators & Platforms</span>
+                            <ChevronDown className={`ml-2 transition-transform ${openAccordion === `info-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
+                          </Button>
+                          {openAccordion === `info-${broker.rank}` && (
+                            <div className="flex flex-wrap md:flex-nowrap gap-2 items-center justify-between">
+                              <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
+                                <span className="text-xs font-semibold text-gray-500">Regulators</span>
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {broker.regulators?.map((reg: string, i: number) => (
+                                    <span key={i} className="bg-cyan-50 text-cyan-800 px-2 py-0.5 rounded text-xs font-medium border border-cyan-300" style={{borderRadius: '1.25rem'}}>{reg}</span>
+                                  ))}
+                                </div>
                               </div>
-                              <div className="flex flex-col items-start w-28">
-                                <span className="text-purple-400 font-bold text-base">{broker.leverage_max}</span>
-                                <span className="text-xs text-gray-400">Max Leverage</span>
-                              </div>
-                              <div className="flex flex-col items-end w-16 gap-2">
-                                <div className="flex items-center">
-                                  <span className="text-2xl font-extrabold text-yellow-400 mr-1">{broker.score || broker.rating || '—'}</span>
+                              <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
+                                <span className="text-xs font-semibold text-gray-500">Platforms</span>
+                                <div className="flex flex-wrap gap-1 mt-1">
+                                  {broker.tradingPlatforms?.map((platform: string, i: number) => (
+                                    <span key={i} className="bg-blue-50 text-blue-800 px-2 py-0.5 rounded text-xs font-medium border border-blue-200" style={{borderRadius: '1.25rem'}}>{platform}</span>
+                                  ))}
                                 </div>
                               </div>
                             </div>
-                          </Card>
-                        </motion.div>
-                      </Link>
+                          )}
+                          {/* Accordion for Pros & Cons */}
+                          <Button
+                            variant="ghost"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
+                            aria-expanded={openAccordion === `proscons-${broker.rank}`}
+                          >
+                            <span className='text-sm md:text-lg'>Pros & Cons</span>
+                            <ChevronDown className={`ml-2 transition-transform ${openAccordion === `proscons-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
+                          </Button>
+                          {openAccordion === `proscons-${broker.rank}` && (
+                            <div className="flex flex-col md:flex-row gap-4 w-full">
+                              <div className="flex-1">
+                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">Pros</span>
+                                <ul className="list-disc list-inside text-xs text-green-700 dark:text-green-300 mt-1 space-y-0.5">
+                                  {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
+                                    <li key={i}>{pro}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <div className="flex-1">
+                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">Cons</span>
+                                <ul className="list-disc list-inside text-xs text-red-700 dark:text-red-300 mt-1 space-y-0.5">
+                                  {broker.cons?.slice(0, 3).map((con: string, i: number) => (
+                                    <li key={i}>{con}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          )}
+                        </Card>
+                      </motion.div>
                     ))}
                   </div>
                 </div>

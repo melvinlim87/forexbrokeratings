@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Search, Globe, BarChart, List, X } from 'lucide-react';
+import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -71,24 +71,36 @@ export default function Header() {
           {/* <ThemeToggle /> */}
           
           <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center mb-6 mt-2">
-                  <div className="flex items-center">
-                    <Globe className="h-6 w-6 text-primary mr-2" />
-                    <span className="text-lg font-bold">ForexBrokerRatings</span>
-                  </div>
-                </div>
-                <nav className="flex flex-col space-y-6">
-                  <MobileNavLinks />
-                </nav>
-              </div>
-            </SheetContent>
+            {/* Use ref to SheetTrigger to programmatically close the Sheet */}
+            {(() => {
+              const triggerRef = useRef<HTMLButtonElement>(null);
+              const handleNavLinkClick = () => {
+                // Trigger click on SheetTrigger to close Sheet
+                triggerRef.current?.click();
+              };
+              return (
+                <>
+                  <SheetTrigger asChild>
+                    <Button ref={triggerRef} variant="ghost" size="icon" className="md:hidden">
+                      <Menu className="h-5 w-5" />
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-[300px] sm:w-[350px]">
+                    <div className="flex flex-col h-full">
+                      <div className="flex justify-between items-center mb-6 mt-2">
+                        <div className="flex items-center">
+                          <Globe className="h-6 w-6 text-primary mr-2" />
+                          <span className="text-lg font-bold">ForexBrokerRatings</span>
+                        </div>
+                      </div>
+                      <nav className="flex flex-col space-y-6">
+                        <MobileNavLinks onNavLinkClick={handleNavLinkClick} />
+                      </nav>
+                    </div>
+                  </SheetContent>
+                </>
+              );
+            })()}
           </Sheet>
         </div>
       </div>
@@ -120,13 +132,15 @@ function NavLinks() {
   );
 }
 
-function MobileNavLinks() {
+import { useRef } from 'react';
+
+function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
   const links = [
-    { title: 'Promotions', href: '/promotions', icon: <BarChart className="h-5 w-5 mr-3" /> },
+    { title: 'Promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
-    { title: 'AI Tools', href: '/ai-tools', icon: <Globe className="h-5 w-5 mr-3" /> },
-    { title: 'Blog', href: '/blog', icon: <Globe className="h-5 w-5 mr-3" /> },
+    { title: 'AI Tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
+    { title: 'Blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
   ];
   
   return (
@@ -136,6 +150,7 @@ function MobileNavLinks() {
           key={link.href}
           href={link.href}
           className="flex items-center text-base font-medium transition-colors hover:text-primary py-2"
+          onClick={onNavLinkClick}
         >
           {link.icon}
           {link.title}
