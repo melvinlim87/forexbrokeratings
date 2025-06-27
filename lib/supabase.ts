@@ -133,6 +133,7 @@ export type BrokerReviews = {
   is_featured: boolean;
   created_at: string;
   comment_at: string;
+  broker_detail: BrokerDetails;
 };
 
 // Type definitions for Blog data
@@ -464,15 +465,16 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
 export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerReviews[]> {
   const { data, error } = await supabase
     .from('broker_reviews')
-    .select(`*`)
+    .select(`*, broker_details (name, website, logo, rating)`)
     .eq('broker_details_id', brokerId)
     .eq('status', true)
     .order('created_at', { ascending: false });
 
-  if (error) {
-    throw new Error(error.message);
-  }
 
+    if (error) {
+      throw new Error(error.message);
+  }
+  
   return (data || []) as BrokerReviews[];
 }
 
@@ -480,15 +482,19 @@ export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerRe
 export async function fetchReviewsByUserId(userId: string): Promise<BrokerReviews[]> {
   const { data, error } = await supabase
     .from('broker_reviews')
-    .select(`*`)
+    .select(`id, broker_details_id, user_id, name, rating, title, content, status, is_featured, created_at, comment_at, broker_details (name, website, logo, rating, slug)`)
     .eq('user_id', userId)
     .eq('status', true);
-
+    
   if (error) {
     throw new Error(error.message);
   }
 
-  return (data || []) as BrokerReviews[];
+  const fixedData = (data || []).map((item: any) => ({
+    ...item,
+    broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
+  })) as BrokerReviews[];
+  return fixedData;
 }
 
 // Function to save broker reviews
