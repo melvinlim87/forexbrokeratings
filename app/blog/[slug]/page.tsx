@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { Metadata } from 'next';
 import React from 'react';
 

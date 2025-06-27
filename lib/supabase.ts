@@ -466,7 +466,8 @@ export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerRe
     .from('broker_reviews')
     .select(`*`)
     .eq('broker_details_id', brokerId)
-    .eq('status', true);
+    .eq('status', true)
+    .order('created_at', { ascending: false });
 
   if (error) {
     throw new Error(error.message);

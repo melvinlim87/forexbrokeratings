@@ -1,0 +1,1 @@
+This folder has been migrated to app/page/[slug]. The page and layout files now live there.

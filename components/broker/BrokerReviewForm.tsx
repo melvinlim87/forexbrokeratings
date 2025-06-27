@@ -113,13 +113,13 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted }: Broker
                 />
               </button>
             ))}
-            <span className="ml-2 text-sm font-medium">{rating}/10</span>
+            <span className="ml-2 text-sm font-medium">{rating}/5</span>
           </div>
         </div>
         {error && <div className="text-red-500 text-sm">{error}</div>}
         {success && <div className="text-green-600 text-sm">Review submitted successfully!</div>}
         <Button type="submit" disabled={loading} className="w-full">
-          {loading ? "Submitting..." : "Submit Review"}
+          {loading ? "Submitting..." : "Write your reviews now"}
         </Button>
       </form>
     </Card>

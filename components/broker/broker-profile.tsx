@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,7 +12,8 @@ function formatDateDMY(date: string | number | Date): string {
   const day = String(d.getDate()).padStart(2, '0');
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const year = d.getFullYear();
-  return `${day}/${month}/${year}`;
+  const time = d.toLocaleTimeString();
+  return `${day}/${month}/${year} ${time}`;
 }
 
 import { Button } from '@/components/ui/button';
@@ -58,9 +59,24 @@ function isListCondition(
 
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  // Smooth scroll to #user_reviews with header offset
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.hash === '#user_reviews') {
+      const target = document.getElementById('user_reviews');
+      if (target) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   const user = useSelector((state: RootState) => state.auth.user);
   const [reviews, setReviews] = useState(brokerData.reviews || []);
   const [loadingReviews, setLoadingReviews] = useState(false);
+  const [visibleReviews, setVisibleReviews] = useState(3);
 
   const reloadReviews = async () => {
     setLoadingReviews(true);
@@ -953,14 +969,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
               "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
             )}>
-              <div className="p-6">
+              <div id="user_reviews" className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
                 {/* Show reviews, loading state, or empty state */}
                 {loadingReviews ? (
                   <div className="text-gray-400 text-center">Loading reviews...</div>
                 ) : reviews && reviews.length > 0 ? (
                   <div className="space-y-6">
-                    {reviews.map((review, idx) => (
+                    {reviews.slice(0, visibleReviews).map((review, idx) => (
                       <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                           <div className="flex items-center gap-2">
@@ -985,8 +1001,18 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                       </div>
                     ))}
+                    {visibleReviews < reviews.length && (
+                      <div className="flex justify-center mt-4">
+                        <button
+                          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                          onClick={() => setVisibleReviews(v => Math.min(v + 3, reviews.length))}
+                        >
+                          View More
+                        </button>
+                      </div>
+                    )}
                     {/* Review written form */}
-                    <BrokerReviewForm brokerId={brokerData.id} onReviewSubmitted={reloadReviews} />
+                    <BrokerReviewForm brokerId={brokerData.id} onReviewSubmitted={() => { reloadReviews(); setVisibleReviews(3); }} />
                   </div>
                 ) : (
                   <div className="text-gray-400 text-center">No reviews available.</div>

@@ -199,7 +199,7 @@ export default function LatestReviews() {
                   
                   <div className="mt-auto pt-4">
                     <Button variant="outline" className="w-full" asChild>
-                      <Link href={`/broker/${review.slug || review.id}`}>
+                      <Link href={`/broker/${review.slug || review.id}/#user_reviews`}>
                         Read Full Review
                       </Link>
                     </Button>

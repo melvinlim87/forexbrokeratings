@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { fetchNews, type News } from '../../../lib/supabase';

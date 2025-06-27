@@ -132,17 +132,13 @@ export default async function BrokerProfilePage({
 }: { 
   params: { slug: string } 
 }) {
-  // Only fetch from Supabase, no static fallback
   try {
     const data = await fetchAllBrokerDetails();
-    
     const broker = data.find(b => {
       const slug = b.name.toLowerCase().replace(/\s+/g, '-');
       return slug === params.slug;
     });
-    
     if (!broker) {
-      // If not found in Supabase, show not found UI
       return (
         <div className="container mx-auto px-4 py-8">
           <div className="text-center py-12">
@@ -152,24 +148,21 @@ export default async function BrokerProfilePage({
         </div>
       );
     }
-    // Fetch promotions for the selected broker
     const promotion_details = await fetchPromotionsByBrokerId(broker.id.toString());
     broker.promotion_details = promotion_details;
     const brokerData = await formatBrokerData(broker);
-    // Fetch related brokers - convert ID to string to match expected type
     const relatedBrokers = await fetchRelatedBrokers(broker.id.toString());
-    
+
+    // Optionally fetch related brokers if needed
     return (
       <div className="container mx-auto px-4 py-8">
-        {/* <IPChecker /> */}
         <BrokerProfile 
           brokerData={brokerData} 
-          relatedBrokers={relatedBrokers} 
+          relatedBrokers={relatedBrokers}
         />
       </div>
     );
   } catch (error) {
-    // Return a fallback UI if something goes wrong
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center py-12">
@@ -181,83 +174,15 @@ export default async function BrokerProfilePage({
   }
 }
 
-// This is just for reference, the actual related brokers data is now fetched dynamically
-const relatedBrokers = [
-  {
-    id: 2,
-    name: 'FXTM',
-    logo: 'https://via.placeholder.com/120x60?text=FXTM',
-    rating: 4.7,
-    minDeposit: 50,
-    slug: 'fxtm'
-  },
-  {
-    id: 3,
-    name: 'XM',
-    logo: 'https://via.placeholder.com/120x60?text=XM',
-    rating: 4.5,
-    minDeposit: 5,
-    slug: 'xm'
-  },
-  {
-    id: 4,
-    name: 'Pepperstone',
-    logo: 'https://via.placeholder.com/120x60?text=Pepperstone',
-    rating: 4.9,
-    minDeposit: 200,
-    slug: 'pepperstone'
-  }
-];
-
-export async function generateStaticParams() {
-  // Fetch all broker details from Supabase
-  try {
-    const brokers = await fetchAllBrokerDetails();
-    // Map the brokers to slug params
-    return brokers.map(broker => ({
-      slug: broker.name.toLowerCase().replace(/\s+/g, '-')
-    }));
-  } catch (error) {
-    // Fallback to static list if Supabase fetch fails
-    return [
-      { slug: 'ironfx' },
-      { slug: 'fxtm' },
-      { slug: 'xm' },
-      { slug: 'pepperstone' },
-      { slug: 'xtb' },
-      { slug: 'oanda' },
-    ];
-  }
-}
-
-// Function to check if the user's IP is from Singapore
-function checkSingaporeIP(ip: string): boolean {
-  // This is a placeholder implementation
-  // In a real application, you would use a proper IP geolocation service
-  // For example, you could use a library like 'geoip-lite' or an API like ipinfo.io
-  
-  // For now, we'll just check if the IP starts with specific ranges commonly used in Singapore
-  // This is NOT accurate and is just for demonstration purposes
-  const sgIPRanges = ['8.128.', '8.129.', '45.126.', '116.12.', '116.13.', '165.21.', '203.116.'];
-  
-  // If IP is from Singapore, return true
-  // In a real implementation, you would use proper IP geolocation
-  return sgIPRanges.some(range => ip.startsWith(range));
-}
-
-// Function to fetch related brokers
 async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetails[]> {
   try {
-    // Fetch all brokers and filter out the current one
     const brokers = await fetchAllBrokerDetails();
     if (!brokers) return [];
     
-    // Filter out the current broker and take up to 5 others
     return brokers
       .filter(broker => broker.id !== currentBrokerId)
       .slice(0, 5);
   } catch (error) {
-    return []; // Return empty array as fallback
+    return [];
   }
 }
-
