@@ -21,6 +21,10 @@ import { Badge } from '@/components/ui/badge';
 import { HexagonChart } from './hexagon-chart';
 import { cn } from '@/lib/utils';
 import { BrokerDetails } from '@/lib/supabase';
+import BrokerReviewForm from './BrokerReviewForm';
+import { fetchReviewsByBrokerId } from '@/lib/supabase';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 interface BrokerProfileProps {
   brokerData: BrokerDetails;
@@ -54,6 +58,22 @@ function isListCondition(
 
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  const user = useSelector((state: RootState) => state.auth.user);
+  const [reviews, setReviews] = useState(brokerData.reviews || []);
+  const [loadingReviews, setLoadingReviews] = useState(false);
+
+  const reloadReviews = async () => {
+    setLoadingReviews(true);
+    try {
+      const newReviews = await fetchReviewsByBrokerId(brokerData.id.toString());
+      setReviews(newReviews);
+    } catch {
+      // Optionally handle error
+    } finally {
+      setLoadingReviews(false);
+    }
+  };
+
   const [previewBadge, setPreviewBadge] = useState<string|null>(null);
   // Promotion image carousel modal state
   const [promoPreviewOpen, setPromoPreviewOpen] = useState(false);
@@ -935,9 +955,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             )}>
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
-                {brokerData.reviews && brokerData.reviews.length > 0 ? (
+                {/* Show reviews, loading state, or empty state */}
+                {loadingReviews ? (
+                  <div className="text-gray-400 text-center">Loading reviews...</div>
+                ) : reviews && reviews.length > 0 ? (
                   <div className="space-y-6">
-                    {brokerData.reviews.map((review, idx) => (
+                    {reviews.map((review, idx) => (
                       <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                           <div className="flex items-center gap-2">
@@ -962,6 +985,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                       </div>
                     ))}
+                    {/* Review written form */}
+                    <BrokerReviewForm brokerId={brokerData.id} onReviewSubmitted={reloadReviews} />
                   </div>
                 ) : (
                   <div className="text-gray-400 text-center">No reviews available.</div>

@@ -122,7 +122,7 @@ export type BrokerPromotionWithBrokerDetails = {
 
 // Type for joined broker reviews with selected broker_details fields
 export type BrokerReviews = {
-  id: number;
+  id?: number;
   broker_details_id: number;
   user_id: number;
   name: string;
