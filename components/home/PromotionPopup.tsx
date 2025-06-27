@@ -60,9 +60,15 @@ export default function PromotionPopup() {
 
   if (!show || loading || !promotion) return null;
 
+  // To ensure PromotionPopup is above the header, place <PromotionPopup /> just above <Header /> in your layout.tsx:
+  // <AppProviders>
+  //   <ThemeProvider ...>
+  //     <PromotionPopup />
+  //     <Header />
+  //     ...
   return (
-    <div className="fixed inset-0 z-[9990] flex items-center justify-center bg-black/40">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 flex flex-col md:flex-row z-[9999]">
+    <div className="fixed inset-0 z-[11000] flex items-center justify-center bg-black/50">
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 flex flex-col md:flex-row z-[11010]">
         {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-700"
@@ -72,11 +78,11 @@ export default function PromotionPopup() {
           ×
         </button>
         <div className="flex-1 flex flex-col justify-center pr-0 md:pr-8">
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <span className="inline-flex items-center bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
               <span className="mr-1">🔥</span> {promotion.category}
             </span>
-          </div>
+          </div> */}
           <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
             {/* Powered by section */}
             <div className="flex items-center rounded-xl px-3 py-2">

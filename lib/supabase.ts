@@ -176,12 +176,24 @@ export type News = {
   created_at: string;
 };
 
+// Type definitions for Subscribers
 export type Subscribers = {
   id: number;
   name: string;
   email: string;
   country_code: string;
   mobileno: string;
+  created_at: string;
+};
+
+// Type definitions for Users
+export type Users = {
+  id: number;
+  name: string;
+  email: string;
+  country_code: string;
+  mobileno: string;
+  role: string;
   created_at: string;
 };
 
@@ -583,3 +595,71 @@ export async function saveSubscribers(subscriber: Subscribers) {
   
   return data;
 }
+
+// Function to fetch users
+export async function fetchUsers() {
+  const { data, error } = await supabase
+    .from('users')
+    .select('name, email, country_code, mobileno, role, created_at')
+    .eq('status', true);
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to fetch user by id
+export async function fetchUserById(id: string) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('name, email, country_code, mobileno, role, created_at')
+    .eq('id', id)
+    .single();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to login user with email
+export async function loginUserWithCredential(email: string, password: string) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('name, email, password, country_code, mobileno, role, created_at')
+    .eq('email', email)
+    .single();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
+// Function to save user (expects already hashed password)
+export async function saveUser(user: any) {
+  const { data, error } = await supabase
+    .from('users')
+    .insert([
+      {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        country_code: user.country_code,
+        mobileno: user.mobileno,
+        role: user.role,
+        created_at: user.created_at,
+      },
+    ]);
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+

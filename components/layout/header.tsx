@@ -1,14 +1,79 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen } from 'lucide-react';
+import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCircle, ChevronDown, LogOut, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { SearchDialog } from '@/components/search/search-dialog';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { RootState } from '@/store/store';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { logout } from '@/store/slices/authSlice';
+
+function AuthHeaderMenu() {
+  const [loading, setLoading] = useState(false)
+  const [open, setOpen] = useState(false);
+  const user = useSelector((state: RootState) => state.auth?.user);
+  const dispatch = useDispatch();
+  const logoutUser = async () => {
+      setOpen(false);
+      dispatch(logout())
+      window.location.href = '/';
+  }
+
+  if (loading) {
+    return (
+      <Button className="hidden md:flex animate-pulse bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg text-lg px-6 py-2.5 ml-2 opacity-70 cursor-wait" disabled>
+        Loading
+      </Button>
+    );
+  }
+
+  if (!user) {
+    return (
+      <Link href="/login">
+        <Button
+          className="hidden md:flex bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 text-lg px-6 py-2.5 ml-2"
+        >
+          Login
+        </Button>
+      </Link>
+    );
+  }
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="hidden md:flex items-center justify-center relative h-12 w-12 border-0 focus:ring-2 focus:ring-primary"
+          aria-label="User menu"
+        >
+          <UserCircle className="h-7 w-7 text-primary" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-2">
+        <div className="flex flex-col">
+          <Link href="/profile" className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base" onClick={() => setOpen(false)}>
+            <User className="h-4 w-4 mr-2" /> View Profile
+          </Link>
+          <button
+            className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base"
+            onClick={() => logoutUser()}
+          >
+            <LogOut className="h-4 w-4 mr-2" /> Logout
+          </button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,6 +130,8 @@ export default function Header() {
               Compare
             </Button>
           </Link>
+          {/* Auth UI: Show login or user dropdown */}
+          <AuthHeaderMenu />
           
           {/* <ThemeToggle /> */}
           
@@ -129,8 +196,6 @@ function NavLinks() {
     </>
   );
 }
-
-import { useRef } from 'react';
 
 function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
   const links = [

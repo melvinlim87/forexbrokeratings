@@ -217,7 +217,7 @@ export default function Hero() {
                   />
                 ))}
                 <span className="text-white font-medium">
-                  {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(1) : '4.5')}/5
+                  {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(1) : '4.5')}/10
                 </span>
               </div>
               <div className="text-white text-sm">

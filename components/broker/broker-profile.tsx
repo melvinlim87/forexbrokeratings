@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Shield, Check, X, Star, TimerIcon, UserCircle2, Info } from 'lucide-react';
+import { Shield, Check, X, Star, TimerIcon, UserCircle2, Info, CheckCircle } from 'lucide-react';
 
 // Ensures date is always formatted as dd/MM/yyyy for SSR/CSR consistency
 function formatDateDMY(date: string | number | Date): string {
@@ -80,7 +80,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mx-10">
        {/* Promo Images Carousel Modal */}
        {promoPreviewOpen && previewPromoImages.length > 0 && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setPromoPreviewOpen(false)}>
@@ -117,7 +117,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             </div>
           </div>
         )}
-      <div className="bg-metallic pt-10 pb-10 relative overflow-hidden rounded-lg">
+      <div className="bg-metallic pt-4 pb-4 relative overflow-hidden rounded-lg">
         <div
           className="absolute inset-0"
           style={{
@@ -125,59 +125,93 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             backgroundSize: '24px 24px'
           }}
         />
+        {/* Broker Summary */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-20 w-20 relative bg-white backdrop-blur-sm rounded p-2">
-                {brokerData.logo ? (
-                  <Image
-                    src={brokerData.logo}
-                    alt={brokerData.name}
-                    fill
-                    style={{ objectFit: "contain" }}
-                  />
-                ) : 
-                  null
-                }
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+            {/* Summary Left Side */}
+            <div className="flex flex-col justify-between h-full col-span-2 ">
+              <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                {/* Image and Name */}
+                <div className='flex flex-col md:flex-row md:items-center gap-2'>
+                  <div className="h-24 w-24 relative bg-white backdrop-blur-sm rounded-lg p-2 mx-auto md:mx-0">
+                    {brokerData.logo ? (
+                      <Image
+                        src={brokerData.logo}
+                        alt={brokerData.name}
+                        fill
+                        className="object-contain rounded-lg"
+                        sizes="96px"
+                        priority
+                      />
+                    ) : 
+                      null
+                    }
+                  </div>
+                  <div className="flex flex-col items-center md:items-start mt-2 md:mt-0">
+                    <h1 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white text-center md:text-left">
+                      {brokerData.name}
+                    </h1>
+                    {brokerData.is_regulated && (
+                      <Badge variant="outline" className="text-sm md:text-md text-green-300 dark:text-green-400 pl-2 items-center rounded-full bg-green-900/40 dark:bg-green-900/30 border border-green-300 mt-1">
+                        Regulated
+                      </Badge>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                    {brokerData.name} Review
-                  </h1>
-                    <div className="flex items-center mt-2">
-                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl px-3 py-1.5">
-                        <div className="flex space-x-0.5">
-                          {[1, 2, 3, 4, 5].map((star) => {
-                          const rating = brokerData.rating ? parseFloat(brokerData.rating) || 0 : 0;
-                          return (
-                            <Star
-                              key={star}
-                              className={cn(
-                                "h-5 w-5",
-                                star <= Math.floor(rating)
-                                  ? "text-amber-500 fill-amber-500"
-                                  : "text-gray-300 dark:text-gray-600"
-                              )}
-                            />
-                          );
-                        })}
-                        <span className="ml-2 font-semibold text-gray-900 dark:text-white">
-                          {brokerData.rating}
-                        </span>
-                        </div>
+                {/* Broker Year Published and Headquarters */}
+                <div className='flex flex-col items-center md:items-end justify-center gap-1'>
+                  <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-center md:text-right">
+                    {brokerData.headquarters} | {brokerData.year_published}
+                  </p>
+                  <div className="flex items-center mt-2 px-2 justify-center md:justify-end">
+                    <div className="flex items-center backdrop-blur-sm rounded-xl">
+                      <div className="flex space-x-0.5">
+                        {[1, 2, 3, 4, 5].map((star) => {
+                        const rating = brokerData.rating ? parseFloat(brokerData.rating) || 0 : 0;
+                        return (
+                          <Star
+                            key={star}
+                            className={cn(
+                              "h-5 w-5",
+                              star <= Math.floor(rating)
+                                ? "text-amber-500 fill-amber-500"
+                                : "text-gray-300 dark:text-gray-600"
+                            )}
+                          />
+                        );
+                      })}
+                      <span className="pl-2 font-semibold text-gray-900 dark:text-white">
+                        {brokerData.rating} / 10
+                      </span>
                       </div>
-                    <Badge variant="outline" className="ml-3 bg-white/10 backdrop-blur-sm">
-                      Min Deposit: {brokerData.min_deposit || 'N/A'}
-                    </Badge>
+                    </div>
                   </div>
                 </div>
               </div>
               <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
                 {brokerData.summary}
               </p>
+              {/* Additional Broker Details */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                  <div className="text-cyan-400 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
+                  <div className="text-black text-xs md:text-sm text-center justify-end">Min Spread</div>
+                </div>
+                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                  <div className="text-purple-400 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
+                  <div className="text-black text-xs md:text-sm text-center justify-end">Max Leverage</div>
+                </div>
+                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                  <div className="text-green-400 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
+                  <div className="text-black text-xs md:text-sm text-center justify-end">Min Deposit</div>
+                </div>
+                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                  <div className="text-amber-300 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
+                  <div className="text-black text-xs md:text-sm text-center justify-end">Execution Speed</div>
+                </div>
+              </div>
               {brokerData.badges && brokerData.badges.length > 0 && (
-                <div className="my-4 p-4 rounded-xl flex flex-col ">
+                <div className="rounded-xl flex flex-col ">
                   <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
                   <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full rounded">
                     {brokerData.badges.map((src: string, idx: number) => {
@@ -214,70 +248,116 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             </div>
             
-            <div className="flex flex-col gap-3 min-w-[220px]">
-                <Link 
-                  href={brokerData.website || "#"} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-full"
-                >
-                  <Button 
-                    size="lg" 
-                    className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover"
-                    disabled={!brokerData.website}
-                  >
-                    {brokerData.website ? `Visit ${brokerData.name}` : 'Website Not Available'}
-                  </Button>
-                </Link>
+            {/* Sidebar Right Side */}
+            <div className="flex flex-col gap-3 h-full justify-end">
+              {/* Broker Metrics Hexagon Chart */}
+                  <h3 className="text-xl font-semibold text-center">Broker Metrics</h3>
+                  <div className="flex justify-center">
+                    <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
+                      <div className="bg-white rounded-lg">
+                        <HexagonChart 
+                          data={[
+                            [
+                              { 
+                                label: 'User Traffic', 
+                                value: brokerData.user_traffic || 0,
+                                maxValue: 10 
+                              },
+                              { 
+                                label: 'Regulations', 
+                                value: brokerData.regulations || 0,
+                                maxValue: 10 
+                              },
+                              { 
+                                label: 'Risk Control', 
+                                value: brokerData.risk_control || 0,
+                                maxValue: 10 
+                              },
+                              { 
+                                label: 'Promotions', 
+                                value: brokerData.promotions || 0,
+                                maxValue: 10 
+                              },
+                              { 
+                                label: 'User Ratings', 
+                                value: brokerData.user_experience || 0,
+                                maxValue: 10 
+                              },
+                              { 
+                                label: 'Trading Platform', 
+                                value: brokerData.environment || 0,
+                                maxValue: 10 
+                              },
+                            ]
+                          ]}
+                          size={240}
+                        />
+                      </div>
+                    </div>  
+                  </div>
+              <Link 
+                href={brokerData.website || "#"} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full"
+              >
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={async () => {
-                    if (typeof window === 'undefined') return;
-                    
-                    try {
-                      // Dynamically import the compare-utils
-                      const { setCompareSelection } = await import('@/components/broker/compare-utils');
-                      
-                      // Prepare broker data to be stored
-                      const brokerInfo = {
-                        id: brokerData.id?.toString(),
-                        name: brokerData.name,
-                        logo: brokerData.logo,
-                        rating: brokerData.rating,
-                        spread_eur_usd: brokerData.spread_eur_usd,
-                        leverage_max: brokerData.leverage_max,
-                        regulators: brokerData.regulators,
-                        min_deposit: brokerData.min_deposit
-                      };
-                      
-                      // Store the broker data in localStorage
-                      localStorage.setItem('compare_broker_data', JSON.stringify([brokerInfo]));
-                      
-                      // Also save the ID for backward compatibility
-                      if (brokerData.id) {
-                        setCompareSelection(brokerData.id.toString());
-                      }
-                      
-                      // Redirect to compare page
-                      window.location.href = '/compare';
-                    } catch (error) {
-                      // console.error('Error preparing comparison:', error);
-                      // Fallback to simple redirect if there's an error
-                      window.location.href = '/compare';
-                    }
-                  }}
+                  className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover"
+                  disabled={!brokerData.website}
                 >
-                  Add to Compare
+                  {brokerData.website ? `Visit ${brokerData.name}` : 'Website Not Available'}
                 </Button>
+              </Link>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="w-full"
+                onClick={async () => {
+                  if (typeof window === 'undefined') return;
+                  
+                  try {
+                    // Dynamically import the compare-utils
+                    const { setCompareSelection } = await import('@/components/broker/compare-utils');
+                    
+                    // Prepare broker data to be stored
+                    const brokerInfo = {
+                      id: brokerData.id?.toString(),
+                      name: brokerData.name,
+                      logo: brokerData.logo,
+                      rating: brokerData.rating,
+                      spread_eur_usd: brokerData.spread_eur_usd,
+                      leverage_max: brokerData.leverage_max,
+                      regulators: brokerData.regulators,
+                      min_deposit: brokerData.min_deposit
+                    };
+                    
+                    // Store the broker data in localStorage
+                    localStorage.setItem('compare_broker_data', JSON.stringify([brokerInfo]));
+                    
+                    // Also save the ID for backward compatibility
+                    if (brokerData.id) {
+                      setCompareSelection(brokerData.id.toString());
+                    }
+                    
+                    // Redirect to compare page
+                    window.location.href = '/compare';
+                  } catch (error) {
+                    // console.error('Error preparing comparison:', error);
+                    // Fallback to simple redirect if there's an error
+                    window.location.href = '/compare';
+                  }
+                }}
+              >
+                Add to Compare
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Promotion sections */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
             <Card 
@@ -893,93 +973,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Broker Metrics Hexagon Chart */}
-            <Card 
-              className={cn(
-                "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
-                "backdrop-blur-sm",
-                "border-0",
-                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
-                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
-                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
-                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
-                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-              )}
-            >
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-center">Broker Metrics</h3>
-                <div className="flex justify-center">
-                  <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
-                    <div className="bg-white rounded-lg">
-                      <HexagonChart 
-                        data={[
-                          [
-                            { 
-                              label: 'User Traffic', 
-                              value: brokerData.user_traffic || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'Regulations', 
-                              value: brokerData.regulations || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'Risk Control', 
-                              value: brokerData.risk_control || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'Promotions', 
-                              value: brokerData.promotions || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'User Ratings', 
-                              value: brokerData.user_experience || 0,
-                              maxValue: 5 
-                            },
-                            { 
-                              label: 'Trading Platform', 
-                              value: brokerData.environment || 0,
-                              maxValue: 5 
-                            },
-                          ]
-                        ]}
-                        size={240}
-                      />
-                    </div>
-                  </div>  
-                </div>
-                <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-                  <p>Overall Rating: <span className="font-semibold text-foreground">
-                    {(() => {
-                      // Convert all values to numbers and filter out any invalid values
-                      const metrics = [
-                        parseFloat(brokerData.sw as any) || 0,
-                        parseFloat(brokerData.regulations as any) || 0,
-                        parseFloat(brokerData.risk_control as any) || 0,
-                        parseFloat(brokerData.promotions as any) || 0,
-                        parseFloat(brokerData.user_experience as any) || 0,
-                        parseFloat(brokerData.environment as any) || 0
-                      ];
-                      
-                      // Calculate average
-                      const sum = metrics.reduce((a, b) => a + b, 0);
-                      const avg = sum / metrics.length;
-                      
-                      // Format to 1 decimal place and ensure it's a valid number
-                      return isNaN(avg) ? 'N/A' : avg.toFixed(1) + '/5';
-                    })()}
-                  </span></p>
-                </div>
-              </CardContent>
-            </Card>
-            
             {/* Overall Rating */}
             <Card 
               className={cn(
@@ -1004,12 +997,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Trust & Reliability
                     </span>
-                    <span className="font-medium">{brokerData.rating}/5</span>
+                    <span className="font-medium">{brokerData.rating}/10</span>
                   </div>
                   <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
-                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 5) * 100}%` }}
+                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 10) * 100}%` }}
                     />
                   </div>
                 </div>
