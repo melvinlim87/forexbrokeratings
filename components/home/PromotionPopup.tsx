@@ -71,13 +71,13 @@ export default function PromotionPopup() {
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 flex flex-col md:flex-row z-[11010]">
         {/* Close Button */}
         <button
-          className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-700"
+          className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-700 z-[11011]"
           onClick={() => setShow(false)}
           aria-label="Close promotion popup"
         >
           ×
         </button>
-        <div className="flex-1 flex flex-col justify-center pr-0 md:pr-8">
+        <div className="flex-1 flex flex-col justify-center pr-0">
           {/* <div className="mb-2">
             <span className="inline-flex items-center bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold">
               <span className="mr-1">🔥</span> {promotion.category}

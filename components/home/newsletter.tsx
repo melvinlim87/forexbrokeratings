@@ -38,32 +38,53 @@ export default function Newsletter() {
     }
     setLoading(true);
     try {
-      // await saveSubscribers({
-      //   id: undefined as any, // Let Supabase auto-increment
-      //   name,
-      //   email,
-      //   country_code: '',
-      //   mobileno: '',
-      //   created_at: new Date().toISOString(),
-      // });
+      type SaveSubscribersResult = { error?: { code?: string; message?: string } };
+      const result: SaveSubscribersResult | any = await saveSubscribers({
+        id: undefined as any, // Let Supabase auto-increment
+        name,
+        email,
+        country_code: '',
+        mobileno: '',
+        created_at: new Date().toISOString(),
+      });
+      
+      // If result is null, treat as error
+      if (!result) {
+        setError('Failed to subscribe. Please try again later.');
+        setLoading(false);
+        return;
+      }
+      // If result has error and is duplicate email, handle
+      if (result.error && (result.error.code === '23505' || result.error.message?.toLowerCase().includes('duplicate'))) {
+        setError('Email already used.');
+        setLoading(false);
+        return;
+      } else if (result.error) {
+        setError('Failed to subscribe. Please try again later.');
+        setLoading(false);
+        return;
+      }
       // Send welcome email
       try {
         await fetch('/api/send-welcome-email', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, name }),
+          body: JSON.stringify({ name, email }),
         });
-      } catch (e) {
-        // Optionally log or toast, but don't block success
-        console.warn('Welcome email failed to send', e);
+      } catch (err) {
+        // Ignore email error
       }
       setSuccess(true);
       setIsSubmitted(true);
       setName('');
       setEmail('');
-    } catch (err) {
-      console.log(err)
-      setError('Failed to subscribe. Please try again.');
+    } catch (err: any) {
+      if (err && err.message.includes('duplicate')) {
+        setError('You already subscribed to our service.');
+        setLoading(false);
+        return;
+      }
+      setError('Failed to subscribe. Please try again later.');
     } finally {
       setLoading(false);
     }
