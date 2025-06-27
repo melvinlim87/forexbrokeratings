@@ -34,11 +34,9 @@ export default function Header() {
       <div className="container mx-auto px-4 flex h-20 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
-            <div className="bg-gradient-to-br from-gray-700 to-gray-900 p-3 rounded-xl">
-              <Globe className="h-7 w-7 text-white" />
-            </div>
-            <span className="hidden md:inline-block text-2xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 bg-clip-text text-transparent ml-3">
-              Forex Broker Ratings
+            {/* Header Logo */}
+            <span className="hidden md:inline-block ml-3">
+              <Image src="/assets/images/logo/logo.png" alt="Forex Broker Ratings Logo" width={180} height={60} style={{objectFit:'cover',maxHeight:60}} priority />
             </span>
           </Link>
         </div>

@@ -260,11 +260,19 @@ export default function PromotionsPage() {
                               month: 'short',
                               day: 'numeric',
                             })
-                          : 'N/A'}
+                            : 'N/A'}
                       </span>
                     </div>
                   )}
                 </div>
+                {/* Promotion Images */}
+                {promo.images && promo.images.length > 0 && (
+                  <img
+                    src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                    alt={promo.title}
+                    className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                  />
+                )}
                 {/* Promo Title */}
                 <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
                 {/* Promo Description */}
@@ -309,7 +317,7 @@ export default function PromotionsPage() {
                   );
                 })()}
                 <a
-                  href={promo.link}
+                  href={`/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={
@@ -319,7 +327,7 @@ export default function PromotionsPage() {
                   }
                   style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                 >
-                  Claim This Offer
+                  View details
                 </a>
               </div>
             ))}
@@ -409,6 +417,14 @@ export default function PromotionsPage() {
                     </div>
                   )}
                 </div>
+                {/* Promotion Images */}
+                {promo.images && promo.images.length > 0 && (
+                  <img
+                    src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                    alt={promo.title}
+                    className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                  />
+                )}
                 {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && (promo.conditions as any).type === 'list' && (() => {
                   type ListCondition = { type: 'list'; items: string[]; extra?: string[]; warning?: string };
                   const listCond = promo.conditions as ListCondition;
@@ -437,7 +453,7 @@ export default function PromotionsPage() {
 
                 {/* Promo Button */}
                 <a
-                  href={promo.link}
+                  href={`/broker/${promo.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={
@@ -447,7 +463,7 @@ export default function PromotionsPage() {
                   }
                   style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                 >
-                  Claim This Offer
+                  View details
                 </a>
               </div>
             ))}

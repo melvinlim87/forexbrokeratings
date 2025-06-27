@@ -22,9 +22,7 @@ let supabaseClient;
 
 try {
   supabaseClient = createClient(supabaseUrl, supabaseKey);
-  console.log('Supabase client initialized successfully');
 } catch (error) {
-  console.error('Failed to initialize Supabase client:', error);
   throw new Error('Failed to initialize Supabase client. Please check your configuration.');
 }
 

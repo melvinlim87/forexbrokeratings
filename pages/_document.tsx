@@ -4,7 +4,9 @@ import React from 'react';
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
       <body>
         <Main />
         <NextScript />

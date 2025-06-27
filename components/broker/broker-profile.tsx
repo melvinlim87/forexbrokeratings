@@ -179,7 +179,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               {brokerData.badges && brokerData.badges.length > 0 && (
                 <div className="my-4 p-4 rounded-xl flex flex-col ">
                   <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
-                  <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full">
+                  <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full rounded">
                     {brokerData.badges.map((src: string, idx: number) => {
                       const imgSrc = src.startsWith('/') || src.startsWith('http')
                         ? src
@@ -333,6 +333,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             </span>
                           ))}
                         </div>
+                        {/* Promotion Images */}
+                        {promo.images && promo.images.length > 0 && (
+                          <img
+                            src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
+                            alt={promo.title}
+                            className="w-full h-50 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                            onClick={() => {
+                              setPreviewPromoImages(promo.images);
+                              setPreviewPromoImageIdx(0);
+                              setPromoPreviewOpen(true);
+                            }}
+                          />
+                        )}
                         {/* Promo Title */}
                         <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
                         {/* Promo Description */}
@@ -353,7 +366,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                                 {promo.conditions.rows.map((row, i) => (
                                   <tr key={i} className="even:bg-gray-50">
                                     {row.map((cell, j) => (
-                                      <td key={j} className="py-2 px-3 border-b">{cell}</td>
+                                      <td key={j} className="py-2 px-3 border-b text-center">{cell}</td>
                                     ))}
                                   </tr>
                                 ))}

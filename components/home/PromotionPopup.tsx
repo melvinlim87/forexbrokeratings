@@ -97,6 +97,14 @@ export default function PromotionPopup() {
                 </span>
             </div>
           </div>
+          {/* Promotion Images */}
+          {promotion.images && promotion.images.length > 0 && (
+            <img
+              src={promotion.images[0].startsWith('/') || promotion.images[0].startsWith('http') ? promotion.images[0] : `/assets/images/promotions/${promotion.images[0]}`}
+              alt={promotion.title}
+              className="w-full h-50 object-cover rounded mb-4 border border-gray-200 bg-gray-50"
+            />
+          )}
           <div className="font-extrabold text-3xl md:text-3xl mb-2 text-gray-900">
             {promotion.title}
           </div>
