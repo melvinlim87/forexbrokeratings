@@ -4,16 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from '@/store/store';
 import { Button } from '@/components/ui/button';
 import dynamic from 'next/dynamic';
+import {Users} from '@/lib/supabase'
 const FilterableCountryCodeSelect = dynamic(() => import('../register/FilterableCountryCodeSelect'), { ssr: false });
 
+
 export default function UserProfilePage() {
-  const user = useSelector((state: RootState) => state.auth.user);
+  const user = useSelector((state: RootState) => state.auth.user) as Users | null;
 
   const [form, setForm] = useState({
-    name: user?.name || "",
-    email: user?.email || "",
-    countryCode: user?.countryCode || "",
-    mobileno: user?.mobileno || "",
+    name: user?.name ?? "",
+    email: user?.email ?? "",
+    country_code: user?.country_code ?? "",
+    mobileno: user?.mobileno ?? "",
   });
   // TODO: Wire up save action to API
   return (
@@ -55,8 +57,8 @@ export default function UserProfilePage() {
               <div className="flex gap-3">
                 <div className="w-1/3">
                   <FilterableCountryCodeSelect
-                    value={form.countryCode}
-                    onChange={v => setForm(f => ({ ...f, countryCode: v }))}
+                    value={form.country_code}
+                    onChange={v => setForm(f => ({ ...f, country_code: v }))}
                   />
                 </div>
                 <div className="w-2/3">
