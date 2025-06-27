@@ -124,6 +124,7 @@ export type BrokerPromotionWithBrokerDetails = {
 export type BrokerReviews = {
   id: number;
   broker_details_id: number;
+  user_id: number;
   name: string;
   rating: string;
   title: string;
@@ -472,6 +473,47 @@ export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerRe
   }
 
   return (data || []) as BrokerReviews[];
+}
+
+// Function to fetch broker reviews by user id
+export async function fetchReviewsByUserId(userId: string): Promise<BrokerReviews[]> {
+  const { data, error } = await supabase
+    .from('broker_reviews')
+    .select(`*`)
+    .eq('user_id', userId)
+    .eq('status', true);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data || []) as BrokerReviews[];
+}
+
+// Function to save broker reviews
+export async function saveBrokerReviews(review: BrokerReviews) {
+  const { data, error } = await supabase
+    .from('broker_reviews')
+    .insert([
+      {
+        broker_details_id: review.broker_details_id,
+        user_id: review.user_id,
+        name: review.name,
+        rating: review.rating,
+        title: review.title,
+        content: review.content,
+        status: review.status,
+        is_featured: review.is_featured,
+        created_at: review.created_at,
+        comment_at: review.comment_at,
+      },
+    ]);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
 }
 
 
