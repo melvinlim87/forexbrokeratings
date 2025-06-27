@@ -78,6 +78,26 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [loadingReviews, setLoadingReviews] = useState(false);
   const [visibleReviews, setVisibleReviews] = useState(3);
 
+  // --- Rating filter state ---
+  const [selectedRating, setSelectedRating] = useState<'All' | 1 | 2 | 3 | 4 | 5>('All');
+  const filteredReviews = selectedRating === 'All'
+    ? reviews
+    : reviews.filter((r: any) => Math.round(parseFloat(r.rating)) === selectedRating);
+
+  // Smooth scroll to #user_reviews with header offset
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.hash === '#user_reviews') {
+      const target = document.getElementById('user_reviews');
+      if (target) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   const reloadReviews = async () => {
     setLoadingReviews(true);
     try {
@@ -971,12 +991,31 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             )}>
               <div id="user_reviews" className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
+{/* Rating Filter */}
+<div className="mb-4 flex items-center gap-2">
+  <label htmlFor="rating-filter" className="font-medium">Filter by Rating:</label>
+  <select
+    id="rating-filter"
+    className="border rounded px-2 py-1"
+    value={selectedRating}
+    onChange={e => {
+      const v = e.target.value === 'All' ? 'All' : parseInt(e.target.value, 10) as 1|2|3|4|5;
+      setSelectedRating(v);
+      setVisibleReviews(3);
+    }}
+  >
+    <option value="All">All</option>
+    {[5,4,3,2,1].map(star => (
+      <option key={star} value={star}>{star} star{star > 1 ? 's' : ''}</option>
+    ))}
+  </select>
+</div>
                 {/* Show reviews, loading state, or empty state */}
                 {loadingReviews ? (
                   <div className="text-gray-400 text-center">Loading reviews...</div>
                 ) : reviews && reviews.length > 0 ? (
                   <div className="space-y-6">
-                    {reviews.slice(0, visibleReviews).map((review, idx) => (
+                    {filteredReviews.slice(0, visibleReviews).map((review, idx) => (
                       <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                           <div className="flex items-center gap-2">
@@ -1001,7 +1040,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                       </div>
                     ))}
-                    {visibleReviews < reviews.length && (
+                    {visibleReviews < filteredReviews.length && (
                       <div className="flex justify-center mt-4">
                         <button
                           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
