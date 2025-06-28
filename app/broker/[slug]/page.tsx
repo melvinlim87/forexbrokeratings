@@ -1,5 +1,6 @@
 export const revalidate = 0;
 import BrokerProfile from '@/components/broker/broker-profile';
+import { LoginModalProvider } from '@/components/broker/LoginModalContext';
 import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, BrokerDetails } from '@/lib/supabase';
 
 // Function to parse array fields that might be stored as strings in the database
@@ -21,7 +22,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
   }
 
   const reviews = await fetchReviewsByBrokerId(broker.id.toString());
-
+  
   return {
     id: broker.id || 0,
     name: broker.name,
@@ -162,10 +163,12 @@ export default async function BrokerProfilePage({
     return (
       <div className="container mx-auto px-4 py-8">
         {/* <IPChecker /> */}
-        <BrokerProfile 
-          brokerData={brokerData} 
-          relatedBrokers={relatedBrokers} 
-        />
+        <LoginModalProvider>
+          <BrokerProfile 
+            brokerData={brokerData} 
+            relatedBrokers={relatedBrokers} 
+          />
+        </LoginModalProvider>
       </div>
     );
   } catch (error) {

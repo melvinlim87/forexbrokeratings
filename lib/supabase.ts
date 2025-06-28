@@ -133,7 +133,15 @@ export type BrokerReviews = {
   is_featured: boolean;
   created_at: string;
   comment_at: string;
-  broker_detail: BrokerDetails;
+  broker_detail?: BrokerDetails;
+  votes?: {
+    user_voted: boolean;
+    user_upvoted: boolean;
+    user_downvoted: boolean;
+    upvotes?: number;
+    downvotes?: number;
+    voted_users?: number[];
+  };
 };
 
 // Type definitions for Blog data
@@ -198,6 +206,15 @@ export type Users = {
   role: string;
   created_at: string;
 };
+
+// Type definitions for broker review votes
+export type BrokerReviewVotes = {
+  id: number;
+  review_id: number;
+  user_id: number;
+  is_upvote: boolean;
+  created_at: string;
+}
 
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
@@ -465,17 +482,41 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
 export async function fetchReviewsByBrokerId(brokerId: string): Promise<BrokerReviews[]> {
   const { data, error } = await supabase
     .from('broker_reviews')
-    .select(`*, broker_details (name, website, logo, rating)`)
+    .select(`
+      *,
+      broker_details (name, website, logo, rating),
+      broker_review_votes (
+        id,
+        is_upvote,
+        review_id,
+        user_id
+      )
+    `)
     .eq('broker_details_id', brokerId)
     .eq('status', true)
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: false })
 
-
-    if (error) {
-      throw new Error(error.message);
+  if (error) {
+    throw new Error(error.message);
   }
-  
-  return (data || []) as BrokerReviews[];
+
+
+  const reviewsWithVotes = (data || []).map((review: any) => {
+    const userVote = review.broker_review_votes?.[0];
+    return {
+      ...review,
+      votes: {
+        user_voted: userVote ? true : false,
+        user_upvoted: userVote?.is_upvote === true,
+        user_downvoted: userVote?.is_upvote === false,
+        upvotes: review.broker_review_votes?.filter((vote: any) => vote.is_upvote).length || 0,
+        downvotes: review.broker_review_votes?.filter((vote: any) => !vote.is_upvote).length || 0,
+        voted_users: review.broker_review_votes?.map((vote: any) => vote.user_id) || [],
+      }
+    };
+  });
+
+  return reviewsWithVotes as BrokerReviews[];
 }
 
 // Function to fetch broker reviews by user id
@@ -712,3 +753,17 @@ export async function saveUser(user: any) {
   return data;
 }
 
+// Function to fetch upvote for review
+export async function fetchReviewUpvote(reviewId: string) {
+  const { data, error } = await supabase
+    .from('broker_review_votes')
+    .select('id')
+    .eq('review_id', reviewId)
+    .eq('is_upvote', true);
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}

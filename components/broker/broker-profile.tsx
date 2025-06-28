@@ -24,8 +24,12 @@ import { cn } from '@/lib/utils';
 import { BrokerDetails } from '@/lib/supabase';
 import BrokerReviewForm from './BrokerReviewForm';
 import { fetchReviewsByBrokerId } from '@/lib/supabase';
+import { ThumbsUp, ThumbsDown } from 'lucide-react';
+import { insertReviewVote, deleteReviewVote, updateReviewVote } from '@/lib/review-votes';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import LoginModal from '@/components/ui/LoginModal';
+import { LoginModalProvider, useLoginModal } from '@/components/broker/LoginModalContext';
 
 interface BrokerProfileProps {
   brokerData: BrokerDetails;
@@ -59,6 +63,7 @@ function isListCondition(
 
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  const { open, setOpen } = useLoginModal();
   // Smooth scroll to #user_reviews with header offset
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -74,6 +79,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   }, []);
 
   const user = useSelector((state: RootState) => state.auth.user);
+
   const [reviews, setReviews] = useState(brokerData.reviews || []);
   const [loadingReviews, setLoadingReviews] = useState(false);
   const [visibleReviews, setVisibleReviews] = useState(3);
@@ -115,26 +121,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [promoPreviewOpen, setPromoPreviewOpen] = useState(false);
   const [previewPromoImages, setPreviewPromoImages] = useState<string[]>([]);
   const [previewPromoImageIdx, setPreviewPromoImageIdx] = useState(0);
-  const [openSection, setOpenSection] = useState<string | null>('overview');
   
-  const toggleSection = (section: string) => {
-    setOpenSection(openSection === section ? null : section);
-  };
-
-  // Helper function to safely render any value type
-  const renderValue = (value: unknown): string => {
-    if (typeof value === 'boolean') {
-      return String(value);
-    }
-    if (Array.isArray(value)) {
-      return value.join(', ');
-    }
-    if (value === null || value === undefined) {
-      return '-';
-    }
-    return String(value);
-  };
-
   return (
     <div className="min-h-screen mx-10">
        {/* Promo Images Carousel Modal */}
@@ -991,55 +978,126 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             )}>
               <div id="user_reviews" className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
-{/* Rating Filter */}
-<div className="mb-4 flex items-center gap-2">
-  <label htmlFor="rating-filter" className="font-medium">Filter by Rating:</label>
-  <select
-    id="rating-filter"
-    className="border rounded px-2 py-1"
-    value={selectedRating}
-    onChange={e => {
-      const v = e.target.value === 'All' ? 'All' : parseInt(e.target.value, 10) as 1|2|3|4|5;
-      setSelectedRating(v);
-      setVisibleReviews(3);
-    }}
-  >
-    <option value="All">All</option>
-    {[5,4,3,2,1].map(star => (
-      <option key={star} value={star}>{star} star{star > 1 ? 's' : ''}</option>
-    ))}
-  </select>
-</div>
+                {/* Rating Filter */}
+                <div className="mb-4 flex items-center gap-2">
+                  <label htmlFor="rating-filter" className="font-medium">Filter by Rating:</label>
+                  <select
+                    id="rating-filter"
+                    className="border rounded px-2 py-1"
+                    value={selectedRating}
+                    onChange={e => {
+                      const v = e.target.value === 'All' ? 'All' : parseInt(e.target.value, 10) as 1|2|3|4|5;
+                      setSelectedRating(v);
+                      setVisibleReviews(3);
+                    }}
+                  >
+                    <option value="All">All</option>
+                    {[5,4,3,2,1].map(star => (
+                      <option key={star} value={star}>{star} star{star > 1 ? 's' : ''}</option>
+                    ))}
+                  </select>
+                </div>
                 {/* Show reviews, loading state, or empty state */}
                 {loadingReviews ? (
                   <div className="text-gray-400 text-center">Loading reviews...</div>
                 ) : reviews && reviews.length > 0 ? (
                   <div className="space-y-6">
-                    {filteredReviews.slice(0, visibleReviews).map((review, idx) => (
-                      <div key={review.id || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <UserCircle2 className="h-6 w-6 text-gray-400 mr-1" />
-                            <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
-                            <span className="text-xs text-gray-400 flex items-center">
-                              <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
-                              {formatDateDMY(review.comment_at)}
-                            </span>
+                    {filteredReviews.slice(0, visibleReviews).map((review, idx) => {
+                      // Type guard: user must have id (number|string) for voting
+                      let userId: number | undefined = undefined;
+                      if (user && (typeof (user as any).id === 'number' || typeof (user as any).id === 'string')) {
+                        userId = typeof (user as any).id === 'number' ? (user as any).id : Number((user as any).id);
+                      }
+                      const reviewId = typeof review.id === 'number' ? review.id : (typeof review.id === 'string' ? Number(review.id) : undefined);
+                      const votedUsers: number[] = Array.isArray(review.votes?.voted_users) ? review.votes.voted_users : [];
+                      const userVoted = userId !== undefined && votedUsers.includes(userId);
+                      const userUpvoted = !!(review.votes?.user_upvoted && userVoted);
+                      const userDownvoted = !!(review.votes?.user_downvoted && userVoted);
+                      const upvotes = typeof review.votes?.upvotes === 'number' ? review.votes.upvotes : 0;
+                      const downvotes = typeof review.votes?.downvotes === 'number' ? review.votes.downvotes : 0;
+                      async function handleVote(isUpvote: boolean) {
+                        if (userId === undefined || reviewId === undefined) return;
+                        try {
+                          if (!userVoted) {
+                            await insertReviewVote({ review_id: reviewId, user_id: userId, is_upvote: isUpvote });
+                          } else if ((userUpvoted && isUpvote) || (userDownvoted && !isUpvote)) {
+                            await deleteReviewVote({ review_id: reviewId, user_id: userId });
+                          } else {
+                            await updateReviewVote({ review_id: reviewId, user_id: userId, is_upvote: isUpvote });
+                          }
+                          await reloadReviews();
+                        } catch (err) {
+                          console.error('Vote error:', err);
+                        }
+                      }
+
+                      return (
+                        <div key={reviewId || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                              <UserCircle2 className="h-6 w-6 text-gray-400 mr-1" />
+                              <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
+                              <span className="text-xs text-gray-400 flex items-center">
+                                <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
+                                {formatDateDMY(review.comment_at)}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1 mt-2 md:mt-0">
+                              {[1,2,3,4,5].map(star => (
+                                <Star key={star} className={cn(
+                                  "h-4 w-4",
+                                  parseFloat(review.rating) >= star ? "text-yellow-400 fill-current" : "text-gray-300"
+                                )} />
+                              ))}
+                              <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1 mt-2 md:mt-0">
-                            {[1,2,3,4,5].map(star => (
-                              <Star key={star} className={cn(
-                                "h-4 w-4",
-                                parseFloat(review.rating) >= star ? "text-yellow-400 fill-current" : "text-gray-300"
-                              )} />
-                            ))}
-                            <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
+                          <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>
+                          <div className="flex items-center gap-3 mt-2">
+                            <button
+                              className={cn(
+                                "flex items-center gap-1 px-2 py-1 rounded transition",
+                                userUpvoted ? "bg-green-100 text-green-700 border border-green-400" : "bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-green-50"
+                              )}
+                              aria-pressed={userUpvoted}
+                              title={userId ? (userUpvoted ? 'Remove upvote' : 'Upvote') : 'Login to vote'}
+                              onClick={() => {
+                                if (!user) {
+                                  setOpen(true);
+                                  return;
+                                }
+                                handleVote(true);
+                              }}
+                              type="button"
+                            >
+                              <ThumbsUp className={cn("w-4 h-4", userUpvoted ? "text-green-600" : "text-gray-400")} />
+                              <span className="text-xs">{upvotes}</span>
+                            </button>
+                            <button
+                              className={cn(
+                                "flex items-center gap-1 px-2 py-1 rounded transition",
+                                userDownvoted ? "bg-red-100 text-red-700 border border-red-400" : "bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-red-50"
+                              )}
+                              aria-pressed={userDownvoted}
+                              title={userId ? (userDownvoted ? 'Remove downvote' : 'Downvote') : 'Login to vote'}
+                              onClick={() => {
+                                if (!user) {
+                                  setOpen(true);
+                                  return;
+                                }
+                                handleVote(false);
+                              }}
+                              type="button"
+                            >
+                              <ThumbsDown className={cn("w-4 h-4", userDownvoted ? "text-red-600" : "text-gray-400")} />
+                              <span className="text-xs">{downvotes}</span>
+                            </button>
+                            {!userId && <span className="text-xs text-gray-400 ml-2">Login to vote</span>}
                           </div>
+                          <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                         </div>
-                        <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>
-                        <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
-                      </div>
-                    ))}
+                      );
+                    })}
                     {visibleReviews < filteredReviews.length && (
                       <div className="flex justify-center mt-4">
                         <button
@@ -1051,7 +1109,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       </div>
                     )}
                     {/* Review written form */}
-                    <BrokerReviewForm brokerId={brokerData.id} onReviewSubmitted={() => { reloadReviews(); setVisibleReviews(3); }} />
+                    <BrokerReviewForm brokerId={brokerData.id} onReviewSubmitted={() => { reloadReviews(); setVisibleReviews(3); }} onRequireLogin={() => setOpen(true)} />
                   </div>
                 ) : (
                   <div className="text-gray-400 text-center">No reviews available.</div>
@@ -1179,6 +1237,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
           </div>
         </div>
       </div>
+      <LoginModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
+

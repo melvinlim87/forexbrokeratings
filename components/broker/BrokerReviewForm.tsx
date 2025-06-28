@@ -10,9 +10,10 @@ import { RootState } from "@/store/store";
 interface BrokerReviewFormProps {
   brokerId: number;
   onReviewSubmitted: () => void;
+  onRequireLogin?: () => void;
 }
 
-export default function BrokerReviewForm({ brokerId, onReviewSubmitted }: BrokerReviewFormProps) {
+export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequireLogin }: BrokerReviewFormProps) {
   const user = useSelector((state: RootState) => state.auth.user);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -26,6 +27,10 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted }: Broker
     setError(null);
     setSuccess(false);
     if (!user || !user.email) {
+      if (onRequireLogin) {
+        onRequireLogin();
+        return;
+      }
       setError("You must be logged in to submit a review.");
       return;
     }
