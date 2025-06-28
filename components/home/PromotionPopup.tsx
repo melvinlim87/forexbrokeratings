@@ -88,7 +88,7 @@ export default function PromotionPopup() {
             <div className="flex items-center rounded-xl px-3 py-2">
                 <span className="text-xs text-gray-500 mr-2">Powered by</span>
                 <img src={promotion.broker_details.logo || ''} alt={promotion.broker_details.name} className="h-8 w-8 rounded-full border mr-2" />
-                <span className="font-bold text-cyan-700 text-lg">{promotion.broker_details.name}</span>
+                <a className="font-bold text-cyan-700 text-lg" href={`/broker/${promotion.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}>{promotion.broker_details.name}</a>
             </div>
             {/* Expiry section */}
             <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
