@@ -10,6 +10,7 @@ import NetworkDiagram from '../network/NetworkDiagram';
 import { BrokerDetails, fetchAllBrokerDetails } from '@/lib/supabase';
 import { useDebounce } from 'use-debounce';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Broker {
   id: string;

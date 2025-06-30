@@ -19,6 +19,7 @@ function formatDateDMY(date: string | number | Date): string {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import AiResultModal from '@/components/ui/AiResultModal';
 import { HexagonChart } from './hexagon-chart';
 import { cn } from '@/lib/utils';
 import { BrokerDetails } from '@/lib/supabase';
@@ -63,6 +64,9 @@ function isListCondition(
 
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  const [aiModalOpen, setAiModalOpen] = useState(false);
+  const [aiModalResult, setAiModalResult] = useState('');
+  const [aiGetResult, setAiGetResult] = useState(false);
   const { open, setOpen } = useLoginModal();
   // Smooth scroll to #user_reviews with header offset
   useEffect(() => {
@@ -74,6 +78,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
         const headerHeight = header ? header.offsetHeight : 0;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }
+    if (window.location.hash === '#ai_analyses') {
+      const target = document.getElementById('ai-analyse-btn');
+      if (target) {
+        target.click()
       }
     }
   }, []);
@@ -121,7 +131,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [promoPreviewOpen, setPromoPreviewOpen] = useState(false);
   const [previewPromoImages, setPreviewPromoImages] = useState<string[]>([]);
   const [previewPromoImageIdx, setPreviewPromoImageIdx] = useState(0);
-  
   return (
     <div className="min-h-screen mx-10">
        {/* Promo Images Carousel Modal */}
@@ -393,6 +402,43 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 }}
               >
                 Add to Compare
+              </Button>
+
+              {/* AI Analyse Button */}
+              <Button
+                size="lg"
+                className="w-full bg-metallic text-black"
+                onClick={async () => {
+                  if (!user) {
+                    setOpen(true);
+                    return;
+                  }
+                  try {
+                    if (aiModalResult == '') {
+                      setAiModalOpen(true);
+                      setAiModalResult('');
+                      const aiBtn = document.getElementById('ai-analyse-btn');
+                      if (aiBtn) aiBtn.innerText = 'Analysing...';
+                      const res = await fetch('/api/aitools', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(brokerData)
+                      });
+                      if (!res.ok) throw new Error('AI analysis failed');
+                      const data = await res.json();
+                      setAiModalResult(data.result || 'No result');
+                      setAiGetResult(true)
+                    }
+                  } catch (err: any) {
+                    setAiModalResult('AI Analyse failed: ' + (err?.message || err));
+                  } finally {
+                    const aiBtn = document.getElementById('ai-analyse-btn');
+                    if (aiBtn) aiBtn.innerText = 'AI Analyse';
+                  }
+                }}
+                id="ai-analyse-btn"
+              >
+                AI Analyse
               </Button>
             </div>
           </div>
@@ -1238,6 +1284,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
         </div>
       </div>
       <LoginModal open={open} onClose={() => setOpen(false)} />
+      <AiResultModal open={aiModalOpen} result={aiModalResult} getAiResult={aiGetResult} onClose={() => setAiModalOpen(false)} />
     </div>
   );
 }
