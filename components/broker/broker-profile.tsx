@@ -95,7 +95,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [visibleReviews, setVisibleReviews] = useState(3);
 
   // --- Rating filter state ---
-  const [selectedRating, setSelectedRating] = useState<'All' | 1 | 2 | 3 | 4 | 5>('All');
+  const [selectedRating, setSelectedRating] = useState<'All' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10>('All');
   const filteredReviews = selectedRating === 'All'
     ? reviews
     : reviews.filter((r: any) => Math.round(parseFloat(r.rating)) === selectedRating);
@@ -1038,7 +1038,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     }}
                   >
                     <option value="All">All</option>
-                    {[5,4,3,2,1].map(star => (
+                    {[10,9,8,7,6,5,4,3,2,1].map(star => (
                       <option key={star} value={star}>{star} star{star > 1 ? 's' : ''}</option>
                     ))}
                   </select>
@@ -1089,7 +1089,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               </span>
                             </div>
                             <div className="flex items-center gap-1 mt-2 md:mt-0">
-                              {[1,2,3,4,5].map(star => (
+                              {[1,2,3,4,5,6,7,8,9,10].map(star => (
                                 <Star key={star} className={cn(
                                   "h-4 w-4",
                                   parseFloat(review.rating) >= star ? "text-yellow-400 fill-current" : "text-gray-300"

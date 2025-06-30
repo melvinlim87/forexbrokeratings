@@ -1,4 +1,5 @@
 import TopHero from '@/components/home/top-hero';
+import { LoginModalProvider } from '@/components/broker/LoginModalContext';
 import Hero from '@/components/home/hero';
 import FeaturedBrokers from '@/components/home/featured-brokers';
 import ComparisonSection from '@/components/home/comparison-section';
@@ -15,7 +16,9 @@ export default function Home() {
     <div className="flex flex-col">
       <PromotionPopup />
       <div className="w-full">
-        <TopHero />
+        <LoginModalProvider>
+          <TopHero />
+        </LoginModalProvider>
         <Hero />
       </div>
       <div className="px-4 sm:px-6 lg:px-8">

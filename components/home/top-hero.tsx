@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Star, Search, Loader2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,9 @@ import { BrokerDetails, fetchAllBrokerDetails } from '@/lib/supabase';
 import { useDebounce } from 'use-debounce';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Textarea } from '../ui/textarea';
+import { useLoginModal } from '../broker/LoginModalContext';
+import LoginModal from '../ui/LoginModal';
 
 interface Broker {
   id: string;
@@ -27,7 +31,8 @@ export default function TopHero() {
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const [opacityRange, setOpacityRange] = useState([0, 300]);
   const opacity = useTransform(scrollY, [0, opacityRange[1]], [1, 0]);
-
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  
   useEffect(() => {
     function handleResize() {
       setOpacityRange(window.innerWidth < 768 ? [0, 800] : [0, 300]);
@@ -42,6 +47,7 @@ export default function TopHero() {
   const [searchResults, setSearchResults] = useState<BrokerDetails[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [loading, setLoading] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
@@ -62,7 +68,6 @@ export default function TopHero() {
           broker.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
           (broker.description && broker.description.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
         ).slice(0, 5); // Limit to 5 results
-        
         setSearchResults(filtered);
       } catch (error) {
         // console.error('Error searching brokers:', error);
@@ -100,9 +105,76 @@ export default function TopHero() {
     setShowResults(false);
   };
 
+  // --- AI typewriter effect for Textarea ---
+  const aiMessage = "Hello, I am your AI Analyzer for your broker";
+  const [aiTypedMessage, setAiTypedMessage] = useState("");
+  const aiResultRef = useRef<HTMLTextAreaElement>(null);
+  const [aiResultHeight, setAiResultHeight] = useState<string | number>('auto');
+  useEffect(() => {
+    setAiTypedMessage("");
+    let idx = 0;
+    const interval = setInterval(() => {
+      setAiTypedMessage((prev) => {
+        if (idx >= aiMessage.length) {
+          clearInterval(interval);
+          return prev;
+        }
+        const next = aiMessage.slice(0, idx + 1);
+        idx++;
+        return next;
+      });
+    }, 35);
+    return () => clearInterval(interval);
+  }, [aiMessage]);
+  useEffect(() => {
+    if (aiResultRef.current) {
+      aiResultRef.current.style.height = 'auto';
+      const newHeight = Math.min(aiResultRef.current.scrollHeight, 320);
+      aiResultRef.current.style.height = newHeight + 'px';
+      setAiResultHeight(newHeight);
+    }
+  }, [aiTypedMessage]);
+
+  const user = useSelector((state: any) => state.auth?.user);
+  const { open, setOpen } = useLoginModal();
+
+  const handleAnalyseByAi = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user) {
+      setOpen(true);
+      return;
+    }
+    setLoading(true)
+    setAiTypedMessage("Analysing...")
+    const res = await fetch('/api/aitools', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({name: searchTerm})
+    });
+    if (!res.ok) throw new Error('AI analysis failed');
+    const data = await res.json();
+    setLoading(false)
+    let message = data.result
+    if (message.length === 0) {
+      return setAiTypedMessage("No result found")
+    }
+    let i = 0;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      i++;
+      setAiTypedMessage(message.slice(0, i));
+      if (i >= message.length) {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      }
+    }, 12);
+    setAiTypedMessage(message)  
+  }
+
   return (
-    <div className="relative w-full overflow-hidden bg-metallic min-h-[600px]">
-      {/* Content container with max-width and centered content */}
+    <>
+      <LoginModal open={open} onClose={() => setOpen(false)} />
+      <div className="relative w-full overflow-hidden bg-metallic min-h-[600px]">
+        {/* Content container with max-width and centered content */}
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -245,13 +317,17 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
 
+          {/* Search Field */}
           <motion.div
-            className="max-w-2xl mx-auto mb-12 relative"
+            className="max-w-3xl mx-auto mb-12 relative"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             ref={searchRef}
           >
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+              AI Broker Analyser
+            </h3>
             <form onSubmit={handleSearch} className="relative">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="relative flex-grow">
@@ -263,36 +339,82 @@ export default function TopHero() {
                     )}
                   </div>
                   <div className="relative p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
-                    <Input
-                      type="text"
-                      placeholder="Search for brokers..."
-                      className="pl-10 py-6 w-full bg-white border-none rounded-xl text-gray-800 dark:text-white placeholder:text-gray-500 focus:ring-2 focus:ring-blue-400"
-                      value={searchTerm}
-                      onChange={(e) => {
-                        setSearchTerm(e.target.value);
-                        setShowResults(true);
-                      }}
-                      onFocus={() => setShowResults(true)}
-                    />
-                    {searchTerm && (
-                      <button
-                        type="button"
-                        onClick={() => setSearchTerm('')}
-                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
-                      >
-                        ✕
-                      </button>
-                    )}
+                    <div className='bg-white rounded-xl p-1'>
+                      <div className='gap-2 flex p-1 rounded-xl'>
+                        <a
+                          href={"/broker/rs-finance/#ai_analyses"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-2 inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-blue-600 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                          style={{ pointerEvents: 'auto' }}
+                        >
+                          Analyse RS Finance
+                        </a>
+                        <a
+                          href={"/broker/fp-markets/#ai_analyses"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-2 inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-blue-600 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                          style={{ pointerEvents: 'auto' }}
+                        >
+                          Analyse FP Markets
+                        </a>
+                        <a
+                          href={"/broker/ic-markets-global/#ai_analyses"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-2 inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-blue-600 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
+                          style={{ pointerEvents: 'auto' }}
+                        >
+                          Analyse IC Markets
+                        </a>
+                      </div>
+                      {/* Animated AI typing effect for Textarea */}
+                      <Textarea
+                        id="ai-analyse-result"
+                        value={aiTypedMessage}
+                        readOnly
+                        ref={aiResultRef}
+                        style={{ height: aiResultHeight, maxHeight: 320, overflowY: 'auto' }}
+                        className="font-mono bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 focus:outline-none border-none resize-none min-h-[60px]"
+                      />
+                      <Input
+                        type="text"
+                        placeholder="Use AI to analyze your preferred broker"
+                        className="py-6 w-full bg-white border-none rounded-xl text-gray-800 dark:text-white placeholder:text-gray-500 "
+                        value={searchTerm}
+                        onChange={(e) => {
+                          setSearchTerm(e.target.value);
+                          setShowResults(true);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            handleAnalyseByAi(e);
+                          }
+                        }}
+                        onFocus={() => setShowResults(true)}
+                        disabled={loading}
+                      />
+                      {loading && searchTerm && (
+                        <button
+                          type="button"
+                          onClick={() => setSearchTerm('')}
+                          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <Button
+                {/* <Button
                   type="submit"
                   size="lg"
                   className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
                   disabled={isSearching}
                 >
                   {isSearching ? 'Searching...' : 'Find Brokers'}
-                </Button>
+                </Button> */}
               </div>
               
               {/* Search results dropdown */}
@@ -358,7 +480,7 @@ export default function TopHero() {
                       </div>
                       ))}
                     </div>
-                  ) : searchTerm ? (
+                  ) : searchTerm && !loading && aiTypedMessage.length < 1 ? (
                     <div className="px-4 py-2 text-sm text-gray-500 dark:text-gray-400">
                       No brokers found. Try a different search term.
                     </div>
@@ -373,5 +495,6 @@ export default function TopHero() {
       </motion.div>
       </div>
     </div>
+    </>
   );
 }

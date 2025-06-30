@@ -104,7 +104,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
         <div>
           <label className="block font-medium mb-1">Rating</label>
           <div className="flex items-center gap-1">
-            {[1,2,3,4,5].map(star => (
+            {[1,2,3,4,5,6,7,8,9,10].map(star => (
               <button
                 type="button"
                 key={star}
@@ -118,7 +118,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
                 />
               </button>
             ))}
-            <span className="ml-2 text-sm font-medium">{rating}/5</span>
+            <span className="ml-2 text-sm font-medium">{rating}/10</span>
           </div>
         </div>
         {error && <div className="text-red-500 text-sm">{error}</div>}
