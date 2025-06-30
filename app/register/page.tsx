@@ -31,12 +31,18 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const [agreePrivacy, setAgreePrivacy] = useState(false);
+  const [agreeSubscribe, setAgreeSubscribe] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!name || !email || !password) {
       setError("Name, email, and password are required.");
+      return;
+    }
+    if (!agreePrivacy) {
+      setError("You must agree to our Privacy Policy to register.");
       return;
     }
     setLoading(true);
@@ -57,6 +63,25 @@ export default function RegisterPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Registration failed");
       dispatch(login(data.user));
+      // If user agreed to subscribe, save subscriber info
+      if (agreeSubscribe) {
+        try {
+          // Save subscriber info
+          await fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name,
+              email,
+              country_code: countryCode,
+              mobileno,
+              created_at: new Date().toISOString(),
+            })
+          });
+        } catch (err) {
+          // Optionally handle newsletter error silently
+        }
+      }
       router.push("/");
     } catch (err: any) {
       setError(err.message || "Registration failed.");
@@ -121,6 +146,34 @@ export default function RegisterPage() {
               onChange={e => setPassword(e.target.value)}
               required
             />
+            {/* Privacy Policy Agreement (required) */}
+            <div className="flex items-start mb-2">
+              <input
+                id="privacy-policy"
+                type="checkbox"
+                checked={agreePrivacy}
+                onChange={e => setAgreePrivacy(e.target.checked)}
+                className="mt-1 mr-2"
+                required
+              />
+              <label htmlFor="privacy-policy" className="text-sm select-none">
+                By continuing, you have read and agree to our{' '}
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800">Privacy Policy</a>
+              </label>
+            </div>
+            {/* Newsletter Subscription (optional) */}
+            <div className="flex items-start mb-4">
+              <input
+                id="subscribe-newsletter"
+                type="checkbox"
+                checked={agreeSubscribe}
+                onChange={e => setAgreeSubscribe(e.target.checked)}
+                className="mt-1 mr-2"
+              />
+              <label htmlFor="subscribe-newsletter" className="text-sm select-none">
+                I agree to receive updates and newsletters from Forex Broker Ratings
+              </label>
+            </div>
             {error && <div className="text-red-500 text-sm text-center">{error}</div>}
             <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
               {loading ? "Registering..." : "Register"}
