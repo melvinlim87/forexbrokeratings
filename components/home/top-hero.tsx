@@ -106,7 +106,7 @@ export default function TopHero() {
   };
 
   // --- AI typewriter effect for Textarea ---
-  const aiMessage = "Hello, I am your AI Analyzer for your broker";
+  const aiMessage = "Hello, I am your AI Analyzer for your broker ";
   const [aiTypedMessage, setAiTypedMessage] = useState("");
   const aiResultRef = useRef<HTMLTextAreaElement>(null);
   const [aiResultHeight, setAiResultHeight] = useState<string | number>('auto');
@@ -123,7 +123,7 @@ export default function TopHero() {
         idx++;
         return next;
       });
-    }, 35);
+    }, 50);
     return () => clearInterval(interval);
   }, [aiMessage]);
   useEffect(() => {
@@ -375,8 +375,8 @@ export default function TopHero() {
                         value={aiTypedMessage}
                         readOnly
                         ref={aiResultRef}
-                        style={{ height: aiResultHeight, maxHeight: 320, overflowY: 'auto' }}
-                        className="font-mono bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 focus:outline-none border-none resize-none min-h-[60px]"
+                        style={{ height: aiResultHeight, maxHeight: 320, overflowY: 'auto', marginTop: 2, marginBottom: 5 }}
+                        className="font-mono bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 outline-none focus:outline-none border-none focus:border-none resize-none min-h-[60px]"
                       />
                       <Input
                         type="text"
