@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { saveUser } from '@/lib/supabase';
 import bcrypt from 'bcrypt';
+import nodemailer from 'nodemailer';
+import { sendVerifyEmail } from '@/lib/verifyTemplate';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -13,6 +15,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await saveUser({ ...user, password: hashedPassword });
     // Defensive: ensure data is an array and first element is an object
     if (data == null) {
+      // Send confirmation email
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+      const verifyUrl = `${baseUrl}/api/verify-email?token=${encodeURIComponent(user.email)}`;
+      try {
+        await sendVerifyEmail(user.email, verifyUrl);
+      } catch (emailErr) {
+        // Optionally log or handle email sending error
+        // console.log(emailErr)
+      }
       const { password, ...userWithoutPassword } = user as Record<string, any>;
       res.status(200).json({ user: userWithoutPassword });
     } 

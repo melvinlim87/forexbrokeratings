@@ -140,7 +140,7 @@ export default function TopHero() {
 
   const handleAnalyseByAi = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user) {
+    if (!user || user.email_verified_at == null) {
       setOpen(true);
       return;
     }

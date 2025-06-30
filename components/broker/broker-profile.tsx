@@ -409,7 +409,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 size="lg"
                 className="w-full bg-metallic text-black"
                 onClick={async () => {
-                  if (!user) {
+                  if (!user || user.email_verified_at == null) {
                     setOpen(true);
                     return;
                   }
@@ -1108,7 +1108,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               aria-pressed={userUpvoted}
                               title={userId ? (userUpvoted ? 'Remove upvote' : 'Upvote') : 'Login to vote'}
                               onClick={() => {
-                                if (!user) {
+                                if (!user || user.email_verified_at == null) {
                                   setOpen(true);
                                   return;
                                 }

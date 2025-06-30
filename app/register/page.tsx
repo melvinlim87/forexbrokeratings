@@ -30,6 +30,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const dispatch = useDispatch();
   const [agreePrivacy, setAgreePrivacy] = useState(false);
   const [agreeSubscribe, setAgreeSubscribe] = useState(false);
@@ -62,7 +63,6 @@ export default function RegisterPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Registration failed");
-      dispatch(login(data.user));
       // If user agreed to subscribe, save subscriber info
       if (agreeSubscribe) {
         try {
@@ -82,7 +82,9 @@ export default function RegisterPage() {
           // Optionally handle newsletter error silently
         }
       }
-      router.push("/");
+      setSuccess(true);
+      // Do not redirect, show confirmation message instead
+      return;
     } catch (err: any) {
       setError(err.message || "Registration failed.");
     } finally {
@@ -107,78 +109,93 @@ export default function RegisterPage() {
           <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Create your account</CardTitle>
         </CardHeader>
         <CardContent className="pt-2 pb-6 px-4 md:px-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Name*"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              required
-            />
-            <input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Email*"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-            />
-            <div className="flex flex-col md:flex-row gap-3">
-              <div className="md:w-1/3">
-                <FilterableCountryCodeSelect value={countryCode} onChange={setCountryCode} />
+          {success ? (
+            <div className="py-8 flex flex-col items-center">
+              <div className="text-2xl font-semibold text-center mb-4 text-cyan-700 dark:text-cyan-300">
+                Registration successful!
               </div>
-              <div className="md:w-2/3">
-                <input
-                  className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                  placeholder="Mobile Number"
-                  type="number"
-                  value={mobileno}
-                  onChange={e => setMobileno(e.target.value)}
-                  required
-                />
+              <div className="text-base text-center text-gray-800 dark:text-gray-200 max-w-md mb-2">
+                A confirmation email has been sent to <span className="font-semibold">{email}</span>.<br />
+                Please check your inbox and click the verification link to activate your account.
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                Didn&apos;t receive the email? Check your spam folder or contact support.
               </div>
             </div>
-            <input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Password*"
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-            />
-            {/* Privacy Policy Agreement (required) */}
-            <div className="flex items-start mb-2">
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
-                id="privacy-policy"
-                type="checkbox"
-                checked={agreePrivacy}
-                onChange={e => setAgreePrivacy(e.target.checked)}
-                className="mt-1 mr-2"
+                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                placeholder="Name*"
+                value={name}
+                onChange={e => setName(e.target.value)}
                 required
               />
-              <label htmlFor="privacy-policy" className="text-sm select-none">
-                By continuing, you have read and agree to our{' '}
-                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800">Privacy Policy</a>
-              </label>
-            </div>
-            {/* Newsletter Subscription (optional) */}
-            <div className="flex items-start mb-4">
               <input
-                id="subscribe-newsletter"
-                type="checkbox"
-                checked={agreeSubscribe}
-                onChange={e => setAgreeSubscribe(e.target.checked)}
-                className="mt-1 mr-2"
+                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                placeholder="Email*"
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
               />
-              <label htmlFor="subscribe-newsletter" className="text-sm select-none">
-                I agree to receive updates and newsletters from Forex Broker Ratings
-              </label>
-            </div>
-            {error && <div className="text-red-500 text-sm text-center">{error}</div>}
-            <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
-              {loading ? "Registering..." : "Register"}
-            </Button>
-          </form>
+              <div className="flex flex-col md:flex-row gap-3">
+                <div className="md:w-1/3">
+                  <FilterableCountryCodeSelect value={countryCode} onChange={setCountryCode} />
+                </div>
+                <div className="md:w-2/3">
+                  <input
+                    className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    placeholder="Mobile Number"
+                    type="number"
+                    value={mobileno}
+                    onChange={e => setMobileno(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <input
+                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                placeholder="Password*"
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+              />
+              {/* Privacy Policy Agreement (required) */}
+              <div className="flex items-start mb-2">
+                <input
+                  id="privacy-policy"
+                  type="checkbox"
+                  checked={agreePrivacy}
+                  onChange={e => setAgreePrivacy(e.target.checked)}
+                  className="mt-1 mr-2"
+                  required
+                />
+                <label htmlFor="privacy-policy" className="text-sm select-none">
+                  By continuing, you have read and agree to our{' '}
+                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800">Privacy Policy</a>
+                </label>
+              </div>
+              {/* Newsletter Subscription (optional) */}
+              <div className="flex items-start mb-4">
+                <input
+                  id="subscribe-newsletter"
+                  type="checkbox"
+                  checked={agreeSubscribe}
+                  onChange={e => setAgreeSubscribe(e.target.checked)}
+                  className="mt-1 mr-2"
+                />
+                <label htmlFor="subscribe-newsletter" className="text-sm select-none">
+                  I agree to receive updates and newsletters from Forex Broker Ratings
+                </label>
+              </div>
+              {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+              <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
+                {loading ? "Registering..." : "Register"}
+              </Button>
+            </form>
+          )}
         </CardContent>
       </Card>
     </div>

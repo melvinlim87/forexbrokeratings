@@ -205,6 +205,7 @@ export type Users = {
   mobileno: string;
   role: string;
   created_at: string;
+  email_verified_at: string;
 };
 
 // Type definitions for broker review votes
@@ -742,6 +743,7 @@ export async function saveUser(user: any) {
         country_code: user.country_code,
         mobileno: user.mobileno,
         role: user.role,
+        status: false,
         created_at: user.created_at,
       },
     ]);
