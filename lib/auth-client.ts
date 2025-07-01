@@ -15,7 +15,7 @@ export function useAuth() {
         const res = await fetch('/api/me');
         if (res.ok) {
           const data = await res.json();
-          dispatch(loginAction({ email: data.user.email })); // Add more fields as needed
+          dispatch(loginAction(data.user)); // Hydrate full user object
         } else {
           dispatch(logoutAction());
         }
@@ -37,7 +37,7 @@ export function useAuth() {
       });
       if (res.ok) {
         const data = await res.json();
-        dispatch(loginAction({ email: data.user.email })); // Add more fields as needed
+        dispatch(loginAction(data.user)); // Hydrate full user object
         return { success: true };
       } else {
         const data = await res.json();

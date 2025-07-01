@@ -40,7 +40,7 @@ export default function UserProfilePage() {
         </aside>
         {/* Profile Form */}
         <div className="flex-1">
-          <div className="max-w-2xl rounded-2xl border border-border bg-transparent shadow-lg p-0 md:p-8 backdrop-blur-md">
+          <div className="w-full rounded-2xl border border-border bg-slate-300/50 shadow-lg p-0 md:p-8 backdrop-blur-md">
             <div className="px-6 pt-8 pb-2">
               <h2 className="text-3xl font-extrabold mb-2 text-gray-900 dark:text-white tracking-tight">User Profile</h2>
               <p className="text-gray-500 dark:text-gray-300 mb-6">Manage your account information below.</p>
@@ -54,15 +54,18 @@ export default function UserProfilePage() {
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                 <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none" disabled value={form.email} />
               </div>
-              <div className="flex gap-3">
-                <div className="w-1/3">
-                  <FilterableCountryCodeSelect
-                    value={form.country_code}
-                    onChange={v => setForm(f => ({ ...f, country_code: v }))}
-                  />
-                </div>
-                <div className="w-2/3">
-                  <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" placeholder="Mobile Number" value={form.mobileno} onChange={e => setForm(f => ({ ...f, mobileno: e.target.value }))} />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mobile No.</label>
+                <div className="flex gap-3">
+                  <div className="w-1/3">
+                    <FilterableCountryCodeSelect
+                      value={form.country_code}
+                      onChange={v => setForm(f => ({ ...f, country_code: v }))}
+                    />
+                  </div>
+                  <div className="w-2/3">
+                    <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" placeholder="Mobile Number" value={form.mobileno} onChange={e => setForm(f => ({ ...f, mobileno: e.target.value }))} />
+                  </div>
                 </div>
               </div>
               <div className="flex gap-3 mt-6 justify-end">

@@ -1099,6 +1099,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             </div>
                           </div>
                           <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>
+                          <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                           <div className="flex items-center gap-3 mt-2">
                             <button
                               className={cn(
@@ -1138,9 +1139,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               <ThumbsDown className={cn("w-4 h-4", userDownvoted ? "text-red-600" : "text-gray-400")} />
                               <span className="text-xs">{downvotes}</span>
                             </button>
-                            {!userId && <span className="text-xs text-gray-400 ml-2">Login to vote</span>}
                           </div>
-                          <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
                         </div>
                       );
                     })}

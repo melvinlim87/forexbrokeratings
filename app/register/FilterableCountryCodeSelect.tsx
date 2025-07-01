@@ -9,7 +9,7 @@ export interface CountryCode {
 
 export default function FilterableCountryCodeSelect({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const [codes, setCodes] = useState<CountryCode[]>([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(value);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function FilterableCountryCodeSelect({ value, onChange }: { value
       c.dial_code.replace('+','').includes(input.replace('+','')) ||
       c.code.toLowerCase().includes(input.toLowerCase())
   );
-
+  console.log('chekcing default value', value)
   return (
     <div className="relative w-full">
       <input
@@ -47,7 +47,7 @@ export default function FilterableCountryCodeSelect({ value, onChange }: { value
               className={`px-3 py-2 cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-900 ${value === c.dial_code ? 'bg-cyan-50 dark:bg-cyan-800' : ''}`}
               onMouseDown={() => {
                 onChange(c.dial_code);
-                setInput(`+${c.dial_code}`);
+                setInput(`${c.dial_code}`);
                 setOpen(false);
               }}
             >

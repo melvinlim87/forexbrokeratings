@@ -43,7 +43,7 @@ function UserReviewsList() {
               <span className="text-xs text-gray-400 ml-2">{new Date(review.comment_at).toLocaleString()}</span>
             </div>
             <div className="flex items-center gap-1 mt-2 md:mt-0">
-              {[1,2,3,4,5].map(star => (
+              {[1,2,3,4,5,6,7,8,9,10].map(star => (
                 <svg key={star} className={`h-4 w-4 ${parseFloat(review.rating) >= star ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.6 1.5,7.6 6,11.9 4.9,18 9.9,14.9 14.9,18 13.8,11.9 18.3,7.6 12.2,6.6"/></svg>
               ))}
               <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
@@ -92,7 +92,7 @@ export default function UserReviewsPage() {
         </aside>
         {/* Reviews Card */}
         <div className="flex-1">
-          <div className="max-w-2xl rounded-2xl border border-border bg-transparent shadow-lg p-0 md:p-8 backdrop-blur-md">
+          <div className="w-full rounded-2xl border border-border bg-transparent shadow-lg p-0 md:p-8 backdrop-blur-md">
             <div className="px-6 pt-8 pb-2">
               <h2 className="text-3xl font-extrabold mb-2 text-gray-900 dark:text-white tracking-tight">My Reviews</h2>
               <p className="text-gray-500 dark:text-gray-300 mb-6">See all your broker reviews and ratings here.</p>

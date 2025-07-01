@@ -204,6 +204,7 @@ export type Users = {
   country_code: string;
   mobileno: string;
   role: string;
+  status: boolean;
   created_at: string;
   email_verified_at: string;
 };

@@ -12,10 +12,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Fetch user with password hash
     const { data, error } = await supabase
       .from('users')
-      .select('id, name, email, password, country_code, mobileno, role, created_at')
-      .eq('status', true)
+      .select('id, name, email, password, country_code, mobileno, role, created_at, status')
       .eq('email', email)
       .single();
+
     if (error) {
       throw new Error(error.message);
     }
@@ -23,7 +23,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new Error('User not found');
     }
   
-    console.log('checking data', data)
+    if (data.status === false) {
+      throw new Error('User not verified');
+    }
 
     const isPasswordValid = await bcrypt.compare(password, data.password);
     if (!isPasswordValid) {
