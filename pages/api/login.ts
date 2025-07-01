@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Fetch user with password hash
     const { data, error } = await supabase
       .from('users')
-      .select('id, name, email, password, country_code, mobileno, role, created_at, status')
+      .select('id, name, email, password, country_code, mobileno, role, created_at, email_verified_at, status')
       .eq('email', email)
       .single();
 
