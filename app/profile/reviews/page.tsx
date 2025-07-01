@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { fetchReviewsByUserId } from '@/lib/supabase';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import BrokerProfileSkeleton from '@/components/broker/BrokerProfileSkeleton';
 
 function UserReviewsList() {
   const user = useSelector((state: RootState | any) => state.auth.user);
@@ -11,6 +13,8 @@ function UserReviewsList() {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(10);
   const [error, setError] = useState<string|null>(null);
+  const [showSkeleton, setShowSkeleton] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!user?.id) return;
@@ -23,6 +27,9 @@ function UserReviewsList() {
 
   if (!user?.id) {
     return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">Please log in to see your reviews.</div>;
+  }
+  if (showSkeleton) {
+    return <BrokerProfileSkeleton />;
   }
   if (loading) {
     return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">Loading reviews...</div>;
@@ -51,7 +58,15 @@ function UserReviewsList() {
           </div>
           <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.content}</div>
           <div className="flex justify-end mt-2">
-            <Link href={`/broker/${review.broker_details?.slug}`} className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50 dark:bg-blue-900/20">View Broker</Link>
+            <button
+  className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50 dark:bg-blue-900/20"
+  onClick={() => {
+    setShowSkeleton(true);
+    router.push(`/broker/${review.broker_details?.slug}`);
+  }}
+>
+  View Broker
+</button>
           </div>
         </div>
       ))}

@@ -153,6 +153,12 @@ export default async function BrokerProfilePage({
         </div>
       );
     }
+
+    // --- SKELETON LOADER ---
+    if (!broker) {
+      const BrokerProfileSkeleton = (await import('@/components/broker/BrokerProfileSkeleton')).default;
+      return <BrokerProfileSkeleton />;
+    }
     // Fetch promotions for the selected broker
     const promotion_details = await fetchPromotionsByBrokerId(broker.id.toString());
     broker.promotion_details = promotion_details;

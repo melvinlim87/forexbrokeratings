@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const { data, error } = await supabase
       .from('users')
-      .update({ email_verified_at: new Date().toISOString() })
+      .update({ email_verified_at: new Date().toISOString(), status: true })
       .eq('email', token)
       .select();
     if (error) throw error;
