@@ -25,7 +25,6 @@ export default function FilterableCountryCodeSelect({ value, onChange }: { value
       c.dial_code.replace('+','').includes(input.replace('+','')) ||
       c.code.toLowerCase().includes(input.toLowerCase())
   );
-  console.log('chekcing default value', value)
   return (
     <div className="relative w-full">
       <input

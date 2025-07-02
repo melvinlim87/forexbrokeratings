@@ -145,20 +145,20 @@ const RegulationsPage = () => {
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Find Your Ideal Forex Broker</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Use our data-driven framework to compare regulation, spreads, platforms and more.</h2>
         <button
-  type="button"
-  className="mt-6 inline-flex items-center gap-2 px-6 py-2 rounded bg-cyan-600 text-white font-semibold shadow hover:bg-cyan-700 focus-visible:ring-2 focus-visible:ring-cyan-400"
-  onClick={() => {
-    const header = document.querySelector('header');
-    const target = document.getElementById('step-guide');
-    if (target) {
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
-  }}
->
-  Get Started <ArrowRight className="w-4 h-4" />
-</button>
+          type="button"
+          className="mt-6 inline-flex items-center gap-2 px-6 py-2 rounded bg-cyan-600 text-white font-semibold shadow hover:bg-cyan-700 focus-visible:ring-2 focus-visible:ring-cyan-400"
+          onClick={() => {
+            const header = document.querySelector('header');
+            const target = document.getElementById('step-guide');
+            if (target) {
+              const headerHeight = header ? header.offsetHeight : 0;
+              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+              window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
+          }}
+        >
+          Get Started <ArrowRight className="w-4 h-4" />
+        </button>
       </header>
 
       {/* StepGuideSection */}

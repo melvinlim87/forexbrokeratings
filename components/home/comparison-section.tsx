@@ -306,6 +306,9 @@ export default function ComparisonSection() {
         });
 
         getRandomItems(data, 1).forEach((broker: any, index: number) => {
+          const categories_tag = broker.promotion_categories.filter((value: any, index: any, self: any) => {
+            return self.indexOf(value) === index;
+          });
           const formattedBroker: Broker = {
             id: broker.id,
             name: broker.name || `Broker ${index + 1}`,
@@ -313,7 +316,7 @@ export default function ComparisonSection() {
             page: broker.website || '#',
             features: {
               promotion: { value: typeof broker.promotions === 'number' ? broker.promotions : parseFloat(broker.promotions) || 0 },
-              category: { value: Array.isArray(broker.promotion_categories) ? broker.promotion_categories.join(', ') : '' }
+              category: { value: categories_tag.join(', ') }
             },
             slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
           };
@@ -396,18 +399,28 @@ export default function ComparisonSection() {
       return <span className="text-sm md:text-lg font-medium">{feature.value}</span>;
     }
     
-    if (feature.score && feature.label) {
-      const score = Math.min(5, Math.max(0, feature.score)); // Ensure score is between 0-5
+    // Support for 10-point data, scale to 5 stars
+    if ((feature.score && feature.label) || (typeof feature.value === 'number' && feature.label === 'Rating')) {
+      // Use score if present, else value
+      let rawScore = feature.score ?? feature.value;
+      if (typeof rawScore === 'string') {
+        const parsed = parseFloat(rawScore);
+        rawScore = isNaN(parsed) ? undefined : parsed;
+      }
+      if (typeof rawScore !== 'number' || isNaN(rawScore)) {
+        return <span className="text-sm md:text-lg font-medium text-gray-400">-</span>;
+      }
+      // If score is out of 10, scale to 5
+      let score = rawScore > 5 ? (rawScore / 10) * 5 : rawScore;
+      score = Math.min(5, Math.max(0, score)); // Clamp between 0-5
       const fullStars = Math.floor(score);
       const hasHalfStar = score % 1 >= 0.25 && score % 1 < 0.75;
       const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-      
       return (
         <div className="flex flex-col items-center space-y-1">
           <div className="hidden md:flex justify-center items-center space-x-0.5">
             {/* Full stars */}
-            {Array(fullStars).fill(0).map((_, i) => (
-              <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            {Array(fullStars).fill(0).map((_, i) => (              <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
             ))}
             {/* Half star */}
             {hasHalfStar && (
@@ -425,11 +438,11 @@ export default function ComparisonSection() {
           </div>
           {/* Mobile: show just score label */}
           <span className="block md:hidden text-sm font-medium text-gray-500 dark:text-gray-400">
-            {score.toFixed(1)}/10
+            {rawScore.toFixed(2)}/10
           </span>
           {/* Desktop: show score label under stars */}
           <span className="hidden md:block text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
-            {score.toFixed(1)}/10
+            {rawScore.toFixed(2)}/10
           </span>
         </div>
       );

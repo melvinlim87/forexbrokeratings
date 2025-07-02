@@ -169,10 +169,47 @@ export default function FeaturedBrokers() {
                   </td>
                   <td className="px-4 py-3 text-center">
                     <div className="flex items-center justify-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <svg key={i} className={`w-4 h-4 ${i < Math.round(broker.avgRating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
-                      ))}
-                      <span className="ml-1 text-sm md:text-lg text-gray-600">{broker.avgRating?.toFixed(2)}</span>
+                      {(() => {
+                        let rawScore = broker.avgRating;
+                        if (typeof rawScore === 'string') {
+                          const parsed = parseFloat(rawScore);
+                          rawScore = isNaN(parsed) ? undefined : parsed;
+                        }
+                        if (typeof rawScore !== 'number' || isNaN(rawScore)) {
+                          return <span className="text-sm md:text-lg font-medium text-gray-400">-</span>;
+                        }
+                        // If score is out of 10, scale to 5
+                        let score = rawScore > 5 ? (rawScore / 10) * 5 : rawScore;
+                        score = Math.min(5, Math.max(0, score)); // Clamp between 0-5
+                        const fullStars = Math.floor(score);
+                        const hasHalfStar = score % 1 >= 0.25 && score % 1 < 0.75;
+                        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                        return (
+                          <>
+                            {/* Full stars */}
+                            {Array(fullStars).fill(0).map((_, i) => (
+                              <svg key={`full-${i}`} className="w-4 h-4 text-yellow-400 fill-yellow-400" fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
+                            ))}
+                            {/* Half star */}
+                            {hasHalfStar && (
+                              <svg className="w-4 h-4 text-yellow-400 fill-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <defs>
+                                  <linearGradient id="half">
+                                    <stop offset="50%" stopColor="#facc15" />
+                                    <stop offset="50%" stopColor="#d1d5db" />
+                                  </linearGradient>
+                                </defs>
+                                <polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" fill="url(#half)" />
+                              </svg>
+                            )}
+                            {/* Empty stars */}
+                            {Array(emptyStars).fill(0).map((_, i) => (
+                              <svg key={`empty-${i}`} className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
+                            ))}
+                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(2) : '-'}{typeof rawScore === 'number' ? '/10' : ''}</span>
+                          </>
+                        );
+                      })()}
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center text-cyan-600 font-medium text-sm md:text-lg ">

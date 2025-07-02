@@ -59,14 +59,14 @@ function UserReviewsList() {
           <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.content}</div>
           <div className="flex justify-end mt-2">
             <button
-  className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50 dark:bg-blue-900/20"
-  onClick={() => {
-    setShowSkeleton(true);
-    router.push(`/broker/${review.broker_details?.slug}`);
-  }}
->
-  View Broker
-</button>
+              className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50 dark:bg-blue-900/20"
+              onClick={() => {
+                setShowSkeleton(true);
+                router.push(`/broker/${review.broker_details?.slug}`);
+              }}
+            >
+              View Broker
+            </button>
           </div>
         </div>
       ))}

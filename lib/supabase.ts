@@ -76,6 +76,7 @@ export type BrokerDetails = {
   badges: string[];
   reviews: BrokerReviews[];
   promotion_details: BrokerPromotionWithBrokerDetails[];
+  review_count?: number;
 };
 
 // Type for joined broker_promotions with selected broker_details fields
@@ -258,6 +259,29 @@ export async function fetchBrokerDetailsById(id: string) {
   }
   
   return data;
+}
+
+// Function to fetch all broker with total count of reviews
+export async function fetchAllBrokerDetailsWithReviews() {
+  const { data, error } = await supabase
+    .from('broker_details')
+    .select(`
+      *,
+      broker_reviews(*)
+    `)
+    .order('rating', { ascending: false });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  // Optional: flatten the review count if needed
+  const result = data.map(item => ({
+    ...item,
+    review_count: item.broker_reviews?.length ?? 0
+  }));
+
+  return result;
 }
 
 // Function to fetch broker website content

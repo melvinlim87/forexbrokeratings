@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
-import { supabase, fetchAllBrokerDetails } from '@/lib/supabase';
+import { supabase, fetchAllBrokerDetailsWithReviews } from '@/lib/supabase';
 
 interface HeroSlide {
   broker: string;
@@ -76,8 +76,7 @@ export default function Hero() {
   useEffect(() => {
     const fetchTopBrokers = async () => {
       try {
-        const brokers = await fetchAllBrokerDetails();
-        
+        const brokers = await fetchAllBrokerDetailsWithReviews();
         // Take top 3 brokers by rating
         const topBrokers = brokers.slice(0, 3);
         
@@ -89,7 +88,7 @@ export default function Hero() {
           title: `#${index + 1} ${broker.bestFor || 'Top Rated Forex Broker'}`,
           description: broker.description || 'A reliable broker with competitive trading conditions',
           rating: broker.rating || 4.5,
-          reviews: '1,000+', // Default value since we don't have review count in the database
+          reviews: broker.review_count || '1,000+', // Default value since we don't have review count in the database
           features: broker.pros?.slice(0, 3) || ['Competitive spreads', 'Multiple trading platforms', 'Regulated'],
           slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`,
           url: broker.url || '#'
