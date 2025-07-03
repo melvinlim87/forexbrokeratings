@@ -30,7 +30,7 @@ export default function ResetPasswordPage() {
 
     try {
       const { error, data } = await supabase.auth.updateUser({ password });
-      console.log('data', data)
+      
       if (error) {
         if (error.message && error.message.toLowerCase().includes('auth session missing')) {
           setError('Your reset link may have expired or is not valid in this browser. Please try clicking the link directly from your email, or request a new password reset.');

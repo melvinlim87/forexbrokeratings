@@ -245,19 +245,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               </p>
               {/* Additional Broker Details */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
-                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
                   <div className="text-cyan-400 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Min Spread</div>
                 </div>
-                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
                   <div className="text-purple-400 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Max Leverage</div>
                 </div>
-                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
                   <div className="text-green-400 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Min Deposit</div>
                 </div>
-                <div className="col-span-1 bg-black/15 rounded-lg p-4 flex grid items-center">
+                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
                   <div className="text-amber-300 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Execution Speed</div>
                 </div>

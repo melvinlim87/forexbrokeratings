@@ -17,8 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       password: user.password,
     });
 
-    console.log(supabaseAuthRes)
-
     if (supabaseAuthRes.error) {
       throw new Error(supabaseAuthRes.error.message || 'Registration failed');
     }
@@ -36,12 +34,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           // await sendVerifyEmail(user.email, verifyUrl);
         } catch (emailErr) {
           // Optionally log or handle email sending error
-          // console.log(emailErr)
         }
         const { password, ...userWithoutPassword } = user as Record<string, any>;
         // Issue JWT token for immediate login
         const { signJwt } = await import('@/lib/jwt');
-        const token = signJwt({ id: data.id, email: data.email, role: data.role });
+        const token = signJwt({ id: supabaseAuthRes.data.user.id, email: supabaseAuthRes.data.user.email, role: supabaseAuthRes.data.user.role });
         res.status(200).json({ user: userWithoutPassword, token });
       } 
     }

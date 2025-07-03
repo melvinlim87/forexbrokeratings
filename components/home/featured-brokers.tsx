@@ -173,7 +173,7 @@ export default function FeaturedBrokers() {
                         let rawScore = broker.avgRating;
                         if (typeof rawScore === 'string') {
                           const parsed = parseFloat(rawScore);
-                          rawScore = isNaN(parsed) ? undefined : parsed;
+                          rawScore = isNaN(parsed) ? 0 : parsed;
                         }
                         if (typeof rawScore !== 'number' || isNaN(rawScore)) {
                           return <span className="text-sm md:text-lg font-medium text-gray-400">-</span>;
