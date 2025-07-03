@@ -269,7 +269,8 @@ export async function fetchAllBrokerDetailsWithReviews() {
       *,
       broker_reviews(*)
     `)
-    .order('rating', { ascending: false });
+    .order('rating', { ascending: false })
+    .limit(10);
 
   if (error) {
     throw new Error(error.message);
@@ -280,7 +281,7 @@ export async function fetchAllBrokerDetailsWithReviews() {
     ...item,
     review_count: item.broker_reviews?.length ?? 0
   }));
-
+  result.sort((a, b) => b.review_count - a.review_count);
   return result;
 }
 

@@ -12,7 +12,12 @@ export function useAuth() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const res = await fetch('/api/me');
+        // Optionally, send token from cookie
+        const Cookies = (await import('js-cookie')).default;
+        const token = Cookies.get('token');
+        const res = await fetch('/api/me', {
+          headers: token ? { Authorization: `Bearer ${token}` } : undefined
+        });
         if (res.ok) {
           const data = await res.json();
           dispatch(loginAction(data.user)); // Hydrate full user object
@@ -37,6 +42,11 @@ export function useAuth() {
       });
       if (res.ok) {
         const data = await res.json();
+        // Save JWT token to cookie
+        if (data.token) {
+          const Cookies = (await import('js-cookie')).default;
+          Cookies.set('token', data.token, { expires: 7 });
+        }
         dispatch(loginAction(data.user)); // Hydrate full user object
         return { success: true };
       } else {

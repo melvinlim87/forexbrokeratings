@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const { token } = req.query;
-  if (!token || typeof token !== 'string') {
+  if (!token) {
     return res.status(400).json({ error: 'Invalid or missing token' });
   }
   try {

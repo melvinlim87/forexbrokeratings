@@ -2,7 +2,7 @@ import { Users } from '@/lib/supabase';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
-  user: null | Users;
+  user: any;
 }
 
 const initialState: AuthState = {

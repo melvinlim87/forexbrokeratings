@@ -143,7 +143,7 @@ export default function TopHero() {
 
   const handleAnalyseByAi = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user || user.email_verified_at == null) {
+    if (!user || user.user_metadata.email_verified == false) {
       setOpen(true);
       return;
     }
@@ -151,7 +151,7 @@ export default function TopHero() {
     setAiTypedMessage("Analysing...")
     const res = await fetch('/api/aitools', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.jwt}` },
       body: JSON.stringify({name: searchTerm})
     });
     if (!res.ok) throw new Error('AI analysis failed');

@@ -42,6 +42,8 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Login failed');
+      // add jwt token to user
+      data.user.jwt = data.token;
       // save user to redux
       dispatch(login(data.user));
       router.push('/');
@@ -88,6 +90,9 @@ export default function LoginPage() {
               required
               autoComplete="current-password"
             />
+            <div className="text-right mb-1">
+              <a href="/forgot-password" className="text-primary underline hover:text-primary/80 text-sm font-semibold transition-colors">Forgot your password?</a>
+            </div>
             {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
             <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}

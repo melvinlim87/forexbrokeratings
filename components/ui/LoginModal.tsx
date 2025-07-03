@@ -37,8 +37,8 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
         body: JSON.stringify({ email, password }),
       });
       const data = await res.json();
-      console.log('checking lognn modal data', data)
       if (!res.ok) throw new Error(data.error || "Login failed");
+      data.user.jwt = data.token;
       dispatch(login(data.user));
       onClose();
     } catch (err: any) {
@@ -85,6 +85,9 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 required
                 autoComplete="current-password"
               />
+              <div className="text-right mb-1">
+                <a href="/forgot-password" className="text-primary underline hover:text-primary/80 text-xs font-semibold transition-colors">Forgot your password?</a>
+              </div>
               {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
               <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
                 {loading ? "Logging in..." : "Login"}
