@@ -106,7 +106,7 @@ export default function TopHero() {
   };
 
   // --- AI typewriter effect for Textarea ---
-  const aiMessage = "Hello, I am your AI Analyzer for your broker ";
+  const aiMessage = React.useMemo(() => "Hello, I am your AI Analyzer for your broker ", []);
   const [aiTypedMessage, setAiTypedMessage] = useState("");
   const aiResultRef = useRef<HTMLTextAreaElement>(null);
   const [aiResultHeight, setAiResultHeight] = useState<string | number>('auto');
@@ -131,8 +131,11 @@ export default function TopHero() {
       aiResultRef.current.style.height = 'auto';
       const newHeight = Math.min(aiResultRef.current.scrollHeight, 320);
       aiResultRef.current.style.height = newHeight + 'px';
-      setAiResultHeight(newHeight);
+      if (aiResultHeight !== newHeight) {
+        setAiResultHeight(newHeight);
+      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aiTypedMessage]);
 
   const user = useSelector((state: any) => state.auth?.user);
@@ -317,7 +320,7 @@ export default function TopHero() {
             The Aggregated Forex Broker Ratings Across All Rating Platforms
           </motion.p>
 
-          {/* Search Field */}
+          {/* AI Tools Field */}
           <motion.div
             className="max-w-3xl mx-auto mb-12 relative"
             initial={{ opacity: 0, y: 20 }}
