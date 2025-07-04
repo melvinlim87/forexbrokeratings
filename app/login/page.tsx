@@ -47,6 +47,8 @@ export default function LoginPage() {
       let user = data.user;
       // save user to redux
       user.jwt = data.token;
+      user.user_detail = data.user_detail;
+      console.log(user)
       dispatch(login(user));
       router.push('/');
     } catch (err: any) {

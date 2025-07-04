@@ -17,15 +17,15 @@ function UserReviewsList() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user?.id) return;
+    if (!user?.user_detail?.id) return;
     setLoading(true);
-    fetchReviewsByUserId(user.id)
+    fetchReviewsByUserId(user.user_detail.id)
       .then((data) => setReviews(data))
       .catch((e) => setError(e.message || 'Failed to fetch reviews'))
       .finally(() => setLoading(false));
-  }, [user?.id]);
+  }, [user?.user_detail?.id]);
 
-  if (!user?.id) {
+  if (!user?.user_detail?.id) {
     return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">Please log in to see your reviews.</div>;
   }
   if (showSkeleton) {

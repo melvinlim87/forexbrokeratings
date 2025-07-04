@@ -15,6 +15,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { login } from '@/store/slices/authSlice';
+import { getUserByEmail } from '@/lib/supabase';
+import { signJwt } from '@/lib/jwt';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -29,13 +31,16 @@ export default function Home() {
           const user = JSON.parse(decodeURIComponent(verifiedUser));
           dispatch(login(user));
           // Optionally show toast or alert
-          window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+          router.push('/');
+          // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
           // window.alert('Email verified! You are now logged in.');
-        } catch (e) {}
+        } catch (e) {
+          console.log('error', e)
+        }
         // Remove the query param from the URL
-        params.delete('verified_user');
-        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-        window.history.replaceState({}, '', newUrl);
+        // params.delete('verified_user');
+        // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        // window.history.replaceState({}, '', newUrl);
       }
     }
   }, [dispatch]);

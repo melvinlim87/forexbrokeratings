@@ -15,6 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const supabaseAuthRes = await supabase.auth.signUp({
       email: user.email,
       password: user.password,
+      options: {
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/verify-email`
+      }
     });
 
     if (supabaseAuthRes.error) {

@@ -219,6 +219,15 @@ export type BrokerReviewVotes = {
   created_at: string;
 }
 
+// Type definitions for AI result
+export type AIResult = {
+  id: number;
+  user_id: number;
+  title: string;
+  result: string;
+  created_at: string;
+}
+
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
   const { data, error } = await supabase
@@ -252,6 +261,21 @@ export async function fetchBrokerDetailsById(id: string) {
     .from('broker_details')
     .select('*')
     .eq('id', id)
+    .single();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to fetch broker details by Name
+export async function fetchBrokerDetailsByName(name: string) {
+  const { data, error } = await supabase
+    .from('broker_details')
+    .select('*')
+    .ilike('name', `%${name}%`)
     .single();
   
   if (error) {
@@ -757,6 +781,21 @@ export async function loginUserWithCredential(email: string, password: string) {
   return data;
 }
 
+// Function to get user by email
+export async function getUserByEmail(email: string) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('id, name, email, country_code, mobileno, role, created_at')
+    .eq('email', email)
+    .single();
+  
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
 // Function to save user (expects already hashed password)
 export async function saveUser(user: any) {
   const { data, error } = await supabase
@@ -789,6 +828,37 @@ export async function fetchReviewUpvote(reviewId: string) {
     .eq('review_id', reviewId)
     .eq('is_upvote', true);
   
+  if (error) {
+    throw new Error(error.message);
+  }
+  
+  return data;
+}
+
+// Function to fetch ai result
+export async function fetchAIResult(title: string) {
+  const { data, error } = await supabase
+    .from('ai_results')
+    .select('*')
+    .ilike('title', `%${title}%`)
+    .single();
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+// Function to store ai result
+export async function storeAIResult(user_id: string, title: string, result: string) {
+  const { data, error } = await supabase
+    .from('ai_results')
+    .insert([
+      {
+        user_id: user_id,
+        title: title,
+        result: result,
+        created_at: new Date().toISOString(),
+      },
+    ]);
+
   if (error) {
     throw new Error(error.message);
   }
