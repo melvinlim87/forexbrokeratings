@@ -1,6 +1,6 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-default-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || 'forexbrokeratingyeah';
 
 export function signJwt(payload: object, expiresIn: string | any = '7d') {
   const options: SignOptions = { expiresIn };

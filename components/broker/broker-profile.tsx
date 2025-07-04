@@ -424,10 +424,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.jwt}` },
                         body: JSON.stringify(brokerData)
                       });
-                      if (!res.ok) throw new Error('AI analysis failed');
-                      const data = await res.json();
-                      setAiModalResult(data.result || 'No result');
-                      setAiGetResult(true)
+                      if (!res.ok) {
+                        setAiModalResult('AI Analyse failed: ' + res.statusText);
+                        setAiGetResult(true)
+                      } else {
+                        const data = await res.json();
+                        setAiModalResult(data.result || 'No result');
+                        setAiGetResult(true)
+                      }
                     }
                   } catch (err: any) {
                     setAiModalResult('AI Analyse failed: ' + (err?.message || err));

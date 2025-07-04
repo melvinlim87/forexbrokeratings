@@ -35,8 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Add JWT token
     const { signJwt } = await import('@/lib/jwt');
     const token = signJwt({ id: data.user.id, email: data.user.email, role: data.user.user_metadata.role });
-
-    res.status(200).json({ user: data.user, token });
+    res.status(200).json({ user: data.user, token: token });
   } catch (error: any) {
     res.status(401).json({ error: error.message || 'Invalid credentials' });
   }

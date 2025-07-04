@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
   const prompt = req.body;
-  console.log(prompt)
+
   try {
 
     // const response = await fetch('https://api.anthropic.com/v1/messages', {

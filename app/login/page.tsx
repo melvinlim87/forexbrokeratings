@@ -10,6 +10,7 @@ import { login } from '@/store/slices/authSlice';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 
+
 export default function LoginPage() {
   const router = useRouter();
   const user = useSelector((state: RootState) => state.auth.user);
@@ -43,9 +44,10 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Login failed');
       // add jwt token to user
-      data.user.jwt = data.token;
+      let user = data.user;
       // save user to redux
-      dispatch(login(data.user));
+      user.jwt = data.token;
+      dispatch(login(user));
       router.push('/');
     } catch (err: any) {
       setError(err.message || 'Login failed.');
