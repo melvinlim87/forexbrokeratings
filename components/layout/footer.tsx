@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <p className="text-base text-gray-500 dark:text-gray-400 text-center">
-              &copy; {new Date().getFullYear()} ForexBrokerRatings.com. All rights reserved.
+              &copy; {new Date().getFullYear()} ForexBrokeratings.com. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">
               Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors. 

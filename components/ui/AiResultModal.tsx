@@ -15,8 +15,6 @@ interface AiResultModalProps {
 export default function AiResultModal({ open, result, onClose, getAiResult }: AiResultModalProps) {
   const [displayed, setDisplayed] = React.useState('');
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
-  const displayedRef = React.useRef<HTMLTextAreaElement>(null);
-  const [displayedHeight, setDisplayedHeight] = React.useState<string | number>('auto');
   
   React.useEffect(() => {
     if (!open) {
@@ -38,15 +36,6 @@ export default function AiResultModal({ open, result, onClose, getAiResult }: Ai
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [open, result]);
-
-  React.useEffect(() => {
-    if (displayedRef.current) {
-      displayedRef.current.style.height = 'auto';
-      const newHeight = Math.min(displayedRef.current.scrollHeight, 320);
-      displayedRef.current.style.height = newHeight + 'px';
-      setDisplayedHeight(newHeight);
-    }
-  }, [displayed]);
   if (!open) return null;
 
   const handleCopy = async () => {
@@ -79,13 +68,9 @@ export default function AiResultModal({ open, result, onClose, getAiResult }: Ai
           <X className="w-6 h-6" />
         </button>
         <h2 className="text-xl font-bold mb-4">AI Broker Analysis</h2>
-        <textarea
-          readOnly
-          ref={displayedRef}
-          value={getAiResult ? displayed : "Analysing..."}
-          className="w-full border rounded p-3 bg-gray-50 dark:bg-gray-800 mb-4 font-mono text-gray-800 dark:text-gray-100 whitespace-pre-line resize-none focus:outline-none"
-          style={{ height: displayedHeight, maxHeight: 320, overflowY: 'auto' }}
-        />
+        <div className="max-h-80 overflow-y-auto whitespace-pre-line text-gray-800 dark:text-gray-100 border rounded p-3 bg-gray-50 dark:bg-gray-800 mb-4 font-mono">
+          {getAiResult ? displayed : "Analysing..."}
+        </div>
         <div className="flex gap-3 justify-end">
           <Button size="sm" variant="outline" onClick={handleCopy} title="Copy">
             <Copy className="w-4 h-4 mr-1" /> Copy

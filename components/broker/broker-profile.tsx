@@ -1089,13 +1089,13 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               </span>
                             </div>
                             <div className="flex items-center gap-1 mt-2 md:mt-0">
-                              {[1,2,3,4,5,6,7,8,9,10].map(star => (
+                              {[1,2,3,4,5].map(star => (
                                 <Star key={star} className={cn(
                                   "h-4 w-4",
                                   parseFloat(review.rating) >= star ? "text-yellow-400 fill-current" : "text-gray-300"
                                 )} />
                               ))}
-                              <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
+                              <span className="ml-1 text-xs text-gray-500">{parseFloat(review.rating).toFixed(0)}</span>
                             </div>
                           </div>
                           <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>

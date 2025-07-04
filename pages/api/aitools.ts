@@ -7,8 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-
   const prompt = req.body;
+  console.log(prompt)
   try {
 
     // const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -24,6 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //       messages: [
     //         {
     //           role: 'user',
+
     //           content: `
     //             You are a professional AI analyst tasked with evaluating forex brokers.
                 
@@ -62,58 +63,87 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // const message = data.content?.[0]?.text || '';
 
       
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://forexbrokeratings.com',
-        'X-Title': 'Forex Broker Ratings'
-      },
-      body: JSON.stringify({
-        model: 'deepseek/deepseek-r1-0528:free',
-        messages: [
-          { role: 'system', content: `
-            You are a professional AI analyst tasked with evaluating forex brokers.
+    // Try up to 5 different models in sequence
+    const models = [
+      'deepseek/deepseek-r1-0528:free',
+      'qwen/qwen2.5-vl-72b-instruct:free',
+      'mistralai/mistral-small-3.2-24b-instruct-2506:free',
+      'meta-llama/llama-4-maverick:free',
+      'nvidia/llama-3.3-nemotron-super-49b-v1:free'
+    ];
+    let message = '';
+    let lastError = null;
+    for (let i = 0; i < models.length; i++) {
+      try {
+        const model = models[i];
+        const systemPrompt =
+            `You are an expert forex broker analyst with comprehensive knowledge of the forex trading industry.
 
-            You will be provided with a JSON input that may contain partial or complete information about a broker. In some cases, only the broker name will be given.
+              CRITICAL FORMATTING REQUIREMENTS:
+              1. Structure your response with clear sections using headings that end with a colon (:)
+              2. Use bullet points with single dashes (-) for lists and comparisons
+              3. Keep paragraphs concise (2-4 sentences maximum)
+              4. Add blank lines between different sections
+              5. NO asterisks (*), NO excessive formatting symbols
+              6. Avoid repetitive content or redundant information
 
-            Your responsibilities:
+              RESPONSE STRUCTURE EXAMPLE:
+              Regulatory Compliance:
+              Brief paragraph about regulations.
 
-            Analyze the available broker data provided in the JSON.
+              - Broker 1 regulation details
+              - Broker 2 regulation details
 
-            If key details are missing (e.g. regulation, trading conditions, platform types, or only the name is given), you may autonomously search the public web to collect relevant information from the broker’s official website or trusted sources.
+              Trading Conditions:
+              Brief paragraph about trading conditions.
 
-            Based on all available and retrieved information, write a concise, professional summary report for retail traders and analysts.
+              - Specific point about spreads
+              - Specific point about execution
 
-            Your report must cover:
-            Broker Overview
+              Best Promotions:
+              Brief paragraph about current offers and bonuses.
 
-            Regulation & Safety
+              - Broker 1 promotional offers
+              - Broker 2 promotional offers
 
-            Trading Conditions (platforms, spreads, execution model)
+              User Experience:
+              Brief paragraph about overall user experience and platform usability.
 
-            Account Requirements & Promotions
+              - Platform ease of use
+              - Customer support quality
+              - Mobile app functionality
 
-            Suitability (e.g. beginner, experienced, algo traders)
+              Always provide factual, unbiased information. Write in a professional yet conversational tone.`
+              
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            'HTTP-Referer': 'https://forexbrokeratings.com',
+            'X-Title': 'Forex Broker Ratings'
+          },
+          body: JSON.stringify({
+            model,
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: JSON.stringify(prompt) }
+            ]
+          })
+        });
+        const data = await response.json();
+        message = data.choices?.[0]?.message?.content || '';
+        if (message) break;
+      } catch (err) {
+        lastError = err;
+        message = '';
+      }
+    }
 
-            Any Red Flags
-
-            Final Verdict (include a 0–10 rating if possible)
-
-            ✍️ Important:
-
-            Keep the tone objective, factual, and clear.
-
-            Do not output raw data, notes, or JSON — only return the final summary report.
- 
-          `},
-          { role: 'user', content: JSON.stringify(prompt) }
-        ]
-      })
-    });
-    const data = await response.json();
-    const message = data.choices?.[0]?.message?.content || '';
+    if (!message) {
+      res.status(500).json({ error: 'AI analysis failed. Please try again later.' });
+      return;
+    }
 
     res.status(200).json({ result: message });
   } catch (error: any) {

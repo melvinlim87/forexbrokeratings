@@ -64,7 +64,7 @@ export default function LoginPage() {
               alt="Forex Broker Ratings Logo"
               width={240}
               height={60}
-              className="w-full h-24 object-cover"
+              className="w-full h-40 object-cover"
               priority
             />
           </div>
