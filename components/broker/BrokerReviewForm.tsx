@@ -26,7 +26,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
     e.preventDefault();
     setError(null);
     setSuccess(false);
-    if (!user || !user.user_metadata.email_verified) {
+    if (!user || !user.email_confirmed_at) {
       if (onRequireLogin) {
         onRequireLogin();
         return;

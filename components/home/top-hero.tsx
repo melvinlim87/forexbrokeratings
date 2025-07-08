@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import AiToolsPanel from "@/components/ai-tools/AiToolsPanel";
+import AnimateAiToolsPanel from "@/components/ai-tools/AnimateAiToolsPanel";
 import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
@@ -144,7 +144,7 @@ export default function TopHero() {
 
   const handleAnalyseByAi = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user || user.user_metadata.email_verified == false) {
+    if (!user || !user.email_confirmed_at) {
       setOpen(true);
       return;
     }
@@ -324,7 +324,7 @@ export default function TopHero() {
           <NetworkDiagram />
           
           {/* AI Tools Field */}
-          <AiToolsPanel setOpen={setOpen} />
+          <AnimateAiToolsPanel setOpen={setOpen} />
         </div>
       </motion.div>
       </div>

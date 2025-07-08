@@ -164,20 +164,19 @@ export default function BrokersPage() {
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      <div className="bg-blue-600 dark:bg-blue-900">
+      <div className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center p-4">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Compare Top Forex Brokers
+              Top Forex Brokers
             </h1>
             <p className="text-blue-100 mb-6">
-              Find the best forex broker for your trading style. Compare features, minimum deposits, 
-              regulations and more.
+              Browse and compare the best forex brokers for your trading needs. Filter by rating, minimum deposit, regulation, and more.
             </p>
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
-              <Input 
-                placeholder="Search brokers by name..." 
+              <Input
+                placeholder="Search brokers by name..."
                 className="pl-10 py-6 bg-white dark:bg-gray-800"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

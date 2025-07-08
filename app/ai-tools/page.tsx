@@ -20,20 +20,20 @@ import { Badge } from '@/components/ui/badge';
 const aiTools = [
   {
     id: 1,
-    title: 'AI Trading Signal Generator',
-    category: 'Analysis',
-    icon: <LineChart className="h-5 w-5" />,
-    description: 'Get real-time trading signals powered by advanced machine learning algorithms',
+    title: 'AI Trading Assistant',
+    category: 'Trading',
+    icon: <Bot className="h-5 w-5" />,
+    description: 'Your personal AI trading companion that helps analyze markets and improve decisions',
     features: [
-      'Real-time market analysis',
-      'Multi-timeframe signals',
-      'Customizable alert settings',
-      'Historical performance tracking'
+      'Market analysis',
+      'Trade suggestions',
+      'Risk management',
+      'Performance tracking'
     ],
-    rating: 4.8,
-    reviews: 245,
+    rating: 4.9,
+    reviews: 312,
     popular: true,
-    slug: 'trading-signals'
+    slug: 'trading-assistant'
   },
   {
     id: 2,
@@ -88,20 +88,20 @@ const aiTools = [
   },
   {
     id: 5,
-    title: 'AI Trading Assistant',
-    category: 'Trading',
-    icon: <Bot className="h-5 w-5" />,
-    description: 'Your personal AI trading companion that helps analyze markets and improve decisions',
+    title: 'AI Trading Signal Generator',
+    category: 'Analysis',
+    icon: <LineChart className="h-5 w-5" />,
+    description: 'Get real-time trading signals powered by advanced machine learning algorithms',
     features: [
-      'Market analysis',
-      'Trade suggestions',
-      'Risk management',
-      'Performance tracking'
+      'Real-time market analysis',
+      'Multi-timeframe signals',
+      'Customizable alert settings',
+      'Historical performance tracking'
     ],
-    rating: 4.9,
-    reviews: 312,
+    rating: 4.8,
+    reviews: 245,
     popular: true,
-    slug: 'trading-assistant'
+    slug: 'trading-signals'
   },
   {
     id: 6,
@@ -268,16 +268,15 @@ export default function AIToolsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
               <div className="bg-white dark:bg-gray-800 p-3 rounded-full w-fit mb-4">
-                <Brain className="h-6 w-6 text-blue-600 dark:text-blue-500" />
+                <Bot className="h-6 w-6 text-blue-600 dark:text-blue-500" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">AI Trading Assistant</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-5">
                 Get personalized trading insights and recommendations powered by advanced machine learning algorithms.
               </p>
-              <Button asChild disabled className='cursor-not-allowed'>
-                <Link href="#" >
+              <Button asChild >
+                <Link href="/ai-tools/trading-assistant">
                   Try Assistant <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -382,7 +381,7 @@ function ToolCard({
       onMouseLeave={() => setHoveredCard(null)}
     >
       <div className="relative h-full">
-        <Card className="h-full hover:shadow-md transition-all duration-300 cursor-not-allowed opacity-80">
+        <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.slug === 'trading-assistant' ? '' : 'cursor-not-allowed opacity-80'}`}> 
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
@@ -420,15 +419,26 @@ function ToolCard({
                 <span className="ml-1 text-sm font-medium">{tool.rating}</span>
                 <span className="ml-1 text-xs text-gray-500">({tool.reviews})</span>
               </div>
-              <div className="flex items-center text-gray-400 font-medium">
-                <span className="mr-2">Coming Soon</span>
-                <ArrowRight className="h-4 w-4" />
+              {/* Only for AI Trading Assistant: make button enabled and link to assistant page */}
+              {tool.slug === 'trading-assistant' ? (
+                <Button asChild variant="primary">
+                  <Link href="/ai-tools/trading-assistant">
+                    Launch <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+              ) : (
+                <div className="flex items-center text-gray-400 font-medium">
+                  <span className="mr-2">Coming Soon</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              )}
+            </div>
+            {/* Overlay for other tools, not for trading-assistant */}
+            {tool.slug !== 'trading-assistant' && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-lg">
+                <span className="text-xl font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
               </div>
-            </div>
-            {/* Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-lg">
-              <span className="text-xl font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
-            </div>
+            )}
           </CardContent>
         </Card>
       </div>

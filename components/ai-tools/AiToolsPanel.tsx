@@ -17,7 +17,7 @@ const quickPrompts = [
   "Most Regulated Brokers",
 ];
 
-export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => void }) {
+export default function AiToolsPanel({ setOpen, pre_prompt }: { setOpen: (open: boolean) => void, pre_prompt: string }) {
   const user = useSelector((state: RootState) => state.auth.user);
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState('');
@@ -27,17 +27,22 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
     { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI \nI can help you with: \n  - Broker comparisons and reviews\n  - Regulatory information\n  - Trading conditions analysis\n  - Platform recommendations\n  - Market insights\nWhat would you like to know about forex brokers?", date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
   ]);
 
+  // Auto-scroll to bottom when messages change
   useEffect(() => {
     if (messagesEndRef.current) {
-      const header = document.querySelector('header');
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = messagesEndRef.current.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      messagesEndRef.current.scrollTo({ top: messagesEndRef.current.scrollHeight, behavior: 'smooth' });
     }
   }, [messages]);
 
+  // Handle pre_prompt only when it changes
+  useEffect(() => {
+    if (pre_prompt && pre_prompt.length > 0) {
+      handleAITools(pre_prompt);
+    }
+  }, [pre_prompt]);
+
   const handleAITools = async (prompt: string) => {
-    if (!user || user.email_verified == false) {
+    if (!user || user.email_confirmed_at == false) {
       setOpen(true);
       return;
     }
@@ -49,6 +54,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
     }, 500);
     setPrompt("");
     setLoading(true)
+    // messagesEndRef.current?.scrollTo({ top: messagesEndRef.current?.scrollHeight, behavior: 'smooth' });
     try {
       const res = await fetch('/api/aitools', {
         method: 'POST',
@@ -72,7 +78,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
         if (!data.usePrev) {
           await storeAIResult(user.user_detail ? user.user_detail.id : 1, prompt, data.result);
         }
-        setMessages(prev => {
+        await setMessages(prev => {
           const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
           if (idx !== -1) {
             const updated = [...prev];
@@ -95,7 +101,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
     }
   }
   return (
-    <div className="w-full mx-auto rounded-2xl shadow-xl bg-gradient-to-tr from-[#6f3deb] via-[#4473ea] to-[#21d4fd] p-1 mb-12">
+    <div className="w-full h-[calc(100vh-120px)] mx-auto rounded-2xl shadow-xl bg-gradient-to-r from-cyan-400 to-purple-400 p-1 mb-12">
       {/* Header */}
       <div className="flex items-center gap-3 p-3 ">
         <div className="bg-white/10 p-2 rounded-xl">
@@ -107,9 +113,9 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
         {/* <span className="ml-2 text-xs text-green-500 font-semibold">● Online</span>
         <span className="ml-2 text-xs text-gray-400">Powered by BrokerGPT 72B VL</span> */}
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3 h-[calc(100vh-180px)]">
         {/* Message Container */}
-        <div ref={messagesEndRef} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 max-h-72 overflow-y-auto flex flex-col gap-2">
+        <div ref={messagesEndRef} className="h-[calc(100vh-360px)] bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 overflow-y-auto flex flex-col gap-2">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -150,7 +156,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
             disabled={loading}
           />
           {/* Send button */}
-          <Button disabled={loading} size="icon" className="bg-gradient-to-tr from-purple-500 to-cyan-400 text-white shadow-md" onClick={() => handleAITools(prompt)}>
+          <Button disabled={loading} size="icon" className="bg-gradient-to-r from-cyan-400 to-purple-400 text-white shadow-md" onClick={() => handleAITools(prompt)}>
             <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
           </Button>
         </div>
