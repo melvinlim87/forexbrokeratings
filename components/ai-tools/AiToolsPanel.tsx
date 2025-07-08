@@ -24,7 +24,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   type Message = { sender: 'ai' | 'user'; text: string, date: string };
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI", date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
+    { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI \nI can help you with: \n  - Broker comparisons and reviews\n  - Regulatory information\n  - Trading conditions analysis\n  - Platform recommendations\n  - Market insights\nWhat would you like to know about forex brokers?", date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
   ]);
 
   useEffect(() => {
@@ -131,9 +131,9 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
           ))}
         </div>
         {/* Quick Prompts */}
-        <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3">
+        <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3 grid grid-cols-4">
           {quickPrompts.map((prompt) => (
-            <Button disabled={loading} key={prompt} size="sm" variant="outline" className="rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700" onClick={() => handleAITools(prompt)}>
+            <Button disabled={loading} key={prompt} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700" onClick={() => handleAITools(prompt)}>
               {prompt}
             </Button>
           ))}

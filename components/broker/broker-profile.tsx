@@ -635,14 +635,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Trading Information</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-green-400">Minimum Deposit</span>
-                        <span className="font-medium">{brokerData.min_deposit || 'N/A'}</span>
-                      </li>
-                      <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-blue-400">Maximum Leverage</span>
-                        <span className="font-medium">{brokerData.leverage_max || 'N/A'}</span>
-                      </li>
-                      <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">EUR/USD Spread</span>
                         <span className="font-medium text-cyan-600">{brokerData.spread_eur_usd || 'N/A'}</span>
                       </li>
@@ -669,6 +661,26 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Year Established</span>
                         <span className="font-medium">{brokerData.year_published || 'N/A'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Has API</span>
+                        <span className="font-medium">{brokerData.has_api ? 'Yes' : 'No'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Has Demo Account</span>
+                        <span className="font-medium">{brokerData.has_demo_account ? 'Yes' : 'No'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Has Mobile Trading</span>
+                        <span className="font-medium">{brokerData.has_mobile_trading ? 'Yes' : 'No'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Has Web Based Trading</span>
+                        <span className="font-medium">{brokerData.has_web_based_trading ? 'Yes' : 'No'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Lot Size</span>
+                        <span className="font-medium">{brokerData.min_lot || 'N/A'} - {brokerData.max_lot || 'N/A'}</span>
                       </li>
                     </ul>
                   </div>
@@ -714,9 +726,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{language}</span>
                           )) : <span className="text-gray-400">N/A</span>}
                         </div>
-                        {/* <span className="font-medium text-right">
-                          {brokerData.languages?.length ? brokerData.languages.join(', ') : 'N/A'}
-                        </span> */}
                       </li>
                     </ul>
                   </div>

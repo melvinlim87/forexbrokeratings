@@ -71,29 +71,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ]
       })
     });
-
+    
     const extract_response_data = await extract_response.json();
     const contents = extract_response_data.choices?.[0]?.message?.content || '';
     let cleanedRaw = contents
-      .replace(/```/g, '')
-      .replace(/^json\s*/i, '')
-      .trim();
-
+    .replace(/```/g, '')
+    .replace(/^json\s*/i, '')
+    .trim();
+    
     const cleaned = JSON.parse(cleanedRaw);
     if (cleaned.brokers.length == 0) {
-        // add rs finance to brokers
+      // add rs finance to brokers
         await cleaned.brokers.push('rs finance');
     }
     // Step 3: Query broker data using ilike filter
     const filters = cleaned.brokers
-      .map((name: string) => `name.ilike."${name}"`)
+      .map((name: string) => `name.ilike.%${name}%`)
       .join(',');
 
     const broker_details = await supabase
       .from('broker_details')
       .select(cleaned.fields_in_db.join(','))
-      .or(`(${filters})`);
-
+      .or(`${filters}`);
     // Step 4: Build prompt for final analysis
     let data_prompt = '';
     for (const broker of broker_details.data as any || []) {
@@ -103,8 +102,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Step 5: Call main AI model to generate analysis
     const models = [
-      'qwen/qwen2.5-vl-72b-instruct:free',
       'deepseek/deepseek-r1-0528:free',
+      'qwen/qwen2.5-vl-72b-instruct:free',
       'mistralai/mistral-small-3.2-24b-instruct-2506:free',
       'meta-llama/llama-4-maverick:free',
       'nvidia/llama-3.3-nemotron-super-49b-v1:free'
