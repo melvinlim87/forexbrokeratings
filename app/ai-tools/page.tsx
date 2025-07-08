@@ -421,7 +421,7 @@ function ToolCard({
               </div>
               {/* Only for AI Trading Assistant: make button enabled and link to assistant page */}
               {tool.slug === 'trading-assistant' ? (
-                <Button asChild variant="primary">
+                <Button variant={"default"} asChild>
                   <Link href="/ai-tools/trading-assistant">
                     Launch <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>

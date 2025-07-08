@@ -76,7 +76,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
       if (target) {
         const header = document.querySelector('header');
         const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 24; // 24px extra spacing
         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       }
     }

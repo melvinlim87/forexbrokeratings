@@ -35,7 +35,7 @@ export default function Home() {
           // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
           // window.alert('Email verified! You are now logged in.');
         } catch (e) {
-          console.log('error', e)
+          // console.log('error', e)
         }
         // Remove the query param from the URL
         // params.delete('verified_user');

@@ -59,7 +59,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 alt="Forex Broker Ratings Logo"
                 width={240}
                 height={60}
-                className="w-full h-24 object-cover"
+                className="w-full h-40 object-cover"
                 priority
               />
             </div>
@@ -94,7 +94,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
               </Button>
               <div className="text-center mt-2 text-sm text-muted-foreground">
                 Don&apos;t have an account?{' '}
-                <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register</a>
+                <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
               </div>
             </form>
             <button

@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const cachedResult = await fetchAIResult(prompt);
       if (cachedResult && cachedResult.result) {
         return setTimeout(() => {
-          res.status(200).json({ result: cachedResult.result, cached: true, usePrev: true });
+          res.status(200).json({ result: cachedResult.result, cached: true, usePrev: true, user_id: cachedResult.user_id });
         }, 8000);
       }
     } catch (err) {

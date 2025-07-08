@@ -853,6 +853,17 @@ export async function fetchAIResult(title: string) {
     return data;
 }
 
+// Function to fetch ai result by user_id
+export async function fetchAIResultByUserId(user_id: string) {
+  const { data, error } = await supabase
+    .from('ai_results')
+    .select('*')
+    .eq('user_id', user_id);
+    
+    if (error) throw new Error(error.message);
+    return data;
+}
+
 // Function to store ai result
 export async function storeAIResult(user_id: string, title: string, result: string) {
   const { data, error } = await supabase

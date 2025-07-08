@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useImperativeHandle, forwardRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Bot, Copy } from "lucide-react";
+import { Bot, Clock, Copy } from "lucide-react";
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { storeAIResult } from '@/lib/supabase';
@@ -17,7 +17,7 @@ const quickPrompts = [
   "Most Regulated Brokers",
 ];
 
-export default function AiToolsPanel({ setOpen, pre_prompt }: { setOpen: (open: boolean) => void, pre_prompt: string }) {
+export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowSidebar, showSidebar, pre_prompt }: { setOpen: (open: boolean) => void, setShowSidebar: (showSidebar: boolean) => void, showSidebar: boolean, pre_prompt: string }, ref) {
   const user = useSelector((state: RootState) => state.auth.user);
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState('');
@@ -75,8 +75,10 @@ export default function AiToolsPanel({ setOpen, pre_prompt }: { setOpen: (open: 
       } else {
         const data = await res.json();
 
-        if (!data.usePrev) {
-          await storeAIResult(user.user_detail ? user.user_detail.id : 1, prompt, data.result);
+        // if usePrev is true, do not store
+        // but if data.user_id is different with current user id, store
+        if (!data.usePrev && data.user_id && data.user_id !== user.user_detail?.id) {
+          await storeAIResult(data.user_id, prompt, data.result);
         }
         await setMessages(prev => {
           const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
@@ -100,15 +102,29 @@ export default function AiToolsPanel({ setOpen, pre_prompt }: { setOpen: (open: 
       });
     }
   }
+  // Expose setAiMessage for parent
+  useImperativeHandle(ref, () => ({
+    setAiMessage: (text: string) => {
+      setMessages(prev => [...prev, { sender: 'ai', text, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }]);
+    }
+  }));
+
   return (
     <div className="w-full h-[calc(100vh-120px)] mx-auto rounded-2xl shadow-xl bg-gradient-to-r from-cyan-400 to-purple-400 p-1 mb-12">
       {/* Header */}
-      <div className="flex items-center gap-3 p-3 ">
-        <div className="bg-white/10 p-2 rounded-xl">
-          <Bot className="text-white" size={18} />
+      <div className="flex items-center justify-between gap-3 p-3 ">
+        <div className="flex items-center gap-3">
+          <div className="bg-white/10 p-2 rounded-xl">
+            <Bot className="text-white" size={18} />
+          </div>
+          <div className="text-white rounded-full flex items-center justify-center">
+            <span className="font-bold text-lg">AI Broker Analyzer</span>
+          </div>
         </div>
-        <div className="text-white rounded-full flex items-center justify-center">
-          <span className="font-bold text-lg">AI Broker Analyzer</span>
+        <div>
+          <button className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 hover:bg-white/10" onClick={() => setShowSidebar(!showSidebar)}> 
+            <Clock className="text-white" size={18} />
+          </button>
         </div>
         {/* <span className="ml-2 text-xs text-green-500 font-semibold">● Online</span>
         <span className="ml-2 text-xs text-gray-400">Powered by BrokerGPT 72B VL</span> */}
@@ -163,4 +179,4 @@ export default function AiToolsPanel({ setOpen, pre_prompt }: { setOpen: (open: 
       </div>
     </div>
   );
-}
+})

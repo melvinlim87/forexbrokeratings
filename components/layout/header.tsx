@@ -90,13 +90,13 @@ export default function Header() {
   return (
     <header 
       className={cn(
-        "sticky top-0 z-[9999] w-full transition-all duration-300",
+        "sticky top-0 z-[9999] w-full transition-all duration-300 bg-gray-700",
         isScrolled 
-          ? "bg-metallic backdrop-blur-sm border-b border-gray-200/20" 
-          : "bg-transparent"
+          ? "backdrop-blur-sm border-b border-gray-200/20" 
+          : ""
       )}
     >
-      <div className="container mx-auto px-4 flex h-20 items-center">
+      <div className="container mx-auto px-4 flex h-24 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             {/* Header Logo */}
@@ -106,7 +106,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center justify-center flex-1 space-x-8">
+        <nav className="hidden md:flex items-center justify-center flex-1">
           <NavLinks />
         </nav>
         <div className="flex items-center space-x-4 flex-1 justify-end">
@@ -117,7 +117,7 @@ export default function Header() {
                 size="icon" 
                 className="hidden md:flex hover:bg-white/20 dark:hover:bg-gray-800/20 h-12 w-12"
               >
-                <Search className="h-6 w-6" />
+                <Search className="h-6 w-6 text-white" />
               </Button>
             }
           />
@@ -188,7 +188,7 @@ function NavLinks() {
         <Link
           key={link.href}
           href={link.href} 
-          className={`text-lg font-medium text-gray-700 dark:text-gray-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-white relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-gray-700 after:to-gray-900 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 whitespace-nowrap`}
+          className={`text-lg font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-8 mt-2 py-2 rounded-xl`}
         >
           {link.title}
         </Link>
@@ -212,7 +212,7 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
         <Link
           key={link.href}
           href={link.href}
-          className="flex items-center text-base font-medium transition-colors hover:text-primary py-2"
+          className="flex items-center text-base font-medium transition-colors hover:text-white py-2"
           onClick={onNavLinkClick}
         >
           {link.icon}

@@ -48,7 +48,6 @@ export default function LoginPage() {
       // save user to redux
       user.jwt = data.token;
       user.user_detail = data.user_detail;
-      console.log(user)
       dispatch(login(user));
       router.push('/');
     } catch (err: any) {
@@ -103,7 +102,7 @@ export default function LoginPage() {
             </Button>
             <div className="text-center mt-2 text-sm text-muted-foreground">
               Don&apos;t have an account?{' '}
-              <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register</a>
+              <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
             </div>
           </form>
         </CardContent>
