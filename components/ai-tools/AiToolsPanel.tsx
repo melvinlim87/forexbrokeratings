@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Bot, Copy } from "lucide-react";
 import { useSelector } from 'react-redux';
@@ -7,24 +7,34 @@ import { storeAIResult } from '@/lib/supabase';
 
 // Example quick prompts
 const quickPrompts = [
+  "Analyze AIMS",
   "Analyze RS Finance",
   "Analyze FP Markets",
-  "Analyze AIMS",
   "Analyze IC Markets",
   "Best broker promotions",
-  "Lowest spread brokers",
-  "Best broker reviews",
-  "Best broker ratings",
+  "Best Trading Environment",
+  "Best User Experience",
+  "Most Regulated Brokers",
 ];
 
 export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => void }) {
   const user = useSelector((state: RootState) => state.auth.user);
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState('');
-  type Message = { sender: 'ai' | 'user'; text: string };
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  type Message = { sender: 'ai' | 'user'; text: string, date: string };
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI" }
+    { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI", date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
   ]);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = messagesEndRef.current.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // 12px extra spacing
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const handleAITools = async (prompt: string) => {
     if (!user || user.email_verified == false) {
@@ -32,10 +42,10 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
       return;
     }
     // Add user message
-    setMessages(prev => [...prev, { sender: 'user', text: prompt }, ]);
+    setMessages(prev => [...prev, { sender: 'user', text: prompt, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }, ]);
     
     setTimeout(() => {
-      setMessages(prev => [...prev, { sender: 'ai', text: 'Analysing...' } ]);
+      setMessages(prev => [...prev, { sender: 'ai', text: 'Analysing...', date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) } ]);
     }, 500);
     setPrompt("");
     setLoading(true)
@@ -51,7 +61,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
           const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
           if (idx !== -1) {
             const updated = [...prev];
-            updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + res.statusText };
+            updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + res.statusText, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
             return updated;
           }
           return prev;
@@ -66,7 +76,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
           const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
           if (idx !== -1) {
             const updated = [...prev];
-            updated[idx] = { sender: 'ai', text: data.result };
+            updated[idx] = { sender: 'ai', text: data.result, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
             return updated;
           }
           return prev;
@@ -77,7 +87,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
         const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
         if (idx !== -1) {
           const updated = [...prev];
-          updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + (err?.message || err) };
+          updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + (err?.message || err), date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
           return updated;
         }
         return prev;
@@ -99,7 +109,7 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
       </div>
       <div className="bg-white dark:bg-gray-900 rounded-2xl p-3">
         {/* Message Container */}
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 max-h-72 overflow-y-auto flex flex-col gap-2">
+        <div ref={messagesEndRef} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 max-h-72 overflow-y-auto flex flex-col gap-2">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -114,6 +124,8 @@ export default function AiToolsPanel({ setOpen }: { setOpen: (open: boolean) => 
                 }
               >
                 {msg.text}
+                <br />
+                <span className={msg.sender === 'user' ? "text-xs text-white" : "text-xs text-gray-500"}>{msg.date}</span>
               </div>
             </div>
           ))}

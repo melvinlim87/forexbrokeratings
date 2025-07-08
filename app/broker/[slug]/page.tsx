@@ -70,6 +70,13 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     regulations: broker.regulations || 0,
     risk_control: broker.risk_control || 0,
     reviews: reviews || [],
+    parent_company: broker.parent_company || '',
+    has_api: broker.has_api || false,
+    has_mobile_trading: broker.has_mobile_trading || false,
+    has_web_based_trading: broker.has_web_based_trading || false,
+    min_lot: broker.min_lot || '0.1',
+    max_lot: broker.max_lot || '1000',
+    has_demo_account: broker.has_demo_account || false,
   };
 }
 
@@ -125,6 +132,13 @@ function getDefaultBroker(slug: string): BrokerDetails {
     regulations: 0,
     risk_control: 0,
     reviews: [],
+    parent_company: '',
+    has_api: false,
+    has_mobile_trading: false,
+    has_web_based_trading: false,
+    min_lot: '0.1',
+    max_lot: '1000',
+    has_demo_account: false,
   };
 }
 
@@ -263,7 +277,7 @@ async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetai
     
     // Filter out the current broker and take up to 5 others
     return brokers
-      .filter(broker => broker.id !== currentBrokerId)
+      .filter(broker => broker.id != currentBrokerId)
       .slice(0, 5);
   } catch (error) {
     return []; // Return empty array as fallback

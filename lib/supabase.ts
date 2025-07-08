@@ -77,6 +77,13 @@ export type BrokerDetails = {
   reviews: BrokerReviews[];
   promotion_details: BrokerPromotionWithBrokerDetails[];
   review_count?: number;
+  parent_company: string;
+  has_api: boolean;
+  has_mobile_trading: boolean;
+  has_web_based_trading: boolean;
+  min_lot: string;
+  max_lot: string;
+  has_demo_account: boolean;
 };
 
 // Type for joined broker_promotions with selected broker_details fields

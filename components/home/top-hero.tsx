@@ -324,7 +324,7 @@ export default function TopHero() {
           <NetworkDiagram />
           
           {/* AI Tools Field */}
-          <AiToolsPanel />
+          <AiToolsPanel setOpen={setOpen} />
         </div>
       </motion.div>
       </div>
