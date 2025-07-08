@@ -110,7 +110,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
   }));
 
   return (
-    <div className="w-full h-[calc(100vh-120px)] mx-auto rounded-2xl shadow-xl bg-gradient-to-r from-cyan-400 to-purple-400 p-1 mb-12">
+    <div className="w-full h-[calc(100vh-120px)] md:h-[calc(100vh-220px)] mx-auto rounded-2xl shadow-xl bg-gradient-to-r from-cyan-400 to-purple-400 p-1 mb-12">
       {/* Header */}
       <div className="flex items-center justify-between gap-3 p-3 ">
         <div className="flex items-center gap-3">
@@ -129,9 +129,9 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         {/* <span className="ml-2 text-xs text-green-500 font-semibold">● Online</span>
         <span className="ml-2 text-xs text-gray-400">Powered by BrokerGPT 72B VL</span> */}
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3 h-[calc(100vh-180px)]">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3 h-[calc(100vh-180px)] md:h-[calc(100vh-280px)]">
         {/* Message Container */}
-        <div ref={messagesEndRef} className="h-[calc(100vh-360px)] bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 overflow-y-auto flex flex-col gap-2">
+        <div ref={messagesEndRef} className="h-[calc(100vh-460px)] bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 overflow-y-auto flex flex-col gap-2">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -153,9 +153,9 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
           ))}
         </div>
         {/* Quick Prompts */}
-        <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3 grid grid-cols-4">
+        <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3 grid md:grid-cols-4 grid-cols-2 overflow-x-auto">
           {quickPrompts.map((prompt) => (
-            <Button disabled={loading} key={prompt} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700" onClick={() => handleAITools(prompt)}>
+            <Button disabled={loading} key={prompt} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 " onClick={() => handleAITools(prompt)}>
               {prompt}
             </Button>
           ))}

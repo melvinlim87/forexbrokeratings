@@ -858,8 +858,9 @@ export async function fetchAIResultByUserId(user_id: string) {
   const { data, error } = await supabase
     .from('ai_results')
     .select('*')
-    .eq('user_id', user_id);
-    
+    .eq('user_id', user_id)
+    .order('created_at', { ascending: false });
+
     if (error) throw new Error(error.message);
     return data;
 }
