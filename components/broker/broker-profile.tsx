@@ -763,17 +763,17 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           )) : <span className="text-gray-400">N/A</span>}
                         </div>
                       </li>
-                      <li className="flex items-center justify-between">
+                      {/* <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Licenses</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.licenses?.length ? brokerData.licenses.map((license, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{license}</span>
                           )) : <span className="text-gray-400">N/A</span>}
                         </div>
-                        {/* <span className="font-medium text-right">
+                        <span className="font-medium text-right">
                           {brokerData.licenses?.length ? brokerData.licenses.join(', ') : 'N/A'}
-                        </span> */}
-                      </li>
+                        </span>
+                      </li> */}
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Headquarters</span>
                         <span className="font-medium text-right">{brokerData.headquarters || 'N/A'}</span>

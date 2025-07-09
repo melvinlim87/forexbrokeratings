@@ -100,7 +100,7 @@ export default function Header() {
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             {/* Header Logo */}
-            <span className="hidden md:inline-block ml-3">
+            <span className="inline-block ml-3">
               <Image src="/assets/images/logo/logo.png" alt="Forex Broker Ratings Logo" width={180} height={60} style={{objectFit:'cover',maxHeight:60}} priority />
             </span>
           </Link>
@@ -151,7 +151,7 @@ export default function Header() {
                     </Button>
                   </SheetTrigger>
                   <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col h-full mt-20">
                       <div className="flex justify-between items-center mb-6 mt-2">
                         <div className="flex items-center">
                           <Globe className="h-6 w-6 text-primary mr-2" />
@@ -175,7 +175,7 @@ export default function Header() {
 
 function NavLinks() {
   const links = [
-    { title: 'Promotions', href: '/promotions', split: false },
+    { title: 'Promotions', href: '/promotions' },
     { title: 'Comparison', href: '/compare' },
     { title: 'Rankings', href: '/rankings' },
     { title: 'AI Tools', href: '/ai-tools' },

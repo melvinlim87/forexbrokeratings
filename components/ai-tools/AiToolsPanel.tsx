@@ -78,7 +78,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         // if usePrev is true, do not store
         // but if data.user_id is different with current user id, store
         if (!data.usePrev && data.user_id && data.user_id !== user.user_detail?.id) {
-          await storeAIResult(data.user_id, prompt, data.result);
+          await storeAIResult(user.user_detail?.id, prompt, data.result);
         }
         await setMessages(prev => {
           const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
@@ -156,7 +156,9 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3 grid md:grid-cols-4 grid-cols-2 overflow-x-auto">
           {quickPrompts.map((prompt) => (
             <Button disabled={loading} key={prompt} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 " onClick={() => handleAITools(prompt)}>
-              {prompt}
+              <span style={{ whiteSpace: 'pre-wrap' }}>
+                {prompt}
+              </span>
             </Button>
           ))}
         </div>

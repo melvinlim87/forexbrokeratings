@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (cachedResult && cachedResult.result) {
         return setTimeout(() => {
           res.status(200).json({ result: cachedResult.result, cached: true, usePrev: true, user_id: cachedResult.user_id });
-        }, 8000);
+        }, 2000);
       }
     } catch (err) {
       // Ignore cache errors
@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         Your current broker database fields are:
 
-        id, name, slug, website, description, summary, rating, year_published, headquarters, country, offices, employees, address, regulators, licenses, is_regulated, instruments, spread_eur_usd, leverage_max, account_types, base_currencies, platforms, deposit_methods, withdraw_methods, min_deposit, min_withdrawl, deposit_fees, withdrawal_fees, deposit_process_time, withdrawal_process_time, languages, availability, channels, phone_numbers, email, response_time, pros, cons
+        id, name, slug, website, description, summary, rating, year_published, headquarters, country, offices, employees, address, regulators, is_regulated, instruments, spread_eur_usd, leverage_max, account_types, base_currencies, platforms, deposit_methods, withdraw_methods, min_deposit, min_withdrawl, deposit_fees, withdrawal_fees, deposit_process_time, withdrawal_process_time, languages, availability, channels, phone_numbers, email, response_time, pros, cons
 
         Respond strictly in this JSON format:
 
@@ -78,7 +78,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     .replace(/```/g, '')
     .replace(/^json\s*/i, '')
     .trim();
-    
     const cleaned = JSON.parse(cleanedRaw);
     if (cleaned.brokers.length == 0) {
       // add rs finance to brokers
@@ -102,8 +101,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Step 5: Call main AI model to generate analysis
     const models = [
-      'deepseek/deepseek-r1-0528:free',
       'qwen/qwen2.5-vl-72b-instruct:free',
+      'deepseek/deepseek-r1-0528:free',
       'mistralai/mistral-small-3.2-24b-instruct-2506:free',
       'meta-llama/llama-4-maverick:free',
       'nvidia/llama-3.3-nemotron-super-49b-v1:free'
@@ -172,7 +171,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     Always provide factual, unbiased information. Write in a professional yet conversational tone.`;
     
-
     let message = '';
     for (let i = 0; i < models.length; i++) {
       try {
@@ -223,7 +221,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
         `;
-
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -243,6 +240,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const data = await response.json();
         message = data.choices?.[0]?.message?.content || '';
+        console.log(message)
         if (message) break;
 
       } catch (err) {

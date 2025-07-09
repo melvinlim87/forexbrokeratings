@@ -8,6 +8,100 @@ import { LoginModalProvider } from '@/components/broker/LoginModalContext';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { fetchAIResultByUserId } from '@/lib/supabase';
+import { X, Search, ChevronRight, MessageSquare } from 'lucide-react';
+
+// --- ChatHistorySidebar component ---
+const ChatHistorySidebar = ({ chatHistory, isOpen, onClose }: { chatHistory: any[], isOpen: boolean, onClose: () => void }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const filteredHistory = chatHistory.filter(chat => {
+    const matchesSearch = chat.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesSearch;
+  });
+
+  return (
+    <>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`
+        fixed top-[80px] right-0 h-[calc(100vh-64px)] bg-white shadow-2xl z-50 transition-transform duration-300 ease-in-out
+        w-80 max-w-[85vw]
+        ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+        lg:top-0 lg:h-full lg:relative lg:translate-x-0 lg:shadow-lg lg:z-auto
+        ${isOpen ? 'lg:block' : 'lg:hidden'}
+      `}>
+        {/* Header */}
+        <div className="bg-gray-100 border-b border-gray-200 p-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-800">Search History</h2>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-gray-200 rounded-full transition-colors lg:hidden"
+            >
+              <X className="w-5 h-5 text-gray-600" />
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-gray-200 rounded-full transition-colors hidden lg:block"
+            >
+              <X className="w-5 h-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        <div className="p-4 border-b border-gray-200">
+          <div className="relative">
+            <Search className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search conversations..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            />
+          </div>
+        </div>
+
+        {/* History List */}
+        <div className="overflow-y-auto h-[calc(100vh-220px)] lg:h-[calc(100vh-360px)]">
+          {filteredHistory.length === 0 ? (
+            <div className="flex flex-col items-center justify-center h-48 text-gray-500 p-4">
+              <MessageSquare className="w-12 h-12 mb-3" />
+              <p className="text-base font-medium">No conversations found</p>
+              <p className="text-sm text-center">Try adjusting your search</p>
+            </div>
+          ) : (
+            <div className="p-3 space-y-2">
+              {filteredHistory.map((chat) => (
+                <div
+                  key={chat.id}
+                  className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md hover:border-blue-200 transition-all cursor-pointer group"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-medium text-gray-900 truncate mb-1 group-hover:text-blue-600 text-sm">
+                        {chat.title}
+                      </h4>
+                      <p className="text-xs text-gray-500">{new Date(chat.created_at).toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors ml-2 mt-1 flex-shrink-0" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default function TradingAssistantPage() {
   return (
@@ -27,7 +121,7 @@ function TradingAssistantPageContent() {
   const [history, setHistory] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   useEffect(() => {
     const prompt = searchParams?.get('prompt');
@@ -66,49 +160,7 @@ function TradingAssistantPageContent() {
         </div>
 
         {/* Sidebar for search history */}
-        {showSidebar && (
-          <aside className="w-72 bg-[linear-gradient(135deg,_#7e8a98_0%,_#bfc9d1_40%,_#e0e6eb_100%)] dark:bg-[linear-gradient(135deg,_#23272f_0%,_#373f48_40%,_#555e6b_100%)] rounded-2xl shadow-2xl p-0 h-[calc(100vh-220px)] flex flex-col overflow-y-auto flex-shrink-0 transition-all duration-300 backdrop-blur-md bg-metallic">
-            <div className="sticky top-0 z-10 bg-white/80 dark:bg-gray-900/80 rounded-t-2xl px-4 pt-4 pb-2 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 backdrop-blur-md">
-              <h2 className="font-bold text-lg text-gray-800 dark:text-gray-100">Search History</h2>
-              <button
-                className="ml-2 p-1 rounded-full hover:bg-cyan-100 dark:hover:bg-cyan-900 transition-colors"
-                onClick={() => setShowSidebar(false)}
-                title="Hide search history"
-                type="button"
-              >
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 dark:text-gray-300" viewBox="0 0 24 24"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
-              </button>
-            </div>
-            <div className="px-4 pb-4 pt-2 flex-1 overflow-y-auto">
-              {loading ? (
-                <div className="text-gray-400">Loading...</div>
-              ) : error ? (
-                <div className="text-red-500">{error}</div>
-              ) : history.length === 0 ? (
-                <div className="text-gray-400">No search history yet.</div>
-              ) : (
-                <ul className="space-y-3">
-                  {history.map((item) => (
-                    <button
-                      key={item.id}
-                      className="w-full text-left group bg-white/90 dark:bg-gray-800/90 shadow-sm border border-gray-100 dark:border-gray-800 rounded-xl px-4 py-3 transition flex flex-col hover:border-cyan-400 hover:shadow-lg hover:bg-cyan-50/90 dark:hover:bg-cyan-950/80 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
-                      title={item.title}
-                      onClick={() => aiToolsPanelRef.current?.setAiMessage(item.result)}
-                      type="button"
-                    >
-                      <span className="font-semibold text-gray-800 dark:text-gray-100 truncate group-hover:text-cyan-700 dark:group-hover:text-cyan-300">
-                        {item.title}
-                      </span>
-                      <span className="text-xs text-gray-400 mt-1 text-right group-hover:text-cyan-500">
-                        {new Date(item.created_at).toLocaleString()}
-                      </span>
-                    </button>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </aside>
-        )}
+        <ChatHistorySidebar chatHistory={history} isOpen={showSidebar} onClose={() => setShowSidebar(false)} />
       </div>
     </div>
   );
