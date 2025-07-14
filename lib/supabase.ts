@@ -84,6 +84,7 @@ export type BrokerDetails = {
   min_lot: string;
   max_lot: string;
   has_demo_account: boolean;
+  parent_companies: string[];
 };
 
 // Type for joined broker_promotions with selected broker_details fields

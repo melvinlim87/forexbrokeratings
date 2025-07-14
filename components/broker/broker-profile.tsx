@@ -219,7 +219,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <div className="flex items-center backdrop-blur-sm rounded-xl">
                       <div className="flex space-x-0.5">
                         {[1, 2, 3, 4, 5].map((star) => {
-                        const rating = brokerData.rating ? parseFloat(brokerData.rating) || 0 : 0;
+                        const rating = brokerData.rating ? (parseFloat(brokerData.rating) / 20) || 0 : 0;
                         return (
                           <Star
                             key={star}
@@ -233,7 +233,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         );
                       })}
                       <span className="pl-2 font-semibold text-gray-900 dark:text-white">
-                        {brokerData.rating} / 10
+                        {brokerData.rating} / 100
                       </span>
                       </div>
                     </div>
@@ -775,6 +775,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li> */}
                       <li className="flex items-center justify-between">
+                        <span className="text-gray-600 dark:text-gray-400">Companies</span>
+                        <span className="font-medium text-right">{brokerData.parent_companies?.join(', ') || 'N/A'}</span>
+                      </li>
+                      <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Headquarters</span>
                         <span className="font-medium text-right">{brokerData.headquarters || 'N/A'}</span>
                       </li>
@@ -873,15 +877,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 <h2 className="text-2xl font-semibold mb-4">Deposit & Withdrawal</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-medium mb-3">Deposit Methods</h3>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {brokerData.deposit_methods?.length ? (
-                      brokerData.deposit_methods.map((method, index) => (
-                          <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>                        ))
-                      ) : (
-                        <span className="text-gray-500">No deposit methods listed</span>
-                      )}
-                    </div>
+                    <h3 className="text-lg font-medium mb-3">Deposit</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Minimum Deposit</span>
@@ -919,16 +915,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-medium mb-3">Withdrawal Methods</h3>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {brokerData.withdraw_methods?.length ? (
-                        brokerData.withdraw_methods.map((method, index) => (
-                          <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{method}</span>
-                        ))
-                      ) : (
-                        <span className="text-gray-500">No withdrawal methods listed</span>
-                      )}
-                    </div>
+                    <h3 className="text-lg font-medium mb-3">Withdrawal</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
                         <span className="text-gray-600 dark:text-gray-400">Minimum Withdrawal</span>
@@ -1203,12 +1190,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Trust & Reliability
                     </span>
-                    <span className="font-medium">{brokerData.rating}/10</span>
+                    <span className="font-medium">{brokerData.rating}/100</span>
                   </div>
                   <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
-                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 10) * 100}%` }}
+                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 100) * 100}%` }}
                     />
                   </div>
                 </div>
@@ -1268,7 +1255,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               <div className="flex items-center ml-2">
                                 <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
                                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                                  {broker.rating}
+                                  {parseFloat(broker.rating) / 10}
                                 </span>
                               </div>
                             )}

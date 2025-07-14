@@ -134,7 +134,7 @@ export default function Hero() {
   const currentSlideData = heroSlides[currentSlide] || defaultHeroSlides[0];
 
   return (
-    <div className="relative h-[950px] md:h-[700px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
+    <div className="relative h-[950px] md:h-[950px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-lg">Loading...</p>

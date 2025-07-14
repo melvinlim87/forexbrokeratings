@@ -313,7 +313,7 @@ export default function PromotionsPage() {
                             ))}
                           </ul>
                         )}
-                        {tableCond.warning && tableCond.warning.length > 0 && (
+                        {tableCond.warning && tableCond.warning.length > 0 && tableCond.warning != 'None' && (
                           <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
                             {tableCond.warning}
                           </div>
@@ -447,7 +447,7 @@ export default function PromotionsPage() {
                             ))}
                           </ul>
                         )}
-                        {listCond.warning && listCond.warning.length > 0 && (
+                        {listCond.warning && listCond.warning.length > 0 && listCond.warning != 'None' && (
                           <div className="mt-2 text-xs text-yellow-700 bg-yellow-100 rounded px-2 py-1 border border-yellow-300">
                             {listCond.warning}
                           </div>

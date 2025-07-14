@@ -68,7 +68,76 @@ const ai_text = `Regulatory Compliance:
     - Beginners note: $0 minimum deposit entry but VIP account requirements unclear
     - Advanced traders: Consider pro accounts for maximum leverage benefits
 
-    Missing data fields (education resources, VIP account specifics, exact promotion details) should be verified directly with RS Finance.`;
+    ### Regulatory Compliance:  
+    AIMS operates under significant regulatory oversight:  
+    - Licensed by ASIC (Australia) under #430091 and Labuan FSA (Malaysia) under #17/0017  
+    - Jurisdiction spans major financial hubs including the UK, Singapore, and Dubai  
+    - Regulatory track record is strong (rated 10/10 in data) with no disclosed violations  
+    - Restrictions: Specific jurisdictional limitations may apply; clients should confirm local eligibility  
+
+    ---
+
+    ### Trading Conditions:  
+    Competitive offerings across key parameters:  
+    - Spreads: Starting at 0.6 pips for EUR/USD  
+    - Leverage: Up to 1:500 on instruments including Forex, CFDs, stocks, and cryptocurrencies  
+    - Instruments: Diverse portfolio across FX, indices, commodities, equities, and crypto  
+    - Account types: Standard, Pro, and VIP with a $20 minimum deposit (no deposit/withdrawal fees)  
+    - Execution: Data suggests high execution quality (environment rating 9.38/10)  
+
+    ---
+
+    ### Trading Platforms:  
+    Multiple advanced platforms available:  
+    - MetaTrader Suite: Full MT4/MT5 support  
+    - Proprietary Platform: Details undisclosed; may include mobile/web access  
+    - Mobile/Web Trading: Confirmed availability (both web-based and mobile trading enabled)  
+    - Algo-Trading: Supported via MT4/MT5 Expert Advisors and API access  
+
+    ---
+
+    ### Best Promotions:  
+    Promotional offerings are notable:  
+    - Current Promotions: Rated 8.67/10 (exact programs unspecified; check website for updates)  
+    - Features: Potential bonuses or loyalty schemes implied but undefined  
+    - Note: Swap-free accounts are confirmed as a key advantage  
+
+    ---
+
+    ### User Experience:  
+    Mixed feedback from available metrics:  
+    - Customer Support: 24/5 availability via phone/email (response within 30 minutes) but lacks 24/7 coverage  
+    - Mobile Experience: Functional but UX rated modestly (6.77/10)  
+    - Education: Limited resources noted as a drawback  
+    - Language Support: English, Chinese, Arabic, Spanish  
+
+    ---
+
+    ### Summary and Rating Matrix:  
+    Comparative scoring based on disclosed metrics:
+
+    | Category      | Score (0-100) |
+    |---------------|---------------|
+    | Regulation    | 100           |
+    | Costs/Spreads | 94            |
+    | Platforms     | 90            |
+    | Support       | 68            |
+    | **Overall**   | **90+**       |
+
+    ---
+
+    ### Final Recommendation:  
+    Ideal for:  
+    - **Scalpers/Advanced Traders:** Leverage up to 1:500 and tight spreads favor aggressive strategies  
+    - **Asset Diversifiers:** Broad instrument coverage (40+ including crypto)  
+    - **MT4/MT5 Users:** Full platform support with API/algo-trading  
+    - **Budget-Conscious Traders:** Low $20 entry, zero deposit fees  
+
+    **Avoid if** requiring 24/7 support or extensive educational resources.  
+    **Always verify real-time conditions** via https://aimsfx.com/ before trading.  
+
+    Disclaimer: This analysis uses provided data and AI processing. Trading involves significant risk. Verify details independently and assess personal suitability.
+`;
 
 export default function AnimateAiToolsPanel({ setOpen }: { setOpen: (open: boolean) => void }) {
   const user = useSelector((state: RootState) => state.auth.user);

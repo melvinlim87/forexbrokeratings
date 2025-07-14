@@ -77,6 +77,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     min_lot: broker.min_lot || '0.1',
     max_lot: broker.max_lot || '1000',
     has_demo_account: broker.has_demo_account || false,
+    parent_companies: broker.parent_companies || [],
   };
 }
 
@@ -139,6 +140,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
     min_lot: '0.1',
     max_lot: '1000',
     has_demo_account: false,
+    parent_companies: [],
   };
 }
 
@@ -159,7 +161,7 @@ export default async function BrokerProfilePage({
     if (!broker) {
       // If not found in Supabase, show not found UI
       return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto py-8">
           <div className="text-center py-12">
             <h1 className="text-2xl font-bold mb-4">Broker Not Found</h1>
             <p className="text-gray-600">The broker you're looking for doesn't exist in our database.</p>

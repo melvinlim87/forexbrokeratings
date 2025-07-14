@@ -52,10 +52,10 @@ function AuthHeaderMenu() {
         <Button
           variant="ghost"
           size="icon"
-          className="hidden md:flex items-center justify-center relative h-12 w-12 border-0 focus:ring-2 focus:ring-primary"
+          className="hidden md:flex items-center justify-center relative h-12 w-12 border-0 focus:ring-2 focus:ring-white hover:bg-white/20"
           aria-label="User menu"
         >
-          <UserCircle className="h-7 w-7 text-primary" />
+          <UserCircle className="h-7 w-7 text-white" />
         </Button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-2">
@@ -96,7 +96,7 @@ export default function Header() {
           : ""
       )}
     >
-      <div className="container mx-auto px-4 flex h-24 items-center">
+      <div className="container mx-auto px-4 pt-4 flex h-24 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             {/* Header Logo */}
@@ -186,7 +186,7 @@ function NavLinks() {
     <>
       {links.map((link) => (
         <Link
-          key={link.href}
+        key={link.href}
           href={link.href} 
           className={`text-lg font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-8 mt-2 py-2 rounded-xl`}
         >
@@ -198,6 +198,7 @@ function NavLinks() {
 }
 
 function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
+  const user = useSelector((state: RootState) => state.auth.user);
   const links = [
     { title: 'Promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
@@ -208,6 +209,18 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
   
   return (
     <>
+      {/* Show customer profile here */}
+      {!user || user.email_confirmed_at == false ? (
+        <Link href="/login" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
+          <User className="h-5 w-5 mr-3" />
+          Login
+        </Link>
+      ) : (
+        <Link href="/profile" className="flex items-center text-base font-medium transition-colors hover:text-white py-2">
+          <UserCircle className="h-5 w-5 mr-3" />
+          Profile
+        </Link>
+      )}
       {links.map((link) => (
         <Link
           key={link.href}

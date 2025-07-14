@@ -209,7 +209,7 @@ export default function ComparePage() {
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
-                    <span className="text-xs text-gray-400 ml-1">/5</span>
+                    <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>
               </div>
@@ -301,7 +301,7 @@ export default function ComparePage() {
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
-                    <span className="text-xs text-gray-400 ml-1">/5</span>
+                    <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>
               </div>
