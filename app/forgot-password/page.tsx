@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
+import logo from '@/assets/images/logo/logo.png'
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
@@ -35,7 +36,7 @@ export default function ForgotPasswordPage() {
       <CardHeader className="flex flex-col items-center gap-2 pb-0">
         <div className="w-full mb-2">
           <Image
-            src="/assets/images/logo/logo.png"
+            src={logo}
             alt="Forex Broker Ratings Logo"
             width={240}
             height={60}
