@@ -183,25 +183,13 @@ export default function AIToolsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-gray-950">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center justify-center p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-              <Bot className="h-6 w-6 text-blue-600 dark:text-blue-500" />
-            </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-              AI Trading Tools
-            </h1>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-              Enhance your trading with our cutting-edge AI-powered tools and analytics
-            </p>
-          </div>
-        </div>
-      </section>
+      <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">AI Trading Tools</h1>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Enchance your trading with our cutting-edge AI-powered tools and analytics</h2>
+      </header>
 
       {/* Filters Section */}
-      <section className="py-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10">
+      <section className="py-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10 md:max-w-7xl mx-auto">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <div className="relative flex-grow">
@@ -235,12 +223,12 @@ export default function AIToolsPage() {
       </section>
 
       {/* Popular Tools */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-white dark:bg-gray-950 md:max-w-7xl mx-auto">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Popular AI Tools
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredTools
               .filter(tool => tool.popular)
               .map((tool, index) => (
@@ -258,7 +246,7 @@ export default function AIToolsPage() {
       </section>
 
       {/* Featured Tools */}
-      <section className="py-12 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 bg-gray-50 dark:bg-gray-900 md:max-w-7xl mx-auto">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <motion.div 
@@ -308,12 +296,12 @@ export default function AIToolsPage() {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             All AI Tools
           </h2>
-          <div className="mb-8 flex justify-center">
+          {/* <div className="mb-8 flex justify-center">
             <span className="inline-block bg-yellow-200 text-yellow-900 font-semibold rounded-full px-6 py-2 text-lg shadow-lg">
               🚧 All AI Tools Coming Soon!
             </span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredTools.map((tool, index) => (
               <ToolCard 
                 key={tool.id} 
