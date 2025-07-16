@@ -87,7 +87,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const filters = cleaned.brokers
       .map((name: string) => `name.ilike.%${name}%`)
       .join(',');
-
     const broker_details = await supabase
       .from('broker_details')
       .select(cleaned.fields_in_db.join(','))
@@ -95,14 +94,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Step 4: Build prompt for final analysis
     let data_prompt = '';
     for (const broker of broker_details.data as any || []) {
-      data_prompt += `${broker.name.toLowerCase()}:\n`;
-      data_prompt += `${JSON.stringify(broker)}\n`;
+      Object.keys(broker).map(k => {
+        data_prompt += `${k}:\n`;
+        data_prompt += `${broker[k]}\n`;
+      })
     }
-
     // Step 5: Call main AI model to generate analysis
     const models = [
-      'qwen/qwen2.5-vl-72b-instruct:free',
       'deepseek/deepseek-r1-0528:free',
+      'qwen/qwen2.5-vl-72b-instruct:free',
       'mistralai/mistral-small-3.2-24b-instruct-2506:free',
       'meta-llama/llama-4-maverick:free',
       'nvidia/llama-3.3-nemotron-super-49b-v1:free'
@@ -221,6 +221,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
         `;
+
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
           headers: {

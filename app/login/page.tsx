@@ -27,6 +27,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
+  const [success, setSuccess] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -49,13 +51,15 @@ export default function LoginPage() {
       user.jwt = data.token;
       user.user_detail = data.user_detail;
       dispatch(login(user));
-      router.push('/');
+      setSuccess(true);
+      setTimeout(() => router.push('/'), 3000);
     } catch (err: any) {
       setError(err.message || 'Login failed.');
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen w-full max-w-xl flex items-center justify-center transition-colors duration-300">
@@ -74,6 +78,16 @@ export default function LoginPage() {
           <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Sign in to your account</CardTitle>
         </CardHeader>
         <CardContent className="pt-2 pb-6 px-4 md:px-6">
+          {success ? (
+            <div className="flex flex-col items-center justify-center gap-4 py-8">
+              <svg xmlns="http://www.w3.org/2000/svg" className="text-green-500" width="60" height="60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e" />
+                <path d="M8 12.5l2.5 2.5L16 9" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className="text-green-700 text-xl font-bold">Successful login</div>
+              <div className="text-gray-700 dark:text-gray-200 text-base">Will redirect to home page in 3 seconds...</div>
+            </div>
+          ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <input
               className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -105,6 +119,7 @@ export default function LoginPage() {
               <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
             </div>
           </form>
+          )}
         </CardContent>
       </Card>
     </div>
