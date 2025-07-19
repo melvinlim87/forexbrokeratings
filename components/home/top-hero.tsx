@@ -232,7 +232,7 @@ export default function TopHero() {
         // style={{ y: springY, opacity: springOpacity }}
         className="container mx-auto pt-16 pb-16 relative z-10"
       >
-        <div className="max-w-5xl mx-auto text-center p-12">
+        <div className="w-full mx-auto text-center p-3">
           <div className="flex justify-center space-x-4 mb-8">
             {[...Array(5)].map((_, i) => (
               <motion.div
@@ -303,7 +303,7 @@ export default function TopHero() {
           </div>
 
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6"
+            className="text-3xl md:text-4xl lg:text-7xl font-bold text-gray-800 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

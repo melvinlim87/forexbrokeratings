@@ -67,9 +67,9 @@ export default function Hero() {
   const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(defaultHeroSlides);
   const [isLoading, setIsLoading] = useState(true);
   const bgImages = [
-    'https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1920',
-    'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1920',  
+    'https://images.pexels.com/photos/8470843/pexels-photo-8470843.jpeg',
+    'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg',
+    'https://images.pexels.com/photos/6770611/pexels-photo-6770611.jpeg',  
   ]
 
   // Fetch top brokers from Supabase
@@ -134,7 +134,7 @@ export default function Hero() {
   const currentSlideData = heroSlides[currentSlide] || defaultHeroSlides[0];
 
   return (
-    <div className="relative h-[950px] md:h-[950px] overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
+    <div className="relative overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '85vh' }} >
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-lg">Loading...</p>
@@ -187,7 +187,7 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex flex-col items-center pb-8 space-y-6 md:mb-6 md:space-y-4">
+              <div className="flex flex-col items-center pb-4 space-y-6 md:mb-6 md:space-y-4">
                 <div className="h-32 w-32 relative bg-white/10 backdrop-blur-sm rounded-xl p-2 pb-3 md:mb-3">
                   <Image
                     src={currentSlideData.logo || '/placeholder-logo.png'}
@@ -203,7 +203,7 @@ export default function Hero() {
                 </h2>
               </div>
               
-              <div className="flex flex-col items-center justify-center space-y-4 pb-8 md:space-y-2 md:mb-6">
+              <div className="flex flex-col items-center justify-center space-y-4 pb-4 md:space-y-2 md:mb-6">
                 <div className="flex items-center justify-center space-x-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -224,15 +224,15 @@ export default function Hero() {
               </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-2" style={{textShadow: '4px 4px 8px #000000'}}>
+              {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-2" style={{textShadow: '4px 4px 8px #000000'}}>
                 {currentSlideData.title || 'Top Rated Forex Broker'}
-              </h1>
+              </h1> */}
               
-              <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-3xl mx-auto px-4">
+              <p className="text-md text-gray-200 mb-8 max-w-3xl mx-auto px-4 line-clamp-4 text-shadow-2xl text-shadow-white">
                 {currentSlideData.description || 'A reliable broker with competitive trading conditions'}
               </p>
 
-              <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <div className="flex flex-wrap justify-center gap-3 mb-4">
                 {(currentSlideData.features || ['Competitive spreads', 'Multiple trading platforms', 'Regulated']).map((feature, index) => (
                   <div
                     key={index}
@@ -244,7 +244,7 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45 p-10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45 px-10">
                 <Button
                   size="lg"
                   className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
@@ -254,7 +254,7 @@ export default function Hero() {
                     View Full Review
                   </Link>
                 </Button>
-                <Button
+                {/* <Button
                   size="lg"
                   variant="secondary"
                   className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
@@ -268,7 +268,7 @@ export default function Hero() {
                   >
                     Visit Broker
                   </a>
-                </Button>
+                </Button> */}
               </div>
 
               {/* Search bar moved to bottom */}

@@ -67,7 +67,7 @@ export default function PromotionPopup() {
   //     <Header />
   //     ...
   return (
-    <div className="fixed inset-0 z-[11000] flex items-center justify-center bg-black/50">
+    <div className="fixed inset-0 z-[11000] flex items-center justify-center bg-black/50 ">
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 flex flex-col md:flex-row z-[11010]">
         {/* Close Button */}
         <button
@@ -111,10 +111,10 @@ export default function PromotionPopup() {
               className="w-full h-50 object-cover rounded mb-4 border border-gray-200 bg-gray-50"
             />
           )}
-          <div className="font-extrabold text-3xl md:text-3xl mb-2 text-gray-900">
+          <div className="font-extrabold text-2xl md:text-3xl mb-2 text-gray-900">
             {promotion.title}
           </div>
-          <div className="text-lg text-cyan-700 mb-4">{promotion.description}</div>
+          <div className="text-sm md:text-lg text-cyan-700 mb-4">{promotion.description}</div>
           {/* <div className="grid grid-cols-2 gap-2 mb-4">
             <div className="flex items-center gap-2 text-green-700"><span>⚡</span> Instant Processing</div>
             <div className="flex items-center gap-2 text-green-700"><span>$</span> No Hidden Fees</div>
