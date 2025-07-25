@@ -381,7 +381,7 @@ export default function ComparePage() {
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-medium">Trading Platforms:</span> 
+                    <span className="font-medium">Platforms:</span> 
                     <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">
                       {broker.platforms?.map((platform, i) => (
                         <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{platform}</span>
@@ -422,11 +422,11 @@ export default function ComparePage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Email:</span> 
-                    <span>{broker.email ? (<a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">{broker.email}</a>) : 'N/A'}</span>
+                    <span className='flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right'>{broker.email ? (<a href={`mailto:${broker.email}`} className="text-blue-600 hover:underline">{broker.email}</a>) : 'N/A'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Phone:</span> 
-                    <span>{broker.phone_numbers?.length ? broker.phone_numbers.map((phone, i) => (<a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline ml-1">{phone}</a>)) : 'N/A'}</span>
+                    <span className="flex flex-wrap gap-y-2 gap-x-1 justify-end max-w-[60%] w-1/2 text-right">{broker.phone_numbers?.length ? broker.phone_numbers.map((phone, i) => (<a key={i} href={`tel:${phone.replace(/\D/g, '')}`} className="text-blue-600 hover:underline ml-1">{phone}</a>)) : 'N/A'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Support Channels:</span> 
@@ -503,9 +503,9 @@ export default function ComparePage() {
                   ))}
                 </tr>
 
-                {/* Trading Conditions */}
+                {/* Conditions */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Trading Conditions</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Conditions</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Account Types</td>
@@ -524,7 +524,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Trading Platforms</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Platforms</td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.platforms && Array.isArray(broker.platforms) && broker.platforms.length > 0 ? (

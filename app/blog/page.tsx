@@ -8,8 +8,6 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { fetchBlogContents, BlogContents } from '@/lib/supabase';
 
-// ...other imports remain unchanged
-
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<BlogContents[]>([]);
@@ -111,29 +109,30 @@ function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
       <Link href={`/blog/${post.slug}`}>
-        <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300">
-          <div className="flex flex-col md:flex-row h-60">
-            <div className="md:w-2/5 relative h-60 md:h-auto">
-              <Image
-                src={post.images ? typeof post.images == 'string' ? JSON.parse(post.images)[0] : post.images[0] : "/assets/images/blog-default.jpg"}
-                alt={post.title}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            <CardContent className="p-6 md:w-3/5 flex flex-col">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-4">
-                {post.title}
-              </h3>
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-                <Calendar className="h-4 w-4 mr-1" />
-                <span className="mr-4">{post.created_at ? new Date(post.created_at).toLocaleDateString('en-GB') : ''}</span>
-              </div>
-              <div className="flex items-center text-blue-600 dark:text-blue-500 font-medium">
-                Read article <ArrowRight className="ml-2 h-4 w-4" />
-              </div>
-            </CardContent>
+        <Card className="overflow-hidden h-full hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row">
+          {/* Responsive image: full width on mobile, left side on desktop */}
+          <div className="w-full md:w-2/5 relative h-48 md:h-auto min-h-[180px]">
+            <Image
+              src={post.images ? typeof post.images == 'string' ? JSON.parse(post.images)[0] : post.images[0] : "/assets/images/blog-default.jpg"}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 40vw"
+              className="object-cover rounded-b-none md:rounded-l-xl md:rounded-b-none"
+              style={{ objectFit: "cover" }}
+            />
           </div>
+          <CardContent className="p-4 md:p-6 w-full md:w-3/5 flex flex-col justify-between">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-4">
+              {post.title}
+            </h3>
+            <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+              <Calendar className="h-4 w-4 mr-1" />
+              <span className="mr-4">{post.created_at ? new Date(post.created_at).toLocaleDateString('en-GB') : ''}</span>
+            </div>
+            <div className="flex items-center text-blue-600 dark:text-blue-500 font-medium">
+              Read article <ArrowRight className="ml-2 h-4 w-4" />
+            </div>
+          </CardContent>
         </Card>
       </Link>
     </motion.div>

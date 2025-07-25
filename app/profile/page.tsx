@@ -20,10 +20,10 @@ export default function UserProfilePage() {
   // TODO: Wire up save action to API
   return (
     <div className="container mx-auto py-10">
-      <div className="flex flex-col md:flex-row gap-8 mx-10">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8 mx-2 md:mx-10 min-h-[60vh]">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 mb-6 md:mb-0">
-          <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4">
+        <aside className="w-full md:w-48 flex-shrink-0 h-auto md:h-full mb-4 md:mb-0">
+          <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4 md:sticky md:top-10">
             <a
               href="/profile"
               className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 dark:bg-gray-100 ring-2 ring-gray-900/30"

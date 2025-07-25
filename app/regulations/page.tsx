@@ -417,7 +417,7 @@ const RegulationsPage = () => {
               <div className="flex flex-wrap gap-2 mt-2">
                 {p.brokers.map(b => <a key={b} href="#" className="px-3 py-1 rounded-full bg-cyan-100 text-cyan-900 text-xs font-semibold hover:bg-cyan-200">{b}</a>)}
               </div>
-              <a href="#" className="mt-auto inline-flex items-center gap-2 text-cyan-700 font-semibold hover:underline focus:underline">View Review <ArrowRight className="w-4 h-4" /></a>
+              {/* <a href="#" className="mt-auto inline-flex items-center gap-2 text-cyan-700 font-semibold hover:underline focus:underline">View Review <ArrowRight className="w-4 h-4" /></a> */}
             </div>
           ))}
         </div>

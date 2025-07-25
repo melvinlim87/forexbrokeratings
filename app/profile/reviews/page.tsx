@@ -50,7 +50,7 @@ function UserReviewsList() {
               <span className="text-xs text-gray-400 ml-2">{new Date(review.comment_at).toLocaleString()}</span>
             </div>
             <div className="flex items-center gap-1 mt-2 md:mt-0">
-              {[1,2,3,4,5,6,7,8,9,10].map(star => (
+              {[1,2,3,4,5].map(star => (
                 <svg key={star} className={`h-4 w-4 ${parseFloat(review.rating) >= star ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.6 1.5,7.6 6,11.9 4.9,18 9.9,14.9 14.9,18 13.8,11.9 18.3,7.6 12.2,6.6"/></svg>
               ))}
               <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
@@ -87,10 +87,10 @@ function UserReviewsList() {
 export default function UserReviewsPage() {
   return (
     <div className="container mx-auto py-10">
-      <div className="flex flex-col md:flex-row gap-8 mx-10">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8 mx-2 md:mx-10 min-h-[60vh]">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 mb-6 md:mb-0">
-          <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4">
+        <aside className="w-full md:w-48 mb-4 md:mb-0 flex-shrink-0 h-auto md:h-full">
+        <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4 md:sticky md:top-10">
             <a
               href="/profile"
               className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 dark:hover:bg-gray-50 text-black"
