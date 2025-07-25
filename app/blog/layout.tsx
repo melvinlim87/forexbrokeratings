@@ -1,4 +1,27 @@
 import React from 'react';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Forex Broker Blog & Insights",
+  description: "Insights, guides, news, and tips for forex traders. Stay updated with the latest trends, broker reviews, and trading strategies from ForexBrokerRatings.",
+  keywords: "forex blog, trading insights, broker reviews, forex news, forex tips, trading strategies, ForexBrokerRatings",
+  alternates: { canonical: 'https://forexbrokeratings.com/blog' },
+  openGraph: {
+    type: 'website',
+    url: 'https://forexbrokeratings.com/blog',
+    title: "Forex Broker Blog & Insights",
+    description: "Insights, guides, news, and tips for forex traders. Stay updated with the latest trends, broker reviews, and trading strategies from ForexBrokerRatings.",
+    images: ['https://forexbrokeratings.com/assets/images/blog-default.jpg'],
+    siteName: 'Forex Broker Ratings',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Forex Broker Blog & Insights",
+    description: "Insights, guides, news, and tips for forex traders. Stay updated with the latest trends, broker reviews, and trading strategies from ForexBrokerRatings.",
+    images: ['https://forexbrokeratings.com/assets/images/blog-default.jpg'],
+    site: '@forexbrokeratings',
+  },
+};
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (

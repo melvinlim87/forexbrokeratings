@@ -55,11 +55,13 @@ export default function Newsletter() {
         return;
       }
       // If result has error and is duplicate email, handle
+      console.log('get result',result)
       if (result.error && (result.error.code === '23505' || result.error.message?.toLowerCase().includes('duplicate'))) {
         setError('Email already used.');
         setLoading(false);
         return;
       } else if (result.error) {
+        console.log(result.error)
         setError('Failed to subscribe. Please try again later.');
         setLoading(false);
         return;

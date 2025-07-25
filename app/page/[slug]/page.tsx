@@ -76,7 +76,8 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     min_lot: broker.min_lot || '0.1',
     max_lot: broker.max_lot || '1000',
     has_demo_account: broker.has_demo_account || false,
-    parent_companies: broker.parent_companies || []
+    parent_companies: broker.parent_companies || [],
+    status: broker.status || false,
   };
 }
 
@@ -139,7 +140,8 @@ function getDefaultBroker(slug: string): BrokerDetails {
     min_lot: '0.1',
     max_lot: '1000',
     has_demo_account: false,
-    parent_companies: []
+    parent_companies: [],
+    status: false,
   };
 }
 

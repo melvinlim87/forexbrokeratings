@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronRight, Bot, Brain, LineChart, ArrowRight, Zap, Search, Filter, Star } from 'lucide-react';

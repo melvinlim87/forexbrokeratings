@@ -1,4 +1,27 @@
 import React from 'react';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Compare Forex Brokers",
+  description: "Side-by-side comparison of top forex brokers. Filter, select, and analyze the best fit for your trading style.",
+  keywords: "compare forex brokers, broker comparison, trading platforms, spreads, leverage, regulation, ForexBrokerRatings",
+  alternates: { canonical: 'https://forexbrokeratings.com/compare' },
+  openGraph: {
+    type: 'website',
+    url: 'https://forexbrokeratings.com/compare',
+    title: "Compare Forex Brokers",
+    description: "Side-by-side comparison of top forex brokers. Filter, select, and analyze the best fit for your trading style.",
+    images: ['https://forexbrokeratings.com/assets/images/compare-default.jpg'],
+    siteName: 'Forex Broker Ratings',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Compare Forex Brokers",
+    description: "Side-by-side comparison of top forex brokers. Filter, select, and analyze the best fit for your trading style.",
+    images: ['https://forexbrokeratings.com/assets/images/compare-default.jpg'],
+    site: '@forexbrokeratings',
+  },
+};
 
 export default function CompareLayout({ children }: { children: React.ReactNode }) {
   return (

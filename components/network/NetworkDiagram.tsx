@@ -175,13 +175,12 @@ export default function NetworkDiagram() {
               
               const path = isHorizontal
                 ? `M ${x1} ${y1} L ${x2} ${y1 + 10}`
-                : `M ${x1} ${y1} L ${x1} ${y2 + 10}`;
+                : `M ${x1} ${y1} L ${x1} ${y2 + 20}`;
               
               return (
                 <g key={`${index}-${connIndex}`}>
                   <motion.path
                     d={path}
-                    // stroke="url(#lineGradient)"
                     strokeWidth="1"
                     filter="url(#glow)"
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -204,21 +203,33 @@ export default function NetworkDiagram() {
                         pathOffset: i * 0.3 
                       }}
                       animate={{
-                        opacity: [0, 0.8, 0],
-                        pathOffset: [0, 1],
+                        opacity: [0, 0.8, 0.8, 0],
+                        pathOffset: [0, 1, 1, 1],
                       }}
                       transition={{
-                        duration: 2,
-                        delay: i * 1,
+                        duration: 3, // Increased duration to account for pause
+                        delay: i * 1.5,
                         repeat: Infinity,
-                        ease: "linear"
+                        times: [0, 0.3, 0.9, 1], // Keyframe times for the animation
+                        ease: ["easeOut", "linear", "easeIn"],
                       }}
-                     >
+                    >
                       <animateMotion
-                        dur="1s"
+                        dur={(3 + (index * 0.3)) + "s"} // Increased duration to match parent
                         repeatCount="indefinite"
                         path={path}
-                      />
+                        keyPoints="0;1;1"
+                        keyTimes="0;0.3;1"
+                        calcMode="linear"
+                      >
+                        <animate
+                          attributeName="keyPoints"
+                          values="0;1;1;0"
+                          keyTimes="0;0.3;0.9;1"
+                          dur={(3 + (index * 0.3)) + "s"}
+                          repeatCount="indefinite"
+                        />
+                      </animateMotion>
                     </motion.circle>
                   ))}
                 </g>

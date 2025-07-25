@@ -78,6 +78,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     max_lot: broker.max_lot || '1000',
     has_demo_account: broker.has_demo_account || false,
     parent_companies: broker.parent_companies || [],
+    status: true
   };
 }
 
@@ -141,6 +142,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
     max_lot: '1000',
     has_demo_account: false,
     parent_companies: [],
+    status: true
   };
 }
 
