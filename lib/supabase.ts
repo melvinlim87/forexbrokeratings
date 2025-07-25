@@ -425,7 +425,7 @@ export async function fetchUniquePromotions() {
     category,
     is_featured,
     created_at,
-    broker_details (name, website, logo, rating, leverage_max, min_deposit, pros)
+    broker_details (name, website, logo, rating, leverage_max, min_deposit, pros, status)
   `)
   .order('created_at', { ascending: false })
   .eq('status', true);
@@ -438,7 +438,8 @@ export async function fetchUniquePromotions() {
     throw new Error(error.message);
   }
 
-  const fixedData = (uniquePromotions || []).filter((item: any) => item.status === true).map((item: any) => ({
+  // filter uniquePromotions's broker_details status to true
+  const fixedData = (uniquePromotions || []).filter((item: any) => item.broker_details.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
