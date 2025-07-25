@@ -44,7 +44,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
       const userDetails = user as Users
       await saveBrokerReviews({
         broker_details_id: brokerId,
-        user_id: userDetails.id,
+        user_id: user.user_detail.id,
         name: userDetails.name || userDetails.email,
         rating: rating.toString(),
         title,

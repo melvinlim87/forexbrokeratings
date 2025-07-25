@@ -64,7 +64,7 @@ export default function NetworkDiagram() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full justify-center align-center items-center mx-auto">
       {/* Desktop View (md and up): original design */}
       <div className="hidden md:block w-full h-[350px] overflow-visible">
         {/* Background gradient animation */}

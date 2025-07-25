@@ -153,7 +153,7 @@ export default function PromotionsSection() {
                           </h4>
                           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                             <Star className="h-4 w-4 text-yellow-500" />
-                            <span className="ml-1">{promo.broker_details?.rating}/10</span>
+                            <span className="ml-1">{promo.broker_details?.rating}/100</span>
                           </div>
                         </div>
                       </div>

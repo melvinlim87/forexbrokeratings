@@ -246,19 +246,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               {/* Additional Broker Details */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
                 <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-cyan-400 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
+                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Min Spread</div>
                 </div>
                 <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-purple-400 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
+                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Max Leverage</div>
                 </div>
                 <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-green-400 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
+                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Min Deposit</div>
                 </div>
                 <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-amber-300 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
+                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
                   <div className="text-black text-xs md:text-sm text-center justify-end">Execution Speed</div>
                 </div>
               </div>
@@ -1204,6 +1204,88 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             
 
             
+            {/* Broker Summary */}
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Broker Summary of {brokerData.name}</h3>
+                <div className="space-y-2">
+                  <div className="flex flex-col items-center mb-4">
+                    {/* {brokerData.logo && (
+                      <Image src={brokerData.logo} alt={brokerData.name} width={64} height={64} className="rounded-lg bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-sm mb-2" />
+                    )} */}
+                    {/* {brokerData.summary && (
+                      <div className="text-gray-600 dark:text-gray-300 text-sm text-center mt-1">{brokerData.summary}</div>
+                    )} */}
+                  </div>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full text-xs text-left border border-gray-100 dark:border-gray-700 rounded-lg ">
+                      <tbody>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Founded</td>
+                          <td>{brokerData.year_published || 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Registered Country/Region</td>
+                          <td>{brokerData.country || brokerData.headquarters || 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Regulation</td>
+                          <td>{brokerData.regulators && brokerData.regulators.length > 0 ? brokerData.regulators.join(', ') : 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Licenses</td>
+                          <td>{brokerData.licenses && brokerData.licenses.length > 0 ? brokerData.licenses.join(', ') : 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Market Instruments</td>
+                          <td>{brokerData.instruments && brokerData.instruments.length > 0 ? brokerData.instruments.join(', ') : 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Demo Account</td>
+                          <td>{brokerData.has_demo_account ? <CheckCircle className="inline w-4 h-4 text-emerald-500" /> : <X className="inline w-4 h-4 text-gray-400" />}</td>
+                        </tr>
+                        {/* <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Leverage</td>
+                          <td>{brokerData.leverage_max || 'N/A'}</td>
+                        </tr>
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Spread</td>
+                          <td>{brokerData.spread_eur_usd || 'N/A'}</td>
+                        </tr> */}
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Trading Platforms</td>
+                          <td>{brokerData.platforms && brokerData.platforms.length > 0 ? brokerData.platforms.join(', ') : 'N/A'}</td>
+                        </tr>
+                        {/* <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Minimum Deposit</td>
+                          <td>{brokerData.min_deposit || 'N/A'}</td>
+                        </tr> */}
+                        <tr className="border border-b-1">
+                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1">Customer Support</td>
+                          <td>{brokerData.availability ? brokerData.availability : 'N/A'}{brokerData.email ? <><br/>Email: {brokerData.email}</> : ''}{brokerData.phone_numbers && brokerData.phone_numbers.length > 0 ? <><br/>Phone: {brokerData.phone_numbers.join(', ')}</> : ''}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Related Brokers */}
             <Card 
               className={cn(

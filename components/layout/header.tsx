@@ -96,7 +96,7 @@ export default function Header() {
           : ""
       )}
     >
-      <div className="container mx-auto px-4 pt-4 flex h-24 items-center">
+      <div className="container mx-auto px-4 flex h-24 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center mr-6">
             {/* Header Logo */}
@@ -147,7 +147,7 @@ export default function Header() {
                 <>
                   <SheetTrigger asChild>
                     <Button ref={triggerRef} variant="ghost" size="icon" className="md:hidden">
-                      <Menu className="h-5 w-5" />
+                      <Menu className="h-5 w-5 text-yellow-300" />
                     </Button>
                   </SheetTrigger>
                   <SheetContent side="right" className="w-[300px] sm:w-[350px]">

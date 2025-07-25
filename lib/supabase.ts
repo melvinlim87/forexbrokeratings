@@ -85,6 +85,7 @@ export type BrokerDetails = {
   max_lot: string;
   has_demo_account: boolean;
   parent_companies: string[];
+  status: boolean;
 };
 
 // Type for joined broker_promotions with selected broker_details fields
@@ -254,7 +255,8 @@ export async function fetchAllBrokerDetails() {
   const { data, error } = await supabase
     .from('broker_details')
     .select('*')
-    .order('rating', { ascending: false });
+    .order('rating', { ascending: false })
+    .eq('status', true);
   
   if (error) {
     throw new Error(error.message);
@@ -302,6 +304,7 @@ export async function fetchAllBrokerDetailsWithReviews() {
       broker_reviews(*)
     `)
     .order('rating', { ascending: false })
+    .eq('status', true)
     .limit(10);
 
   if (error) {
@@ -389,7 +392,8 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
         phone_numbers,
         channels,
         availability,
-        response_time
+        response_time,
+        status
       )
     `)
     .eq('status', true)
@@ -400,7 +404,7 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
     throw new Error(error.message);
   }
 
-  const fixedData = (data || []).map((item: any) => ({
+  const fixedData = (data || []).filter((item: any) => item.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
@@ -434,7 +438,7 @@ export async function fetchUniquePromotions() {
     throw new Error(error.message);
   }
 
-  const fixedData = (uniquePromotions || []).map((item: any) => ({
+  const fixedData = (uniquePromotions || []).filter((item: any) => item.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
@@ -445,7 +449,8 @@ export async function fetchUniquePromotions() {
 export async function fetchAllBrokersWithPromotionCategories() {
   const { data, error } = await supabase
     .from('broker_details')
-    .select(`*, broker_promotions(category)`);
+    .select(`*, broker_promotions(category)`)
+    .eq('status', true);
 
   if (error) {
     throw new Error(error.message);
@@ -492,7 +497,7 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
     throw new Error(error.message);
   }
 
-  const fixedData = (data || []).map((item: any) => ({
+  const fixedData = (data || []).filter((item: any) => item.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
@@ -530,7 +535,7 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
     throw new Error(error.message);
   }
 
-  const fixedData = (data || []).map((item: any) => ({
+  const fixedData = (data || []).filter((item: any) => item.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
@@ -590,7 +595,7 @@ export async function fetchReviewsByUserId(userId: string): Promise<BrokerReview
     throw new Error(error.message);
   }
 
-  const fixedData = (data || []).map((item: any) => ({
+  const fixedData = (data || []).filter((item: any) => item.status === true).map((item: any) => ({
     ...item,
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerReviews[];
@@ -620,21 +625,70 @@ export async function saveBrokerReviews(review: BrokerReviews) {
     throw new Error(error.message);
   }
 
+  updateBrokerRating(review.broker_details_id, parseInt(review.rating));
+
   return data;
 }
 
-
-// Function to fetch blog contents
-export async function fetchBlogContents() {
-  const { data, error } = await supabase
-    .from('broker_website_contents')
+// Function to update broker rating
+export async function updateBrokerRating(brokerId: number, rating: number) {
+  // find current broker
+  let currentBroker = await supabase
+    .from('broker_details')
     .select('*')
-    .eq('status', true);
+    .eq('id', brokerId);
+  if (currentBroker.error) throw new Error(currentBroker.error.message);
+
+  // get all rating of broker
+  let allBrokerReviews = await supabase
+    .from('broker_reviews')
+    .select('rating')
+    .eq('broker_details_id', brokerId);
+  if (allBrokerReviews.error) throw new Error(allBrokerReviews.error.message);
+  
+  // get total user reviews
+  let totalReviews = allBrokerReviews.data.length;
+
+  // find the sum of all ratings
+  let sumOfRatings = allBrokerReviews.data.reduce((sum, review) => sum + parseInt(review.rating), 0);
+
+  // calculate the average rating of user reviews
+  let averageUserReviewRating = ((sumOfRatings / totalReviews) * 2).toFixed(2);
+  
+  // new rating of broker will be average of environment, user_experience, regulations, risk_control, promotions and user_traffic 
+  let averageRating = (((currentBroker.data[0].environment + parseFloat(averageUserReviewRating) + currentBroker.data[0].regulations + currentBroker.data[0].risk_control + currentBroker.data[0].promotions + currentBroker.data[0].user_traffic) / 6) * 10).toFixed(2);
+  
+  // save the average rating to user_experience and rating to the broker_details table
+  const { data, error } = await supabase
+    .from('broker_details')
+    .update({
+      user_experience: averageUserReviewRating,
+      rating: averageRating,
+    })
+    .eq('id', brokerId);
   
   if (error) {
     throw new Error(error.message);
   }
-  
+}
+
+// Function to fetch blog contents
+// Function to fetch blog contents with pagination
+export async function fetchBlogContents(page = 1) {
+  const PAGE_SIZE = 9;
+  const from = (page - 1) * PAGE_SIZE;
+  const to = from + PAGE_SIZE - 1;
+  const { data, error } = await supabase
+    .from('broker_website_contents')
+    .select('*')
+    .eq('status', true)
+    .order('id', { ascending: false })
+    .range(from, to);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
   return data;
 }
 

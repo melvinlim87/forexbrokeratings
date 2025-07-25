@@ -58,8 +58,8 @@ export default function FeaturedBrokers() {
   }, []);
 
   const calculateAverageRating = (broker: BrokerDetails) => {
-    const { sw, regulations, risk_control, promotions, user_experience, environment } = broker;
-    const sum = (sw || 0) + (regulations || 0) + (risk_control || 0) + 
+    const { regulations, risk_control, promotions, user_experience, environment, user_traffic } = broker;
+    const sum = (user_traffic || 0) + (regulations || 0) + (risk_control || 0) + 
                (promotions || 0) + (user_experience || 0) + (environment || 0);
     return sum / 6;
   };
@@ -140,9 +140,12 @@ export default function FeaturedBrokers() {
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Rank</th>
                 <th className="px-4 py-3 font-semibold text-gray-800">Broker</th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Rating</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Spread</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Max Leverage</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Deposit</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">User Traffic</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">Regulations</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">Risk Control</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">Promotions</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">User Ratings</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">Trading Platform</th>
                 <th className="px-4 py-3 font-semibold text-center text-gray-800">Regulated By</th>
               </tr>
             </thead>
@@ -213,13 +216,22 @@ export default function FeaturedBrokers() {
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center text-cyan-600 font-medium text-sm md:text-lg ">
-                    {broker.spread_eur_usd || 'N/A'}
+                    {broker.user_traffic || 'N/A'}
                   </td>
                   <td className="px-4 py-3 text-center text-blue-600 font-medium text-sm md:text-lg ">
-                    {broker.leverage_max || 'N/A'}
+                    {broker.regulations || 'N/A'}
                   </td>
                   <td className="px-4 py-3 text-center text-green-600 font-medium text-sm md:text-lg ">
-                    {broker.min_deposit || 'N/A'}
+                    {broker.risk_control || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center text-green-600 font-medium text-sm md:text-lg ">
+                    {broker.promotions || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center text-green-600 font-medium text-sm md:text-lg ">
+                    {broker.user_experience || 'N/A'}
+                  </td>
+                  <td className="px-4 py-3 text-center text-green-600 font-medium text-sm md:text-lg ">
+                    {broker.environment || 'N/A'}
                   </td>
                   <td className="px-4 py-3 text-center">
                     {broker.regulators && Array.isArray(broker.regulators) && broker.regulators.length > 0 ? (
@@ -243,7 +255,7 @@ export default function FeaturedBrokers() {
         {/* Mobile Cards (below md) */}
         <div className="flex flex-col gap-4 md:hidden">
           {brokers.map((broker, idx) => (
-            <div key={broker.id} className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-800 transition" onClick={() => broker.website && window.open(broker.website, '_blank', 'noopener,noreferrer')}>
+            <div key={broker.id} className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-800 transition" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow bg-white">#{broker.rank || idx + 1}</span>
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
@@ -268,16 +280,28 @@ export default function FeaturedBrokers() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-700">Min Spread:</span>
-                <span className="text-cyan-600 font-medium">{broker.spread_eur_usd || 'N/A'}</span>
+                <span className="font-semibold text-gray-700">User Traffic:</span>
+                <span className="text-cyan-600 font-medium">{broker.user_traffic || 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-700">Max Leverage:</span>
-                <span className="text-blue-600 font-medium">{broker.leverage_max || 'N/A'}</span>
+                <span className="font-semibold text-gray-700">Regulations:</span>
+                <span className="text-blue-600 font-medium">{broker.regulations || 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-700">Min Deposit:</span>
-                <span className="text-green-600 font-medium">{broker.min_deposit || 'N/A'}</span>
+                <span className="font-semibold text-gray-700">Risk Control:</span>
+                <span className="text-green-600 font-medium">{broker.risk_control || 'N/A'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-gray-700">Promotions:</span>
+                <span className="text-green-600 font-medium">{broker.promotions || 'N/A'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-gray-700">User Ratings:</span>
+                <span className="text-green-600 font-medium">{broker.user_experience || 'N/A'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-gray-700">Trading Platform:</span>
+                <span className="text-green-600 font-medium">{broker.environment || 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-semibold text-gray-700">Regulated By:</span>

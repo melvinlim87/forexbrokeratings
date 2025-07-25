@@ -167,7 +167,7 @@ export default function LatestReviews() {
                             className={`h-4 w-4 ${i < Math.floor(review.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300 dark:text-gray-600'}`} 
                           />
                         ))}
-                        <span className="ml-1 text-sm font-medium">{parseFloat(review.rating) / 10}</span>
+                        <span className="ml-1 text-sm font-medium">{(parseFloat(review.rating) / 10).toFixed(2)}</span>
                       </div>
                     </div>
                     

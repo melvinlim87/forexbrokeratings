@@ -12,18 +12,22 @@ import { fetchBlogContents, BlogContents } from '@/lib/supabase';
 
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  // Category filtering is disabled for now since API does not provide category
-  // const [selectedCategory, setSelectedCategory] = useState('all');
   const [blogs, setBlogs] = useState<BlogContents[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string|null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const PAGE_SIZE = 9;
 
   useEffect(() => {
+    // Initial fetch
     const getBlogs = async () => {
       try {
         setLoading(true);
-        const data = await fetchBlogContents();
+        const data = await fetchBlogContents(1);
         setBlogs(Array.isArray(data) ? data : []);
+        setHasMore(data && data.length === PAGE_SIZE);
+        setPage(1);
       } catch (err: any) {
         setError(err.message || 'Failed to load blogs');
       } finally {
@@ -41,6 +45,26 @@ export default function BlogPage() {
       (post.content && post.content.toLowerCase().includes(q))
     );
   });
+
+  // Load more handler
+  const handleLoadMore = async () => {
+    try {
+      setLoading(true);
+      const nextPage = page + 1;
+      const data = await fetchBlogContents(nextPage);
+      if (Array.isArray(data) && data.length > 0) {
+        setBlogs(prev => [...prev, ...data]);
+        setPage(nextPage);
+        setHasMore(data.length === PAGE_SIZE);
+      } else {
+        setHasMore(false);
+      }
+    } catch (err: any) {
+      setError(err.message || 'Failed to load more blogs');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 pb-12">
@@ -63,6 +87,18 @@ export default function BlogPage() {
           <BlogPostCard key={post.id} post={post} index={idx} />
         ))}
       </div>
+      {/* Load More Button */}
+      {!loading && hasMore && filteredPosts.length > 0 && (
+        <div className="flex justify-center mt-8">
+          <button
+            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition disabled:opacity-50"
+            onClick={handleLoadMore}
+            disabled={loading}
+          >
+            {loading ? 'Loading...' : 'Load More'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
