@@ -797,7 +797,7 @@ export async function saveSubscribers(subscriber: Subscribers) {
     throw new Error(error.message);
   }
   
-  return data;
+  return {data,error};
 }
 
 // Function to fetch users

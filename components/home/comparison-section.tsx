@@ -262,7 +262,7 @@ export default function ComparisonSection() {
               environment: { score: broker.environment, label: broker.environment?.toString() },
               user_traffic: { score: broker.user_traffic, label: broker.user_traffic?.toString() },
               riskControl: { score: broker.risk_control, label: broker.risk_control?.toString() },
-              userRating: { score: broker.rating, label: broker.rating?.toString() },
+              promotions: { score: broker.promotions, label: broker.promotions?.toString() },
               regulations: { score: broker.regulations, label: broker.regulations?.toString() }
             },
             slug: broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : `broker-${index + 1}`
@@ -356,7 +356,7 @@ export default function ComparisonSection() {
           { key: 'environment', label: 'Environment' },
           { key: 'user_traffic', label: 'User Traffic' },
           { key: 'riskControl', label: 'Risk Control' },
-          { key: 'userRating', label: 'User Rating' },
+          { key: 'promotions', label: 'Promotions' },
           { key: 'regulations', label: 'Regulations' }
         ];
       case 'low-fees':

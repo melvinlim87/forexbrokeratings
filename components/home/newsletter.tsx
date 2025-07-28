@@ -47,21 +47,21 @@ export default function Newsletter() {
         mobileno: '',
         created_at: new Date().toISOString(),
       });
-      
-      // If result is null, treat as error
-      if (!result) {
-        setError('Failed to subscribe. Please try again later.');
-        setLoading(false);
-        return;
-      }
-      // If result has error and is duplicate email, handle
       console.log('get result',result)
+      // If result is null, treat as error
+      // if (!result) {
+      //   setError('Failed to subscribe. Please try again later.');
+      //   setLoading(false);
+      //   return;
+      // }
+      // If result has error and is duplicate email, handle
       if (result.error && (result.error.code === '23505' || result.error.message?.toLowerCase().includes('duplicate'))) {
+        console.log('get error 1',result.error)
         setError('Email already used.');
         setLoading(false);
         return;
       } else if (result.error) {
-        console.log(result.error)
+        console.log('get error 2',result.error)
         setError('Failed to subscribe. Please try again later.');
         setLoading(false);
         return;
@@ -81,6 +81,7 @@ export default function Newsletter() {
       setName('');
       setEmail('');
     } catch (err: any) {
+      console.log('got err',err)
       if (err && err.message.includes('duplicate')) {
         setError('You already subscribed to our service.');
         setLoading(false);

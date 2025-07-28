@@ -28,7 +28,7 @@ function AuthHeaderMenu() {
 
   if (loading) {
     return (
-      <Button className="hidden md:flex animate-pulse bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg text-lg px-6 py-2.5 ml-2 opacity-70 cursor-wait" disabled>
+      <Button className="hidden lg:flex animate-pulse bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg text-lg px-6 py-2.5 ml-2 opacity-70 cursor-wait" disabled>
         Loading
       </Button>
     );
@@ -58,7 +58,7 @@ function AuthHeaderMenu() {
           <UserCircle className="h-7 w-7 text-white" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-2">
+      <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-4">
         <div className="flex flex-col">
           <Link href="/profile" className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base" onClick={() => setOpen(false)}>
             <User className="h-4 w-4 mr-2" /> View Profile
@@ -106,7 +106,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center justify-center flex-1">
+        <nav className="hidden lg:flex items-center justify-center flex-1">
           <NavLinks />
         </nav>
         <div className="flex items-center space-x-4 flex-1 justify-end">
@@ -115,7 +115,7 @@ export default function Header() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="hidden md:flex hover:bg-white/20 dark:hover:bg-gray-800/20 h-12 w-12"
+                className="hidden lg:flex hover:bg-white/20 dark:hover:bg-gray-800/20 h-12 w-12"
               >
                 <Search className="h-6 w-6 text-white" />
               </Button>
@@ -124,7 +124,7 @@ export default function Header() {
           
           <Link href="/compare">
             <Button 
-              className="hidden md:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-6 py-2.5"
+              className="hidden lg:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-6 py-2.5"
             >
               <BarChart className="h-5 w-5 mr-2" />
               Compare
@@ -146,7 +146,7 @@ export default function Header() {
               return (
                 <>
                   <SheetTrigger asChild>
-                    <Button ref={triggerRef} variant="ghost" size="icon" className="md:hidden">
+                    <Button ref={triggerRef} variant="ghost" size="icon" className="lg:hidden">
                       <Menu className="h-5 w-5 text-yellow-300" />
                     </Button>
                   </SheetTrigger>

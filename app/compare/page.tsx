@@ -208,7 +208,7 @@ export default function ComparePage() {
                   <h3 className="font-bold text-base text-black dark:text-black mb-1 text-center">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function ComparePage() {
                   <h3 className="font-bold text-base text-black dark:text-black mb-1">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(1) : (broker.rating || 0).toFixed(1) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>
@@ -414,7 +414,7 @@ export default function ComparePage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Overall Rating:</span> 
-                    <span>{(((broker.sw + broker.regulations + broker.risk_control + broker.promotions + broker.user_experience + broker.environment) / 6).toFixed(1))} /5</span>
+                    <span>{(((broker.sw + broker.regulations + broker.risk_control + broker.promotions + broker.user_experience + broker.environment) / 6).toFixed(2))} /5</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Regulation Status:</span> 
@@ -607,7 +607,7 @@ export default function ComparePage() {
                       broker.promotions +
                       broker.user_experience +
                       broker.environment) / 6
-                    ).toFixed(1);
+                    ).toFixed(2);
                     let text_color = 'text-green-500'
                     if (Number(avgRating) < 3) {
                       text_color = 'text-red-500'
