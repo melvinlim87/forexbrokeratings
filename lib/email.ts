@@ -30,10 +30,8 @@ export async function sendEmail({
       html,
       text,
     });
-    console.log('checking send email resrs ',res)
     return res;
   } catch (error) {
-    console.log('checking send email error ',error)
   }
 }
 
@@ -46,7 +44,6 @@ export async function sendWelcomeEmail(email: string, name: string) {
       html: tpl.html,
       text: tpl.text,
     });
-    console.log('check send email res',res)
     return { status: true, success: true };
   } catch (error) {
     return { status: false, error: 'Failed to send email', message: error instanceof Error ? error.message : String(error) };

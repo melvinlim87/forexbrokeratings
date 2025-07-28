@@ -4,11 +4,13 @@ import bcrypt from 'bcrypt';
 import nodemailer from 'nodemailer';
 import { sendVerifyEmail } from '@/lib/verifyTemplate';
 import { supabase } from '@/lib/supabase';
+import { rateLimit } from '@/lib/rateLimit';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+  if (!(await rateLimit(req, res))) return;
   try {
     const user = req.body;
     // save user to supabase

@@ -1,10 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getUserByEmail, supabase } from '@/lib/supabase';
+import { rateLimit } from '@/lib/rateLimit';
+
 // GET: /api/verify-email?token=... (token = user email, simple for now)
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+  if (!(await rateLimit(req, res))) return;
 
   try {
     const verified_user = req.query.verified_user;

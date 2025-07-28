@@ -1,11 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { fetchAIResult, supabase } from '@/lib/supabase';
+import { rateLimit } from '@/lib/rateLimit';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-
+  if (!(await rateLimit(req, res))) return;
   const prompt = req.body;
 
   try {
@@ -241,7 +242,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const data = await response.json();
         message = data.choices?.[0]?.message?.content || '';
-        console.log(message)
         if (message) break;
 
       } catch (err) {
