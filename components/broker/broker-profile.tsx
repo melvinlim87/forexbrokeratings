@@ -132,7 +132,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [previewPromoImages, setPreviewPromoImages] = useState<string[]>([]);
   const [previewPromoImageIdx, setPreviewPromoImageIdx] = useState(0);
   return (
-    <div className="min-h-screen mx-10">
+    <div className="min-h-screen mx-0 lg:mx-10">
        {/* Promo Images Carousel Modal */}
        {promoPreviewOpen && previewPromoImages.length > 0 && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setPromoPreviewOpen(false)}>
@@ -179,7 +179,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
         />
         {/* Broker Summary */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end">
             {/* Summary Left Side */}
             <div className="flex flex-col justify-between h-full col-span-2 ">
               <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
@@ -301,10 +301,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             </div>
             
             {/* Sidebar Right Side */}
-            <div className="flex flex-col gap-3 h-full justify-end">
+            <div className="flex flex-col gap-3 h-full justify-end w-full">
               {/* Broker Metrics Hexagon Chart */}
                   <h3 className="text-xl font-semibold text-center">Broker Metrics</h3>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mx-auto">
                     <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
                       <div className="bg-white rounded-lg">
                         <HexagonChart 
