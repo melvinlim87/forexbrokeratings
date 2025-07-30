@@ -81,7 +81,7 @@ export default function PromotionsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 max-w-7xl mx-auto">
+        <div className={`grid grid-cols-1 md:grid-cols-${promotions.length > 2 ? 2 : 1} lg:grid-cols-${promotions.length > 2 ? 3 : promotions.length} gap-6 mt-12 max-w-7xl mx-auto justify-center align-center items-center`}>
           {loading ? (
             // Skeleton loaders
             Array(3).fill(0).map((_, index) => (
@@ -115,6 +115,8 @@ export default function PromotionsSection() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredCard(promo.id?.toString())}
                 onMouseLeave={() => setHoveredCard(null)}
+                style={{width: 360}}
+                className='mx-auto'
               >
                 <Card 
                   className={cn(
@@ -152,7 +154,7 @@ export default function PromotionsSection() {
                             {promo.broker_details.name}
                           </h4>
                           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                            <Star className="h-4 w-4 text-yellow-500" />
+                            <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                             <span className="ml-1">{promo.broker_details?.rating}/100</span>
                           </div>
                         </div>

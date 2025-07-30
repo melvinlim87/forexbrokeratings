@@ -239,7 +239,7 @@ export default function NetworkDiagram() {
         </svg>
 
         {/* Feature nodes grid */}
-        <div className="grid grid-cols-2 gap-4 w-full h-full">
+        <div className="grid grid-cols-2 w-full h-full">
           {features.map((feature, index) => {
             // Get the calculated position from nodePositions if available
             const position = nodePositions[index] || { x: 0, y: 0 };
@@ -251,7 +251,7 @@ export default function NetworkDiagram() {
                 style={{ gridColumn: (index % 2) + 1, gridRow: Math.floor(index / 2) + 1 }}
               >
                 <motion.div
-                  className="w-[90%] max-w-[420px]"
+                  className="w-[90%] max-w-[500px]"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -261,8 +261,8 @@ export default function NetworkDiagram() {
                   <div 
                     className="relative p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20 shadow-lg"
                   >
-                    <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 shadow-metallic w-full">
-                      <div className="relative z-10">
+                    <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 shadow-metallic w-full min-h-[120px]">
+                      <div className="relative z-10 py-1">
                         <div className="flex items-center justify-center gap-3 mb-4">
                           <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
                             <div className="relative w-full h-full">

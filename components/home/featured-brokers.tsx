@@ -61,7 +61,7 @@ export default function FeaturedBrokers() {
     const { regulations, risk_control, promotions, user_experience, environment, user_traffic } = broker;
     const sum = (user_traffic || 0) + (regulations || 0) + (risk_control || 0) + 
                (promotions || 0) + (user_experience || 0) + (environment || 0);
-    return sum / 6;
+    return (sum / 6) * 10;
   };
 
   if (loading) {
@@ -119,7 +119,7 @@ export default function FeaturedBrokers() {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">Top 10 Forex Brokers</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">Top Rate Forex Brokers</h2>
             <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
               Comprehensive ranking of the best forex brokers based on our detailed analysis.
             </p>
@@ -209,7 +209,7 @@ export default function FeaturedBrokers() {
                             {Array(emptyStars).fill(0).map((_, i) => (
                               <svg key={`empty-${i}`} className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
                             ))}
-                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(2) : '-'}{typeof rawScore === 'number' ? '/10' : ''}</span>
+                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(0) : '-'}{typeof rawScore === 'number' ? '/100' : ''}</span>
                           </>
                         );
                       })()}
