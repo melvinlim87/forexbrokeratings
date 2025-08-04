@@ -488,7 +488,9 @@ export async function fetchAllBrokersWithPromotionCategories() {
       : []
   }));
 
-  return brokersWithCategories;
+   const filteredBrokers = brokersWithCategories.filter((broker: any) => broker.environment > 0);
+
+  return filteredBrokers;
 }
 
 // Function to fetch broker promotions by broker id
