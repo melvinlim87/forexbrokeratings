@@ -209,7 +209,7 @@ export default function FeaturedBrokers() {
                             {Array(emptyStars).fill(0).map((_, i) => (
                               <svg key={`empty-${i}`} className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
                             ))}
-                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(0) : '-'}{typeof rawScore === 'number' ? '/100' : ''}</span>
+                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(2) : '-'}{typeof rawScore === 'number' ? '/100' : ''}</span>
                           </>
                         );
                       })()}

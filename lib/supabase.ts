@@ -88,6 +88,29 @@ export type BrokerDetails = {
   status: boolean;
 };
 
+// Type definitions for broker licenses
+export type BrokerLicenses = {
+  id: number;
+  broker_detail_id: number;
+  license_image: string;
+  description: string;
+  is_regulated: boolean;
+  license_type: string;
+  regulated_by: string;
+  license_no: string;
+  license_entity: string;
+  effective_date: string;
+  email: string;
+  sharing_status: string;
+  websites: string[];
+  expiration_time: string;
+  address: string;
+  phone: string;
+  documents: string[];
+  created_at: string;
+}
+
+
 // Type for joined broker_promotions with selected broker_details fields
 export type BrokerPromotionWithBrokerDetails = {
   id: number;

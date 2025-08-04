@@ -66,6 +66,15 @@ export default function PromotionsSection() {
     return `https://ui-avatars.com/api/?name=${encodeURIComponent(brokerName)}&background=random`;
   };
 
+  const getGridColsClass = (count: number) => {
+    if (count === 1) return "lg:grid-cols-1";
+    if (count === 2) return "lg:grid-cols-2";
+    if (count === 3) return "lg:grid-cols-3";
+    if (count === 4) return "lg:grid-cols-4";
+    if (count >= 5) return "lg:grid-cols-5";
+    return "lg:grid-cols-1";
+  };
+
   return (
     <section className="py-16 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +90,7 @@ export default function PromotionsSection() {
           </p>
         </div>
 
-        <div className={`grid grid-cols-1 md:grid-cols-${promotions.length > 2 ? 2 : 1} lg:grid-cols-${promotions.length > 2 ? 3 : promotions.length} gap-6 mt-12 max-w-7xl mx-auto justify-center align-center items-center`}>
+        <div className={`grid grid-cols-1 md:grid-cols-1 ${getGridColsClass(promotions.length)} gap-6 mt-12 max-w-7xl mx-auto justify-center align-center items-center`}>
           {loading ? (
             // Skeleton loaders
             Array(3).fill(0).map((_, index) => (

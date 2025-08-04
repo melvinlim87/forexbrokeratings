@@ -172,13 +172,8 @@ export default function PromotionsPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          {/* <h1 className="text-4xl font-bold mb-4">Forex Broker Promotions</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Discover the latest promotions, bonuses, and special offers from top forex brokers.
-          </p> */}
-          
           {/* Search Bar */}
-          <div className="relative max-w-6xl mx-auto mb-12">
+          <div className="relative mx-auto mb-12">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"

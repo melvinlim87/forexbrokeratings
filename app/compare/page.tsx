@@ -299,7 +299,7 @@ export default function ComparePage() {
                 <div>
                   <h3 className="font-bold text-base text-black dark:text-black mb-1">{broker.name}</h3>
                   <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 text-yellow-400" />
+                    <Star className="h-4 w-4 text-yellow-400 fill-yellow-500" />
                     <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
