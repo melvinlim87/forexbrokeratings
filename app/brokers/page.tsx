@@ -95,7 +95,7 @@ export default function BrokersPage() {
               name: broker.name || `Broker ${index + 1}`,
               logo: broker.logo || `https://via.placeholder.com/120x60?text=${broker.name || 'Broker'}`,
               rating: broker.rating || 4.0,
-              minDeposit: broker.min_deposits || 100,
+              minDeposit: broker.min_deposit || 100,
               features: parseArrayField(broker.features),
               regulations: parseArrayField(broker.regulators),
               tradingPlatforms: parseArrayField(broker.platforms),
@@ -376,7 +376,7 @@ export default function BrokersPage() {
                         <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800">
                           <div className="mb-3 text-center md:text-right">
                             <p className="text-sm text-gray-500 dark:text-gray-400">Min. Deposit</p>
-                            <p className="text-lg font-semibold text-gray-900 dark:text-white">${broker.minDeposit}</p>
+                            <p className="text-lg font-semibold text-gray-900 dark:text-white">{broker.minDeposit}</p>
                           </div>
                           
                           <div className="space-y-2 w-full">
