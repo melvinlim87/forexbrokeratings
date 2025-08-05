@@ -166,7 +166,7 @@ export default function BrokersPage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Top Forex Brokers</h1>
-        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Browse and compare the best forex brokers for your trading needs. Filter by rating, minimum deposit, regulation, and more.</h2>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Browse and compare the best forex brokers for your trading needs.</h2>
       </header>
       <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
