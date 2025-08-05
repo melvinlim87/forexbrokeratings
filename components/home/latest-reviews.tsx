@@ -92,7 +92,9 @@ export default function LatestReviews() {
             date: formattedDate,
             summary: broker.description || `${broker.name} offers a solid trading experience with excellent research and educational materials.`,
             highlights: highlights,
-            slug: broker.name.toLowerCase().replace(/\s+/g, '-')
+            slug: broker.name.toLowerCase().replace(/\s+/g, '-'),
+            headquarters: broker.headquarters,
+            year_published: broker.year_published,
           };
         });
         
@@ -160,14 +162,22 @@ export default function LatestReviews() {
                           className="rounded-xl"
                         />
                       </div>
-                      <div className="flex items-center gap-1">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={`h-4 w-4 ${i < Math.floor(review.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300 dark:text-gray-600'}`} 
-                          />
-                        ))}
-                        <span className="ml-1 text-sm font-medium">{(parseFloat(review.rating) / 10).toFixed(2)}</span>
+                      <div className="flex flex-col gap-1">
+                        <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-right">
+                          {review.headquarters}
+                        </p>
+                        <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-right">
+                          {review.year_published}
+                        </p>
+                        <div className='flex items-center gap-1'>
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star 
+                              key={i} 
+                              className={`h-4 w-4 ${i < Math.floor(review.rating) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300 dark:text-gray-600'}`} 
+                            />
+                          ))}
+                        <span className="ml-1 text-sm font-medium">{parseFloat(review.rating).toFixed(2)}</span>
+                        </div>
                       </div>
                     </div>
                     
