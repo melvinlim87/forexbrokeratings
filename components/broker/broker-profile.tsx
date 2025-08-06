@@ -185,6 +185,155 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             backgroundSize: '24px 24px'
           }}
         />
+        {/* Modal for regulatory */}
+        {showRegulatory && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowRegulatory(false)}>
+            <div 
+              className="relative bg-white rounded-xl shadow-xl p-4 max-w-4xl w-full flex flex-col items-center"
+              // style={{backgroundImage: `url(/assets/images/certificate/cert_bg.png)`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}
+            >
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                onClick={e => { e.stopPropagation(); setShowRegulatory(false); }}
+                aria-label="Close preview"
+              >
+                ×
+              </button>
+              {/* display regulatory information here according to regulatoryLicense */}
+              {/* Certificate-style Regulatory Modal */}
+              <div className="w-full p-4">
+                {/* Header */}
+                <div className="flex items-center gap-3 mb-2">
+                  {/* Logo (if you have a logo URL, otherwise use a placeholder) */}
+                  <img
+                    src={regulatoryLicense?.license_image}
+                    alt={regulatoryLicense?.name}
+                    className="h-24 w-42 object-contain border rounded bg-white"
+                  />
+                  <div>
+                    <div className="text-lg font-bold">{regulatoryLicense?.fullname || "Regulator"}</div>
+                    <div className="text-xs text-gray-500">Regulatory Agencies Introduction</div>
+                  </div>
+                </div>
+                {/* Status and License Type */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>Current Status:</span> <br />
+                    <span
+                      className={`px-2 py-0.5 rounded text-xs font-bold ${
+                        regulatoryLicense?.is_regulated
+                          ? "bg-green-200 text-green-700"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
+                      {regulatoryLicense?.is_regulated ? "Regulated" : "Unregulated"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span>License Type:</span> <br />
+                    <span className="font-bold">
+                      {regulatoryLicense?.license_type || "-"}
+                    </span>
+                  </div>
+                </div>
+                {/* Regulated By and License No. */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>Regulated By:</span> <br />
+                    <span className="font-bold">
+                      {regulatoryLicense?.regulated_by || "-"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span className="">License No:</span> <br />
+                    <span className="font-bold">{regulatoryLicense?.license_no || "-"}</span>
+                  </div>
+                </div>
+                {regulatoryLicense.countries && regulatoryLicense.countries.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                    <div className="col-span-1">
+                      <span>Authorized Countries:</span> <br />
+                      <span className="font-bold">
+                        {regulatoryLicense?.countries.join(", ") || "-"}
+                    </span>
+                  </div>
+                </div>
+                )}
+                <hr className="my-2" />
+                {/* Entity and Details */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>License Entity:</span> <br />
+                    <span className="font-bold">
+                      {regulatoryLicense?.license_entity || "-"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span className="">Effective Date:</span> <br />
+                    <span className="font-bold">{regulatoryLicense?.effective_date || "-"}</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>Email Address of Licensed Institution:</span> <br />
+                    <span className="font-bold">
+                      {regulatoryLicense?.email || "-"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span className="">Sharing Status:</span> <br />
+                    <span className="font-bold">{regulatoryLicense?.sharing_status || "-"}</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>Website of Licensed Institution:</span> <br />
+                    <span className="font-bold">
+                      {regulatoryLicense?.websites || "-"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span className="">Expiration Time:</span> <br />
+                    <span className="font-bold">{regulatoryLicense?.expiration_time || "-"}</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
+                  <div className="col-span-1">
+                    <span>Address of Licensed Institution:</span> <br />
+                    <span className="font-bold text-ellipsis overflow-hidden">
+                      {regulatoryLicense?.address || "-"}
+                    </span>
+                  </div>
+                  <div className="col-span-1">
+                    <span className="">Phone Number of Licensed Institution:</span> <br />
+                    <span className="font-bold">{regulatoryLicense?.phone || "-"}</span>
+                  </div>
+                </div>
+                {/* Certified Documents (if any) */}
+                {regulatoryLicense?.documents && regulatoryLicense.documents.length > 0 && (  
+                  <div className="grid grid-cols-1 items-center my-3 gap-2">
+                    <div className="col-span-1">
+                      <span>Licensed Insitution Certified Documents:</span> <br />
+                      <span className="flex flex-wrap gap-2">
+                        {regulatoryLicense.documents.map((doc: string, idx: number) => (
+                          <a key={idx} href={doc} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                            Annex{idx + 1}
+                          </a>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {/* Regulated Stamp */}
+                {regulatoryLicense?.is_regulated && (
+                  <div className="absolute bottom-4 right-4 opacity-60">
+                    <img src="/assets/images/certificate/regulated.png" alt="Regulated Stamp" className="h-36 w-36" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
         {/* Broker Summary */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 items-end">
@@ -1258,22 +1407,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             </div>
                           );
                         })}
-                      </div>
-                    </div>
-                  )}
-
-                  {showRegulatory && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowRegulatory(false)}>
-                      <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-lg w-full flex flex-col items-center">
-                        <button
-                          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
-                          onClick={e => { e.stopPropagation(); setShowRegulatory(false); }}
-                          aria-label="Close preview"
-                        >
-                          ×
-                        </button>
-                        {/* display regulatory information here according to regulatoryLicense */}
-                        
                       </div>
                     </div>
                   )}
