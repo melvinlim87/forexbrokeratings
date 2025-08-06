@@ -1,7 +1,7 @@
 export const revalidate = 0;
 import BrokerProfile from '@/components/broker/broker-profile';
 import { LoginModalProvider } from '@/components/broker/LoginModalContext';
-import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, BrokerDetails } from '@/lib/supabase';
+import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, fetchBrokerLicensesByBrokerId, BrokerDetails } from '@/lib/supabase';
 
 // Function to parse array fields that might be stored as strings in the database
 const parseArrayField = (field: string[] | string | null | undefined): string[] => {
@@ -22,7 +22,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
   }
 
   const reviews = await fetchReviewsByBrokerId(broker.id.toString());
-  
+  const broker_licenses = await fetchBrokerLicensesByBrokerId(broker.id.toString())
   return {
     id: broker.id || 0,
     name: broker.name,
@@ -78,6 +78,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     max_lot: broker.max_lot || '1000',
     has_demo_account: broker.has_demo_account || false,
     parent_companies: broker.parent_companies || [],
+    broker_licenses: broker_licenses || [],
     status: true
   };
 }
@@ -142,6 +143,7 @@ function getDefaultBroker(slug: string): BrokerDetails {
     max_lot: '1000',
     has_demo_account: false,
     parent_companies: [],
+    broker_licenses: [],
     status: true
   };
 }

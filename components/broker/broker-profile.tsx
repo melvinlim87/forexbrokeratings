@@ -68,6 +68,8 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [aiModalResult, setAiModalResult] = useState('');
   const [aiGetResult, setAiGetResult] = useState(false);
   const { open, setOpen } = useLoginModal();
+  const [showRegulatory, setShowRegulatory] = useState(false);
+  const [regulatoryLicense, setRegulatoryLicense] = useState<any>(null);
   // Smooth scroll to #user_reviews with header offset
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -125,6 +127,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
       setLoadingReviews(false);
     }
   };
+
+  const handleRegulatory = async (license: any) => {
+    console.log(license)
+    setShowRegulatory(true);
+    setRegulatoryLicense(license);
+  }
 
   const [previewBadge, setPreviewBadge] = useState<string|null>(null);
   // Promotion image carousel modal state
@@ -262,26 +270,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   <div className="text-black text-xs md:text-sm text-center justify-end">Execution Speed</div>
                 </div>
               </div>
-              {/* For every regulatory, show regulatory image */}
-              {/* {brokerData.is_regulated && (
-                <div className="rounded-xl flex flex-col ">
-                  <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Regulators</div>
-                  <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
-                    {brokerData.regulators?.map((licenses, idx: number) => {
-                      return (
-                        <div 
-                          key={'license' + idx} 
-                          className="h-24 w-auto rounded border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer" 
-                          // use image with background, image source /assets/images/certificate/bg.png
-                          style={{ backgroundImage: `url('/assets/images/certificate/cert_bg.png')`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}  
-                        > 
-                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum cupiditate sequi illo eveniet enim quam sapiente quod? Perferendis placeat recusandae nostrum doloribus officia natus accusantium explicabo, labore rem ullam voluptate.
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )} */}
               {brokerData.badges && brokerData.badges.length > 0 && (
                 <div className="rounded-xl flex flex-col ">
                   <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
@@ -1221,8 +1209,76 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </CardContent>
             </Card>
-            
 
+            {/* Regulatory information */}
+            <Card 
+              className={cn(
+                "overflow-hidden relative",
+                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "backdrop-blur-sm",
+                "border-0",
+                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+              )}
+            >
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Regulatory</h3>
+                {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
+                    <div className="rounded-xl flex flex-col">
+                      <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
+                        {brokerData.broker_licenses?.map((license, idx: number) => {
+                          return (
+                            <div 
+                              key={'license' + idx} 
+                              className="flex flex-col gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 transition duration-150 rounded w-full"
+                              onClick={() => handleRegulatory(license)}
+                            > 
+                              <div className="flex flex-row">
+                                <span className="text-green-600 bg-green-100 px-2 rounded">
+                                  {license.name}
+                                </span>
+                                {license.is_regulated && (
+                                  <span className="text-green-600 px-2">Regulated</span>
+                                )} 
+                              </div>
+                              <div className="flex flex-row">
+                                <span>
+                                  {license.regulated_by}
+                                </span>
+                                {license.is_regulated && (
+                                  <span className="px-2">{license.license_type}</span>
+                                )} 
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {showRegulatory && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowRegulatory(false)}>
+                      <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-lg w-full flex flex-col items-center">
+                        <button
+                          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                          onClick={e => { e.stopPropagation(); setShowRegulatory(false); }}
+                          aria-label="Close preview"
+                        >
+                          ×
+                        </button>
+                        {/* display regulatory information here according to regulatoryLicense */}
+                        
+                      </div>
+                    </div>
+                  )}
+              </CardContent>
+            </Card>
             
             {/* Broker Summary */}
             <Card 

@@ -85,6 +85,7 @@ export type BrokerDetails = {
   max_lot: string;
   has_demo_account: boolean;
   parent_companies: string[];
+  broker_licenses?: BrokerLicenses[];
   status: boolean;
 };
 
@@ -92,12 +93,16 @@ export type BrokerDetails = {
 export type BrokerLicenses = {
   id: number;
   broker_detail_id: number;
+  name: string;
+  fullname: string;
+  current_status: string;
   license_image: string;
   description: string;
   is_regulated: boolean;
   license_type: string;
   regulated_by: string;
   license_no: string;
+  countries: string[];
   license_entity: string;
   effective_date: string;
   email: string;
@@ -528,6 +533,21 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
     broker_details: Array.isArray(item.broker_details) ? item.broker_details[0] : item.broker_details,
   })) as BrokerPromotionWithBrokerDetails[];
   return fixedData;
+}
+
+// Function to fetch broker licenses by broker id
+export async function fetchBrokerLicensesByBrokerId(brokerId: string) {
+  console.log(brokerId)
+  const { data, error } = await supabase
+    .from('broker_licenses')
+    .select(`*`)
+    .eq('broker_detail_id', brokerId)
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data
 }
 
 // Function to fetch featured promotion according to country

@@ -162,7 +162,7 @@ export default function LatestReviews() {
                           className="rounded-xl"
                         />
                       </div>
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col  gap-1">
                         <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-right">
                           {review.headquarters}
                         </p>

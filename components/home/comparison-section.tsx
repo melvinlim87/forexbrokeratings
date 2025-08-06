@@ -227,8 +227,6 @@ export default function ComparisonSection() {
         if (!data || data.length === 0) {
           throw new Error('No broker data available');
         }
-
-        console.log(data)
         
         // Parse arrays that might be stored as strings
         const parseArrayField = (field: string[] | string | null | undefined) => {
