@@ -31,6 +31,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import LoginModal from '@/components/ui/LoginModal';
 import { LoginModalProvider, useLoginModal } from '@/components/broker/LoginModalContext';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface BrokerProfileProps {
   brokerData: BrokerDetails;
@@ -129,7 +135,6 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   };
 
   const handleRegulatory = async (license: any) => {
-    console.log(license)
     setShowRegulatory(true);
     setRegulatoryLicense(license);
   }
@@ -189,9 +194,30 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
         {showRegulatory && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowRegulatory(false)}>
             <div 
-              className="relative bg-white rounded-xl shadow-xl p-4 max-w-4xl w-full flex flex-col items-center"
-              // style={{backgroundImage: `url(/assets/images/certificate/cert_bg.png)`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}
+              className="relative rounded-lg shadow-xl lg:p-12 p-8 max-w-4xl w-full flex flex-col items-center"
+              style={{
+                maxHeight: '70vh', 
+                minHeight: '300px',
+                background: 'transparent',
+                position: 'relative',
+                overflow: 'visible',
+              }}
             >
+              <img 
+                src={'/assets/images/certificate/certficate_background.png'} 
+                alt="cert_background" 
+                style={{
+                  height: '98%',
+                  left: '1%',
+                  position: 'absolute',
+                  top: '1%',
+                  width: '98%',
+                  zIndex: -1,
+                  padding: '10px',
+                  backgroundColor:'white',
+                  borderRadius: '0.7rem'
+                }}
+              />
               <button
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
                 onClick={e => { e.stopPropagation(); setShowRegulatory(false); }}
@@ -201,18 +227,38 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               </button>
               {/* display regulatory information here according to regulatoryLicense */}
               {/* Certificate-style Regulatory Modal */}
-              <div className="w-full p-4">
+              {/* Hide scrollbar */}
+              <div className="w-full p-4" style={{
+                  maxHeight: '82vh', 
+                  overflowY: 'auto',
+                  position: 'relative',
+                  zIndex: 1,
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}>
                 {/* Header */}
-                <div className="flex items-center gap-3 mb-2">
-                  {/* Logo (if you have a logo URL, otherwise use a placeholder) */}
+                {/* If in mobile view, make the image and name display col */}
+                <div className="flex items-center gap-3 mb-2 lg:flex-row flex-col">
                   <img
                     src={regulatoryLicense?.license_image}
                     alt={regulatoryLicense?.name}
-                    className="h-24 w-42 object-contain border rounded bg-white"
+                    className="w-42 object-contain border rounded bg-white lg:w-42 lg:h-24 lg:object-contain"
                   />
                   <div>
                     <div className="text-lg font-bold">{regulatoryLicense?.fullname || "Regulator"}</div>
-                    <div className="text-xs text-gray-500">Regulatory Agencies Introduction</div>
+                    {/* When hover to introduction will show tooltip of regulatoryLicense.description */}
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div className="text-xs text-gray-500 cursor-pointer">Regulatory Agencies Introduction</div>
+                        </TooltipTrigger>
+                        <TooltipContent className="w-64" side="bottom">
+                          <div className="text-xs">
+                            {regulatoryLicense?.description}
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </div>
                 </div>
                 {/* Status and License Type */}
@@ -259,7 +305,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   </div>
                 </div>
                 )}
-                <hr className="my-2" />
+                <hr className="my-2 border-t-2 border-gray-300" />
                 {/* Entity and Details */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 items-center my-3 gap-2">
                   <div className="col-span-1">
@@ -325,18 +371,18 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   </div>
                 )}
                 {/* Regulated Stamp */}
-                {regulatoryLicense?.is_regulated && (
-                  <div className="absolute bottom-4 right-4 opacity-60">
-                    <img src="/assets/images/certificate/regulated.png" alt="Regulated Stamp" className="h-36 w-36" />
-                  </div>
-                )}
               </div>
+              {regulatoryLicense?.is_regulated && (
+                <div className="absolute bottom-8 right-8 opacity-60">
+                  <img src="/assets/images/certificate/regulated.png" alt="Regulated Stamp" className="h-28 w-28" />
+                </div>
+              )}
             </div>
           </div>
         )}
         {/* Broker Summary */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-2">
             {/* Summary Left Side */}
             <div className="flex flex-col justify-between h-full col-span-2 ">
               <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
@@ -1239,11 +1285,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <UserCircle2 className="h-6 w-6 text-gray-400 mr-1" />
-                              <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
-                              <span className="text-xs text-gray-400 flex items-center">
-                                <TimerIcon className="h-4 w-4 text-gray-400 mr-1" />
-                                {formatDateDMY(review.comment_at)}
-                              </span>
+                              <div className="flex flex-col">
+                                <span className="font-semibold text-md text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
+                                <span className="text-xs text-gray-400 flex items-center">
+                                  {formatDateDMY(review.comment_at)}
+                                </span>
+                              </div>
                             </div>
                             <div className="flex items-center gap-1 mt-2 md:mt-0">
                               {[1,2,3,4,5].map(star => (
@@ -1360,58 +1407,60 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             </Card>
 
             {/* Regulatory information */}
-            <Card 
-              className={cn(
-                "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
-                "backdrop-blur-sm",
-                "border-0",
-                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
-                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
-                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
-                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
-                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-              )}
-            >
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Regulatory</h3>
-                {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
-                    <div className="rounded-xl flex flex-col">
-                      <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
-                        {brokerData.broker_licenses?.map((license, idx: number) => {
-                          return (
-                            <div 
-                              key={'license' + idx} 
-                              className="flex flex-col gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 transition duration-150 rounded w-full"
-                              onClick={() => handleRegulatory(license)}
-                            > 
-                              <div className="flex flex-row">
-                                <span className="text-green-600 bg-green-100 px-2 rounded">
-                                  {license.name}
-                                </span>
-                                {license.is_regulated && (
-                                  <span className="text-green-600 px-2">Regulated</span>
-                                )} 
+            {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
+              <Card 
+                className={cn(
+                  "overflow-hidden relative",
+                  "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                  "backdrop-blur-sm",
+                  "border-0",
+                  "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+                  "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+                  "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+                  "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+                  "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+                  "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+                  "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+                  "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                )}
+              >
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Regulatory</h3>
+                  {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
+                      <div className="rounded-xl flex flex-col">
+                        <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
+                          {brokerData.broker_licenses?.map((license, idx: number) => {
+                            return (
+                              <div 
+                                key={'license' + idx} 
+                                className="flex flex-col gap-2 px-4 py-2 cursor-pointer border border-gray-200 hover:border-gray-400 hover:bg-gray-100 transition duration-150 rounded w-full"
+                                onClick={() => handleRegulatory(license)}
+                              > 
+                                <div className="flex flex-row">
+                                  <span className="text-green-600 bg-green-100 px-2 rounded">
+                                    {license.name}
+                                  </span>
+                                  {license.is_regulated && (
+                                    <span className="text-green-600 px-2">Regulated</span>
+                                  )} 
+                                </div>
+                                <div className="flex flex-row">
+                                  <span>
+                                    {license.regulated_by}
+                                  </span>
+                                  {license.is_regulated && (
+                                    <span className="px-2">{license.license_type}</span>
+                                  )} 
+                                </div>
                               </div>
-                              <div className="flex flex-row">
-                                <span>
-                                  {license.regulated_by}
-                                </span>
-                                {license.is_regulated && (
-                                  <span className="px-2">{license.license_type}</span>
-                                )} 
-                              </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                        </div>
                       </div>
-                    </div>
-                  )}
-              </CardContent>
-            </Card>
+                    )}
+                </CardContent>
+              </Card>
+            )}
             
             {/* Broker Summary */}
             <Card 

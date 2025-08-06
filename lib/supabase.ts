@@ -537,7 +537,6 @@ export async function fetchPromotionsByBrokerId(brokerId: string): Promise<Broke
 
 // Function to fetch broker licenses by broker id
 export async function fetchBrokerLicensesByBrokerId(brokerId: string) {
-  console.log(brokerId)
   const { data, error } = await supabase
     .from('broker_licenses')
     .select(`*`)
