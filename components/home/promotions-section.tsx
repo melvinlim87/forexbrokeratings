@@ -124,7 +124,6 @@ export default function PromotionsSection() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredCard(promo.id?.toString())}
                 onMouseLeave={() => setHoveredCard(null)}
-                style={{width: 360}}
                 className='mx-auto'
               >
                 <Card 
