@@ -698,10 +698,10 @@ export async function updateBrokerRating(brokerId: number, rating: number) {
   let sumOfRatings = allBrokerReviews.data.reduce((sum, review) => sum + parseInt(review.rating), 0);
 
   // calculate the average rating of user reviews
-  let averageUserReviewRating = ((sumOfRatings / totalReviews) * 2).toFixed(2);
+  let averageUserReviewRating = ((sumOfRatings / totalReviews) * 20).toFixed(2);
   
   // new rating of broker will be average of environment, user_experience, regulations, risk_control, promotions and user_traffic 
-  let averageRating = (((currentBroker.data[0].environment + parseFloat(averageUserReviewRating) + currentBroker.data[0].regulations + currentBroker.data[0].risk_control + currentBroker.data[0].promotions + currentBroker.data[0].user_traffic) / 6) * 10).toFixed(2);
+  let averageRating = (((currentBroker.data[0].environment + parseFloat(averageUserReviewRating) + currentBroker.data[0].regulations + currentBroker.data[0].risk_control + currentBroker.data[0].promotions + currentBroker.data[0].user_traffic) / 6)).toFixed(2);
   
   // save the average rating to user_experience and rating to the broker_details table
   const { data, error } = await supabase

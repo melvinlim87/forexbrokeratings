@@ -438,11 +438,11 @@ export default function ComparisonSection() {
           </div>
           {/* Mobile: show just score label */}
           <span className="block md:hidden text-sm font-medium text-gray-500 dark:text-gray-400">
-            {rawScore.toFixed(2)}/10
+            {rawScore.toFixed(2)}/100
           </span>
           {/* Desktop: show score label under stars */}
           <span className="hidden md:block text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
-            {rawScore.toFixed(2)}/10
+            {rawScore.toFixed(2)}/100
           </span>
         </div>
       );

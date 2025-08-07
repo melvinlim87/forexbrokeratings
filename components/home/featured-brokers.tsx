@@ -61,7 +61,7 @@ export default function FeaturedBrokers() {
     const { regulations, risk_control, promotions, user_experience, environment, user_traffic } = broker;
     const sum = (user_traffic || 0) + (regulations || 0) + (risk_control || 0) + 
                (promotions || 0) + (user_experience || 0) + (environment || 0);
-    return (sum / 6) * 10;
+    return (sum / 6);
   };
 
   if (loading) {

@@ -516,32 +516,32 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               { 
                                 label: 'User Traffic', 
                                 value: brokerData.user_traffic || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                               { 
                                 label: 'Regulations', 
                                 value: brokerData.regulations || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                               { 
                                 label: 'Risk Control', 
                                 value: brokerData.risk_control || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                               { 
                                 label: 'Promotions', 
                                 value: brokerData.promotions || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                               { 
                                 label: 'User Ratings', 
                                 value: brokerData.user_experience || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                               { 
                                 label: 'Trading Platform', 
                                 value: brokerData.environment || 0,
-                                maxValue: 10 
+                                maxValue: 100 
                               },
                             ]
                           ]}
@@ -1595,7 +1595,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               <div className="flex items-center ml-2">
                                 <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
                                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                                  {parseFloat(broker.rating) / 10}
+                                  {parseFloat(broker.rating).toFixed(2)}
                                 </span>
                               </div>
                             )}
