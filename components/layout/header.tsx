@@ -101,7 +101,7 @@ export default function Header() {
           <Link href="/" className="flex items-center mr-6">
             {/* Header Logo */}
             <span className="inline-block ml-3">
-              <Image src="/assets/images/logo/logo.png" alt="Forex Broker Ratings Logo" width={180} height={60} style={{objectFit:'cover',maxHeight:60}} priority />
+              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={180} height={60} style={{objectFit:'cover',maxHeight:60}} priority />
             </span>
           </Link>
         </div>

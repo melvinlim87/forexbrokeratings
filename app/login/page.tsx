@@ -67,7 +67,7 @@ export default function LoginPage() {
         <CardHeader className="flex flex-col items-center gap-2 pb-0">
           <div className="w-full mb-2">
             <Image
-              src="/assets/images/logo/logo.png"
+              src="/assets/images/logo/logo2.png"
               alt="Forex Broker Ratings Logo"
               width={240}
               height={60}

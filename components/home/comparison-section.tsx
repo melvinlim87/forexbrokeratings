@@ -497,13 +497,15 @@ export default function ComparisonSection() {
                             <th key={broker.id} className="px-6 py-5 text-center">
                               <div className="flex flex-col items-center">
                                 <div className="h-0 md:h-24 w-0 md:w-24 relative mb-2 rounded-xl">
-                                  <Image
-                                    src={broker.logo}
-                                    alt={broker.name}
-                                    fill
-                                    className='rounded-xl'
-                                    style={{ objectFit: "contain" }}
-                                  />
+                                  <a href={`/broker/${broker.slug}`} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                      src={broker.logo}
+                                      alt={broker.name}
+                                      fill
+                                      className='rounded-xl'
+                                      style={{ objectFit: "contain" }}
+                                    />
+                                  </a>
                                 </div>
                                 <span className="font-semibold text-lg sm:text-sm lg:text-lg text-gray-900 dark:text-white">
                                   {broker.name}
@@ -535,11 +537,13 @@ export default function ComparisonSection() {
                       <div key={broker.id} className="bg-white dark:bg-gray-950 rounded-xl shadow p-4 flex flex-col gap-2">
                         <div className="flex items-center gap-3 mb-2">
                           <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
-                            {broker.logo ? (
-                              <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" />
-                            ) : (
-                              <span className="text-lg font-bold text-black">{broker.name?.charAt(0)}</span>
-                            )}
+                            <a href={`/broker/${broker.slug}`} target="_blank" rel="noopener noreferrer">
+                              {broker.logo ? (
+                                <img src={broker.logo} alt={broker.name} className="w-full h-full object-contain" />
+                              ) : (
+                                <span className="text-lg font-bold text-black">{broker.name?.charAt(0)}</span>
+                              )}
+                            </a>
                           </div>
                           <div>
                             <div className="font-semibold text-black dark:text-white leading-tight">{broker.name}</div>
