@@ -39,8 +39,8 @@ export default function PromotionsSection() {
     const fetchPromotions = async () => {
       try {
         setLoading(true);
-        let country = await getCountry()
-        const promos = await fetchUniquePromotions(country);
+        let country = localStorage.getItem('forexbrokeratings_country')
+        const promos = await fetchUniquePromotions(country ?? "Malaysia");
         setPromotions(promos.slice(0, 3));
       } catch (err) {
         console.error('Error fetching promotions:', err);
@@ -50,16 +50,6 @@ export default function PromotionsSection() {
       }
     };
 
-    const getCountry = async () => {
-      try {
-        const ipRes = await fetch('https://ipapi.co/json/');
-        const ipData = await ipRes.json();
-        const country = ipData.country_name;
-        return country
-      } catch (error) {
-        return 'Malaysia'
-      }
-    }
     fetchPromotions();
   }, []);
   
