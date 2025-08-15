@@ -47,15 +47,19 @@ export default function Home() {
 
   useEffect(() => {
     const setCountry = async () => {
-      let country = await getCountry()
-      localStorage.setItem('forexbrokeratings_country', country)
+      let prevCountyCode = localStorage.getItem('forexbrokeratings_country')
+      if (!prevCountyCode) {
+        let country = await getCountry()
+        localStorage.setItem('forexbrokeratings_country', country)
+      } 
 
     }
     const getCountry = async () => {
       try {
-        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipRes = await fetch("https://ipwho.is/");
         const ipData = await ipRes.json();
-        const country = ipData.country_name;
+        const country = ipData.country;
+        console.log(country)
         return country
       } catch (error) {
         return getCountry2()
@@ -64,10 +68,9 @@ export default function Home() {
     
     const getCountry2 = async () => {
       try {
-        const ipRes = await fetch("https://ipwho.is/");
+        const ipRes = await fetch('https://ipapi.co/json/');
         const ipData = await ipRes.json();
-        console.log(ipData)
-        const country = ipData.country;
+        const country = ipData.country_name;
         return country
       } catch (error) {
         return 'Malaysia'
