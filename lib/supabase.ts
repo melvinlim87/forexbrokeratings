@@ -440,7 +440,7 @@ export async function fetchBrokerPromotionsWithDetails(): Promise<BrokerPromotio
 }
 
 // Function to get unique promotions
-export async function fetchUniquePromotions() {
+export async function fetchUniquePromotions(country: string) {
   const { data, error } = await supabase
   .from('broker_promotions')
   .select(`
@@ -456,11 +456,13 @@ export async function fetchUniquePromotions() {
     broker_details (name, website, logo, rating, leverage_max, min_deposit, pros, status)
   `)
   .order('created_at', { ascending: false })
-  .eq('status', true);
+  .eq('status', true)
+  .or(`country.eq.${country},country.is.null`);
 
   const uniquePromotions = Array.from(
     new Map(data?.map(item => [item.broker_detail_id, item])).values()
   );
+
   
   if (error) {
     throw new Error(error.message);

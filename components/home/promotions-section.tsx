@@ -39,15 +39,27 @@ export default function PromotionsSection() {
     const fetchPromotions = async () => {
       try {
         setLoading(true);
-        const promos = await fetchUniquePromotions();
+        let country = await getCountry()
+        const promos = await fetchUniquePromotions(country);
         setPromotions(promos.slice(0, 3));
       } catch (err) {
-        // console.error('Error fetching promotions:', err);
-        setError('Failed to load promotions. Please try again later.');
+        console.error('Error fetching promotions:', err);
+        // setError('Failed to load promotions. Please try again later.');
       } finally {
         setLoading(false);
       }
     };
+
+    const getCountry = async () => {
+      try {
+        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipData = await ipRes.json();
+        const country = ipData.country_name;
+        return country
+      } catch (error) {
+        return 'Malaysia'
+      }
+    }
     fetchPromotions();
   }, []);
   

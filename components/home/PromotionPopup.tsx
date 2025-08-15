@@ -32,17 +32,10 @@ export default function PromotionPopup() {
 
   useEffect(() => {
     async function fetchPromo() {
-      // Get user IP
-      const ipRes = await fetch('https://ipapi.co/json/');
-      const ipData = await ipRes.json();
-      const country = ipData.country_name;
-      // const country = getCountryFromIp(ipData.country);
-      if (!country) {
-        setLoading(false);
-        return;
-      }
+     
       // Fetch promo
       try {
+        let country = await getCountry()
         const promos = await fetchFeaturedPromotion(country);
         if (Array.isArray(promos) && promos.length > 0) {
           setPromotion(promos[0]);
@@ -54,6 +47,16 @@ export default function PromotionPopup() {
         setPromotion(null);
       } finally {
         setLoading(false);
+      }
+    }
+    const getCountry = async () => {
+      try {
+        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipData = await ipRes.json();
+        const country = ipData.country_name;
+        return country
+      } catch (error) {
+        return 'Malaysia'
       }
     }
     fetchPromo();
