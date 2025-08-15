@@ -68,7 +68,7 @@ export default function PromotionPopup() {
   //     ...
   return (
     <div className="fixed inset-0 z-[11000] flex items-center justify-center bg-black/50 ">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 flex flex-col md:flex-row z-[11010]">
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 flex flex-col md:flex-row z-[11010] mx-4">
         {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-700 z-[11011]"
@@ -86,20 +86,24 @@ export default function PromotionPopup() {
           <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
             {/* Powered by section */}
             <div className="flex items-center rounded-xl px-3 py-2">
-                <span className="text-xs text-gray-500 mr-2">Powered by</span>
-                <img src={promotion.broker_details.logo || ''} alt={promotion.broker_details.name} className="h-8 w-8 rounded-full border mr-2" />
-                <a className="font-bold text-cyan-700 text-lg" href={`/broker/${promotion.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}>{promotion.broker_details.name}</a>
+                <div className="hidden md:flex items-center">
+                  <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                </div>
+                <img src={promotion.broker_details.logo || ''} alt={promotion.broker_details.name} className="h-10 w-10 md:h-8 md:w-8 rounded-full border md:mr-2" />
+                <a className="pl-2 font-bold text-cyan-700 text-lg" href={`/broker/${promotion.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}>{promotion.broker_details.name}</a>
             </div>
             {/* Expiry section */}
             <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
                 <TimerIcon className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-500 text-xs font-medium">
                     Valid Till: <br /> 
-                    {new Date(promotion.valid_till).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                    })}
+                    {(() => {
+                      const d = new Date(promotion.valid_till);
+                      const day = String(d.getDate()).padStart(2, '0');
+                      const month = String(d.getMonth() + 1).padStart(2, '0');
+                      const year = d.getFullYear();
+                      return `${day}-${month}-${year}`;
+                    })()}
                 </span>
             </div>
           </div>
