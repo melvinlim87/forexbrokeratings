@@ -16,9 +16,9 @@ export function IPChecker() {
         const data = await response.json();
         
         // Check if the IP is from Singapore
-        if (data.country === 'SG') {
-          router.push('/restricted');
-        }
+        // if (data.country === 'SG') {
+        //   router.push('/restricted');
+        // }
       } catch (error) {
         console.error('Error checking IP:', error);
         // Continue loading the page if there's an error

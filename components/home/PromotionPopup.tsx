@@ -35,7 +35,8 @@ export default function PromotionPopup() {
       // Get user IP
       const ipRes = await fetch('https://ipapi.co/json/');
       const ipData = await ipRes.json();
-      const country = getCountryFromIp(ipData.country);
+      const country = ipData.country_name;
+      // const country = getCountryFromIp(ipData.country);
       if (!country) {
         setLoading(false);
         return;
