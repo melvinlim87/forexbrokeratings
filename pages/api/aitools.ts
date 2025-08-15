@@ -100,9 +100,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         data_prompt += `${broker[k]}\n`;
       })
     }
+
     // Step 5: Call main AI model to generate analysis with fallback
     const models = [
-      'openai/gpt-oss-20b:free',
       'deepseek/deepseek-r1-0528:free',
       'qwen/qwen2.5-vl-72b-instruct:free',
       'mistralai/mistral-small-3.2-24b-instruct-2506:free',
@@ -112,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       'google/gemma-3-12b-it:free',
       'qwen/qwen3-30b-a3b:free',
     ];
-
+    
     // Define the system prompt for AI analysis
     const systemPrompt = `You are an expert forex broker analyst with comprehensive knowledge of the forex trading industry.
 

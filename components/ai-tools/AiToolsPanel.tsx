@@ -78,6 +78,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         // if usePrev is true, do not store
         // but if data.user_id is different with current user id, store
         if (!data.usePrev && data.user_id && data.user_id !== user.user_detail?.id) {
+          console.log('save result', data.result)
           await storeAIResult(user.user_detail?.id, prompt, data.result);
         }
         await setMessages(prev => {
