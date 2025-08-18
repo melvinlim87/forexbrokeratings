@@ -176,11 +176,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Try models sequentially until one succeeds
     let aiResponse = '';
     for (const model of models) {
-      console.log(`Trying model: ${model}`);
       const result = await tryModel(model);
       if (result) {
         aiResponse = result;
-        console.log(`Success with model: ${model}`);
         break;
       }
     }
