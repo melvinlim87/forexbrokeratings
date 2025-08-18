@@ -21,7 +21,7 @@ import { signJwt } from '@/lib/jwt';
 export default function Home() {
   const dispatch = useDispatch();
   const router = useRouter();
-
+  
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -79,6 +79,17 @@ export default function Home() {
     }
     setCountry()
   }, [])
+
+    useEffect(() => {
+    fetch(window.location.href)
+      .then(res => {
+        const country = res.headers.get('x-country');
+        if (country) {
+          localStorage.setItem('country', country);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className="flex flex-col">

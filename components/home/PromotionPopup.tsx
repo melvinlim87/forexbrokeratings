@@ -19,24 +19,22 @@ interface Promotion {
   };
 }
 
-function getCountryFromIp(ip_country: string): 'Malaysia' | 'Singapore' | null {
-  
-  if (ip_country == 'SG') return 'Singapore';
-  return 'Malaysia';
-}
+
 
 export default function PromotionPopup() {
   const [show, setShow] = useState(false);
   const [promotion, setPromotion] = useState<BrokerPromotionWithBrokerDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const [country, setCountry] = useState<string | null>(null)
 
   useEffect(() => {
     async function fetchPromo() {
-     
       // Fetch promo
       try {
-        let country = localStorage.getItem('forexbrokeratings_country')
-        const promos = await fetchFeaturedPromotion(country ?? 'Malaysia');
+        // let country = localStorage.getItem('forexbrokeratings_country')
+        let fetchCountry : any = await getCountry()
+        console.log('get ocuntry ffrom fetch',fetchCountry)
+        const promos = await fetchFeaturedPromotion(fetchCountry.country ?? 'Malaysia');
         if (Array.isArray(promos) && promos.length > 0) {
           setPromotion(promos[0]);
           setShow(true);
@@ -48,6 +46,15 @@ export default function PromotionPopup() {
       } finally {
         setLoading(false);
       }
+    }
+    async function getCountry() {
+       fetch('/api/geo')
+        .then(res => res.json())
+        .then(data => {
+          console.log('get geo api', data)
+          setCountry(data.country)
+        })
+        .catch(err => console.log(err))
     }
     fetchPromo();
   }, []);
