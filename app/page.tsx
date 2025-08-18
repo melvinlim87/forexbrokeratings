@@ -47,38 +47,40 @@ export default function Home() {
 
   useEffect(() => {
     const setCountry = async () => {
-      let prevCountyCode = localStorage.getItem('forexbrokeratings_country')
-      if (!prevCountyCode) {
-        let country = await getCountry()
-        localStorage.setItem('forexbrokeratings_country', country)
-      } 
+      const cache = localStorage.getItem('forexbrokeratings_country');
+      const cacheTime = localStorage.getItem('forexbrokeratings_country_time');
 
-    }
+      if (cache && cacheTime && Date.now() - Number(cacheTime) < 7 * 24 * 60 * 60 * 1000) {
+        return;
+      }
+
+      let country = await getCountry();
+      localStorage.setItem('forexbrokeratings_country', country);
+      localStorage.setItem('forexbrokeratings_country_time', Date.now().toString());
+    };
+
     const getCountry = async () => {
       try {
         const ipRes = await fetch("https://ipwho.is/");
         const ipData = await ipRes.json();
-        const country = ipData.country;
-        console.log(country)
-        return country
+        return ipData.country;
       } catch (error) {
-        return getCountry2()
+        return getCountry2();
       }
-    }
-    
+    };
+
     const getCountry2 = async () => {
       try {
-        const ipRes = await fetch('https://ipapi.co/json/');
+        const ipRes = await fetch("https://ipapi.co/json/");
         const ipData = await ipRes.json();
-        const country = ipData.country_name;
-        return country
+        return ipData.country_name;
       } catch (error) {
-        return 'Malaysia'
+        return "Malaysia";
       }
+    };
 
-    }
-    setCountry()
-  }, [])
+    setCountry();
+  }, []);
 
     useEffect(() => {
     fetch(window.location.href)
