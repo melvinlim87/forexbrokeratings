@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const userParam = encodeURIComponent(JSON.stringify(userWithDetail));
     // Server-side redirect (not window.location.href!)
     res.writeHead(302, {
-      Location: `/?verified_user=${userParam}&verified=1`
+      Location: `${process.env.NEXT_PUBLIC_BASE_URL}/?verified_user=${userParam}&verified=1`
     });
     res.end();
     return;
