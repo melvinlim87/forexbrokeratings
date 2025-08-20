@@ -215,7 +215,7 @@ export default function RankingsPage() {
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
                               <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
-                              <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a>
+                              {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
                               <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
@@ -311,7 +311,7 @@ export default function RankingsPage() {
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
                               <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
-                              <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a>
+                              {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
                               <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>

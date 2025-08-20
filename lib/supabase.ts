@@ -86,6 +86,7 @@ export type BrokerDetails = {
   has_demo_account: boolean;
   parent_companies: string[];
   broker_licenses?: BrokerLicenses[];
+  affiliate_link?: string;
   status: boolean;
 };
 
