@@ -106,13 +106,13 @@ export default function RegisterPage() {
               priority
             />
           </div>
-          <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Create your account now</CardTitle>
+          <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Create your account</CardTitle>
         </CardHeader>
         <CardContent className="pt-2 pb-6 px-4 md:px-6">
           {success ? (
             <div className="py-8 flex flex-col items-center">
               <div className="text-2xl font-semibold text-center mb-4 text-cyan-700 dark:text-cyan-300">
-                Registration successful!!!
+                Registration successful!
               </div>
               <div className="text-base text-center text-gray-800 dark:text-gray-200 max-w-md mb-2">
                 A confirmation email has been sent to <span className="font-semibold">{email}</span>.<br />

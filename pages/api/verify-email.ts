@@ -12,13 +12,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const verified_user = req.query.verified_user;
     const user = JSON.parse(decodeURIComponent(verified_user as string));
+    const user_detail = await getUserByEmail(user.email);
     const { signJwt } = await import('@/lib/jwt');
-    const jwt_token = await signJwt({ id: user.id, email: user.email, role: user.role });
-    // const userParam = encodeURIComponent(JSON.stringify(user));
-    
+    const jwt_token = signJwt({ id: user.id, email: user.email, role: user.role });
+    const userWithDetail = { ...user, jwt: jwt_token, user_detail };
+    const userParam = encodeURIComponent(JSON.stringify(userWithDetail));
     // Server-side redirect (not window.location.href!)
     res.writeHead(302, {
-      Location: `/?verified=1&token=${jwt_token}`
+      Location: `/?verified_user=${userParam}&verified=1`
     });
     res.end();
     return;
