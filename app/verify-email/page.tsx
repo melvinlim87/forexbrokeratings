@@ -34,7 +34,29 @@ export default function VerifyEmailPage() {
             // Add jwt and user_detail to user object
             const userWithJwt = { id: user_detail.id, email: user_detail.email, role: user_detail.role };
             const userParam = encodeURIComponent(JSON.stringify(userWithJwt));
-            window.location.href = `/api/verify-email?verified=1&verified_user=${userParam}`;
+            // window.location.href = `/api/verify-email?verified=1&verified_user=${userParam}`;
+            fetch(`/api/verify-email`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ verified_user: userParam }),
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(res => {
+              console.log(res);
+              if (res.url) {
+                window.location.href = res.url;
+              }
+            })
+            .catch(error => {
+              console.error('There was a problem with the fetch operation:', error);
+            });
           } else {
             setError("User not found after verification.");
           }

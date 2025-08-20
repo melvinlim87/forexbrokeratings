@@ -4,13 +4,13 @@ import { rateLimit } from '@/lib/rateLimit';
 
 // GET: /api/verify-email?token=... (token = user email, simple for now)
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'GET') {
+  if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   if (!(await rateLimit(req, res))) return;
 
   try {
-    const verified_user = req.query.verified_user;
+    const verified_user = req.body.verified_user;
     const user = JSON.parse(decodeURIComponent(verified_user as string));
     const user_detail = await getUserByEmail(user.email);
     const { signJwt } = await import('@/lib/jwt');
@@ -18,10 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const userWithDetail = { ...user, jwt: jwt_token, user_detail };
     const userParam = encodeURIComponent(JSON.stringify(userWithDetail));
     // Server-side redirect (not window.location.href!)
-    res.writeHead(302, {
-      Location: `/?verified_user=${userParam}&verified=1`
-    });
-    res.end();
+    return res.status(200).json({ message: 'Email verified successfully', url: `${process.env.NEXT_PUBLIC_BASE_URL}/?verified_user=${userParam}&verified=1`, user: userWithDetail });
+    // res.writeHead(302, {
+    //   Location: 
+    // });
+    // res.end();
     return;
     // Optionally redirect to a success page
     // return res.status(200).json({ message: 'Email verified successfully' });
