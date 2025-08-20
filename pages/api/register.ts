@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       email: user.email,
       password: user.password,
       options: {
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/verify-email`
+        emailRedirectTo: `https://forexbrokeratings.com/verify-email`
       }
     });
 
