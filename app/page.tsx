@@ -28,7 +28,8 @@ export default function Home() {
       const verifiedUser = params.get('verified_user');
       if (verifiedUser) {
         try {
-          const jwt = JSON.parse(decodeURIComponent(verifiedUser));
+          const encodedUser = JSON.parse(decodeURIComponent(verifiedUser));
+          const jwt = encodedUser.jwt;
           const { verifyJwt } = await import('@/lib/jwt');
           const user : any = await verifyJwt(jwt);
           user.user_detail = await getUserByEmail(user?.email as string);
