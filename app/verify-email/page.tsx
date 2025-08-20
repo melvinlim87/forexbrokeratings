@@ -28,11 +28,13 @@ export default function VerifyEmailPage() {
           }
           let user = data.user;
           if (user) {
+            console.log(user);
             // Use Supabase access_token as jwt, and fetch user_detail
             let jwt_token = access_token; // Use the token from Supabase
-            let user_detail = await getUserByEmail(user.email || '');
+            // let user_detail = await getUserByEmail(user.email || '');
             // Add jwt and user_detail to user object
-            const userWithJwt = { id: user_detail.id, email: user_detail.email, role: user_detail.role };
+            const userWithJwt = { ...user, email: user.email };
+            console.log(userWithJwt);
             const userParam = encodeURIComponent(JSON.stringify(userWithJwt));
             // window.location.href = `/api/verify-email?verified=1&verified_user=${userParam}`;
             fetch(`/api/verify-email`, {

@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const userWithDetail = { ...user, jwt: jwt_token, user_detail };
     const userParam = encodeURIComponent(JSON.stringify(userWithDetail));
     // Server-side redirect (not window.location.href!)
-    return res.status(200).json({ message: 'Email verified successfully', url: `${process.env.NEXT_PUBLIC_BASE_URL}/?verified_user=${userParam}&verified=1`, user: userWithDetail });
+    return res.status(200).json({ message: 'Email verified successfully', url: `/?verified_user=${userParam}&verified=1` });
     // res.writeHead(302, {
     //   Location: 
     // });
