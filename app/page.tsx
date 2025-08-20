@@ -23,13 +23,16 @@ export default function Home() {
   const router = useRouter();
   
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const loginUser = async () => {
       const params = new URLSearchParams(window.location.search);
       const verifiedUser = params.get('verified_user');
       if (verifiedUser) {
         try {
-          const user = JSON.parse(decodeURIComponent(verifiedUser));
-          dispatch(login(user));
+          const jwt = JSON.parse(decodeURIComponent(verifiedUser));
+          const { verifyJwt } = await import('@/lib/jwt');
+          const user : any = await verifyJwt(jwt);
+          user.user_detail = await getUserByEmail(user?.email as string);
+          await dispatch(login(user));
           // Optionally show toast or alert
           router.push('/');
           // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
@@ -43,6 +46,28 @@ export default function Home() {
         // window.history.replaceState({}, '', newUrl);
       }
     }
+    loginUser()
+    // if (typeof window !== 'undefined') {
+    //   const params = new URLSearchParams(window.location.search);
+    //   const verifiedUser = params.get('verified_user');
+    //   if (verifiedUser) {
+    //     loginUser()
+    //     try {
+    //       const user = JSON.parse(decodeURIComponent(verifiedUser));
+    //       dispatch(login(user));
+    //       // Optionally show toast or alert
+    //       router.push('/');
+    //       // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    //       // window.alert('Email verified! You are now logged in.');
+    //     } catch (e) {
+    //       // console.log('error', e)
+    //     }
+    //     // Remove the query param from the URL
+    //     // params.delete('verified_user');
+    //     // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+    //     // window.history.replaceState({}, '', newUrl);
+    //   }
+    // }
   }, [dispatch]);
 
   useEffect(() => {
