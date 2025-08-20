@@ -16,59 +16,30 @@ import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { login } from '@/store/slices/authSlice';
 import { getUserByEmail } from '@/lib/supabase';
-import { signJwt } from '@/lib/jwt';
+import { verifyJwt } from '@/lib/jwt';
 
 export default function Home() {
   const dispatch = useDispatch();
-  const router = useRouter();
+  const router = useRouter(); 
   
   useEffect(() => {
     const loginUser = async () => {
       const params = new URLSearchParams(window.location.search);
-      const verifiedUser = params.get('verified_user');
-      if (verifiedUser) {
+      const token = params.get('token');
+      if (token) {
         try {
-          const encodedUser = JSON.parse(decodeURIComponent(verifiedUser));
-          const jwt = encodedUser.jwt;
-          const { verifyJwt } = await import('@/lib/jwt');
-          const user : any = await verifyJwt(jwt);
-          user.user_detail = await getUserByEmail(user?.email as string);
-          await dispatch(login(user));
-          // Optionally show toast or alert
-          router.push('/');
-          // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-          // window.alert('Email verified! You are now logged in.');
+          const user: any = await verifyJwt(token);
+          if (user) {
+            user.user_detail = await getUserByEmail(user.email);
+            await dispatch(login(user));
+            router.push('/'); // clean redirect
+          }
         } catch (e) {
-          // console.log('error', e)
+          console.error('JWT verification failed', e);
         }
-        // Remove the query param from the URL
-        // params.delete('verified_user');
-        // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-        // window.history.replaceState({}, '', newUrl);
       }
-    }
-    loginUser()
-    // if (typeof window !== 'undefined') {
-    //   const params = new URLSearchParams(window.location.search);
-    //   const verifiedUser = params.get('verified_user');
-    //   if (verifiedUser) {
-    //     loginUser()
-    //     try {
-    //       const user = JSON.parse(decodeURIComponent(verifiedUser));
-    //       dispatch(login(user));
-    //       // Optionally show toast or alert
-    //       router.push('/');
-    //       // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    //       // window.alert('Email verified! You are now logged in.');
-    //     } catch (e) {
-    //       // console.log('error', e)
-    //     }
-    //     // Remove the query param from the URL
-    //     // params.delete('verified_user');
-    //     // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-    //     // window.history.replaceState({}, '', newUrl);
-    //   }
-    // }
+    };
+    loginUser();
   }, [dispatch]);
 
   useEffect(() => {
