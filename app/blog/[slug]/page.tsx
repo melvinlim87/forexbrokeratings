@@ -239,7 +239,6 @@ import { notFound } from 'next/navigation';
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   // Fetch the blog post from Supabase by slug
   const data = await fetchBlogContentsBySlug(params.slug);
-  console.log(data)
   if (!data) {
     return (
       <main className="max-w-3xl mx-auto px-4 py-12">

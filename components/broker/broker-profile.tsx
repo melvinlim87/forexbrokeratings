@@ -468,7 +468,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               {brokerData.badges && brokerData.badges.length > 0 && (
                 <div className="rounded-xl flex flex-col ">
                   <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
-                  <div className="flex flex-row gap-4 overflow-x-auto py-2 w-full rounded">
+                  <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 py-2 w-full rounded place-items-center">
                     {brokerData.badges.map((src: string, idx: number) => {
                       const imgSrc = src.startsWith('/') || src.startsWith('http')
                         ? src
@@ -478,8 +478,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           key={idx}
                           src={imgSrc}
                           alt={`badge-${idx}`}
-                          className="h-48 w-auto rounded-full border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer"
-                          style={{ objectFit: 'contain' }}
+                          className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-full border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer object-contain"
                           onClick={() => setPreviewBadge(imgSrc)}
                         />
                       );
@@ -495,7 +494,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         >
                           ×
                         </button>
-                        <img src={previewBadge} alt="Award Preview" className="max-h-[60vh] w-auto rounded-xl border border-gray-200 shadow-lg" style={{ background: '#fff', objectFit: 'contain' }} />
+                        <img src={previewBadge} alt="Award Preview" className="max-h-[60vh] w-auto rounded-full border border-gray-200 shadow-lg" style={{ background: '#fff', objectFit: 'contain' }} />
                       </div>
                     </div>
                   )}
@@ -1168,19 +1167,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
 
             {/* Pros & Cons */}
             <Card className={cn(
-                "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
-                "backdrop-blur-sm",
-                "border-0",
-                "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
-                "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
-                "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
-                "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
-                "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-              )}>
+              "overflow-hidden relative",
+              "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+              "backdrop-blur-sm",
+              "border-0",
+              "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+              "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+              "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+              "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
+              "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+              "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+              "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
+              "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+            )}>
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4 border-b border-black pb-2">Pros & Cons</h2>
                 <div className="grid grid-cols-1 md:grid-cols-11 gap-6">
@@ -1638,4 +1637,3 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
     </div>
   );
 }
-

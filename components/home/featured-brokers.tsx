@@ -119,7 +119,7 @@ export default function FeaturedBrokers() {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">Top Rate Forex Brokers</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">Top Forex Brokers</h2>
             <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
               Comprehensive ranking of the best forex brokers based on our detailed analysis.
             </p>
