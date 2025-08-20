@@ -32,9 +32,9 @@ export default function VerifyEmailPage() {
             let jwt_token = access_token; // Use the token from Supabase
             let user_detail = await getUserByEmail(user.email || '');
             // Add jwt and user_detail to user object
-            const userWithJwt = { id: user_detail.id, name: user_detail.name, email: user_detail.email, role: user_detail.role };
+            const userWithJwt = { id: user_detail.id, email: user_detail.email, role: user_detail.role };
             const userParam = encodeURIComponent(JSON.stringify(userWithJwt));
-            window.location.href = `/api/verify-email?verified_user=${userParam}`;
+            window.location.href = `/api/verify-email?verified=1&verified_user=${userParam}`;
           } else {
             setError("User not found after verification.");
           }
