@@ -66,7 +66,7 @@ export default function FeaturedBrokers() {
 
   if (loading) {
     return (
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
             <div className="animate-pulse">
@@ -93,7 +93,7 @@ export default function FeaturedBrokers() {
 
   if (error) {
     return (
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
             <div className="text-red-500 mb-4">{error}</div>
@@ -110,7 +110,7 @@ export default function FeaturedBrokers() {
   }
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950">
+    <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
         <motion.div 
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"

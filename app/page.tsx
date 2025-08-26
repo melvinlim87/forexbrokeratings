@@ -31,41 +31,13 @@ export default function Home() {
         try {
           const user = JSON.parse(decodeURIComponent(verifiedUser));
           dispatch(login(user));
-          // Optionally show toast or alert
           router.push('/');
-          // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-          // window.alert('Email verified! You are now logged in.');
         } catch (e) {
           // console.log('error', e)
         }
-        // Remove the query param from the URL
-        // params.delete('verified_user');
-        // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-        // window.history.replaceState({}, '', newUrl);
       }
     }
     loginUser()
-    // if (typeof window !== 'undefined') {
-    //   const params = new URLSearchParams(window.location.search);
-    //   const verifiedUser = params.get('verified_user');
-    //   if (verifiedUser) {
-    //     loginUser()
-    //     try {
-    //       const user = JSON.parse(decodeURIComponent(verifiedUser));
-    //       dispatch(login(user));
-    //       // Optionally show toast or alert
-    //       router.push('/');
-    //       // window.location.href = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    //       // window.alert('Email verified! You are now logged in.');
-    //     } catch (e) {
-    //       // console.log('error', e)
-    //     }
-    //     // Remove the query param from the URL
-    //     // params.delete('verified_user');
-    //     // const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-    //     // window.history.replaceState({}, '', newUrl);
-    //   }
-    // }
   }, [dispatch]);
   
   useEffect(() => {
@@ -105,7 +77,7 @@ export default function Home() {
     setCountry();
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     fetch(window.location.href)
       .then(res => {
         const country = res.headers.get('x-country');
@@ -115,6 +87,25 @@ export default function Home() {
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.hash === '#featured-brokers' || window.location.hash === '#latest-reviews') {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight; // 24px extra spacing
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    }
+    if (window.location.hash === '#ai_analyses') {
+      const target = document.getElementById('ai-analyse-btn');
+      if (target) {
+        target.click()
+      }
+    }
+  }, []); 
 
   return (
     <div className="flex flex-col">

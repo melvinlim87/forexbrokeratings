@@ -87,6 +87,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   return (
     <header 
       className={cn(
@@ -178,7 +179,9 @@ function NavLinks() {
     { title: 'Promotions', href: '/promotions' },
     { title: 'Comparison', href: '/compare' },
     { title: 'Rankings', href: '/rankings' },
+    { title: 'Broker Profiles', href: '/#featured-brokers' },
     { title: 'AI Tools', href: '/ai-tools' },
+    { title: 'Reviews', href: '/#latest-reviews' },
     { title: 'Blog', href: '/blog' },
   ];
   
@@ -203,7 +206,9 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     { title: 'Promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
+    { title: 'Broker Profiles', href: '/#featured-brokers' },
     { title: 'AI Tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
+    { title: 'Reviews', href: '/#latest-reviews' },
     { title: 'Blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
   ];
   

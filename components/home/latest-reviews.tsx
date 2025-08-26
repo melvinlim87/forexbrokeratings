@@ -112,7 +112,7 @@ export default function LatestReviews() {
   }, []);
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950 w-full">
+    <section id="latest-reviews" className="py-20 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Latest Broker Reviews</h2>
