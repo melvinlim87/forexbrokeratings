@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCircle, ChevronDown, LogOut, User, Home } from 'lucide-react';
+import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCircle, ChevronDown, LogOut, User, Home, BookOpenText, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -206,9 +206,9 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     { title: 'Promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
     { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
     { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
-    { title: 'Broker Profiles', href: '/#featured-brokers' },
+    { title: 'Broker Profiles', href: '/#featured-brokers', icon: <BookOpenText className="h-5 w-5 mr-3" /> },
     { title: 'AI Tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
-    { title: 'Reviews', href: '/#latest-reviews' },
+    { title: 'Reviews', href: '/#latest-reviews', icon: <MessageCircle className="h-5 w-5 mr-3" /> },
     { title: 'Blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
   ];
   
