@@ -7,6 +7,7 @@ export default function ContactClient() {
   const [form, setForm] = useState({ title: "", content: "", email: "" });
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<null | { type: "success" | "error"; message: string }>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const channels = [
     {
@@ -20,7 +21,7 @@ export default function ContactClient() {
       cta: (
         <button
           type="button"
-          onClick={() => setShowForm(true)}
+          onClick={() => { setShowForm(true); setSubmitted(false); setResult(null); }}
           className="inline-flex items-center px-4 py-2 mt-4 font-semibold text-white bg-cyan-700 rounded-md shadow hover:bg-cyan-800 focus:outline focus:outline-2 focus:outline-cyan-400 transition-colors duration-150"
         >
           Email Us
@@ -83,6 +84,7 @@ export default function ContactClient() {
       if (res.ok) {
         setResult({ type: "success", message: "Message sent. We'll get back to you within 1 business day." });
         setForm({ title: "", content: "", email: "" });
+        setSubmitted(true);
         setShowForm(false);
       } else {
         setResult({ type: "error", message: data?.error || "Failed to send. Please try again later." });
@@ -116,19 +118,19 @@ export default function ContactClient() {
         </div>
       </article>
 
-      {showForm && (
+      {showForm ? (
         <article data-section="contact-form" className="max-w-xl mx-auto px-4 mt-8">
           <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 space-y-4">
             <h2 className="text-xl font-semibold text-[#11223a]">Contact Support</h2>
-            {result && (
-              <p className={`${result.type === "error" ? "text-red-600" : "text-green-600"} text-sm`}>{result.message}</p>
+            {result && result.type === "error" && (
+              <p className={`text-red-600 text-sm`}>{result.message}</p>
             )}
             <div>
               <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Title</label>
               <input
                 id="title"
                 type="text"
-                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500"
+                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 p-4"
                 value={form.title}
                 onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
                 required
@@ -139,7 +141,7 @@ export default function ContactClient() {
               <textarea
                 id="content"
                 rows={5}
-                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500"
+                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 p-4"
                 value={form.content}
                 onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))}
                 required
@@ -150,7 +152,7 @@ export default function ContactClient() {
               <input
                 id="email"
                 type="email"
-                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500"
+                className="w-full rounded-md border border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 p-4"
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 required
@@ -175,7 +177,14 @@ export default function ContactClient() {
             <p className="text-xs text-gray-500">We will send your message to support@forexbrokeratings.com.</p>
           </form>
         </article>
-      )}
+      ) : submitted ? (
+        <article data-section="contact-success" className="max-w-xl mx-auto px-4 mt-8">
+          <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-green-800">
+            <h3 className="text-lg font-semibold mb-1">Message sent successfully</h3>
+            <p className="text-sm">Thanks for reaching out. We\'ll get back to you within 1 business day.</p>
+          </div>
+        </article>
+      ) : null}
     </>
   );
 }
