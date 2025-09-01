@@ -97,12 +97,12 @@ export default function Header() {
           : ""
       )}
     >
-      <div className="container mx-auto px-4 flex h-24 items-center">
+      <div className="container mx-auto px-2 flex h-28 items-center">
         <div className="flex-1">
-          <Link href="/" className="flex items-center mr-6">
+          <Link href="/" className="flex items-center">
             {/* Header Logo */}
-            <span className="inline-block ml-3">
-              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={180} height={60} style={{objectFit:'cover',maxHeight:60}} priority />
+            <span className="inline-block">
+              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={200} height={100} style={{objectFit:'cover',maxHeight:100}} priority />
             </span>
           </Link>
         </div>
@@ -191,7 +191,7 @@ function NavLinks() {
         <Link
         key={link.href}
           href={link.href} 
-          className={`text-lg font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-8 mt-2 py-2 rounded-xl`}
+          className={`text-xl font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl`}
         >
           {link.title}
         </Link>
