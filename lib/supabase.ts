@@ -202,13 +202,13 @@ export type Regulators = {
   id: number;
   name: string;
   slug: string;
-  tier: string;
+  tier: string; // null
   code: string;
-  leverage_cap: string;
-  jurisdiction: string[];
-  image: string;
-  published_year: string;
-  notes: string;
+  leverage_cap: string; // null
+  jurisdiction: string;
+  image: string; // null
+  published_year: string; // null
+  notes: string; // null
   source: string;
   created_at: string;
 };
