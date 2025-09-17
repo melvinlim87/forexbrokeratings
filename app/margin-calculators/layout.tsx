@@ -12,7 +12,7 @@ export default function MarginCalculatorLayout({ children }: { children: React.R
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Margin Calculator</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Estimate margin based on currency pair, leverage, and trade size.</h2>
       </header>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
         {children}
       </div>
     </section>

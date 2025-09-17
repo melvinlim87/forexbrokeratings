@@ -12,7 +12,7 @@ export default function RegulatorsLayout({ children }: { children: React.ReactNo
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Global Regulators</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Browse financial regulators worldwide by their jurisdiction.</h2>
       </header>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
         {children}
       </div>
     </section>

@@ -180,6 +180,50 @@ export default function MarginCalculatorPage() {
           )}
         </div>
       </div>
+
+      <div className="px-6 py-6 border-t border-slate-200 dark:border-slate-800">
+        <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">How to Calculate Margin in Forex Trading</h3>
+        
+        <div className="prose prose-slate dark:prose-invert max-w-none">
+          <p className="text-slate-600 dark:text-slate-300">
+            Margin in forex trading is the amount of money a trader needs to put forward to open a position. 
+            It's not a transaction cost, but rather a security deposit that the broker holds while a trade is open.
+          </p>
+          
+          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">How Margin is Calculated:</h4>
+          <p className="text-slate-600 dark:text-slate-300">
+            The formula to calculate margin is: <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">Margin = (Trade Size × Contract Size × Price) / Leverage</code>
+          </p>
+          
+          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">Example Calculation:</h4>
+          <p className="text-slate-600 dark:text-slate-300">
+            For a 1 lot (100,000 units) of EUR/USD at 1.1200 with 100:1 leverage:
+          </p>
+          <ul className="list-disc pl-5 text-slate-600 dark:text-slate-300 space-y-1 mt-2">
+            <li>Trade size: 1 lot = 100,000 units</li>
+            <li>Price: 1.1200</li>
+            <li>Leverage: 100:1</li>
+            <li>Margin = (100,000 × 1.1200) / 100 = $1,120</li>
+          </ul>
+          
+          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">Key Points:</h4>
+          <ul className="list-disc pl-5 text-slate-600 dark:text-slate-300 space-y-1">
+            <li>Higher leverage means lower margin requirement, but higher risk</li>
+            <li>Margin requirements vary by broker and instrument</li>
+            <li>Always maintain sufficient margin to avoid margin calls</li>
+            <li>Use stop-loss orders to manage risk</li>
+          </ul>
+          
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+            <h4 className="font-medium text-blue-700 dark:text-blue-300">Risk Warning:</h4>
+            <p className="text-blue-600 dark:text-blue-400 mt-1">
+              Trading on margin carries a high level of risk and may not be suitable for all investors. 
+              The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, 
+              you should carefully consider your investment objectives, level of experience, and risk appetite.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
