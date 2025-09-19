@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChevronRight, Bot, Brain, LineChart, ArrowRight, Zap, Search, Filter, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -33,78 +34,12 @@ const aiTools = [
     rating: 4.9,
     reviews: 312,
     popular: true,
-    slug: 'trading-assistant'
+    slug: 'trading-assistant',
+    href: '/ai-tools/trading-assistant',
+    disabled: false
   },
   {
     id: 2,
-    title: 'Market Sentiment Analyzer',
-    category: 'Research',
-    icon: <Brain className="h-5 w-5" />,
-    description: 'Analyze market sentiment across social media and news using NLP',
-    features: [
-      'Social media sentiment tracking',
-      'News article analysis',
-      'Sentiment trend visualization',
-      'Real-time updates'
-    ],
-    rating: 4.6,
-    reviews: 189,
-    popular: true,
-    slug: 'sentiment-analyzer'
-  },
-  {
-    id: 3,
-    title: 'AI Portfolio Optimizer',
-    category: 'Portfolio',
-    icon: <Bot className="h-5 w-5" />,
-    description: 'Optimize your trading portfolio using AI-driven risk management',
-    features: [
-      'Risk-adjusted allocation',
-      'Correlation analysis',
-      'Rebalancing recommendations',
-      'Performance projections'
-    ],
-    rating: 4.7,
-    reviews: 156,
-    popular: false,
-    slug: 'portfolio-optimizer'
-  },
-  {
-    id: 4,
-    title: 'Pattern Recognition Scanner',
-    category: 'Technical Analysis',
-    icon: <LineChart className="h-5 w-5" />,
-    description: 'Automatically detect chart patterns and technical setups across multiple assets',
-    features: [
-      'Multi-timeframe scanning',
-      'Custom pattern definitions',
-      'Alert notifications',
-      'Historical pattern backtest'
-    ],
-    rating: 4.5,
-    reviews: 132,
-    popular: true,
-    slug: 'pattern-scanner'
-  },
-  {
-    id: 5,
-    title: 'AI Trading Signal Generator',
-    category: 'Analysis',
-    icon: <LineChart className="h-5 w-5" />,
-    description: 'Get real-time trading signals powered by advanced machine learning algorithms',
-    features: [
-      'Real-time market analysis',
-      'Multi-timeframe signals',
-      'Customizable alert settings',
-      'Historical performance tracking'
-    ],
-    rating: 4.8,
-    reviews: 245,
-    popular: true,
-    slug: 'trading-signals'
-  },
-  {
-    id: 6,
     title: 'Economic Calendar Analyzer',
     category: 'Fundamental Analysis',
     icon: <Brain className="h-5 w-5" />,
@@ -118,10 +53,103 @@ const aiTools = [
     rating: 4.4,
     reviews: 98,
     popular: false,
-    slug: 'economic-calendar'
+    slug: 'economic-calendar',
+    href: '/ai-tools/economic-calendar',
+    disabled: false
+  },
+  {
+    id: 3,
+    title: 'Forex Market Hours',
+    category: 'Fundamental Analysis',
+    icon: <Brain className="h-5 w-5" />,
+    description: 'View live forex session times in your local timezone. Detect overlaps and see which sessions are currently open.',
+    features: [
+      'Detect overlapping sessions',
+      'See current open sessions',
+      'Custom alerts',
+      'Market reaction tracking'
+    ],
+    rating: 4.4,
+    reviews: 98,
+    popular: false,
+    slug: 'forex-market-hours',
+    href: '/ai-tools/forex-market-hours',
+    disabled: false
+  },
+  {
+    id: 4,
+    title: 'Market Sentiment Analyzer',
+    category: 'Research',
+    icon: <Brain className="h-5 w-5" />,
+    description: 'Analyze market sentiment across social media and news using NLP',
+    features: [
+      'Social media sentiment tracking',
+      'News article analysis',
+      'Sentiment trend visualization',
+      'Real-time updates'
+    ],
+    rating: 4.6,
+    reviews: 189,
+    popular: true,
+    slug: 'sentiment-analyzer',
+    disabled: true
+  },
+  {
+    id: 5,
+    title: 'AI Portfolio Optimizer',
+    category: 'Portfolio',
+    icon: <Bot className="h-5 w-5" />,
+    description: 'Optimize your trading portfolio using AI-driven risk management',
+    features: [
+      'Risk-adjusted allocation',
+      'Correlation analysis',
+      'Rebalancing recommendations',
+      'Performance projections'
+    ],
+    rating: 4.7,
+    reviews: 156,
+    popular: false,
+    slug: 'portfolio-optimizer',
+    disabled: true
+  },
+  {
+    id: 6,
+    title: 'Pattern Recognition Scanner',
+    category: 'Technical Analysis',
+    icon: <LineChart className="h-5 w-5" />,
+    description: 'Automatically detect chart patterns and technical setups across multiple assets',
+    features: [
+      'Multi-timeframe scanning',
+      'Custom pattern definitions',
+      'Alert notifications',
+      'Historical pattern backtest'
+    ],
+    rating: 4.5,
+    reviews: 132,
+    popular: true,
+    slug: 'pattern-scanner',
+    disabled: true
   },
   {
     id: 7,
+    title: 'AI Trading Signal Generator',
+    category: 'Analysis',
+    icon: <LineChart className="h-5 w-5" />,
+    description: 'Get real-time trading signals powered by advanced machine learning algorithms',
+    features: [
+      'Real-time market analysis',
+      'Multi-timeframe signals',
+      'Customizable alert settings',
+      'Historical performance tracking'
+    ],
+    rating: 4.8,
+    reviews: 245,
+    popular: true,
+    slug: 'trading-signals',
+    disabled: true
+  },
+  {
+    id: 8,
     title: 'Automated Trading Bots',
     category: 'Trading',
     icon: <Bot className="h-5 w-5" />,
@@ -135,10 +163,11 @@ const aiTools = [
     rating: 4.7,
     reviews: 276,
     popular: true,
-    slug: 'trading-bots'
+    slug: 'trading-bots',
+    disabled: true
   },
   {
-    id: 8,
+    id: 9,
     title: 'News Impact Predictor',
     category: 'Research',
     icon: <Brain className="h-5 w-5" />,
@@ -152,7 +181,8 @@ const aiTools = [
     rating: 4.5,
     reviews: 143,
     popular: false,
-    slug: 'news-predictor'
+    slug: 'news-predictor',
+    disabled: true
   }
 ];
 
@@ -294,13 +324,137 @@ export default function AIToolsPage() {
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            Products (Coming Soon)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <Card className="relative">
+              <CardContent className="p-6">
+                <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
+                <div className="flex items-center mb-4">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
+                    <Bot className="h-5 w-5 text-blue-600 dark:text-blue-500" />
+                  </div>
+                  <span className="ml-auto text-sm font-semibold text-gray-900 dark:text-gray-100">$499 USD</span>
+                </div>
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src="/assets/images/ai-tools/semi-auto-trading-ea.png"
+                    alt="Semi Auto Trading EA"
+                    fill
+                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Semi Auto Trading EA</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-5">
+                  A Semi Auto Trading Expert Advisor (EA) combines automation with human control. It provides signals and entry suggestions while you make the final decision, reducing workload and improving accuracy.
+                </p>
+                <Button variant="secondary" disabled className="cursor-not-allowed">
+                  Available Soon
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="relative">
+              <CardContent className="p-6">
+                <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
+                <div className="flex items-center mb-4">
+                  <div className="bg-amber-50 dark:bg-amber-900/20 p-2 rounded-full">
+                    <Bot className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                  </div>
+                  <span className="ml-auto text-sm font-semibold text-gray-900 dark:text-gray-100">$799 USD</span>
+                </div>
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src="/assets/images/ai-tools/full-auto-trading-ea.png"
+                    alt="Full Auto Trading EA"
+                    fill
+                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Full Auto Trading EA</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-5">
+                  A fully automated EA that analyzes markets, identifies opportunities, and executes trades end-to-end with predefined risk management—eliminating emotional decisions for consistent performance.
+                </p>
+                <Button variant="secondary" disabled className="cursor-not-allowed">
+                  Available Soon
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="relative">
+              <CardContent className="p-6">
+                <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
+                <div className="flex items-center mb-4">
+                  <div className="bg-indigo-50 dark:bg-indigo-900/20 p-2 rounded-full">
+                    <LineChart className="h-5 w-5 text-indigo-600 dark:text-indigo-500" />
+                  </div>
+                  <span className="ml-auto text-sm font-semibold text-gray-900 dark:text-gray-100">$150 USD</span>
+                </div>
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src="/assets/images/ai-tools/proven-strategies-set-files-semi-auto.png"
+                    alt="Proven Strategies Set Files (Semi-Auto)"
+                    fill
+                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">Proven Strategies Set Files (Semi-Auto)</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-5">
+                  Ready-to-use, backtested set files tailored for semi-auto trading. Load and trade with confidence across different market conditions and account sizes.
+                </p>
+                <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 mb-5 space-y-1">
+                  <li>Save time with pre-optimized parameters</li>
+                  <li>Trade with confidence from tested setups</li>
+                  <li>Adaptable to market conditions and styles</li>
+                  <li>Increase consistency and reduce errors</li>
+                </ul>
+                <Button variant="secondary" disabled className="cursor-not-allowed">
+                  Available Soon
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="relative">
+              <CardContent className="p-6">
+                <span className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-yellow-400 text-yellow-900 text-xs font-bold shadow-md dark:bg-yellow-300 dark:text-yellow-900" aria-label="Coming Soon">Coming Soon</span>
+                <div className="flex items-center mb-4">
+                  <div className="bg-indigo-50 dark:bg-indigo-900/20 p-2 rounded-full">
+                    <LineChart className="h-5 w-5 text-indigo-600 dark:text-indigo-500" />
+                  </div>
+                  <span className="ml-auto text-sm font-semibold text-gray-900 dark:text-gray-100">$250 USD</span>
+                </div>
+                <div className="relative w-full h-40 mb-4">
+                  <Image
+                    src="/assets/images/ai-tools/proven-strategies-set-files-full-auto.png"
+                    alt="Proven Strategies Set Files (Full-Auto)"
+                    fill
+                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">Proven Strategies Set Files (Full-Auto)</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-5">
+                  Ready-to-use, backtested set files optimized for full-auto systems. Achieve consistency and efficiency with parameters refined for automated execution.
+                </p>
+                <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 mb-5 space-y-1">
+                  <li>Pre-optimized for automated strategies</li>
+                  <li>Stable performance from tested parameters</li>
+                  <li>Adaptable to market regimes and styles</li>
+                  <li>Reduce human error and improve consistency</li>
+                </ul>
+                <Button variant="secondary" disabled className="cursor-not-allowed">
+                  Available Soon
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             All AI Tools
           </h2>
-          {/* <div className="mb-8 flex justify-center">
-            <span className="inline-block bg-yellow-200 text-yellow-900 font-semibold rounded-full px-6 py-2 text-lg shadow-lg">
-              🚧 All AI Tools Coming Soon!
-            </span>
-          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {filteredTools.map((tool, index) => (
               <ToolCard 
@@ -346,6 +500,8 @@ interface Tool {
   reviews: number;
   popular?: boolean;
   slug: string;
+  href?: string;
+  disabled: boolean;
 }
 
 function ToolCard({ 
@@ -369,7 +525,7 @@ function ToolCard({
       onMouseLeave={() => setHoveredCard(null)}
     >
       <div className="relative h-full">
-        <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.slug === 'trading-assistant' ? '' : 'cursor-not-allowed opacity-80'}`}> 
+        <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.disabled ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}> 
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
@@ -408,9 +564,9 @@ function ToolCard({
                 <span className="ml-1 text-xs text-gray-500">({tool.reviews})</span>
               </div>
               {/* Only for AI Trading Assistant: make button enabled and link to assistant page */}
-              {tool.slug === 'trading-assistant' ? (
+              {tool.disabled === false ? (
                 <Button variant={"default"} asChild>
-                  <Link href="/ai-tools/trading-assistant">
+                  <Link href={tool.href ?? ""}>
                     Launch <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
@@ -422,7 +578,7 @@ function ToolCard({
               )}
             </div>
             {/* Overlay for other tools, not for trading-assistant */}
-            {tool.slug !== 'trading-assistant' && (
+            {tool.disabled && (
               <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-lg">
                 <span className="text-xl font-bold text-yellow-700 dark:text-yellow-300">Coming Soon</span>
               </div>

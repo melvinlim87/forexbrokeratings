@@ -266,6 +266,23 @@ export type AIResult = {
   created_at: string;
 }
 
+// Type definitions for Economic Calendars
+export type EconomicCalendar = {
+  id: number;
+  title: string;
+  datetime: string;
+  currency: string;
+  impact: string;
+  actual: string;
+  forecast: string;
+  previous: string;
+  measures: string;
+  usual_effect: string;
+  traders_care: string;
+  notes: string;
+  created_at: string;
+}
+
 // Function to fetch broker websites
 export async function fetchBrokerWebsites() {
   const { data, error } = await supabase
@@ -986,5 +1003,29 @@ export async function storeAIResult(user_id: string, title: string, result: stri
     throw new Error(error.message);
   }
   
+  return data;
+}
+
+// Function to fetch economic calendar
+export async function fetchEconomicCalendar() {
+  const { data, error } = await supabase
+    .from('economic_calendar')
+    .select('*')
+    .order('datetime', { ascending: false });
+
+    if (error) throw new Error(error.message);
+    return data;
+}
+
+// Function to fetch economic calendar with date range filter
+export async function fetchEconomicCalendarByDateRange(startDate: string, endDate: string) {
+  const { data, error } = await supabase
+    .from('economic_calendar')
+    .select('*')
+    .gte('datetime', `${startDate}T00:00:00`)
+    .lte('datetime', `${endDate}T23:59:59`)
+    .order('datetime', { ascending: true });
+
+  if (error) throw new Error(error.message);
   return data;
 }

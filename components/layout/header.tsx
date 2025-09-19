@@ -188,15 +188,45 @@ function NavLinks() {
   return (
     <>
       {links.map((link) => (
-        <Link
-        key={link.href}
-          href={link.href} 
-          className={`text-xl font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl`}
-        >
-          {link.title}
-        </Link>
+        link.title === 'AI Tools' ? (
+          <AiToolsDropdown key="ai-tools" />
+        ) : (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`text-xl font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl`}
+          >
+            {link.title}
+          </Link>
+        )
       ))}
     </>
+  );
+}
+
+function AiToolsDropdown() {
+  const [open, setOpen] = useState(false);
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button
+          type="button"
+          className="flex items-center gap-1 text-xl font-medium text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl hover:bg-white/20"
+          aria-haspopup="menu"
+          aria-expanded={open}
+        >
+          <span>AI Tools</span>
+          <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white/95 dark:bg-gray-900/95 backdrop-blur border border-gray-200 dark:border-gray-800 mt-4">
+        <div className="flex flex-col">
+          <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>Popular AI Tools</Link>
+          <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>Products</Link>
+          <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>All AI Tools</Link>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }
 
@@ -227,15 +257,19 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
         </Link>
       )}
       {links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className="flex items-center text-base font-medium transition-colors hover:text-white py-2"
-          onClick={onNavLinkClick}
-        >
-          {link.icon}
-          {link.title}
-        </Link>
+        link.title === 'AI Tools' ? (
+          <MobileAiTools key="ai-tools-mobile" onNavLinkClick={onNavLinkClick} />
+        ) : (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="flex items-center text-base font-medium transition-colors hover:text-white py-2"
+            onClick={onNavLinkClick}
+          >
+            {link.icon}
+            {link.title}
+          </Link>
+        )
       ))}
       <div className="flex items-center mt-4">
         <SearchDialog
@@ -248,5 +282,28 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
         />
       </div>
     </>
+  );
+}
+
+function MobileAiTools({ onNavLinkClick }: { onNavLinkClick: () => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex flex-col">
+      <button
+        type="button"
+        className="flex items-center justify-between text-base font-medium transition-colors hover:text-white py-2"
+        onClick={() => setOpen(o => !o)}
+      >
+        <span className="flex items-center"><Wrench className="h-5 w-5 mr-3" /> AI Tools</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="ml-8 mt-1 flex flex-col gap-1">
+          <Link href="/ai-tools#popular" className="py-1 text-sm" onClick={onNavLinkClick}>Popular AI Tools</Link>
+          <Link href="/ai-tools#products" className="py-1 text-sm" onClick={onNavLinkClick}>Products</Link>
+          <Link href="/ai-tools#all" className="py-1 text-sm" onClick={onNavLinkClick}>All AI Tools</Link>
+        </div>
+      )}
+    </div>
   );
 }
