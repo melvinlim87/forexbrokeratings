@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -211,6 +211,29 @@ export default function AIToolsPage() {
     return matchesSearch && matchesCategory;
   });
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const scrollToHash = () => {
+      const raw = window.location.hash;
+      if (!raw) return;
+      const id = decodeURIComponent(raw.replace(/^#/, ''));
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      const header = document.querySelector('header');
+      const headerHeight = header ? (header as HTMLElement).offsetHeight : 0;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight; // 24px extra spacing
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    };
+
+    // Scroll on initial load
+    scrollToHash();
+
+    // And when the hash changes on the same page
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
@@ -255,7 +278,7 @@ export default function AIToolsPage() {
       {/* Popular Tools */}
       <section className="py-12 bg-white dark:bg-gray-950 md:max-w-7xl mx-auto">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 id="popular" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Popular AI Tools
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -323,7 +346,7 @@ export default function AIToolsPage() {
             </motion.div>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 id="products" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Products (Coming Soon)
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
@@ -452,7 +475,7 @@ export default function AIToolsPage() {
             </Card>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 id="all" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             All AI Tools
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
