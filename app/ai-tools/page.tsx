@@ -91,8 +91,9 @@ const aiTools = [
     rating: 4.6,
     reviews: 189,
     popular: true,
-    slug: 'sentiment-analyzer',
-    disabled: true
+    slug: 'market-sentiment-analyzer',
+    href: '/ai-tools/market-sentiment-analyzer',
+    disabled: false
   },
   {
     id: 5,

@@ -77,7 +77,8 @@
     "sonner": "^2.0.5",
     "tailwind-merge": "^2.0.0",
     "use-debounce": "^10.0.5",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "yahoo-finance2": "^2.13.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
