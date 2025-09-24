@@ -8,98 +8,34 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { fetchBlogContents, BlogContents } from '@/lib/supabase';
 
-export default function BlogPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [blogs, setBlogs] = useState<BlogContents[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const PAGE_SIZE = 9;
+export const revalidate = 300;
 
-  useEffect(() => {
-    // Initial fetch
-    const getBlogs = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchBlogContents(1);
-        setBlogs(Array.isArray(data) ? data : []);
-        setHasMore(data && data.length === PAGE_SIZE);
-        setPage(1);
-      } catch (err: any) {
-        setError(err.message || 'Failed to load blogs');
-      } finally {
-        setLoading(false);
-      }
-    };
-    getBlogs();
-  }, []);
+import BlogListClient from '@/components/blog/BlogListClient';
 
-  // Filter by search query (title/content)
-  const filteredPosts = blogs.filter(post => {
-    const q = searchQuery.toLowerCase();
-    return (
-      post.title.toLowerCase().includes(q) ||
-      (post.content && post.content.toLowerCase().includes(q))
-    );
-  });
-
-  // Load more handler
-  const handleLoadMore = async () => {
-    try {
-      setLoading(true);
-      const nextPage = page + 1;
-      const data = await fetchBlogContents(nextPage);
-      if (Array.isArray(data) && data.length > 0) {
-        setBlogs(prev => [...prev, ...data]);
-        setPage(nextPage);
-        setHasMore(data.length === PAGE_SIZE);
-      } else {
-        setHasMore(false);
-      }
-    } catch (err: any) {
-      setError(err.message || 'Failed to load more blogs');
-    } finally {
-      setLoading(false);
-    }
-  };
+export default async function BlogPage() {
+  // Fetch first page server-side for fast TTFB and caching via ISR
+  const initialPosts = await fetchBlogContents(1);
+  const posts = Array.isArray(initialPosts) ? initialPosts : [];
 
   return (
-    <div className="container mx-auto px-4 pb-12">
-      <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <input
-          type="text"
-          placeholder="Search blog posts..."
-          className="w-full px-4 py-2 border rounded"
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-        />
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4">
+        {/* Visible Breadcrumbs */}
+        <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+          <ol className="list-reset flex">
+            <li>
+              <a href="/" className="hover:underline">Home</a>
+            </li>
+            <li className="mx-2">/</li>
+            <li aria-current="page">Blog</li>
+          </ol>
+        </nav>
       </div>
-      {loading && <div className="py-16 text-center text-gray-500">Loading...</div>}
-      {error && <div className="py-16 text-center text-red-500">{error}</div>}
-      {!loading && !error && filteredPosts.length === 0 && (
-        <div className="py-16 text-center text-gray-500">No blog posts found.</div>
-      )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredPosts.map((post, idx) => (
-          <BlogPostCard key={post.id} post={post} index={idx} />
-        ))}
-      </div>
-      {/* Load More Button */}
-      {!loading && hasMore && filteredPosts.length > 0 && (
-        <div className="flex justify-center mt-8">
-          <button
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition disabled:opacity-50"
-            onClick={handleLoadMore}
-            disabled={loading}
-          >
-            {loading ? 'Loading...' : 'Load More'}
-          </button>
-        </div>
-      )}
+      <BlogListClient initialPosts={posts} pageSize={9} />
     </div>
   );
 }
+
 function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
   return (
     <motion.div

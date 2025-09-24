@@ -298,6 +298,20 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           }),
         }}
       />
+      {/* Visible Breadcrumbs */}
+      <nav className="text-sm text-gray-500 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+        <ol className="list-reset flex">
+          <li>
+            <a href="/" className="hover:underline">Home</a>
+          </li>
+          <li className="mx-2">/</li>
+          <li>
+            <a href="/blog" className="hover:underline">Blog</a>
+          </li>
+          <li className="mx-2">/</li>
+          <li aria-current="page" className="truncate max-w-[60ch]">{data.title}</li>
+        </ol>
+      </nav>
       {/* Cover Image */}
       {data.images?.[0] && (
         <div className="relative w-full aspect-[1200/450] mb-6 rounded-lg overflow-hidden">

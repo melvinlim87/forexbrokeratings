@@ -36,7 +36,7 @@ function AuthHeaderMenu() {
 
   if (!user) {
     return (
-      <Link href="/login">
+      <Link href="/login" rel="nofollow">
         <Button
           className="hidden md:flex bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 text-lg px-6 py-2.5 ml-2"
         >
@@ -246,7 +246,7 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     <>
       {/* Show customer profile here */}
       {!user || user.email_confirmed_at == false ? (
-        <Link href="/login" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
+        <Link href="/login" rel="nofollow" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
           <User className="h-5 w-5 mr-3" />
           Login
         </Link>

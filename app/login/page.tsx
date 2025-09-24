@@ -108,7 +108,7 @@ export default function LoginPage() {
               autoComplete="current-password"
             />
             <div className="text-right mb-1">
-              <a href="/forgot-password" className="text-primary underline hover:text-primary/80 text-sm font-semibold transition-colors">Forgot your password?</a>
+              <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-sm font-semibold transition-colors">Forgot your password?</a>
             </div>
             {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
             <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
@@ -116,7 +116,7 @@ export default function LoginPage() {
             </Button>
             <div className="text-center mt-2 text-sm text-muted-foreground">
               Don&apos;t have an account?{' '}
-              <a href="/register" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
+              <a href="/register" rel="nofollow" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
             </div>
           </form>
           )}

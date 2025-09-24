@@ -2,6 +2,7 @@ export const revalidate = 0;
 import BrokerProfile from '@/components/broker/broker-profile';
 import { LoginModalProvider } from '@/components/broker/LoginModalContext';
 import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, fetchBrokerLicensesByBrokerId, BrokerDetails } from '@/lib/supabase';
+import Script from 'next/script';
 
 // Function to parse array fields that might be stored as strings in the database
 const parseArrayField = (field: string[] | string | null | undefined): string[] => {
@@ -188,6 +189,57 @@ export default async function BrokerProfilePage({
     
     return (
       <div className="container mx-auto px-4 py-8">
+        {/* JSON-LD Breadcrumbs for Broker */}
+        <Script id="broker-breadcrumb-jsonld" type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://forexbrokeratings.com/' },
+                { '@type': 'ListItem', position: 2, name: 'Brokers', item: 'https://forexbrokeratings.com/brokers' },
+                { '@type': 'ListItem', position: 3, name: brokerData.name, item: `https://forexbrokeratings.com/broker/${brokerData.slug || brokerData.name.toLowerCase().replace(/\\s+/g, '-')}` }
+              ]
+            })
+          }}
+        />
+        {/* JSON-LD AggregateRating for Broker (shown only when data available) */}
+        {(() => {
+          const rating = typeof brokerData.rating === 'string' ? parseFloat(brokerData.rating) : Number(brokerData.rating || 0);
+          const reviewCount = Array.isArray(brokerData.reviews) ? brokerData.reviews.length : 0;
+          if (!rating || rating <= 0 || reviewCount <= 0) return null;
+          const slug = brokerData.slug || brokerData.name.toLowerCase().replace(/\s+/g, '-');
+          const jsonLd = {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: brokerData.name,
+            url: `https://forexbrokeratings.com/broker/${slug}`,
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: rating,
+              reviewCount: reviewCount,
+            },
+          } as const;
+          return (
+            <Script id="broker-aggregate-jsonld" type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+          );
+        })()}
+        {/* Visible Breadcrumbs */}
+        <nav className="text-sm text-gray-500 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+          <ol className="list-reset flex">
+            <li>
+              <a href="/" className="hover:underline">Home</a>
+            </li>
+            <li className="mx-2">/</li>
+            <li>
+              <a href="/brokers" className="hover:underline">Brokers</a>
+            </li>
+            <li className="mx-2">/</li>
+            <li aria-current="page" className="truncate max-w-[60ch]">{brokerData.name}</li>
+          </ol>
+        </nav>
         {/* <IPChecker /> */}
         <LoginModalProvider>
           <BrokerProfile 
@@ -289,4 +341,3 @@ async function fetchRelatedBrokers(currentBrokerId: string): Promise<BrokerDetai
     return []; // Return empty array as fallback
   }
 }
-
