@@ -32,10 +32,10 @@ export default function PromotionPopup() {
 
   useEffect(() => {
     async function fetchPromo() {
-     
       try {
         let country = localStorage.getItem('forexbrokeratings_country')
         const promos = await fetchFeaturedPromotion(country ?? 'Malaysia');
+        console.log('promos',promos)
         if (Array.isArray(promos) && promos.length > 0) {
           setPromotion(promos[0]);
           setShow(true);

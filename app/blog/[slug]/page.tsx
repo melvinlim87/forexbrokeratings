@@ -2,6 +2,7 @@ export const revalidate = 0;
 import { Metadata } from 'next';
 import React from 'react';
 import Script from 'next/script';
+import Image from 'next/image';
 import { fetchBlogContents } from '@/lib/supabase';
 
 function getDummyPost(slug: string) {
@@ -299,7 +300,16 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       />
       {/* Cover Image */}
       {data.images?.[0] && (
-        <img src={data.images ? typeof data.images == 'string' ? JSON.parse(data.images)[0] : data.images[0] : ""} alt={data.title} className="rounded-lg w-full mb-6 max-h-80 object-cover" />
+        <div className="relative w-full aspect-[1200/450] mb-6 rounded-lg overflow-hidden">
+          <Image
+            src={data.images ? (typeof data.images === 'string' ? JSON.parse(data.images)[0] : data.images[0]) : ''}
+            alt={data.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="object-cover"
+            priority
+          />
+        </div>
       )}
       {/* Title and Meta */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">

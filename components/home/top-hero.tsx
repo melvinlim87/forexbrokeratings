@@ -1,14 +1,13 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import AnimateAiToolsPanel from "@/components/ai-tools/AnimateAiToolsPanel";
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Star, Search, Loader2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import NetworkDiagram from '../network/NetworkDiagram';
 import { BrokerDetails, fetchAllBrokerDetails } from '@/lib/supabase';
 import { useDebounce } from 'use-debounce';
 import Image from 'next/image';
@@ -16,6 +15,17 @@ import Link from 'next/link';
 import { Textarea } from '../ui/textarea';
 import { useLoginModal } from '../broker/LoginModalContext';
 import LoginModal from '../ui/LoginModal';
+
+// Dynamically import heavy/below-the-fold components
+const NetworkDiagram = dynamic(() => import('../network/NetworkDiagram'), {
+  ssr: false,
+  loading: () => <div className="w-full h-72 sm:h-80 md:h-96 animate-pulse bg-gray-200/40 rounded-xl" />,
+});
+
+const AnimateAiToolsPanel = dynamic(
+  () => import('@/components/ai-tools/AnimateAiToolsPanel'),
+  { ssr: false, loading: () => <div className="w-full h-48 animate-pulse bg-gray-200/40 rounded-xl" /> }
+);
 
 interface Broker {
   id: string;

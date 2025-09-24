@@ -50,6 +50,7 @@ export default function Home() {
       }
 
       let country = await getCountry();
+      console.log(country)
       localStorage.setItem('forexbrokeratings_country', country);
       localStorage.setItem('forexbrokeratings_country_time', Date.now().toString());
     };

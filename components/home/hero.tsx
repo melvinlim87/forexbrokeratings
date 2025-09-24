@@ -149,6 +149,7 @@ export default function Hero() {
               style={{ objectFit: "cover" }}
               quality={100}
               priority
+              sizes="100vw"
             />
             <div className="absolute inset-0" />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-900/80 to-black/60" />
