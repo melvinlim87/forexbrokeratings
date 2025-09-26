@@ -68,6 +68,30 @@ export default function RootLayout({
               `}
             </Script>
             <GaListener />
+            {/* Organization JSON-LD */}
+            <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Forex Broker Ratings",
+                "url": "https://forexbrokeratings.com/",
+                "logo": "https://forexbrokeratings.com/images/forex-broker-thumbnail.jpg"
+              })}
+            </Script>
+            {/* Website JSON-LD */}
+            <Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive">
+              {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Forex Broker Ratings",
+                "url": "https://forexbrokeratings.com/",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://forexbrokeratings.com/brokers?query={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              })}
+            </Script>
           </>
         )}
         <I18nProvider>
