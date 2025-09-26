@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Star, Shield, Users, Brain } from 'lucide-react';
+  import React, { useState, useRef, useEffect } from 'react';
+  import { motion } from 'framer-motion';
+  import { Star, Shield, Users, Brain } from 'lucide-react';
+  import { useI18n } from '@/lib/i18n-client';
 
 interface Feature {
   icon: JSX.Element;
@@ -14,53 +15,54 @@ interface Feature {
   connections: { to: number; type: 'horizontal' | 'vertical' }[];
 }
 
-const features: Feature[] = [
-  {
-    icon: <Star className="h-6 w-6" />,
-    title: "200+ Brokers",
-    description: "Comprehensive analysis of top forex brokers",
-    gradient: "from-purple-500 via-blue-500 to-cyan-500",
-    x: 270,
-    y: 50,
-    connections: [
-      { to: 1, type: 'horizontal' },
-      { to: 2, type: 'vertical' }
-    ]
-  },
-  {
-    icon: <Shield className="h-6 w-6" />,
-    title: "Trusted Ratings",
-    description: "Trusted By More Than 100,000 Traders Worldwide",
-    gradient: "from-blue-500 via-cyan-500 to-purple-500",
-    x: 770,
-    y: 50,
-    connections: [
-      { to: 3, type: 'vertical' }
-    ]
-  },
-  {
-    icon: <Users className="h-6 w-6" />,
-    title: "Brokers Mediation Centre",
-    description: "A place for brokers and traders to mediate complaints",
-    gradient: "from-cyan-500 via-purple-500 to-blue-500",
-    x: 270,
-    y: 250,
-    connections: [
-      { to: 3, type: 'horizontal' }
-    ]
-  },
-  {
-    icon: <Brain className="h-6 w-6" />,
-    title: "AI Trading Analyser",
-    description: "AI-powered analysis of trading charts",
-    gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    x: 770,
-    y: 250,
-    connections: []
-  }
-];
-
 export default function NetworkDiagram() {
+  const { t } = useI18n();
+  const features: Feature[] = [
+    {
+      icon: <Star className="h-6 w-6" />,
+      title: t('network.diagram.brokers.title'),
+      description: t('network.diagram.brokers.desc'),
+      gradient: "from-purple-500 via-blue-500 to-cyan-500",
+      x: 270,
+      y: 50,
+      connections: [
+        { to: 1, type: 'horizontal' },
+        { to: 2, type: 'vertical' }
+      ]
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: t('network.diagram.trusted.title'),
+      description: t('network.diagram.trusted.desc'),
+      gradient: "from-blue-500 via-cyan-500 to-purple-500",
+      x: 770,
+      y: 50,
+      connections: [
+        { to: 3, type: 'vertical' }
+      ]
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: t('network.diagram.mediation.title'),
+      description: t('network.diagram.mediation.desc'),
+      gradient: "from-cyan-500 via-purple-500 to-blue-500",
+      x: 270,
+      y: 250,
+      connections: [
+        { to: 3, type: 'horizontal' }
+      ]
+    },
+    {
+      icon: <Brain className="h-6 w-6" />,
+      title: t('network.diagram.ai.title'),
+      description: t('network.diagram.ai.desc'),
+      gradient: "from-emerald-500 via-teal-500 to-cyan-500",
+      x: 770,
+      y: 250,
+      connections: []
+    }
+  ];
+  
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerSize, setContainerSize] = useState({ width: 1000, height: 350 });

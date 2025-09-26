@@ -692,5 +692,14 @@
   "home.ai_panel.prompts.best_environment":  "最佳环境",
   "home.ai_panel.prompts.best_ux":  "最佳用户体验",
   "home.ai_panel.prompts.most_regulated":  "最受监管",
-  "home.ai_panel.placeholder":  "开始输入以获取个性化交易见解和建议"
+  "home.ai_panel.placeholder":  "开始输入以获取个性化交易见解和建议",
+  "network.diagram.brokers.title": "200+ 家经纪商",
+  "network.diagram.brokers.desc": "对顶级外汇经纪商进行全面分析",
+  "network.diagram.trusted.title": "可信评分",
+  "network.diagram.trusted.desc": "获得全球超过 100,000 名交易者的信赖",
+  "network.diagram.mediation.title": "经纪商调解中心",
+  "network.diagram.mediation.desc": "为经纪商与交易者提供纠纷调解的平台",
+  "network.diagram.ai.title": "AI 交易分析器",
+  "network.diagram.ai.desc": "由 AI 驱动的交易图表分析"
+
 }

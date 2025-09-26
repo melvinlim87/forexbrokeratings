@@ -643,5 +643,13 @@
     "home.ai_panel.prompts.best_environment":  "Best environment",
     "home.ai_panel.prompts.best_ux":  "Best UX",
     "home.ai_panel.prompts.most_regulated":  "Most regulated",
-    "home.ai_panel.placeholder":  "Start typing to get personalized trading insights and recommendations from AI"
+    "home.ai_panel.placeholder":  "Start typing to get personalized trading insights and recommendations from AI",
+    "network.diagram.brokers.title": "200+ Brokers",
+    "network.diagram.brokers.desc": "Comprehensive analysis of top forex brokers",
+    "network.diagram.trusted.title": "Trusted Ratings",
+    "network.diagram.trusted.desc": "Trusted by more than 100,000 traders worldwide",
+    "network.diagram.mediation.title": "Brokers Mediation Centre",
+    "network.diagram.mediation.desc": "A place for brokers and traders to mediate complaints",
+    "network.diagram.ai.title": "AI Trading Analyser",
+    "network.diagram.ai.desc": "AI-powered analysis of trading charts"  
 }

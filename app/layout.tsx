@@ -7,6 +7,7 @@ import Footer from '@/components/layout/footer';
 import { AppProviders } from './providers';
 import { I18nProvider } from '@/lib/i18n-client';
 import Script from 'next/script';
+import GaListener from '@/components/analytics/GaListener';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,8 +21,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://forexbrokeratings.com',
     title: 'Top Forex Broker Reviews & Ratings 2025',
-    description:
-      'Explore unbiased Forex broker ratings, user reviews, and in-depth analysis of trading platforms, regulations, and more.',
+    description: 'Explore unbiased Forex broker ratings, user reviews, and in-depth analysis of trading platforms, regulations, and more.',
     images: [
       {
         url: 'https://forexbrokeratings.com/images/forex-broker-thumbnail.jpg',
@@ -53,7 +53,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* Google Analytics 4 */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
@@ -68,6 +67,7 @@ export default function RootLayout({
                 gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
               `}
             </Script>
+            <GaListener />
           </>
         )}
         <I18nProvider>
@@ -81,9 +81,7 @@ export default function RootLayout({
               <div className="flex min-h-screen flex-col">
                 <Header />
                 <main className="flex-1">
-                  <div>
-                    {children}
-                  </div>
+                  <div>{children}</div>
                 </main>
                 <Footer />
               </div>
