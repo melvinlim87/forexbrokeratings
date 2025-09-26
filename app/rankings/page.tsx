@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Award, ArrowRight, ArrowUpRight, Shield, TrendingUp, ChevronDown } from 'lucide-react';
@@ -9,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { fetchAllBrokerDetails } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
 // Fallback data in case Supabase fetch fails
 const rankedBrokers = [
@@ -57,6 +57,7 @@ const rankedBrokers = [
 ];
 
 export default function RankingsPage() {
+  const {t} = useI18n();
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [brokers, setBrokers] = useState<any[]>([]);
@@ -164,26 +165,26 @@ export default function RankingsPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Top Rated Forex Brokers</h1>
-        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Comprehensive rankings of the best forex brokers based on our detailed analysis and evaluation criteria.</h2>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">{t('rankings.hero_title')}</h1>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">{t('rankings.hero_subtitle')}</h2>
       </header>
 
       <div className="container mx-auto px-4 py-12">
         {loading ? (
           <div className="flex justify-center items-center py-12">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
-            <p className="ml-4 text-gray-600 dark:text-gray-400">Loading broker rankings...</p>
+            <p className="ml-4 text-gray-600 dark:text-gray-400">{t('rankings.loading')}</p>
           </div>
         ) : error ? (
           <div className="text-center py-12">
             <p className="text-red-500">{error}</p>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">Showing fallback data instead.</p>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">{t('rankings.showing_fallback')}</p>
           </div>
         ) : (
           <div className="space-y-8">
             {!loading && brokers.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-600 dark:text-gray-400">No brokers found.</p>
+                <p className="text-gray-600 dark:text-gray-400">{t('rankings.no_brokers')}</p>
               </div>
             )}
             {(() => {
@@ -219,7 +220,7 @@ export default function RankingsPage() {
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
                               <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
-                              <span className="text-xs text-gray-400">Rating</span>
+                              <span className="text-xs text-gray-400">{t('rankings.rating')}</span>
                             </div>
                           </div>
                           {/* Divider */}
@@ -231,13 +232,13 @@ export default function RankingsPage() {
                             onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
                             aria-expanded={openAccordion === `info-${broker.rank}`}
                           >
-                            <span className='text-sm md:text-lg'>Regulators & Platforms</span>
+                            <span className='text-sm md:text-lg'>{t('rankings.regulators_platforms')}</span>
                             <ChevronDown className={`ml-2 transition-transform ${openAccordion === `info-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
                           </Button>
                           {openAccordion === `info-${broker.rank}` && (
                             <div className="flex flex-wrap md:flex-nowrap gap-2 items-center justify-between">
                               <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
-                                <span className="text-xs font-semibold text-gray-500">Regulators</span>
+                                <span className="text-xs font-semibold text-gray-500">{t('common.regulators')}</span>
                                 <div className="flex flex-wrap gap-1 mt-1">
                                   {broker.regulators?.map((reg: string, i: number) => (
                                     <span key={i} className="bg-cyan-50 text-cyan-800 px-2 py-0.5 rounded text-xs font-medium border border-cyan-300" style={{borderRadius: '1.25rem'}}>{reg}</span>
@@ -245,7 +246,7 @@ export default function RankingsPage() {
                                 </div>
                               </div>
                               <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
-                                <span className="text-xs font-semibold text-gray-500">Platforms</span>
+                                <span className="text-xs font-semibold text-gray-500">{t('common.platforms')}</span>
                                 <div className="flex flex-wrap gap-1 mt-1">
                                   {broker.tradingPlatforms?.map((platform: string, i: number) => (
                                     <span key={i} className="bg-blue-50 text-blue-800 px-2 py-0.5 rounded text-xs font-medium border border-blue-200" style={{borderRadius: '1.25rem'}}>{platform}</span>
@@ -261,7 +262,7 @@ export default function RankingsPage() {
                             onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
                             aria-expanded={openAccordion === `proscons-${broker.rank}`}
                           >
-                            <span className='text-sm md:text-lg'>Pros & Cons</span>
+                            <span className='text-sm md:text-lg'>{t('rankings.pros_cons')}</span>
                             <ChevronDown className={`ml-2 transition-transform ${openAccordion === `proscons-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
                           </Button>
                           {openAccordion === `proscons-${broker.rank}` && (
@@ -327,13 +328,13 @@ export default function RankingsPage() {
                             onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
                             aria-expanded={openAccordion === `info-${broker.rank}`}
                           >
-                            <span className='text-sm md:text-lg'>Regulators & Platforms</span>
+                            <span className='text-sm md:text-lg'>{t('rankings.regulators_platforms')}</span>
                             <ChevronDown className={`ml-2 transition-transform ${openAccordion === `info-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
                           </Button>
                           {openAccordion === `info-${broker.rank}` && (
                             <div className="flex flex-wrap md:flex-nowrap gap-2 items-center justify-between">
                               <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
-                                <span className="text-xs font-semibold text-gray-500">Regulators</span>
+                                <span className="text-xs font-semibold text-gray-500">{t('common.regulators')}</span>
                                 <div className="flex flex-wrap gap-1 mt-1">
                                   {broker.regulators?.map((reg: string, i: number) => (
                                     <span key={i} className="bg-cyan-50 text-cyan-800 px-2 py-0.5 rounded text-xs font-medium border border-cyan-300" style={{borderRadius: '1.25rem'}}>{reg}</span>
@@ -341,7 +342,7 @@ export default function RankingsPage() {
                                 </div>
                               </div>
                               <div className="flex flex-col gap-1 w-full md:w-1/2 basis-1/2">
-                                <span className="text-xs font-semibold text-gray-500">Platforms</span>
+                                <span className="text-xs font-semibold text-gray-500">{t('common.platforms')}</span>
                                 <div className="flex flex-wrap gap-1 mt-1">
                                   {broker.tradingPlatforms?.map((platform: string, i: number) => (
                                     <span key={i} className="bg-blue-50 text-blue-800 px-2 py-0.5 rounded text-xs font-medium border border-blue-200" style={{borderRadius: '1.25rem'}}>{platform}</span>
@@ -357,13 +358,13 @@ export default function RankingsPage() {
                             onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
                             aria-expanded={openAccordion === `proscons-${broker.rank}`}
                           >
-                            <span className='text-sm md:text-lg'>Pros & Cons</span>
+                            <span className='text-sm md:text-lg'>{t('rankings.pros_cons')}</span>
                             <ChevronDown className={`ml-2 transition-transform ${openAccordion === `proscons-${broker.rank}` ? 'rotate-180' : ''}`} size={16} />
                           </Button>
                           {openAccordion === `proscons-${broker.rank}` && (
                             <div className="flex flex-col md:flex-row gap-4 w-full">
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">Pros</span>
+                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">{t('rankings.pros')}</span>
                                 <ul className="list-disc list-inside text-xs text-green-700 dark:text-green-300 mt-1 space-y-0.5">
                                   {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
                                     <li key={i}>{pro}</li>
@@ -371,7 +372,7 @@ export default function RankingsPage() {
                                 </ul>
                               </div>
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">Cons</span>
+                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">{t('rankings.cons')}</span>
                                 <ul className="list-disc list-inside text-xs text-red-700 dark:text-red-300 mt-1 space-y-0.5">
                                   {broker.cons?.slice(0, 3).map((con: string, i: number) => (
                                     <li key={i}>{con}</li>
@@ -397,7 +398,7 @@ export default function RankingsPage() {
             
             {!loading && !loadingMore && !hasMore && brokers.length > 0 && (
               <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                You've reached the end of the list
+                {t('rankings.reached_end_of_list')}
               </div>
             )}
           </div>

@@ -5,56 +5,57 @@ import { Layers, TrendingUp, Shield, Zap, Users, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
-const trustFeatures = [
-  {
-    icon: <Shield className="h-8 w-8 text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30 p-1 rounded-full" />, // Unbiased & Transparent
-    badge: {
-      text: '100% Independent',
-      className: 'bg-cyan-300 text-black dark:bg-cyan-800 dark:text-black',
-    },
-    title: 'Unbiased & Transparent',
-    description: 'Independent analysis with no broker partnerships. Our ratings are based purely on performance data, regulatory compliance, and verified user feedback.',
-    checklist: [
-      'No affiliate bias',
-      'Transparent methodology',
-      'Public rating criteria',
-    ],
-  },
-  {
-    icon: <Layers className="h-8 w-8 text-purple-500 bg-purple-100 dark:bg-purple-900/30 p-1 rounded-full" />, // Real-Time Market Data
-    badge: {
-      text: '24/7 Monitoring',
-      className: 'bg-purple-300 text-black dark:bg-purple-800 dark:text-black',
-    },
-    title: 'Real-Time Market Data',
-    description: 'Live spreads, execution speeds, and slippage data updated every 15 minutes from institutional-grade APIs and direct broker feeds.',
-    checklist: [
-      'Live spread tracking',
-      'Execution analysis',
-      'Performance metrics',
-    ],
-  },
-  {
-    icon: <Users className="h-8 w-8 text-green-600 bg-green-100 dark:bg-green-900/30 p-1 rounded-full" />, // Verified Community
-    badge: {
-      text: '50k+ Reviews',
-      className: 'bg-green-300 text-black dark:bg-green-800 dark:text-black',
-    },
-    title: 'Verified Community',
-    description: 'Authentic reviews from verified traders with account verification. Every review undergoes multi-layer validation to ensure authenticity.',
-    checklist: [
-      'Account verification',
-      'Anti-spam protection',
-      'Moderated feedback',
-    ],
-  },
-
-];
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 import { useState } from 'react';
 
 export default function TrustedBySection() {
+  const { t } = useI18n();
+  const trustFeatures = [
+    {
+      icon: <Shield className="h-8 w-8 text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30 p-1 rounded-full" />, // Unbiased & Transparent
+      badge: {
+        text: t('home.trusted.features.0.badge'),
+        className: 'bg-cyan-300 text-black dark:bg-cyan-800 dark:text-black',
+      },
+      title: t('home.trusted.features.0.title'),
+      description: t('home.trusted.features.0.description'),
+      checklist: [
+        t('home.trusted.features.0.check1'),
+        t('home.trusted.features.0.check2'),
+        t('home.trusted.features.0.check3'),
+      ],
+    },
+    {
+      icon: <Layers className="h-8 w-8 text-purple-500 bg-purple-100 dark:bg-purple-900/30 p-1 rounded-full" />, // Real-Time Market Data
+      badge: {
+        text: t('home.trusted.features.1.badge'),
+        className: 'bg-purple-300 text-black dark:bg-purple-800 dark:text-black',
+      },
+      title: t('home.trusted.features.1.title'),
+      description: t('home.trusted.features.1.description'),
+      checklist: [
+        t('home.trusted.features.1.check1'),
+        t('home.trusted.features.1.check2'),
+        t('home.trusted.features.1.check3'),
+      ],
+    },
+    {
+      icon: <Users className="h-8 w-8 text-green-600 bg-green-100 dark:bg-green-900/30 p-1 rounded-full" />, // Verified Community
+      badge: {
+        text: t('home.trusted.features.2.badge'),
+        className: 'bg-green-300 text-black dark:bg-green-800 dark:text-black',
+      },
+      title: t('home.trusted.features.2.title'),
+      description: t('home.trusted.features.2.description'),
+      checklist: [
+        t('home.trusted.features.2.check1'),
+        t('home.trusted.features.2.check2'),
+        t('home.trusted.features.2.check3'),
+      ],
+    },
+  ];
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 w-full">
@@ -67,7 +68,7 @@ export default function TrustedBySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Why Traders Trust Our Ratings
+            <T k="home.trusted.title" />
           </motion.h2>
           <motion.p 
             className="mt-4 text-lg text-gray-600 dark:text-gray-400"
@@ -76,7 +77,7 @@ export default function TrustedBySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Our rigorous evaluation process ensures you get honest, accurate broker information.
+            <T k="home.trusted.subtitle" />
           </motion.p>
         </div>
         
@@ -106,7 +107,7 @@ export default function TrustedBySection() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
                   <p className="text-gray-600 mb-4 line-clamp-3">{feature.description}</p>
                   <div className="space-y-2 mt-auto">
-                    <h4 className="text-sm font-medium text-gray-700">Highlights:</h4>
+                    <h4 className="text-sm font-medium text-gray-700"><T k="home.trusted.highlights" /></h4>
                     <ul className="space-y-1">
                       {feature.checklist?.map((item, i) => (
                         <li key={i} className="flex items-start text-sm">

@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { Textarea } from '../ui/textarea';
 import { useLoginModal } from '../broker/LoginModalContext';
 import LoginModal from '../ui/LoginModal';
+import { useI18n } from '@/lib/i18n-client';
 
 // Dynamically import heavy/below-the-fold components
 const NetworkDiagram = dynamic(() => import('../network/NetworkDiagram'), {
@@ -43,6 +44,7 @@ export default function TopHero() {
   const [opacityRange, setOpacityRange] = useState([0, 300]);
   const opacity = useTransform(scrollY, [0, opacityRange[1]], [1, 0]);
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const { t } = useI18n();
   
   useEffect(() => {
     function handleResize() {
@@ -117,7 +119,7 @@ export default function TopHero() {
   };
 
   // --- AI typewriter effect for Textarea ---
-  const aiMessage = React.useMemo(() => "Hello, I am your AI Analyzer for your broker ", []);
+  const aiMessage = React.useMemo(() => t('ai.analyzer.greeting'), [t]);
   const [aiTypedMessage, setAiTypedMessage] = useState("");
   const aiResultRef = useRef<HTMLTextAreaElement>(null);
   const [aiResultHeight, setAiResultHeight] = useState<string | number>('auto');
@@ -159,7 +161,7 @@ export default function TopHero() {
       return;
     }
     setLoading(true)
-    setAiTypedMessage("Analysing...")
+    setAiTypedMessage(t('ai.analyzer.analysing'))
     const res = await fetch('/api/aitools', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.jwt}` },
@@ -170,7 +172,7 @@ export default function TopHero() {
     setLoading(false)
     let message = data.result
     if (message.length === 0) {
-      return setAiTypedMessage("No result found")
+      return setAiTypedMessage(t('ai.analyzer.no_result'))
     }
     let i = 0;
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -318,7 +320,7 @@ export default function TopHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Forex Broker Ratings
+            {t('home.top_hero.title')}
           </motion.h1>
           
           <motion.p 
@@ -328,7 +330,7 @@ export default function TopHero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             style={{ marginBottom: '3rem' }}
           >
-            The Aggregated Forex Broker Ratings Across All Rating Platforms
+            {t('home.top_hero.subtitle')}
           </motion.p>
           
           <NetworkDiagram />

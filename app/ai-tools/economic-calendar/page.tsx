@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { useI18n } from '@/lib/i18n-client';
+ 
 
 type Timezone = {
   value: string;
@@ -73,6 +75,7 @@ function sanitizeHtml(input: string): string {
 }
 
 export default function EconomicCalendarPage() {
+  const { t } = useI18n();
   const [data, setData] = useState<EconomicCalendar[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -345,20 +348,21 @@ export default function EconomicCalendarPage() {
 
   return (
     <div className="space-y-6">
+      
       {/* Calendar Filter Component */}
       <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 overflow-hidden">
         {/* Quick Navigation */}
         <div className="px-4 sm:px-6 py-3 border-b border-slate-200 dark:border-slate-700 flex flex-wrap items-center gap-2 text-sm">
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={navigateToYesterday}>Yesterday</Button>
-            <Button variant="ghost" size="sm" onClick={navigateToToday}>Today</Button>
-            <Button variant="ghost" size="sm" onClick={navigateToTomorrow}>Tomorrow</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToYesterday}>{t('calendar.yesterday')}</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToToday}>{t('calendar.today')}</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToTomorrow}>{t('calendar.tomorrow')}</Button>
           </div>
           <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1" />
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={navigateToLastWeek}>Last Week</Button>
-            <Button variant="ghost" size="sm" onClick={navigateToToday}>This Week</Button>
-            <Button variant="ghost" size="sm" onClick={navigateToNextWeek}>Next Week</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToLastWeek}>{t('calendar.last_week')}</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToToday}>{t('calendar.this_week')}</Button>
+            <Button variant="ghost" size="sm" onClick={navigateToNextWeek}>{t('calendar.next_week')}</Button>
           </div>
         </div>
 
@@ -376,7 +380,7 @@ export default function EconomicCalendarPage() {
                 }}
               >
                 <SelectTrigger className="w-[180px] h-8 border-0 shadow-none p-0">
-                  <SelectValue placeholder="Select timezone" />
+                  <SelectValue placeholder={t('calendar.select_timezone')} />
                 </SelectTrigger>
                 <SelectContent>
                   {timezones.map((tz) => (
@@ -396,18 +400,18 @@ export default function EconomicCalendarPage() {
               className="w-[180px]"
             >
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="week">Week</TabsTrigger>
-                <TabsTrigger value="day">Day</TabsTrigger>
+                <TabsTrigger value="week">{t('calendar.week')}</TabsTrigger>
+                <TabsTrigger value="day">{t('calendar.day')}</TabsTrigger>
               </TabsList>
             </Tabs>
 
             <Button variant="outline" size="sm" className="gap-2">
               <SlidersHorizontal className="h-4 w-4" />
-              <span>Filters</span>
+              <span>{t('calendar.filters')}</span>
             </Button>
             <Button variant="outline" size="sm" className="gap-2">
               <Search className="h-4 w-4" />
-              <span>Search</span>
+              <span>{t('calendar.search')}</span>
             </Button>
           </div>
         </div>
@@ -449,7 +453,7 @@ export default function EconomicCalendarPage() {
                     <span className="text-sm font-medium mt-1">{dayNum}</span>
                     {isToday(date) && (
                       <span className="text-[10px] text-blue-500 dark:text-blue-400 mt-1">
-                        TODAY
+                        {t('calendar.today_badge')}
                       </span>
                     )}
                   </button>
@@ -472,7 +476,7 @@ export default function EconomicCalendarPage() {
       {/* Calendar Content */}
       {filteredData.length === 0 ? (
         <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 text-center text-slate-600 dark:text-slate-300">
-          No economic events found for the selected {view}.
+          {t('calendar.no_events_for_view')}
         </div>
       ) : (
         <div className="space-y-8">
@@ -495,10 +499,10 @@ export default function EconomicCalendarPage() {
                         {day}
                       </h2>
                     </div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-center">Impact</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">Actual</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">Forecast</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">Previous</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-center">{t('calendar.impact')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.actual')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.forecast')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.previous')}</div>
                   </div>
                 </header>
 
@@ -533,21 +537,21 @@ export default function EconomicCalendarPage() {
                             <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                               <div className="space-y-4">
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">Measures</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.measures')}</div>
                                   <div 
                                     className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).measures || '') }}
                                   />
                                 </div>
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">Usual Effect</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.usual_effect')}</div>
                                   <div 
                                     className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).usual_effect || '') }}
                                   />
                                 </div>
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">Why Traders Care</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.why_traders_care')}</div>
                                   <div 
                                     className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).traders_care || '') }}
@@ -556,7 +560,7 @@ export default function EconomicCalendarPage() {
                                 {/* hide the notes if notes is null */}
                                 {item.notes && (
                                   <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                    <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">Notes</div>
+                                    <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.notes')}</div>
                                     <div 
                                       className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
                                       dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).notes || '') }}

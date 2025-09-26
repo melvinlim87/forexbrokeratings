@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { motion } from 'framer-motion';
+import { useI18n } from '@/lib/i18n-client';
 
 export interface BrokerListItem {
   id?: number;
@@ -45,6 +46,7 @@ interface Props {
 }
 
 export default function BrokersListClient({ initialBrokers }: Props) {
+  const { t } = useI18n();
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState<'rating' | 'minDeposit' | 'name'>('rating');
   const [minDepositFilter, setMinDepositFilter] = useState<'all' | 'under50' | 'under100' | 'under200' | 'over200'>('all');
@@ -92,7 +94,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
         <div className="relative mx-auto mb-12">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
           <Input
-            placeholder="Search brokers by name..."
+            placeholder={t('search.search_brokers')}
             className="pl-10 py-6 bg-white dark:bg-gray-800"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -103,11 +105,11 @@ export default function BrokersListClient({ initialBrokers }: Props) {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <p className="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
-            Showing {sortedBrokers.length} brokers{' '}
-            {minDepositFilter !== 'all' && ' with filtered minimum deposit'}
-            {regulationFilter !== 'all' && ` regulated by ${regulationFilter}`}
-            {searchTerm && ` matching "${searchTerm}"`}. Sorted by{' '}
-            {sortOption === 'rating' ? 'highest rating' : sortOption === 'minDeposit' ? 'lowest minimum deposit' : 'broker name'}
+            {t('brokers.labels.showing')} {sortedBrokers.length} {t('brokers.labels.brokers')}
+            {minDepositFilter !== 'all' && ' · ' + t('brokers.filters.min_deposit')}
+            {regulationFilter !== 'all' && ' · ' + t('brokers.filters.regulation') + ' ' + String(regulationFilter).toUpperCase()}
+            {searchTerm && ` · ${t('brokers.labels.matching')} "${searchTerm}"`} · {t('brokers.labels.sorted_by')} {' '}
+            {sortOption === 'rating' ? t('brokers.sort.highest_rating') : sortOption === 'minDeposit' ? t('brokers.sort.lowest_min_deposit') : t('brokers.sort.name_az')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -115,34 +117,34 @@ export default function BrokersListClient({ initialBrokers }: Props) {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="flex items-center">
                   <Filter className="h-4 w-4 mr-2" />
-                  Filter
+                  {t('brokers.filters.min_deposit')}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <div className="p-2">
-                  <p className="text-sm font-medium mb-2">Minimum Deposit</p>
+                  <p className="text-sm font-medium mb-2">{t('brokers.filters.min_deposit')}</p>
                   <Select value={minDepositFilter} onValueChange={setMinDepositFilter as any}>
                     <SelectTrigger>
-                      <SelectValue placeholder="All" />
+                      <SelectValue placeholder={t('brokers.filters.all')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All</SelectItem>
-                      <SelectItem value="under50">Under $50</SelectItem>
-                      <SelectItem value="under100">Under $100</SelectItem>
-                      <SelectItem value="under200">Under $200</SelectItem>
-                      <SelectItem value="over200">Over $200</SelectItem>
+                      <SelectItem value="all">{t('brokers.filters.all')}</SelectItem>
+                      <SelectItem value="under50">{t('brokers.filters.under50')}</SelectItem>
+                      <SelectItem value="under100">{t('brokers.filters.under100')}</SelectItem>
+                      <SelectItem value="under200">{t('brokers.filters.under200')}</SelectItem>
+                      <SelectItem value="over200">{t('brokers.filters.over200')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="p-2 border-t">
-                  <p className="text-sm font-medium mb-2">Regulation</p>
+                  <p className="text-sm font-medium mb-2">{t('brokers.filters.regulation')}</p>
                   <Select value={regulationFilter} onValueChange={setRegulationFilter as any}>
                     <SelectTrigger>
-                      <SelectValue placeholder="All" />
+                      <SelectValue placeholder={t('brokers.filters.all')} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">All</SelectItem>
+                      <SelectItem value="all">{t('brokers.filters.all')}</SelectItem>
                       <SelectItem value="fca">FCA</SelectItem>
                       <SelectItem value="cysec">CySEC</SelectItem>
                       <SelectItem value="asic">ASIC</SelectItem>
@@ -157,21 +159,21 @@ export default function BrokersListClient({ initialBrokers }: Props) {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="flex items-center">
                   <ArrowUpDown className="h-4 w-4 mr-2" />
-                  Sort
+                  {t('brokers.sort.sort')}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem onClick={() => setSortOption('rating')}>
                   {sortOption === 'rating' && <Check className="h-4 w-4 mr-2" />}
-                  Highest Rating
+                  {t('brokers.sort.highest_rating')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortOption('minDeposit')}>
                   {sortOption === 'minDeposit' && <Check className="h-4 w-4 mr-2" />}
-                  Lowest Minimum Deposit
+                  {t('brokers.sort.lowest_min_deposit')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortOption('name')}>
                   {sortOption === 'name' && <Check className="h-4 w-4 mr-2" />}
-                  Broker Name (A-Z)
+                  {t('brokers.sort.name_az')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -217,12 +219,12 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
                   <div className="md:col-span-2 lg:col-span-3 p-4 md:p-6">
                     <div className="mb-4">
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Description</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.description')}</p>
                       <p className="text-sm text-gray-700 dark:text-gray-300">{broker.description}</p>
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Regulators</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.regulators')}</p>
                       <div className="flex flex-wrap gap-2">
                         {broker.regulations.map((reg, idx) => (
                           <span key={idx} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{ borderRadius: '1.25rem' }}>
@@ -233,7 +235,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
 
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Trading Platforms</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.trading_platforms')}</p>
                       <div className="flex flex-wrap gap-2">
                         {broker.tradingPlatforms.map((p, idx) => (
                           <span key={idx} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{ borderRadius: '1.25rem' }}>
@@ -246,7 +248,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:hidden">
                     <div>
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Pros</p>
+                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.pros')}</p>
                       <ul className="space-y-1">
                         {broker.pros.slice(0, 3).map((pro, i) => (
                           <li key={i} className="flex items-start text-sm">
@@ -260,7 +262,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
 
                     <div>
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Cons</p>
+                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.cons')}</p>
                       <ul className="space-y-1">
                         {broker.cons.slice(0, 3).map((con, i) => (
                           <li key={i} className="flex items-start text-sm">
@@ -276,18 +278,18 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
                   <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800">
                     <div className="mb-3 text-center md:text-right">
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Min. Deposit</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{t('brokers.card.min_deposit')}</p>
                       <p className="text-lg font-semibold text-gray-900 dark:text-white">{broker.minDeposit}</p>
                     </div>
 
                     <div className="space-y-2 w-full">
                       <Button className="w-full" asChild>
-                        <a href={broker.website || '#'} target="_blank" rel="noopener noreferrer" className="block w-full text-center py-3 mt-2 rounded-lg font-bold text-lg bg-gradient-to-r bg-gradient-to-br from-gray-700 to-gray-900 text-white shadow hover:brightness-110 transition">
-                          Visit {broker.name}
+                        <a href={broker.website || '#'} target="_blank" rel="noopener noreferrer nofollow" className="block w-full text-center py-3 mt-2 rounded-lg font-bold text-lg bg-gradient-to-r bg-gradient-to-br from-gray-700 to-gray-900 text-white shadow hover:brightness-110 transition">
+                          {t('brokers.card.visit')} {broker.name}
                         </a>
                       </Button>
                       <Button variant="outline" className="w-full" asChild>
-                        <Link href={`/broker/${broker.slug}`}>Read Review</Link>
+                        <Link href={`/broker/${broker.slug}`}>{t('brokers.card.read_review')}</Link>
                       </Button>
                     </div>
                   </div>
@@ -299,7 +301,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
         {sortedBrokers.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-lg text-gray-500 dark:text-gray-400">No brokers found matching your search criteria.</p>
+            <p className="text-lg text-gray-500 dark:text-gray-400">{t('brokers.empty.no_results')}</p>
             <Button
               variant="outline"
               className="mt-4"
@@ -309,7 +311,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                 setRegulationFilter('all');
               }}
             >
-              Clear Filters
+              {t('brokers.empty.clear_filters')}
             </Button>
           </div>
         )}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useI18n } from '@/lib/i18n-client';
 
 // ---- Types ----
 export type SessionKey = 'sydney' | 'tokyo' | 'london' | 'newyork';
@@ -103,6 +104,7 @@ export default function ForexMarketHourPage() {
   const [now, setNow] = useState<Date>(new Date());
   const [timeZone, setTimeZone] = useState<string>('Asia/Bangkok');
   const [hour12, setHour12] = useState<boolean>(false);
+  const { t } = useI18n();
 
   // Auto-update every minute
   useEffect(() => {
@@ -136,11 +138,11 @@ export default function ForexMarketHourPage() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-100">Forex Market Time Zone Converter</h1>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Choose a timezone to see session hours in your local time.</p>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-100">{t('ai.fmh.title')}</h1>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t('ai.fmh.subtitle')}</p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-slate-500">24 Hour Time</span>
+          <span className="text-xs text-slate-500">{t('ai.fmh.twentyfour')}</span>
           <button
             onClick={() => setHour12(h => !h)}
             className={`relative h-6 w-11 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-slate-300 ${hour12 ? 'bg-slate-300' : 'bg-slate-700'}`}
@@ -153,7 +155,7 @@ export default function ForexMarketHourPage() {
 
       {/* Controls */}
       <div className="mt-6 flex flex-wrap items-center gap-3">
-        <div className="text-[11px] uppercase tracking-wide text-slate-500">Time Zone</div>
+        <div className="text-[11px] uppercase tracking-wide text-slate-500">{t('ai.fmh.time_zone')}</div>
         <select
           className="h-9 rounded-md bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 ring-1 ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-slate-400 outline-none"
           value={timeZone}
@@ -163,7 +165,7 @@ export default function ForexMarketHourPage() {
             <option key={tz} value={tz}>{tz}</option>
           ))}
         </select>
-        <button className="text-xs text-slate-600 dark:text-slate-300 hover:underline" onClick={() => setTimeZone('Asia/Bangkok')}>reset</button>
+        <button className="text-xs text-slate-600 dark:text-slate-300 hover:underline" onClick={() => setTimeZone('Asia/Bangkok')}>{t('ai.fmh.reset')}</button>
       </div>
 
       {/* Hour ruler with bubble marker */}
@@ -198,7 +200,7 @@ export default function ForexMarketHourPage() {
       {/* Legend */}
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
-          <h3 className="text-sm font-semibold mb-2">Session Hours (Selected Timezone)</h3>
+          <h3 className="text-sm font-semibold mb-2">{t('ai.fmh.session_hours')}</h3>
           <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
             {runtimeSessions.map(s => (
               <li key={s.key}>
@@ -208,11 +210,11 @@ export default function ForexMarketHourPage() {
           </ul>
         </div>
         <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
-          <h3 className="text-sm font-semibold mb-2">Notes</h3>
+          <h3 className="text-sm font-semibold mb-2">{t('ai.fmh.notes')}</h3>
           <ul className="list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
-            <li>Market closed Friday 5:00 PM New York to Sunday 5:00 PM New York.</li>
-            <li>Hours use simplified UTC anchors; venues can vary with DST and liquidity.</li>
-            <li>Auto-updates every minute.</li>
+            <li>{t('ai.fmh.note_1')}</li>
+            <li>{t('ai.fmh.note_2')}</li>
+            <li>{t('ai.fmh.note_3')}</li>
           </ul>
         </div>
       </div>
@@ -264,9 +266,3 @@ function SessionRow({ session, now, timeZone, hour12 }: { session: SessionRuntim
     </div>
   );
 }
-
-// Extend tailwind grid for 24 columns via utility classes
-// If your Tailwind config doesn't include grid-cols-24, we emulate with inline style using 24 equal columns.
-// We'll provide minimal CSS via tailwind classes by composing a custom class name in JSX above: grid grid-cols-24
-// You may need to add the following to tailwind.config if not present:
-// theme: { extend: { gridTemplateColumns: { 24: 'repeat(24, minmax(0, 1fr))' } } }

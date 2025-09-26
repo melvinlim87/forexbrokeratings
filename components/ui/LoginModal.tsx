@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "@/store/slices/authSlice";
 import { RootState } from "@/store/store";
+import { useI18n } from "@/lib/i18n-client";
 
 interface LoginModalProps {
   open: boolean;
@@ -13,6 +14,7 @@ interface LoginModalProps {
 }
 
 export default function LoginModal({ open, onClose }: LoginModalProps) {
+  const { t } = useI18n();
   const user = useSelector((state: RootState) => state.auth.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
     e.preventDefault();
     setError("");
     if (!email || !password) {
-      setError("Please enter both email and password.");
+      setError(t('auth.error_enter_email_password'));
       return;
     }
     setLoading(true);
@@ -37,12 +39,12 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
         body: JSON.stringify({ email, password }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Login failed");
+      if (!res.ok) throw new Error(data.error || t('auth.login_failed'));
       data.user.jwt = data.token;
       dispatch(login(data.user));
       onClose();
     } catch (err: any) {
-      setError(err.message || "Login failed.");
+      setError(err.message || t('auth.login_failed'));
     } finally {
       setLoading(false);
     }
@@ -63,13 +65,13 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 priority
               />
             </div>
-            <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Sign in to your account</CardTitle>
+            <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">{t('auth.login_heading')}</CardTitle>
           </CardHeader>
           <CardContent className="pt-2 pb-6 px-4 md:px-6">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
                 className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Email*"
+                placeholder={t('auth.email_placeholder')}
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
@@ -78,7 +80,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
               />
               <input
                 className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                placeholder="Password*"
+                placeholder={t('auth.password_placeholder')}
                 type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
@@ -86,21 +88,21 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 autoComplete="current-password"
               />
               <div className="text-right mb-1">
-                <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-xs font-semibold transition-colors">Forgot your password?</a>
+                <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-xs font-semibold transition-colors">{t('auth.forgot_password_link')}</a>
               </div>
               {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
               <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
-                {loading ? "Logging in..." : "Login"}
+                {loading ? t('auth.logging_in') : t('auth.login')}
               </Button>
               <div className="text-center mt-2 text-sm text-muted-foreground">
-                Don&apos;t have an account?{' '}
-                <a href="/register" rel="nofollow" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
+                {t('auth.no_account')}{' '}
+                <a href="/register" rel="nofollow" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">{t('auth.register_cta')}</a>
               </div>
             </form>
             <button
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-white text-2xl font-bold focus:outline-none"
               type="button"
-              aria-label="Close login modal"
+              aria-label={t('auth.close_login_modal')}
               onClick={onClose}
             >
               &times;

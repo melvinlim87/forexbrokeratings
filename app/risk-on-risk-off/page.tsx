@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
+import { useI18n } from '@/lib/i18n-client';
 
 // Simple API route fetcher (powered by yahoo-finance2)
 // Symbols used:
@@ -71,6 +72,7 @@ function computeRiskScore(data: Record<string, Quote>): { score: number; parts: 
 }
 
 export default function RiskOnRiskOffPage() {
+  const { t } = useI18n();
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,7 +93,7 @@ export default function RiskOnRiskOffPage() {
       setQuotes(next);
       setLastUpdated(new Date());
     } catch (e: any) {
-      setError(e?.message || 'Failed to load market data');
+      setError(e?.message || t('ai.msa.error_generic'));
     } finally {
       setLoading(false);
     }
@@ -105,7 +107,7 @@ export default function RiskOnRiskOffPage() {
 
   const { score, parts } = useMemo(() => computeRiskScore(quotes), [quotes]);
 
-  const gaugeLabel = score > 58 ? 'Risk-On' : score < 42 ? 'Risk-Off' : 'Neutral';
+  const gaugeLabel = score > 58 ? t('ai.msa.risk_on') : score < 42 ? t('ai.msa.risk_off') : t('ai.msa.neutral');
 
   // When hovering an indicator card, move the gauge pointer to that indicator's contribution position
   const pointerPercent = useMemo(() => {
@@ -118,18 +120,19 @@ export default function RiskOnRiskOffPage() {
 
   return (
     <div className="space-y-8">
+      
       {/* Gauge Card */}
       <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 ">
         <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-white">
           <div className="bg-white">
-            <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100">Market Sentiment Analyzer</h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Aggregated from stocks, commodities, FX and yields</p>
+            <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.title')}</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">{t('ai.msa.subtitle')}</p>
           </div>
           <div className="flex items-center gap-3">
             {lastUpdated && (
-              <span className="text-xs text-slate-500 dark:text-slate-400">Updated {lastUpdated.toLocaleTimeString()}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400">{t('ai.msa.updated')} {lastUpdated.toLocaleTimeString()}</span>
             )}
-            <button onClick={fetchData} className="text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">Refresh</button>
+            <button onClick={fetchData} className="text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">{t('ai.msa.refresh')}</button>
           </div>
         </div>
 
@@ -141,12 +144,12 @@ export default function RiskOnRiskOffPage() {
           ) : error ? (
             <div className="text-center py-12">
               <p className="text-slate-600 dark:text-slate-300">{error}</p>
-              <button onClick={fetchData} className="mt-3 text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">Try again</button>
+              <button onClick={fetchData} className="mt-3 text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">{t('ai.msa.try_again')}</button>
             </div>
           ) : (
             <>
               {/* Horizontal gauge with neutral center */}
-              <div className="relative h-10 rounded-full overflow-hidden ring-1 ring-slate-300 dark:ring-slate-700" aria-label="Risk meter">
+              <div className="relative h-10 rounded-full overflow-hidden ring-1 ring-slate-300 dark:ring-slate-700" aria-label={t('ai.msa.risk_meter_aria')}>
                 {/* Background bands: Risk-Off (left), Neutral (center), Risk-On (right) */}
                 <div className="absolute inset-0 flex">
                   <div className="w-[45%] bg-rose-600/45 dark:bg-rose-900/70" />
@@ -163,9 +166,9 @@ export default function RiskOnRiskOffPage() {
               </div>
               {/* Labels under gauge */}
               <div className="mt-2 grid grid-cols-3 text-[11px] font-medium text-slate-600 dark:text-slate-400">
-                <div className="text-left">Risk-Off</div>
-                <div className="text-center">Neutral</div>
-                <div className="text-right">Risk-On</div>
+                <div className="text-left">{t('ai.msa.risk_off')}</div>
+                <div className="text-center">{t('ai.msa.neutral')}</div>
+                <div className="text-right">{t('ai.msa.risk_on')}</div>
               </div>
               <div className="mt-4 flex items-end gap-4">
                 <div className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100">{score}</div>
@@ -179,7 +182,7 @@ export default function RiskOnRiskOffPage() {
       {/* Indicators */}
       <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-900">
         <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800  bg-white">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">Market Sentiment Indicators</h3>
+          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.indicators_title')}</h3>
         </div>
         <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-white">
           {INDICATORS.map((ind) => {
@@ -187,7 +190,7 @@ export default function RiskOnRiskOffPage() {
             const price = q?.regularMarketPrice;
             const pct = q?.regularMarketChangePercent;
             const isUp = (pct ?? 0) >= 0;
-            const sideLabel = ind.side === 'riskon' ? 'Risk-On' : 'Risk-Off';
+            const sideLabel = ind.side === 'riskon' ? t('ai.msa.risk_on') : t('ai.msa.risk_off');
             const contrib = parts[ind.key] ?? 0; // -1..1
             const barLeft = `${((contrib + 1) / 2) * 100}%`;
             const accent = ind.side === 'riskon' ? 'emerald' : 'rose';
@@ -201,7 +204,7 @@ export default function RiskOnRiskOffPage() {
                 onFocus={() => setHoveredInd(ind.key)}
                 onBlur={() => setHoveredInd(null)}
                 tabIndex={0}
-                aria-label={`${ind.label} indicator card`}
+                aria-label={`${ind.label} ${t('ai.msa.indicator_card')}`}
               >
                 {/* Accent strip */}
                 <div className={
@@ -243,56 +246,48 @@ export default function RiskOnRiskOffPage() {
         </div>
       </section>
 
-        {/* How to use - educational content */}
+      {/* How to use - educational content */}
       <section id="how-to" className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-900">
         <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800 bg-white">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">How to use the Market Sentiment Analyzer</h3>
+          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.how_to_use_title')}</h3>
         </div>
         <div className="p-5 sm:p-6 space-y-6 text-slate-700 dark:text-slate-300  bg-white">
-          <p>
-            The meter gives a quick read on the market’s risk appetite right now. When the gauge leans to
-            <span className="font-semibold"> Risk-On</span>, traders tend to favor growth and higher‑yield assets. When it leans to
-            <span className="font-semibold"> Risk-Off</span>, capital often rotates into defensive assets and safe havens.
-          </p>
+          <p>{t('ai.msa.how_p1_part1')}<span className="font-semibold"> {t('ai.msa.risk_on')}</span>{t('ai.msa.how_p1_part2')}<span className="font-semibold"> {t('ai.msa.risk_off')}</span>{t('ai.msa.how_p1_part3')}</p>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">What “Risk-On” means</h4>
+              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.risk_on_means')}</h4>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Optimistic mood; higher willingness to take risk.</li>
-                <li>Tailwinds often include upbeat data, strong earnings, or supportive policy.</li>
-                <li>Flows tilt toward equities, oil/commodities, and higher‑beta FX like AUD.</li>
+                <li>{t('ai.msa.risk_on_li1')}</li>
+                <li>{t('ai.msa.risk_on_li2')}</li>
+                <li>{t('ai.msa.risk_on_li3')}</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">What “Risk-Off” means</h4>
+              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.risk_off_means')}</h4>
               <ul className="list-disc pl-5 space-y-1">
-                <li>More cautious mood; preference for safety and capital preservation.</li>
-                <li>Often driven by weak data, earnings misses, geopolitics, or uncertainty.</li>
-                <li>Flows tilt toward gold, USD/JPY strength, and higher Treasury yields.</li>
+                <li>{t('ai.msa.risk_off_li1')}</li>
+                <li>{t('ai.msa.risk_off_li2')}</li>
+                <li>{t('ai.msa.risk_off_li3')}</li>
               </ul>
             </div>
           </div>
 
           <div>
-            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">How to apply it</h4>
+            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.apply_title')}</h4>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Use the reading as a short‑term context tool, not a stand‑alone signal.</li>
-              <li>Align ideas with the prevailing mood (trade with, not against, sentiment).</li>
-              <li>Risk sentiment can flip day‑to‑day—reassess frequently.</li>
+              <li>{t('ai.msa.apply_li1')}</li>
+              <li>{t('ai.msa.apply_li2')}</li>
+              <li>{t('ai.msa.apply_li3')}</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">How the score is built</h4>
-            <p>
-              The score blends daily changes across a small basket of widely‑watched assets. Risk‑on assets (e.g., S&P 500, Oil, AUD/USD)
-              push the score higher when they rise; risk‑off assets (e.g., Gold, USD/JPY, US 10Y yield) pull it lower when they rise.
-              The final reading ranges from <span className="font-semibold">0</span> (maximum Risk‑Off) to <span className="font-semibold">100</span> (maximum Risk‑On).
-            </p>
+            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.score_title')}</h4>
+            <p>{t('ai.msa.score_p1_part1')} <span className="font-semibold">0</span> {t('ai.msa.score_p1_part2')} <span className="font-semibold">100</span> {t('ai.msa.score_p1_part3')}</p>
           </div>
 
-          <p className="text-xs text-slate-500 dark:text-slate-400">Tip: If you’re unsure how much a trade idea depends on broad risk appetite, glance at the meter first and make sure your plan fits the current mood.</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{t('ai.msa.tip')}</p>
         </div>
       </section>          
     </div>

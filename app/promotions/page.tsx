@@ -14,6 +14,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 // Type for broker promotion
 export interface BrokerPromotion {
@@ -72,6 +74,7 @@ const defaultCategories = [
 ];
 
 export default function PromotionsPage() {
+  const { t } = useI18n();
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,7 +94,7 @@ export default function PromotionsPage() {
         setAllPromotions(allPromosRaw);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load promotions. Please try again later.');
+        setError(t('promotions.failed_to_load'));
         setLoading(false);
       }
     };
@@ -156,7 +159,7 @@ export default function PromotionsPage() {
       <div className="container mx-auto px-4 py-8">
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Error</AlertTitle>
+          <AlertTitle><T k="promotions.error" /></AlertTitle>
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       </div>
@@ -166,8 +169,8 @@ export default function PromotionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Forex Broker Promotions</h1>
-        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Discover the latest promotions, bonuses, and special offers from top forex brokers.</h2>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow"><T k="promotions.title" /></h1>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto"><T k="promotions.subtitle" /></h2>
       </header>
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
@@ -177,7 +180,7 @@ export default function PromotionsPage() {
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search promotions by broker, offer, or keyword..."
+              placeholder={t('promotions.search_placeholder')}
               className="w-full pl-10 pr-4 py-6 text-base"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -190,7 +193,7 @@ export default function PromotionsPage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center">
               <Sparkles className="h-5 w-5 mr-2 text-amber-500" />
-              Featured Promotions
+              <T k="promotions.featured_title" />
             </h2>
           </div>
           {loading ? (
@@ -234,7 +237,7 @@ export default function PromotionsPage() {
                   <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
                     {/* Powered by section */}
                     <div className="flex items-center rounded-xl px-3 py-2">
-                      <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                      <span className="text-xs text-gray-500 mr-2"><T k="promotions.powered_by" /></span>
                       <img
                         src={promo.broker_details?.logo || '/assets/images/default-broker-logo.png'}
                         alt={promo.broker_details?.name || 'Broker'}
@@ -253,7 +256,7 @@ export default function PromotionsPage() {
                       <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
                         <TimerIcon className="h-4 w-4 text-gray-400" />
                         <span className="text-gray-500 text-xs font-medium">
-                          Valid Till: <br />
+                          <T k="promotions.valid_till" /> <br />
                           {promo.valid_till
                             ? new Date(promo.valid_till).toLocaleDateString('en-US', {
                                 year: 'numeric',
@@ -327,13 +330,13 @@ export default function PromotionsPage() {
                     }
                     style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                   >
-                    View details
+                    <T k="promotions.view_details" />
                   </a>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-muted-foreground">No featured promotions available at the moment.</p>
+            <p className="text-muted-foreground"><T k="promotions.no_featured" /></p>
           )}
         </section>
 
@@ -342,7 +345,7 @@ export default function PromotionsPage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center">
               <Gift className="h-5 w-5 mr-2 text-purple-500" />
-              All Promotions
+              <T k="promotions.all_title" />
             </h2>
           </div>
           {loading ? (
@@ -405,7 +408,7 @@ export default function PromotionsPage() {
                       <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
                         <TimerIcon className="h-4 w-4 text-gray-400" />
                         <span className="text-gray-500 text-xs font-medium">
-                          Valid Till: <br />
+                          <T k="promotions.valid_till" /> <br />
                           {promo.valid_till
                             ? new Date(promo.valid_till).toLocaleDateString('en-US', {
                               year: 'numeric',
@@ -463,13 +466,13 @@ export default function PromotionsPage() {
                     }
                     style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                   >
-                    View details
+                    <T k="promotions.view_details" />
                   </a>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-muted-foreground">No promotions available at the moment.</p>
+            <p className="text-muted-foreground"><T k="promotions.no_promotions" /></p>
           )}
         </section>
       </div>

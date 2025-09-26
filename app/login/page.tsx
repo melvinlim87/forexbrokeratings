@@ -9,12 +9,14 @@ import { useDispatch } from 'react-redux';
 import { login } from '@/store/slices/authSlice';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-
+import { useI18n } from '@/lib/i18n-client';
+ 
 
 export default function LoginPage() {
   const router = useRouter();
   const user = useSelector((state: RootState) => state.auth.user);
-  // if user logged in, redirect to home page
+  const { t } = useI18n();
+
   useEffect(() => {
     if (user) {
       router.push('/');
@@ -33,7 +35,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     if (!email || !password) {
-      setError('Please enter both email and password.');
+      setError(t('auth.error_enter_email_password'));
       return;
     }
     setLoading(true);
@@ -44,84 +46,84 @@ export default function LoginPage() {
         body: JSON.stringify({ email, password }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Login failed');
-      // add jwt token to user
+      if (!res.ok) throw new Error(data.error || t('auth.login_failed'));
       let user = data.user;
-      // save user to redux
       user.jwt = data.token;
       user.user_detail = data.user_detail;
       dispatch(login(user));
       setSuccess(true);
       setTimeout(() => router.push('/'), 3000);
     } catch (err: any) {
-      setError(err.message || 'Login failed.');
+      setError(err.message || t('auth.login_failed'));
     } finally {
       setLoading(false);
     }
   };
 
-
   return (
-    <div className="min-h-screen w-full max-w-xl flex items-center justify-center transition-colors duration-300">
-      <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
-        <CardHeader className="flex flex-col items-center gap-2 pb-0">
-          <div className="w-full mb-2">
-            <Image
-              src="/assets/images/logo/logo2.png"
-              alt="Forex Broker Ratings Logo"
-              width={240}
-              height={60}
-              className="w-full h-40 object-cover"
-              priority
-            />
-          </div>
-          <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Sign in to your account</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-2 pb-6 px-4 md:px-6">
-          {success ? (
-            <div className="flex flex-col items-center justify-center gap-4 py-8">
-              <svg xmlns="http://www.w3.org/2000/svg" className="text-green-500" width="60" height="60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e" />
-                <path d="M8 12.5l2.5 2.5L16 9" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <div className="text-green-700 text-xl font-bold">Successful login</div>
-              <div className="text-gray-700 dark:text-gray-200 text-base">Will redirect to home page in 3 seconds...</div>
+    <div className="min-h-screen w-full max-w-xl flex flex-col items-center justify-start transition-colors duration-300">
+      
+      <div className="w-full flex items-center justify-center">
+        <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
+          <CardHeader className="flex flex-col items-center gap-2 pb-0">
+            <div className="w-full mb-2">
+              <Image
+                src="/assets/images/logo/logo2.png"
+                alt="Forex Broker Ratings Logo"
+                width={240}
+                height={60}
+                className="w-full h-40 object-cover"
+                priority
+              />
             </div>
-          ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Email*"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-              autoComplete="email"
-            />
-            <input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              placeholder="Password*"
-              type="password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
-            <div className="text-right mb-1">
-              <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-sm font-semibold transition-colors">Forgot your password?</a>
-            </div>
-            {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
-            <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </Button>
-            <div className="text-center mt-2 text-sm text-muted-foreground">
-              Don&apos;t have an account?{' '}
-              <a href="/register" rel="nofollow" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">Register for free</a>
-            </div>
-          </form>
-          )}
-        </CardContent>
-      </Card>
+            <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">{t('auth.login_heading')}</CardTitle>
+          </CardHeader>
+          <CardContent className="pt-2 pb-6 px-4 md:px-6">
+            {success ? (
+              <div className="flex flex-col items-center justify-center gap-4 py-8">
+                <svg xmlns="http://www.w3.org/2000/svg" className="text-green-500" width="60" height="60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#22c55e" />
+                  <path d="M8 12.5l2.5 2.5L16 9" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div className="text-green-700 text-xl font-bold">{t('auth.success_login')}</div>
+                <div className="text-gray-700 dark:text-gray-200 text-base">{t('auth.will_redirect_home')}</div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <input
+                  className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  placeholder={t('auth.email_placeholder')}
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                />
+                <input
+                  className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  placeholder={t('auth.password_placeholder')}
+                  type="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                />
+                <div className="text-right mb-1">
+                  <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-sm font-semibold transition-colors">{t('auth.forgot_password_link')}</a>
+                </div>
+                {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
+                <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
+                  {loading ? t('auth.logging_in') : t('auth.login')}
+                </Button>
+                <div className="text-center mt-2 text-sm text-muted-foreground">
+                  {t('auth.no_account')}{' '}
+                  <a href="/register" rel="nofollow" className="text-primary underline hover:text-primary/80 transition-colors font-semibold">{t('auth.register_cta')}</a>
+                </div>
+              </form>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

@@ -10,6 +10,8 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { fetchAllBrokerDetails } from '@/lib/supabase';
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 // Fallback data in case Supabase fetch fails
 const latestReviews = [
@@ -46,6 +48,7 @@ const latestReviews = [
 ];
 
 export default function LatestReviews() {
+  const { t } = useI18n();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [reviews, setReviews] = useState<any[]>(latestReviews);
   const [loading, setLoading] = useState(true);
@@ -115,9 +118,9 @@ export default function LatestReviews() {
     <section id="latest-reviews" className="py-20 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Latest Broker Reviews</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white"><T k="home.latest_reviews.title" /></h2>
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Fresh insights from our expert analysis of forex brokers.
+            <T k="home.latest_reviews.subtitle" />
           </p>
           {/* <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
             View all reviews <ChevronRight className="ml-1 h-4 w-4" />
@@ -181,11 +184,11 @@ export default function LatestReviews() {
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{review.name} Review</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{review.name} <T k="home.latest_reviews.review" /></h3>
                     
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                       <Calendar className="h-4 w-4 mr-1" />
-                      <span>Updated: {review.date}</span>
+                      <span><T k="home.latest_reviews.updated" /> {review.date}</span>
                     </div>
                     
                     <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
@@ -193,7 +196,7 @@ export default function LatestReviews() {
                     </p>
                     
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">Highlights:</h4>
+                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300"><T k="home.latest_reviews.highlights" /></h4>
                       <ul className="space-y-1">
                         {review.highlights.map((highlight: string, i: number) => (
                           <li key={i} className="flex items-start text-sm">
@@ -210,7 +213,7 @@ export default function LatestReviews() {
                   <div className="mt-auto pt-4">
                     <Button variant="outline" className="w-full" asChild>
                       <Link href={`/broker/${review.slug || review.id}/#user_reviews`}>
-                        Read Full Review
+                        <T k="home.latest_reviews.read_full_review" />
                       </Link>
                     </Button>
                   </div>

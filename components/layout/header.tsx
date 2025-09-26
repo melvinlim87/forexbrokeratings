@@ -14,12 +14,21 @@ import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '@/store/slices/authSlice';
+import { useI18n } from '@/lib/i18n-client';
+import {
+  Select as LangSelect,
+  SelectContent as LangSelectContent,
+  SelectItem as LangSelectItem,
+  SelectTrigger as LangSelectTrigger,
+  SelectValue as LangSelectValue,
+} from '@/components/ui/select';
 
 function AuthHeaderMenu() {
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false);
   const user = useSelector((state: RootState) => state.auth?.user);
   const dispatch = useDispatch();
+  const {t} = useI18n();
   const logoutUser = async () => {
       setOpen(false);
       dispatch(logout())
@@ -29,7 +38,7 @@ function AuthHeaderMenu() {
   if (loading) {
     return (
       <Button className="hidden lg:flex animate-pulse bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg text-lg px-6 py-2.5 ml-2 opacity-70 cursor-wait" disabled>
-        Loading
+        {t('loading')}
       </Button>
     );
   }
@@ -40,7 +49,7 @@ function AuthHeaderMenu() {
         <Button
           className="hidden md:flex bg-gradient-to-r from-cyan-400 to-purple-400 text-white font-bold border-0 shadow-lg hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 text-lg px-6 py-2.5 ml-2"
         >
-          Login
+          {t('auth.login')}
         </Button>
       </Link>
     );
@@ -61,13 +70,13 @@ function AuthHeaderMenu() {
       <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-4">
         <div className="flex flex-col">
           <Link href="/profile" className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base" onClick={() => setOpen(false)}>
-            <User className="h-4 w-4 mr-2" /> View Profile
+            <User className="h-4 w-4 mr-2" /> {t('auth.view_profile')}
           </Link>
           <button
             className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base"
             onClick={() => logoutUser()}
           >
-            <LogOut className="h-4 w-4 mr-2" /> Logout
+            <LogOut className="h-4 w-4 mr-2" /> {t('auth.logout')}
           </button>
         </div>
       </PopoverContent>
@@ -77,6 +86,7 @@ function AuthHeaderMenu() {
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { locale, setLocale, t } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -123,12 +133,25 @@ export default function Header() {
             }
           />
           
+          {/* Language Selector (Desktop) */}
+          <div className="hidden md:flex items-center">
+            <LangSelect value={locale} onValueChange={(v: 'en' | 'zh') => setLocale(v)}>
+              <LangSelectTrigger className="w-[120px] bg-white/10 text-white border-white/30">
+                <LangSelectValue placeholder={t('ui.language')} />
+              </LangSelectTrigger>
+              <LangSelectContent>
+                <LangSelectItem value="en">{t('language.english')}</LangSelectItem>
+                <LangSelectItem value="zh">{t('language.chinese')}</LangSelectItem>
+              </LangSelectContent>
+            </LangSelect>
+          </div>
+          
           <Link href="/">
             <Button 
               className="hidden lg:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-6 py-2.5"
             >
               <Home className="h-5 w-5 mr-2" />
-              Home
+              {t('nav.home')}
             </Button>
           </Link>
           {/* Auth UI: Show login or user dropdown */}
@@ -175,20 +198,21 @@ export default function Header() {
 }
 
 function NavLinks() {
+  const { t } = useI18n();
   const links = [
-    { title: 'Promotions', href: '/promotions' },
-    { title: 'Rankings', href: '/rankings' },
-    { title: 'Broker Profiles', href: '/#featured-brokers' },
-    { title: 'Reviews', href: '/#latest-reviews' },
-    { title: 'Comparison', href: '/compare' },
-    { title: 'AI Tools', href: '/ai-tools' },
-    { title: 'Blog', href: '/blog' },
+    { title: 'nav.promotions', href: '/promotions' },
+    { title: 'nav.rankings', href: '/rankings' },
+    { title: 'nav.profiles', href: '/#featured-brokers' },
+    { title: 'nav.reviews', href: '/#latest-reviews' },
+    { title: 'nav.comparison', href: '/compare' },
+    { title: 'nav.ai_tools', href: '/ai-tools' },
+    { title: 'nav.blog', href: '/blog' },
   ];
   
   return (
     <>
       {links.map((link) => (
-        link.title === 'AI Tools' ? (
+        link.title === 'nav.ai_tools' ? (
           <AiToolsDropdown key="ai-tools" />
         ) : (
           <Link
@@ -196,7 +220,7 @@ function NavLinks() {
             href={link.href}
             className={`text-xl font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl`}
           >
-            {link.title}
+            {t(link.title)}
           </Link>
         )
       ))}
@@ -206,6 +230,7 @@ function NavLinks() {
 
 function AiToolsDropdown() {
   const [open, setOpen] = useState(false);
+  const { t } = useI18n();
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -215,15 +240,15 @@ function AiToolsDropdown() {
           aria-haspopup="menu"
           aria-expanded={open}
         >
-          <span>AI Tools</span>
+          <span>{t('nav.ai_tools')}</span>
           <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
         </button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white/95 dark:bg-gray-900/95 backdrop-blur border border-gray-200 dark:border-gray-800 mt-4">
         <div className="flex flex-col">
-          <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>Popular AI Tools</Link>
-          <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>Products</Link>
-          <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>All AI Tools</Link>
+          <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.popular')}</Link>
+          <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.products')}</Link>
+          <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.all')}</Link>
         </div>
       </PopoverContent>
     </Popover>
@@ -232,32 +257,33 @@ function AiToolsDropdown() {
 
 function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
   const user = useSelector((state: RootState) => state.auth.user);
+  const { t, locale, setLocale } = useI18n();
   const links = [
-    { title: 'Promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
-    { title: 'Rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
-    { title: 'Broker Profiles', href: '/#featured-brokers', icon: <BookOpenText className="h-5 w-5 mr-3" /> },
-    { title: 'Reviews', href: '/#latest-reviews', icon: <MessageCircle className="h-5 w-5 mr-3" /> },
-    { title: 'Comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
-    { title: 'AI Tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
-    { title: 'Blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
+    { title: 'nav.promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
+    { title: 'nav.rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
+    { title: 'nav.profiles', href: '/#featured-brokers', icon: <BookOpenText className="h-5 w-5 mr-3" /> },
+    { title: 'nav.reviews', href: '/#latest-reviews', icon: <MessageCircle className="h-5 w-5 mr-3" /> },
+    { title: 'nav.comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
+    { title: 'nav.ai_tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
+    { title: 'nav.blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
   ];
   
   return (
     <>
       {/* Show customer profile here */}
       {!user || user.email_confirmed_at == false ? (
-        <Link href="/login" rel="nofollow" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
+        <Link href="/login" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
           <User className="h-5 w-5 mr-3" />
-          Login
+          {t('auth.login')}
         </Link>
       ) : (
         <Link href="/profile" className="flex items-center text-base font-medium transition-colors hover:text-white py-2">
           <UserCircle className="h-5 w-5 mr-3" />
-          Profile
+          {t('auth.profile')}
         </Link>
       )}
       {links.map((link) => (
-        link.title === 'AI Tools' ? (
+        link.title === 'nav.ai_tools' ? (
           <MobileAiTools key="ai-tools-mobile" onNavLinkClick={onNavLinkClick} />
         ) : (
           <Link
@@ -267,25 +293,28 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
             onClick={onNavLinkClick}
           >
             {link.icon}
-            {link.title}
+            {t(link.title)}
           </Link>
         )
       ))}
-      <div className="flex items-center mt-4">
-        <SearchDialog
-          trigger={
-            <Button className="w-full">
-              <Search className="h-4 w-4 mr-2" />
-              Search Brokers
-            </Button>
-          }
-        />
+      {/* Mobile language selector */}
+      <div className="flex items-center gap-2 mt-4">
+        <LangSelect value={locale} onValueChange={(v: 'en' | 'zh') => setLocale(v)}>
+          <LangSelectTrigger className="w-full">
+            <LangSelectValue placeholder={t('ui.language')} />
+          </LangSelectTrigger>
+          <LangSelectContent>
+            <LangSelectItem value="en">{t('language.english')}</LangSelectItem>
+            <LangSelectItem value="zh">{t('language.chinese')}</LangSelectItem>
+          </LangSelectContent>
+        </LangSelect>
       </div>
     </>
   );
 }
 
 function MobileAiTools({ onNavLinkClick }: { onNavLinkClick: () => void }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col">
@@ -294,14 +323,14 @@ function MobileAiTools({ onNavLinkClick }: { onNavLinkClick: () => void }) {
         className="flex items-center justify-between text-base font-medium transition-colors hover:text-white py-2"
         onClick={() => setOpen(o => !o)}
       >
-        <span className="flex items-center"><Wrench className="h-5 w-5 mr-3" /> AI Tools</span>
+        <span className="flex items-center"><Wrench className="h-5 w-5 mr-3" /> {t('nav.ai_tools')}</span>
         <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
         <div className="ml-8 mt-1 flex flex-col gap-1">
-          <Link href="/ai-tools#popular" className="py-1 text-sm" onClick={onNavLinkClick}>Popular AI Tools</Link>
-          <Link href="/ai-tools#products" className="py-1 text-sm" onClick={onNavLinkClick}>Products</Link>
-          <Link href="/ai-tools#all" className="py-1 text-sm" onClick={onNavLinkClick}>All AI Tools</Link>
+          <Link href="/ai-tools#popular" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.popular')}</Link>
+          <Link href="/ai-tools#products" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.products')}</Link>
+          <Link href="/ai-tools#all" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.all')}</Link>
         </div>
       )}
     </div>

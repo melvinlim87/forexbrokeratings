@@ -1,5 +1,8 @@
+"use client";
 import React from 'react';
 import { BookOpen, CheckCircle, Info, ListOrdered, Table } from 'lucide-react';
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 // Dummy broker data for demonstration
 const dummyBrokers = [
@@ -33,41 +36,42 @@ const dummyBrokers = [
 ];
 
 export default function SelectBrokerGuide() {
+  useI18n();
   return (
     <main className="flex flex-col min-h-screen bg-[#f8f9fc] pb-24">
 
       <header className="bg-gradient-to-b from-[#091f40] to-[#0f2d59] h-[160px] flex flex-col justify-center items-center text-center px-4 mb-12 w-full">
-        <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 drop-shadow">How to Use the Compare Brokers Feature</h1>
-        <h2 className="text-md md:text-xl text-cyan-200 font-medium max-w-2xl mx-auto">Quickly find the right broker for you by comparing key features side by side.</h2>
+        <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 drop-shadow"><T k="guide.select.header_title" /></h1>
+        <h2 className="text-md md:text-xl text-cyan-200 font-medium max-w-2xl mx-auto"><T k="guide.select.header_subtitle" /></h2>
       </header>
       <section className="w-full max-w-5xl mx-auto px-4 mb-12">
         <div className="flex items-center gap-3 mb-4">
           <BookOpen className="w-8 h-8 text-cyan-600" />
-          <h2 className="text-xl font-bold text-navy-900">Getting Started</h2>
+          <h2 className="text-xl font-bold text-navy-900"><T k="guide.select.getting_started" /></h2>
         </div>
         <ol className="list-decimal list-inside space-y-4 text-gray-800">
           <li>
-            <strong>Access the Compare Page:</strong>
+            <strong><T k="guide.select.access_compare" /></strong>
             <div className="ml-3">
-              Go to the <a href="/compare" className="text-cyan-700 font-semibold underline hover:text-cyan-900">Compare Brokers</a> page from the main navigation.
+              <T k="guide.select.access_compare_hint" />
             </div>
           </li>
           <li>
-            <strong>Select Brokers to Compare:</strong>
+            <strong><T k="guide.select.select_brokers" /></strong>
             <div className="ml-3">
-              Use the search bar to find brokers by name, or browse the list. Click <span className="inline-flex items-center px-2 py-0.5 rounded bg-cyan-100 text-cyan-800 text-xs font-semibold">Add to Compare</span> on up to 3 brokers to add them to your comparison list.
+              <T k="guide.select.select_brokers_hint" />
             </div>
           </li>
           <li>
-            <strong>View the Comparison Table:</strong>
+            <strong><T k="guide.select.view_table" /></strong>
             <div className="ml-3">
-              Scroll down to see a side-by-side table of your selected brokers. You can compare important details like regulation, spreads, leverage, platforms, and more.
+              <T k="guide.select.view_table_hint" />
             </div>
           </li>
           <li>
-            <strong>Interpret the Results:</strong>
+            <strong><T k="guide.select.interpret_results" /></strong>
             <div className="ml-3">
-              Review the table to see how each broker stacks up. Use the information to choose the broker that best fits your trading needs.
+              <T k="guide.select.interpret_results_hint" />
             </div>
           </li>
         </ol>
@@ -75,49 +79,49 @@ export default function SelectBrokerGuide() {
       <section className="w-full max-w-5xl mx-auto px-4 mb-12">
         <div className="flex items-center gap-3 mb-4">
           <ListOrdered className="w-7 h-7 text-cyan-600" />
-          <h2 className="text-lg font-bold text-navy-900">Comparison Fields Explained</h2>
+          <h2 className="text-lg font-bold text-navy-900"><T k="guide.select.fields_title" /></h2>
         </div>
         <div className="overflow-x-auto rounded-2xl shadow-lg from-gray-950/90 via-gray-900/90 to-gray-950/95 hidden md:block">
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden ">
             <thead className="bg-white">
               <tr>
-                <th className="py-2 px-3 text-left text-gray-900">Field</th>
-                <th className="py-2 px-3 text-left text-gray-900">What It Means</th>
+                <th className="py-2 px-3 text-left text-gray-900"><T k="guide.select.table.field" /></th>
+                <th className="py-2 px-3 text-left text-gray-900"><T k="guide.select.table.meaning" /></th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
               <tr  className="border-b border-gray-200 hover:bg-blue-100 transition " >
-                <td className="py-2 px-3 font-semibold text-navy-900">Regulation</td>
-                <td className="py-2 px-3">Whether the broker is licensed and overseen by a financial authority.</td>
+                <td className="py-2 px-3 font-semibold text-navy-900"><T k="guide.select.field.regulation" /></td>
+                <td className="py-2 px-3"><T k="guide.select.field.regulation_desc" /></td>
               </tr>
               <tr  className="border-b border-gray-200 hover:bg-blue-100 transition " >
-                <td className="py-2 px-3 font-semibold text-navy-900">Spreads</td>
-                <td className="py-2 px-3">The difference between buy and sell prices. Lower spreads mean lower trading costs.</td>
+                <td className="py-2 px-3 font-semibold text-navy-900"><T k="guide.select.field.spreads" /></td>
+                <td className="py-2 px-3"><T k="guide.select.field.spreads_desc" /></td>
               </tr>
               <tr  className="border-b border-gray-200 hover:bg-blue-100 transition " >
-                <td className="py-2 px-3 font-semibold text-navy-900">Leverage</td>
-                <td className="py-2 px-3">The ratio of borrowed funds to your own. Higher leverage increases both potential gains and risks.</td>
+                <td className="py-2 px-3 font-semibold text-navy-900"><T k="guide.select.field.leverage" /></td>
+                <td className="py-2 px-3"><T k="guide.select.field.leverage_desc" /></td>
               </tr>
               <tr  className="border-b border-gray-200 hover:bg-blue-100 transition " >
-                <td className="py-2 px-3 font-semibold text-navy-900">Platforms</td>
-                <td className="py-2 px-3">The trading software offered (e.g., MetaTrader, cTrader, WebTrader).</td>
+                <td className="py-2 px-3 font-semibold text-navy-900"><T k="guide.select.field.platforms" /></td>
+                <td className="py-2 px-3"><T k="guide.select.field.platforms_desc" /></td>
               </tr>
               <tr  className="border-b border-gray-200 hover:bg-blue-100 transition " >
-                <td className="py-2 px-3 font-semibold text-navy-900">Minimum Deposit</td>
-                <td className="py-2 px-3">The smallest amount required to open an account.</td>
+                <td className="py-2 px-3 font-semibold text-navy-900"><T k="guide.select.field.min_deposit" /></td>
+                <td className="py-2 px-3"><T k="guide.select.field.min_deposit_desc" /></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="text-xs text-gray-500 mt-2">
           <Info className="inline-block w-4 h-4 mr-1 align-text-bottom text-cyan-600" />
-          <span>Tip: Hover over info icons in the compare table for more details on each field.</span>
+          <span><T k="guide.select.tip1" /></span>
         </div>
       </section>
       <section className="w-full max-w-5xl mx-auto px-4 mb-12">
         <div className="flex items-center gap-3 mb-4">
           <Table className="w-7 h-7 text-cyan-600" />
-          <h2 className="text-lg font-bold text-navy-900">Example Comparison</h2>
+          <h2 className="text-lg font-bold text-navy-900"><T k="guide.select.example_title" /></h2>
         </div>
         <div className="overflow-x-auto rounded-2xl">
           {/* Desktop Table */}
@@ -125,7 +129,7 @@ export default function SelectBrokerGuide() {
             <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950">
               <thead className="bg-white">
                 <tr>
-                  <th className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Broker</th>
+                  <th className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider"><T k="guide.select.table.broker" /></th>
                   {dummyBrokers.map((broker) => (
                     <th key={broker.name} className="px-6 py-3">
                       <div className="flex items-center justify-center space-x-2">
@@ -139,7 +143,7 @@ export default function SelectBrokerGuide() {
               </thead>
               <tbody className="bg-gray-50 divide-y divide-gray-200">
                 <tr className="border-b border-gray-200 hover:bg-blue-100 transition" >
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Minimum Deposit</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="guide.select.field.min_deposit" /></td>
                   {dummyBrokers.map((broker) => (
                     <td key={broker.name} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.min_deposit || 'N/A'}
@@ -147,7 +151,7 @@ export default function SelectBrokerGuide() {
                   ))}
                 </tr>
                 <tr className="border-b border-gray-200 hover:bg-blue-100 transition" >
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Minimum Withdrawal</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="guide.select.mobile.min_withdrawal" /></td>
                   {dummyBrokers.map((broker) => (
                     <td key={broker.name} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.min_withdrawl || 'N/A'}
@@ -155,7 +159,7 @@ export default function SelectBrokerGuide() {
                   ))}
                 </tr>
                 <tr className="border-b border-gray-200 hover:bg-blue-100 transition" >
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">EUR/USD Spread</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="guide.select.mobile.spread" /></td>
                   {dummyBrokers.map((broker) => (
                     <td key={broker.name} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.spread_eur_usd || 'N/A'}
@@ -163,7 +167,7 @@ export default function SelectBrokerGuide() {
                   ))}
                 </tr>
                 <tr className="border-b border-gray-200 hover:bg-blue-100 transition" >
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Max Leverage</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="guide.select.mobile.max_leverage" /></td>
                   {dummyBrokers.map((broker) => (
                     <td key={broker.name} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.leverage_max ? `${broker.leverage_max}` : 'N/A'}
@@ -187,19 +191,19 @@ export default function SelectBrokerGuide() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-700">Min Deposit:</span>
+                  <span className="font-semibold text-gray-700"><T k="guide.select.field.min_deposit" /></span>
                   <span className="text-green-600 font-medium">{broker.min_deposit || 'N/A'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-700">Min Withdrawal:</span>
+                  <span className="font-semibold text-gray-700"><T k="guide.select.mobile.min_withdrawal" /></span>
                   <span className="text-gray-500">{broker.min_withdrawl || 'N/A'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-700">EUR/USD Spread:</span>
+                  <span className="font-semibold text-gray-700"><T k="guide.select.mobile.spread" /></span>
                   <span className="text-cyan-600 font-medium">{broker.spread_eur_usd || 'N/A'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-700">Max Leverage:</span>
+                  <span className="font-semibold text-gray-700"><T k="guide.select.mobile.max_leverage" /></span>
                   <span className="text-blue-600 font-medium">{broker.leverage_max ? `${broker.leverage_max}` : 'N/A'}</span>
                 </div>
               </div>
@@ -210,13 +214,13 @@ export default function SelectBrokerGuide() {
       <section className="w-full max-w-5xl mx-auto px-4 mb-12">
         <div className="flex items-center gap-3 mb-4">
           <CheckCircle className="w-7 h-7 text-cyan-600" />
-          <h2 className="text-lg font-bold text-navy-900">Tips & Limitations</h2>
+          <h2 className="text-lg font-bold text-navy-900"><T k="guide.select.tips_title" /></h2>
         </div>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
-          <li>You can compare up to 3 brokers at a time.</li>
-          <li>Some fields (like spreads or leverage) may vary based on account type or region. Always check the broker's official site for the latest info.</li>
-          <li>Use the "Visit Broker" button to learn more or open an account directly with the broker.</li>
-          <li>Regulation status is an important safety factor—prioritize regulated brokers when possible.</li>
+          <li><T k="guide.select.tip1" /></li>
+          <li><T k="guide.select.tip2" /></li>
+          <li><T k="guide.select.tip3" /></li>
+          <li><T k="guide.select.tip4" /></li>
         </ul>
       </section>
     </main>

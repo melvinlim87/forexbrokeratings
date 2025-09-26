@@ -6,6 +6,7 @@ import TeamPeek from '../../src/components/about/TeamPeek';
 import CallToActionBanner from '../../src/components/about/CallToActionBanner';
 import BackToTopButton from '../../src/components/about/BackToTopButton';
 import Newsletter from '@/components/home/newsletter';
+import T from '@/components/common/T';
 
 export default function AboutPage() {
   return (
@@ -13,7 +14,7 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto space-y-16">
         {/* Mission & Vision */}
         <section className="bg-white/95 dark:bg-slate-900/95 rounded-2xl shadow-lg p-8 border border-cyan-100 dark:border-slate-800">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-700 dark:text-cyan-300">About Us</h2>
+          <T as="h2" k="about.heading" className="text-3xl md:text-4xl font-bold mb-4 text-cyan-700 dark:text-cyan-300" />
           <MissionVision />
           <StatsStrip />
         </section>
@@ -23,7 +24,7 @@ export default function AboutPage() {
         {/* Core Pillars */}
         <section className="bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow p-8 border border-cyan-100 dark:border-slate-800">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-1 rounded bg-gradient-to-r from-cyan-400 to-blue-400 opacity-60" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-700 dark:text-cyan-300">Our Core Pillars</h2>
+          <T as="h2" k="about.core_pillars" className="text-3xl md:text-4xl font-bold mb-4 text-cyan-700 dark:text-cyan-300" />
           <CorePillarsGrid />
         </section>
         {/* Team Section with floating card effect */}
@@ -35,8 +36,8 @@ export default function AboutPage() {
         {/* Newsletter with top border accent */}
         <section className="rounded-xl shadow p-6 border-t-4 border-cyan-400 dark:border-cyan-700 bg-white/95 dark:bg-slate-900/95">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-1 rounded bg-gradient-to-r from-cyan-400 to-blue-400 opacity-60" />
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-cyan-700 dark:text-cyan-300">Stay Connected</h2>
-          <p className="text-gray-700 dark:text-gray-300">Get the latest broker reviews, insights, and exclusive promotions—straight to your inbox.</p>
+          <T as="h2" k="about.stay_connected" className="text-2xl md:text-3xl font-bold mb-2 text-cyan-700 dark:text-cyan-300" />
+          <T as="p" k="about.newsletter_blurb" className="text-gray-700 dark:text-gray-300" />
           <Newsletter />
         </section>
       </div>

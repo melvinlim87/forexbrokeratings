@@ -4,91 +4,10 @@ import { BookOpen, ShieldCheck, Percent, Cpu, Grid, Wallet, ArrowRight, ChevronD
 import { brokers, Broker } from "@/src/data/brokers";
 import { ResponsiveContainer } from "recharts";
 import { HexagonChart } from "@/components/broker/hexagon-chart";
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
-const stepCards = [
-  {
-    title: "Regulation & Safety",
-    icon: <ShieldCheck className="w-7 h-7 text-cyan-700" />,
-    bullets: [
-      "Tier-1 watchdogs (FCA, ASIC, CBI)",
-      "Segregated funds",
-      "Compensation schemes"
-    ]
-  },
-  {
-    title: "Trading Costs",
-    icon: <Percent className="w-7 h-7 text-cyan-700" />,
-    bullets: ["Compare average EUR/USD spreads & commissions."]
-  },
-  {
-    title: "Execution & Platforms",
-    icon: <Cpu className="w-7 h-7 text-cyan-700" />,
-    bullets: ["MT4/MT5, cTrader, proprietary apps", "Latency & order types"]
-  },
-  {
-    title: "Product Range",
-    icon: <Grid className="w-7 h-7 text-cyan-700" />,
-    bullets: ["FX pairs, indices, crypto, shares, options."]
-  },
-  {
-    title: "Account Types & Min Deposit",
-    icon: <Wallet className="w-7 h-7 text-cyan-700" />,
-    bullets: ["Standard vs Raw/ECN, micro lots, funding methods."]
-  },
-  {
-    title: "Support & Extras",
-    icon: <BookOpen className="w-7 h-7 text-cyan-700" />,
-    bullets: ["24/5 chat, bonuses, education, copy-trade tools."]
-  }
-];
-
-const personaData = [
-  {
-    name: "Day-Trader Bella",
-    style: "High-frequency scalping",
-    needs: "Ultra-low raw spreads, lightning execution",
-    brokers: ["IC Markets Global", "FP Markets"]
-  },
-  {
-    name: "Part-Time Alex",
-    style: "Evenings, low capital",
-    needs: "Low min deposit, zero-commission standard account",
-    brokers: ["XM", "Trade Nation"]
-  },
-  {
-    name: "Algo-Coder Naveen",
-    style: "VPS + API trading",
-    needs: "FIX/REST API, raw pricing, high leverage",
-    brokers: ["RS Finance", "FXCM"]
-  }
-];
-
-const faqData = [
-  {
-    q: "What is a Tier-1 regulator?",
-    a: "A Tier-1 regulator is a top-level financial watchdog, such as the FCA (UK), ASIC (Australia), or CBI (Ireland), known for strict oversight and client protection."
-  },
-  {
-    q: "Why do spreads vary?",
-    a: "Spreads reflect market liquidity, broker model (ECN/STP/MM), and trading hours. Raw accounts offer tight spreads plus commission; standard accounts bundle costs into the spread."
-  },
-  {
-    q: "What platforms do brokers offer?",
-    a: "Most offer MT4/MT5, cTrader, or proprietary apps. Platform choice affects execution speed, order types, and available tools."
-  },
-  {
-    q: "How do I check a broker’s licence?",
-    a: "Visit the regulator’s official register (e.g., FCA, ASIC) and search for the broker’s name or licence number."
-  },
-  {
-    q: "What’s the minimum deposit?",
-    a: "Minimums range from $0 to $200+ depending on broker/account type. Always check the broker’s funding page for up-to-date info."
-  },
-  {
-    q: "Are bonuses and promotions safe?",
-    a: "Promotions can offer value but check the terms and ensure the broker is well regulated before participating."
-  }
-];
+// moved localized data inside component
 
 function getRadarData(selected: Broker[]) {
   // Normalize and score: higher is better
@@ -113,6 +32,98 @@ function getRadarData(selected: Broker[]) {
 }
 
 const RegulationsPage = () => {
+  const { t } = useI18n();
+  const td = (key: string, fallback: string) => {
+    const v = t(key);
+    return v === key ? fallback : v;
+  };
+  const stepCards = [
+    {
+      title: td('regulations.steps.regulation_safety.title', 'Regulation & Safety'),
+      icon: <ShieldCheck className="w-7 h-7 text-cyan-700" />,
+      bullets: [
+        td('regulations.steps.regulation_safety.b1', 'Tier-1 watchdogs (FCA, ASIC, CBI)'),
+        td('regulations.steps.regulation_safety.b2', 'Segregated funds'),
+        td('regulations.steps.regulation_safety.b3', 'Compensation schemes'),
+      ]
+    },
+    {
+      title: td('regulations.steps.trading_costs.title', 'Trading Costs'),
+      icon: <Percent className="w-7 h-7 text-cyan-700" />,
+      bullets: [td('regulations.steps.trading_costs.b1', 'Compare average EUR/USD spreads & commissions.')]
+    },
+    {
+      title: td('regulations.steps.execution_platforms.title', 'Execution & Platforms'),
+      icon: <Cpu className="w-7 h-7 text-cyan-700" />,
+      bullets: [
+        td('regulations.steps.execution_platforms.b1', 'MT4/MT5, cTrader, proprietary apps'),
+        td('regulations.steps.execution_platforms.b2', 'Latency & order types'),
+      ]
+    },
+    {
+      title: td('regulations.steps.product_range.title', 'Product Range'),
+      icon: <Grid className="w-7 h-7 text-cyan-700" />,
+      bullets: [td('regulations.steps.product_range.b1', 'FX pairs, indices, crypto, shares, options.')]
+    },
+    {
+      title: td('regulations.steps.account_types.title', 'Account Types & Min Deposit'),
+      icon: <Wallet className="w-7 h-7 text-cyan-700" />,
+      bullets: [td('regulations.steps.account_types.b1', 'Standard vs Raw/ECN, micro lots, funding methods.')]
+    },
+    {
+      title: td('regulations.steps.support_extras.title', 'Support & Extras'),
+      icon: <BookOpen className="w-7 h-7 text-cyan-700" />,
+      bullets: [td('regulations.steps.support_extras.b1', '24/5 chat, bonuses, education, copy-trade tools.')]
+    }
+  ];
+
+  const personaData = [
+    {
+      name: td('regulations.personas.bella.name', 'Day-Trader Bella'),
+      style: td('regulations.personas.bella.style', 'High-frequency scalping'),
+      needs: td('regulations.personas.bella.needs', 'Ultra-low raw spreads, lightning execution'),
+      brokers: ['IC Markets Global', 'FP Markets']
+    },
+    {
+      name: td('regulations.personas.alex.name', 'Part-Time Alex'),
+      style: td('regulations.personas.alex.style', 'Evenings, low capital'),
+      needs: td('regulations.personas.alex.needs', 'Low min deposit, zero-commission standard account'),
+      brokers: ['XM', 'Trade Nation']
+    },
+    {
+      name: td('regulations.personas.naveen.name', 'Algo-Coder Naveen'),
+      style: td('regulations.personas.naveen.style', 'VPS + API trading'),
+      needs: td('regulations.personas.naveen.needs', 'FIX/REST API, raw pricing, high leverage'),
+      brokers: ['RS Finance', 'FXCM']
+    }
+  ];
+
+  const faqData = [
+    {
+      q: td('regulations.faq.tier1.q', 'What is a Tier-1 regulator?'),
+      a: td('regulations.faq.tier1.a', 'A Tier-1 regulator is a top-level financial watchdog, such as the FCA (UK), ASIC (Australia), or CBI (Ireland), known for strict oversight and client protection.')
+    },
+    {
+      q: td('regulations.faq.spreads.q', 'Why do spreads vary?'),
+      a: td('regulations.faq.spreads.a', 'Spreads reflect market liquidity, broker model (ECN/STP/MM), and trading hours. Raw accounts offer tight spreads plus commission; standard accounts bundle costs into the spread.')
+    },
+    {
+      q: td('regulations.faq.platforms.q', 'What platforms do brokers offer?'),
+      a: td('regulations.faq.platforms.a', 'Most offer MT4/MT5, cTrader, or proprietary apps. Platform choice affects execution speed, order types, and available tools.')
+    },
+    {
+      q: td('regulations.faq.licence.q', 'How do I check a broker’s licence?'),
+      a: td('regulations.faq.licence.a', 'Visit the regulator’s official register (e.g., FCA, ASIC) and search for the broker’s name or licence number.')
+    },
+    {
+      q: td('regulations.faq.min_deposit.q', 'What’s the minimum deposit?'),
+      a: td('regulations.faq.min_deposit.a', 'Minimums range from $0 to $200+ depending on broker/account type. Always check the broker’s funding page for up-to-date info.')
+    },
+    {
+      q: td('regulations.faq.promotions.q', 'Are bonuses and promotions safe?'),
+      a: td('regulations.faq.promotions.a', 'Promotions can offer value but check the terms and ensure the broker is well regulated before participating.')
+    }
+  ];
   const [selected, setSelected] = useState<Broker[]>([brokers[0]]);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [showTop, setShowTop] = useState(false);
@@ -142,8 +153,8 @@ const RegulationsPage = () => {
     <main className="bg-[#f8f9fc] min-h-screen pb-24 font-sans">
       {/* HeroHeader */}
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[260px] flex flex-col justify-center items-center text-center px-4 mb-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">Find Your Ideal Forex Broker</h1>
-        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">Use our data-driven framework to compare regulation, spreads, platforms and more.</h2>
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow"><T k="regulations.hero_title" /></h1>
+        <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto"><T k="regulations.hero_subtitle" /></h2>
         <button
           type="button"
           className="mt-6 inline-flex items-center gap-2 px-6 py-2 rounded bg-cyan-600 text-white font-semibold shadow hover:bg-cyan-700 focus-visible:ring-2 focus-visible:ring-cyan-400"
@@ -157,13 +168,13 @@ const RegulationsPage = () => {
             }
           }}
         >
-          Get Started <ArrowRight className="w-4 h-4" />
+          <T k="regulations.get_started" /> <ArrowRight className="w-4 h-4" />
         </button>
       </header>
 
       {/* StepGuideSection */}
       <section id="step-guide" className="max-w-5xl mx-auto px-4 mb-16">
-        <h3 className="text-2xl font-bold mb-6 text-[#0b1e3c]">How to Choose a Broker: 6 Key Steps</h3>
+        <h3 className="text-2xl font-bold mb-6 text-[#0b1e3c]"><T k="regulations.step_guide_title" /></h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {stepCards.map((card, i) => (
             <div key={card.title} tabIndex={0} className="bg-white rounded-xl shadow-md p-6 flex flex-col gap-2 items-start hover:-translate-y-1 hover:shadow-xl transition group focus-within:-translate-y-1 focus-within:shadow-xl outline-none">
@@ -179,7 +190,7 @@ const RegulationsPage = () => {
 
       {/* InteractiveCompare */}
       <section className="max-w-5xl mx-auto px-4 mb-16">
-        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]">Interactive Broker Comparison</h3>
+        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]"><T k="regulations.interactive_title" /></h3>
         <div className="bg-white rounded-xl shadow p-6 flex flex-col md:flex-row gap-8 ">
           {/* Multi-select */}
           <div className="flex-1 w-full">
@@ -238,11 +249,11 @@ const RegulationsPage = () => {
                   <div className="flex gap-2 mb-2">
                     <div className="flex flex-col items-center flex-1">
                       <span className="text-xs text-blue-600 font-semibold">{b.avgSpread ?? '-'} pips</span>
-                      <span className="text-[11px] text-gray-500">Min Spread</span>
+                      <span className="text-[11px] text-gray-500">{t('regulations.min_spread')}</span>
                     </div>
                     <div className="flex flex-col items-center flex-1">
                       <span className="text-xs text-purple-600 font-semibold">{b.maxLeverage ?? '-'}</span>
-                      <span className="text-[11px] text-gray-500">Max Leverage</span>
+                      <span className="text-[11px] text-gray-500">{t('regulations.max_leverage')}</span>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-1 mt-auto">
@@ -251,7 +262,7 @@ const RegulationsPage = () => {
                         <span key={reg + i} className="px-2 py-0.5 rounded bg-gray-100 text-xs text-gray-700 border border-gray-200 font-medium">{reg}</span>
                       ))
                     ) : (
-                      <span className="text-gray-400 text-xs">No regulation info</span>
+                      <span className="text-gray-400 text-xs">{t('regulations.no_regulation_info')}</span>
                     )}
                   </div>
                 </div>
@@ -313,10 +324,10 @@ const RegulationsPage = () => {
 
       {/* BrokersTable */}
       <section className="max-w-5xl mx-auto px-4 mb-16">
-        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]">Brokers & Key Metrics</h3>
+        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]"><T k="regulations.brokers_table_title" /></h3>
         <input
           type="text"
-          placeholder="Search brokers..."
+          placeholder={t('regulations.search_brokers')}
           className="mb-4 px-3 py-2 w-full md:w-1/2 rounded border border-gray-300 focus:ring-2 focus:ring-[#00c7d4] focus:outline-none"
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -327,13 +338,13 @@ const RegulationsPage = () => {
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950">
             <thead className="bg-white">
               <tr>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Broker</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">Tier-1 Licence(s)</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Avg EUR/USD Spread</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Platforms</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Min Deposit</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Execution Model</th>
-                <th className="px-4 py-3 font-semibold text-center text-gray-800">Promotions</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.brokers_table_title')}</th>
+                <th className="px-4 py-3 font-semibold text-gray-800">{t('regulations.tier_1_licences')}</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.avg_eur_usd_spread')}</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.platforms')}</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.min_deposit')}</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.execution_model')}</th>
+                <th className="px-4 py-3 font-semibold text-center text-gray-800">{t('regulations.promotions')}</th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
@@ -378,15 +389,15 @@ const RegulationsPage = () => {
                 <span className="text-cyan-600 font-medium">{b.avgSpread ?? 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-700">Max Leverage:</span>
+                <span className="font-semibold text-gray-700">{t('regulations.max_leverage')}:</span>
                 <span className="text-blue-600 font-medium">{b.maxLeverage ?? 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-700">Min Deposit:</span>
+                <span className="font-semibold text-gray-700">{t('regulations.min_deposit')}:</span>
                 <span className="text-green-600 font-medium">{b.minDeposit ?? 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-semibold text-gray-700">Regulated By:</span>
+                <span className="font-semibold text-gray-700">{t('regulations.regulated_by')}</span>
                 {Array.isArray(b.regulation) && b.regulation.length > 0 ? (
                   <div className="flex flex-wrap gap-1">
                     {b.regulation.slice(0, 2).map((reg, i) => (
@@ -407,7 +418,7 @@ const RegulationsPage = () => {
 
       {/* PersonaScenarios */}
       <section className="max-w-5xl mx-auto px-4 mb-16">
-        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]">Which Broker Fits Your Style?</h3>
+        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]"><T k="regulations.which_broker_fits" /></h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {personaData.map((p, idx) => (
             <div key={p.name} className="bg-white rounded-xl shadow-md p-6 flex flex-col gap-2">
@@ -425,7 +436,7 @@ const RegulationsPage = () => {
 
       {/* FAQAccordion */}
       <section className="max-w-5xl mx-auto px-4 mb-16">
-        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]">Frequently Asked Questions</h3>
+        <h3 className="text-2xl font-bold mb-4 text-[#0b1e3c]">{t('regulations.faq_title')}</h3>
         <div className="divide-y divide-gray-200 rounded bg-white shadow">
           {faqData.map((f, idx) => (
             <div key={f.q}>
@@ -463,7 +474,7 @@ const RegulationsPage = () => {
           className="fixed bottom-6 right-6 z-50 px-5 py-2 rounded-full bg-[#0b1e3c] text-white shadow-lg transition-opacity"
           aria-label="Back to top"
         >
-          ↑ Back to Top
+          ↑ {t('regulations.back_to_top')}
         </button>
       )}
     </main>

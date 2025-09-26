@@ -9,6 +9,8 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 interface Broker {
   id: string;
@@ -53,6 +55,7 @@ interface Broker {
 }
 
 export default function ComparePage() {
+  const { t } = useI18n();
   const [brokers, setBrokers] = useState<BrokerDetails[]>([]);
   const [selectedBrokers, setSelectedBrokers] = useState<BrokerDetails[]>([]);
   const [showScrollToComparison, setShowScrollToComparison] = useState(true);
@@ -191,7 +194,7 @@ export default function ComparePage() {
     <div className="container mx-auto px-4 py-8">
       {/* Selected Brokers */}
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Selected Brokers ({selectedBrokers.length}/3)</h2>
+        <h2 className="text-xl font-semibold mb-4"><T k="compare.selected_brokers" /> ({selectedBrokers.length}/3)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {selectedBrokers.map((broker) => (
             <Card key={broker.id} className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-800">
@@ -216,17 +219,17 @@ export default function ComparePage() {
               <div className="grid grid-cols-2 gap-3 mb-4">
                 <div className="bg-black/10 rounded-lg p-2 text-center">
                   <div className="text-cyan-400 font-bold text-sm">{broker.spread_eur_usd || 'N/A'}</div>
-                  <div className="text-black text-xs">Min Spread</div>
+                  <div className="text-black text-xs"><T k="compare.min_spread" /></div>
                 </div>
                 <div className="bg-black/10 rounded-lg p-2 text-center">
                   <div className="text-purple-400 font-bold text-sm">{broker?.leverage_max}</div>
-                  <div className="text-black text-xs">Max Leverage</div>
+                  <div className="text-black text-xs"><T k="compare.max_leverage" /></div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1 mb-3">
                 {broker.regulators && broker.regulators.length > 0 ? broker.regulators.map((reg, i) => (
                   <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{reg}</span>
-                )) : <span className="text-gray-400 text-xs">No Regulation</span>}
+                )) : <span className="text-gray-400 text-xs"><T k="compare.no_regulation" /></span>}
               </div>
               {/* <Button
                 variant="outline"
@@ -239,7 +242,7 @@ export default function ComparePage() {
           ))}
           {Array(3 - selectedBrokers.length).fill(0).map((_, index) => (
             <Card key={`empty-${index}`} className="border-2 border-dashed border-gray-300 min-h-[100px] flex items-center justify-center">
-              <span className="text-gray-400">Select a broker</span>
+              <span className="text-gray-400"><T k="compare.select_a_broker" /></span>
             </Card>
           ))}
         </div>
@@ -259,7 +262,7 @@ export default function ComparePage() {
                 }
               }}
             >
-              Scroll to Comparison
+              <T k="compare.scroll_to_comparison" />
             </Button>
           </div>
         )}
@@ -272,7 +275,7 @@ export default function ComparePage() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
             <input
               type="text"
-              placeholder="Search brokers..."
+              placeholder={t('compare.search_brokers')}
               className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-10"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -325,7 +328,7 @@ export default function ComparePage() {
                 className="w-full mt-auto bg-blue-600 hover:bg-blue-700 text-white"
                 onClick={() => addBroker(broker)}
               >
-                + Add to Compare
+                {t('compare.add_to_compare')}
               </Button>
             </Card>
           ))}
@@ -339,7 +342,7 @@ export default function ComparePage() {
       {/* Comparison Table */}
       {selectedBrokers.length > 0 && (
         <div className="mt-12">
-          <h2 className="text-xl font-semibold mb-6">Comparison</h2>
+          <h2 className="text-xl font-semibold mb-6"><T k="compare.title" /></h2>
 
           {/* Mobile Vertical Cards */}
           <div className="flex flex-col gap-6 md:hidden">
@@ -446,7 +449,7 @@ export default function ComparePage() {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">Broker</th>
+                  <th className="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider"><T k="compare.table.broker" /></th>
                   {selectedBrokers.map((broker) => (
                     <th key={broker.id} className="px-6 py-3">
                       <div className="flex items-center justify-center space-x-2">
@@ -468,10 +471,10 @@ export default function ComparePage() {
               <tbody className="bg-white divide-y divide-gray-200">
                 {/* Basic Info */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Basic Information</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider"><T k="compare.table.section.basic_info" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Minimum Deposit</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.min_deposit" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.min_deposit || 'N/A'}
@@ -479,7 +482,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Minimum Withdrawal</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.min_withdrawal" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.min_withdrawl || 'N/A'}
@@ -487,7 +490,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">EUR/USD Spread</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.eurusd_spread" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.spread_eur_usd || 'N/A'}
@@ -495,7 +498,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Max Leverage</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.max_leverage" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.leverage_max ? `1:${broker.leverage_max}` : 'N/A'}
@@ -505,10 +508,10 @@ export default function ComparePage() {
 
                 {/* Conditions */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Conditions</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider"><T k="compare.table.section.conditions" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Account Types</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.account_types" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.account_types && Array.isArray(broker.account_types) && broker.account_types.length > 0 ? (
@@ -524,7 +527,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Platforms</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.platforms" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.platforms && Array.isArray(broker.platforms) && broker.platforms.length > 0 ? (
@@ -540,7 +543,7 @@ export default function ComparePage() {
                     ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Instruments</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.instruments" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.instruments && Array.isArray(broker.instruments) && broker.instruments.length > 0 ? (
@@ -558,10 +561,10 @@ export default function ComparePage() {
 
                 {/* Fees & Payments */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Fees & Payments</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider"><T k="compare.table.section.fees_payments" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Deposit Fees</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.deposit_fees" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.deposit_fees || 'No fees'}
@@ -569,7 +572,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Withdrawal Fees</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.withdrawal_fees" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md text-gray-500">
                       {broker.withdrawal_fees || 'No fees'}
@@ -577,7 +580,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Deposit Methods</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.deposit_methods" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 text-md text-gray-500">
                       {broker.deposit_methods && Array.isArray(broker.deposit_methods) && broker.deposit_methods.length > 0 ? (
@@ -595,10 +598,10 @@ export default function ComparePage() {
 
                 {/* Broker Ratings */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Ratings</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider"><T k="compare.table.section.ratings" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Overall Rating</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.overall_rating" /></td>
                   {selectedBrokers.map((broker) => {
                     const avgRating = (
                       (broker.sw +
@@ -625,16 +628,16 @@ export default function ComparePage() {
                   })}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Regulation Status</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.regulation_status" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap">
                       {broker.is_regulated ? (
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-md font-medium bg-green-100 text-green-800">
-                          Regulated
+                          <T k="compare.regulated" />
                         </span>
                       ) : (
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-md font-medium bg-red-100 text-red-800">
-                          Not Regulated
+                          <T k="compare.not_regulated" />
                         </span>
                       )}
                     </td>
@@ -643,10 +646,10 @@ export default function ComparePage() {
 
                 {/* Contact Information */}
                 <tr className="bg-gray-50">
-                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider">Contact & Support</td>
+                  <td colSpan={selectedBrokers.length + 1} className="px-6 py-3 text-md font-semibold text-gray-700 uppercase tracking-wider"><T k="compare.table.section.contact_support" /></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Email</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.email" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md">
                       {broker.email ? (
@@ -658,7 +661,7 @@ export default function ComparePage() {
                   ))}
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900">Phone</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-md font-medium text-gray-900"><T k="compare.table.phone" /></td>
                   {selectedBrokers.map((broker) => (
                     <td key={broker.id} className="text-center px-6 py-4 whitespace-nowrap text-md">
                       {broker.phone_numbers?.length ? (

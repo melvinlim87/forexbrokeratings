@@ -3,6 +3,7 @@ import BrokerProfile from '@/components/broker/broker-profile';
 import { LoginModalProvider } from '@/components/broker/LoginModalContext';
 import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, fetchBrokerLicensesByBrokerId, BrokerDetails } from '@/lib/supabase';
 import Script from 'next/script';
+ 
 
 // Function to parse array fields that might be stored as strings in the database
 const parseArrayField = (field: string[] | string | null | undefined): string[] => {
@@ -226,28 +227,15 @@ export default async function BrokerProfilePage({
             />
           );
         })()}
-        {/* Visible Breadcrumbs */}
-        <nav className="text-sm text-gray-500 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
-          <ol className="list-reset flex">
-            <li>
-              <a href="/" className="hover:underline">Home</a>
-            </li>
-            <li className="mx-2">/</li>
-            <li>
-              <a href="/brokers" className="hover:underline">Brokers</a>
-            </li>
-            <li className="mx-2">/</li>
-            <li aria-current="page" className="truncate max-w-[60ch]">{brokerData.name}</li>
-          </ol>
-        </nav>
-        {/* <IPChecker /> */}
-        <LoginModalProvider>
-          <BrokerProfile 
-            brokerData={brokerData} 
-            relatedBrokers={relatedBrokers} 
-          />
-        </LoginModalProvider>
-      </div>
+        
+         {/* <IPChecker /> */}
+         <LoginModalProvider>
+           <BrokerProfile 
+             brokerData={brokerData} 
+             relatedBrokers={relatedBrokers} 
+           />
+         </LoginModalProvider>
+       </div>
     );
   } catch (error) {
     // Return a fallback UI if something goes wrong

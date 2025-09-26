@@ -1,4 +1,5 @@
 import React from 'react';
+import T from '@/components/common/T';
 
 const sections = [
   {
@@ -6,7 +7,7 @@ const sections = [
     title: '1. Who We Are & Scope',
     content: (
       <>
-        <p>ForexBrokerRatings.com (“FBR,” “we,” “our,” “us”) is an independent publisher that analyses and reviews retail foreign-exchange (“forex”) brokers. We operate the website <a href="https://forexbrokeratings.com" className="text-cyan-600 underline" target="_blank" rel="noopener noreferrer">https://forexbrokeratings.com</a> (the “Site”). We do not provide brokerage services or personalised investment advice. This Privacy Policy governs all personal data processed via the Site, APIs, email, and any future mobile applications.</p>
+        <p><T k="privacy.sections.who-we-are.p1" /></p>
       </>
     )
   },
@@ -15,13 +16,13 @@ const sections = [
     title: '2. Legal Frameworks',
     content: (
       <>
-        <p>We designed this Policy to comply with—or provide equivalent protection to—the world’s leading privacy regimes:</p>
+        <p><T k="privacy.sections.frameworks.p1" /></p>
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950 mt-3 mb-3">
             <thead className="bg-white">
               <tr className="border-b border-gray-200 hover:bg-blue-100 transition">
-                <th className="px-4 py-3 font-semibold text-gray-800">Law / Region</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">Key Rights Reflected</th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.law_region" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.key_rights" /></th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
@@ -34,7 +35,7 @@ const sections = [
             </tbody>
           </table>
         </div>
-        <p>Where local law affords stronger protections than this Policy, we will honour them.</p>
+        <p><T k="privacy.sections.frameworks.p2" /></p>
       </>
     )
   },
@@ -47,9 +48,9 @@ const sections = [
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950 mt-3 mb-3">
             <thead className="bg-white">
               <tr className="border-b border-gray-200 hover:bg-blue-100 transition">
-                <th className="px-4 py-3 font-semibold text-gray-800">Category</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">Examples</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">Collection Method</th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.category" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.examples" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.collection_method" /></th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
@@ -61,7 +62,7 @@ const sections = [
             </tbody>
           </table>
         </div>
-        <p>We do not knowingly collect special-category data (e.g., health, biometrics) or data from children &lt; 13 yrs. If notified, we will delete such data within 30 days.</p>
+        <p><T k="privacy.sections.data-we-collect.p1" /></p>
       </>
     )
   },
@@ -74,9 +75,9 @@ const sections = [
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950 mt-3 mb-3">
             <thead className="bg-white">
               <tr className="border-b border-gray-200 hover:bg-blue-100 transition">
-                <th className="px-4 py-3 font-semibold text-gray-800">Purpose</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">GDPR Basis</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">CCPA Category</th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.purpose" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.gdpr_basis" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.ccpa_category" /></th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
@@ -96,7 +97,7 @@ const sections = [
     title: '5. Cookies & Tracking',
     content: (
       <>
-        <p>We use session & persistent cookies plus similar technologies (e.g., localStorage) for: analytics, affiliate attribution, and UI preferences. You can control cookies via browser settings; disabling them may degrade some features (e.g., broker-comparison filters).</p>
+        <p><T k="privacy.sections.cookies.p1" /></p>
       </>
     )
   },
@@ -105,11 +106,11 @@ const sections = [
     title: '6. Global Data Transfers',
     content: (
       <>
-        <p>Our servers are hosted in [select cloud region]. If your data is transferred cross-border, we rely on:</p>
+        <p><T k="privacy.sections.transfers.p1" /></p>
         <ul className="list-disc pl-10 my-2">
-          <li>Standard Contractual Clauses (SCCs) for EEA/UK transfers</li>
-          <li>UK Addendum to SCCs (where applicable)</li>
-          <li>Implementing adequacy decisions, Binding Corporate Rules, or other recognised safeguards</li>
+          <li><T k="privacy.sections.transfers.li1" /></li>
+          <li><T k="privacy.sections.transfers.li2" /></li>
+          <li><T k="privacy.sections.transfers.li3" /></li>
         </ul>
       </>
     )
@@ -119,14 +120,14 @@ const sections = [
     title: '7. How We Share Information',
     content: (
       <>
-        <p>We never sell personal data. We share only with:</p>
+        <p><T k="privacy.sections.sharing.p1" /></p>
         <ol className="list-decimal pl-10 my-2">
-          <li>Service providers (hosting, analytics, email) bound by confidentiality & data-processing agreements.</li>
-          <li>Affiliate networks / brokers to validate referral conversions—limited to click ID & timestamp.</li>
-          <li>Advisers & auditors under NDA.</li>
-          <li>Regulators or courts when legally compelled or to assert/defend legal claims.</li>
+          <li><T k="privacy.sections.sharing.li1" /></li>
+          <li><T k="privacy.sections.sharing.li2" /></li>
+          <li><T k="privacy.sections.sharing.li3" /></li>
+          <li><T k="privacy.sections.sharing.li4" /></li>
         </ol>
-        <p>All vendors are vetted for technical & organisational security measures.</p>
+        <p><T k="privacy.sections.sharing.p2" /></p>
       </>
     )
   },
@@ -135,7 +136,7 @@ const sections = [
     title: '8. Data Retention',
     content: (
       <>
-        <p>We retain data only as long as necessary for each purpose, plus any statutory retention period (e.g., 5 yrs for tax). Afterward, data is anonymised or securely erased using NIST SP-800-88 methods.</p>
+        <p><T k="privacy.sections.retention.p1" /></p>
       </>
     )
   },
@@ -145,14 +146,14 @@ const sections = [
     content: (
       <>
         <ul className="list-disc pl-10 my-2">
-          <li>HTTPS/TLS 1.3 encryption in transit</li>
-          <li>At-rest encryption (AES-256) on production databases</li>
-          <li>WAF & DDoS filtration, rate limiting</li>
-          <li>Role-based access controls, MFA for admin accounts</li>
-          <li>Quarterly vulnerability scans & annual penetration tests</li>
-          <li>Incident-response plan aligned with ISO 27001 Annex A</li>
+          <li><T k="privacy.sections.security.li1" /></li>
+          <li><T k="privacy.sections.security.li2" /></li>
+          <li><T k="privacy.sections.security.li3" /></li>
+          <li><T k="privacy.sections.security.li4" /></li>
+          <li><T k="privacy.sections.security.li5" /></li>
+          <li><T k="privacy.sections.security.li6" /></li>
         </ul>
-        <p>No Internet transmission is 100 % secure; use the Site at your own risk.</p>
+        <p><T k="privacy.sections.security.p1" /></p>
       </>
     )
   },
@@ -165,8 +166,8 @@ const sections = [
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950 mt-3 mb-3">
             <thead className="bg-white">
               <tr className="border-b border-gray-200 hover:bg-blue-100 transition">
-                <th className="px-4 py-3 font-semibold text-gray-800">Region</th>
-                <th className="px-4 py-3 font-semibold text-gray-800">Rights & How to Exercise</th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.region" /></th>
+                <th className="px-4 py-3 font-semibold text-gray-800"><T k="privacy.table.rights_how" /></th>
               </tr>
             </thead>
             <tbody className="bg-gray-50">
@@ -177,7 +178,7 @@ const sections = [
             </tbody>
           </table>
         </div>
-        <p>Submit requests via <a href="mailto:privacy@forexbrokeratings.com" className="text-cyan-600 underline">privacy@forexbrokeratings.com</a>. We must verify identity (K-ID request token) before actioning. Response window: 30 days (extendable +60 days for complex cases).</p>
+        <p><T k="privacy.sections.rights.p1" /></p>
       </>
     )
   },
@@ -186,7 +187,7 @@ const sections = [
     title: '11. Automated Decision-Making',
     content: (
       <>
-        <p>We do not use profiling or automated decisions that produce legal or similarly significant effects (GDPR Art. 22).</p>
+        <p><T k="privacy.sections.automated.p1" /></p>
       </>
     )
   },
@@ -195,7 +196,7 @@ const sections = [
     title: '12. Third-Party Links',
     content: (
       <>
-        <p>Outbound links to brokers & resources have independent privacy practices. Review their policies before providing personal data. We disclaim liability for third-party content or data handling.</p>
+        <p><T k="privacy.sections.thirdparties.p1" /></p>
       </>
     )
   },
@@ -204,7 +205,7 @@ const sections = [
     title: '13. Children’s Privacy',
     content: (
       <>
-        <p>The Site is not directed to children under 13. If you are a parent/guardian and believe your child provided data, contact us and we will delete it.</p>
+        <p><T k="privacy.sections.children.p1" /></p>
       </>
     )
   },
@@ -213,7 +214,7 @@ const sections = [
     title: '14 Changes to This Policy',
     content: (
       <>
-        <p>We may revise this Policy due to legal, technical, or business changes. Updates appear here with a new “Last updated” date; material changes may be emailed to subscribers. Continued use after an update equals acceptance.</p>
+        <p><T k="privacy.sections.changes.p1" /></p>
       </>
     )
   },
@@ -234,7 +235,7 @@ export default function PolicySections() {
             id={section.id + '-heading'}
             className="text-2xl font-semibold underline decoration-cyan-500 decoration-4 underline-offset-4 mb-3"
           >
-            {section.title}
+            <T k={`privacy.sections.${section.id}.title`} />
           </h2>
           <div>{section.content}</div>
         </section>

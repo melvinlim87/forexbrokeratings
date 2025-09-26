@@ -9,9 +9,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { fetchAIResultByUserId } from '@/lib/supabase';
 import { X, Search, ChevronRight, MessageSquare } from 'lucide-react';
+import { useI18n } from '@/lib/i18n-client';
+ 
 
 // --- ChatHistorySidebar component ---
 const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, setShowSidebar }: { chatHistory: any[], isOpen: boolean, onClose: () => void, aiToolsPanelRef: React.RefObject<any>, setShowSidebar: (showSidebar: boolean) => void }) => {
+  const { t } = useI18n();
   const [searchQuery, setSearchQuery] = useState('');
   const filteredHistory = chatHistory.filter(chat => {
     const matchesSearch = chat.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -38,7 +41,7 @@ const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, set
         {/* Header */}
         <div className="bg-transparent border-b border-gray-200 p-4 z-100">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-white">Search History</h2>
+            <h2 className="text-lg font-semibold text-white">{t('ai.ta.search_history')}</h2>
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-200 rounded-full transition-colors lg:hidden z-100"
@@ -64,7 +67,7 @@ const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, set
               <Search className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search conversations..."
+                placeholder={t('ai.ta.search_conversations_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
@@ -73,12 +76,12 @@ const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, set
           </div>
 
           {/* History List */}
-          <div className="overflow-y-auto h-[calc(100vh-220px)] lg:h-[calc(100vh-360px)]">
+          <div className="overflow-y-auto h-[calc(100vh-220px)] lg:h-full">
             {filteredHistory.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-48 text-gray-500 p-4">
                 <MessageSquare className="w-12 h-12 mb-3" />
-                <p className="text-base font-medium">No conversations found</p>
-                <p className="text-sm text-center">Try adjusting your search</p>
+                <p className="text-base font-medium">{t('ai.ta.no_conversations')}</p>
+                <p className="text-sm text-center">{t('ai.ta.try_adjust_search')}</p>
               </div>
             ) : (
               <div className="p-3 space-y-2">
@@ -112,8 +115,10 @@ const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, set
 };
 
 export default function TradingAssistantPage() {
+  const { t } = useI18n();
   return (
     <LoginModalProvider>
+      
       <TradingAssistantPageContent />
     </LoginModalProvider>
   );
@@ -130,6 +135,7 @@ function TradingAssistantPageContent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     const prompt = searchParams?.get('prompt');
@@ -150,7 +156,7 @@ function TradingAssistantPageContent() {
         // if (error) throw new Error(error.message);
         setHistory(data || []);
       } catch (err: any) {
-        setError(err.message || 'Failed to load history');
+        setError(err.message || t('ai.ta.failed_to_load_history'));
       } finally {   
         setLoading(false);
       }
@@ -173,4 +179,3 @@ function TradingAssistantPageContent() {
     </div>
   );
 }
-

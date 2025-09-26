@@ -4,17 +4,18 @@ import { Bot, Clock, Copy } from "lucide-react";
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { storeAIResult } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
-// Example quick prompts
-const quickPrompts = [
-  "Analyze AIMS",
-  "Analyze RS Finance",
-  "Analyze FP Markets",
-  "Analyze IC Markets",
-  "Best broker promotions",
-  "Best Trading Environment",
-  "Best User Experience",
-  "Most Regulated Brokers",
+// Example quick prompts (localized)
+const quickPromptKeys = [
+  'home.ai_panel.prompts.analyze_aims',
+  'home.ai_panel.prompts.analyze_rs_finance',
+  'home.ai_panel.prompts.analyze_fp_markets',
+  'home.ai_panel.prompts.analyze_ic_markets',
+  'home.ai_panel.prompts.best_promotions',
+  'home.ai_panel.prompts.best_environment',
+  'home.ai_panel.prompts.best_ux',
+  'home.ai_panel.prompts.most_regulated',
 ];
 
 export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowSidebar, showSidebar, pre_prompt }: { setOpen: (open: boolean) => void, setShowSidebar: (showSidebar: boolean) => void, showSidebar: boolean, pre_prompt: string }, ref) {
@@ -22,9 +23,10 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const { t } = useI18n();
   type Message = { sender: 'ai' | 'user'; text: string, date: string };
   const [messages, setMessages] = useState<Message[]>([
-    { sender: 'ai', text: "Hello! I am your AI broker analyst powered by advanced AI \nI can help you with: \n  - Broker comparisons and reviews\n  - Regulatory information\n  - Trading conditions analysis\n  - Platform recommendations\n  - Market insights\nWhat would you like to know about forex brokers?", date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
+    { sender: 'ai', text: t('home.ai_panel.initial_message'), date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }
   ]);
 
   // Auto-scroll to bottom when messages change
@@ -50,7 +52,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
     setMessages(prev => [...prev, { sender: 'user', text: prompt, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) }, ]);
     
     setTimeout(() => {
-      setMessages(prev => [...prev, { sender: 'ai', text: 'Analysing...', date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) } ]);
+      setMessages(prev => [...prev, { sender: 'ai', text: t('ai.analyzer.analysing'), date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) } ]);
     }, 500);
     setPrompt("");
     setLoading(true)
@@ -64,10 +66,10 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
       setLoading(false)
       if (!res.ok) {
         setMessages(prev => {
-          const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
+          const idx = prev.findIndex(m => m.text === t('ai.analyzer.analysing') && m.sender === 'ai');
           if (idx !== -1) {
             const updated = [...prev];
-            updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + res.statusText, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
+            updated[idx] = { sender: 'ai', text: t('home.ai_panel.analyse_failed') + ': ' + res.statusText, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
             return updated;
           }
           return prev;
@@ -80,7 +82,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
           await storeAIResult(user.user_detail?.id, prompt, data.result);
         }
         await setMessages(prev => {
-          const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
+          const idx = prev.findIndex(m => m.text === t('ai.analyzer.analysing') && m.sender === 'ai');
           if (idx !== -1) {
             const updated = [...prev];
             updated[idx] = { sender: 'ai', text: data.result, date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
@@ -91,10 +93,10 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
       }
     } catch (err: any) {
       setMessages(prev => {
-        const idx = prev.findIndex(m => m.text === 'Analysing...' && m.sender === 'ai');
+        const idx = prev.findIndex(m => m.text === t('ai.analyzer.analysing') && m.sender === 'ai');
         if (idx !== -1) {
           const updated = [...prev];
-          updated[idx] = { sender: 'ai', text: 'AI Analyse failed: ' + (err?.message || err), date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
+          updated[idx] = { sender: 'ai', text: t('home.ai_panel.analyse_failed') + ': ' + (err?.message || err), date: new Date().toLocaleTimeString('en-US', {hour: 'numeric',minute: '2-digit',second: '2-digit',hour12: true,}) };
           return updated;
         }
         return prev;
@@ -117,7 +119,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
             <Bot className="text-white" size={18} />
           </div>
           <div className="text-white rounded-full flex items-center justify-center">
-            <span className="font-bold text-lg">AI Broker Analyzer</span>
+            <span className="font-bold text-lg">{t('home.ai_panel.title')}</span>
           </div>
         </div>
         <div>
@@ -153,20 +155,23 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         </div>
         {/* Quick Prompts */}
         <div className="flex flex-wrap gap-2 mb-4 bg-gray-100 p-3 grid md:grid-cols-4 grid-cols-2 overflow-x-auto">
-          {quickPrompts.map((prompt) => (
-            <Button disabled={loading} key={prompt} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 " onClick={() => handleAITools(prompt)}>
-              <span style={{ whiteSpace: 'pre-wrap' }}>
-                {prompt}
-              </span>
-            </Button>
-          ))}
+          {quickPromptKeys.map((k) => {
+            const label = t(k);
+            return (
+              <Button disabled={loading} key={k} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 " onClick={() => handleAITools(label)}>
+                <span style={{ whiteSpace: 'pre-wrap' }}>
+                  {label}
+                </span>
+              </Button>
+            );
+          })}
         </div>
         {/* Input Field */}
         <div className="flex items-center gap-2 rounded-xl py-2 mt-2">
           <input
             type="text"
             className="flex-1 bg-transparent border border-gray-100 rounded-xl outline-none px-2 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-            placeholder="Analyse any broker's regulations, promotions, ratings, spreads, or compare brokers..."
+            placeholder={t('home.ai_panel.placeholder')}
             onChange={(e) => setPrompt(e.target.value)}
             value={prompt}
             onKeyDown={(e) => e.key === 'Enter' && handleAITools(prompt)}

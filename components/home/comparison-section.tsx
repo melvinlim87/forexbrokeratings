@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { fetchAllBrokersWithPromotionCategories } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
 type Feature = {
   score?: number;
@@ -214,6 +215,7 @@ const brokerComparisonData: ComparisonData = {
 };
 
 export default function ComparisonSection() {
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = useState<keyof ComparisonData>('beginner-friendly');
   const [comparisonData, setComparisonData] = useState<ComparisonData>(brokerComparisonData);
   const [loading, setLoading] = useState(true);
@@ -326,7 +328,7 @@ export default function ComparisonSection() {
         setComparisonData(formattedData);
       } catch (err) {
         // console.error('Error fetching comparison brokers:', err);
-        setError('Failed to load broker comparison data');
+        setError(t('home.comparison.failed_to_load'));
       } finally {
         setLoading(false);
       }
@@ -352,32 +354,32 @@ export default function ComparisonSection() {
     switch (activeTab) {
       case 'beginner-friendly':
         return [
-          { key: 'userExperience', label: 'User Experience' },
-          { key: 'environment', label: 'Environment' },
-          { key: 'user_traffic', label: 'User Traffic' },
-          { key: 'riskControl', label: 'Risk Control' },
-          { key: 'promotions', label: 'Promotions' },
-          { key: 'regulations', label: 'Regulations' }
+          { key: 'userExperience', label: t('home.comparison.rows.user_experience') },
+          { key: 'environment', label: t('home.comparison.rows.environment') },
+          { key: 'user_traffic', label: t('home.comparison.rows.user_traffic') },
+          { key: 'riskControl', label: t('home.comparison.rows.risk_control') },
+          { key: 'promotions', label: t('home.comparison.rows.promotions') },
+          { key: 'regulations', label: t('home.comparison.rows.regulations') }
         ];
       case 'low-fees':
         return [
-          { key: 'depositProcessTime', label: 'Deposit Process Time' },
-          { key: 'withdrawalProcessTime', label: 'Withdrawal Process Time' },
-          { key: 'minDeposit', label: 'Minimum Deposit' },
-          { key: 'minWithdrawl', label: 'Minimum Withdrawal' },
-          { key: 'availability', label: 'Availability' }
+          { key: 'depositProcessTime', label: t('home.comparison.rows.deposit_process_time') },
+          { key: 'withdrawalProcessTime', label: t('home.comparison.rows.withdrawal_process_time') },
+          { key: 'minDeposit', label: t('home.comparison.rows.min_deposit') },
+          { key: 'minWithdrawl', label: t('home.comparison.rows.min_withdrawal') },
+          { key: 'availability', label: t('home.comparison.rows.availability') }
         ];
       case 'advanced-trading':
         return [
-          { key: 'instruments', label: 'Instruments' },
-          { key: 'baseCurrencies', label: 'Base Currencies' },
-          { key: 'responseTime', label: 'Response Time' },
-          { key: 'spreadEurUsd', label: 'Spread EUR USD' }
+          { key: 'instruments', label: t('home.comparison.rows.instruments') },
+          { key: 'baseCurrencies', label: t('home.comparison.rows.base_currencies') },
+          { key: 'responseTime', label: t('home.comparison.rows.response_time') },
+          { key: 'spreadEurUsd', label: t('home.comparison.rows.spread_eur_usd') }
         ];
       case 'promotions':
         return [
-          { key: 'promotion', label: 'Promotion' },
-          { key: 'category', label: 'Category' },
+          { key: 'promotion', label: t('home.comparison.rows.promotion') },
+          { key: 'category', label: t('home.comparison.rows.category') },
         ];
       default:
         return [];
@@ -455,9 +457,9 @@ export default function ComparisonSection() {
     <section className="py-16 bg-white dark:bg-gray-950 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">Ranking Comparison</h2>
+          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">{t('home.comparison.title')}</h2>
           <p className="mt-4 text-lg sm:text-md lg:text-lg text-gray-600 dark:text-gray-400">
-            Find the perfect broker for your trading style with our detailed side-by-side comparisons.
+            {t('home.comparison.subtitle')}
           </p>
         </div>
         
@@ -477,10 +479,10 @@ export default function ComparisonSection() {
                     md:rounded-md
                     md:p-0
                     ">
-                  <TabsTrigger value="beginner-friendly" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">For Beginners</TabsTrigger>
-                  <TabsTrigger value="low-fees" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Lowest Fees</TabsTrigger>
-                  <TabsTrigger value="advanced-trading" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Advanced Trading</TabsTrigger>
-                  <TabsTrigger value="promotions" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">Promotions</TabsTrigger>
+                  <TabsTrigger value="beginner-friendly" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.beginner')}</TabsTrigger>
+                  <TabsTrigger value="low-fees" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.low_fees')}</TabsTrigger>
+                  <TabsTrigger value="advanced-trading" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.advanced_trading')}</TabsTrigger>
+                  <TabsTrigger value="promotions" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.promotions')}</TabsTrigger>
                 </TabsList>
               </div>
               
@@ -491,7 +493,7 @@ export default function ComparisonSection() {
                       <thead>
                         <tr className="bg-white dark:bg-gray-950">
                           <th className="px-6 py-5 text-left text-lg sm:text-sm lg:text-lg font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
-                            Broker
+                            {t('home.comparison.table.header_broker')}
                           </th>
                           {comparisonData[tabValue].map((broker) => (
                             <th key={broker.id} className="px-6 py-5 text-center">
@@ -563,7 +565,7 @@ export default function ComparisonSection() {
                               className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
                               rel="noopener noreferrer"
                             >
-                              View Full Review
+                              {t('home.hero.view_full_review')}
                             </a>
                           </Button>
                         </div>

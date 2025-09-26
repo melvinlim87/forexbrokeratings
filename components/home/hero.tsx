@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
 import { supabase, fetchAllBrokerDetailsWithReviews } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
 interface HeroSlide {
   broker: string;
@@ -62,6 +63,7 @@ const defaultHeroSlides: HeroSlide[] = [
 ];
 
 export default function Hero() {
+  const { t } = useI18n();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(defaultHeroSlides);
@@ -137,7 +139,7 @@ export default function Hero() {
     <div className="relative overflow-hidden flex items-center justify-center " style={{ backgroundImage: `url(${bgImages[currentSlide]})`, backgroundSize: 'cover', backgroundPosition: 'center', height: 700 }} >
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-white text-lg">Loading...</p>
+          <p className="text-white text-lg">{t('loading')}</p>
         </div>
       ) : (
         <AnimatePresence mode="wait">
@@ -206,45 +208,39 @@ export default function Hero() {
               
               <div className="flex flex-col items-center justify-center space-y-4 pb-4 md:space-y-2 md:mb-6">
                 <div className="flex items-center justify-center space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-6 w-6 ${
-                      i < Math.floor(currentSlideData.rating || 0)
-                        ? 'text-yellow-400 fill-yellow-400'
-                        : 'text-gray-400'
-                    }`}
-                  />
-                ))}
-                <span className="text-white font-medium">
-                  {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(2) : parseFloat(currentSlideData.rating).toFixed(2))}/100
-                </span>
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-6 w-6 ${
+                        i < Math.floor(currentSlideData.rating || 0)
+                          ? 'text-yellow-400 fill-yellow-400'
+                          : 'text-gray-400'
+                      }`}
+                    />
+                  ))}
+                  <span className="text-white font-medium">
+                    {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(2) : parseFloat(currentSlideData.rating).toFixed(2))}/100
+                  </span>
+                </div>
               </div>
+              
               <div className="text-white text-sm">
-                {currentSlideData.reviews || '1,000+'} reviews
+                {t('home.hero.reviews').replace('{count}', String(currentSlideData.reviews || '1,000+'))}
               </div>
-              </div>
-
-              {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-2" style={{textShadow: '4px 4px 8px #000000'}}>
-                {currentSlideData.title || 'Top Rated Forex Broker'}
-              </h1> */}
               
               <p className="text-md text-gray-200 mb-8 max-w-3xl mx-auto px-4 line-clamp-4 text-shadow-2xl text-shadow-white">
                 {currentSlideData.description || 'A reliable broker with competitive trading conditions'}
               </p>
-
+              
               <div className="flex flex-wrap justify-center gap-3 mb-4">
                 {(currentSlideData.features || ['Competitive spreads', 'Multiple trading platforms', 'Regulated']).map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2"
-                  >
+                  <div key={index} className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                     <Check className="h-4 w-4 text-green-400 mr-2 flex-shrink-0" />
                     <span className="text-sm text-white">{feature}</span>
                   </div>
                 ))}
               </div>
-
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto z-45 px-10">
                 <Button
                   size="lg"
@@ -252,24 +248,9 @@ export default function Hero() {
                   asChild
                 >
                   <Link href={`/broker/${currentSlideData.slug}`}>
-                    View Full Review
+                    {t('home.hero.view_full_review')}
                   </Link>
                 </Button>
-                {/* <Button
-                  size="lg"
-                  variant="secondary"
-                  className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
-                  asChild
-                >
-                  <a 
-                    href={currentSlideData.url}
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center"
-                  >
-                    Visit Broker
-                  </a>
-                </Button> */}
               </div>
 
               {/* Search bar moved to bottom */}

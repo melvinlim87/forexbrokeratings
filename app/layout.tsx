@@ -5,13 +5,15 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { AppProviders } from './providers';
+import { I18nProvider } from '@/lib/i18n-client';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Forex Broker Ratings | Find the Best Forex Brokers',
   description: 'Compare top forex brokers with our comprehensive ratings and reviews. Find the most trusted brokers for your trading needs.',
-  keywords: 'forex brokers, forex trading, broker ratings, forex comparison, best forex brokers',
+  keywords: 'forex brokers, forex trading, broker ratings, forex comparison, forex broker ratings',
   metadataBase: new URL('https://forexbrokeratings.com'),
   alternates: { canonical: '/' },
   openGraph: {
@@ -51,24 +53,43 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <AppProviders>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">
-                <div>
-                  {children}
-                </div>
-              </main>
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </AppProviders>
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);} 
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+        <I18nProvider>
+          <AppProviders>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <div className="flex min-h-screen flex-col">
+                <Header />
+                <main className="flex-1">
+                  <div>
+                    {children}
+                  </div>
+                </main>
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </AppProviders>
+        </I18nProvider>
       </body>
     </html>
   );

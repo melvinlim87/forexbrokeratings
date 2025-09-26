@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { fetchBlogContents, BlogContents } from '@/lib/supabase';
+import T from '@/components/common/T';
+import { useI18n } from '@/lib/i18n-client';
 
 interface BlogListClientProps {
   initialPosts: BlogContents[];
@@ -14,6 +16,7 @@ interface BlogListClientProps {
 }
 
 export default function BlogListClient({ initialPosts, pageSize = 9 }: BlogListClientProps) {
+  const { t } = useI18n();
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<BlogContents[]>(initialPosts || []);
   const [loading, setLoading] = useState(false);
@@ -52,7 +55,7 @@ export default function BlogListClient({ initialPosts, pageSize = 9 }: BlogListC
       <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <input
           type="text"
-          placeholder="Search blog posts..."
+          placeholder={t('blog.search_placeholder')}
           className="w-full px-4 py-2 border rounded"
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
@@ -62,7 +65,7 @@ export default function BlogListClient({ initialPosts, pageSize = 9 }: BlogListC
       {error && <div className="py-8 text-center text-red-500">{error}</div>}
 
       {!error && filteredPosts.length === 0 && (
-        <div className="py-16 text-center text-gray-500">No blog posts found.</div>
+        <div className="py-16 text-center text-gray-500"><T k="blog.no_results" /></div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -78,7 +81,7 @@ export default function BlogListClient({ initialPosts, pageSize = 9 }: BlogListC
             onClick={handleLoadMore}
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Load More'}
+            {loading ? t('blog.loading') : t('blog.load_more')}
           </button>
         </div>
       )}

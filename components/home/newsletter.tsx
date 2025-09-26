@@ -7,8 +7,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { saveSubscribers } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
 export default function Newsletter() {
+  const { t } = useI18n();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,15 +27,15 @@ export default function Newsletter() {
     setError('');
     setSuccess(false);
     if (!name.trim()) {
-      setError('Name is required.');
+      setError(t('newsletter.name_is_required'));
       return;
-    }
+    } 
     if (!email) {
-      setError('Email is required.');
+      setError(t('newsletter.email_is_required'));
       return;
     }
     if (!validateEmail(email)) {
-      setError('Please enter a valid email address.');
+      setError(t('newsletter.invalid_email'));
       return;
     }
     setLoading(true);
@@ -55,11 +57,11 @@ export default function Newsletter() {
       // }
       // If result has error and is duplicate email, handle
       if (result.error && (result.error.code === '23505' || result.error.message?.toLowerCase().includes('duplicate'))) {
-        setError('Email already used.');
+        setError(t('newsletter.email_already_used'));
         setLoading(false);
         return;
       } else if (result.error) {
-        setError('Failed to subscribe. Please try again later.');
+        setError(t('newsletter.failed_to_subscribe'));
         setLoading(false);
         return;
       }
@@ -79,11 +81,11 @@ export default function Newsletter() {
       setEmail('');
     } catch (err: any) {
       if (err && err.message.includes('duplicate')) {
-        setError('You already subscribed to our service.');
+        setError(t('newsletter.you_already_subscribed'));
         setLoading(false);
         return;
       }
-      setError('Failed to subscribe. Please try again later.');
+      setError(t('newsletter.failed_to_subscribe'));
     } finally {
       setLoading(false);
     }
@@ -106,11 +108,11 @@ export default function Newsletter() {
                 </div>
                 
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  Stay Updated with Forex Insights
+                  {t('newsletter.title')}
                 </h3>
                 
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Subscribe to receive broker updates, new reviews, market analysis, and exclusive trading tips.
+                  {t('newsletter.subtitle')}
                 </p>
                 
                 {!isSubmitted ? (
@@ -118,7 +120,7 @@ export default function Newsletter() {
                     <div className="gap-3">
                       <Input
                         type="text"
-                        placeholder="Enter your name"
+                        placeholder={t('newsletter.name_placeholder')}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -127,7 +129,7 @@ export default function Newsletter() {
                       />
                       <Input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder={t('newsletter.email_placeholder')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -135,17 +137,17 @@ export default function Newsletter() {
                         disabled={loading}
                       />
                       <Button type="submit" className="whitespace-nowrap" disabled={loading}>
-                        {loading ? 'Subscribing…' : 'Subscribe'}
+                        {loading ? t('newsletter.subscribing') : t('newsletter.subscribe')}
                       </Button>
                     </div>
                     {error && (
                       <div className="text-red-600 text-xs mt-1" role="alert">{error}</div>
                     )}
                     {success && (
-                      <div className="text-green-700 text-xs mt-1" role="status">Successfully subscribed!</div>
+                      <div className="text-green-700 text-xs mt-1" role="status">{t('newsletter.success_message')}</div>
                     )}
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      We respect your privacy. Unsubscribe at any time.
+                      {t('newsletter.privacy_message')}
                     </p>
                   </form>
                 ) : (
@@ -156,10 +158,9 @@ export default function Newsletter() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-green-800 dark:text-green-300">Thanks for subscribing!</p>
+                      <p className="font-medium text-green-800 dark:text-green-300">{t('newsletter.thanks_for_subscribing')}</p>
                       <p className="text-sm text-green-700 dark:text-green-400 mt-1">
-                        {/* We've sent a confirmation email to <span className="font-medium">{email}</span> */}
-                        We'll keep you updated with the latest broker reviews, news, and insights.
+                        {t('newsletter.confirmation_email_sent')}
                       </p>
                     </div>
                   </div>
@@ -179,15 +180,15 @@ export default function Newsletter() {
                   <Bell className="h-5 w-5 text-white" />
                 </div>
                 
-                <h4 className="text-xl font-bold mb-4">Subscriber Benefits</h4>
+                <h4 className="text-xl font-bold mb-4">{t('newsletter.subscriber_benefits')}</h4>
                 
                 <ul className="space-y-3">
                   {[
-                    'New broker reviews delivered first',
-                    'Exclusive educational content',
-                    'Special broker promotions and deals',
-                    'Market analysis and trading tips',
-                    'Industry updates and regulation changes'
+                    t('newsletter.benefit_1'),
+                    t('newsletter.benefit_2'),
+                    t('newsletter.benefit_3'),
+                    t('newsletter.benefit_4'),
+                    t('newsletter.benefit_5')
                   ].map((benefit, i) => (
                     <li key={i} className="flex items-start">
                       <svg className="h-5 w-5 text-blue-200 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

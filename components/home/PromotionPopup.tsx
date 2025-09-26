@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchFeaturedPromotion, BrokerPromotionWithBrokerDetails } from '@/lib/supabase';
 import { TimerIcon } from 'lucide-react';
+import { useI18n } from '@/lib/i18n-client';
 
 interface Promotion {
   id: number;
@@ -26,6 +27,7 @@ function getCountryFromIp(ip_country: string): 'Malaysia' | 'Singapore' | null {
 }
 
 export default function PromotionPopup() {
+  const { t } = useI18n();
   const [show, setShow] = useState(false);
   const [promotion, setPromotion] = useState<BrokerPromotionWithBrokerDetails | null>(null);
   const [loading, setLoading] = useState(true);
@@ -35,7 +37,6 @@ export default function PromotionPopup() {
       try {
         let country = localStorage.getItem('forexbrokeratings_country')
         const promos = await fetchFeaturedPromotion(country ?? 'Malaysia');
-        console.log('promos',promos)
         if (Array.isArray(promos) && promos.length > 0) {
           setPromotion(promos[0]);
           setShow(true);
@@ -66,7 +67,7 @@ export default function PromotionPopup() {
         <button
           className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-700 z-[11011]"
           onClick={() => setShow(false)}
-          aria-label="Close promotion popup"
+          aria-label={t('home.promo.close_aria')}
         >
           ×
         </button>
@@ -80,7 +81,7 @@ export default function PromotionPopup() {
             {/* Powered by section */}
             <div className="flex items-center rounded-xl px-3 py-2">
                 <div className="hidden md:flex items-center">
-                  <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                  <span className="text-xs text-gray-500 mr-2">{t('home.promo.powered_by')}</span>
                 </div>
                 <img src={promotion.broker_details.logo || ''} alt={promotion.broker_details.name} className="h-10 w-10 md:h-8 md:w-8 rounded-full border md:mr-2" />
                 <a className="pl-2 font-bold text-cyan-700 text-lg" href={`/broker/${promotion.broker_details.name.toLowerCase().replace(/\s+/g, '-')}`}>{promotion.broker_details.name}</a>
@@ -89,7 +90,7 @@ export default function PromotionPopup() {
             <div className="flex items-center gap-2 min-w-fit rounded-xl px-3 py-2">
                 <TimerIcon className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-500 text-xs font-medium">
-                    Valid Till: <br /> 
+                    {t('home.promo.valid_till')}: <br /> 
                     {(() => {
                       const d = new Date(promotion.valid_till);
                       const day = String(d.getDate()).padStart(2, '0');
@@ -127,10 +128,10 @@ export default function PromotionPopup() {
             }}
             className="block w-full text-center py-3 mt-2 rounded-lg font-bold text-lg bg-gradient-to-r from-cyan-400 to-purple-400 text-white shadow hover:brightness-110 transition"
           >
-            Claim Your Bonus Now
+            {t('home.promo.claim_bonus')}
           </a>
           {promotion.conditions ? (
-            <div className="text-[10px] text-gray-400 mt-1 text-center">*T&amp;C apply. Risk warning: Trading involves substantial risk.</div>
+            <div className="text-[10px] text-gray-400 mt-1 text-center">{t('home.promo.tc_risk')}</div>
         ) : null}
         </div>
       </div>

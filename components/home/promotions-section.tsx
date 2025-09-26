@@ -15,6 +15,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { fetchUniquePromotions, BrokerPromotionWithBrokerDetails } from '@/lib/supabase';
+import { useI18n } from '@/lib/i18n-client';
 
 interface BrokerPromotionWithDetails {
   id: string;
@@ -30,6 +31,7 @@ interface BrokerPromotionWithDetails {
 }
 
 export default function PromotionsSection() {
+  const { t } = useI18n();
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [promotions, setPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,10 +87,10 @@ export default function PromotionsSection() {
             <Gift className="h-6 w-6 text-amber-600 dark:text-amber-500" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Top Broker Promotions
+            {t('home.promotions.title')}
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Exclusive bonuses and rewards from leading forex brokers
+            {t('home.promotions.subtitle')}
           </p>
         </div>
 
@@ -109,12 +111,12 @@ export default function PromotionsSection() {
                 className="mt-4"
                 onClick={() => window.location.reload()}
               >
-                Retry
+                {t('common.retry')}
               </Button>
             </div>
           ) : promotions.length === 0 ? (
             <div className="col-span-full py-12 text-center">
-              <p className="text-gray-500 dark:text-gray-400">No promotions available at the moment.</p>
+              <p className="text-gray-500 dark:text-gray-400">{t('home.promotions.none')}</p>
             </div>
           ) : (
             promotions.map((promo: BrokerPromotionWithBrokerDetails, index: number) => (
@@ -207,11 +209,11 @@ export default function PromotionsSection() {
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="bg-black/10 rounded-lg p-2 text-center">
                         <div className="text-cyan-400 font-bold text-sm">{promo.broker_details?.min_deposit}</div>
-                        <div className="text-black text-xs">Min Deposit</div>
+                        <div className="text-black text-xs">{t('home.promotions.min_deposit')}</div>
                       </div>
                       <div className="bg-black/10 rounded-lg p-2 text-center">
                         <div className="text-purple-400 font-bold text-sm">{promo.broker_details?.leverage_max}</div>
-                        <div className="text-black text-xs">Max Leverage</div>
+                        <div className="text-black text-xs">{t('home.promotions.max_leverage')}</div>
                       </div>
                     </div>
 
@@ -222,7 +224,7 @@ export default function PromotionsSection() {
                       className="w-full inline-flex items-center justify-center gap-1 px-3 py-3 rounded bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-xs shadow hover:brightness-110 transition disabled:opacity-50"
                       style={{ pointerEvents: promo.link ? 'auto' : 'none', opacity: promo.link ? 1 : 0.6 }}
                     >
-                      Claim Offer
+                      {t('home.promotions.claim_offer')}
                     </a>
                   </CardContent>
                 </Card>
@@ -233,7 +235,7 @@ export default function PromotionsSection() {
         <div className="mt-12 text-center max-w-7xl mx-auto">
           <Button variant="outline" size="lg" asChild>
             <Link href="/promotions">
-              View All Promotions <ArrowRight className="ml-2 h-4 w-4" />
+              {t('home.promotions.view_all')} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

@@ -5,13 +5,20 @@ export const metadata: Metadata = {
   title: "AI Forex Trading Tools",
   description: "Explore AI-powered forex trading tools and analyzers to enhance your trading strategies. Discover smart analytics, signals, and more.",
   keywords: "AI forex tools, trading AI, forex analyzers, trading signals, smart analytics, ForexBrokerRatings",
-  alternates: { canonical: 'https://forexbrokerratings.com/ai-tools' },
+  metadataBase: new URL('https://forexbrokeratings.com'),
+  alternates: {
+    canonical: 'https://forexbrokeratings.com/ai-tools',
+    languages: {
+      'en': 'https://forexbrokeratings.com/ai-tools',
+      'zh': 'https://forexbrokeratings.com/zh/ai-tools'
+    }
+  },
   openGraph: {
     type: 'website',
-    url: 'https://forexbrokerratings.com/ai-tools',
+    url: 'https://forexbrokeratings.com/ai-tools',
     title: "AI Forex Trading Tools",
     description: "Explore AI-powered forex trading tools and analyzers to enhance your trading strategies. Discover smart analytics, signals, and more.",
-    images: ['https://forexbrokerratings.com/assets/images/ai-tools-default.jpg'],
+    images: ['https://forexbrokeratings.com/assets/images/ai-tools-default.jpg'],
     siteName: 'Forex Broker Ratings',
   },
   twitter: {
