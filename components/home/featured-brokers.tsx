@@ -184,7 +184,9 @@ export default function FeaturedBrokers() {
                           return <span className="text-sm md:text-lg font-medium text-gray-400">-</span>;
                         }
                         // If score is out of 10, scale to 5
-                        let score = rawScore > 5 ? (rawScore / 10) * 5 : rawScore;
+
+                        // let score = rawScore > 5 ? (rawScore / 10) * 5 : rawScore;
+                        let score = rawScore > 5 ? (rawScore / 20) : rawScore;
                         score = Math.min(5, Math.max(0, score)); // Clamp between 0-5
                         const fullStars = Math.floor(score);
                         const hasHalfStar = score % 1 >= 0.25 && score % 1 < 0.75;
@@ -211,7 +213,7 @@ export default function FeaturedBrokers() {
                             {Array(emptyStars).fill(0).map((_, i) => (
                               <svg key={`empty-${i}`} className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><polygon points="9.9,1.1 7.6,6.8 1.4,7.6 6,12.1 4.7,18.3 9.9,15.3 15.1,18.3 13.8,12.1 18.4,7.6 12.2,6.8" /></svg>
                             ))}
-                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? rawScore.toFixed(2) : '-'}{typeof rawScore === 'number' ? '/100' : ''}</span>
+                            <span className="ml-1 text-sm md:text-lg text-gray-600">{typeof rawScore === 'number' ? (rawScore / 20).toFixed(2) : '-'}{typeof rawScore === 'number' ? '/5' : ''}</span>
                           </>
                         );
                       })()}

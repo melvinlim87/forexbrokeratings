@@ -219,7 +219,7 @@ export default function Hero() {
                     />
                   ))}
                   <span className="text-white font-medium">
-                    {(typeof currentSlideData.rating === 'number' ? currentSlideData.rating.toFixed(2) : parseFloat(currentSlideData.rating).toFixed(2))}/100
+                    {(typeof currentSlideData.rating === 'number' ? (currentSlideData.rating / 20).toFixed(2) : (parseFloat(currentSlideData.rating) / 20).toFixed(2))}/5
                   </span>
                 </div>
               </div>

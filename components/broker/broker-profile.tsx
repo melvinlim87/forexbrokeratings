@@ -436,7 +436,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         );
                       })}
                       <span className="pl-2 font-semibold text-gray-900 dark:text-white">
-                        {brokerData.rating} / 100
+                        {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
                       </span>
                       </div>
                     </div>
@@ -1404,7 +1404,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Trust & Reliability
                     </span>
-                    <span className="font-medium">{brokerData.rating}/100</span>
+                    <span className="font-medium">{brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5</span>
                   </div>
                   <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div 
@@ -1605,7 +1605,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               <div className="flex items-center ml-2">
                                 <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
                                 <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                                  {parseFloat(broker.rating).toFixed(2)}
+                                  {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
                                 </span>
                               </div>
                             )}

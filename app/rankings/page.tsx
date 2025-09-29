@@ -219,7 +219,7 @@ export default function RankingsPage() {
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
-                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
+                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{(parseFloat(broker.rating) / 20).toFixed(2) || '—'}</span>
                               <span className="text-xs text-gray-400">{t('rankings.rating')}</span>
                             </div>
                           </div>
@@ -315,8 +315,8 @@ export default function RankingsPage() {
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
-                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{broker.score || broker.rating || '—'}</span>
-                              <span className="text-xs text-gray-400">Rating</span>
+                              <span className="text-2xl font-extrabold text-yellow-400 leading-none">{(parseFloat(broker.rating) / 20).toFixed(2) || '—'}</span>
+                              <span className="text-xs text-gray-400">{t('rankings.rating')}</span>
                             </div>
                           </div>
                           {/* Divider */}

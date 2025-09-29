@@ -212,7 +212,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                         );
                       })}
                       <span className="ml-2 text-sm font-medium">
-                        {typeof broker.rating === 'string' ? parseFloat(broker.rating as string).toFixed(2) : ((broker.rating as number) || 0).toFixed(2)}
+                        {typeof broker.rating === 'string' ? (parseFloat(broker.rating as string)/20).toFixed(2) : ((broker.rating as number /20) || 0).toFixed(2)}
                       </span>
                     </div>
                   </div>
