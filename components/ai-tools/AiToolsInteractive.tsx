@@ -126,7 +126,7 @@ export default function AiToolsInteractive({ aiTools, categories }: { aiTools: T
             </motion.div>
           </div>
 
-          <h2 id="products" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('ai.products')}</h2>
+          {/* <h2 id="products" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('ai.products')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <Card className="relative">
               <CardContent className="p-6">
@@ -203,7 +203,7 @@ export default function AiToolsInteractive({ aiTools, categories }: { aiTools: T
                 <Button variant="secondary" disabled className="cursor-not-allowed">{t('ai.available_soon')}</Button>
               </CardContent>
             </Card>
-          </div>
+          </div> */}
 
           <h2 id="all" className="text-2xl font-bold text-gray-900 dark:text-white mb-8">{t('ai.all')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
