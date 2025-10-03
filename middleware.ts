@@ -15,31 +15,73 @@ async function verifyJwt(token: string) {
 }
 
 export async function middleware(req: NextRequest) {
-  if (!req.nextUrl.pathname.startsWith('/api/')) return NextResponse.next();
-  if (req.method === 'OPTIONS') return NextResponse.next();
+  const { pathname, search } = req.nextUrl;
 
-  const authHeader = req.headers.get('authorization');
-  let token = null;
+  // 1) Protect API endpoints with JWT (existing behavior)
+  if (pathname.startsWith('/api/')) {
+    if (req.method === 'OPTIONS') return NextResponse.next();
 
-  if (authHeader?.startsWith('Bearer ')) {
-    token = authHeader.slice(7);
-  } else {
-    token = req.cookies.get('token')?.value ?? null;
+    const authHeader = req.headers.get('authorization');
+    let token = null;
+
+    if (authHeader?.startsWith('Bearer ')) {
+      token = authHeader.slice(7);
+    } else {
+      token = req.cookies.get('token')?.value ?? null;
+    }
+
+    if (!token) {
+      return NextResponse.json({ error: 'Missing or invalid token' }, { status: 401 });
+    }
+
+    const payload = await verifyJwt(token);
+
+    if (!payload) {
+      return NextResponse.json({ error: 'Invalid or expired token' }, { status: 401 });
+    }
+
+    return NextResponse.next();
   }
 
-  if (!token) {
-    return NextResponse.json({ error: 'Missing or invalid token' }, { status: 401 });
+  // 2) Locale-aware redirects and rewrites for non-API paths
+  const LOCALES = ['en', 'zh'] as const;
+  const localePattern = new RegExp(`^/(?:${LOCALES.join('|')})(?:/|$)`);
+
+  // Skip static and special files
+  const STATIC_PREFIXES = [
+    '/_next',
+    '/favicon.ico',
+    '/icon',
+    '/images',
+    '/assets',
+    '/robots.txt',
+    '/sitemap.xml',
+    '/sitemap',
+    '/manifest.webmanifest',
+  ];
+  if (STATIC_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + '/'))) {
+    return NextResponse.next();
   }
 
-  const payload = await verifyJwt(token);
-
-  if (!payload) {
-    return NextResponse.json({ error: 'Invalid or expired token' }, { status: 401 });
+  // a) If path already has locale prefix, rewrite to the underlying route without the prefix
+  if (localePattern.test(pathname)) {
+    const withoutLocale = pathname.replace(/^\/(en|zh)(?=\/|$)/, '') || '/';
+    const url = req.nextUrl.clone();
+    url.pathname = withoutLocale;
+    // Keep search/query
+    url.search = search;
+    return NextResponse.rewrite(url);
   }
 
-  return NextResponse.next();
+  // b) If path has no locale, redirect to default '/en' prefixed URL
+  const redirectUrl = req.nextUrl.clone();
+  redirectUrl.pathname = `/en${pathname}`;
+  // Keep query string
+  redirectUrl.search = search;
+  return NextResponse.redirect(redirectUrl);
 }
 
 export const config = {
-  matcher: ['/api/aitools', '/api/me'],
+  // Match all paths to apply locale handling, but exclude Next internals explicitly in code above
+  matcher: ['/((?!_next).*)'],
 };

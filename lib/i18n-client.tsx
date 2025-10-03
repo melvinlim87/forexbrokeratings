@@ -53,6 +53,16 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   const setLocale = useCallback((l: 'en' | 'zh') => {
     setLocaleState(l);
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+      const basePath = (path.replace(/^\/(en|zh)(?=\/|$)/, '')) || '/';
+      const target = `/${l}${basePath}${search}${hash}`;
+      if (`${path}${search}${hash}` !== target) {
+        window.location.assign(target);
+      }
+    }
   }, []);
 
   const messages = useMemo(() => ALL_MESSAGES[locale] || enMessages, [locale]);
