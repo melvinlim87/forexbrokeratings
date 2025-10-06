@@ -230,7 +230,7 @@ export default function AIToolsPage() {
       </Script>
 
       {/* JSON-LD Product structured data (static English for SEO) */}
-      <Script id="jsonld-semi-auto-ea" type="application/ld+json">
+      {/* <Script id="jsonld-semi-auto-ea" type="application/ld+json">
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Product',
@@ -269,7 +269,7 @@ export default function AIToolsPage() {
           brand: { '@type': 'Brand', name: 'Forex Broker Ratings' },
           offers: { '@type': 'Offer', priceCurrency: 'USD', price: '250', availability: 'https://schema.org/PreOrder' }
         })}
-      </Script>
+      </Script> */}
 
       <AiToolsInteractive aiTools={aiTools as any} categories={categories as any} />
     </div>
