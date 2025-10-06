@@ -112,7 +112,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             {/* Header Logo */}
             <span className="inline-block">
-              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={250} height={200} style={{objectFit:'cover',maxHeight:100}} priority />
+              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={300} height={200} style={{objectFit:'cover',maxHeight:100}} priority />
             </span>
           </Link>
         </div>
@@ -148,10 +148,10 @@ export default function Header() {
           
           <Link href="/">
             <Button 
-              className="hidden lg:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-6 py-2.5"
+              className="hidden lg:flex bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover transition-all duration-300 hover:bg-white/20 text-lg px-2.5 py-2.5"
             >
-              <Home className="h-5 w-5 mr-2" />
-              {t('nav.home')}
+              <Home className="h-5 w-5" />
+              {/* {t('nav.home')} */}
             </Button>
           </Link>
           {/* Auth UI: Show login or user dropdown */}
