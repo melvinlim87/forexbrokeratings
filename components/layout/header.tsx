@@ -107,12 +107,12 @@ export default function Header() {
           : ""
       )}
     >
-      <div className="container mx-auto px-2 flex h-28 items-center">
+      <div className="container mx-auto px-2 flex h-35 items-center">
         <div className="flex-1">
           <Link href="/" className="flex items-center">
             {/* Header Logo */}
             <span className="inline-block">
-              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={200} height={100} style={{objectFit:'cover',maxHeight:100}} priority />
+              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={250} height={200} style={{objectFit:'cover',maxHeight:100}} priority />
             </span>
           </Link>
         </div>
