@@ -9,11 +9,23 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/api/',
+          // unprefixed (will redirect to /en, but disallow anyway for safety)
           '/restricted/',
           '/login',
           '/register',
           '/reset-password',
           '/forgot-password',
+          // locale-prefixed restricted paths
+          '/en/restricted/',
+          '/en/login',
+          '/en/register',
+          '/en/reset-password',
+          '/en/forgot-password',
+          '/zh/restricted/',
+          '/zh/login',
+          '/zh/register',
+          '/zh/reset-password',
+          '/zh/forgot-password',
         ],
       },
     ],
