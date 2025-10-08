@@ -89,7 +89,7 @@ export default function PromotionsPage() {
         // Fetch featured
         let country = localStorage.getItem('forexbrokeratings_country')
         const promos = await fetchFeaturedPromotion(country ?? 'Malaysia');
-        setFeaturedPromotions(promos.slice(0, 4));
+        setFeaturedPromotions(promos.slice(0, 3));
         // Fetch all promotions
         const allPromosRaw = await fetchBrokerPromotionsWithDetails();
         setAllPromotions(allPromosRaw);
@@ -206,7 +206,7 @@ export default function PromotionsPage() {
           ) : error ? (
             <div className="text-center text-red-500">{error}</div>
           ) : filteredFeaturedPromotions.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredFeaturedPromotions.map((promo, idx) => (
                 <div
                   key={promo.id || idx}
