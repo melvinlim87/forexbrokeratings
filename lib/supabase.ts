@@ -594,7 +594,7 @@ export async function fetchFeaturedPromotion(country: string): Promise<BrokerPro
     `)
     .eq('status', true)
     .eq('is_featured', true)
-    .eq('country', country)
+    .eq('country', country == '' ? null : country)
     // .like('country', `%${country}%`)
 
   if (error) {

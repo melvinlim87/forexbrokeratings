@@ -87,7 +87,8 @@ export default function PromotionsPage() {
       try {
         setLoading(true);
         // Fetch featured
-        const promos = await fetchFeaturedPromotion('');
+        let country = localStorage.getItem('forexbrokeratings_country')
+        const promos = await fetchFeaturedPromotion(country ?? 'Malaysia');
         setFeaturedPromotions(promos.slice(0, 4));
         // Fetch all promotions
         const allPromosRaw = await fetchBrokerPromotionsWithDetails();
