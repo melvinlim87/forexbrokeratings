@@ -92,6 +92,7 @@ export default function PromotionsPage() {
         setFeaturedPromotions(promos.slice(0, 3));
         // Fetch all promotions
         const allPromosRaw = await fetchBrokerPromotionsWithDetails();
+        console.log(allPromosRaw)
         setAllPromotions(allPromosRaw);
         setLoading(false);
       } catch (err) {
@@ -224,6 +225,8 @@ export default function PromotionsPage() {
                             ? 'bg-pink-500 text-white '
                             : category.includes('FREE')
                             ? 'bg-blue-500 text-white '
+                            : category.includes('REFER')
+                            ? 'bg-yellow-500 text-white '
                             : category.includes('LIMITED')
                             ? 'bg-green-500 text-white '
                             : 'bg-gray-300 text-gray-800 ') +
