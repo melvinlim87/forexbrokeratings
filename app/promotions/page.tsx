@@ -81,6 +81,7 @@ export default function PromotionsPage() {
   const [featuredPromotions, setFeaturedPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
   const [allPromotions, setAllPromotions] = useState<BrokerPromotionWithBrokerDetails[]>([]);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,7 +93,6 @@ export default function PromotionsPage() {
         setFeaturedPromotions(promos.slice(0, 3));
         // Fetch all promotions
         const allPromosRaw = await fetchBrokerPromotionsWithDetails();
-        console.log(allPromosRaw)
         setAllPromotions(allPromosRaw);
         setLoading(false);
       } catch (err) {
@@ -118,6 +118,11 @@ export default function PromotionsPage() {
 
   const filteredFeaturedPromotions = filterPromos(featuredPromotions);
   const filteredAllPromotions = filterPromos(allPromotions);
+
+  // Reset visible count on new searches
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [searchQuery]);
 
 
   if (loading) {
@@ -227,6 +232,8 @@ export default function PromotionsPage() {
                             ? 'bg-blue-500 text-white '
                             : category.includes('REFER')
                             ? 'bg-yellow-500 text-white '
+                            : category.includes('VPS')
+                            ? 'bg-orange-500 text-white '
                             : category.includes('LIMITED')
                             ? 'bg-green-500 text-white '
                             : 'bg-gray-300 text-gray-800 ') +
@@ -361,12 +368,13 @@ export default function PromotionsPage() {
           ) : error ? (
             <div className="text-center text-red-500">{error}</div>
           ) : filteredAllPromotions.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredAllPromotions.map((promo, idx) => (
-                <div
-                  key={promo.id || idx}
-                  className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
-                >
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredAllPromotions.slice(0, visibleCount).map((promo, idx) => (
+                  <div
+                    key={promo.id || idx}
+                    className="bg-white rounded-xl shadow p-6 flex flex-col h-full border border-gray-100"
+                  >
                   {/* Promo Badge/Category */}
                   <div className="mb-2 flex flex-wrap gap-2 flex-row flex-nowrap overflow-x-auto">
                     {promo.categories?.map((category, idx) => (
@@ -379,6 +387,14 @@ export default function PromotionsPage() {
                             ? 'bg-pink-500 text-white '
                             : category.includes('FREE')
                             ? 'bg-blue-500 text-white '
+                            : category.includes('REFER')
+                            ? 'bg-orange-500 text-white '
+                            : category.includes('VPS')
+                            ? 'bg-teal-500 text-white '
+                            : category.includes('CASH')
+                            ? 'bg-yellow-500 text-white '
+                            : category.includes('AFFILIATE')
+                            ? 'bg-lime-500 text-white '
                             : category.includes('LIMITED')
                             ? 'bg-green-500 text-white '
                             : 'bg-gray-300 text-gray-800 ') +
@@ -432,6 +448,10 @@ export default function PromotionsPage() {
                       className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
                     />
                   )}
+                  {/* Promo Title */}
+                  <div className="font-bold text-2xl mb-2 text-gray-900">{promo.title}</div>
+                  {/* Promo Description */}
+                  <div className="text-gray-700 text-md mb-4">{promo.description}</div>
                   {promo.conditions && typeof promo.conditions === 'object' && !Array.isArray(promo.conditions) && (promo.conditions as any).type === 'list' && (() => {
                     type ListCondition = { type: 'list'; items: string[]; extra?: string[]; warning?: string };
                     const listCond = promo.conditions as ListCondition;
@@ -472,9 +492,20 @@ export default function PromotionsPage() {
                   >
                     <T k="promotions.view_details" />
                   </a>
+                  </div>
+                ))}
+              </div>
+              {visibleCount < filteredAllPromotions.length && (
+                <div className="mt-6 text-center">
+                  <Button
+                    onClick={() => setVisibleCount((prev) => prev + 3)}
+                    className="px-6"
+                  >
+                    Load more
+                  </Button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           ) : (
             <p className="text-muted-foreground"><T k="promotions.no_promotions" /></p>
           )}
