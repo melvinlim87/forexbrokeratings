@@ -14,7 +14,7 @@ export default function Breadcrumb({ items }: { items: Crumb[] }) {
   const renderText = (item: Crumb) => (item.label ?? (item.labelKey ? t(item.labelKey) : ''));
 
   return (
-    <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
+    <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
       <ol className="list-reset flex">
         {items.map((item, idx) => (
           <li key={idx} className="flex items-center">

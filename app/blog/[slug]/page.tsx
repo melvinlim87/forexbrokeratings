@@ -322,7 +322,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <span>{data.created_at ? new Date(data.created_at).toLocaleDateString('en-GB') : ''}</span>
       </div>
       {/* Content */}
-      <article className="prose prose-lg dark:prose-invert" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <article className="prose prose-lg" dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </main>
   );
 }

@@ -222,7 +222,7 @@ const sections = [
 
 export default function PolicySections() {
   return (
-    <section className="prose dark:prose-invert max-w-none text-base" style={{ lineHeight: 1.6 }}>
+    <section className="prose max-w-none text-base" style={{ lineHeight: 1.6 }}>
       {sections.map((section) => (
         <section
           key={section.id}

@@ -80,16 +80,16 @@ export default function PromotionsSection() {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950 w-full">
+    <section className="py-16 bg-white w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center justify-center p-2 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-4">
-            <Gift className="h-6 w-6 text-amber-600 dark:text-amber-500" />
+          <div className="inline-flex items-center justify-center p-2 bg-amber-100 rounded-full mb-4">
+            <Gift className="h-6 w-6 text-amber-600" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl font-bold text-gray-900">
             {t('home.promotions.title')}
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-lg text-gray-600">
             {t('home.promotions.subtitle')}
           </p>
         </div>
@@ -98,14 +98,14 @@ export default function PromotionsSection() {
           {loading ? (
             // Skeleton loaders
             Array(3).fill(0).map((_, index) => (
-              <div key={index} className="h-[400px] bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse"></div>
+              <div key={index} className="h-[400px] bg-gray-100 rounded-lg animate-pulse"></div>
             ))
           ) : error ? (
             <div className="col-span-full py-12 text-center">
-              <div className="inline-flex items-center justify-center p-3 bg-red-100 dark:bg-red-900/30 rounded-full mb-4">
-                <AlertCircle className="h-6 w-6 text-red-600 dark:text-red-500" />
+              <div className="inline-flex items-center justify-center p-3 bg-red-100 rounded-full mb-4">
+                <AlertCircle className="h-6 w-6 text-red-600" />
               </div>
-              <p className="text-red-600 dark:text-red-400">{error}</p>
+              <p className="text-red-600">{error}</p>
               <Button 
                 variant="outline" 
                 className="mt-4"
@@ -116,7 +116,7 @@ export default function PromotionsSection() {
             </div>
           ) : promotions.length === 0 ? (
             <div className="col-span-full py-12 text-center">
-              <p className="text-gray-500 dark:text-gray-400">{t('home.promotions.none')}</p>
+              <p className="text-gray-500">{t('home.promotions.none')}</p>
             </div>
           ) : (
             promotions.map((promo: BrokerPromotionWithBrokerDetails, index: number) => (
@@ -133,22 +133,20 @@ export default function PromotionsSection() {
                 <Card 
                   className={cn(
                     "overflow-hidden relative",
-                    "bg-white dark:bg-gray-900",
+                    "bg-white",
                     "border-0",
                     "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                     "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                     "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                    "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                     "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                     "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                    "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                     "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
                   )}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center">
-                        <div className="h-20 w-20 relative bg-gray-100 dark:bg-gray-800 rounded-xl">
+                        <div className="h-20 w-20 relative bg-gray-100 rounded-xl">
                           <Image
                             src={promo.broker_details.logo || getFallbackLogo(promo.broker_details.name || 'Broker')}
                             alt={promo.broker_details.name || 'Broker'}
@@ -162,10 +160,10 @@ export default function PromotionsSection() {
                           />
                         </div>
                         <div className="ml-4">
-                          <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                          <h4 className="text-lg font-bold text-gray-900">
                             {promo.broker_details.name}
                           </h4>
-                          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                          <div className="flex items-center text-sm text-gray-500">
                             <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
                             <span className="ml-1">{(promo.broker_details && promo.broker_details.rating ? (parseFloat(promo.broker_details.rating) / 20) : 0).toFixed(2)}/5</span>
                           </div>
@@ -189,11 +187,11 @@ export default function PromotionsSection() {
                       </TooltipProvider>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                       {promo.title}
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                    <p className="text-gray-600 mb-4 line-clamp-3">
                       {promo.description}
                     </p>
 

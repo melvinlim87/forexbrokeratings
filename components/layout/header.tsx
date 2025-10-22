@@ -7,7 +7,6 @@ import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCir
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { SearchDialog } from '@/components/search/search-dialog';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { RootState } from '@/store/store';
@@ -67,13 +66,13 @@ function AuthHeaderMenu() {
           <UserCircle className="h-7 w-7 text-white" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white dark:bg-gray-900 border dark:border-gray-800 mt-4">
+      <PopoverContent align="end" className="w-44 p-1.5 rounded-xl shadow-lg bg-white border mt-4">
         <div className="flex flex-col">
-          <Link href="/profile" className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base" onClick={() => setOpen(false)}>
+          <Link href="/profile" className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700 text-base" onClick={() => setOpen(false)}>
             <User className="h-4 w-4 mr-2" /> {t('auth.view_profile')}
           </Link>
           <button
-            className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-base"
+            className="flex items-center px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700 text-base"
             onClick={() => logoutUser()}
           >
             <LogOut className="h-4 w-4 mr-2" /> {t('auth.logout')}
@@ -126,7 +125,7 @@ export default function Header() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="hidden lg:flex hover:bg-white/20 dark:hover:bg-gray-800/20 h-12 w-12"
+                className="hidden lg:flex hover:bg-white/20 h-12 w-12"
               >
                 <Search className="h-6 w-6 text-white" />
               </Button>
@@ -218,7 +217,7 @@ function NavLinks() {
           <Link
             key={link.href}
             href={link.href}
-            className={`text-xl font-medium text-white hover:bg-white/20 dark:hover:text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl`}
+            className={`text-xl font-medium text-white hover:bg-white/20 whitespace-nowrap h-12 px-4 rounded-xl flex items-center`}
           >
             {t(link.title)}
           </Link>
@@ -236,7 +235,7 @@ function AiToolsDropdown() {
       <PopoverTrigger asChild>
         <button
           type="button"
-          className="flex items-center gap-1 text-xl font-medium text-white whitespace-nowrap px-4 mt-2 py-2 rounded-xl hover:bg-white/20"
+          className="flex items-center gap-1 text-xl font-medium text-white whitespace-nowrap h-12 px-4 rounded-xl hover:bg-white/20"
           aria-haspopup="menu"
           aria-expanded={open}
         >
@@ -244,11 +243,11 @@ function AiToolsDropdown() {
           <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
         </button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white/95 dark:bg-gray-900/95 backdrop-blur border border-gray-200 dark:border-gray-800 mt-4">
+      <PopoverContent align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white/95 backdrop-blur border border-gray-200 mt-4">
         <div className="flex flex-col">
-          <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.popular')}</Link>
-          <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.products')}</Link>
-          <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-100" onClick={() => setOpen(false)}>{t('ai.all')}</Link>
+          <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.popular')}</Link>
+          <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.products')}</Link>
+          <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.all')}</Link>
         </div>
       </PopoverContent>
     </Popover>

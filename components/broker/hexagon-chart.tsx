@@ -76,7 +76,7 @@ export function HexagonChart({ data, size = 200, className, showBg = true, strok
         {/* Background hexagon */}
         <polygon
           points={polygonPoints}
-          className="fill-none stroke-indigo-600 dark:stroke-indigo-600"
+          className="fill-none stroke-indigo-600"
           strokeWidth="1"
         />
 
@@ -91,7 +91,7 @@ export function HexagonChart({ data, size = 200, className, showBg = true, strok
             <polygon
               key={i}
               points={pointsStr}
-              className="fill-none stroke-indigo-300 dark:stroke-indigo-300"
+              className="fill-none stroke-indigo-300"
             />
           );
         })}
@@ -149,13 +149,13 @@ export function HexagonChart({ data, size = 200, className, showBg = true, strok
                 cx={point.x}
                 cy={point.y}
                 r="4"
-                className="fill-indigo-500 dark:fill-indigo-500"
+                className="fill-indigo-500"
               />
               <text
                 x={point.x}
                 y={point.y - 8}
                 textAnchor="middle"
-                className="text-[10px] font-medium fill-black dark:fill-black"
+                className="text-[10px] font-medium fill-black"
               >
                 {point.label}
               </text>
@@ -164,7 +164,7 @@ export function HexagonChart({ data, size = 200, className, showBg = true, strok
                   x={point.x}
                   y={point.y + 20}
                   textAnchor="middle"
-                  className="text-xs fill-black dark:fill-black"
+                  className="text-xs fill-black"
                 >
                   {point.value}
                 </text>

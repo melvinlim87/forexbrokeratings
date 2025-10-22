@@ -403,11 +403,11 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     }
                   </div>
                   <div className="flex flex-col items-center md:items-start mt-2 md:mt-0">
-                    <h1 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white text-center md:text-left">
+                    <h1 className="text-2xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
                       {brokerData.name}
                     </h1>
                     {brokerData.is_regulated && (
-                      <Badge variant="outline" className="text-sm md:text-md text-green-300 dark:text-green-400 pl-2 items-center rounded-full bg-green-900/40 dark:bg-green-900/30 border border-green-300 mt-1">
+                      <Badge variant="outline" className="text-sm md:text-md text-green-300 pl-2 items-center rounded-full bg-green-900/40 border border-green-300 mt-1">
                         Regulated
                       </Badge>
                     )}
@@ -415,7 +415,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
                 {/* Broker Year Published and Headquarters */}
                 <div className='flex flex-col items-center md:items-end justify-center gap-1'>
-                  <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-center md:text-right">
+                  <p className="text-md text-gray-700 px-2 text-center md:text-right">
                     {brokerData.headquarters} | {brokerData.year_published}
                   </p>
                   <div className="flex items-center mt-2 px-2 justify-center md:justify-end">
@@ -430,12 +430,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               "h-5 w-5",
                               star <= Math.floor(rating)
                                 ? "text-amber-500 fill-amber-500"
-                                : "text-gray-300 dark:text-gray-600"
+                                : "text-gray-300"
                             )}
                           />
                         );
                       })}
-                      <span className="pl-2 font-semibold text-gray-900 dark:text-white">
+                      <span className="pl-2 font-semibold text-gray-900">
                         {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
                       </span>
                       </div>
@@ -443,7 +443,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   </div>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
+              <p className="text-lg text-gray-700 max-w-3xl">
                 {brokerData.summary}
               </p>
               {/* Additional Broker Details */}
@@ -467,7 +467,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               </div>
               {brokerData.badges && brokerData.badges.length > 0 && (
                 <div className="rounded-xl flex flex-col ">
-                  <div className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Awards & Recognition</div>
+                  <div className="mb-2 font-semibold text-gray-700">Awards & Recognition</div>
                   <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 py-2 w-full rounded place-items-center">
                     {brokerData.badges.map((src: string, idx: number) => {
                       const imgSrc = src.startsWith('/') || src.startsWith('http')
@@ -658,16 +658,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
               className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -816,16 +814,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
             className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -838,11 +834,11 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Trading Information</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">EUR/USD Spread</span>
+                        <span className="text-gray-600 ">EUR/USD Spread</span>
                         <span className="font-medium text-cyan-600">{brokerData.spread_eur_usd || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Trading Platforms</span>
+                        <span className="text-gray-600 ">Trading Platforms</span>
                         <span className="font-medium text-right break-all flex flex-wrap gap-2 md:gap-1 justify-end">
                           {(brokerData.platforms ?? []).length > 0
                             ? (brokerData.platforms ?? []).map((p, i) => (
@@ -852,7 +848,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Instruments</span>
+                        <span className="text-gray-600 ">Instruments</span>
                         <span className="font-medium text-right break-all flex flex-wrap gap-2 md:gap-1 justify-end">
                           {(brokerData.instruments ?? []).length > 0
                             ? (brokerData.instruments ?? []).map((inst, i) => (
@@ -862,27 +858,27 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Year Established</span>
+                        <span className="text-gray-600 ">Year Established</span>
                         <span className="font-medium">{brokerData.year_published || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Has API</span>
+                        <span className="text-gray-600 ">Has API</span>
                         <span className="font-medium">{brokerData.has_api ? 'Yes' : 'No'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Has Demo Account</span>
+                        <span className="text-gray-600 ">Has Demo Account</span>
                         <span className="font-medium">{brokerData.has_demo_account ? 'Yes' : 'No'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Has Mobile Trading</span>
+                        <span className="text-gray-600 ">Has Mobile Trading</span>
                         <span className="font-medium">{brokerData.has_mobile_trading ? 'Yes' : 'No'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Has Web Based Trading</span>
+                        <span className="text-gray-600 ">Has Web Based Trading</span>
                         <span className="font-medium">{brokerData.has_web_based_trading ? 'Yes' : 'No'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Lot Size</span>
+                        <span className="text-gray-600 ">Lot Size</span>
                         <span className="font-medium">{brokerData.min_lot || 'N/A'} - {brokerData.max_lot || 'N/A'}</span>
                       </li>
                     </ul>
@@ -896,7 +892,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Account & Support</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Account Types</span>
+                        <span className="text-gray-600 ">Account Types</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.account_types?.map((account_type, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{account_type}</span>
@@ -907,7 +903,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span> */}
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Base Currencies</span>
+                        <span className="text-gray-600 ">Base Currencies</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.base_currencies?.map((base_currency, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{base_currency}</span>
@@ -918,15 +914,15 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span> */}
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Customer Support</span>
+                        <span className="text-gray-600 ">Customer Support</span>
                         <span className="font-medium">{brokerData.availability || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Response Time</span>
+                        <span className="text-gray-600 ">Response Time</span>
                         <span className="font-medium">{brokerData.response_time || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Languages</span>
+                        <span className="text-gray-600 ">Languages</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.languages?.length ? brokerData.languages.map((language, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{language}</span>
@@ -943,16 +939,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
             className={cn(
               "overflow-hidden relative",
-              "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+              "bg-gradient-to-br from-white/80 to-white/40",
               "backdrop-blur-sm",
               "border-0",
               "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
               "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
               "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-              "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
               "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
               "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-              "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
               "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
             )}>
               <div className="p-6">
@@ -962,7 +956,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Regulatory Information</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Regulators</span>
+                        <span className="text-gray-600 ">Regulators</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.regulators?.length ? brokerData.regulators.map((regulator, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{regulator}</span>
@@ -970,7 +964,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </div>
                       </li>
                       {/* <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Licenses</span>
+                        <span className="text-gray-600 ">Licenses</span>
                         <div className="flex flex-wrap gap-2 md:gap-1 justify-end">
                           {brokerData.licenses?.length ? brokerData.licenses.map((license, index) => (
                             <span key={index} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700 whitespace-nowrap" style={{borderRadius: '1.25rem'}}>{license}</span>
@@ -981,22 +975,22 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li> */}
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Companies</span>
+                        <span className="text-gray-600 ">Companies</span>
                         <span className="font-medium text-right">{brokerData.parent_companies?.join(', ') || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Headquarters</span>
+                        <span className="text-gray-600 ">Headquarters</span>
                         <span className="font-medium text-right">{brokerData.headquarters || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Regulation Status</span>
+                        <span className="text-gray-600 ">Regulation Status</span>
                         <span className="font-medium">
                           {brokerData.is_regulated ? (
-                            <span className="text-green-600 dark:text-green-400 flex items-center">
+                            <span className="text-green-600 flex items-center">
                               <Shield className="h-4 w-4 mr-1" /> Regulated
                             </span>
                           ) : (
-                            <span className="text-amber-600 dark:text-amber-400">Not Regulated</span>
+                            <span className="text-amber-600">Not Regulated</span>
                           )}
                         </span>
                       </li>
@@ -1009,7 +1003,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Contact Information</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Email</span>
+                        <span className="text-gray-600 ">Email</span>
                         <span className="font-medium">
                           {brokerData.email ? (
                             <a href={`mailto:${brokerData.email}`} className="text-blue-600 hover:underline">
@@ -1019,7 +1013,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Phone</span>
+                        <span className="text-gray-600 ">Phone</span>
                         <div className="flex flex-col items-end">
                           {brokerData.phone_numbers?.length ? (
                             brokerData.phone_numbers.map((phone, index) => (
@@ -1035,7 +1029,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </div>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Support Channels</span>
+                        <span className="text-gray-600 ">Support Channels</span>
                         <div className="flex flex-col items-end">
                           {brokerData.channels?.length ? (
                             brokerData.channels.map((channel, index) => (
@@ -1047,15 +1041,15 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </div>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Availability</span>
+                        <span className="text-gray-600 ">Availability</span>
                         <span className="font-medium">{brokerData.availability || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Response Time</span>
+                        <span className="text-gray-600 ">Response Time</span>
                         <span className="font-medium">{brokerData.response_time || 'N/A'}</span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Address</span>
+                        <span className="text-gray-600 ">Address</span>
                         <span className="font-medium text-right">{brokerData.headquarters || 'N/A'}</span>
                       </li>
                     </ul>
@@ -1068,16 +1062,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
               className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -1088,19 +1080,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Deposit</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Minimum Deposit</span>
+                        <span className="text-gray-600 ">Minimum Deposit</span>
                         <span className="font-medium">
                           {brokerData.min_deposit ? `${brokerData.min_deposit}` : 'N/A'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Processing Time</span>
+                        <span className="text-gray-600 ">Processing Time</span>
                         <span className="font-medium">
                           {brokerData.deposit_process_time || 'Varies by method'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Fees</span>
+                        <span className="text-gray-600 ">Fees</span>
                         <span className="font-medium">
                           {brokerData.deposit_fees === '0' || !brokerData.deposit_fees 
                             ? 'No fees' 
@@ -1108,7 +1100,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Methods</span>
+                        <span className="text-gray-600 ">Methods</span>
                         <div className="text-right">
                           {brokerData.deposit_methods?.length ? (
                             <div className="flex flex-wrap gap-1 justify-end max-w-[200px]">
@@ -1128,19 +1120,19 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <h3 className="text-lg font-medium mb-3">Withdrawal</h3>
                     <ul className="space-y-2">
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Minimum Withdrawal</span>
+                        <span className="text-gray-600 ">Minimum Withdrawal</span>
                         <span className="font-medium">
                           {brokerData.min_withdrawl ? `${brokerData.min_withdrawl}` : 'N/A'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Processing Time</span>
+                        <span className="text-gray-600 ">Processing Time</span>
                         <span className="font-medium">
                           {brokerData.withdrawal_process_time || 'Varies by method'}
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Fees</span>
+                        <span className="text-gray-600 ">Fees</span>
                         <span className="font-medium">
                           {brokerData.withdrawal_fees === '0' || !brokerData.withdrawal_fees 
                             ? 'No fees' 
@@ -1148,7 +1140,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </span>
                       </li>
                       <li className="flex items-center justify-between">
-                        <span className="text-gray-600 dark:text-gray-400">Methods</span>
+                        <span className="text-gray-600 ">Methods</span>
                         <div className="text-right">
                           {brokerData.withdraw_methods?.length ? (
                             <div className="flex flex-wrap gap-1 justify-end max-w-[200px]">
@@ -1168,23 +1160,21 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             {/* Pros & Cons */}
             <Card className={cn(
               "overflow-hidden relative",
-              "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+              "bg-gradient-to-br from-white/80 to-white/40",
               "backdrop-blur-sm",
               "border-0",
               "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
               "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
               "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-              "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
               "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
               "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-              "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
               "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
             )}>
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-4 border-b border-black pb-2">Pros & Cons</h2>
                 <div className="grid grid-cols-1 md:grid-cols-11 gap-6">
                   <div className="col-span-5">
-                    <h3 className="text-lg font-medium mb-3 text-green-600 dark:text-green-400">Pros</h3>
+                    <h3 className="text-lg font-medium mb-3 text-green-600">Pros</h3>
                     <ul className="space-y-2">
                       {brokerData.pros?.length ? (
                         brokerData.pros.map((pro, index) => (
@@ -1202,7 +1192,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <div className='w-[50%] h-full flex items-center justify-center border-r border-black'></div>
                   </div>
                   <div className="col-span-5">
-                    <h3 className="text-lg font-medium mb-3 text-red-600 dark:text-red-400">Cons</h3>
+                    <h3 className="text-lg font-medium mb-3 text-red-600">Cons</h3>
                     <ul className="space-y-2">
                       {brokerData.cons?.length ? (
                         brokerData.cons.map((con, index) => (
@@ -1223,16 +1213,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             {/* Broker Reviews Section */}
             <Card className={cn(
               "overflow-hidden relative mt-6",
-              "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+              "bg-gradient-to-br from-white/80 to-white/40",
               "backdrop-blur-sm",
               "border-0",
               "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
               "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
               "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-              "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
               "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
               "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-              "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
               "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
             )}>
               <div id="user_reviews" className="p-6">
@@ -1291,12 +1279,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                       }
 
                       return (
-                        <div key={reviewId || idx} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
+                        <div key={reviewId || idx} className="bg-white rounded-lg shadow p-4 border border-gray-100">
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <UserCircle2 className="h-6 w-6 text-gray-400 mr-1" />
                               <div className="flex flex-col">
-                                <span className="font-semibold text-md text-gray-800 dark:text-gray-100">{review.name || 'Anonymous'}</span>
+                                <span className="font-semibold text-md text-gray-800">{review.name || 'Anonymous'}</span>
                                 <span className="text-xs text-gray-400 flex items-center">
                                   {formatDateDMY(review.comment_at)}
                                 </span>
@@ -1312,13 +1300,13 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               <span className="ml-1 text-xs text-gray-500">{parseFloat(review.rating).toFixed(0)}</span>
                             </div>
                           </div>
-                          <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.title}</div>
-                          <div className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">{review.content}</div>
+                          <div className="font-semibold text-md text-gray-700 mb-1">{review.title}</div>
+                          <div className="text-gray-600 text-sm whitespace-pre-line">{review.content}</div>
                           <div className="flex items-center gap-3 mt-2">
                             <button
                               className={cn(
                                 "flex items-center gap-1 px-2 py-1 rounded transition",
-                                userUpvoted ? "bg-green-100 text-green-700 border border-green-400" : "bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-green-50"
+                                userUpvoted ? "bg-green-100 text-green-700 border border-green-400" : "bg-gray-100 border border-gray-200 hover:bg-green-50"
                               )}
                               aria-pressed={userUpvoted}
                               title={userId ? (userUpvoted ? 'Remove upvote' : 'Upvote') : 'Login to vote'}
@@ -1337,7 +1325,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                             <button
                               className={cn(
                                 "flex items-center gap-1 px-2 py-1 rounded transition",
-                                userDownvoted ? "bg-red-100 text-red-700 border border-red-400" : "bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-red-50"
+                                userDownvoted ? "bg-red-100 text-red-700 border border-red-400" : "bg-gray-100 border border-gray-200 hover:bg-red-50"
                               )}
                               aria-pressed={userDownvoted}
                               title={userId ? (userDownvoted ? 'Remove downvote' : 'Downvote') : 'Login to vote'}
@@ -1384,16 +1372,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
               className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -1401,12 +1387,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 <h3 className="text-xl font-semibold mb-4">Overall Rating</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-sm text-gray-600 ">
                       Trust & Reliability
                     </span>
                     <span className="font-medium">{brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5</span>
                   </div>
-                  <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
                       style={{ width: `${(parseFloat(brokerData.rating || '0') / 100) * 100}%` }}
@@ -1421,16 +1407,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               <Card 
                 className={cn(
                   "overflow-hidden relative",
-                  "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                  "bg-gradient-to-br from-white/80 to-white/40",
                   "backdrop-blur-sm",
                   "border-0",
                   "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                   "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                   "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                  "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                   "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                   "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                  "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                   "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
                 )}
               >
@@ -1476,16 +1460,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
               className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -1494,57 +1476,57 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 <div className="space-y-2">
                   <div className="flex flex-col items-center mb-4">
                     {/* {brokerData.logo && (
-                      <Image src={brokerData.logo} alt={brokerData.name} width={64} height={64} className="rounded-lg bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-sm mb-2" />
+                      <Image src={brokerData.logo} alt={brokerData.name} width={64} height={64} className="rounded-lg bg-white border border-gray-200 shadow-sm mb-2" />
                     )} */}
                     {/* {brokerData.summary && (
-                      <div className="text-gray-600 dark:text-gray-300 text-sm text-center mt-1">{brokerData.summary}</div>
+                      <div className="text-gray-600 text-sm text-center mt-1">{brokerData.summary}</div>
                     )} */}
                   </div>
                   <div className="overflow-x-auto">
-                    <table className="min-w-full text-xs text-left border border-gray-100 dark:border-gray-700 rounded-lg ">
+                    <table className="min-w-full text-xs text-left border border-gray-100 rounded-lg ">
                       <tbody>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Founded</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Founded</td>
                           <td>{brokerData.year_published || 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Registered Country/Region</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Registered Country/Region</td>
                           <td>{brokerData.country || brokerData.headquarters || 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Regulation</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Regulation</td>
                           <td>{brokerData.regulators && brokerData.regulators.length > 0 ? brokerData.regulators.join(', ') : 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Licenses</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Licenses</td>
                           <td>{brokerData.licenses && brokerData.licenses.length > 0 ? brokerData.licenses.join(', ') : 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Market Instruments</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Market Instruments</td>
                           <td>{brokerData.instruments && brokerData.instruments.length > 0 ? brokerData.instruments.join(', ') : 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Demo Account</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Demo Account</td>
                           <td>{brokerData.has_demo_account ? <CheckCircle className="inline w-4 h-4 text-emerald-500" /> : <X className="inline w-4 h-4 text-gray-400" />}</td>
                         </tr>
                         {/* <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Leverage</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Leverage</td>
                           <td>{brokerData.leverage_max || 'N/A'}</td>
                         </tr>
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Spread</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Spread</td>
                           <td>{brokerData.spread_eur_usd || 'N/A'}</td>
                         </tr> */}
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Trading Platforms</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Trading Platforms</td>
                           <td>{brokerData.platforms && brokerData.platforms.length > 0 ? brokerData.platforms.join(', ') : 'N/A'}</td>
                         </tr>
                         {/* <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Minimum Deposit</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Minimum Deposit</td>
                           <td>{brokerData.min_deposit || 'N/A'}</td>
                         </tr> */}
                         <tr className="border border-b-1 border-gray-400">
-                          <td className="font-semibold py-1 pr-2 text-gray-700 dark:text-gray-200 border border-r-1 border-gray-400">Customer Support</td>
+                          <td className="font-semibold py-1 pr-2 text-gray-700 border border-r-1 border-gray-400">Customer Support</td>
                           <td>{brokerData.availability ? brokerData.availability : 'N/A'}{brokerData.email ? <><br/>Email: {brokerData.email}</> : ''}{brokerData.phone_numbers && brokerData.phone_numbers.length > 0 ? <><br/>Phone: {brokerData.phone_numbers.join(', ')}</> : ''}</td>
                         </tr>
                       </tbody>
@@ -1558,16 +1540,14 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             <Card 
               className={cn(
                 "overflow-hidden relative",
-                "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                "bg-gradient-to-br from-white/80 to-white/40",
                 "backdrop-blur-sm",
                 "border-0",
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                 "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                 "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                 "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
               )}
             >
@@ -1577,9 +1557,9 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                   {relatedBrokers.map((broker: any) => (
                     <Link key={broker.id} href={`/broker/${broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : broker.id}`}>
                       <div
-                        className="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors border-b border-gray-100 dark:border-gray-800 last:border-b-0"
+                        className="flex items-center p-4 hover:bg-gray-50 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0"
                       >
-                        <div className="h-14 w-14 flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mr-4 border border-gray-200 dark:border-gray-700">
+                        <div className="h-14 w-14 flex-shrink-0 bg-white rounded-lg flex items-center justify-center mr-4 border border-gray-200">
                           {broker.logo ? (
                             <Image
                               src={broker.logo}
@@ -1589,7 +1569,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                               className="h-14 w-14 object-contain rounded-lg"
                             />
                           ) : (
-                            <div className="h-10 w-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded">
+                            <div className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded">
                               <span className="text-xs font-medium text-gray-500">
                                 {broker.name.charAt(0).toUpperCase()}
                               </span>
@@ -1598,13 +1578,13 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between">
-                            <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                            <h4 className="text-sm font-medium text-gray-900 truncate">
                               {broker.name}
                             </h4>
                             {typeof broker.rating !== 'undefined' && (
                               <div className="flex items-center ml-2">
                                 <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
-                                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                                <span className="text-xs font-medium text-gray-700">
                                   {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
                                 </span>
                               </div>
@@ -1612,12 +1592,12 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                           </div>
                           <div className="mt-1 flex items-center flex-wrap gap-1">
                             {broker.spread_eur_usd && (
-                              <span className="text-xs text-blue-600 dark:text-blue-400">
+                              <span className="text-xs text-blue-600">
                                 Spread: {broker.spread_eur_usd}
                               </span>
                             )}
                             {broker.leverage_max && (
-                              <span className="text-xs text-purple-600 dark:text-purple-400">
+                              <span className="text-xs text-purple-600">
                                 Leverage: {broker.leverage_max}
                               </span>
                             )}

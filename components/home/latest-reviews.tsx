@@ -122,7 +122,7 @@ export default function LatestReviews() {
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
             <T k="home.latest_reviews.subtitle" />
           </p>
-          {/* <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
+          {/* <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 font-medium hover:text-blue-800 mx-auto">
             View all reviews <ChevronRight className="ml-1 h-4 w-4" />
           </Link> */}
         </div>

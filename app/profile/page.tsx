@@ -26,13 +26,13 @@ export default function UserProfilePage() {
           <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4 md:sticky md:top-10">
             <a
               href="/profile"
-              className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 dark:bg-gray-100 ring-2 ring-gray-900/30"
+              className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 ring-2 ring-gray-900/30"
             >
               User Profile
             </a>
             <a
               href="/profile/reviews"
-              className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 dark:hover:bg-gray-50 text-black"
+              className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 text-black"
             >
               Reviews
             </a>
@@ -42,20 +42,20 @@ export default function UserProfilePage() {
         <div className="flex-1">
           <div className="w-full rounded-2xl border border-border bg-slate-300/50 shadow-lg p-0 md:p-8 backdrop-blur-md">
             <div className="px-6 pt-8 pb-2">
-              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 dark:text-white tracking-tight">User Profile</h2>
-              <p className="text-gray-500 dark:text-gray-300 mb-6">Manage your account information below.</p>
+              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 tracking-tight">User Profile</h2>
+              <p className="text-gray-500 mb-6">Manage your account information below.</p>
             </div>
             <form className="space-y-6 px-6 pb-8" onSubmit={e => { e.preventDefault(); /* TODO: Save logic */ }}>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
-                <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input className="block w-full rounded-md border border-border bg-white/80 px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none" disabled value={form.email} />
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input className="block w-full rounded-md border border-border bg-white/80 px-3 py-2 text-base text-gray-900 focus:outline-none" disabled value={form.email} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mobile No.</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Mobile No.</label>
                 <div className="flex gap-3">
                   <div className="w-1/3">
                     <FilterableCountryCodeSelect
@@ -64,7 +64,7 @@ export default function UserProfilePage() {
                     />
                   </div>
                   <div className="w-2/3">
-                    <input className="block w-full rounded-md border border-border bg-white/80 dark:bg-background/60 px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" placeholder="Mobile Number" value={form.mobileno} onChange={e => setForm(f => ({ ...f, mobileno: e.target.value }))} />
+                    <input className="block w-full rounded-md border border-border bg-white/80 px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" placeholder="Mobile Number" value={form.mobileno} onChange={e => setForm(f => ({ ...f, mobileno: e.target.value }))} />
                   </div>
                 </div>
               </div>

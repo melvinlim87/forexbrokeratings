@@ -9,7 +9,7 @@ import FooterNote from './FooterNote';
 export default function PrivacyPolicyPage() {
   return (
     <main className="relative">
-      <div className="flex flex-col md:flex-row gap-8 bg-white/95 dark:bg-slate-900/95 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800 p-8">
+      <div className="flex flex-col md:flex-row gap-8 bg-white/95 rounded-2xl shadow-sm border border-gray-100 p-8">
         <aside className="hidden md:block w-64 flex-shrink-0">
           <StickyTOC />
         </aside>

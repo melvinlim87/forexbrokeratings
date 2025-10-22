@@ -14,10 +14,10 @@ export default function TrustedBySection() {
   const { t } = useI18n();
   const trustFeatures = [
     {
-      icon: <Shield className="h-8 w-8 text-cyan-500 bg-cyan-100 dark:bg-cyan-900/30 p-1 rounded-full" />, // Unbiased & Transparent
+      icon: <Shield className="h-8 w-8 text-cyan-500 bg-cyan-100 p-1 rounded-full" />, // Unbiased & Transparent
       badge: {
         text: t('home.trusted.features.0.badge'),
-        className: 'bg-cyan-300 text-black dark:bg-cyan-800 dark:text-black',
+        className: 'bg-cyan-300 text-black',
       },
       title: t('home.trusted.features.0.title'),
       description: t('home.trusted.features.0.description'),
@@ -28,10 +28,10 @@ export default function TrustedBySection() {
       ],
     },
     {
-      icon: <Layers className="h-8 w-8 text-purple-500 bg-purple-100 dark:bg-purple-900/30 p-1 rounded-full" />, // Real-Time Market Data
+      icon: <Layers className="h-8 w-8 text-purple-500 bg-purple-100 p-1 rounded-full" />, // Real-Time Market Data
       badge: {
         text: t('home.trusted.features.1.badge'),
-        className: 'bg-purple-300 text-black dark:bg-purple-800 dark:text-black',
+        className: 'bg-purple-300 text-black',
       },
       title: t('home.trusted.features.1.title'),
       description: t('home.trusted.features.1.description'),
@@ -42,10 +42,10 @@ export default function TrustedBySection() {
       ],
     },
     {
-      icon: <Users className="h-8 w-8 text-green-600 bg-green-100 dark:bg-green-900/30 p-1 rounded-full" />, // Verified Community
+      icon: <Users className="h-8 w-8 text-green-600 bg-green-100 p-1 rounded-full" />, // Verified Community
       badge: {
         text: t('home.trusted.features.2.badge'),
-        className: 'bg-green-300 text-black dark:bg-green-800 dark:text-black',
+        className: 'bg-green-300 text-black',
       },
       title: t('home.trusted.features.2.title'),
       description: t('home.trusted.features.2.description'),
@@ -58,11 +58,11 @@ export default function TrustedBySection() {
   ];
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900 w-full">
+    <section className="py-16 bg-gray-50 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
           <motion.h2 
-            className="text-3xl font-bold text-gray-900 dark:text-black"
+            className="text-3xl font-bold text-gray-900"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -71,7 +71,7 @@ export default function TrustedBySection() {
             <T k="home.trusted.title" />
           </motion.h2>
           <motion.p 
-            className="mt-4 text-lg text-gray-600 dark:text-gray-400"
+            className="mt-4 text-lg text-gray-600"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -94,8 +94,8 @@ export default function TrustedBySection() {
               className={cn(
                 "h-full flex flex-col transition-all duration-300",
                 hoveredCard === index
-                  ? "shadow-2xl shadow-cyan-200/40 dark:shadow-cyan-900/30 -translate-y-2 z-10"
-                  : "shadow-metallic hover:shadow-2xl hover:shadow-cyan-200/40 hover:-translate-y-2 hover:z-10"
+                  ? "shadow-2xl shadow-cyan-200/40 -translate-y-2 z-10"
+                  : "shadow-metallic hover:shadow-2xl hover:shadow-cyan-200/40 hover:-translate-y-2 hover:z-10" 
               )}
             >
               <Card className="h-full flex flex-col">
@@ -127,7 +127,7 @@ export default function TrustedBySection() {
         
         <div className="mt-16 text-center">
           <motion.div
-            className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-500 font-medium"
+            className="inline-flex items-center space-x-2 text-blue-600 font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -136,7 +136,7 @@ export default function TrustedBySection() {
             <span className="text-lg">Trusted by over 100,000 traders worldwide</span>
             <div className="flex -space-x-2">
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 border-2 border-white dark:border-gray-800 flex items-center justify-center text-xs font-medium">
+                <div key={i} className="h-8 w-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
                   {['JD', 'MK', 'TS', 'RN', 'AL'][i]}
                 </div>
               ))}

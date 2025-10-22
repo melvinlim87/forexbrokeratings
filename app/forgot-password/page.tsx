@@ -35,7 +35,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen w-full max-w-xl mx-auto flex flex-col items-center justify-start transition-colors duration-300">
       
-      <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
+      <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 backdrop-blur-md">
         <CardHeader className="flex flex-col items-center gap-2 pb-0">
           <div className="w-full mb-2">
             <Image
@@ -47,7 +47,7 @@ export default function ForgotPasswordPage() {
               priority
             />
           </div>
-          <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">{t('auth.forgot_password_heading')}</CardTitle>
+          <CardTitle className="text-3xl font-bold text-center text-gray-900 tracking-tight">{t('auth.forgot_password_heading')}</CardTitle>
         </CardHeader>
         <CardContent className="pt-2 pb-6 px-4 md:px-6">
           {sent ? (
@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <Input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.email_placeholder')}
                 type="email"
                 value={email}
@@ -64,7 +64,7 @@ export default function ForgotPasswordPage() {
                 autoComplete="email"
                 autoFocus
               />
-              {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
+              {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 rounded py-2 px-3">{error}</div>}
               <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
                 {loading ? t('auth.sending') : t('auth.send_reset_link')}
               </Button>

@@ -28,7 +28,7 @@ export default function FilterableCountryCodeSelect({ value, onChange }: { value
   return (
     <div className="relative w-full">
       <input
-        className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
         placeholder="Country Code..."
         value={input}
         onChange={e => {
@@ -39,11 +39,11 @@ export default function FilterableCountryCodeSelect({ value, onChange }: { value
         onBlur={() => setTimeout(() => setOpen(false), 150)}
       />
       {open && filtered.length > 0 && (
-        <ul className="absolute z-10 mt-1 w-full max-h-48 overflow-auto bg-white dark:bg-background border border-border rounded-md shadow-lg">
+        <ul className="absolute z-10 mt-1 w-full max-h-48 overflow-auto bg-white border border-border rounded-md shadow-lg">
           {filtered.map((c) => (
             <li
               key={c.code}
-              className={`px-3 py-2 cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-900 ${value === c.dial_code ? 'bg-cyan-50 dark:bg-cyan-800' : ''}`}
+              className={`px-3 py-2 cursor-pointer hover:bg-cyan-100 ${value === c.dial_code ? 'bg-cyan-50' : ''}`}
               onMouseDown={() => {
                 onChange(c.dial_code);
                 setInput(`${c.dial_code}`);

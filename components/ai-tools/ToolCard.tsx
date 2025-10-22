@@ -49,15 +49,15 @@ export default function ToolCard({
         <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.disabled ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}>
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <div className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">{tool.icon}</div>
-              <span className="ml-2 text-sm font-medium text-blue-600 dark:text-blue-500">{t(tool.categoryKey)}</span>
-              <div className="ml-auto flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <div className="bg-blue-50 p-2 rounded-full">{tool.icon}</div>
+              <span className="ml-2 text-sm font-medium text-blue-600">{t(tool.categoryKey)}</span>
+              <div className="ml-auto flex items-center text-sm text-gray-500">
                 <Zap className="h-4 w-4 mr-1" />
                 <span>{t('ai.ai_powered')}</span>
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">{t(tool.titleKey)}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{t(tool.descriptionKey)}</p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{t(tool.titleKey)}</h3>
+            <p className="text-gray-600 mb-4">{t(tool.descriptionKey)}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {tool.featureKeys.slice(0, 2).map((featureKey, i) => (
                 <Badge key={i} variant="secondary" className="text-xs">
@@ -90,8 +90,8 @@ export default function ToolCard({
               )}
             </div>
             {tool.disabled && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 z-10 rounded-lg">
-                <span className="text-xl font-bold text-yellow-700 dark:text-yellow-300">{t('ai.coming_soon')}</span>
+              <div className="absolute inset-0 flex items-center justify-center bg-white/80 z-10 rounded-lg">
+                <span className="text-xl font-bold text-yellow-700">{t('ai.coming_soon')}</span>
               </div>
             )}
           </CardContent>

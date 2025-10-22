@@ -72,7 +72,7 @@ export default function RegulatorsPage() {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-red-600 dark:text-red-400 font-medium">{error}</p>
+        <p className="text-red-600 font-medium">{error}</p>
       </div>
     );
   }

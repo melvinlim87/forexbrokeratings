@@ -263,7 +263,7 @@ export default function NetworkDiagram() {
                   <div 
                     className="relative p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20 shadow-lg"
                   >
-                    <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 shadow-metallic w-full min-h-[120px]">
+                    <div className="relative bg-metallic backdrop-blur-sm rounded-xl p-4 shadow-metallic w-full min-h-[120px]">
                       <div className="relative z-10 py-1">
                         <div className="flex items-center justify-center gap-3 mb-4">
                           <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
@@ -275,7 +275,7 @@ export default function NetworkDiagram() {
                               >
                                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
                               </motion.div>
-                              <div className="absolute inset-[1px] bg-metallic dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                              <div className="absolute inset-[1px] bg-metallic rounded-[5px] flex items-center justify-center text-gray-900">
                                 <motion.div
                                   animate={hoveredNode === index ? {
                                     rotate: [0, 360],
@@ -287,12 +287,12 @@ export default function NetworkDiagram() {
                               </div>
                             </div>
                           </div>
-                          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                          <h3 className="text-lg font-bold text-gray-900">
                             {feature.title}
                           </h3>
                         </div>
                         
-                        <p className="text-base font-semibold text-gray-700 dark:text-gray-300 text-center leading-relaxed">
+                        <p className="text-base font-semibold text-gray-700 text-center leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -314,16 +314,16 @@ export default function NetworkDiagram() {
             animate={{ opacity: 10, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 shadow-metallic">
+            <div className="relative bg-metallic backdrop-blur-sm rounded-xl p-4 shadow-metallic">
               <div className="flex items-center gap-4 mb-3">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 flex items-center justify-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-bold text-gray-900">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-base font-medium text-gray-700 dark:text-gray-300">
+              <p className="text-base font-medium text-gray-700">
                 {feature.description}
               </p>
             </div>

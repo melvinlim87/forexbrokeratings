@@ -104,9 +104,9 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] p-0 gap-0 overflow-hidden bg-white dark:bg-gray-900">
+      <DialogContent className="sm:max-w-[600px] p-0 gap-0 overflow-hidden bg-white">
         <DialogHeader className="p-4 border-b">
-          <DialogTitle className="flex items-center text-gray-900 dark:text-white">
+          <DialogTitle className="flex items-center text-gray-900">
             <Search className="h-5 w-5 mr-2" />
             Search Brokers
           </DialogTitle>
@@ -125,7 +125,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                 <Input
                   type="text"
                   placeholder="Search for brokers..."
-                  className="pl-10 py-6 w-full bg-white dark:bg-gray-800 border-none rounded-xl text-gray-900 dark:text-white placeholder:text-gray-500 focus:ring-2 focus:ring-blue-400"
+                  className="pl-10 py-6 w-full bg-white border-none rounded-xl text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-400"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
@@ -145,7 +145,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
         </div>
         
         {(isSearching || results.length > 0) && (
-          <div className="max-h-[400px] overflow-y-auto border-t border-gray-200 dark:border-gray-800">
+          <div className="max-h-[400px] overflow-y-auto border-t border-gray-200">
             {isSearching && results.length === 0 ? (
               <div className="p-4 text-center text-gray-500">
                 <Loader2 className="h-6 w-6 animate-spin mx-auto mb-2" />
@@ -156,9 +156,9 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                 <div
                   key={broker.id}
                   onClick={() => handleBrokerSelect(broker)}
-                  className="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors border-b border-gray-100 dark:border-gray-800 last:border-b-0"
+                  className="flex items-center p-4 hover:bg-gray-50 cursor-pointer transition-colors border-b border-gray-100 last:border-b-0"
                 >
-                  <div className="h-14 w-14 flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mr-4 border border-gray-200 dark:border-gray-700">
+                  <div className="h-14 w-14 flex-shrink-0 bg-white rounded-lg flex items-center justify-center mr-4 border border-gray-200">
                     {broker.logo ? (
                       <Image
                         src={broker.logo}
@@ -168,7 +168,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                         className="h-10 w-10 object-contain p-1"
                       />
                     ) : (
-                      <div className="h-10 w-10 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded">
+                      <div className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded">
                         <span className="text-xs font-medium text-gray-500">
                           {broker.name.charAt(0).toUpperCase()}
                         </span>
@@ -177,13 +177,13 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                      <h4 className="text-sm font-medium text-gray-900 truncate">
                         {broker.name}
                       </h4>
                       {typeof broker.rating !== 'undefined' && (
                         <div className="flex items-center ml-2">
                           <Star className="h-3.5 w-3.5 text-yellow-400 fill-current mr-0.5" />
-                          <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                          <span className="text-xs font-medium text-gray-700">
                             {broker.rating}
                           </span>
                         </div>
@@ -191,12 +191,12 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
                     </div>
                     <div className="mt-1 flex items-center flex-wrap gap-1">
                       {broker.spread_eur_usd && (
-                        <span className="text-xs text-blue-600 dark:text-blue-400">
+                        <span className="text-xs text-blue-600">
                           Spread: {broker.spread_eur_usd}
                         </span>
                       )}
                       {broker.leverage_max && (
-                        <span className="text-xs text-purple-600 dark:text-purple-400">
+                        <span className="text-xs text-purple-600">
                           Leverage: {broker.leverage_max}
                         </span>
                       )}
@@ -211,7 +211,7 @@ export function SearchDialog({ trigger }: { trigger: React.ReactNode }) {
         
         {searchQuery && !isSearching && results.length === 0 && (
           <div className="p-6 text-center">
-            <p className="text-gray-500 dark:text-gray-400">No brokers found matching "{searchQuery}"</p>
+            <p className="text-gray-500">No brokers found matching "{searchQuery}"</p>
             <Button 
               variant="outline" 
               className="mt-4"

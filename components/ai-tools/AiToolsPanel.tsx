@@ -123,16 +123,16 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
           </div>
         </div>
         <div>
-          <button className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 hover:bg-white/10" onClick={() => setShowSidebar(!showSidebar)}> 
+          <button className="p-2 rounded hover:bg-gray-200 hover:bg-white/10" onClick={() => setShowSidebar(!showSidebar)}> 
             <Clock className="text-white" size={18} />
           </button>
         </div>
         {/* <span className="ml-2 text-xs text-green-500 font-semibold">● Online</span>
         <span className="ml-2 text-xs text-gray-400">Powered by BrokerGPT 72B VL</span> */}
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3 h-[calc(100vh-180px)] md:h-[calc(100vh-280px)]">
+      <div className="bg-white rounded-2xl p-3 h-[calc(100vh-180px)] md:h-[calc(100vh-280px)]">
         {/* Message Container */}
-        <div ref={messagesEndRef} className="h-[calc(100vh-460px)] bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 overflow-y-auto flex flex-col gap-2">
+        <div ref={messagesEndRef} className="h-[calc(100vh-460px)] bg-gray-50 rounded-xl p-4 mb-4 border border-gray-100 overflow-y-auto flex flex-col gap-2">
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -143,7 +143,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
                 className={
                   msg.sender === 'user'
                     ? 'bg-gradient-to-tr from-blue-400 to-cyan-400 text-white rounded-xl px-4 py-2 text-right shadow'
-                    : 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl px-4 py-2 text-left shadow'
+                    : 'bg-white text-gray-900 rounded-xl px-4 py-2 text-left shadow'
                 }
               >
                 {msg.text}
@@ -158,7 +158,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
           {quickPromptKeys.map((k) => {
             const label = t(k);
             return (
-              <Button disabled={loading} key={k} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 " onClick={() => handleAITools(label)}>
+              <Button disabled={loading} key={k} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white border-gray-200 " onClick={() => handleAITools(label)}>
                 <span style={{ whiteSpace: 'pre-wrap' }}>
                   {label}
                 </span>
@@ -170,7 +170,7 @@ export const AiToolsPanel = forwardRef(function AiToolsPanel({ setOpen, setShowS
         <div className="flex items-center gap-2 rounded-xl py-2 mt-2">
           <input
             type="text"
-            className="flex-1 bg-transparent border border-gray-100 rounded-xl outline-none px-2 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+            className="flex-1 bg-transparent border border-gray-100 rounded-xl outline-none px-2 py-2 text-sm text-gray-900 placeholder-gray-400"
             placeholder={t('home.ai_panel.placeholder')}
             onChange={(e) => setPrompt(e.target.value)}
             value={prompt}

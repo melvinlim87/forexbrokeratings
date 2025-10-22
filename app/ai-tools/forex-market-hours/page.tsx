@@ -134,12 +134,12 @@ export default function ForexMarketHourPage() {
   const curUTC = now.getUTCHours();
 
   return (
-    <div className="min-h-[80vh] rounded-2xl bg-white dark:bg-slate-900 p-4 sm:p-6 shadow-sm ring-1 ring-slate-200 dark:ring-slate-800">
+    <div className="min-h-[80vh] rounded-2xl bg-white p-4 sm:p-6 shadow-sm ring-1 ring-slate-200">
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-100">{t('ai.fmh.title')}</h1>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t('ai.fmh.subtitle')}</p>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-800">{t('ai.fmh.title')}</h1>
+          <p className="mt-1 text-sm text-slate-500">{t('ai.fmh.subtitle')}</p>
         </div>
         <div className="flex items-center gap-3">
           <span className="text-xs text-slate-500">{t('ai.fmh.twentyfour')}</span>
@@ -157,7 +157,7 @@ export default function ForexMarketHourPage() {
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <div className="text-[11px] uppercase tracking-wide text-slate-500">{t('ai.fmh.time_zone')}</div>
         <select
-          className="h-9 rounded-md bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 ring-1 ring-slate-300 dark:ring-slate-700 focus:ring-2 focus:ring-slate-400 outline-none"
+          className="h-9 rounded-md bg-white text-slate-900 px-3 ring-1 ring-slate-300 focus:ring-2 focus:ring-slate-400 outline-none"
           value={timeZone}
           onChange={(e) => setTimeZone(e.target.value)}
         >
@@ -165,14 +165,14 @@ export default function ForexMarketHourPage() {
             <option key={tz} value={tz}>{tz}</option>
           ))}
         </select>
-        <button className="text-xs text-slate-600 dark:text-slate-300 hover:underline" onClick={() => setTimeZone('Asia/Bangkok')}>{t('ai.fmh.reset')}</button>
+        <button className="text-xs text-slate-600 hover:underline" onClick={() => setTimeZone('Asia/Bangkok')}>{t('ai.fmh.reset')}</button>
       </div>
 
       {/* Hour ruler with bubble marker */}
       <div className="relative mt-5">
         <div className="px-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(24, minmax(0, 1fr))', gap: '0.25rem' }}>
           {timeline.map((t, i) => (
-            <div key={i} className="text-[11px] text-slate-400 dark:text-slate-500 text-center select-none">{t.label}</div>
+            <div key={i} className="text-[11px] text-slate-400 text-center select-none">{t.label}</div>
           ))}
         </div>
         {/* Vertical marker with bubble */}
@@ -189,7 +189,7 @@ export default function ForexMarketHourPage() {
       </div>
 
       {/* Session rows container */}
-      <div className="mt-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 p-2">
+      <div className="mt-5 rounded-xl border border-slate-200 p-2">
         <div className="space-y-3">
           {runtimeSessions.map((s) => (
             <SessionRow key={s.key} session={s} now={now} timeZone={timeZone} hour12={hour12} />
@@ -199,9 +199,9 @@ export default function ForexMarketHourPage() {
 
       {/* Legend */}
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+        <div className="rounded-lg border border-slate-200 p-4 bg-white">
           <h3 className="text-sm font-semibold mb-2">{t('ai.fmh.session_hours')}</h3>
-          <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+          <ul className="text-sm text-slate-700 space-y-1">
             {runtimeSessions.map(s => (
               <li key={s.key}>
                 <span className="font-medium">{s.name}</span>: {s.openLocal} — {s.closeLocal}
@@ -209,9 +209,9 @@ export default function ForexMarketHourPage() {
             ))}
           </ul>
         </div>
-        <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 bg-white dark:bg-slate-900">
+        <div className="rounded-lg border border-slate-200 p-4 bg-white">
           <h3 className="text-sm font-semibold mb-2">{t('ai.fmh.notes')}</h3>
-          <ul className="list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+          <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
             <li>{t('ai.fmh.note_1')}</li>
             <li>{t('ai.fmh.note_2')}</li>
             <li>{t('ai.fmh.note_3')}</li>
@@ -226,38 +226,38 @@ export default function ForexMarketHourPage() {
 function SessionRow({ session, now, timeZone, hour12 }: { session: SessionRuntime; now: Date; timeZone: string; hour12: boolean }) {
   const statusOpen = session.isOpenNow;
   const statusText = statusOpen ? `${session.name.toUpperCase()} SESSION OPEN` : `${session.name.toUpperCase()} SESSION CLOSED`;
-  const statusCls = statusOpen ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300';
+  const statusCls = statusOpen ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
   const flag = session.key === 'sydney' ? '🇦🇺' : session.key === 'tokyo' ? '🇯🇵' : session.key === 'london' ? '🇬🇧' : '🇺🇸';
 
   const { left, width } = getSessionBarOffsets(session.utcOpenHour, session.utcCloseHour);
   const curUTC = now.getUTCHours();
 
   return (
-    <div className="grid grid-cols-[220px_1fr] items-center gap-3 bg-white dark:bg-slate-900 rounded-lg p-3 shadow-sm">
+    <div className="grid grid-cols-[220px_1fr] items-center gap-3 bg-white rounded-lg p-3 shadow-sm">
       {/* Left: identity */}
       <div className="flex items-center gap-3">
         <div className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-100 text-xl">{flag}</div>
         <div>
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-800 dark:text-slate-100">{session.name}</span>
+            <span className="font-semibold text-slate-800">{session.name}</span>
             <span className={`text-[10px] px-2 py-0.5 rounded ${statusCls}`}>{statusText}</span>
           </div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          <div className="text-xs text-slate-500 mt-0.5">
             {formatLocalHM(now, timeZone, hour12)} · {session.openLocal} — {session.closeLocal}
           </div>
         </div>
       </div>
 
       {/* Right: timeline bar */}
-      <div className="relative rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 h-8 overflow-hidden">
+      <div className="relative rounded-md bg-white border border-slate-200 h-8 overflow-hidden">
         {/* subtle stripes */}
         <div className="absolute inset-0" style={{ display: 'grid', gridTemplateColumns: 'repeat(24, minmax(0, 1fr))' }}>
           {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className={i % 2 === 0 ? 'bg-slate-50 dark:bg-slate-800/50' : ''} />
+            <div key={i} className={i % 2 === 0 ? 'bg-slate-50' : ''} />
           ))}
         </div>
         {/* session active bar */}
-        <div className="absolute top-1 bottom-1 rounded-md bg-slate-700/70 dark:bg-slate-300/30" style={{ left, width }} />
+        <div className="absolute top-1 bottom-1 rounded-md bg-slate-700/70" style={{ left, width }} />
         {/* current time marker */}
         <div className="absolute inset-y-0" style={{ left: `calc((100% / 24) * ${curUTC} + (0.5 * (100% / 24)))` }}>
           <div className="-translate-x-1/2 h-full w-[2px] bg-slate-400/80" />

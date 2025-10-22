@@ -19,7 +19,7 @@ export default function CountryCodeSelect({ value, onChange }: { value: string; 
 
   return (
     <select
-      className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       required

@@ -197,7 +197,7 @@ export default function ComparePage() {
         <h2 className="text-xl font-semibold mb-4"><T k="compare.selected_brokers" /> ({selectedBrokers.length}/3)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {selectedBrokers.map((broker) => (
-            <Card key={broker.id} className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-800">
+            <Card key={broker.id} className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200">
               <X className="h-4 w-4 self-end cursor-pointer" onClick={() => removeBroker(String(broker.id))} />
               <div className="flex items-center gap-3 mb-2">
                 <Image
@@ -208,10 +208,10 @@ export default function ComparePage() {
                   className="rounded-lg bg-white object-contain"
                 />
                 <div>
-                  <h3 className="font-bold text-base text-black dark:text-black mb-1 text-center">{broker.name}</h3>
+                  <h3 className="font-bold text-base text-black mb-1 text-center">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ export default function ComparePage() {
           .map((broker) => (
             <Card
               key={broker.id}
-              className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 dark:border-gray-800 bg-white cursor-pointer"
+              className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 bg-white cursor-pointer"
             >
               <div className="flex items-center gap-3 mb-2">
                 <Image
@@ -300,10 +300,10 @@ export default function ComparePage() {
                   className="rounded-lg bg-white object-contain"
                 />
                 <div>
-                  <h3 className="font-bold text-base text-black dark:text-black mb-1">{broker.name}</h3>
+                  <h3 className="font-bold text-base text-black mb-1">{broker.name}</h3>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400 fill-yellow-500" />
-                    <span className="text-sm font-semibold text-black dark:text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
+                    <span className="text-sm font-semibold text-black">{typeof broker.rating === 'string' ? parseFloat(broker.rating).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
                     <span className="text-xs text-gray-400 ml-1">/100</span>
                   </div>
                 </div>

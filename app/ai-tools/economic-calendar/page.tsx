@@ -51,10 +51,10 @@ function ImpactBadge({ impact }: { impact: string }) {
   const level = impact?.toLowerCase?.() || '';
   const color =
     level.includes('high')
-      ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+      ? 'bg-red-100 text-red-700'
       : level.includes('med')
-      ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
-      : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300';
+      ? 'bg-amber-100 text-amber-700'
+      : 'bg-emerald-100 text-emerald-700';
   const label = level ? impact.toUpperCase() : 'N/A';
   return (
     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${color}`}>
@@ -350,15 +350,15 @@ export default function EconomicCalendarPage() {
     <div className="space-y-6">
       
       {/* Calendar Filter Component */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 overflow-hidden">
         {/* Quick Navigation */}
-        <div className="px-4 sm:px-6 py-3 border-b border-slate-200 dark:border-slate-700 flex flex-wrap items-center gap-2 text-sm">
+        <div className="px-4 sm:px-6 py-3 border-b border-slate-200 flex flex-wrap items-center gap-2 text-sm">
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" onClick={navigateToYesterday}>{t('calendar.yesterday')}</Button>
             <Button variant="ghost" size="sm" onClick={navigateToToday}>{t('calendar.today')}</Button>
             <Button variant="ghost" size="sm" onClick={navigateToTomorrow}>{t('calendar.tomorrow')}</Button>
           </div>
-          <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1" />
+          <div className="h-4 w-px bg-slate-200 mx-1" />
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" onClick={navigateToLastWeek}>{t('calendar.last_week')}</Button>
             <Button variant="ghost" size="sm" onClick={navigateToToday}>{t('calendar.this_week')}</Button>
@@ -367,11 +367,11 @@ export default function EconomicCalendarPage() {
         </div>
 
         {/* Toolbar */}
-        <div className="px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/40 flex flex-wrap items-center justify-between gap-4">
+        <div className="px-4 sm:px-6 py-3 bg-slate-50 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2 text-sm text-slate-700">
               <span>{timezone.label}</span>
-              <span className="text-slate-500 dark:text-slate-400">{currentTime}</span>
+              <span className="text-slate-500">{currentTime}</span>
               <Select 
                 value={timezone.value} 
                 onValueChange={(value) => {
@@ -417,7 +417,7 @@ export default function EconomicCalendarPage() {
         </div>
 
         {/* Date Carousel */}
-        <div className="px-4 sm:px-6 py-3 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+        <div className="px-4 sm:px-6 py-3 border-t border-slate-200 bg-white">
           <div className="flex items-center justify-between">
             <Button 
               variant="ghost" 
@@ -443,16 +443,16 @@ export default function EconomicCalendarPage() {
                     onClick={() => setSelectedDate(date)}
                     className={`flex flex-col items-center justify-center min-w-[60px] sm:min-w-[80px] py-2 px-1 sm:px-2 rounded-lg transition-colors ${
                       isSelected
-                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                        : 'hover:bg-slate-100 dark:hover:bg-slate-700/50'
+                        ? 'bg-blue-50 text-blue-700'
+                        : 'hover:bg-slate-100'
                     }`}
                   >
-                    <span className="text-xs text-slate-500 dark:text-slate-400">
+                    <span className="text-xs text-slate-500">
                       {day.substring(0, 3).toUpperCase()}
                     </span>
                     <span className="text-sm font-medium mt-1">{dayNum}</span>
                     {isToday(date) && (
-                      <span className="text-[10px] text-blue-500 dark:text-blue-400 mt-1">
+                      <span className="text-[10px] text-blue-500 mt-1">
                         {t('calendar.today_badge')}
                       </span>
                     )}
@@ -475,7 +475,7 @@ export default function EconomicCalendarPage() {
 
       {/* Calendar Content */}
       {filteredData.length === 0 ? (
-        <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 text-center text-slate-600 dark:text-slate-300">
+        <div className="rounded-lg border border-slate-200 bg-white p-8 text-center text-slate-600">
           {t('calendar.no_events_for_view')}
         </div>
       ) : (
@@ -485,84 +485,84 @@ export default function EconomicCalendarPage() {
             return (
               <section
                 key={dayKey}
-                className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 bg-white dark:bg-slate-800"
+                className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 bg-white"
               >
-                <header className="px-4 sm:px-6 py-4 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-700">
+                <header className="px-4 sm:px-6 py-4 bg-slate-50 border-b border-slate-200">
                   <div className="grid w-full grid-cols-1 md:grid-cols-[110px_1fr_120px_100px_100px_100px] items-center gap-3">
                     <div className="flex items-center gap-3 md:col-span-2">
-                      <div className="flex flex-col items-center justify-center w-14 shrink-0 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1">
+                      <div className="flex flex-col items-center justify-center w-14 shrink-0 rounded-md bg-white border border-slate-200 py-1">
                         <span className="text-xs text-slate-500">{month.toUpperCase()}</span>
-                        <span className="text-xl font-bold text-slate-800 dark:text-slate-100">{dayNum}</span>
+                        <span className="text-xl font-bold text-slate-800">{dayNum}</span>
                         <span className="text-[10px] text-slate-400">{year}</span>
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-100">
+                      <h2 className="text-xl sm:text-2xl font-semibold text-slate-800">
                         {day}
                       </h2>
                     </div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-center">{t('calendar.impact')}</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.actual')}</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.forecast')}</div>
-                    <div className="hidden md:block text-[11px] text-slate-500 dark:text-slate-400 text-right">{t('calendar.previous')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 text-center">{t('calendar.impact')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 text-right">{t('calendar.actual')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 text-right">{t('calendar.forecast')}</div>
+                    <div className="hidden md:block text-[11px] text-slate-500 text-right">{t('calendar.previous')}</div>
                   </div>
                 </header>
 
-                <div className="divide-y divide-slate-200 dark:divide-slate-700 bg-white">
+                <div className="divide-y divide-slate-200 bg-white">
                   <Accordion type="single" collapsible>
                     {items.map((item, i) => (
                       <AccordionItem key={item.id ?? i} value={(item.id ?? i).toString()}>
                         <AccordionTrigger className="px-4 py-3 hover:no-underline">
                           <div className="grid w-full grid-cols-1 md:grid-cols-[110px_1fr_120px_100px_100px_100px] items-center gap-3 text-left">
-                            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            <div className="text-sm font-medium text-slate-500">
                               {formatTime(item.datetime)}
                             </div>
-                            <div className="text-sm font-medium text-slate-800 dark:text-slate-100">
+                            <div className="text-sm font-medium text-slate-800">
                               {item.title}
                             </div>
                             <div className="hidden md:flex justify-center">
                               <ImpactBadge impact={item.impact} />
                             </div>
-                            <div className="hidden md:block text-right text-sm font-medium text-slate-800 dark:text-slate-100">
+                            <div className="hidden md:block text-right text-sm font-medium text-slate-800">
                               {item.actual || '-'}
                             </div>
-                            <div className="hidden md:block text-right text-sm text-slate-500 dark:text-slate-400">
+                            <div className="hidden md:block text-right text-sm text-slate-500">
                               {item.forecast || '-'}
                             </div>
-                            <div className="hidden md:block text-right text-sm text-slate-500 dark:text-slate-400">
+                            <div className="hidden md:block text-right text-sm text-slate-500">
                               {item.previous || '-'}
                             </div>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent>
-                          <div className="px-4 py-3 bg-slate-50 dark:bg-slate-900/20 border-t border-slate-200 dark:border-slate-700">
+                          <div className="px-4 py-3 bg-slate-50 border-t border-slate-200">
                             <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                               <div className="space-y-4">
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.measures')}</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 border-r border-slate-200">{t('calendar.measures')}</div>
                                   <div 
-                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
+                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).measures || '') }}
                                   />
                                 </div>
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.usual_effect')}</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 border-r border-slate-200">{t('calendar.usual_effect')}</div>
                                   <div 
-                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
+                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).usual_effect || '') }}
                                   />
                                 </div>
                                 <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.why_traders_care')}</div>
+                                  <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 border-r border-slate-200">{t('calendar.why_traders_care')}</div>
                                   <div 
-                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
+                                    className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700"
                                     dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).traders_care || '') }}
                                   />
                                 </div>
                                 {/* hide the notes if notes is null */}
                                 {item.notes && (
                                   <div className="grid grid-cols-12 gap-4 px-4 sm:px-6 py-4">
-                                    <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 dark:text-slate-400 border-r border-slate-200 dark:border-slate-700">{t('calendar.notes')}</div>
+                                    <div className="col-span-12 md:col-span-3 text-xs font-medium text-slate-500 border-r border-slate-200">{t('calendar.notes')}</div>
                                     <div 
-                                      className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700 dark:text-slate-200"
+                                      className="col-span-12 md:col-span-9 text-sm leading-6 text-slate-700"
                                       dangerouslySetInnerHTML={{ __html: sanitizeHtml((item as any).notes || '') }}
                                     />
                                   </div>

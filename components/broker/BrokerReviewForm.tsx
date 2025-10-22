@@ -84,7 +84,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
         <div>
           <label className="block font-medium mb-1">Title</label>
           <input
-            className="w-full border rounded px-3 py-2 bg-white dark:bg-gray-900 focus:outline-none focus:ring focus:border-blue-400"
+            className="w-full border rounded px-3 py-2 bg-white focus:outline-none focus:ring focus:border-blue-400"
             value={title}
             onChange={e => setTitle(e.target.value)}
             maxLength={100}
@@ -94,7 +94,7 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
         <div>
           <label className="block font-medium mb-1">Content</label>
           <textarea
-            className="w-full border rounded px-3 py-2 bg-white dark:bg-gray-900 focus:outline-none focus:ring focus:border-blue-400"
+            className="w-full border rounded px-3 py-2 bg-white focus:outline-none focus:ring focus:border-blue-400"
             value={content}
             onChange={e => setContent(e.target.value)}
             rows={4}

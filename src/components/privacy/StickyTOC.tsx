@@ -28,13 +28,13 @@ export default function StickyTOC({ mobileOnly }: { mobileOnly?: boolean }) {
     <nav aria-label={t('privacy.toc.title')} className="sticky top-[100px]">
       <ul className="pl-4 space-y-2">
         {toc.map((item) => (
-          <li key={item.id} className='border-b border-gray-200 dark:border-gray-800'>
+          <li key={item.id} className='border-b border-gray-200'>
             <ScrollLink
               to={item.id}
               smooth
               offset={-72} // Offset for fixed header height (72px)
               duration={300}
-              className="block cursor-pointer text-base text-gray-700 dark:text-gray-200 hover:text-cyan-600 focus:text-cyan-600 transition-colors py-1"
+              className="block cursor-pointer text-base text-gray-700 hover:text-cyan-600 focus:text-cyan-600 transition-colors py-1"
               activeClass="font-bold text-cyan-600"
               spy
             >
@@ -52,11 +52,11 @@ export default function StickyTOC({ mobileOnly }: { mobileOnly?: boolean }) {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button className="flex w-full justify-between items-center rounded bg-cyan-100 dark:bg-slate-800 px-4 py-2 text-cyan-900 dark:text-cyan-200 font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              <Disclosure.Button className="flex w-full justify-between items-center rounded bg-cyan-100 px-4 py-2 text-cyan-900 font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-400">
                 {t('privacy.toc.title')}
                 <ChevronDown className={`w-5 h-5 ml-2 transition-transform ${open ? 'rotate-180' : ''}`} />
               </Disclosure.Button>
-              <Disclosure.Panel className="pt-2 pb-1 bg-white dark:bg-slate-900 rounded-b shadow">
+              <Disclosure.Panel className="pt-2 pb-1 bg-white rounded-b shadow">
                 {tocList}
               </Disclosure.Panel>
             </>

@@ -122,17 +122,17 @@ export default function RiskOnRiskOffPage() {
     <div className="space-y-8">
       
       {/* Gauge Card */}
-      <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 ">
-        <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-white">
+      <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 ">
+        <div className="px-4 sm:px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-white">
           <div className="bg-white">
-            <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.title')}</h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{t('ai.msa.subtitle')}</p>
+            <h2 className="text-xl font-semibold text-slate-800">{t('ai.msa.title')}</h2>
+            <p className="text-sm text-slate-500">{t('ai.msa.subtitle')}</p>
           </div>
           <div className="flex items-center gap-3">
             {lastUpdated && (
-              <span className="text-xs text-slate-500 dark:text-slate-400">{t('ai.msa.updated')} {lastUpdated.toLocaleTimeString()}</span>
+              <span className="text-xs text-slate-500">{t('ai.msa.updated')} {lastUpdated.toLocaleTimeString()}</span>
             )}
-            <button onClick={fetchData} className="text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">{t('ai.msa.refresh')}</button>
+            <button onClick={fetchData} className="text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 bg-slate-200 text-slate-900 hover:bg-white">{t('ai.msa.refresh')}</button>
           </div>
         </div>
 
@@ -143,36 +143,36 @@ export default function RiskOnRiskOffPage() {
             </div>
           ) : error ? (
             <div className="text-center py-12">
-              <p className="text-slate-600 dark:text-slate-300">{error}</p>
-              <button onClick={fetchData} className="mt-3 text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white">{t('ai.msa.try_again')}</button>
+              <p className="text-slate-600">{error}</p>
+              <button onClick={fetchData} className="mt-3 text-sm px-3 py-1.5 rounded-md bg-slate-800 text-white hover:bg-slate-700 bg-slate-200 text-slate-900 hover:bg-white">{t('ai.msa.try_again')}</button>
             </div>
           ) : (
             <>
               {/* Horizontal gauge with neutral center */}
-              <div className="relative h-10 rounded-full overflow-hidden ring-1 ring-slate-300 dark:ring-slate-700" aria-label={t('ai.msa.risk_meter_aria')}>
+              <div className="relative h-10 rounded-full overflow-hidden ring-1 ring-slate-300" aria-label={t('ai.msa.risk_meter_aria')}>
                 {/* Background bands: Risk-Off (left), Neutral (center), Risk-On (right) */}
                 <div className="absolute inset-0 flex">
-                  <div className="w-[45%] bg-rose-600/45 dark:bg-rose-900/70" />
-                  <div className="w-[10%] bg-white/90 dark:bg-slate-800" />
-                  <div className="w-[45%] bg-emerald-700/45 dark:bg-emerald-900/70" />
+                  <div className="w-[45%] bg-rose-600/45" />
+                  <div className="w-[10%] bg-white/90" />
+                  <div className="w-[45%] bg-emerald-700/45" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-black/0 via-white/10 to-black/0 dark:via-white/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/0 via-white/10 to-black/0 pointer-events-none" />
                 {/* Marker knob */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-[130%] w-1 bg-slate-900 dark:bg-white shadow ring-2 ring-white/70 dark:ring-slate-900/60 transition-all duration-700"
+                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-[130%] w-1 bg-slate-900 shadow ring-2 ring-white/70 transition-all duration-700"
                   style={{ left: `${pointerPercent}%` }}
                   aria-hidden
                 />
               </div>
               {/* Labels under gauge */}
-              <div className="mt-2 grid grid-cols-3 text-[11px] font-medium text-slate-600 dark:text-slate-400">
+              <div className="mt-2 grid grid-cols-3 text-[11px] font-medium text-slate-600">
                 <div className="text-left">{t('ai.msa.risk_off')}</div>
                 <div className="text-center">{t('ai.msa.neutral')}</div>
                 <div className="text-right">{t('ai.msa.risk_on')}</div>
               </div>
               <div className="mt-4 flex items-end gap-4">
-                <div className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100">{score}</div>
-                <div className="text-lg font-semibold text-slate-700 dark:text-slate-300">{gaugeLabel}</div>
+                <div className="text-5xl font-bold tracking-tight text-slate-800">{score}</div>
+                <div className="text-lg font-semibold text-slate-700">{gaugeLabel}</div>
               </div>
             </>
           )}
@@ -180,9 +180,9 @@ export default function RiskOnRiskOffPage() {
       </section>
 
       {/* Indicators */}
-      <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-900">
-        <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800  bg-white">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.indicators_title')}</h3>
+      <section className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 bg-white">
+        <div className="px-4 sm:px-6 py-5 border-b border-slate-200  bg-white">
+          <h3 className="text-lg font-semibold text-slate-800">{t('ai.msa.indicators_title')}</h3>
         </div>
         <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-white">
           {INDICATORS.map((ind) => {
@@ -193,12 +193,11 @@ export default function RiskOnRiskOffPage() {
             const sideLabel = ind.side === 'riskon' ? t('ai.msa.risk_on') : t('ai.msa.risk_off');
             const contrib = parts[ind.key] ?? 0; // -1..1
             const barLeft = `${((contrib + 1) / 2) * 100}%`;
-            const accent = ind.side === 'riskon' ? 'emerald' : 'rose';
 
             return (
               <div
                 key={ind.key}
-                className="relative rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden"
+                className="relative rounded-lg border border-slate-200 bg-white overflow-hidden"
                 onMouseEnter={() => setHoveredInd(ind.key)}
                 onMouseLeave={() => setHoveredInd(null)}
                 onFocus={() => setHoveredInd(ind.key)}
@@ -216,13 +215,13 @@ export default function RiskOnRiskOffPage() {
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <div className="text-[11px] uppercase tracking-wide text-slate-500">{sideLabel}</div>
-                      <div className="text-base font-semibold text-slate-800 dark:text-slate-100">{ind.label}</div>
+                      <div className="text-base font-semibold text-slate-800 ">{ind.label}</div>
                       <div className="text-xs text-slate-400">{ind.symbol}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-semibold text-slate-800 dark:text-slate-100">{price ?? '-'}</div>
+                      <div className="text-lg font-semibold text-slate-800 ">{price ?? '-'}</div>
                       <span className={
-                        `inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${isUp ? 'bg-emerald-600/15 text-emerald-700 dark:text-emerald-300' : 'bg-rose-600/15 text-rose-700 dark:text-rose-300'}`
+                        `inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${isUp ? 'bg-emerald-600/15 text-emerald-700' : 'bg-rose-600/15 text-rose-700'}`
                       }>
                         <span className={isUp ? 'rotate-0 text-emerald-600' : 'rotate-180 text-rose-600'}>▲</span>
                         {formatPct(pct)}
@@ -231,13 +230,13 @@ export default function RiskOnRiskOffPage() {
                   </div>
 
                   {/* contribution bar with stronger contrast and center marker */}
-                  <div className="mt-4 h-3 relative rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className="mt-4 h-3 relative rounded-full overflow-hidden bg-slate-100">
                     <div className="absolute inset-0 flex">
-                      <div className="w-1/2 bg-rose-600/25 dark:bg-rose-900/50" />
-                      <div className="w-0.5 bg-white/90 dark:bg-slate-700" />
-                      <div className="w-1/2 bg-emerald-700/25 dark:bg-emerald-900/50" />
+                      <div className="w-1/2 bg-rose-600/25" />
+                      <div className="w-0.5 bg-white/90" />
+                      <div className="w-1/2 bg-emerald-700/25" />
                     </div>
-                    <div className="absolute -top-1 bottom-0 w-1.5 rounded bg-slate-800 dark:bg-slate-100 transition-all duration-700" style={{ left: barLeft }} />
+                    <div className="absolute -top-1 bottom-0 w-1.5 rounded bg-slate-800 transition-all duration-700" style={{ left: barLeft }} />
                   </div>
                 </div>
               </div>
@@ -247,16 +246,16 @@ export default function RiskOnRiskOffPage() {
       </section>
 
       {/* How to use - educational content */}
-      <section id="how-to" className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 bg-white dark:bg-slate-900">
-        <div className="px-4 sm:px-6 py-5 border-b border-slate-200 dark:border-slate-800 bg-white">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{t('ai.msa.how_to_use_title')}</h3>
+      <section id="how-to" className="rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200 bg-white">
+        <div className="px-4 sm:px-6 py-5 border-b border-slate-200 bg-white">
+          <h3 className="text-lg font-semibold text-slate-800">{t('ai.msa.how_to_use_title')}</h3>
         </div>
-        <div className="p-5 sm:p-6 space-y-6 text-slate-700 dark:text-slate-300  bg-white">
+        <div className="p-5 sm:p-6 space-y-6 text-slate-700  bg-white">
           <p>{t('ai.msa.how_p1_part1')}<span className="font-semibold"> {t('ai.msa.risk_on')}</span>{t('ai.msa.how_p1_part2')}<span className="font-semibold"> {t('ai.msa.risk_off')}</span>{t('ai.msa.how_p1_part3')}</p>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.risk_on_means')}</h4>
+              <h4 className="text-base font-semibold text-slate-800 mb-2">{t('ai.msa.risk_on_means')}</h4>
               <ul className="list-disc pl-5 space-y-1">
                 <li>{t('ai.msa.risk_on_li1')}</li>
                 <li>{t('ai.msa.risk_on_li2')}</li>
@@ -264,7 +263,7 @@ export default function RiskOnRiskOffPage() {
               </ul>
             </div>
             <div>
-              <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.risk_off_means')}</h4>
+              <h4 className="text-base font-semibold text-slate-800 mb-2">{t('ai.msa.risk_off_means')}</h4>
               <ul className="list-disc pl-5 space-y-1">
                 <li>{t('ai.msa.risk_off_li1')}</li>
                 <li>{t('ai.msa.risk_off_li2')}</li>
@@ -274,7 +273,7 @@ export default function RiskOnRiskOffPage() {
           </div>
 
           <div>
-            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.apply_title')}</h4>
+            <h4 className="text-base font-semibold text-slate-800 mb-2">{t('ai.msa.apply_title')}</h4>
             <ul className="list-disc pl-5 space-y-1">
               <li>{t('ai.msa.apply_li1')}</li>
               <li>{t('ai.msa.apply_li2')}</li>
@@ -283,11 +282,11 @@ export default function RiskOnRiskOffPage() {
           </div>
 
           <div>
-            <h4 className="text-base font-semibold text-slate-800 dark:text-slate-100 mb-2">{t('ai.msa.score_title')}</h4>
+            <h4 className="text-base font-semibold text-slate-800 mb-2">{t('ai.msa.score_title')}</h4>
             <p>{t('ai.msa.score_p1_part1')} <span className="font-semibold">0</span> {t('ai.msa.score_p1_part2')} <span className="font-semibold">100</span> {t('ai.msa.score_p1_part3')}</p>
           </div>
 
-          <p className="text-xs text-slate-500 dark:text-slate-400">{t('ai.msa.tip')}</p>
+          <p className="text-xs text-slate-500">{t('ai.msa.tip')}</p>
         </div>
       </section>          
     </div>

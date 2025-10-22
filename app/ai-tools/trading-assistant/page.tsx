@@ -57,8 +57,8 @@ const ChatHistorySidebar = ({ chatHistory, isOpen, onClose, aiToolsPanelRef, set
           </div>
         </div>
         <div className={`
-          bg-[linear-gradient(135deg,_#e3e9f1_0%,_#f5f8fa_40%,_#dbeafe_100%)] dark:bg-[linear-gradient(135deg,_#23272f_0%,_#373f48_40%,_#555e6b_100%)]
-          border border-gray-200 dark:border-gray-700
+          bg-[linear-gradient(135deg,_#e3e9f1_0%,_#f5f8fa_40%,_#dbeafe_100%)]
+          border border-gray-200
         `}>
 
           {/* Search Bar */}

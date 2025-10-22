@@ -8,7 +8,7 @@ import DisclaimerFooter from '../../src/components/news/DisclaimerFooter';
 
 const NewsPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] to-[#f3f6fa] dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-b from-[#f8fafc] to-[#f3f6fa]">
       <HeroHeader />
       <div className="max-w-5xl mx-auto px-2 sm:px-4">
         <NewsFeed />

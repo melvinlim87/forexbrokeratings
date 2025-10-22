@@ -110,14 +110,14 @@ function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
             />
           </div>
           <CardContent className="p-4 md:p-6 w-full md:w-3/5 flex flex-col justify-between">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-4">
               {post.title}
             </h3>
-            <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <div className="flex items-center text-sm text-gray-500 mb-4">
               <Calendar className="h-4 w-4 mr-1" />
               <span className="mr-4">{post.created_at ? new Date(post.created_at).toLocaleDateString('en-GB') : ''}</span>
             </div>
-            <div className="flex items-center text-blue-600 dark:text-blue-500 font-medium">
+            <div className="flex items-center text-blue-600 font-medium">
               Read article <ArrowRight className="ml-2 h-4 w-4" />
             </div>
           </CardContent>

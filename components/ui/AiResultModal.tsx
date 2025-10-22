@@ -59,16 +59,16 @@ export default function AiResultModal({ open, result, onClose, getAiResult }: Ai
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60">
-      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-5xl w-full relative p-6">
+      <div className="bg-white rounded-lg shadow-xl max-w-5xl w-full relative p-6">
         <button
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-700"
           onClick={onClose}
           aria-label="Close"
         >
           <X className="w-6 h-6" />
         </button>
         <h2 className="text-xl font-bold mb-4">AI Broker Analysis</h2>
-        <div className="max-h-80 overflow-y-auto whitespace-pre-line text-gray-800 dark:text-gray-100 border rounded p-3 bg-gray-50 dark:bg-gray-800 mb-4 font-mono">
+        <div className="max-h-80 overflow-y-auto whitespace-pre-line text-gray-800 border rounded p-3 bg-gray-50 mb-4 font-mono">
           {getAiResult ? displayed : "Analysing..."}
         </div>
         <div className="flex gap-3 justify-end">

@@ -405,9 +405,9 @@ export default function AnimateAiToolsPanel({ setOpen }: { setOpen: (open: boole
           <span className="font-bold text-lg">{t('home.ai_panel.title')}</span>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 rounded-2xl p-3">
+      <div className="bg-white rounded-2xl p-3">
         {/* Message Container */}
-        <div ref={messagesEndRef} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-4 border border-gray-100 dark:border-gray-800 max-h-72 overflow-y-auto flex flex-col gap-2">
+        <div ref={messagesEndRef} className="bg-gray-50 rounded-xl p-4 mb-4 border border-gray-100 max-h-72 overflow-y-auto flex flex-col gap-2">
            {messages.map((msg, idx) => {
             // Only animate the last AI message
             const isLast = idx === messages.length - 1 && msg.sender === 'ai';
@@ -421,7 +421,7 @@ export default function AnimateAiToolsPanel({ setOpen }: { setOpen: (open: boole
                   className={
                     msg.sender === 'user'
                       ? 'bg-gradient-to-tr from-blue-400 to-cyan-400 text-white rounded-xl px-4 py-2 text-right shadow'
-                      : 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-xl px-4 py-2 text-left shadow'
+                      : 'bg-white text-gray-900 rounded-xl px-4 py-2 text-left shadow'
                   }
                 >
                   {isLast ? <TypewriterText text={msg.text} messageEndRef={messagesEndRef} /> : msg.text}
@@ -437,7 +437,7 @@ export default function AnimateAiToolsPanel({ setOpen }: { setOpen: (open: boole
           {quickPromptKeys.map((k) => {
             const label = t(k);
             return (
-              <Button disabled={loading} key={k} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 overflow-x-hidden text-ellipsis whitespace-nowrap truncate max-w-[160px]" onClick={() => !user || !user.email_confirmed_at ? setOpen(true) : router.push(`/ai-tools/trading-assistant?prompt=${encodeURIComponent(label)}`)}>
+              <Button disabled={loading} key={k} size="sm" variant="outline" className=" rounded-full px-4 py-1 text-xs bg-white border-gray-200 overflow-x-hidden text-ellipsis whitespace-nowrap truncate max-w-[160px]" onClick={() => !user || !user.email_confirmed_at ? setOpen(true) : router.push(`/ai-tools/trading-assistant?prompt=${encodeURIComponent(label)}`)}>
                 <span style={{ whiteSpace: 'pre-wrap' }}>
                   {label}
                 </span>
@@ -449,7 +449,7 @@ export default function AnimateAiToolsPanel({ setOpen }: { setOpen: (open: boole
         <div className="flex items-center gap-2 rounded-xl py-2 mt-2">
           <input
             type="text"
-            className="flex-1 bg-transparent border border-gray-100 rounded-xl outline-none px-2 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+            className="flex-1 bg-transparent border border-gray-100 rounded-xl outline-none px-2 py-2 text-sm text-gray-900 placeholder-gray-400"
             placeholder={t('home.ai_panel.placeholder')}
             onChange={(e) => setPrompt(e.target.value)}
             value={prompt}

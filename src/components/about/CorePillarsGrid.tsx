@@ -28,10 +28,10 @@ const pillars = [
 const CorePillarsGrid = () => (
   <section className="my-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
     {pillars.map((pillar) => (
-      <div key={pillar.titleKey} className="bg-white dark:bg-slate-900 rounded-lg shadow p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow cursor-pointer">
+      <div key={pillar.titleKey} className="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow cursor-pointer">
         {pillar.icon}
-        <T as="h3" k={pillar.titleKey} className="font-semibold text-lg mb-1 text-[#0b1e3c] dark:text-white" />
-        <T as="p" k={pillar.descKey} className="text-gray-600 dark:text-gray-300 text-sm" />
+        <T as="h3" k={pillar.titleKey} className="font-semibold text-lg mb-1 text-[#0b1e3c]" />
+        <T as="p" k={pillar.descKey} className="text-gray-600 text-sm" />
       </div>
     ))}
   </section>

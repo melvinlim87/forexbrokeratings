@@ -48,12 +48,12 @@ function Counter({ value, prefix = '', suffix = '' }: { value: number; prefix?: 
 }
 
 const StatsStrip = () => (
-  <section className="w-full my-10 bg-[#f8fafc] dark:bg-slate-900 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 py-8 px-2 text-[#0b1e3c] dark:text-white">
+  <section className="w-full my-10 bg-[#f8fafc] rounded-xl shadow-sm border border-gray-100 py-8 px-2 text-[#0b1e3c]">
     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-0 w-full">
       {stats.map((stat) => (
         <div key={stat.label} className="flex flex-col items-center justify-center w-full pt-4">
           <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-          <div className="text-sm mt-2 opacity-80 text-[#0b1e3c] dark:text-gray-200 text-center leading-snug">{stat.label}</div>
+          <div className="text-sm mt-2 opacity-80 text-[#0b1e3c] text-center leading-snug">{stat.label}</div>
         </div>
       ))}
     </div>

@@ -99,9 +99,9 @@ export default function MarginCalculatorPage() {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+    <div className="bg-white rounded-xl shadow-sm border border-slate-200">
       <div className="px-6 pt-6 pb-2">
-        <h2 className="text-xl md:text-2xl font-bold text-slate-800 dark:text-slate-100">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-800">
           {hasCalculated ? `${pair} Margin Calculator` : 'Margin Calculator'}
         </h2>
       </div>
@@ -109,7 +109,7 @@ export default function MarginCalculatorPage() {
       <div className="px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-5">
           <div className="flex items-center justify-between gap-4">
-            <label className="text-sm text-slate-600 dark:text-slate-300">Currency Pair</label>
+            <label className="text-sm text-slate-600">Currency Pair</label>
             <Select value={pair} onValueChange={(v) => setPair(v as CurrencyPair)}>
               <SelectTrigger className="w-56">
                 <SelectValue placeholder="Select pair" />
@@ -123,7 +123,7 @@ export default function MarginCalculatorPage() {
           </div>
 
           <div className="flex items-center justify-between gap-4">
-            <label className="text-sm text-slate-600 dark:text-slate-300">Account Currency</label>
+            <label className="text-sm text-slate-600">Account Currency</label>
             <Select value={accountCcy} onValueChange={(v) => setAccountCcy(v as AccountCurrency)}>
               <SelectTrigger className="w-56">
                 <SelectValue placeholder="Select currency" />
@@ -137,7 +137,7 @@ export default function MarginCalculatorPage() {
           </div>
 
           <div className="flex items-center justify-between gap-4">
-            <label className="text-sm text-slate-600 dark:text-slate-300">Margin Ratio</label>
+            <label className="text-sm text-slate-600">Margin Ratio</label>
             <Select value={marginRatio} onValueChange={(v) => setMarginRatio(v as MarginRatioLabel)}>
               <SelectTrigger className="w-56">
                 <SelectValue placeholder="Select margin ratio" />
@@ -151,7 +151,7 @@ export default function MarginCalculatorPage() {
           </div>
 
           <div className="flex items-center justify-between gap-4">
-            <label className="text-sm text-slate-600 dark:text-slate-300">Trade Size (Lots)</label>
+            <label className="text-sm text-slate-600">Trade Size (Lots)</label>
             <Input
               type="number"
               inputMode="decimal"
@@ -169,54 +169,54 @@ export default function MarginCalculatorPage() {
           </div>
         </div>
 
-        <div className="border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-800 pt-6 md:pt-0 md:pl-6">
+        <div className="border-t md:border-t-0 md:border-l border-slate-200 pt-6 md:pt-0 md:pl-6">
           {!hasCalculated ? (
-            <p className="text-slate-500 dark:text-slate-400">Fill the values and click Calculate to see your required margin.</p>
+            <p className="text-slate-500">Fill the values and click Calculate to see your required margin.</p>
           ) : (
             <div className="space-y-3">
-              <div className="text-sm text-slate-600 dark:text-slate-300">Spot used ({spotUsed.from}/{spotUsed.to}): {spotUsed.rate?.toFixed(6)}</div>
+              <div className="text-sm text-slate-600">Spot used ({spotUsed.from}/{spotUsed.to}): {spotUsed.rate?.toFixed(6)}</div>
               <div className="text-lg font-semibold">Result: {formatMoney(result, accountCcy)}</div>
             </div>
           )}
         </div>
       </div>
 
-      <div className="px-6 py-6 border-t border-slate-200 dark:border-slate-800">
-        <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">How to Calculate Margin in Forex Trading</h3>
+      <div className="px-6 py-6 border-t border-slate-200">
+        <h3 className="text-lg font-semibold text-slate-800 mb-4">How to Calculate Margin in Forex Trading</h3>
         
-        <div className="prose prose-slate dark:prose-invert max-w-none">
-          <p className="text-slate-600 dark:text-slate-300">
+        <div className="prose prose-slate max-w-none">
+          <p className="text-slate-600">
             Margin in forex trading is the amount of money a trader needs to put forward to open a position. 
             It's not a transaction cost, but rather a security deposit that the broker holds while a trade is open.
           </p>
           
-          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">How Margin is Calculated:</h4>
-          <p className="text-slate-600 dark:text-slate-300">
-            The formula to calculate margin is: <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">Margin = (Trade Size × Contract Size × Price) / Leverage</code>
+          <h4 className="text-slate-700 font-medium mt-6 mb-2">How Margin is Calculated:</h4>
+          <p className="text-slate-600">
+            The formula to calculate margin is: <code className="bg-slate-100 px-1.5 py-0.5 rounded">Margin = (Trade Size × Contract Size × Price) / Leverage</code>
           </p>
           
-          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">Example Calculation:</h4>
-          <p className="text-slate-600 dark:text-slate-300">
+          <h4 className="text-slate-700 font-medium mt-6 mb-2">Example Calculation:</h4>
+          <p className="text-slate-600">
             For a 1 lot (100,000 units) of EUR/USD at 1.1200 with 100:1 leverage:
           </p>
-          <ul className="list-disc pl-5 text-slate-600 dark:text-slate-300 space-y-1 mt-2">
+          <ul className="list-disc pl-5 text-slate-600 space-y-1 mt-2">
             <li>Trade size: 1 lot = 100,000 units</li>
             <li>Price: 1.1200</li>
             <li>Leverage: 100:1</li>
             <li>Margin = (100,000 × 1.1200) / 100 = $1,120</li>
           </ul>
           
-          <h4 className="text-slate-700 dark:text-slate-200 font-medium mt-6 mb-2">Key Points:</h4>
-          <ul className="list-disc pl-5 text-slate-600 dark:text-slate-300 space-y-1">
+          <h4 className="text-slate-700 font-medium mt-6 mb-2">Key Points:</h4>
+          <ul className="list-disc pl-5 text-slate-600 space-y-1">
             <li>Higher leverage means lower margin requirement, but higher risk</li>
             <li>Margin requirements vary by broker and instrument</li>
             <li>Always maintain sufficient margin to avoid margin calls</li>
             <li>Use stop-loss orders to manage risk</li>
           </ul>
           
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-            <h4 className="font-medium text-blue-700 dark:text-blue-300">Risk Warning:</h4>
-            <p className="text-blue-600 dark:text-blue-400 mt-1">
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <h4 className="font-medium text-blue-700">Risk Warning:</h4>
+            <p className="text-blue-600 mt-1">
               Trading on margin carries a high level of risk and may not be suitable for all investors. 
               The high degree of leverage can work against you as well as for you. Before deciding to trade foreign exchange, 
               you should carefully consider your investment objectives, level of experience, and risk appetite.

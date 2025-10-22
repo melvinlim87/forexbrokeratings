@@ -163,7 +163,7 @@ export default function RankingsPage() {
   }, [page, loading, loadingMore, hasMore]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-gray-50">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">{t('rankings.hero_title')}</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">{t('rankings.hero_subtitle')}</h2>
@@ -173,18 +173,18 @@ export default function RankingsPage() {
         {loading ? (
           <div className="flex justify-center items-center py-12">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-600 border-r-transparent"></div>
-            <p className="ml-4 text-gray-600 dark:text-gray-400">{t('rankings.loading')}</p>
+            <p className="ml-4 text-gray-600">{t('rankings.loading')}</p>
           </div>
         ) : error ? (
           <div className="text-center py-12">
             <p className="text-red-500">{error}</p>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">{t('rankings.showing_fallback')}</p>
+            <p className="text-gray-600 mt-2">{t('rankings.showing_fallback')}</p>
           </div>
         ) : (
           <div className="space-y-8">
             {!loading && brokers.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-600 dark:text-gray-400">{t('rankings.no_brokers')}</p>
+                <p className="text-gray-600">{t('rankings.no_brokers')}</p>
               </div>
             )}
             {(() => {
@@ -203,7 +203,7 @@ export default function RankingsPage() {
                         onMouseEnter={() => setHoveredCard(broker.rank)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 dark:border-gray-800 shadow-lg rounded-xl bg-white dark:bg-gray-900 w-full min-w-0 transition hover:shadow-xl">
+                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 shadow-lg rounded-xl bg-white w-full min-w-0 transition hover:shadow-xl">
                           {/* Top: Rank & Logo Row */}
                           <div className="flex flex-row items-center gap-4">
                             <div className="flex flex-col items-center min-w-[4px]">
@@ -211,11 +211,11 @@ export default function RankingsPage() {
                                 #{broker.rank}
                               </div>
                             </div>
-                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 flex items-center justify-center min-w-[40px]">
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white border border-gray-100 flex items-center justify-center min-w-[40px]">
                               <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
-                              <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
+                              <span className="text-xl font-bold text-gray-900 truncate">{broker.name}</span>
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
@@ -224,11 +224,11 @@ export default function RankingsPage() {
                             </div>
                           </div>
                           {/* Divider */}
-                          <div className="border-t border-gray-100 dark:border-gray-800 my-2" />
+                          <div className="border-t border-gray-100 my-2" />
                           {/* Accordion for Regulators & Platforms */}
                           <Button
                             variant="ghost"
-                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 hover:bg-gray-50"
                             onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
                             aria-expanded={openAccordion === `info-${broker.rank}`}
                           >
@@ -258,7 +258,7 @@ export default function RankingsPage() {
                           {/* Accordion for Pros & Cons */}
                           <Button
                             variant="ghost"
-                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 hover:bg-gray-50"
                             onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
                             aria-expanded={openAccordion === `proscons-${broker.rank}`}
                           >
@@ -268,16 +268,16 @@ export default function RankingsPage() {
                           {openAccordion === `proscons-${broker.rank}` && (
                             <div className="flex flex-col md:flex-row gap-4 w-full">
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">Pros</span>
-                                <ul className="list-disc list-inside text-xs text-green-700 dark:text-green-300 mt-1 space-y-0.5">
+                                <span className="text-xs font-semibold text-green-700">Pros</span>
+                                <ul className="list-disc list-inside text-xs text-green-700 mt-1 space-y-0.5">
                                   {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
                                     <li key={i}>{pro}</li>
                                   ))}
                                 </ul>
                               </div>
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">Cons</span>
-                                <ul className="list-disc list-inside text-xs text-red-700 dark:text-red-300 mt-1 space-y-0.5">
+                                <span className="text-xs font-semibold text-red-700">Cons</span>
+                                <ul className="list-disc list-inside text-xs text-red-700 mt-1 space-y-0.5">
                                   {broker.cons?.slice(0, 3).map((con: string, i: number) => (
                                     <li key={i}>{con}</li>
                                   ))}
@@ -299,7 +299,7 @@ export default function RankingsPage() {
                         onMouseEnter={() => setHoveredCard(broker.rank)}
                         onMouseLeave={() => setHoveredCard(null)}
                       >
-                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 dark:border-gray-800 shadow-lg rounded-xl bg-white dark:bg-gray-900 w-full min-w-0 transition hover:shadow-xl">
+                        <Card className="flex flex-col gap-4 px-4 py-5 mb-6 border border-gray-200 shadow-lg rounded-xl bg-white w-full min-w-0 transition hover:shadow-xl">
                           {/* Top: Rank & Logo Row */}
                           <div className="flex flex-row items-center gap-4">
                             <div className="flex flex-col items-center min-w-[4px]">
@@ -307,11 +307,11 @@ export default function RankingsPage() {
                                 #{broker.rank}
                               </div>
                             </div>
-                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 flex items-center justify-center min-w-[40px]">
+                            <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white border border-gray-100 flex items-center justify-center min-w-[40px]">
                               <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
-                              <span className="text-xl font-bold text-gray-900 dark:text-white truncate">{broker.name}</span>
+                              <span className="text-xl font-bold text-gray-900 truncate">{broker.name}</span>
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
@@ -320,11 +320,11 @@ export default function RankingsPage() {
                             </div>
                           </div>
                           {/* Divider */}
-                          <div className="border-t border-gray-100 dark:border-gray-800 my-2" />
+                          <div className="border-t border-gray-100 my-2" />
                           {/* Accordion for Regulators & Platforms */}
                           <Button
                             variant="ghost"
-                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 hover:bg-gray-50"
                             onClick={() => setOpenAccordion(openAccordion === `info-${broker.rank}` ? null : `info-${broker.rank}`)}
                             aria-expanded={openAccordion === `info-${broker.rank}`}
                           >
@@ -354,7 +354,7 @@ export default function RankingsPage() {
                           {/* Accordion for Pros & Cons */}
                           <Button
                             variant="ghost"
-                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
+                            className="w-full text-left flex justify-between items-center py-2 px-0 text-xs font-semibold text-gray-700 hover:bg-gray-50"
                             onClick={() => setOpenAccordion(openAccordion === `proscons-${broker.rank}` ? null : `proscons-${broker.rank}`)}
                             aria-expanded={openAccordion === `proscons-${broker.rank}`}
                           >
@@ -364,16 +364,16 @@ export default function RankingsPage() {
                           {openAccordion === `proscons-${broker.rank}` && (
                             <div className="flex flex-col md:flex-row gap-4 w-full">
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-green-700 dark:text-green-400">{t('rankings.pros')}</span>
-                                <ul className="list-disc list-inside text-xs text-green-700 dark:text-green-300 mt-1 space-y-0.5">
+                                <span className="text-xs font-semibold text-green-700">{t('rankings.pros')}</span>
+                                <ul className="list-disc list-inside text-xs text-green-700 mt-1 space-y-0.5">
                                   {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
                                     <li key={i}>{pro}</li>
                                   ))}
                                 </ul>
                               </div>
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-red-700 dark:text-red-400">{t('rankings.cons')}</span>
-                                <ul className="list-disc list-inside text-xs text-red-700 dark:text-red-300 mt-1 space-y-0.5">
+                                <span className="text-xs font-semibold text-red-700">{t('rankings.cons')}</span>
+                                <ul className="list-disc list-inside text-xs text-red-700 mt-1 space-y-0.5">
                                   {broker.cons?.slice(0, 3).map((con: string, i: number) => (
                                     <li key={i}>{con}</li>
                                   ))}
@@ -397,7 +397,7 @@ export default function RankingsPage() {
             )}
             
             {!loading && !loadingMore && !hasMore && brokers.length > 0 && (
-              <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              <div className="text-center py-8 text-gray-500">
                 {t('rankings.reached_end_of_list')}
               </div>
             )}

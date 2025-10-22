@@ -92,7 +92,7 @@ export default function Newsletter() {
   };
   
   return (
-    <section className="py-10 bg-blue-50 dark:bg-blue-900/20">
+    <section className="py-10 bg-blue-50">
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto overflow-hidden shadow-xl border-0">
           <div className="grid grid-cols-1 md:grid-cols-5">
@@ -103,15 +103,15 @@ export default function Newsletter() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="bg-blue-100 dark:bg-blue-900/50 p-2 rounded-full w-fit mb-4">
-                  <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="bg-blue-100 p-2 rounded-full w-fit mb-4">
+                  <Mail className="h-5 w-5 text-blue-600" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {t('newsletter.title')}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-gray-600 mb-6">
                   {t('newsletter.subtitle')}
                 </p>
                 
@@ -146,20 +146,20 @@ export default function Newsletter() {
                     {success && (
                       <div className="text-green-700 text-xs mt-1" role="status">{t('newsletter.success_message')}</div>
                     )}
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-gray-500">
                       {t('newsletter.privacy_message')}
                     </p>
                   </form>
                 ) : (
-                  <div className="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg p-4 flex items-start">
-                    <div className="bg-green-100 dark:bg-green-800 rounded-full p-1 mr-3 mt-0.5">
-                      <svg className="h-4 w-4 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start">
+                    <div className="bg-green-100 rounded-full p-1 mr-3 mt-0.5">
+                      <svg className="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-green-800 dark:text-green-300">{t('newsletter.thanks_for_subscribing')}</p>
-                      <p className="text-sm text-green-700 dark:text-green-400 mt-1">
+                      <p className="font-medium text-green-800">{t('newsletter.thanks_for_subscribing')}</p>
+                      <p className="text-sm text-green-700 mt-1">
                         {t('newsletter.confirmation_email_sent')}
                       </p>
                     </div>

@@ -50,7 +50,7 @@ export default function ResetPasswordPage() {
 
 
   return (
-    <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
+    <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 backdrop-blur-md">
       <CardHeader className="flex flex-col items-center gap-2 pb-0">
         <div className="w-full mb-2">
           <Image
@@ -62,7 +62,7 @@ export default function ResetPasswordPage() {
             priority
           />
         </div>
-        <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">Reset Your Password</CardTitle>
+        <CardTitle className="text-3xl font-bold text-center text-gray-900 tracking-tight">Reset Your Password</CardTitle>
       </CardHeader>
       <CardContent className="pt-2 pb-6 px-4 md:px-6">
         {success ? (
@@ -72,7 +72,7 @@ export default function ResetPasswordPage() {
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <Input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               type="password"
               placeholder="New password"
               value={password}
@@ -82,7 +82,7 @@ export default function ResetPasswordPage() {
               minLength={8}
             />
             <Input
-              className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               type="password"
               placeholder="Confirm new password"
               value={confirm}
@@ -91,7 +91,7 @@ export default function ResetPasswordPage() {
               autoComplete="new-password"
               minLength={8}
             />
-            {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
+            {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 rounded py-2 px-3">{error}</div>}
             <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
               {loading ? 'Resetting...' : 'Reset Password'}
             </Button>

@@ -68,21 +68,21 @@ export default function FeaturedBrokers() {
 
   if (loading) {
     return (
-      <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
+      <section id="featured-brokers" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
             <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 dark:bg-gray-800 rounded w-1/4 mx-auto mb-4"></div>
-              <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-1/2 mx-auto mb-8"></div>
+              <div className="h-8 bg-gray-200 rounded w-1/4 mx-auto mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-8"></div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
-                    <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-3/4 mb-4"></div>
-                    <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-1/2 mb-2"></div>
-                    <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-3/4 mb-4"></div>
-                    <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-full mb-2"></div>
-                    <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-5/6 mb-4"></div>
-                    <div className="h-10 bg-gray-200 dark:bg-gray-800 rounded w-full"></div>
+                  <div key={i} className="bg-white rounded-lg shadow-md p-6">
+                    <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+                    <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-5/6 mb-4"></div>
+                    <div className="h-10 bg-gray-200 rounded w-full"></div>
                   </div>
                 ))}
               </div>
@@ -95,7 +95,7 @@ export default function FeaturedBrokers() {
 
   if (error) {
     return (
-      <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
+      <section id="featured-brokers" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
             <div className="text-red-500 mb-4">{error}</div>
@@ -112,7 +112,7 @@ export default function FeaturedBrokers() {
   }
 
   return (
-    <section id="featured-brokers" className="py-16 bg-white dark:bg-gray-950">
+    <section id="featured-brokers" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <motion.div 
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
@@ -121,21 +121,21 @@ export default function FeaturedBrokers() {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-black">{t('home.featured.title')}</h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+            <h2 className="text-3xl font-bold text-gray-900">{t('home.featured.title')}</h2>
+            <p className="mt-3 text-lg text-gray-600 max-w-2xl">
               {t('home.featured.subtitle')}
             </p>
           </div>
           <Link 
             href="/brokers" 
-            className="mt-4 md:mt-0 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400"
+            className="mt-4 md:mt-0 inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
           >
             {t('home.featured.view_all')} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </motion.div>
 
         {/* Desktop Table (md+) */}
-        <div className="overflow-x-auto rounded-2xl shadow-lg from-gray-950/90 via-gray-900/90 to-gray-950/95 p-1 hidden md:block">
+        <div className="overflow-x-auto rounded-2xl shadow-lg p-1 hidden md:block">
           <table className="min-w-full text-sm text-left rounded-2xl overflow-hidden bg-gray-950">
             <thead className="bg-white">
               <tr>
@@ -259,7 +259,7 @@ export default function FeaturedBrokers() {
         {/* Mobile Cards (below md) */}
         <div className="flex flex-col gap-4 md:hidden">
           {brokers.map((broker, idx) => (
-            <div key={broker.id} className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-800 transition" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
+            <div key={broker.id} className="bg-gray-50 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 transition" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow bg-white">#{broker.rank || idx + 1}</span>
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">

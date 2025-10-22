@@ -53,7 +53,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="relative w-full max-w-xl mx-4">
-        <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
+        <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 backdrop-blur-md">
           <CardHeader className="flex flex-col items-center gap-2 pb-0">
             <div className="w-full mb-2">
               <Image
@@ -65,12 +65,12 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 priority
               />
             </div>
-            <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">{t('auth.login_heading')}</CardTitle>
+            <CardTitle className="text-3xl font-bold text-center text-gray-900 tracking-tight">{t('auth.login_heading')}</CardTitle>
           </CardHeader>
           <CardContent className="pt-2 pb-6 px-4 md:px-6">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.email_placeholder')}
                 type="email"
                 value={email}
@@ -79,7 +79,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
                 autoComplete="email"
               />
               <input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.password_placeholder')}
                 type="password"
                 value={password}
@@ -90,7 +90,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
               <div className="text-right mb-1">
                 <a href="/forgot-password" rel="nofollow" className="text-primary underline hover:text-primary/80 text-xs font-semibold transition-colors">{t('auth.forgot_password_link')}</a>
               </div>
-              {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 dark:bg-red-900/20 rounded py-2 px-3">{error}</div>}
+              {error && <div className="text-red-500 text-sm text-center font-medium bg-red-50 rounded py-2 px-3">{error}</div>}
               <Button type="submit" className="w-full h-11 text-base font-semibold shadow-sm bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-cyan-600 hover:to-blue-700 focus:ring-2 focus:ring-cyan-300 transition-colors" disabled={loading}>
                 {loading ? t('auth.logging_in') : t('auth.login')}
               </Button>
@@ -100,7 +100,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
               </div>
             </form>
             <button
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-white text-2xl font-bold focus:outline-none"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
               type="button"
               aria-label={t('auth.close_login_modal')}
               onClick={onClose}

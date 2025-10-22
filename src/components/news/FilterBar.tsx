@@ -34,7 +34,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
             className={`px-4 py-1 rounded-full border text-sm font-semibold transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
               activeCategory === cat.value
                 ? 'bg-[#00c7d4] text-black border-cyan-700'
-                : 'bg-white dark:bg-slate-800 text-[#0b1e3c] dark:text-white border-[#e6e8ec] hover:bg-cyan-50 dark:hover:bg-slate-700'
+                : 'bg-white text-[#0b1e3c] border-[#e6e8ec] hover:bg-cyan-50'
             }`}
             onClick={() => onCategoryChange?.(cat.value)}
           >
@@ -55,7 +55,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
         </span>
         <input
           type="text"
-          className="border border-[#e6e8ec] rounded-full px-3 py-1 text-sm bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          className="border border-[#e6e8ec] rounded-full px-3 py-1 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
           placeholder={t('news.search_placeholder')}
           value={search}
           onChange={e => setSearch(e.target.value)}

@@ -26,27 +26,27 @@ function UserReviewsList() {
   }, [user?.user_detail?.id]);
 
   if (!user?.user_detail?.id) {
-    return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">Please log in to see your reviews.</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">Please log in to see your reviews.</div>;
   }
   if (showSkeleton) {
     return <BrokerProfileSkeleton />;
   }
   if (loading) {
-    return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">Loading reviews...</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">Loading reviews...</div>;
   }
   if (error) {
     return <div className="text-red-500 text-center py-8">{error}</div>;
   }
   if (!reviews.length) {
-    return <div className="text-gray-500 dark:text-gray-300 text-lg text-center py-16 w-full">No reviews yet.</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">No reviews yet.</div>;
   }
   return (
     <div className="space-y-6 px-2 pb-8">
       {reviews.slice(0, visible).map((review) => (
-        <div key={review.id} className="bg-white dark:bg-gray-900/80 rounded-lg shadow p-4 border border-gray-100 dark:border-gray-800">
+        <div key={review.id} className="bg-white rounded-lg shadow p-4 border border-gray-100">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-lg text-gray-800 dark:text-gray-100">{review.title}</span>
+              <span className="font-semibold text-lg text-gray-800">{review.title}</span>
               <span className="text-xs text-gray-400 ml-2">{new Date(review.comment_at).toLocaleString()}</span>
             </div>
             <div className="flex items-center gap-1 mt-2 md:mt-0">
@@ -56,10 +56,10 @@ function UserReviewsList() {
               <span className="ml-1 text-xs text-gray-500">{review.rating}</span>
             </div>
           </div>
-          <div className="font-semibold text-md text-gray-700 dark:text-gray-200 mb-1">{review.content}</div>
+          <div className="font-semibold text-md text-gray-700 mb-1">{review.content}</div>
           <div className="flex justify-end mt-2">
             <button
-              className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50 dark:bg-blue-900/20"
+              className="text-blue-600 hover:underline px-3 py-1 rounded border border-blue-100 bg-blue-50"
               onClick={() => {
                 setShowSkeleton(true);
                 router.push(`/broker/${review.broker_details?.slug}`);
@@ -93,13 +93,13 @@ export default function UserReviewsPage() {
         <nav className="rounded-2xl border border-border shadow-md flex flex-col gap-2 py-6 px-0 md:px-4 md:sticky md:top-10">
             <a
               href="/profile"
-              className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 dark:hover:bg-gray-50 text-black"
+              className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 text-black"
             >
               User Profile
             </a>
             <a
               href="/profile/reviews"
-              className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 dark:bg-gray-100 ring-2 ring-gray-900/30"
+              className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 ring-2 ring-gray-900/30"
             >
               Reviews
             </a>
@@ -109,8 +109,8 @@ export default function UserReviewsPage() {
         <div className="flex-1">
           <div className="w-full rounded-2xl border border-border bg-transparent shadow-lg p-0 md:p-8 backdrop-blur-md">
             <div className="px-6 pt-8 pb-2">
-              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 dark:text-white tracking-tight">My Reviews</h2>
-              <p className="text-gray-500 dark:text-gray-300 mb-6">See all your broker reviews and ratings here.</p>
+              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 tracking-tight">My Reviews</h2>
+              <p className="text-gray-500 mb-6">See all your broker reviews and ratings here.</p>
             </div>
             <UserReviewsList />
           </div>

@@ -430,7 +430,7 @@ export default function ComparisonSection() {
             {/* Half star */}
             {hasHalfStar && (
               <div className="relative h-4 w-4">
-                <Star className="absolute h-4 w-4 text-gray-300 dark:text-gray-600" />
+                <Star className="absolute h-4 w-4 text-gray-300" />
                 <div className="absolute left-0 top-0 h-full w-1/2 overflow-hidden">
                   <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 </div>
@@ -438,15 +438,15 @@ export default function ComparisonSection() {
             )}
             {/* Empty stars */}
             {Array(emptyStars).fill(0).map((_, i) => (
-              <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
+              <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300" />
             ))}
           </div>
           {/* Mobile: show just score label */}
-          <span className="block md:hidden text-sm font-medium text-gray-500 dark:text-gray-400">
+          <span className="block md:hidden text-sm font-medium text-gray-500">
             {(rawScore / 20).toFixed(2)}/5
           </span>
           {/* Desktop: show score label under stars */}
-          <span className="hidden md:block text-sm md:text-lg font-medium text-gray-500 dark:text-gray-400">
+          <span className="hidden md:block text-sm md:text-lg font-medium text-gray-500">
             {(rawScore / 20).toFixed(2)}/5
           </span>
         </div>
@@ -457,11 +457,11 @@ export default function ComparisonSection() {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950 w-full">
+    <section className="py-16 bg-white w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">{t('home.comparison.title')}</h2>
-          <p className="mt-4 text-lg sm:text-md lg:text-lg text-gray-600 dark:text-gray-400">
+          <h2 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-900">{t('home.comparison.title')}</h2>
+          <p className="mt-4 text-lg sm:text-md lg:text-lg text-gray-600">
             {t('home.comparison.subtitle')}
           </p>
         </div>
@@ -469,9 +469,9 @@ export default function ComparisonSection() {
         <Card className="border-0 shadow-lg overflow-hidden">
           <CardContent className="p-0">
             <Tabs value={activeTab} onValueChange={(value: string) => setActiveTab(value as keyof ComparisonData)} className="w-full">
-              <div className="bg-gray-100 dark:bg-gray-800 px-4 py-4 sm:px-6">
+              <div className="bg-gray-100 px-4 py-4 sm:px-6">
                 <TabsList
-                  className="w-full bg-gray-200 dark:bg-gray-700 
+                  className="w-full bg-gray-200 
                     flex md:grid md:grid-cols-4
                     overflow-x-auto md:overflow-visible
                     no-scrollbar
@@ -480,7 +480,7 @@ export default function ComparisonSection() {
                     mb-2
                     md:mb-0
                     md:rounded-md
-                    md:p-0
+                    md:p-0  
                     ">
                   <TabsTrigger value="beginner-friendly" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.beginner')}</TabsTrigger>
                   <TabsTrigger value="low-fees" className="flex-none w-40 md:w-auto md:flex-1 text-xs md:text-base px-4 py-2 md:py-1.5 rounded-lg md:rounded-none">{t('home.comparison.tabs.low_fees')}</TabsTrigger>
@@ -494,8 +494,8 @@ export default function ComparisonSection() {
                   <div className="overflow-x-auto hidden md:block">
                     <table className="w-full">
                       <thead>
-                        <tr className="bg-white dark:bg-gray-950">
-                          <th className="px-6 py-5 text-left text-lg sm:text-sm lg:text-lg font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
+                        <tr className="bg-white">
+                          <th className="px-6 py-5 text-left text-lg sm:text-sm lg:text-lg font-medium text-gray-500 uppercase tracking-wider w-1/4">
                             {t('home.comparison.table.header_broker')}
                           </th>
                           {comparisonData[tabValue].map((broker) => (
@@ -512,7 +512,7 @@ export default function ComparisonSection() {
                                     />
                                   </a>
                                 </div>
-                                <span className="font-semibold text-lg sm:text-sm lg:text-lg text-gray-900 dark:text-white">
+                                <span className="font-semibold text-lg sm:text-sm lg:text-lg text-gray-900">
                                   {broker.name}
                                 </span>
                               </div>
@@ -520,10 +520,10 @@ export default function ComparisonSection() {
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                      <tbody className="divide-y divide-gray-200">
                         {getFeatureRows().map((row) => (
-                          <tr key={row.key} className="bg-white dark:bg-gray-950">
-                            <td className="px-6 py-4 text-sm md:text-lg font-medium text-gray-900 dark:text-white">
+                          <tr key={row.key} className="bg-white">
+                            <td className="px-6 py-4 text-sm md:text-lg font-medium text-gray-900">
                               {row.label}
                             </td>
                             {comparisonData[tabValue].map((broker) => (
@@ -539,7 +539,7 @@ export default function ComparisonSection() {
                   {/* Mobile Cards (below md) */}
                   <div className="flex flex-col gap-4 md:hidden">
                     {comparisonData[tabValue].map((broker) => (
-                      <div key={broker.id} className="bg-white dark:bg-gray-950 rounded-xl shadow p-4 flex flex-col gap-2">
+                      <div key={broker.id} className="bg-white rounded-xl shadow p-4 flex flex-col gap-2">
                         <div className="flex items-center gap-3 mb-2">
                           <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
                             <a href={`/broker/${broker.slug}`} target="_blank" rel="noopener noreferrer">
@@ -551,13 +551,13 @@ export default function ComparisonSection() {
                             </a>
                           </div>
                           <div>
-                            <div className="font-semibold text-black dark:text-white leading-tight">{broker.name}</div>
+                            <div className="font-semibold text-black leading-tight">{broker.name}</div>
                           </div>
                         </div>
                         {getFeatureRows().map((row) => (
-                          <div key={row.key} className="flex items-center gap-2 py-1 border-b border-gray-100 dark:border-gray-900 last:border-0">
-                            <span className="text-gray-600 dark:text-gray-300 font-medium w-32 flex-shrink-0">{row.label}:</span>
-                            <span className="text-gray-900 dark:text-white">{renderFeatureCell(broker, row.key)}</span>
+                          <div key={row.key} className="flex items-center gap-2 py-1 border-b border-gray-100 last:border-0">
+                            <span className="text-gray-600 font-medium w-32 flex-shrink-0">{row.label}:</span>
+                            <span className="text-gray-900">{renderFeatureCell(broker, row.key)}</span>
                           </div>
                         ))}
                         <div className="mt-3">

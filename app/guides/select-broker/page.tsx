@@ -180,7 +180,7 @@ export default function SelectBrokerGuide() {
           {/* Mobile Cards (matches featured-brokers.tsx) */}
           <div className="flex flex-col gap-4 md:hidden">
             {dummyBrokers.map((broker, idx) => (
-              <div key={broker.name} className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-800 transition">
+              <div key={broker.name} className="bg-gray-50 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 transition">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow bg-white">#{idx + 1}</span>
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">

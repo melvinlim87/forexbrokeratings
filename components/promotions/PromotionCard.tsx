@@ -30,14 +30,14 @@ export default function PromotionCard({
     return (
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-medium text-gray-900 dark:text-white">{promo.title}</h3>
+          <h3 className="font-medium text-gray-900">{promo.title}</h3>
           {promo.category && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 whitespace-nowrap">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 whitespace-nowrap">
               {promo.category}
             </span>
           )}
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-2">
+        <p className="text-sm text-gray-600 line-clamp-3 mb-2">
           {promo.description}
         </p>
         <div className="flex justify-end">
@@ -87,37 +87,37 @@ export default function PromotionCard({
                     />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900 dark:text-white">
+                    <h3 className="font-medium text-gray-900">
                       {brokerName}
                     </h3>
                   </div>
                 </div>
                 
                 {promo.is_featured && (
-                  <div className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-xs font-medium px-2 py-0.5 rounded-full">
+                  <div className="bg-amber-100 text-amber-800 text-xs font-medium px-2 py-0.5 rounded-full">
                     Featured
                   </div>
                 )}
               </div>
 
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+              <h4 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
                 {promo.title}
               </h4>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+              <p className="text-gray-600 mb-4 line-clamp-3">
                 {promo.description}
               </p>
 
               <div className="space-y-2 mb-4">
                 {promo.conditions && promo.conditions?.length > 0 && (
                   <div className="text-sm">
-                    <p className="font-medium text-gray-700 dark:text-gray-300 mb-1">Terms:</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
+                    <p className="font-medium text-gray-700 mb-1">Terms:</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-600">
                       {promo.conditions?.slice(0, 3).map((term, i) => (
                         <li key={i} className="text-sm">{term}</li>
                       ))}
                       {promo.conditions.length > 3 && (
-                        <li className="text-sm font-medium text-amber-600 dark:text-amber-400">
+                        <li className="text-sm font-medium text-amber-600">
                           +{promo.conditions.length - 3} more terms
                         </li>
                       )}

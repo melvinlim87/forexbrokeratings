@@ -92,10 +92,10 @@ export default function BrokersListClient({ initialBrokers }: Props) {
       {/* Search */}
       <section className="text-center mb-12">
         <div className="relative mx-auto mb-12">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           <Input
             placeholder={t('search.search_brokers')}
-            className="pl-10 py-6 bg-white dark:bg-gray-800"
+            className="pl-10 py-6 bg-white"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -104,7 +104,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-          <p className="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
+          <p className="text-gray-600 mb-4 md:mb-0">
             {t('brokers.labels.showing')} {sortedBrokers.length} {t('brokers.labels.brokers')}
             {minDepositFilter !== 'all' && ' · ' + t('brokers.filters.min_deposit')}
             {regulationFilter !== 'all' && ' · ' + t('brokers.filters.regulation') + ' ' + String(regulationFilter).toUpperCase()}
@@ -190,7 +190,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
             >
               <Card className="overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
-                  <div className="p-4 md:p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-800">
+                  <div className="p-4 md:p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-200">
                     <div className="w-full max-w-[160px] h-[80px] relative mb-3">
                       <Image src={broker.logo} alt={broker.name} fill className="object-contain" sizes="160px" />
                     </div>
@@ -219,12 +219,12 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
                   <div className="md:col-span-2 lg:col-span-3 p-4 md:p-6">
                     <div className="mb-4">
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.description')}</p>
-                      <p className="text-sm text-gray-700 dark:text-gray-300">{broker.description}</p>
+                      <p className="text-sm text-gray-500 mb-1">{t('brokers.card.description')}</p>
+                      <p className="text-sm text-gray-700">{broker.description}</p>
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.regulators')}</p>
+                      <p className="text-sm text-gray-500 mb-1">{t('brokers.card.regulators')}</p>
                       <div className="flex flex-wrap gap-2">
                         {broker.regulations.map((reg, idx) => (
                           <span key={idx} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{ borderRadius: '1.25rem' }}>
@@ -235,7 +235,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
 
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.trading_platforms')}</p>
+                      <p className="text-sm text-gray-500 mb-1">{t('brokers.card.trading_platforms')}</p>
                       <div className="flex flex-wrap gap-2">
                         {broker.tradingPlatforms.map((p, idx) => (
                           <span key={idx} className="bg-white text-black px-2 mx-0.5 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{ borderRadius: '1.25rem' }}>
@@ -248,38 +248,38 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:hidden">
                     <div>
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.pros')}</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">{t('brokers.card.pros')}</p>
                       <ul className="space-y-1">
                         {broker.pros.slice(0, 3).map((pro, i) => (
                           <li key={i} className="flex items-start text-sm">
                             <svg className="h-4 w-4 text-green-500 mr-1.5 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            <span className="text-gray-700 dark:text-gray-300">{pro}</span>
+                            <span className="text-gray-700">{pro}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     <div>
-                      <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{t('brokers.card.cons')}</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">{t('brokers.card.cons')}</p>
                       <ul className="space-y-1">
                         {broker.cons.slice(0, 3).map((con, i) => (
                           <li key={i} className="flex items-start text-sm">
                             <svg className="h-4 w-4 text-red-500 mr-1.5 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                            <span className="text-gray-700 dark:text-gray-300">{con}</span>
+                            <span className="text-gray-700">{con}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-800">
+                  <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200">
                     <div className="mb-3 text-center md:text-right">
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{t('brokers.card.min_deposit')}</p>
-                      <p className="text-lg font-semibold text-gray-900 dark:text-white">{broker.minDeposit}</p>
+                      <p className="text-sm text-gray-500">{t('brokers.card.min_deposit')}</p>
+                      <p className="text-lg font-semibold text-gray-900">{broker.minDeposit}</p>
                     </div>
 
                     <div className="space-y-2 w-full">
@@ -301,7 +301,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
 
         {sortedBrokers.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-lg text-gray-500 dark:text-gray-400">{t('brokers.empty.no_results')}</p>
+            <p className="text-lg text-gray-500">{t('brokers.empty.no_results')}</p>
             <Button
               variant="outline"
               className="mt-4"

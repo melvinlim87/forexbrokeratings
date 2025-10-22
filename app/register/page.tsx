@@ -99,7 +99,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen w-full max-w-xl mx-auto flex flex-col items-center justify-start transition-colors duration-300">
       
-      <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 dark:bg-background/80 backdrop-blur-md">
+      <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 backdrop-blur-md">
         <CardHeader className="flex flex-col items-center gap-2 pb-0">
           <div className="w-full mb-2">
             <Image
@@ -111,33 +111,33 @@ export default function RegisterPage() {
               priority
             />
           </div>
-          <CardTitle className="text-3xl font-bold text-center text-gray-900 dark:text-white tracking-tight">{t('auth.register_heading')}</CardTitle>
+          <CardTitle className="text-3xl font-bold text-center text-gray-900 tracking-tight">{t('auth.register_heading')}</CardTitle>
         </CardHeader>
         <CardContent className="pt-2 pb-6 px-4 md:px-6">
           {success ? (
             <div className="py-8 flex flex-col items-center">
-              <div className="text-2xl font-semibold text-center mb-4 text-cyan-700 dark:text-cyan-300">
+              <div className="text-2xl font-semibold text-center mb-4 text-cyan-700">
                 {t('auth.register_success_title')}
               </div>
-              <div className="text-base text-center text-gray-800 dark:text-gray-200 max-w-md mb-2">
+              <div className="text-base text-center text-gray-800 max-w-md mb-2">
                 {t('auth.register_success_sent_to')} <span className="font-semibold">{email}</span>.<br />
                 {t('auth.register_success_next')}
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 text-center">
+              <div className="text-sm text-gray-500 text-center">
                 {t('auth.register_success_hint')}
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.name_placeholder')}
                 value={name}
                 onChange={e => setName(e.target.value)}
                 required
               />
               <input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.email_placeholder')}
                 type="email"
                 value={email}
@@ -150,7 +150,7 @@ export default function RegisterPage() {
                 </div>
                 <div className="md:w-2/3">
                   <input
-                    className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                    className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                     placeholder={t('auth.mobile_placeholder')}
                     type="number"
                     value={mobileno}
@@ -160,7 +160,7 @@ export default function RegisterPage() {
                 </div>
               </div>
               <input
-                className="block w-full rounded-md border border-border bg-white dark:bg-background px-3 py-2 text-base text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 placeholder={t('auth.password_placeholder')}
                 type="password"
                 value={password}
