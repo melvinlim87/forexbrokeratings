@@ -1384,7 +1384,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             >
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Overall Rating</h3>
+                <h3 className="text-xl font-semibold mb-4 font-black">Overall Rating</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm text-gray-600 ">
@@ -1419,7 +1419,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 )}
               >
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">Regulatory</h3>
+                  <h3 className="text-xl font-semibold mb-4 font-black">Regulatory</h3>
                   {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
                       <div className="rounded-xl flex flex-col">
                         <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
@@ -1472,7 +1472,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             >
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Broker Summary of {brokerData.name}</h3>
+                <h3 className="text-xl font-semibold mb-4 font-black">Broker Summary of {brokerData.name}</h3>
                 <div className="space-y-2">
                   <div className="flex flex-col items-center mb-4">
                     {/* {brokerData.logo && (
@@ -1552,7 +1552,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             >
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Similar Brokers</h3>
+                <h3 className="text-xl font-semibold mb-4 font-black">Similar Brokers</h3>
                 <div className="space-y-4">
                   {relatedBrokers.map((broker: any) => (
                     <Link key={broker.id} href={`/broker/${broker.name ? broker.name.toLowerCase().replace(/\s+/g, '-') : broker.id}`}>
