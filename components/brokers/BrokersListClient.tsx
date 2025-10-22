@@ -288,7 +288,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                           {t('brokers.card.visit')} {broker.name}
                         </a>
                       </Button>
-                      <Button variant="outline" className="w-full" asChild>
+                      <Button variant="outline" className="w-full bg-gray-100" asChild>
                         <Link href={`/broker/${broker.slug}`}>{t('brokers.card.read_review')}</Link>
                       </Button>
                     </div>
