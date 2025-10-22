@@ -28,7 +28,7 @@ export default function RankingsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
       {children}
     </div>
   );

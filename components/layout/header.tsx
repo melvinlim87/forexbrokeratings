@@ -199,19 +199,18 @@ export default function Header() {
 function NavLinks() {
   const { t } = useI18n();
   const links = [
-    { title: 'nav.promotions', href: '/promotions' },
-    { title: 'nav.rankings', href: '/rankings' },
-    { title: 'nav.profiles', href: '/#featured-brokers' },
-    { title: 'nav.reviews', href: '/#latest-reviews' },
-    { title: 'nav.comparison', href: '/compare' },
+    { title: 'nav.brokers', href: '#' },
     { title: 'nav.ai_tools', href: '/ai-tools' },
+    { title: 'nav.news', href: '/news' },
     { title: 'nav.blog', href: '/blog' },
   ];
   
   return (
     <>
       {links.map((link) => (
-        link.title === 'nav.ai_tools' ? (
+        link.title === 'nav.brokers' ? (
+          <BrokersDropdown key="brokers" />
+        ) : link.title === 'nav.ai_tools' ? (
           <AiToolsDropdown key="ai-tools" />
         ) : (
           <Link
@@ -248,6 +247,35 @@ function AiToolsDropdown() {
           <Link href="/ai-tools#popular" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.popular')}</Link>
           <Link href="/ai-tools#products" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.products')}</Link>
           <Link href="/ai-tools#all" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('ai.all')}</Link>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+function BrokersDropdown() {
+  const [open, setOpen] = useState(false);
+  const { t } = useI18n();
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button
+          type="button"
+          className="flex items-center gap-1 text-xl font-medium text-white whitespace-nowrap h-12 px-4 rounded-xl hover:bg-white/20"
+          aria-haspopup="menu"
+          aria-expanded={open}
+        >
+          <span>{t('nav.brokers')}</span>
+          <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white/95 backdrop-blur border border-gray-200 mt-4">
+        <div className="flex flex-col">
+          <Link href="/promotions" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('nav.promotions')}</Link>
+          <Link href="/rankings" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('nav.rankings')}</Link>
+          <Link href="/#featured-brokers" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('nav.profiles')}</Link>
+          <Link href="/#latest-reviews" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('nav.reviews')}</Link>
+          <Link href="/compare" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800" onClick={() => setOpen(false)}>{t('nav.comparison')}</Link>
         </div>
       </PopoverContent>
     </Popover>

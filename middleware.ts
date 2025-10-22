@@ -19,6 +19,16 @@ export async function middleware(req: NextRequest) {
 
   // 1) Protect API endpoints with JWT (existing behavior)
   if (pathname.startsWith('/api/')) {
+    // 1a) Public API allowlist (no auth required)
+    // Add public endpoints here to bypass JWT checks
+    const publicApiPaths = [
+      '/api/risk-on-risk-off/quotes',
+    ];
+
+    if (publicApiPaths.some((p) => pathname === p || pathname.startsWith(p + '/'))) {
+      return NextResponse.next();
+    }
+
     if (req.method === 'OPTIONS') return NextResponse.next();
 
     const authHeader = req.headers.get('authorization');

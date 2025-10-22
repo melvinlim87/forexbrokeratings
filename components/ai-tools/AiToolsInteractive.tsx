@@ -51,7 +51,7 @@ export default function AiToolsInteractive({ aiTools, categories }: { aiTools: T
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-transparent">
       <header className="bg-gradient-to-r from-[#091f40] to-[#0f2d59] h-[180px] flex flex-col justify-center items-center text-center px-4 mb-12">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow">{t('ai.hero_title')}</h1>
         <h2 className="text-lg md:text-2xl text-cyan-200 font-medium max-w-2xl mx-auto">{t('ai.hero_subtitle')}</h2>

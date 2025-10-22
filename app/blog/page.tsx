@@ -9,7 +9,7 @@ export default async function BlogPage() {
   const posts = Array.isArray(initialPosts) ? initialPosts : [];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-transparent">
       <BlogListClient initialPosts={posts} pageSize={9} />
     </div>
   );

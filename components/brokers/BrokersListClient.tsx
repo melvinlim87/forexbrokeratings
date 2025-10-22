@@ -289,7 +289,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                         </a>
                       </Button>
                       <Button variant="outline" className="w-full bg-gray-100" asChild>
-                        <Link href={`/broker/${broker.slug}`}>{t('brokers.card.read_review')}</Link>
+                        <Link href={`/broker/${broker.slug}`} style={{color: 'black'}}>{t('brokers.card.read_review')}</Link>
                       </Button>
                     </div>
                   </div>

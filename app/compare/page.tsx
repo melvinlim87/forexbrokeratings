@@ -191,7 +191,8 @@ export default function ComparePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-transparent">
+      <div className="container mx-auto px-4 py-8">
       {/* Selected Brokers */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4"><T k="compare.selected_brokers" /> ({selectedBrokers.length}/3)</h2>
@@ -697,6 +698,7 @@ export default function ComparePage() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

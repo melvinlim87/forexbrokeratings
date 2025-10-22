@@ -216,7 +216,7 @@ const categories = [
 ];
 export default function AIToolsPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-transparent">
       {/* Breadcrumbs JSON-LD */}
       <Script id="jsonld-breadcrumbs" type="application/ld+json">
         {JSON.stringify({
