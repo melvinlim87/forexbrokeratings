@@ -115,11 +115,11 @@ export default function LatestReviews() {
   }, []);
 
   return (
-    <section id="latest-reviews" className="py-20 bg-white dark:bg-gray-950 w-full">
+    <section id="latest-reviews" className="py-20 bg-white w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white"><T k="home.latest_reviews.title" /></h2>
-          <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900"><T k="home.latest_reviews.title" /></h2>
+          <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
             <T k="home.latest_reviews.subtitle" />
           </p>
           {/* <Link href="/brokers/reviews" className="mt-4 inline-flex items-center text-blue-600 dark:text-blue-500 font-medium hover:text-blue-800 dark:hover:text-blue-400 mx-auto">
@@ -135,28 +135,25 @@ export default function LatestReviews() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              onMouseEnter={() => setHoveredCard(review.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               <Card 
                 className={cn(
                   "h-full overflow-hidden relative",
-                  "bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40",
+                  "bg-gradient-to-br from-white/80 to-white/40",
                   "backdrop-blur-sm",
                   "border-0",
                   "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
                   "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
                   "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                  "dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800",
                   "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                   "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                  "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
                   "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
                 )}>
                 <Card className="h-full flex flex-col">
                   <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="h-24 w-24 relative bg-gray-100 dark:bg-gray-800 rounded-xl">
+                      <div className="h-24 w-24 relative bg-gray-100 rounded-xl">
                         <Image
                           src={review.logo}
                           alt={review.name}
@@ -166,50 +163,49 @@ export default function LatestReviews() {
                         />
                       </div>
                       <div className="flex flex-col  gap-1">
-                        <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-right">
+                        <p className="text-md text-gray-700 px-2 text-right">
                           {review.headquarters}
                         </p>
-                        <p className="text-md text-gray-700 dark:text-gray-300 px-2 text-right">
+                        <p className="text-md text-gray-700 px-2 text-right">
                           {review.year_published}
                         </p>
                         <div className='flex items-center gap-1'>
                           {Array.from({ length: 5 }).map((_, i) => (
                             <Star 
                               key={i} 
-                              className={`h-4 w-4 ${i < Math.floor(review.rating/20) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300 dark:text-gray-600'}`} 
+                              className={`h-4 w-4 ${i < Math.floor(review.rating/20) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} 
                             />
                           ))}
                         <span className="ml-1 text-sm font-medium">{(parseFloat(review.rating)/20).toFixed(2)}</span>
                         </div>
                       </div>
                     </div>
-                    
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{review.name} <T k="home.latest_reviews.review" /></h3>
-                    
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{review.name} <T k="home.latest_reviews.review" /></h3>
+
+                    <div className="flex items-center text-sm text-gray-500 mb-3">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span><T k="home.latest_reviews.updated" /> {review.date}</span>
                     </div>
-                    
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+
+                    <p className="text-gray-600 mb-4 line-clamp-3">
                       {review.summary}
                     </p>
-                    
+
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300"><T k="home.latest_reviews.highlights" /></h4>
+                      <h4 className="text-sm font-medium text-gray-700"><T k="home.latest_reviews.highlights" /></h4>
                       <ul className="space-y-1">
                         {review.highlights.map((highlight: string, i: number) => (
                           <li key={i} className="flex items-start text-sm">
                             <svg className="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            <span className="text-gray-600 dark:text-gray-400">{highlight}</span>
+                            <span className="text-gray-600">{highlight}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </CardContent>
-                  
                   <div className="mt-auto pt-4">
                     <Button variant="outline" className="w-full" asChild>
                       <Link href={`/broker/${review.slug || review.id}/#user_reviews`}>
