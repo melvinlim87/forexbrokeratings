@@ -190,8 +190,8 @@ export default function BrokersListClient({ initialBrokers }: Props) {
             >
               <Card className="overflow-hidden">
                 <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
-                  <div className="p-4 md:p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-200">
-                    <div className="w-full max-w-[160px] h-[80px] relative mb-3">
+                  <div className="p-4 md:p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-200 bg-white">
+                    <div className="w-full max-w-[160px] h-[80px] relative mb-3 bg-white">
                       <Image src={broker.logo} alt={broker.name} fill className="object-contain" sizes="160px" />
                     </div>
                     <h3 className="text-xl font-semibold text-center">{broker.name}</h3>
@@ -217,7 +217,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
                   </div>
 
-                  <div className="md:col-span-2 lg:col-span-3 p-4 md:p-6">
+                  <div className="md:col-span-2 lg:col-span-3 p-4 md:p-6 bg-white">
                     <div className="mb-4">
                       <p className="text-sm text-gray-500 mb-1">{t('brokers.card.description')}</p>
                       <p className="text-sm text-gray-700">{broker.description}</p>
@@ -246,7 +246,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
                   </div>
 
-                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:hidden">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:hidden bg-white">
                     <div>
                       <p className="text-sm font-medium text-gray-500 mb-1">{t('brokers.card.pros')}</p>
                       <ul className="space-y-1">
@@ -276,7 +276,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     </div>
                   </div>
 
-                  <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200">
+                  <div className="md:col-span-1 lg:col-span-1 p-4 md:p-6 flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-gray-200 bg-white">
                     <div className="mb-3 text-center md:text-right">
                       <p className="text-sm text-gray-500">{t('brokers.card.min_deposit')}</p>
                       <p className="text-lg font-semibold text-gray-900">{broker.minDeposit}</p>
