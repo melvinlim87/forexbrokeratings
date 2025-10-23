@@ -348,7 +348,7 @@ function MobileAiTools({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     <div className="flex flex-col">
       <button
         type="button"
-        className="flex items-center justify-between text-base font-medium transition-colors hover:text-white py-2"
+        className="flex items-center justify-between text-base font-medium transition-colors hover:text-black py-2"
         onClick={() => setOpen(o => !o)}
       >
         <span className="flex items-center"><Wrench className="h-5 w-5 mr-3" /> {t('nav.ai_tools')}</span>
