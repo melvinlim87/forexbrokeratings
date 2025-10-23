@@ -9,13 +9,12 @@ const FilterableCountryCodeSelect = dynamic(() => import('../register/Filterable
 
 
 export default function UserProfilePage() {
-  const user = useSelector((state: RootState) => state.auth.user) as Users | null;
-
+  const user = useSelector((state: RootState) => state.auth.user) as any | null;
   const [form, setForm] = useState({
-    name: user?.name ?? "",
+    name: user?.user_detail?.name ?? "",
     email: user?.email ?? "",
-    country_code: user?.country_code ?? "",
-    mobileno: user?.mobileno ?? "",
+    country_code: user?.user_detail?.country_code ?? "",
+    mobileno: user?.user_detail?.mobileno ?? "",
   });
   // TODO: Wire up save action to API
   return (

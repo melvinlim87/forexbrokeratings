@@ -207,6 +207,7 @@
     "auth.sending":  "Sending...",
     "auth.send_reset_link":  "Send Reset Link",
     "auth.back_to":  "Back to",
+    "auth.view_profile":  "View Profile",
     "home.promo.close_aria":  "Close promotion popup",
     "home.promo.powered_by":  "Powered by",
     "home.promo.valid_till":  "Valid Till",
