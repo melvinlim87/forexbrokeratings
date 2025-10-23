@@ -24,6 +24,8 @@ export async function middleware(req: NextRequest) {
     const publicApiPaths = [
       '/api/risk-on-risk-off/quotes',
       '/api/login',
+      '/api/register',
+      '/api/forgot-password',
     ];
 
     if (publicApiPaths.some((p) => pathname === p || pathname.startsWith(p + '/'))) {

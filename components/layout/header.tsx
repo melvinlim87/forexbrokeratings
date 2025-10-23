@@ -287,12 +287,10 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
   const user = useSelector((state: RootState) => state.auth.user);
   const { t, locale, setLocale } = useI18n();
   const links = [
-    { title: 'nav.promotions', href: '/promotions', icon: <Gift className="h-5 w-5 mr-3" /> },
-    { title: 'nav.rankings', href: '/rankings', icon: <List className="h-5 w-5 mr-3" /> },
-    { title: 'nav.profiles', href: '/#featured-brokers', icon: <BookOpenText className="h-5 w-5 mr-3" /> },
-    { title: 'nav.reviews', href: '/#latest-reviews', icon: <MessageCircle className="h-5 w-5 mr-3" /> },
-    { title: 'nav.comparison', href: '/compare', icon: <BarChart className="h-5 w-5 mr-3" /> },
+    { title: 'nav.brokers', href: '#', icon: <BookOpenText className="h-5 w-5 mr-3" /> },
+    { title: 'nav.regulators', href: '/regulators', icon: <BookOpen className="h-5 w-5 mr-3" /> },
     { title: 'nav.ai_tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
+    { title: 'nav.news', href: '/news', icon: <List className="h-5 w-5 mr-3" /> },
     { title: 'nav.blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
   ];
   
@@ -300,12 +298,12 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     <>
       {/* Show customer profile here */}
       {!user || user.email_confirmed_at == false ? (
-        <Link href="/login" className="flex items-center text-base font-medium transition-colors hover:text-white py-2 justify-center border border-black/20 rounded-xl">
+        <Link href="/login" className="flex items-center text-base font-medium transition-colors hover:text-black py-2 justify-center border border-black/20 rounded-xl">
           <User className="h-5 w-5 mr-3" />
           {t('auth.login')}
         </Link>
       ) : (
-        <Link href="/profile" className="flex items-center text-base font-medium transition-colors hover:text-white py-2">
+        <Link href="/profile" className="flex items-center text-base font-medium transition-colors hover:text-black py-2">
           <UserCircle className="h-5 w-5 mr-3" />
           {t('auth.profile')}
         </Link>
@@ -313,11 +311,13 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
       {links.map((link) => (
         link.title === 'nav.ai_tools' ? (
           <MobileAiTools key="ai-tools-mobile" onNavLinkClick={onNavLinkClick} />
+        ) : link.title === 'nav.brokers' ? (
+          <MobileBrokers key="brokers-mobile" onNavLinkClick={onNavLinkClick} />
         ) : (
           <Link
             key={link.href}
             href={link.href}
-            className="flex items-center text-base font-medium transition-colors hover:text-white py-2"
+            className="flex items-center text-base font-medium transition-colors hover:text-black py-2"
             onClick={onNavLinkClick}
           >
             {link.icon}
@@ -359,6 +359,33 @@ function MobileAiTools({ onNavLinkClick }: { onNavLinkClick: () => void }) {
           <Link href="/ai-tools#popular" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.popular')}</Link>
           <Link href="/ai-tools#products" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.products')}</Link>
           <Link href="/ai-tools#all" className="py-1 text-sm" onClick={onNavLinkClick}>{t('ai.all')}</Link>
+        </div>
+      )}
+    </div>
+  );
+}
+ 
+
+function MobileBrokers({ onNavLinkClick }: { onNavLinkClick: () => void }) {
+  const { t } = useI18n();
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex flex-col">
+      <button
+        type="button"
+        className="flex items-center justify-between text-base font-medium transition-colors hover:text-black py-2"
+        onClick={() => setOpen(o => !o)}
+      >
+        <span className="flex items-center"><BookOpenText className="h-5 w-5 mr-3" /> {t('nav.brokers')}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="ml-8 mt-1 flex flex-col gap-1">
+          <Link href="/promotions" className="py-1 text-sm" onClick={onNavLinkClick}>{t('nav.promotions')}</Link>
+          <Link href="/rankings" className="py-1 text-sm" onClick={onNavLinkClick}>{t('nav.rankings')}</Link>
+          <Link href="/#featured-brokers" className="py-1 text-sm" onClick={onNavLinkClick}>{t('nav.profiles')}</Link>
+          <Link href="/#latest-reviews" className="py-1 text-sm" onClick={onNavLinkClick}>{t('nav.reviews')}</Link>
+          <Link href="/compare" className="py-1 text-sm" onClick={onNavLinkClick}>{t('nav.comparison')}</Link>
         </div>
       )}
     </div>
