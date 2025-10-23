@@ -23,6 +23,7 @@ export async function middleware(req: NextRequest) {
     // Add public endpoints here to bypass JWT checks
     const publicApiPaths = [
       '/api/risk-on-risk-off/quotes',
+      '/api/login',
     ];
 
     if (publicApiPaths.some((p) => pathname === p || pathname.startsWith(p + '/'))) {

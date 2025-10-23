@@ -54,6 +54,7 @@ export default function LoginPage() {
       setSuccess(true);
       setTimeout(() => router.push('/'), 3000);
     } catch (err: any) {
+      console.log(err)
       setError(err.message || t('auth.login_failed'));
     } finally {
       setLoading(false);
@@ -61,8 +62,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-xl flex flex-col items-center justify-start transition-colors duration-300">
-      
+    <div className="min-h-screen w-full max-w-xl flex flex-col items-center justify-center transition-colors duration-300">
       <div className="w-full flex items-center justify-center">
         <Card className="w-full max-w-xl shadow-xl border border-border rounded-2xl bg-white/90 backdrop-blur-md">
           <CardHeader className="flex flex-col items-center gap-2 pb-0">
@@ -89,7 +89,7 @@ export default function LoginPage() {
                 <div className="text-gray-700 text-base">{t('auth.will_redirect_home')}</div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-5">
                 <input
                   className="block w-full rounded-md border border-border bg-white px-3 py-2 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                   placeholder={t('auth.email_placeholder')}

@@ -200,6 +200,7 @@ function NavLinks() {
   const { t } = useI18n();
   const links = [
     { title: 'nav.brokers', href: '#' },
+    { title: 'nav.regulators', href: '/regulators' },
     { title: 'nav.ai_tools', href: '/ai-tools' },
     { title: 'nav.news', href: '/news' },
     { title: 'nav.blog', href: '/blog' },
