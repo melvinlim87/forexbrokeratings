@@ -39,6 +39,8 @@ function getClientIp(req: NextApiRequest): string {
 }
 
 export async function rateLimit(req: NextApiRequest, res: NextApiResponse, opts: RateLimitOptions = {}) {
+  // Temporary kill-switch for live incidents or maintenance
+  if (process.env.RATE_LIMIT_DISABLED === 'true') return true;
   // No Redis configured: allow all
   if (!hasRedis || !rateLimiter) return true;
 
@@ -63,7 +65,7 @@ export async function rateLimit(req: NextApiRequest, res: NextApiResponse, opts:
   try {
     // Build consumer key
     const ip = getClientIp(req);
-    const consumeKey = opts.keyBuilder ? opts.keyBuilder(req, ip) : ip;
+    const consumeKey = opts.keyBuilder ? opts.keyBuilder(req, ip) : ip;g
     await limiter.consume(consumeKey);
     return true;
   } catch (err: any) {
