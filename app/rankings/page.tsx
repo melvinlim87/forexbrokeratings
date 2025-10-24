@@ -268,7 +268,7 @@ export default function RankingsPage() {
                           {openAccordion === `proscons-${broker.rank}` && (
                             <div className="flex flex-col md:flex-row gap-4 w-full">
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-green-700">Pros</span>
+                                <span className="text-xs font-semibold text-green-700">{t('rankings.pros')}</span>
                                 <ul className="list-disc list-inside text-xs text-green-700 mt-1 space-y-0.5">
                                   {broker.pros?.slice(0, 3).map((pro: string, i: number) => (
                                     <li key={i}>{pro}</li>
@@ -276,7 +276,7 @@ export default function RankingsPage() {
                                 </ul>
                               </div>
                               <div className="flex-1">
-                                <span className="text-xs font-semibold text-red-700">Cons</span>
+                                <span className="text-xs font-semibold text-red-700">{t('rankings.cons')}</span>
                                 <ul className="list-disc list-inside text-xs text-red-700 mt-1 space-y-0.5">
                                   {broker.cons?.slice(0, 3).map((con: string, i: number) => (
                                     <li key={i}>{con}</li>
@@ -397,7 +397,7 @@ export default function RankingsPage() {
             )}
             
             {!loading && !loadingMore && !hasMore && brokers.length > 0 && (
-              <div className="text-center py-8 text-gray-500">
+              <div className="text-center py-8 text-gray-500FP">
                 {t('rankings.reached_end_of_list')}
               </div>
             )}

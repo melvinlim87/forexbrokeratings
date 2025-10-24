@@ -197,7 +197,7 @@ export default function BrokersListClient({ initialBrokers }: Props) {
                     <h3 className="text-xl font-semibold text-center">{broker.name}</h3>
                     <div className="flex items-center mt-2">
                       {Array.from({ length: 5 }).map((_, i) => {
-                        const rating = typeof broker.rating === 'string' ? parseFloat(broker.rating as string) : (broker.rating as number) || 0;
+                        let rating = typeof broker.rating === 'string' ? (parseFloat(broker.rating as string) / 20) : ((broker.rating as number) / 20) || 0;
                         return (
                           <Star
                             key={i}

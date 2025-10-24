@@ -26,12 +26,12 @@ const sections = [
               </tr>
             </thead>
             <tbody className="bg-gray-50">
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">GDPR (EEA/UK)</td><td className="px-4 py-3 text-gray-900">Art. 6 lawful bases, Art. 15-22 data-subject rights, SCCs for transfers</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">CCPA / CPRA (California)</td><td className="px-4 py-3 text-gray-900">Notice at collection, “sale/share” opt-out, enhanced consumer rights</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">LGPD (Brazil)</td><td className="px-4 py-3 text-gray-900">Legitimate interest basis, data portability, DPO contact</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">PIPEDA (Canada)</td><td className="px-4 py-3 text-gray-900">10 Fair Information Principles</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">POPIA (South Africa)</td><td className="px-4 py-3 text-gray-900">Processing limitation, openness, security safeguards</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Australia Privacy Act</td><td className="px-4 py-3 text-gray-900">APP 1-13, cross-border disclosure protections</td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.gdpr.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.gdpr.rights" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.ccpa.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.ccpa.rights" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.lgpd.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.lgpd.rights" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.pipeda.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.pipeda.rights" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.popia.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.popia.rights" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.au.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.frameworks.rows.au.rights" /></td></tr>
             </tbody>
           </table>
         </div>
@@ -54,11 +54,11 @@ const sections = [
               </tr>
             </thead>
             <tbody className="bg-gray-50">
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Identifiers</td><td className="px-4 py-3 text-gray-900">email, IP, cookie ID, device fingerprint</td><td className="px-4 py-3 text-gray-900">web forms, analytics scripts</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Usage Data</td><td className="px-4 py-3 text-gray-900">pages viewed, clicks on broker links, session duration</td><td className="px-4 py-3 text-gray-900">first-party cookies, log files</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Commercial Data</td><td className="px-4 py-3 text-gray-900">broker promotions clicked, affiliate IDs</td><td className="px-4 py-3 text-gray-900">redirect URLs</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Marketing Preferences</td><td className="px-4 py-3 text-gray-900">newsletter opt-in status, email opens</td><td className="px-4 py-3 text-gray-900">ESP reports</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">User-generated Content</td><td className="px-4 py-3 text-gray-900">comments, feedback, survey results</td><td className="px-4 py-3 text-gray-900">voluntary submission</td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.identifiers.category" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.identifiers.examples" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.identifiers.method" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.usage.category" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.usage.examples" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.usage.method" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.commercial.category" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.commercial.examples" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.commercial.method" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.marketing.category" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.marketing.examples" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.marketing.method" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.ugc.category" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.ugc.examples" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.data-we-collect.rows.ugc.method" /></td></tr>
             </tbody>
           </table>
         </div>
@@ -81,11 +81,11 @@ const sections = [
               </tr>
             </thead>
             <tbody className="bg-gray-50">
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Operate & secure Site</td><td className="px-4 py-3 text-gray-900">Legitimate interests</td><td className="px-4 py-3 text-gray-900">“Security”</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Send newsletters</td><td className="px-4 py-3 text-gray-900">Consent</td><td className="px-4 py-3 text-gray-900">“Marketing”</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Track affiliate referrals</td><td className="px-4 py-3 text-gray-900">Legitimate interests</td><td className="px-4 py-3 text-gray-900">“Commercial information”</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Respond to enquiries</td><td className="px-4 py-3 text-gray-900">Contract</td><td className="px-4 py-3 text-gray-900">“Customer records”</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Comply with law / tax</td><td className="px-4 py-3 text-gray-900">Legal obligation</td><td className="px-4 py-3 text-gray-900">“Legal compliance”</td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.operate.purpose" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.operate.gdpr" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.operate.ccpa" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.newsletters.purpose" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.newsletters.gdpr" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.newsletters.ccpa" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.affiliate.purpose" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.affiliate.gdpr" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.affiliate.ccpa" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.enquiries.purpose" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.enquiries.gdpr" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.enquiries.ccpa" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.compliance.purpose" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.compliance.gdpr" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.bases.rows.compliance.ccpa" /></td></tr>
             </tbody>
           </table>
         </div>
@@ -171,10 +171,10 @@ const sections = [
               </tr>
             </thead>
             <tbody className="bg-gray-50">
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">GDPR / UK-GDPR</td><td className="px-4 py-3 text-gray-900">Access, rectify, erase, restrict, object, data portability, lodge complaint with supervisory authority.</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">CCPA / CPRA</td><td className="px-4 py-3 text-gray-900">Know, delete, correct, opt-out of sale/share, limit use of sensitive data.</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">LGPD</td><td className="px-4 py-3 text-gray-900">Confirm processing, anonymise, data portability, revoke consent.</td></tr>
-              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900">Others</td><td className="px-4 py-3 text-gray-900">Equivalent rights under PIPEDA, POPIA, etc.</td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.gdpr.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.gdpr.how" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.ccpa.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.ccpa.how" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.lgpd.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.lgpd.how" /></td></tr>
+              <tr className="border-b border-gray-200 hover:bg-blue-100 transition"><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.others.region" /></td><td className="px-4 py-3 text-gray-900"><T k="privacy.sections.rights.rows.others.how" /></td></tr>
             </tbody>
           </table>
         </div>

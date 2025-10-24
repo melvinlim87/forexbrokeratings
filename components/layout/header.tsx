@@ -174,11 +174,11 @@ export default function Header() {
                     </Button>
                   </SheetTrigger>
                   <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-                    <div className="flex flex-col h-full mt-20">
+                    <div className="flex flex-col h-full" style={{marginTop: '7.5rem'}}>
                       <div className="flex justify-between items-center mb-6 mt-2">
                         <div className="flex items-center">
                           <Globe className="h-6 w-6 text-primary mr-2" />
-                          <span className="text-lg font-bold">ForexBrokerRatings</span>
+                          <span className="text-lg font-bold">ForexBrokeratings</span>
                         </div>
                       </div>
                       <nav className="flex flex-col space-y-6">

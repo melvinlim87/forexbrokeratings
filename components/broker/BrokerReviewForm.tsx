@@ -35,8 +35,8 @@ export default function BrokerReviewForm({ brokerId, onReviewSubmitted, onRequir
       setError("You must be logged in to submit a review.");
       return;
     }
-    if (!title || !content || rating < 1 || rating > 10) {
-      setError("Please fill all fields and provide a rating between 1 and 10.");
+    if (!title || !content || rating < 1 || rating > 5) {
+      setError("Please fill all fields and provide a rating between 1 and 5.");
       return;
     }
     setLoading(true);

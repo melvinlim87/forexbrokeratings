@@ -1239,7 +1239,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     }}
                   >
                     <option value="All">All</option>
-                    {[10,9,8,7,6,5,4,3,2,1].map(star => (
+                    {[5,4,3,2,1].map(star => (
                       <option key={star} value={star}>{star} star{star > 1 ? 's' : ''}</option>
                     ))}
                   </select>
