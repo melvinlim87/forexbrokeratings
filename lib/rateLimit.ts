@@ -65,7 +65,7 @@ export async function rateLimit(req: NextApiRequest, res: NextApiResponse, opts:
   try {
     // Build consumer key
     const ip = getClientIp(req);
-    const consumeKey = opts.keyBuilder ? opts.keyBuilder(req, ip) : ip;g
+    const consumeKey = opts.keyBuilder ? opts.keyBuilder(req, ip) : ip;
     await limiter.consume(consumeKey);
     return true;
   } catch (err: any) {
