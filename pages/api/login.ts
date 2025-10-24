@@ -8,7 +8,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-  if (!(await rateLimit(req, res))) return;  
+  // Per-route rate limit: key = IP + email, smaller points just for login to prevent bursts from shared IPs
+  if (
+    !(await rateLimit(req, res, {
+      keyPrefix: 'login',
+      points: 30, // 30 attempts
+      duration: 60, // per 60s per IP+email
+      keyBuilder: (r, ip) => {
+        const emailForKey = (() => {
+          try {
+            const b = (r as any).body || {};
+            return typeof b.email === 'string' ? b.email.toLowerCase().trim() : 'no-email';
+          } catch {
+            return 'no-email';
+          }
+        })();
+        return `${ip}|${emailForKey}`;
+      },
+    }))
+  )
+    return;
   const { email, password } = req.body;
   try {
     // Fetch user with password hash
