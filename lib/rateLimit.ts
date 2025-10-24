@@ -12,7 +12,7 @@ if (hasRedis) {
   rateLimiter = new RateLimiterRedis({
     storeClient: redisClient,
     keyPrefix: 'middleware',
-    points: 200, // 200 requests
+    points: 10000, // 200 requests
     duration: 60, // per 60 seconds by IP
   });
 }
