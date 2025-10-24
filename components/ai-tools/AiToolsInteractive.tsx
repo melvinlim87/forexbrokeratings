@@ -61,7 +61,7 @@ export default function AiToolsInteractive({ aiTools, categories }: { aiTools: T
       <section className="py-8 bg-white border-b border-gray-200 sticky top-0 z-10 md:max-w-7xl mx-auto">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="relative flex-grow">
+            <div className="w-full md:w-auto relative flex-grow">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <Input placeholder={t('ai.search_placeholder')} className="pl-10" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
