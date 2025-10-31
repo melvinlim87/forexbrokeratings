@@ -6,8 +6,10 @@ import { fetchReviewsByUserId } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import BrokerProfileSkeleton from '@/components/broker/BrokerProfileSkeleton';
+import { useI18n } from '@/lib/i18n-client';
 
 function UserReviewsList() {
+  const { t } = useI18n();
   const user = useSelector((state: RootState | any) => state.auth.user);
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -26,19 +28,19 @@ function UserReviewsList() {
   }, [user?.user_detail?.id]);
 
   if (!user?.user_detail?.id) {
-    return <div className="text-gray-500 text-lg text-center py-16 w-full">Please log in to see your reviews.</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">{t('reviews.login_required')}</div>;
   }
   if (showSkeleton) {
     return <BrokerProfileSkeleton />;
   }
   if (loading) {
-    return <div className="text-gray-500 text-lg text-center py-16 w-full">Loading reviews...</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">{t('reviews.loading')}</div>;
   }
   if (error) {
     return <div className="text-red-500 text-center py-8">{error}</div>;
   }
   if (!reviews.length) {
-    return <div className="text-gray-500 text-lg text-center py-16 w-full">No reviews yet.</div>;
+    return <div className="text-gray-500 text-lg text-center py-16 w-full">{t('reviews.none')}</div>;
   }
   return (
     <div className="space-y-6 px-2 pb-8">
@@ -65,7 +67,7 @@ function UserReviewsList() {
                 router.push(`/broker/${review.broker_details?.slug}`);
               }}
             >
-              View Broker
+              {t('reviews.view_broker')}
             </button>
           </div>
         </div>
@@ -76,7 +78,7 @@ function UserReviewsList() {
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
             onClick={() => setVisible(v => Math.min(v + 10, reviews.length))}
           >
-            View More
+            {t('reviews.view_more')}
           </button>
         </div>
       )}
@@ -85,6 +87,7 @@ function UserReviewsList() {
 }
 
 export default function UserReviewsPage() {
+  const { t } = useI18n();
   return (
     <div className="container mx-auto py-10">
       <div className="flex flex-col md:flex-row gap-6 md:gap-8 mx-2 md:mx-10 min-h-[60vh]">
@@ -95,13 +98,13 @@ export default function UserReviewsPage() {
               href="/profile"
               className="font-semibold text-lg px-6 py-3 rounded transition hover:bg-gray-50 text-black"
             >
-              User Profile
+              {t('profile.sidebar.profile')}
             </a>
             <a
               href="/profile/reviews"
               className="font-semibold text-lg px-6 py-3 rounded transition text-black bg-gray-50 ring-2 ring-gray-900/30"
             >
-              Reviews
+              {t('profile.sidebar.reviews')}
             </a>
           </nav>
         </aside>
@@ -109,8 +112,8 @@ export default function UserReviewsPage() {
         <div className="flex-1">
           <div className="w-full rounded-2xl border border-border bg-transparent shadow-lg p-0 md:p-8 backdrop-blur-md">
             <div className="px-6 pt-8 pb-2">
-              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 tracking-tight">My Reviews</h2>
-              <p className="text-gray-500 mb-6">See all your broker reviews and ratings here.</p>
+              <h2 className="text-3xl font-extrabold mb-2 text-gray-900 tracking-tight">{t('reviews.title')}</h2>
+              <p className="text-gray-500 mb-6">{t('reviews.subtitle')}</p>
             </div>
             <UserReviewsList />
           </div>

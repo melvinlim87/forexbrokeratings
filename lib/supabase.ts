@@ -890,7 +890,7 @@ export async function fetchUsers() {
 export async function fetchUserById(id: string) {
   const { data, error } = await supabase
     .from('users')
-    .select('name, email, country_code, mobileno, role, created_at')
+    .select('id, name, email, country_code, mobileno, role, created_at')
     .eq('id', id)
     .single();
   
@@ -1034,5 +1034,23 @@ export async function fetchEconomicCalendarByDateRange(startDate: string, endDat
     .order('datetime', { ascending: true });
 
   if (error) throw new Error(error.message);
+  return data;
+}
+
+// Function to update user information
+export async function updateUserInformation(user_id: string, name: string, country_code: string, mobileno: string) {
+  const { data, error } = await supabase
+    .from('users')
+    .update({
+      name: name,
+      country_code: country_code,
+      mobileno: mobileno,
+    })
+    .eq('id', user_id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
   return data;
 }
