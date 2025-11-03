@@ -54,7 +54,8 @@ const aiTools = [
     popular: true,
     slug: 'trading-assistant',
     href: '/ai-tools/trading-assistant',
-    disabled: false
+    disabled: false,
+    hasBackground: true
   },
   {
     id: 2,
@@ -73,7 +74,8 @@ const aiTools = [
     popular: false,
     slug: 'economic-calendar',
     href: '/ai-tools/economic-calendar',
-    disabled: false
+    disabled: false,
+    hasBackground: true
   },
   {
     id: 3,
@@ -92,7 +94,8 @@ const aiTools = [
     popular: false,
     slug: 'forex-market-hours',
     href: '/ai-tools/forex-market-hours',
-    disabled: false
+    disabled: false,
+    hasBackground: true
   },
   {
     id: 4,
@@ -111,10 +114,31 @@ const aiTools = [
     popular: true,
     slug: 'market-sentiment-analyzer',
     href: '/ai-tools/market-sentiment-analyzer',
-    disabled: false
+    disabled: false,
+    hasBackground: true
   },
   {
     id: 5,
+    titleKey: 'ai.tools.decyphers.title',
+    // categoryKey: 'ai.categories.technical',
+    icon: <img src="/assets/images/ai-tools/decyphers-logo.png" alt="Decyphers" className="h-10 w-full" />,
+    descriptionKey: 'ai.tools.decyphers.description',
+    featureKeys: [
+      'ai.tools.decyphers.features.upload_charts',
+      'ai.tools.decyphers.features.pattern_detection',
+      'ai.tools.decyphers.features.next_move_prediction',
+      'ai.tools.decyphers.features.actionable_insights'
+    ],
+    rating: 4.8,
+    reviews: 321,
+    popular: true,
+    slug: 'decyphers',
+    href: 'https://ai.decyphers.com/signup?referral_code=fbr_u8kt',
+    disabled: false,
+    hasBackground: false
+  },
+  {
+    id: 6,
     titleKey: 'ai.tools.portfolio_optimizer.title',
     categoryKey: 'ai.categories.portfolio',
     icon: <Bot className="h-5 w-5" />,
@@ -129,10 +153,11 @@ const aiTools = [
     reviews: 156,
     popular: false,
     slug: 'portfolio-optimizer',
-    disabled: true
+    disabled: true,
+    hasBackground: true
   },
   {
-    id: 6,
+    id: 7,
     titleKey: 'ai.tools.pattern_scanner.title',
     categoryKey: 'ai.categories.technical',
     icon: <LineChart className="h-5 w-5" />,
@@ -147,10 +172,11 @@ const aiTools = [
     reviews: 132,
     popular: true,
     slug: 'pattern-scanner',
-    disabled: true
+    disabled: true,
+    hasBackground: true
   },
   {
-    id: 7,
+    id: 8,
     titleKey: 'ai.tools.trading_signals.title',
     categoryKey: 'ai.categories.analysis',
     icon: <LineChart className="h-5 w-5" />,
@@ -165,10 +191,11 @@ const aiTools = [
     reviews: 245,
     popular: true,
     slug: 'trading-signals',
-    disabled: true
+    disabled: true,
+    hasBackground: true
   },
   {
-    id: 8,
+    id: 9,
     titleKey: 'ai.tools.trading_bots.title',
     categoryKey: 'ai.categories.trading',
     icon: <Bot className="h-5 w-5" />,
@@ -183,10 +210,11 @@ const aiTools = [
     reviews: 276,
     popular: true,
     slug: 'trading-bots',
-    disabled: true
+    disabled: true,
+    hasBackground: true
   },
   {
-    id: 9,
+    id: 10,
     titleKey: 'ai.tools.news_predictor.title',
     categoryKey: 'ai.categories.research',
     icon: <Brain className="h-5 w-5" />,
@@ -201,8 +229,9 @@ const aiTools = [
     reviews: 143,
     popular: false,
     slug: 'news-predictor',
-    disabled: true
-  }
+    disabled: true,
+    hasBackground: true
+  },
 ];
 
 const categories = [

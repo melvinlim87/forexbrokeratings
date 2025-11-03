@@ -135,6 +135,13 @@
   "ai.tools.market_sentiment_analyzer.features.trend_visualization": "情绪趋势可视化",
   "ai.tools.market_sentiment_analyzer.features.real_time_updates": "实时更新",
 
+  "ai.tools.decyphers.title": "Decyphers 图表分析器",
+  "ai.tools.decyphers.description": "上传图表图片，自动识别形态并给出 AI 驱动的下一步市场走势判断。",
+  "ai.tools.decyphers.features.upload_charts": "上传图表图片",
+  "ai.tools.decyphers.features.pattern_detection": "AI 形态识别",
+  "ai.tools.decyphers.features.next_move_prediction": "下一步走势预测",
+  "ai.tools.decyphers.features.actionable_insights": "可操作洞见",
+
   "ai.tools.portfolio_optimizer.title": "AI 组合优化器",
   "ai.tools.portfolio_optimizer.description": "利用 AI 驱动的风险管理优化您的交易组合",
   "ai.tools.portfolio_optimizer.features.risk_adjusted_allocation": "风险调整后的配置",

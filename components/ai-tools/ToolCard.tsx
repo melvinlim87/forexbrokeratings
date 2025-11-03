@@ -21,6 +21,7 @@ export interface Tool {
   slug: string;
   href?: string;
   disabled: boolean;
+  hasBackground: boolean;
 }
 
 export default function ToolCard({
@@ -49,7 +50,7 @@ export default function ToolCard({
         <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.disabled ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}>
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <div className="bg-blue-50 p-2 rounded-full">{tool.icon}</div>
+              <div className={`p-2 rounded-full ${tool.hasBackground ? 'bg-blue-50 ' : ''}`}>{tool.icon}</div>
               <span className="ml-2 text-sm font-medium text-blue-600">{t(tool.categoryKey)}</span>
               <div className="ml-auto flex items-center text-sm text-gray-500">
                 <Zap className="h-4 w-4 mr-1" />
