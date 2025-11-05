@@ -167,7 +167,7 @@ export default function RegulatorsPage() {
           </div>
         ) : (
           <div className="text-center py-12 bg-white rounded-lg shadow">
-            <p className="text-gray-500">{t('regulators.no_results', { query: searchTerm })}</p>
+            <p className="text-gray-500">{t('regulators.no_results').replace('{query}', searchTerm)}</p>
           </div>
         )}
       </div>
