@@ -57,7 +57,7 @@ export default function LatestReviews() {
   useEffect(() => {
     async function fetchLatestReviews() {
       try {
-        const data = await fetchAllBrokerDetails();
+        const data = await fetchAllBrokerDetails(true);
         
         // Take only the first 3 brokers for latest reviews
         const latestBrokers = data.slice(0, 3);

@@ -297,18 +297,31 @@ export async function fetchBrokerWebsites() {
 }
 
 // Function to fetch all broker details
-export async function fetchAllBrokerDetails() {
-  const { data, error } = await supabase
-    .from('broker_details')
-    .select('*')
-    .order('rating', { ascending: false })
-    .eq('status', true);
-  
-  if (error) {
-    throw new Error(error.message);
+export async function fetchAllBrokerDetails(affiliateLinkOnly?: boolean) {
+  if (affiliateLinkOnly) {
+    const { data, error } = await supabase
+      .from('broker_details')
+      .select('*')
+      .order('rating', { ascending: false })
+      .neq('affiliate_link', '')
+      .eq('status', true);
+      if (error) {
+        throw new Error(error.message);
+      }
+    
+      return data;
+  } else {
+    const { data, error } = await supabase
+      .from('broker_details')
+      .select('*')
+      .order('rating', { ascending: false })
+      .eq('status', true);
+      if (error) {
+        throw new Error(error.message);
+      }
+      return data;
   }
-
-  return data;
+  
 }
 
 // Function to fetch broker details by ID

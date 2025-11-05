@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { fetchRegulators, Regulators } from '@/lib/supabase';
 import { Search, Globe, Building2, ShieldCheck, Timer, Link2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useI18n } from '@/lib/i18n-client';
 
 export default function RegulatorsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [regulators, setRegulators] = useState<Regulators[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const loadRegulators = async () => {
@@ -17,7 +19,7 @@ export default function RegulatorsPage() {
         const data = await fetchRegulators();
         setRegulators(data || []);
       } catch (err) {
-        setError('Failed to load regulators. Please try again later.');
+        setError(t('regulators.error_failed_to_load'));
         console.error('Error loading regulators:', err);
       } finally {
         setIsLoading(false);
@@ -89,7 +91,7 @@ export default function RegulatorsPage() {
                 <Globe className="h-8 w-8 text-blue-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Countries Covered</p>
+                <p className="text-sm font-medium text-gray-500">{t('regulators.stats.countries_covered')}</p>
                 <p className="text-2xl font-bold text-gray-900">{countryCount}+</p>
               </div>
             </div>
@@ -98,7 +100,7 @@ export default function RegulatorsPage() {
                 <ShieldCheck className="h-8 w-8 text-green-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Regulatory Bodies</p>
+                <p className="text-sm font-medium text-gray-500">{t('regulators.stats.regulatory_bodies')}</p>
                 <p className="text-2xl font-bold text-gray-900">{regulatorCount}+</p>
               </div>
             </div>
@@ -107,7 +109,7 @@ export default function RegulatorsPage() {
                 <Timer className="h-8 w-8 text-yellow-600" />
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500">Updated Database</p>
+                <p className="text-sm font-medium text-gray-500">{t('regulators.stats.updated_database')}</p>
                 <p className="text-2xl font-bold text-gray-900">24 / 7</p>
               </div>
             </div>
@@ -123,7 +125,7 @@ export default function RegulatorsPage() {
           </div>
           <input
             type="text"
-            placeholder="Search regulators by name, country"
+            placeholder={t('regulators.search_placeholder')}
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -165,7 +167,7 @@ export default function RegulatorsPage() {
           </div>
         ) : (
           <div className="text-center py-12 bg-white rounded-lg shadow">
-            <p className="text-gray-500">No regulators found matching "{searchTerm}"</p>
+            <p className="text-gray-500">{t('regulators.no_results', { query: searchTerm })}</p>
           </div>
         )}
       </div>

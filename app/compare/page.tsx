@@ -213,7 +213,7 @@ export default function ComparePage() {
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400" />
                     <span className="text-sm font-semibold text-black">{typeof broker.rating === 'string' ? (parseFloat(broker.rating) / 20).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
-                    <span className="text-xs text-gray-400 ml-1">/100</span>
+                    <span className="text-xs text-gray-400 ml-1">/5</span>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function ComparePage() {
           .map((broker) => (
             <Card
               key={broker.id}
-              className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 bg-white cursor-pointer"
+              className="p-5 flex flex-col gap-3 shadow hover:shadow-xl transition-shadow border border-gray-200 bg-white "
             >
               <div className="flex items-center gap-3 mb-2">
                 <Image
@@ -301,11 +301,13 @@ export default function ComparePage() {
                   className="rounded-lg bg-white object-contain"
                 />
                 <div>
-                  <h3 className="font-bold text-base text-black mb-1">{broker.name}</h3>
+                  <Link href={`/broker/${broker.slug}`}>
+                    <h3 className="font-bold text-base text-black mb-1">{broker.name}</h3>
+                  </Link>
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 text-yellow-400 fill-yellow-500" />
                     <span className="text-sm font-semibold text-black">{typeof broker.rating === 'string' ? (parseFloat(broker.rating) / 20).toFixed(2) : (broker.rating || 0).toFixed(2) || 'N/A'}</span>
-                    <span className="text-xs text-gray-400 ml-1">/100</span>
+                    <span className="text-xs text-gray-400 ml-1">/5</span>
                   </div>
                 </div>
               </div>
@@ -324,13 +326,24 @@ export default function ComparePage() {
                   <span key={i} className="bg-white text-black px-2 py-0.5 rounded text-xs font-medium border border-cyan-700" style={{borderRadius: '1.25rem'}}>{reg}</span>
                 )) : <span className="text-gray-400 text-xs">No Regulation</span>}
               </div>
-              <Button
-                variant="secondary"
-                className="w-full mt-auto bg-blue-600 hover:bg-blue-700 text-white"
-                onClick={() => addBroker(broker)}
-              >
-                {t('compare.add_to_compare')}
-              </Button>
+              {(!broker.affiliate_link || broker.affiliate_link.trim() === '') ? (
+                <Link href="/contact">
+                  <Button
+                    variant="secondary"
+                    className="w-full mt-auto bg-amber-500 hover:bg-amber-600 text-white"
+                  >
+                    <T k="broker.claim_your_spots" />
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  variant="secondary"
+                  className="w-full mt-auto bg-blue-600 hover:bg-blue-700 text-white"
+                  onClick={() => addBroker(broker)}
+                >
+                  {t('compare.add_to_compare')}
+                </Button>
+              )}
             </Card>
           ))}
 

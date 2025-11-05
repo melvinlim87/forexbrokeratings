@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { X, Copy, Send } from "lucide-react";
 import { FaWhatsapp, FaTelegram } from 'react-icons/fa';
-
+import { useI18n } from "@/lib/i18n-client";
 interface AiResultModalProps {
   open: boolean;
   result: string;
@@ -15,6 +15,7 @@ interface AiResultModalProps {
 export default function AiResultModal({ open, result, onClose, getAiResult }: AiResultModalProps) {
   const [displayed, setDisplayed] = React.useState('');
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const { t } = useI18n();
   
   React.useEffect(() => {
     if (!open) {
@@ -41,9 +42,9 @@ export default function AiResultModal({ open, result, onClose, getAiResult }: Ai
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(result);
-      alert("Copied to clipboard!");
+      alert(t('ai_result.copied'));
     } catch {
-      alert("Failed to copy.");
+      alert(t('ai_result.copy_failed'));
     }
   };
 
@@ -63,23 +64,23 @@ export default function AiResultModal({ open, result, onClose, getAiResult }: Ai
         <button
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-700"
           onClick={onClose}
-          aria-label="Close"
+          aria-label={t('ai_result.close_aria')}
         >
           <X className="w-6 h-6" />
         </button>
-        <h2 className="text-xl font-bold mb-4">AI Broker Analysis</h2>
+        <h2 className="text-xl font-bold mb-4">{t('ai_result.title')}</h2>
         <div className="max-h-80 overflow-y-auto whitespace-pre-line text-gray-800 border rounded p-3 bg-gray-50 mb-4 font-mono">
-          {getAiResult ? displayed : "Analysing..."}
+          {getAiResult ? displayed : t('ai_result.analysing')}
         </div>
         <div className="flex gap-3 justify-end">
-          <Button size="sm" variant="outline" onClick={handleCopy} title="Copy">
-            <Copy className="w-4 h-4 mr-1" /> Copy
+          <Button size="sm" variant="outline" onClick={handleCopy} title={t('ai_result.copy')}>
+            <Copy className="w-4 h-4 mr-1" /> {t('ai_result.copy')}
           </Button>
-          <Button size="sm" variant="outline" onClick={handleShareWhatsApp} title="Share to WhatsApp">
-            <FaWhatsapp className="w-4 h-4 mr-1" /> WhatsApp
+          <Button size="sm" variant="outline" onClick={handleShareWhatsApp} title={t('ai_result.share_whatsapp')}>
+            <FaWhatsapp className="w-4 h-4 mr-1" /> {t('ai_result.whatsapp')}
           </Button>
-          <Button size="sm" variant="outline" onClick={handleShareTelegram} title="Share to Telegram">
-            <FaTelegram className="w-4 h-4 mr-1" /> Telegram
+          <Button size="sm" variant="outline" onClick={handleShareTelegram} title={t('ai_result.share_telegram')}>
+            <FaTelegram className="w-4 h-4 mr-1" /> {t('ai_result.telegram')}
           </Button>
         </div>
       </div>

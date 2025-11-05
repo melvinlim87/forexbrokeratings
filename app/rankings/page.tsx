@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Award, ArrowRight, ArrowUpRight, Shield, TrendingUp, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { fetchAllBrokerDetails } from '@/lib/supabase';
+import { fetchAllBrokerDetails, BrokerDetails } from '@/lib/supabase';
 import { useI18n } from '@/lib/i18n-client';
 
 // Fallback data in case Supabase fetch fails
@@ -66,6 +68,7 @@ export default function RankingsPage() {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const itemsPerPage = 10;
   
   const fetchBrokers = async (pageNumber: number, isInitialLoad = false) => {
@@ -113,6 +116,7 @@ export default function RankingsPage() {
             spread_eur_usd: broker.spread_eur_usd,
             leverage_max: broker.leverage_max,
             regulators: broker.regulators,
+            affiliate_link: broker.affiliate_link,
           };
         });
         
@@ -161,6 +165,17 @@ export default function RankingsPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [page, loading, loadingMore, hasMore]);
+
+  const handleOpenModal = (broker: BrokerDetails) => {
+    if (!broker.affiliate_link) {
+      // show Please claim your spots modal
+      setShowModal(true);
+      return;
+    } else {
+      // navigate to broker slug page
+      window.location.href = `/broker/${broker.slug}`;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -215,7 +230,7 @@ export default function RankingsPage() {
                               <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
-                              <span className="text-xl font-bold text-gray-900 truncate">{broker.name}</span>
+                              <span className="text-xl font-bold text-gray-900 truncate cursor-pointer" onClick={() => handleOpenModal(broker)}>{broker.name}</span>
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
@@ -311,7 +326,7 @@ export default function RankingsPage() {
                               <Image src={broker.logo} alt={broker.name} width={40} height={40} className="object-contain h-14 w-14" />
                             </div>
                             <div className="flex flex-col flex-1 min-w-0">
-                              <span className="text-xl font-bold text-gray-900 truncate">{broker.name}</span>
+                              <span className="text-xl font-bold text-gray-900 truncate cursor-pointer" onClick={() => handleOpenModal(broker)}>{broker.name}</span>
                               {/* <a href={broker.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline truncate">{broker.website}</a> */}
                             </div>
                             <div className="flex flex-col items-end min-w-[60px]">
@@ -388,7 +403,6 @@ export default function RankingsPage() {
                 </div>
               );
             })()}
-
             
             {loadingMore && (
               <div className="flex justify-center py-8">
@@ -404,6 +418,36 @@ export default function RankingsPage() {
           </div>
         )}
       </div>
+
+      {showModal && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full relative p-6"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="claim-modal-title"
+          >
+            <div id="claim-modal-title" className="text-xl font-semibold mb-2 text-gray-900">
+              {t('home.featured.claim_title')}
+            </div>
+            <p className="text-gray-700 mb-6">{t('home.featured.claim_description')}</p>
+            <div className="flex justify-end gap-3">
+              <Button variant="outline" onClick={() => setShowModal(false)} className="px-4">
+                {t('home.featured.close')}
+              </Button>
+              <Link href="/contact">
+                <Button className="bg-amber-500 hover:bg-amber-600 text-white px-4">
+                  {t('home.featured.contact_us')}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

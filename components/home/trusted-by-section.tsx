@@ -125,7 +125,7 @@ export default function TrustedBySection() {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <motion.div
             className="inline-flex items-center space-x-2 text-blue-600 font-medium"
             initial={{ opacity: 0 }}
@@ -142,7 +142,7 @@ export default function TrustedBySection() {
               ))}
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

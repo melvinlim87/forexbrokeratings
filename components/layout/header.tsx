@@ -111,7 +111,7 @@ export default function Header() {
           <Link href="/" className="flex items-center">
             {/* Header Logo */}
             <span className="inline-block">
-              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={300} height={200} style={{objectFit:'cover',maxHeight:100}} priority />
+              <Image src="/assets/images/logo/logo2.png" alt="Forex Broker Ratings Logo" width={300} height={160} style={{objectFit:'cover',maxHeight:120, paddingTop: 10, paddingBottom: 10}} priority />
             </span>
           </Link>
         </div>
@@ -328,12 +328,16 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
       {/* Mobile language selector */}
       <div className="flex items-center gap-2 mt-4">
         <LangSelect value={locale} onValueChange={(v: 'en' | 'zh') => setLocale(v)}>
-          <LangSelectTrigger className="w-full">
+          <LangSelectTrigger className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl h-11 px-4">
             <LangSelectValue placeholder={t('ui.language')} />
           </LangSelectTrigger>
-          <LangSelectContent>
-            <LangSelectItem value="en">{t('language.english')}</LangSelectItem>
-            <LangSelectItem value="zh">{t('language.chinese')}</LangSelectItem>
+          <LangSelectContent className="w-56 p-2 rounded-xl shadow-lg bg-white/95 backdrop-blur border border-gray-200 mt-2">
+            <LangSelectItem value="en" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800">
+              {t('language.english')}
+            </LangSelectItem>
+            <LangSelectItem value="zh" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800">
+              {t('language.chinese')}
+            </LangSelectItem>
           </LangSelectContent>
         </LangSelect>
       </div>

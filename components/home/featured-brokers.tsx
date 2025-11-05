@@ -23,13 +23,13 @@ export default function FeaturedBrokers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [claimOpen, setClaimOpen] = useState(false);
 
   useEffect(() => {
     const fetchBrokers = async () => {
       try {
         setLoading(true);
         const data = await fetchAllBrokerDetails();
-        
         if (data) {
           // Calculate average rating and add rank
           const brokersWithRating = data
@@ -65,6 +65,15 @@ export default function FeaturedBrokers() {
                (promotions || 0) + (user_experience || 0) + (environment || 0);
     return (sum / 6);
   };
+
+  const handleNavigation = (broker : BrokerDetails) => {
+    if (!broker.affiliate_link) {
+      setClaimOpen(true);
+      return;
+    } else {
+      return window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)
+    }
+  }
 
   if (loading) {
     return (
@@ -153,7 +162,7 @@ export default function FeaturedBrokers() {
             </thead>
             <tbody className="bg-gray-50">
               {brokers.map((broker, idx) => (
-                <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-100 transition cursor-pointer" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
+                <tr key={broker.id} className="border-b border-gray-200 hover:bg-blue-100 transition cursor-pointer" onClick={() => handleNavigation(broker)}>
                   <td className="px-4 py-3 text-center">
                     <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-sm md:text-lg shadow">
                       #{broker.rank || idx + 1}
@@ -259,7 +268,7 @@ export default function FeaturedBrokers() {
         {/* Mobile Cards (below md) */}
         <div className="flex flex-col gap-4 md:hidden">
           {brokers.map((broker, idx) => (
-            <div key={broker.id} className="bg-gray-50 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 transition" onClick={() => broker.name && window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)}>
+            <div key={broker.id} className="bg-gray-50 rounded-xl shadow p-4 flex flex-col gap-2 cursor-pointer hover:bg-blue-100 transition" onClick={() => handleNavigation(broker)}>
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center justify-center w-7 h-7 rounded-full text-black font-bold text-xs shadow bg-white">#{broker.rank || idx + 1}</span>
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
@@ -326,6 +335,20 @@ export default function FeaturedBrokers() {
           ))}
         </div>
       </div>
+      {claimOpen && (
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/60" onClick={() => setClaimOpen(false)}>
+          <div className="bg-white rounded-xl shadow-xl max-w-md w-full relative p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="text-lg font-semibold mb-3 text-gray-900">{t('home.featured.claim_title')}</div>
+            <div className="text-gray-700 mb-6">{t('home.featured.claim_description')}</div>
+            <div className="flex justify-end gap-3">
+              <Button variant="outline" onClick={() => setClaimOpen(false)} className="px-4">{t('home.featured.close')}</Button>
+              <Link href="/contact">
+                <Button className="bg-amber-500 hover:bg-amber-600 text-white px-4">{t('home.featured.contact_us')}</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
