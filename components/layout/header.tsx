@@ -138,7 +138,7 @@ export default function Header() {
               <LangSelectTrigger className="w-[120px] bg-white/10 text-white border-white/30">
                 <LangSelectValue placeholder={t('ui.language')} />
               </LangSelectTrigger>
-              <LangSelectContent>
+              <LangSelectContent className="z-[10000]">
                 <LangSelectItem value="en">{t('language.english')}</LangSelectItem>
                 <LangSelectItem value="zh">{t('language.chinese')}</LangSelectItem>
               </LangSelectContent>
@@ -331,7 +331,7 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
           <LangSelectTrigger className="w-full bg-white text-gray-900 border border-gray-200 rounded-xl h-11 px-4">
             <LangSelectValue placeholder={t('ui.language')} />
           </LangSelectTrigger>
-          <LangSelectContent className="w-56 p-2 rounded-xl shadow-lg bg-white/95 backdrop-blur border border-gray-200 mt-2">
+          <LangSelectContent className="z-[10000] w-56 p-2 rounded-xl shadow-lg bg-white/95 backdrop-blur border border-gray-200 mt-2">
             <LangSelectItem value="en" className="px-3 py-2 rounded-lg hover:bg-gray-100 text-gray-800">
               {t('language.english')}
             </LangSelectItem>
