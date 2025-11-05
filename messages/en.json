@@ -15,6 +15,7 @@
     "ui.language":  "Language",
     "auth.login":  "Login",
     "auth.logout":  "Logout",
+    "auth.profile":  "Profile",
     "search.search_brokers":  "Search brokers by name...",
     "language.english":  "English",
     "language.chinese":  "中文",
