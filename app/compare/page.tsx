@@ -327,7 +327,7 @@ export default function ComparePage() {
                 )) : <span className="text-gray-400 text-xs">No Regulation</span>}
               </div>
               {(!broker.affiliate_link || broker.affiliate_link.trim() === '') ? (
-                <Link href="/contact">
+                <Link href="/contact-us">
                   <Button
                     variant="secondary"
                     className="w-full mt-auto bg-amber-500 hover:bg-amber-600 text-white"

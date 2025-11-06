@@ -31,7 +31,7 @@ export default function RestrictedPage() {
           
           <div className="text-sm text-gray-500 mt-4">
             If you believe you've reached this page in error, please 
-            <Link href="/contact" className="text-blue-600 hover:underline ml-1">
+            <Link href="/contact-us" className="text-blue-600 hover:underline ml-1">
               contact our support team
             </Link>.
           </div>

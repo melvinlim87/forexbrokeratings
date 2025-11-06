@@ -439,7 +439,7 @@ export default function RankingsPage() {
               <Button variant="outline" onClick={() => setShowModal(false)} className="px-4">
                 {t('home.featured.close')}
               </Button>
-              <Link href="/contact">
+              <Link href="/contact-us">
                 <Button className="bg-amber-500 hover:bg-amber-600 text-white px-4">
                   {t('home.featured.contact_us')}
                 </Button>

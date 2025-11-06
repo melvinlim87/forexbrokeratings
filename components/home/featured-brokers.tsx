@@ -342,7 +342,7 @@ export default function FeaturedBrokers() {
             <div className="text-gray-700 mb-6">{t('home.featured.claim_description')}</div>
             <div className="flex justify-end gap-3">
               <Button variant="outline" onClick={() => setClaimOpen(false)} className="px-4">{t('home.featured.close')}</Button>
-              <Link href="/contact">
+              <Link href="/contact-us">
                 <Button className="bg-amber-500 hover:bg-amber-600 text-white px-4">{t('home.featured.contact_us')}</Button>
               </Link>
             </div>
