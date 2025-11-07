@@ -26,7 +26,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
 
   return (
     <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 pt-1 items-center mb-2">
-      <div className="flex gap-2">
+      {/* <div className="flex gap-2">
         {categories.map((cat) => (
           <button
             key={cat.value}
@@ -41,21 +41,21 @@ const FilterBar: React.FC<FilterBarProps> = ({
             {t(cat.labelKey)}
           </button>
         ))}
-      </div>
+      </div> */}
       <form
         role="search"
-        className="ml-auto flex items-center"
+        className="w-full flex items-center"
         onSubmit={e => {
           e.preventDefault();
           onSearch?.(search);
         }}
       >
         <span className="inline-block mr-2 text-gray-400">
-          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
+          <svg widtgh="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
         </span>
         <input
           type="text"
-          className="border border-[#e6e8ec] rounded-full px-3 py-1 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          className="w-full border border-[#e6e8ec] rounded-full px-3 py-1 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
           placeholder={t('news.search_placeholder')}
           value={search}
           onChange={e => setSearch(e.target.value)}
