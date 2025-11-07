@@ -76,7 +76,7 @@ export default function RankingsPage() {
     else setLoadingMore(true);
     
     try {
-      const data = await fetchAllBrokerDetails();
+      const data = await fetchAllBrokerDetails(true);
       
       if (data && data.length > 0) {
 
