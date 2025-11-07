@@ -78,6 +78,7 @@ async function formatBrokerData(broker: BrokerDetails): Promise<BrokerDetails> {
     has_demo_account: broker.has_demo_account || false,
     parent_companies: broker.parent_companies || [],
     status: broker.status || false,
+    affiliate_link: broker.affiliate_link || '',
   };
 }
 

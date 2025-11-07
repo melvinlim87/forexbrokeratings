@@ -891,5 +891,9 @@
     "home.featured.claim_title": "To claim your broker ratings",
     "home.featured.claim_description": "Please contact ForexBrokeratings.",
     "home.featured.close": "Close",
-    "home.featured.contact_us": "Contact Us"
+    "home.featured.contact_us": "Contact Us",
+    "broker.unclaimed": "Unclaimed",
+    "broker.unclaimed_profile": "This profile is currently unclaimed by {name}.",
+    "broker.claim_profile": "Do you work at {name}? Claim your profile ",
+    "broker.here": "here."
 }

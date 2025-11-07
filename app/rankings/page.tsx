@@ -77,7 +77,7 @@ export default function RankingsPage() {
     
     try {
       const data = await fetchAllBrokerDetails(true);
-      
+      console.log(data)
       if (data && data.length > 0) {
 
         // Format the brokers data to match our expected structure
@@ -203,9 +203,10 @@ export default function RankingsPage() {
               </div>
             )}
             {(() => {
-              // Split into two columns: left (first 5), right (next 5)
-              const left = brokers.slice(0, 5);
-              const right = brokers.slice(5, 10);
+              // Split into two columns using dynamic midpoint so we render ALL items
+              const mid = Math.ceil(brokers.length / 2);
+              const left = brokers.slice(0, mid);
+              const right = brokers.slice(mid);
               return (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto">
                   <div className="space-y-8">
@@ -403,6 +404,20 @@ export default function RankingsPage() {
                 </div>
               );
             })()}
+            {hasMore && !loadingMore && (
+              <div className="flex justify-center pt-2">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    const nextPage = page + 1;
+                    setPage(nextPage);
+                    fetchBrokers(nextPage);
+                  }}
+                >
+                  {t('blog.load_more')}
+                </Button>
+              </div>
+            )}
             
             {loadingMore && (
               <div className="flex justify-center py-8">

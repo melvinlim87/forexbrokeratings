@@ -67,12 +67,13 @@ export default function FeaturedBrokers() {
   };
 
   const handleNavigation = (broker : BrokerDetails) => {
-    if (!broker.affiliate_link) {
-      setClaimOpen(true);
-      return;
-    } else {
-      return window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)
-    }
+    return window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)
+    // if (!broker.affiliate_link) {
+    //   setClaimOpen(true);
+    //   return;
+    // } else {
+    //   return window.open(`/broker/${broker.name.toLowerCase().replace(/\s+/g, '-')}`)
+    // }
   }
 
   if (loading) {

@@ -931,5 +931,9 @@
   "home.featured.claim_title": "欲领取席位",
   "home.featured.claim_description": "请联系我们",
   "home.featured.close": "关闭",
-  "home.featured.contact_us": "联系我们"
+  "home.featured.contact_us": "联系我们",
+  "broker.unclaimed": "未领取",
+  "broker.unclaimed_profile": "此经纪商资料目前未领取",
+  "broker.claim_profile": "您是 {name} 的工作人员吗？如欲领取您的经纪商资料，请",
+  "broker.here": "联系我们"
 }

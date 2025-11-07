@@ -72,6 +72,7 @@ function isListCondition(
 
 
 export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProfileProps) {
+  
   const [aiModalOpen, setAiModalOpen] = useState(false);
   const [aiModalResult, setAiModalResult] = useState('');
   const [aiGetResult, setAiGetResult] = useState(false);
@@ -80,6 +81,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
   const [regulatoryLicense, setRegulatoryLicense] = useState<any>(null);
   const [showMetricsInfo, setShowMetricsInfo] = useState(false);
   const { t } = useI18n();
+  const isUnclaimed = !brokerData.affiliate_link || brokerData.affiliate_link.trim() === '';
 
   // Smooth scroll to #user_reviews with header offset
   useEffect(() => {
@@ -385,240 +387,195 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
             </div>
           </div>
         )}
-        {/* Broker Summary */}
+        {/* Broker Summary or Unclaimed Notice */}
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-2">
-            {/* Summary Left Side */}
-            <div className="flex flex-col justify-between h-full col-span-2 ">
-              <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
-                {/* Image and Name */}
-                <div className='flex flex-col md:flex-row md:items-center gap-2'>
-                  <div className="h-24 w-24 relative bg-white backdrop-blur-sm rounded-lg p-2 mx-auto md:mx-0">
-                    {brokerData.logo ? (
-                      <Image
-                        src={brokerData.logo}
-                        alt={brokerData.name}
-                        fill
-                        className="object-contain rounded-lg"
-                        sizes="96px"
-                        priority
-                      />
-                    ) : 
-                      null
-                    }
+          {!isUnclaimed ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-2">
+              {/* Summary Left Side */}
+              <div className="flex flex-col justify-between h-full col-span-2 ">
+                <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                  {/* Image and Name */}
+                  <div className='flex flex-col md:flex-row md:items-center gap-2'>
+                    <div className="h-24 w-24 relative bg-white backdrop-blur-sm rounded-lg p-2 mx-auto md:mx-0">
+                      {brokerData.logo ? (
+                        <Image
+                          src={brokerData.logo}
+                          alt={brokerData.name}
+                          fill
+                          className="object-contain rounded-lg"
+                          sizes="96px"
+                          priority
+                        />
+                      ) : 
+                        null
+                      }
+                    </div>
+                    <div className="flex flex-col items-center md:items-start mt-2 md:mt-0">
+                      <h1 className="text-2xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
+                        {brokerData.name}
+                      </h1>
+                      {brokerData.is_regulated && (
+                        <Badge variant="outline" className="text-sm md:text-md text-green-300 pl-2 items-center rounded-full bg-green-900/40 border border-green-300 mt-1">
+                          Regulated
+                        </Badge>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center md:items-start mt-2 md:mt-0">
-                    <h1 className="text-2xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
-                      {brokerData.name}
-                    </h1>
-                    {brokerData.is_regulated && (
-                      <Badge variant="outline" className="text-sm md:text-md text-green-300 pl-2 items-center rounded-full bg-green-900/40 border border-green-300 mt-1">
-                        Regulated
-                      </Badge>
-                    )}
+                  {/* Broker Year Published and Headquarters */}
+                  <div className='flex flex-col items-center md:items-end justify-center gap-1'>
+                    <p className="text-md text-gray-700 px-2 text-center md:text-right">
+                      {brokerData.headquarters} | {brokerData.year_published}
+                    </p>
+                    <div className="flex items-center mt-2 px-2 justify-center md:justify-end">
+                      <div className="flex items-center backdrop-blur-sm rounded-xl">
+                        <div className="flex space-x-0.5">
+                          {[1, 2, 3, 4, 5].map((star) => {
+                          const rating = brokerData.rating ? (parseFloat(brokerData.rating) / 20) || 0 : 0;
+                          return (
+                            <Star
+                              key={star}
+                              className={cn(
+                                "h-5 w-5",
+                                star <= Math.floor(rating)
+                                  ? "text-amber-500 fill-amber-500"
+                                  : "text-gray-300"
+                              )}
+                            />
+                          );
+                        })}
+                        <span className="pl-2 font-semibold text-gray-900">
+                          {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
+                        </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                {/* Broker Year Published and Headquarters */}
-                <div className='flex flex-col items-center md:items-end justify-center gap-1'>
-                  <p className="text-md text-gray-700 px-2 text-center md:text-right">
-                    {brokerData.headquarters} | {brokerData.year_published}
-                  </p>
-                  <div className="flex items-center mt-2 px-2 justify-center md:justify-end">
-                    <div className="flex items-center backdrop-blur-sm rounded-xl">
-                      <div className="flex space-x-0.5">
-                        {[1, 2, 3, 4, 5].map((star) => {
-                        const rating = brokerData.rating ? (parseFloat(brokerData.rating) / 20) || 0 : 0;
+                <p className="text-lg text-gray-700 max-w-3xl">
+                  {brokerData.summary}
+                </p>
+                {/* Additional Broker Details */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+                  <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
+                    <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
+                    <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.spread" /></div>
+                  </div>
+                  <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
+                    <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
+                    <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.leverage" /></div>
+                  </div>
+                  <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
+                    <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
+                    <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.min_deposit" /></div>
+                  </div>
+                  <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
+                    <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
+                    <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.response_time" /></div>
+                  </div>
+                </div>
+                {brokerData.badges && brokerData.badges.length > 0 && (
+                  <div className="rounded-xl flex flex-col ">
+                    <div className="mb-2 font-semibold text-gray-700"><T k="broker.awards_and_recognition" /></div>
+                    <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 py-2 w-full rounded place-items-center">
+                      {brokerData.badges.map((src: string, idx: number) => {
+                        const imgSrc = src.startsWith('/') || src.startsWith('http')
+                          ? src
+                          : `/assets/images/badges/${src}`;
                         return (
-                          <Star
-                            key={star}
-                            className={cn(
-                              "h-5 w-5",
-                              star <= Math.floor(rating)
-                                ? "text-amber-500 fill-amber-500"
-                                : "text-gray-300"
-                            )}
+                          <img
+                            key={idx}
+                            src={imgSrc}
+                            alt={`badge-${idx}`}
+                            className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-full border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer object-contain"
+                            onClick={() => setPreviewBadge(imgSrc)}
                           />
                         );
                       })}
-                      <span className="pl-2 font-semibold text-gray-900">
-                        {brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5
-                      </span>
-                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-lg text-gray-700 max-w-3xl">
-                {brokerData.summary}
-              </p>
-              {/* Additional Broker Details */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
-                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData.spread_eur_usd || 'N/A'}</div>
-                  <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.spread" /></div>
-                </div>
-                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.leverage_max}</div>
-                  <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.leverage" /></div>
-                </div>
-                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.min_deposit}</div>
-                  <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.min_deposit" /></div>
-                </div>
-                <div className="col-span-1 bg-black/5 rounded-lg p-4 flex grid items-center">
-                  <div className="text-gray-800 font-bold text-xl md:text-2xl text-center">{brokerData?.response_time}</div>
-                  <div className="text-black text-xs md:text-sm text-center justify-end"><T k="broker.response_time" /></div>
-                </div>
-              </div>
-              {brokerData.badges && brokerData.badges.length > 0 && (
-                <div className="rounded-xl flex flex-col ">
-                  <div className="mb-2 font-semibold text-gray-700"><T k="broker.awards_and_recognition" /></div>
-                  <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 py-2 w-full rounded place-items-center">
-                    {brokerData.badges.map((src: string, idx: number) => {
-                      const imgSrc = src.startsWith('/') || src.startsWith('http')
-                        ? src
-                        : `/assets/images/badges/${src}`;
-                      return (
-                        <img
-                          key={idx}
-                          src={imgSrc}
-                          alt={`badge-${idx}`}
-                          className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-full border border-gray-200 shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-150 cursor-pointer object-contain"
-                          onClick={() => setPreviewBadge(imgSrc)}
-                        />
-                      );
-                    })}
-                  </div>
-                  {previewBadge && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setPreviewBadge(null)}>
-                      <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-lg w-full flex flex-col items-center">
-                        <button
-                          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
-                          onClick={e => { e.stopPropagation(); setPreviewBadge(null); }}
-                          aria-label="Close preview"
-                        >
-                          ×
-                        </button>
-                        <img src={previewBadge} alt="Award Preview" className="max-h-[60vh] w-auto rounded-full border border-gray-200 shadow-lg" style={{ background: '#fff', objectFit: 'contain' }} />
+                    {previewBadge && (
+                      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setPreviewBadge(null)}>
+                        <div className="relative bg-white rounded-xl shadow-xl p-4 max-w-lg w-full flex flex-col items-center">
+                          <button
+                            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                            onClick={e => { e.stopPropagation(); setPreviewBadge(null); }}
+                            aria-label="Close preview"
+                          >
+                            ×
+                          </button>
+                          <img src={previewBadge} alt="Award Preview" className="max-h-[60vh] w-auto rounded-full border border-gray-200 shadow-lg" style={{ background: '#fff', objectFit: 'contain' }} />
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-            
-            {/* Sidebar Right Side */}
-            <div className="flex flex-col gap-3 h-full justify-end w-full">
-              {/* Broker Metrics Hexagon Chart */}
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold">{t('broker.metrics.title')}</h3>
-                <button
-                  type="button"
-                  className="text-sm text-blue-600 hover:underline"
-                  onClick={() => setShowMetricsInfo(true)}
-                >
-                  {t('broker.metrics.how_it_works')}
-                </button>
-              </div>
-              {showMetricsInfo && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowMetricsInfo(false)}>
-                  <div
-                    className="relative bg-white rounded-xl shadow-xl p-6 max-w-lg w-full mx-4"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <button
-                      className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
-                      onClick={() => setShowMetricsInfo(false)}
-                      aria-label="Close"
-                    >
-                      ×
-                    </button>
-                    <h4 className="text-lg font-semibold mb-2">{t('broker.metrics.modal.title')}</h4>
-                    <p className="text-sm text-gray-700 mb-3">
-                      {t('broker.metrics.modal.intro')}
-                    </p>
-                    <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
-                      <li>{t('broker.metrics.modal.bullets.user_traffic')}</li>
-                      <li>{t('broker.metrics.modal.bullets.regulations')}</li>
-                      <li>{t('broker.metrics.modal.bullets.risk_control')}</li>
-                      <li>{t('broker.metrics.modal.bullets.promotions')}</li>
-                      <li>{t('broker.metrics.modal.bullets.user_ratings')}</li>
-                      <li>{t('broker.metrics.modal.bullets.trading_platform')}</li>
-                    </ul>
-                    <p className="text-xs text-gray-500">
-                      {t('broker.metrics.modal.disclaimer')}
-                    </p>
-                  </div>
-                </div>
-              )}
-              <div className="flex justify-center mx-auto">
-                <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
-                  <div className="bg-white rounded-lg">
-                    <HexagonChart 
-                      data={[
-                        [
-                          { 
-                            label: 'User Traffic', 
-                            value: brokerData.user_traffic || 0,
-                            maxValue: 100 
-                          },
-                          { 
-                            label: 'Regulations', 
-                            value: brokerData.regulations || 0,
-                            maxValue: 100 
-                          },
-                          { 
-                            label: 'Risk Control', 
-                            value: brokerData.risk_control || 0,
-                            maxValue: 100 
-                          },
-                          { 
-                            label: 'Promotions', 
-                            value: brokerData.promotions || 0,
-                            maxValue: 100 
-                          },
-                          { 
-                            label: 'User Ratings', 
-                            value: brokerData.user_experience || 0,
-                            maxValue: 100 
-                          },
-                          { 
-                            label: 'Trading Platform', 
-                            value: brokerData.environment || 0,
-                            maxValue: 100 
-                          },
-                        ]
-                      ]}
-                      size={240}
-                    />
-                  </div>
-                </div>  
-              </div>
-              <div className="flex justify-between gap-2">
-                <Link 
-                  href={brokerData.website || "#"} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-full"
-                >
-                  <Button 
-                    size="lg" 
-                    className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover"
-                    disabled={!brokerData.website}
-                  >
-                    {brokerData.website ? (
-                      <>
-                        <T k="broker.visit_website" />{'\u00A0'}
-                        {brokerData.name} 
-                      </>
-                    ) : (
-                      <T k="broker.website_not_available" />
                     )}
-                  </Button>
-                </Link>
-                {!brokerData.affiliate_link ? (
+                  </div>
+                )}
+              </div>
+              
+              {/* Sidebar Right Side */}
+              <div className="flex flex-col gap-3 h-full justify-end w-full">
+                {/* Broker Metrics Hexagon Chart */}
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{t('broker.metrics.title')}</h3>
+                  <button
+                    type="button"
+                    className="text-sm text-blue-600 hover:underline"
+                    onClick={() => setShowMetricsInfo(true)}
+                  >
+                    {t('broker.metrics.how_it_works')}
+                  </button>
+                </div>
+                {showMetricsInfo && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={() => setShowMetricsInfo(false)}>
+                    <div
+                      className="relative bg-white rounded-xl shadow-xl p-6 max-w-lg w-full mx-4"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button
+                        className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+                        onClick={() => setShowMetricsInfo(false)}
+                        aria-label="Close"
+                      >
+                        ×
+                      </button>
+                      <h4 className="text-lg font-semibold mb-2">{t('broker.metrics.modal.title')}</h4>
+                      <p className="text-sm text-gray-700 mb-3">
+                        {t('broker.metrics.modal.intro')}
+                      </p>
+                      <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
+                        <li>{t('broker.metrics.modal.bullets.user_traffic')}</li>
+                        <li>{t('broker.metrics.modal.bullets.regulations')}</li>
+                        <li>{t('broker.metrics.modal.bullets.risk_control')}</li>
+                        <li>{t('broker.metrics.modal.bullets.promotions')}</li>
+                        <li>{t('broker.metrics.modal.bullets.user_ratings')}</li>
+                        <li>{t('broker.metrics.modal.bullets.trading_platform')}</li>
+                      </ul>
+                      <p className="text-xs text-gray-500">
+                        {t('broker.metrics.modal.disclaimer')}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                <div className="flex justify-center mx-auto">
+                  <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500">
+                    <div className="bg-white rounded-lg">
+                      <HexagonChart 
+                        data={[
+                          [
+                            { label: 'User Traffic', value: brokerData.user_traffic || 0, maxValue: 100 },
+                            { label: 'Regulations', value: brokerData.regulations || 0, maxValue: 100 },
+                            { label: 'Risk Control', value: brokerData.risk_control || 0, maxValue: 100 },
+                            { label: 'Promotions', value: brokerData.promotions || 0, maxValue: 100 },
+                            { label: 'User Ratings', value: brokerData.user_experience || 0, maxValue: 100 },
+                            { label: 'Trading Platform', value: brokerData.environment || 0, maxValue: 100 },
+                          ]
+                        ]}
+                        size={240}
+                      />
+                    </div>
+                  </div>  
+                </div>
+                <div className="flex justify-between gap-2">
                   <Link 
-                    href={brokerData.affiliate_link || "#"} 
+                    href={brokerData.website || "#"} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-full"
@@ -626,98 +583,115 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                     <Button 
                       size="lg" 
                       className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover"
-                      disabled={!brokerData.affiliate_link}
+                      disabled={!brokerData.website}
                     >
-                      <T k="broker.claim_your_spots" />
+                      {brokerData.website ? (
+                        <>
+                          <T k="broker.visit_website" />{'\u00A0'}
+                          {brokerData.name}
+                        </>
+                      ) : (
+                        <T k="broker.website_not_available" />
+                      )}
                     </Button>
                   </Link>
-                ) : null}
-              </div>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="w-full"
-                onClick={async () => {
-                  if (typeof window === 'undefined') return;
-                  
-                  try {
-                    // Dynamically import the compare-utils
-                    const { setCompareSelection } = await import('@/components/broker/compare-utils');
-                    
-                    // Prepare broker data to be stored
-                    const brokerInfo = {
-                      id: brokerData.id?.toString(),
-                      name: brokerData.name,
-                      logo: brokerData.logo,
-                      rating: brokerData.rating,
-                      spread_eur_usd: brokerData.spread_eur_usd,
-                      leverage_max: brokerData.leverage_max,
-                      regulators: brokerData.regulators,
-                      min_deposit: brokerData.min_deposit
-                    };
-                    
-                    // Store the broker data in localStorage
-                    localStorage.setItem('compare_broker_data', JSON.stringify([brokerInfo]));
-                    
-                    // Also save the ID for backward compatibility
-                    if (brokerData.id) {
-                      setCompareSelection(brokerData.id.toString());
+                  {!brokerData.affiliate_link ? (
+                    <Link href={brokerData.affiliate_link || "#"} target="_blank" rel="noopener noreferrer" className="w-full">
+                      <Button size="lg" className="w-full bg-gradient-to-br from-gray-700 to-gray-900 text-white border-0 shadow-metallic hover:shadow-metallic-hover" disabled={!brokerData.affiliate_link}>
+                        <T k="broker.claim_your_spots" />
+                      </Button>
+                    </Link>
+                  ) : null}
+                </div>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={async () => {
+                    if (typeof window === 'undefined') return;
+                    try {
+                      const { setCompareSelection } = await import('@/components/broker/compare-utils');
+                      const brokerInfo = {
+                        id: brokerData.id?.toString(),
+                        name: brokerData.name,
+                        logo: brokerData.logo,
+                        rating: brokerData.rating,
+                        spread_eur_usd: brokerData.spread_eur_usd,
+                        leverage_max: brokerData.leverage_max,
+                        regulators: brokerData.regulators,
+                        min_deposit: brokerData.min_deposit
+                      };
+                      localStorage.setItem('compare_broker_data', JSON.stringify([brokerInfo]));
+                      if (brokerData.id) setCompareSelection(brokerData.id.toString());
+                      window.location.href = '/compare';
+                    } catch (error) {
+                      window.location.href = '/compare';
                     }
-                    
-                    // Redirect to compare page
-                    window.location.href = '/compare';
-                  } catch (error) {
-                    // console.error('Error preparing comparison:', error);
-                    // Fallback to simple redirect if there's an error
-                    window.location.href = '/compare';
-                  }
-                }}
-              >
-                <T k="broker.add_to_compare" />
-              </Button>
-
-              {/* AI Analyse Button */}
-              <Button
-                size="lg"
-                className="w-full bg-metallic text-black"
-                onClick={async () => {
-                  if (!user || user.email_confirmed_at == false) {
-                    setOpen(true);
-                    return;
-                  }
-                  try {
-                    if (aiModalResult == '') {
-                      setAiModalOpen(true);
-                      setAiModalResult('');
-                      const aiBtn = document.getElementById('ai-analyse-btn');
-                      if (aiBtn) aiBtn.innerText = 'Analysing...';
-                      const res = await fetch('/api/aitools', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.jwt}` },
-                        body: JSON.stringify(brokerData)
-                      });
-                      if (!res.ok) {
-                        setAiModalResult('AI Analyse failed: ' + res.statusText);
-                        setAiGetResult(true)
-                      } else {
-                        const data = await res.json();
-                        setAiModalResult(data.result || 'No result');
-                        setAiGetResult(true)
+                  }}
+                >
+                  <T k="broker.add_to_compare" />
+                </Button>
+                {/* AI Analyse Button */}
+                <Button
+                  size="lg"
+                  className="w-full bg-metallic text-black"
+                  onClick={async () => {
+                    if (!user || user.email_confirmed_at == false) { setOpen(true); return; }
+                    try {
+                      if (aiModalResult == '') {
+                        setAiModalOpen(true);
+                        setAiModalResult('');
+                        const aiBtn = document.getElementById('ai-analyse-btn');
+                        if (aiBtn) aiBtn.innerText = 'Analysing...';
+                        const res = await fetch('/api/aitools', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.jwt}` }, body: JSON.stringify(brokerData) });
+                        if (!res.ok) { setAiModalResult('AI Analyse failed: ' + res.statusText); setAiGetResult(true) }
+                        else { const data = await res.json(); setAiModalResult(data.result || 'No result'); setAiGetResult(true) }
                       }
+                    } catch (err: any) {
+                      setAiModalResult('AI Analyse failed: ' + (err?.message || err));
+                    } finally {
+                      const aiBtn = document.getElementById('ai-analyse-btn'); if (aiBtn) aiBtn.innerText = 'AI Analyse';
                     }
-                  } catch (err: any) {
-                    setAiModalResult('AI Analyse failed: ' + (err?.message || err));
-                  } finally {
-                    const aiBtn = document.getElementById('ai-analyse-btn');
-                    if (aiBtn) aiBtn.innerText = 'AI Analyse';
-                  }
-                }}
-                id="ai-analyse-btn"
-              >
-                <T k="broker.ai_analyse" />
-              </Button>
+                  }}
+                  id="ai-analyse-btn"
+                >
+                  <T k="broker.ai_analyse" />
+                </Button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="py-6">
+              <div className="flex items-center gap-3">
+                {brokerData.logo ? (
+                  <div className="h-16 w-16 relative bg-white rounded-lg p-2 border">
+                    <Image src={brokerData.logo} alt={brokerData.name} fill className="object-contain rounded" sizes="64px" />
+                  </div>
+                ) : null}
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2">
+                    <h1 className="text-2xl font-bold text-gray-900">{brokerData.name}</h1>
+                    <Badge className="bg-gray-200 text-gray-700">{t('broker.unclaimed')}</Badge>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-gray-800 text-white text-xs cursor-default">i</span>
+                        </TooltipTrigger>
+                        <TooltipContent className="z-[10000] bg-black text-white text-sm max-w-xs">
+                          <div className="space-y-1">
+                            <div>{t('broker.unclaimed_profile').replace('{name}', brokerData.name)}</div>
+                            <div>{t('broker.claim_profile').replace('{name}', brokerData.name)} <a className='underline' href="/contact-us">{t('broker.here')}</a></div>
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                  {/* {brokerData.website && (
+                    <a href={brokerData.website} className="text-sm text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">{brokerData.website}</a>
+                  )} */}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -725,6 +699,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
       <div className="container mx-auto py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
+            {!isUnclaimed && (
             <Card 
               className={cn(
                 "overflow-hidden relative",
@@ -879,8 +854,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
             </Card>
+            )}
 
             {/* Overview */}
+            {!isUnclaimed && (
             <Card 
             className={cn(
                 "overflow-hidden relative",
@@ -1004,8 +981,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
             </Card>
+            )}
 
             {/* Regulation & Safety */}
+            {!isUnclaimed && (
             <Card 
             className={cn(
               "overflow-hidden relative",
@@ -1127,8 +1106,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
             </Card>
+            )}
 
             {/* Deposit & Withdrawal */}
+            {!isUnclaimed && (
             <Card 
               className={cn(
                 "overflow-hidden relative",
@@ -1226,8 +1207,10 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
             </Card>
+            )}
 
             {/* Pros & Cons */}
+            {!isUnclaimed && (
             <Card className={cn(
               "overflow-hidden relative",
               "bg-gradient-to-br from-white/80 to-white/40",
@@ -1279,6 +1262,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </div>
             </Card>
+            )}
 
             {/* Broker Reviews Section */}
             <Card className={cn(
@@ -1439,6 +1423,43 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Overall Rating */}
+          {!isUnclaimed && (
+          <Card 
+            className={cn(
+              "overflow-hidden relative",
+              "bg-gradient-to-br from-white/80 to-white/40",
+              "backdrop-blur-sm",
+              "border-0",
+              "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
+              "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
+              "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
+              "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
+              "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
+              "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+            )}
+          >
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-4 font-black"><T k="broker.overall_rating" /></h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-gray-600 ">
+                    <T k="broker.trust_reliability" />
+                  </span>
+                  <span className="font-medium">{brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5</span>
+                </div>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
+                    style={{ width: `${(parseFloat(brokerData.rating || '0') / 100) * 100}%` }}
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          )}
+
+            {/* Regulatory information */}
+          {!isUnclaimed && brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
             <Card 
               className={cn(
                 "overflow-hidden relative",
@@ -1454,79 +1475,41 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
               )}
             >
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 font-black"><T k="broker.overall_rating" /></h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-gray-600 ">
-                      <T k="broker.trust_reliability" />
-                    </span>
-                    <span className="font-medium">{brokerData.rating ? (parseFloat(brokerData.rating) / 20).toFixed(2) : '—'} / 5</span>
-                  </div>
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
-                      style={{ width: `${(parseFloat(brokerData.rating || '0') / 100) * 100}%` }}
-                    />
+                <h3 className="text-xl font-semibold mb-4 font-black"><T k="broker.regulatory" /></h3>
+                <div className="rounded-xl flex flex-col">
+                  <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
+                    {brokerData.broker_licenses?.map((license, idx: number) => (
+                      <div 
+                        key={'license' + idx} 
+                        className="flex flex-col gap-2 px-4 py-2 cursor-pointer border border-gray-200 hover:border-gray-400 hover:bg-gray-100 transition duration-150 rounded w-full"
+                        onClick={() => handleRegulatory(license)}
+                      > 
+                        <div className="flex flex-row">
+                          <span className="text-green-600 bg-green-100 px-2 rounded">
+                            {license.name}
+                          </span>
+                          {license.is_regulated && (
+                            <span className="text-green-600 px-2"><T k="broker.regulated" /></span>
+                          )} 
+                        </div>
+                        <div className="flex flex-row">
+                          <span>
+                            {license.regulated_by}
+                          </span>
+                          {license.is_regulated && (
+                            <span className="px-2">{license.license_type}</span>
+                          )} 
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            {/* Regulatory information */}
-            {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
-              <Card 
-                className={cn(
-                  "overflow-hidden relative",
-                  "bg-gradient-to-br from-white/80 to-white/40",
-                  "backdrop-blur-sm",
-                  "border-0",
-                  "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]",
-                  "before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10",
-                  "before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400",
-                  "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
-                  "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
-                  "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-                )}
-              >
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 font-black"><T k="broker.regulatory" /></h3>
-                  {brokerData.broker_licenses && brokerData.broker_licenses.length > 0 && (
-                      <div className="rounded-xl flex flex-col">
-                        <div className="flex flex-col gap-4 overflow-x-auto py-2 w-full rounded">
-                          {brokerData.broker_licenses?.map((license, idx: number) => {
-                            return (
-                              <div 
-                                key={'license' + idx} 
-                                className="flex flex-col gap-2 px-4 py-2 cursor-pointer border border-gray-200 hover:border-gray-400 hover:bg-gray-100 transition duration-150 rounded w-full"
-                                onClick={() => handleRegulatory(license)}
-                              > 
-                                <div className="flex flex-row">
-                                  <span className="text-green-600 bg-green-100 px-2 rounded">
-                                    {license.name}
-                                  </span>
-                                  {license.is_regulated && (
-                                    <span className="text-green-600 px-2"><T k="broker.regulated" /></span>
-                                  )} 
-                                </div>
-                                <div className="flex flex-row">
-                                  <span>
-                                    {license.regulated_by}
-                                  </span>
-                                  {license.is_regulated && (
-                                    <span className="px-2">{license.license_type}</span>
-                                  )} 
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                </CardContent>
-              </Card>
-            )}
+          )}
             
             {/* Broker Summary */}
+            {!isUnclaimed && (
             <Card 
               className={cn(
                 "overflow-hidden relative",
@@ -1605,7 +1588,7 @@ export default function BrokerProfile({ brokerData, relatedBrokers }: BrokerProf
                 </div>
               </CardContent>
             </Card>
-
+            )}
             {/* Related Brokers */}
             <Card 
               className={cn(
