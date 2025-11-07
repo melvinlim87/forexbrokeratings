@@ -51,7 +51,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
         }}
       >
         <span className="inline-block mr-2 text-gray-400">
-          <svg widtgh="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
+          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
         </span>
         <input
           type="text"
