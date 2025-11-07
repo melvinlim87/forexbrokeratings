@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { fetchBlogContents, BlogContents } from '@/lib/supabase';
-import T from '@/components/common/T';
 import { useI18n } from '@/lib/i18n-client';
+import T from '@/components/common/T';
 
 interface BlogListClientProps {
   initialPosts: BlogContents[];
@@ -115,10 +115,10 @@ function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
             </h3>
             <div className="flex items-center text-sm text-gray-500 mb-4">
               <Calendar className="h-4 w-4 mr-1" />
-              <span className="mr-4">{post.created_at ? new Date(post.created_at).toLocaleDateString('en-GB') : ''}</span>
+              <span className="mr-4">{post.date ? new Date(post.date).toLocaleDateString('en-GB') : ''}</span>
             </div>
             <div className="flex items-center text-blue-600 font-medium">
-              Read article <ArrowRight className="ml-2 h-4 w-4" />
+              <T k="blog.read_article" /> <ArrowRight className="ml-2 h-4 w-4" />
             </div>
           </CardContent>
         </Card>

@@ -195,6 +195,7 @@ export type BlogContents = {
   keywords: string[];
   status: boolean
   created_at: string;
+  date?: string;
 };
 
 // Type definitions for Regulators
@@ -768,7 +769,7 @@ export async function fetchBlogContents(page = 1) {
     .from('broker_website_contents')
     .select('*')
     .eq('status', true)
-    .order('id', { ascending: false })
+    .order('date', { ascending: false })
     .range(from, to);
 
   if (error) {

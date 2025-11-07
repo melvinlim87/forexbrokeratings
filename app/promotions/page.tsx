@@ -284,7 +284,7 @@ export default function PromotionsPage() {
                     <img
                       src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
                       alt={promo.title}
-                      className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                      className="w-full h-40 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
                     />
                   )}
                   {/* Promo Title */}
@@ -406,10 +406,10 @@ export default function PromotionsPage() {
                     ))}
                   </div>
                   {/* Promo Country */}
-                  <div className="flex flex-row items-center justify-between w-full mb-4 gap-4 bg-gray-200 rounded-xl">
+                  <div className="flex flex-row items-center justify-between w-full mb-4 bg-gray-200 rounded-xl">
                     {/* Powered by section */}
                     <div className="flex items-center rounded-xl px-3 py-2">
-                      <span className="text-xs text-gray-500 mr-2">Powered by</span>
+                      <span className="text-xs text-gray-500 mr-2"></span>
                       <img
                         src={promo.broker_details?.logo || '/assets/images/default-broker-logo.png'}
                         alt={promo.broker_details?.name || 'Broker'}
@@ -445,7 +445,7 @@ export default function PromotionsPage() {
                     <img
                       src={promo.images[0].startsWith('/') || promo.images[0].startsWith('http') ? promo.images[0] : `/assets/images/promotions/${promo.images[0]}`}
                       alt={promo.title}
-                      className="w-full h-32 object-cover rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
+                      className="w-full h-32 object-contain rounded mb-4 border border-gray-200 bg-gray-50 cursor-pointer"
                     />
                   )}
                   {/* Promo Title */}
