@@ -22,6 +22,7 @@ export interface Tool {
   href?: string;
   disabled: boolean;
   hasBackground: boolean;
+  badgeKey?: string;
 }
 
 export default function ToolCard({
@@ -47,6 +48,13 @@ export default function ToolCard({
       onMouseLeave={() => setHoveredCard(null)}
     >
       <div className="relative h-full">
+        {tool.badgeKey && (
+          <div className="absolute top-2 right-2 z-20">
+            <Badge variant="outline" className="text-xs border-yellow-300 text-yellow-700 bg-white/90 backdrop-blur px-2 py-0.5">
+              {t(tool.badgeKey)}
+            </Badge>
+          </div>
+        )}
         <Card className={`h-full hover:shadow-md transition-all duration-300 ${tool.disabled ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'}`}>
           <CardContent className="p-6">
             <div className="flex items-center mb-4">

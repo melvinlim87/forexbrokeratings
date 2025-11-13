@@ -770,6 +770,7 @@ export async function fetchBlogContents(page = 1) {
     .select('*')
     .eq('status', true)
     .order('date', { ascending: false })
+    .order('created_at', { ascending: false })
     .range(from, to);
 
   if (error) {

@@ -90,6 +90,7 @@ export default function BlogListClient({ initialPosts, pageSize = 9 }: BlogListC
 }
 
 function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
+  console.log(post.date)
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -115,7 +116,7 @@ function BlogPostCard({ post, index }: { post: BlogContents; index: number }) {
             </h3>
             <div className="flex items-center text-sm text-gray-500 mb-4">
               <Calendar className="h-4 w-4 mr-1" />
-              <span className="mr-4">{post.date ? new Date(post.date).toLocaleDateString('en-GB') : ''}</span>
+              <span className="mr-4">{post.date ? new Date(post.date).toLocaleDateString('en-GB') : new Date(post.created_at).toLocaleDateString('en-GB')}</span>
             </div>
             <div className="flex items-center text-blue-600 font-medium">
               <T k="blog.read_article" /> <ArrowRight className="ml-2 h-4 w-4" />

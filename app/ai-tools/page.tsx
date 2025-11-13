@@ -139,22 +139,19 @@ const aiTools = [
   },
   {
     id: 6,
-    titleKey: 'ai.tools.portfolio_optimizer.title',
-    categoryKey: 'ai.categories.portfolio',
-    icon: <Bot className="h-5 w-5" />,
-    descriptionKey: 'ai.tools.portfolio_optimizer.description',
-    featureKeys: [
-      'ai.tools.portfolio_optimizer.features.risk_adjusted_allocation',
-      'ai.tools.portfolio_optimizer.features.correlation_analysis',
-      'ai.tools.portfolio_optimizer.features.rebalancing_recommendations',
-      'ai.tools.portfolio_optimizer.features.performance_projections'
-    ],
-    rating: 4.7,
-    reviews: 156,
-    popular: false,
-    slug: 'portfolio-optimizer',
-    disabled: true,
-    hasBackground: true
+    titleKey: 'ai.tools.lead_scraper.title',
+    // categoryKey: 'ai.categories.research',
+    icon: <img src="/assets/images/ai-tools/lead-scraper-logo.jpeg" alt="Lead Scraper" className="h-10 w-full" />,
+    descriptionKey: 'ai.tools.lead_scraper.description',
+    featureKeys: [],
+    rating: 4.8,
+    reviews: 0,
+    popular: true,
+    slug: 'lead-scraper',
+    href: 'https://leadscraper-ai.com/signup?ref=FOREXBRODFGX',
+    disabled: false,
+    hasBackground: false,
+    badgeKey: 'ai.feature'
   },
   {
     id: 7,
@@ -229,6 +226,25 @@ const aiTools = [
     reviews: 143,
     popular: false,
     slug: 'news-predictor',
+    disabled: true,
+    hasBackground: true
+  },
+  {
+    id: 11,
+    titleKey: 'ai.tools.portfolio_optimizer.title',
+    categoryKey: 'ai.categories.portfolio',
+    icon: <Bot className="h-5 w-5" />,
+    descriptionKey: 'ai.tools.portfolio_optimizer.description',
+    featureKeys: [
+      'ai.tools.portfolio_optimizer.features.risk_adjusted_allocation',
+      'ai.tools.portfolio_optimizer.features.correlation_analysis',
+      'ai.tools.portfolio_optimizer.features.rebalancing_recommendations',
+      'ai.tools.portfolio_optimizer.features.performance_projections'
+    ],
+    rating: 4.7,
+    reviews: 156,
+    popular: false,
+    slug: 'portfolio-optimizer',
     disabled: true,
     hasBackground: true
   },
