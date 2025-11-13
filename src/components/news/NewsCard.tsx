@@ -20,7 +20,7 @@ const NewsCard: React.FC<{ item: NewsCardItem }> = ({ item }) => (
     className="w-full rounded-lg border border-[#e6e8ec] bg-white shadow-sm hover:shadow-md transition-shadow duration-150 p-4 mt-2 mb-2 cursor-pointer"
     tabIndex={0}
     aria-label={item.headline}
-    onClick={() => window.open(item.link, '_blank')}
+    // onClick={() => window.open(item.link, '_blank')}
   >
     <h3 className="font-semibold text-[1.05rem] leading-snug mb-1 text-[#0b1e3c] focus:underline hover:underline outline-none">
       {item.headline}
