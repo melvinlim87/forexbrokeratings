@@ -34,14 +34,22 @@ export default async function NewsSlugPage(props: { params: { slug: string } }) 
 
   return (
     <article className="prose mx-auto">
-      <h1 className="mb-2 text-2xl font-bold">{article.headline}</h1>
+      <h1 className="mb-2 text-3xl font-bold">{article.headline}</h1>
       <div className="mb-4 text-sm text-gray-500">{formatted} • {article.category}</div>
       {/* <img
         src={'/mock/news-default.jpg'}
         alt={article.headline}
         className="rounded w-full mb-4 max-h-64 object-cover"
       /> */}
-      <div className="mb-6 text-lg leading-relaxed">{article.summary}</div>
+      {article?.content != null && article?.content.length > 0 ? (
+        <div className="mb-6 text-lg leading-relaxed">
+          {article?.content?.map((paragraph, index) => (
+            <p key={index} className="mb-4">{paragraph}</p>
+          ))}
+        </div>
+      ) : (
+      <div className="mb-6 text-lg leading-relaxed">{article.summary}</div> 
+      )}
     </article>
   );
 }

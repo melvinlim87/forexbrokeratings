@@ -10,4 +10,5 @@ export interface NewsItem {
   created_at: string; // ISO 8601
   source: string;
   tags: string[];
+  content?: string[];
 }

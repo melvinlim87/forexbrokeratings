@@ -224,6 +224,7 @@ export type News = {
   source: string;
   tags: string[];
   created_at: string;
+  content?: string[];
 };
 
 // Type definitions for Subscribers
