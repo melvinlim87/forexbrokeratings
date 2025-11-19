@@ -1,7 +1,9 @@
 export const revalidate = 0;
 import { notFound } from 'next/navigation';
 import React from 'react';
+import Link from 'next/link';
 import { fetchNews, type News } from '../../../lib/supabase';
+import { ChevronLeft } from 'lucide-react';
 interface NewsPageProps {
   params: { slug: string };
 }
@@ -34,6 +36,10 @@ export default async function NewsSlugPage(props: { params: { slug: string } }) 
 
   return (
     <article className="prose mx-auto">
+      <Link href="/news" className="mb-4 inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 no-underline">
+        <ChevronLeft className="w-4 h-4" />
+        <span>Back to News</span>
+      </Link>
       <h1 className="mb-2 text-3xl font-bold">{article.headline}</h1>
       <div className="mb-4 text-sm text-gray-500">{formatted} • {article.category}</div>
       {/* <img

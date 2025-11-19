@@ -899,5 +899,7 @@
     "broker.unclaimed": "Unclaimed",
     "broker.unclaimed_profile": "This profile is currently unclaimed by {name}.",
     "broker.claim_profile": "Do you work at {name}? Claim your profile ",
-    "broker.here": "here."
+    "broker.here": "here.",
+    "ai.tools.chat_flow.title": "Chat Flow",
+    "ai.tools.chat_flow.description": "Chat Flow AI is a tool that helps to create intelligent WhatsApp chatbot for your business."
 }

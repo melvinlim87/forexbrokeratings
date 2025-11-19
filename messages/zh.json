@@ -937,5 +937,7 @@
   "broker.unclaimed": "未领取",
   "broker.unclaimed_profile": "此经纪商资料目前未领取",
   "broker.claim_profile": "您是 {name} 的工作人员吗？如欲领取您的经纪商资料，请",
-  "broker.here": "联系我们"
+  "broker.here": "联系我们",
+  "ai.tools.chat_flow.title": "Chat Flow",
+  "ai.tools.chat_flow.description": "Chat Flow AI 是一个工具，帮助您创建智能 WhatsApp 聊天机器人。"
 }

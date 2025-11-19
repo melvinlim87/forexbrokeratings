@@ -155,6 +155,22 @@ const aiTools = [
   },
   {
     id: 7,
+    titleKey: 'ai.tools.chat_flow.title',
+    // categoryKey: 'ai.categories.research',
+    icon: <img src="/assets/images/ai-tools/chat-flow-logo.png" alt="Chat Flow" className="h-10 w-full" />,
+    descriptionKey: 'ai.tools.chat_flow.description',
+    featureKeys: [],
+    rating: 4.8,
+    reviews: 0,
+    popular: true,
+    slug: 'chat-flow',
+    href: 'https://chat-flow.ai/register?ref=FOREXBROKERATING',
+    disabled: false,
+    hasBackground: false,
+    badgeKey: 'ai.feature'
+  },
+  {
+    id: 8,
     titleKey: 'ai.tools.pattern_scanner.title',
     categoryKey: 'ai.categories.technical',
     icon: <LineChart className="h-5 w-5" />,
@@ -173,7 +189,7 @@ const aiTools = [
     hasBackground: true
   },
   {
-    id: 8,
+    id: 9,
     titleKey: 'ai.tools.trading_signals.title',
     categoryKey: 'ai.categories.analysis',
     icon: <LineChart className="h-5 w-5" />,
@@ -192,7 +208,7 @@ const aiTools = [
     hasBackground: true
   },
   {
-    id: 9,
+    id: 10,
     titleKey: 'ai.tools.trading_bots.title',
     categoryKey: 'ai.categories.trading',
     icon: <Bot className="h-5 w-5" />,
@@ -211,7 +227,7 @@ const aiTools = [
     hasBackground: true
   },
   {
-    id: 10,
+    id: 11,
     titleKey: 'ai.tools.news_predictor.title',
     categoryKey: 'ai.categories.research',
     icon: <Brain className="h-5 w-5" />,
@@ -230,7 +246,7 @@ const aiTools = [
     hasBackground: true
   },
   {
-    id: 11,
+    id: 12,
     titleKey: 'ai.tools.portfolio_optimizer.title',
     categoryKey: 'ai.categories.portfolio',
     icon: <Bot className="h-5 w-5" />,

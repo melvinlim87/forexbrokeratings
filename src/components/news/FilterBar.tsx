@@ -25,42 +25,44 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const { t } = useI18n();
 
   return (
-    <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 pt-1 items-center mb-2">
-      {/* <div className="flex gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat.value}
-            aria-label={`${t('news.filter_by')} ${t(cat.labelKey)}`}
-            className={`px-4 py-1 rounded-full border text-sm font-semibold transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
-              activeCategory === cat.value
-                ? 'bg-[#00c7d4] text-black border-cyan-700'
-                : 'bg-white text-[#0b1e3c] border-[#e6e8ec] hover:bg-cyan-50'
-            }`}
-            onClick={() => onCategoryChange?.(cat.value)}
+    <div className="mb-4">
+      <div className="rounded-lg border border-[#e6e8ec] bg-white shadow-sm p-3">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr,220px] gap-3 items-center">
+          <form
+            role="search"
+            className="w-full flex items-center rounded-md bg-white border border-[#e6e8ec] px-3 py-2 focus-within:ring-2 focus-within:ring-cyan-400"
+            onSubmit={e => {
+              e.preventDefault();
+              onSearch?.(search);
+            }}
           >
-            {t(cat.labelKey)}
-          </button>
-        ))}
-      </div> */}
-      <form
-        role="search"
-        className="w-full flex items-center"
-        onSubmit={e => {
-          e.preventDefault();
-          onSearch?.(search);
-        }}
-      >
-        <span className="inline-block mr-2 text-gray-400">
-          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
-        </span>
-        <input
-          type="text"
-          className="w-full border border-[#e6e8ec] rounded-full px-3 py-1 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          placeholder={t('news.search_placeholder')}
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
-      </form>
+            <span className="inline-block mr-2 text-gray-400">
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-2-2"/></svg>
+            </span>
+            <input
+              type="text"
+              className="w-full border-0 outline-none text-sm"
+              placeholder={t('news.search_placeholder')}
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              aria-label={t('news.search_placeholder')}
+            />
+          </form>
+          <div className="w-full">
+            <label htmlFor="news-category" className="sr-only">{t('news.categories.all')}</label>
+            <select
+              id="news-category"
+              className="w-full rounded-md border border-[#e6e8ec] bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              value={activeCategory}
+              onChange={(e) => onCategoryChange?.(e.target.value)}
+            >
+              {categories.map((c) => (
+                <option key={c.value} value={c.value}>{t(c.labelKey)}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
