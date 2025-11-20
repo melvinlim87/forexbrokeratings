@@ -224,7 +224,17 @@ export async function generateStaticParams() {
   // Fetch all blog posts from Supabase
   const data = await fetchBlogContents();
   if (!data) return [];
-  return data.map((item: any) => ({ slug: item.slug }));
+  return (
+    Array.isArray(data)
+      ? data
+          .map((item: any) => {
+            const raw = (item && (item.slug ?? item.url ?? item.id)) as unknown;
+            const slug = typeof raw === 'string' ? raw : raw != null ? String(raw) : '';
+            return slug && typeof slug === 'string' ? { slug } : null;
+          })
+          .filter(Boolean)
+      : []
+  ) as { slug: string }[];
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
