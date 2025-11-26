@@ -90,7 +90,15 @@ export default function ComparePage() {
   useEffect(() => {
     const fetchBrokers = async () => {
       try {
-        const formattedBrokers = await fetchAllBrokerDetails();
+        let formattedBrokers = await fetchAllBrokerDetails();
+        // format formattedBrokers, sort those with affiliate_link at first, and rating at last
+        formattedBrokers = formattedBrokers.sort((a, b) => {
+          if (a.affiliate_link && !b.affiliate_link) return -1;
+          if (!a.affiliate_link && b.affiliate_link) return 1;
+          if (a.rating && !b.rating) return -1;
+          if (!a.rating && b.rating) return 1;
+          return 0;
+        });
         setBrokers(formattedBrokers);
         
         // Check for pre-selected broker data in localStorage

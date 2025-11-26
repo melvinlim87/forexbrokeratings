@@ -160,11 +160,12 @@ export default async function BrokerProfilePage({
   try {
     const data = await fetchAllBrokerDetails();
     
+    // console.log(data)
     const broker = data.find(b => {
       const slug = b.name.toLowerCase().replace(/\s+/g, '-');
       return slug === params.slug;
     });
-    
+    // console.log(broker)
     if (!broker) {
       // If not found in Supabase, show not found UI
       return (
