@@ -32,7 +32,7 @@ const NewsCard: React.FC<{ item: NewsCardItem }> = ({ item }) => {
         <p className="text-gray-800 text-base line-clamp-3 mb-2" style={{ lineHeight: 1.55 }}>
           {item.summary}
         </p>
-        <div className="flex flex-wrap gap-2 items-center text-xs mt-2 text-[#6b7280]">
+        <div className="flex flex-wrap gap-2 items-center text-xs mt-2 text-[#6b7280] ">
           <span className="flex items-center bg-gray-100 px-2 py-0.5 rounded-full">
             <Timer className="w-4 h-4 mr-1 pt-0.5 pb-0.5" /> {dayjs(item.created_at).fromNow()}
           </span>
