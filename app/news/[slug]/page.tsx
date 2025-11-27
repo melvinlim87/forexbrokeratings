@@ -50,7 +50,7 @@ export default async function NewsSlugPage(props: { params: { slug: string } }) 
       {article?.content != null && article?.content.length > 0 ? (
         <div className="mb-6 text-lg leading-relaxed">
           {article?.content?.map((paragraph, index) => (
-            <p key={index} className="mb-4">{paragraph}</p>
+            <p key={index} className="mb-4" dangerouslySetInnerHTML={{ __html: paragraph }}></p>
           ))}
         </div>
       ) : (
