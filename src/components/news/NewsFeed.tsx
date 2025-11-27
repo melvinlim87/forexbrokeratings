@@ -14,7 +14,6 @@ const NewsFeed: React.FC = () => {
   const [category, setCategory] = useState('All');
   const [search, setSearch] = useState('');
   const { data, fetchNextPage, hasNextPage, isLoading } = useNewsFeed({ category, search });
-  console.log(data)
   // Flatten paginated data
   const items = data?.pages.flatMap(page => page.items) || [];
   

@@ -48,7 +48,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
               aria-label={t('news.search_placeholder')}
             />
           </form>
-          <div className="w-full">
+          {/* <div className="w-full">
             <label htmlFor="news-category" className="sr-only">{t('news.categories.all')}</label>
             <select
               id="news-category"
@@ -60,7 +60,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <option key={c.value} value={c.value}>{t(c.labelKey)}</option>
               ))}
             </select>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
