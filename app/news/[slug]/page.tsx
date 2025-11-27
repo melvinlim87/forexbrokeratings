@@ -16,12 +16,27 @@ function sanitizeSlug(slug: string) {
 
 export async function generateStaticParams() {
   const news: News[] = await fetchNews();
-  return news.map((item) => ({ slug: sanitizeSlug(item.slug) })) ?? [];
+  const unique = Array.from(new Set((news ?? []).map((n) => sanitizeSlug(n.slug))));
+  return unique.map((slug) => ({ slug }));
 }
 
-export default async function NewsSlugPage(props: { params: { slug: string } }) {
+export default async function NewsSlugPage({ params, searchParams }: { params: { slug: string }, searchParams?: { k?: string } }) {
   const news: News[] = await fetchNews();
-  const article = news.find((item) => item.slug === props.params.slug);
+
+  // If opaque token `k` is provided, decode and pick by id first
+  let byId: News | undefined;
+  try {
+    const k = searchParams?.k;
+    if (k) {
+      const decoded = JSON.parse(Buffer.from(k, 'base64').toString('utf-8')) as { i?: string };
+      if (decoded?.i) {
+        byId = (news || []).find((n) => String(n.id) === String(decoded.i));
+      }
+    }
+  } catch {}
+
+  const matches = (news || []).filter((item) => sanitizeSlug(item.slug) === params.slug);
+  const article = byId ?? matches.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0];
   
   const date = new Date(article?.created_at ?? '');
   const year = date.getFullYear();
@@ -42,15 +57,17 @@ export default async function NewsSlugPage(props: { params: { slug: string } }) 
       </Link>
       <h1 className="mb-2 text-3xl font-bold">{article.headline}</h1>
       <div className="mb-4 text-sm text-gray-500">{formatted} • {article.category}</div>
-      {/* <img
-        src={'/mock/news-default.jpg'}
-        alt={article.headline}
-        className="rounded w-full mb-4 max-h-64 object-cover"
-      /> */}
+      {article?.image && (
+        <img
+          src={article.image}
+          alt={article.headline}
+          className="rounded w-full mb-4 max-h-64 object-cover"
+        />
+      )}
       {article?.content != null && article?.content.length > 0 ? (
         <div className="mb-6 text-lg leading-relaxed">
           {article?.content?.map((paragraph, index) => (
-            <p key={index} className="mb-4" dangerouslySetInnerHTML={{ __html: paragraph }}></p>
+            <p key={index} className='mb-4' dangerouslySetInnerHTML={{ __html: paragraph }}></p>
           ))}
         </div>
       ) : (

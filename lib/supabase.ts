@@ -225,6 +225,7 @@ export type News = {
   tags: string[];
   created_at: string;
   content?: string[];
+  image?: string;
 };
 
 // Type definitions for Subscribers
