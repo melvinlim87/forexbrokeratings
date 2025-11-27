@@ -16,7 +16,6 @@ export function useNewsFeed({ category = 'All', search = '' }: UseNewsFeedOption
       const page = Number(pageParam) || 1;
       // Fetch from Supabase
       const allData: News[] = await fetchNews();
-      console.log(allData)
       // Filter by category and search
       let filtered = allData;
       if (category && category !== 'All') {
