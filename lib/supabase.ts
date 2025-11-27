@@ -858,17 +858,27 @@ export async function fetchRegulatorsById(broker_detail_id: number): Promise<Reg
 }
 
 // Function to fetch news
-export async function fetchNews() {
-  const { data, error } = await supabase
+export async function fetchNews(page?: number, pageSize: number = 10) {
+  const query = supabase
     .from('news')
     .select('*')
     .order('created_at', { ascending: false });
-  
-  if (error) {
-    throw new Error(error.message);
+
+  if (page && page > 0) {
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+    const { data, error } = await query.range(from, to);
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
+  } else {
+    const { data, error } = await query;
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
   }
-  
-  return data;
 }
 
 // Function to save subscribers

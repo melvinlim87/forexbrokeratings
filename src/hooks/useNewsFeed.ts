@@ -8,16 +8,16 @@ export interface UseNewsFeedOptions {
 }
 
 export function useNewsFeed({ category = 'All', search = '' }: UseNewsFeedOptions) {
-  const [pageSize] = useState(8);
+  const [pageSize] = useState(10);
 
   return useInfiniteQuery<{ items: News[]; nextPage?: number }>({
     queryKey: ['news', category, search],
     queryFn: async ({ pageParam = 1 }) => {
       const page = Number(pageParam) || 1;
-      // Fetch from Supabase
-      const allData: News[] = await fetchNews();
-      // Filter by category and search
-      let filtered = allData;
+      // Fetch a single page from Supabase
+      const pageData: News[] = await fetchNews(page, pageSize);
+      // Filter by category and search (client-side on this page of data)
+      let filtered = pageData;
       if (category && category !== 'All') {
         filtered = filtered.filter((item) => item.category === category);
       }
@@ -30,12 +30,9 @@ export function useNewsFeed({ category = 'All', search = '' }: UseNewsFeedOption
             (item.tags && item.tags.some((t) => t.toLowerCase().includes(q)))
         );
       }
-      // Pagination
-      const start = (page - 1) * pageSize;
-      const end = start + pageSize;
-      const items = filtered.slice(start, end);
-      const nextPage = end < filtered.length ? page + 1 : undefined;
-      return { items, nextPage };
+      // Determine if there may be another page based on raw page size
+      const nextPage = (pageData.length === pageSize) ? page + 1 : undefined;
+      return { items: filtered, nextPage };
     },
     getNextPageParam: (lastPage) => lastPage.nextPage,
     staleTime: 1000 * 60,
