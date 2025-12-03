@@ -14,43 +14,103 @@ export default function ContactClient() {
   const channels = [
     {
       icon: (
-        <svg aria-label="Email" className="w-6 h-6 text-cyan-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4V4zm0 0l8 8m8-8l-8 8" /></svg>
+        <svg aria-label="Email" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4V4zm0 0l8 8m8-8l-8 8" /></svg>
       ),
       label: t("contact.email"),
       state: "active",
       description:
         t("contact.description"),
       cta: (
-        <button
-          type="button"
-          onClick={() => { setShowForm(true); setSubmitted(false); setResult(null); }}
-          className="inline-flex items-center px-4 py-2 mt-4 font-semibold text-white bg-cyan-700 rounded-md shadow hover:bg-cyan-800 focus:outline focus:outline-2 focus:outline-cyan-400 transition-colors duration-150"
-        >
-          {t("contact.cta")}
-        </button>
+        <div className="mt-4 flex flex-col gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setSubmitted(false);
+              setResult(null);
+              setForm({
+                title: t('contact.cta_question'),
+                content: t('contact.preset_question'),
+                email: '',
+              });
+              setShowForm(true);
+            }}
+            className="w-full justify-center items-center py-4 font-semibold text-white bg-cyan-700 rounded-full shadow hover:bg-cyan-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 transition-colors duration-150"
+          >
+            {t('contact.cta_question')}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSubmitted(false);
+              setResult(null);
+              setForm({
+                title: t('contact.cta_claim'),
+                content: t('contact.preset_claim'),
+                email: '',
+              });
+              setShowForm(true);
+            }}
+            className="inline-flex w-full justify-center items-center h-11 px-4 font-semibold text-cyan-700 bg-white rounded-full border border-cyan-200 shadow-sm hover:bg-cyan-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 transition-colors duration-150"
+          >
+            {t('contact.cta_claim')}
+          </button>
+        </div>
       ),
     },
     {
       icon: (
-        <svg aria-label="Telegram" className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M22 4L12 20l-4-7-7-2z" /></svg>
+        <svg aria-label="Telegram" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M22 4L12 20l-4-7-7-2z" /></svg>
       ),
       label: t("contact.telegram"),
-      state: "soon",
+      state: "active",
       description:
         t("contact.telegram_description"),
       cta: (
-        <button
-          disabled
-          className="inline-flex items-center px-4 py-2 mt-4 font-semibold text-gray-500 bg-gray-200 rounded-md cursor-not-allowed border border-gray-300"
-          aria-disabled="true"
-        >
-          {t("contact.coming_soon")}
-        </button>
+        <div className="mt-4 flex flex-col gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              const text = encodeURIComponent(t('contact.preset_question'));
+              const tg = `tg://resolve?phone=6583127744&text=${text}`;
+              const web = `https://t.me/+6583127744?text=${text}`;
+              try {
+                window.location.href = tg;
+                setTimeout(() => {
+                  window.open(web, '_blank');
+                }, 500);
+              } catch (e) {
+                window.open(web, '_blank');
+              }
+            }}
+            className="w-full justify-center items-center py-4 font-semibold text-white bg-cyan-700 rounded-full shadow hover:bg-cyan-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 transition-colors duration-150"
+          >
+            {t('contact.cta_question')}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              const text = encodeURIComponent(t('contact.preset_claim'));
+              const tg = `tg://resolve?phone=6583127744&text=${text}`;
+              const web = `https://t.me/+6583127744?text=${text}`;
+              try {
+                window.location.href = tg;
+                setTimeout(() => {
+                  window.open(web, '_blank');
+                }, 500);
+              } catch (e) {
+                window.open(web, '_blank');
+              }
+            }}
+            className="inline-flex w-full justify-center items-center h-11 px-4 font-semibold text-cyan-700 bg-white rounded-full border border-cyan-200 shadow-sm hover:bg-cyan-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 transition-colors duration-150"
+          >
+            {t('contact.cta_claim')}
+          </button>
+        </div>
       ),
     },
     {
       icon: (
-        <svg aria-label="Instagram" className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" /></svg>
+        <svg aria-label="Instagram" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" /></svg>
       ),
       label: t("contact.instagram"),
       state: "soon",
@@ -59,7 +119,7 @@ export default function ContactClient() {
       cta: (
         <button
           disabled
-          className="inline-flex items-center px-4 py-2 mt-4 font-semibold text-gray-500 bg-gray-200 rounded-md cursor-not-allowed border border-gray-300"
+          className="inline-flex w-full justify-center items-center h-11 px-4 mt-2 font-semibold text-slate-500 bg-white rounded-full border border-slate-200 shadow-sm cursor-not-allowed"
           aria-disabled="true"
         >
           {t("contact.coming_soon")}
@@ -100,21 +160,33 @@ export default function ContactClient() {
 
   return (
     <>
-      <article data-section="channels" className="max-w-4xl mx-auto px-4 mt-2">
+      <article data-section="channels" className="max-w-6xl mx-auto px-4 mt-2">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {channels.map((ch) => (
             <div
               key={ch.label}
-              className={`relative group bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col items-start transition-shadow duration-150 ease-in-out hover:shadow-lg focus-within:shadow-lg ${ch.state === "soon" ? "opacity-70" : ""}`}
+              className={`relative group rounded-2xl shadow-md border border-gray-200 p-6 flex flex-col items-start transition-shadow duration-200 ease-in-out hover:shadow-lg focus-within:shadow-lg bg-gradient-to-br from-white to-slate-50`}
               tabIndex={ch.state === "active" ? 0 : -1}
             >
-              <span className="absolute top-4 left-4">{ch.icon}</span>
-              <span className="ml-12 text-lg font-semibold text-[#11223a] mb-1">{ch.label}</span>
+              <span className="absolute top-4 left-4">
+                <span className={`inline-flex items-center justify-center rounded-2xl p-3 ${ch.label === t("contact.instagram") ? "bg-slate-200 text-slate-600" : "bg-cyan-600 text-white"}`}>
+                  {ch.icon}
+                </span>
+              </span>
+              <span className="ml-16 text-lg font-semibold text-[#11223a] mb-1">{ch.label}</span>
               {ch.state === "soon" && (
-                <span className="ml-12 mb-2 px-2 py-0.5 text-xs rounded bg-gray-200 text-gray-500 font-medium inline-block">{t("contact.coming_soon")}</span>
+                <span className="ml-16 mb-2 inline-flex items-center gap-2 px-2.5 py-1 text-xs rounded-full bg-amber-100 text-amber-700 font-medium">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  {t("contact.coming_soon")}
+                </span>
               )}
-              <span className="ml-12 text-gray-700 text-sm mb-4 block min-h-[48px]">{ch.description}</span>
-              <div className="ml-12">{ch.cta}</div>
+              <span className="ml-16 text-gray-700 text-sm mb-4 block min-h-[48px]">{ch.description}</span>
+              <div className="w-full">
+                {/* Primary button style (pill) and Secondary subtle pill */}
+                <div className="flex flex-col gap-3">
+                  {React.isValidElement(ch.cta) ? ch.cta : null}
+                </div>
+              </div>
             </div>
           ))}
         </div>
