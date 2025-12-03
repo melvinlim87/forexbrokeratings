@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCircle, ChevronDown, LogOut, User, Home, BookOpenText, MessageCircle } from 'lucide-react';
+import { Menu, Search, Globe, BarChart, List, X, Gift, Wrench, BookOpen, UserCircle, ChevronDown, LogOut, User, Home, BookOpenText, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -204,6 +204,7 @@ function NavLinks() {
     { title: 'nav.ai_tools', href: '/ai-tools' },
     { title: 'nav.news', href: '/news' },
     { title: 'nav.blog', href: '/blog' },
+    { title: 'nav.economic_calendar', href: '/ai-tools/economic-calendar/' },
   ];
   
   return (
@@ -292,6 +293,7 @@ function MobileNavLinks({ onNavLinkClick }: { onNavLinkClick: () => void }) {
     { title: 'nav.ai_tools', href: '/ai-tools', icon: <Wrench className="h-5 w-5 mr-3" /> },
     { title: 'nav.news', href: '/news', icon: <List className="h-5 w-5 mr-3" /> },
     { title: 'nav.blog', href: '/blog', icon: <BookOpen className="h-5 w-5 mr-3" /> },
+    { title: 'nav.economic_calendar', href: '/ai-tools/economic-calendar/', icon: <Calendar className="h-5 w-5 mr-3" /> },
   ];
   
   return (
