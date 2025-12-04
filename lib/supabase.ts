@@ -1043,9 +1043,11 @@ export async function storeAIResult(user_id: string, title: string, result: stri
 
 // Function to fetch economic calendar
 export async function fetchEconomicCalendar() {
+  // filter for HIGH and MED only
   const { data, error } = await supabase
     .from('economic_calendar')
     .select('*')
+    .in('impact', ['HIGH', 'MED'])
     .order('datetime', { ascending: false });
 
     if (error) throw new Error(error.message);
@@ -1059,6 +1061,7 @@ export async function fetchEconomicCalendarByDateRange(startDate: string, endDat
     .select('*')
     .gte('datetime', `${startDate}T00:00:00`)
     .lte('datetime', `${endDate}T23:59:59`)
+    .in('impact', ['HIGH', 'MED'])
     .order('datetime', { ascending: true });
 
   if (error) throw new Error(error.message);

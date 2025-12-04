@@ -1,34 +1,15 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { fetchEconomicCalendar, fetchEconomicCalendarByDateRange, type EconomicCalendar } from '@/lib/supabase';
-import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from 'lucide-react';
+import { fetchEconomicCalendarByDateRange, type EconomicCalendar } from '@/lib/supabase';
+import { ChevronLeft, ChevronRight, Search, SlidersHorizontal, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { useI18n } from '@/lib/i18n-client';
  
-
-type Timezone = {
-  value: string;
-  label: string;
-  offset: string;
-};
-
-const timezones: Timezone[] = [
-  { value: 'UTC', label: 'GMT', offset: '+0000' },
-  { value: 'America/New_York', label: 'New York', offset: '-0500' },
-  { value: 'America/Chicago', label: 'Chicago', offset: '-0600' },
-  { value: 'America/Denver', label: 'Denver', offset: '-0700' },
-  { value: 'America/Los_Angeles', label: 'Los Angeles', offset: '-0800' },
-  { value: 'Europe/London', label: 'London', offset: '+0000' },
-  { value: 'Europe/Paris', label: 'Paris', offset: '+0100' },
-  { value: 'Europe/Berlin', label: 'Berlin', offset: '+0100' },
-  { value: 'Asia/Tokyo', label: 'Tokyo', offset: '+0900' },
-  { value: 'Asia/Shanghai', label: 'Shanghai', offset: '+0800' },
-  { value: 'Australia/Sydney', label: 'Sydney', offset: '+1000' },
-];
+// Fixed timezone: GMT (UTC)
+const FIXED_TZ = { label: 'GMT', offset: '+0000', value: 'UTC' } as const;
 
 function formatDate(dateStr: string) {
   const d = new Date(dateStr);
@@ -79,12 +60,21 @@ export default function EconomicCalendarPage() {
   const [data, setData] = useState<EconomicCalendar[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [timezone, setTimezone] = useState<Timezone>(timezones[0]);
   const [view, setView] = useState<'week' | 'day'>('week');
   const [currentTime, setCurrentTime] = useState<string>('');
   const [dateRange, setDateRange] = useState<{ start: Date; end: Date }>({
     start: new Date(),
     end: new Date(new Date().setDate(new Date().getDate() + 6)) // Default to current week
+  });
+
+  // Search and Filters
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filterImpact, setFilterImpact] = useState<{ high: boolean; medium: boolean; low: boolean }>({
+    high: true,
+    medium: true,
+    low: true,
   });
 
   // Format date to YYYY-MM-DD
@@ -116,14 +106,14 @@ export default function EconomicCalendarPage() {
   // Update current time every minute
   useEffect(() => {
     const updateTime = () => {
-      setCurrentTime(getCurrentTime(timezone.offset));
+      setCurrentTime(getCurrentTime(FIXED_TZ.offset));
     };
     
     updateTime();
     const interval = setInterval(updateTime, 60000);
     
     return () => clearInterval(interval);
-  }, [timezone.offset]);
+  }, []);
 
   // Update date range when view changes
   useEffect(() => {
@@ -260,15 +250,14 @@ export default function EconomicCalendarPage() {
   };
 
   // Get current time in selected timezone
-  function getCurrentTime(offset: string) {
-    const now = new Date();
-    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    const localTime = new Date(utc + 3600000 * parseInt(offset) / 100);
-    return localTime.toLocaleTimeString('en-US', { 
-      hour: '2-digit', 
+  function getCurrentTime(_offset: string) {
+    // Always show current time in UTC as GMT
+    return new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
       minute: '2-digit',
-      timeZone: timezone.value 
-    });
+      hour12: false,
+      timeZone: 'UTC',
+    }).format(new Date());
   }
 
   // Get week dates for the week containing the selected date
@@ -320,16 +309,43 @@ export default function EconomicCalendarPage() {
     return sortedDays;
   };
 
+  // Apply client-side search and impact filters before grouping
+  const applyClientFilters = (items: EconomicCalendar[]) => {
+    let result = items;
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      result = result.filter((it) =>
+        (it.title || '').toLowerCase().includes(q)
+      );
+    }
+    const activeImpacts = new Set<string>([
+      filterImpact.high ? 'high' : '',
+      filterImpact.medium ? 'medium' : '',
+      filterImpact.low ? 'low' : '',
+    ].filter(Boolean));
+    if (activeImpacts.size > 0 && activeImpacts.size < 3) {
+      result = result.filter((it) => {
+        const lvl = (it.impact || '').toLowerCase();
+        if (lvl.includes('high')) return activeImpacts.has('high');
+        if (lvl.includes('med')) return activeImpacts.has('medium');
+        return activeImpacts.has('low');
+      });
+    }
+    return result;
+  };
+
   // Filter data based on selected date and view
   const getFilteredData = () => {
+    const base = applyClientFilters(data);
+    const grouped = groupDataByDate(base);
     if (view === 'day') {
       const selectedDateStr = selectedDate.toISOString().split('T')[0];
-      return groupDataByDate(data).filter(([date]) => date === selectedDateStr);
+      return grouped.filter(([date]) => date === selectedDateStr);
     } else {
       // Week view - show all days in the current week
       const weekDates = getWeekDates(selectedDate);
       const weekDateStrs = weekDates.map(date => date.toISOString().split('T')[0]);
-      return groupDataByDate(data).filter(([date]) => 
+      return grouped.filter(([date]) => 
         weekDateStrs.includes(date)
       );
     }
@@ -370,30 +386,13 @@ export default function EconomicCalendarPage() {
         <div className="px-4 sm:px-6 py-3 bg-slate-50 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-slate-700">
-              <span>{timezone.label}</span>
+              <span>{FIXED_TZ.label}</span>
               <span className="text-slate-500">{currentTime}</span>
-              <Select 
-                value={timezone.value} 
-                onValueChange={(value) => {
-                  const tz = timezones.find(tz => tz.value === value);
-                  if (tz) setTimezone(tz);
-                }}
-              >
-                <SelectTrigger className="w-[180px] h-8 border-0 shadow-none p-0">
-                  <SelectValue placeholder={t('calendar.select_timezone')} />
-                </SelectTrigger>
-                <SelectContent>
-                  {timezones.map((tz) => (
-                    <SelectItem key={tz.value} value={tz.value}>
-                      {tz.label} (GMT{tz.offset})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <span className="text-slate-400">{`GMT(${FIXED_TZ.offset})`}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 relative">
             <Tabs 
               value={view} 
               onValueChange={(value) => handleViewChange(value as 'week' | 'day')} 
@@ -405,14 +404,65 @@ export default function EconomicCalendarPage() {
               </TabsList>
             </Tabs>
 
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="gap-2" onClick={() => setFiltersOpen((v) => !v)}>
               <SlidersHorizontal className="h-4 w-4" />
               <span>{t('calendar.filters')}</span>
             </Button>
-            <Button variant="outline" size="sm" className="gap-2">
+            <Button variant="outline" size="sm" className="gap-2" onClick={() => setSearchOpen((v) => !v)}>
               <Search className="h-4 w-4" />
               <span>{t('calendar.search')}</span>
             </Button>
+
+            {/* Filters popover */}
+            {filtersOpen && (
+              <div className="absolute right-0 top-12 z-10 w-64 rounded-lg border border-slate-200 bg-white shadow-md p-3">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-semibold text-slate-700">{t('calendar.filters')}</div>
+                  <button onClick={() => setFiltersOpen(false)} className="p-1 text-slate-400 hover:text-slate-600"><X className="h-4 w-4" /></button>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <label className="flex items-center gap-2">
+                    <input type="checkbox" className="h-4 w-4" checked={filterImpact.high} onChange={(e) => setFilterImpact((f) => ({ ...f, high: e.target.checked }))} />
+                    <span>High impact</span>
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input type="checkbox" className="h-4 w-4" checked={filterImpact.medium} onChange={(e) => setFilterImpact((f) => ({ ...f, medium: e.target.checked }))} />
+                    <span>Medium impact</span>
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input type="checkbox" className="h-4 w-4" checked={filterImpact.low} onChange={(e) => setFilterImpact((f) => ({ ...f, low: e.target.checked }))} />
+                    <span>Low impact</span>
+                  </label>
+                </div>
+                <div className="mt-3 flex items-center justify-end gap-2">
+                  <Button variant="ghost" size="sm" onClick={() => setFilterImpact({ high: true, medium: true, low: true })}>Reset</Button>
+                  <Button size="sm" onClick={() => setFiltersOpen(false)}>Apply</Button>
+                </div>
+              </div>
+            )}
+
+            {/* Search popover */}
+            {searchOpen && (
+              <div className="absolute right-0 top-12 z-10 w-72 rounded-lg border border-slate-200 bg-white shadow-md p-3">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-semibold text-slate-700">{t('calendar.search')}</div>
+                  <button onClick={() => setSearchOpen(false)} className="p-1 text-slate-400 hover:text-slate-600"><X className="h-4 w-4" /></button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    placeholder={t('calendar.search_placeholder')}
+                    className="flex-1 h-9 rounded-md border border-slate-300 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  <Button size="sm" onClick={() => setSearchOpen(false)}>{t('calendar.apply')}</Button>
+                </div>
+                {searchQuery && (
+                  <button className="mt-2 text-xs text-slate-500 hover:underline" onClick={() => setSearchQuery('')}>Clear</button>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
