@@ -1,4 +1,4 @@
-export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 import BrokerProfile from '@/components/broker/broker-profile';
 import { fetchAllBrokerDetails, fetchPromotionsByBrokerId, fetchReviewsByBrokerId, BrokerDetails } from '@/lib/supabase';
 

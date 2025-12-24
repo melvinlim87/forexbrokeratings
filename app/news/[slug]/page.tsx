@@ -1,4 +1,4 @@
-export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
@@ -12,12 +12,6 @@ interface NewsPageProps {
 function sanitizeSlug(slug: string) {
   // Replace invalid filename characters with '-'
   return slug.replace(/[\\/:*?"<>|]/g, '-');
-}
-
-export async function generateStaticParams() {
-  const news: News[] = await fetchNews();
-  const unique = Array.from(new Set((news ?? []).map((n) => sanitizeSlug(n.slug))));
-  return unique.map((slug) => ({ slug }));
 }
 
 export default async function NewsSlugPage({ params, searchParams }: { params: { slug: string }, searchParams?: { k?: string } }) {
