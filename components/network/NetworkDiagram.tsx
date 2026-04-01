@@ -175,7 +175,7 @@ export default function NetworkDiagram() {
           <div 
             className="relative -translate-x-1/2 -translate-y-1/2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 hover:z-20 shadow-lg"
           >
-            <div className="relative bg-metallic dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-metallic">
+            <div className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900 backdrop-blur-sm rounded-xl p-4 w-[450px] shadow-lg">
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 p-0.5">
@@ -187,7 +187,7 @@ export default function NetworkDiagram() {
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 to-green-500 rounded-[6px]" />
                       </motion.div>
-                      <div className="absolute inset-[1px] bg-metallic dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
+                      <div className="absolute inset-[1px] bg-white dark:bg-gray-900 rounded-[5px] flex items-center justify-center text-gray-900 dark:text-white">
                         <motion.div
                           animate={hoveredNode === index ? {
                             rotate: [0, 360],

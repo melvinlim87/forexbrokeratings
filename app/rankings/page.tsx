@@ -1,227 +1,118 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, ArrowRight, Shield, TrendingUp } from 'lucide-react';
+import { Award, ArrowRight, Shield, TrendingUp, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
-// Sample data - would come from API in real implementation
-const rankedBrokers = [
-  {
-    rank: 1,
-    name: 'Pepperstone',
-    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    rating: 4.9,
-    minDeposit: 200,
-    features: ['Raw spreads from 0.0 pips', 'Ultra-fast execution', 'Top-tier regulation'],
-    regulations: ['FCA', 'ASIC', 'CySEC', 'BaFin', 'DFSA'],
-    tradingPlatforms: ['MT4', 'MT5', 'cTrader'],
-    pros: ['Excellent spreads', 'Fast execution', 'Advanced platform options'],
-    cons: ['Higher minimum deposit', 'Limited educational content'],
-    slug: 'pepperstone'
-  },
-  {
-    rank: 2,
-    name: 'IC Markets',
-    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    rating: 4.8,
-    minDeposit: 200,
-    features: ['True ECN connectivity', 'Institutional liquidity', '500+ trading instruments'],
-    regulations: ['ASIC', 'CySEC', 'FSA'],
-    tradingPlatforms: ['MT4', 'MT5', 'cTrader'],
-    pros: ['Deep liquidity', 'Low spreads', 'Fast execution speeds'],
-    cons: ['Basic research tools', 'Limited educational content'],
-    slug: 'ic-markets'
-  },
-  {
-    rank: 3,
-    name: 'XM',
-    logo: 'https://images.pexels.com/photos/6771985/pexels-photo-6771985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    rating: 4.7,
-    minDeposit: 5,
-    features: ['$5 minimum deposit', 'Extensive education', 'Multi-language support'],
-    regulations: ['CySEC', 'ASIC', 'IFSC'],
-    tradingPlatforms: ['MT4', 'MT5'],
-    pros: ['Ultra-low minimum deposit', 'No deposit fees', 'Multi-language support'],
-    cons: ['Average trading platform', 'Limited research tools'],
-    slug: 'xm'
-  }
-];
+import { getTopBrokers, brokers } from '@/lib/brokers';
 
 export default function RankingsPage() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const rankedBrokers = getTopBrokers(10);
+  const [expandedBroker, setExpandedBroker] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      <div className="bg-metallic pt-28 pb-16 relative overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 2 }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
-          }}
-        />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Top Rated Forex Brokers
-            </h1>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              Comprehensive rankings of the best forex brokers based on our detailed analysis and evaluation criteria.
-            </p>
-          </div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4 py-6">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <Award className="inline-block h-6 w-6 text-amber-500 mr-2" />
+            Forex Broker Rankings 2025
+          </h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Our comprehensive rankings based on regulation, trading conditions, platforms, and overall value.</p>
         </div>
-      </div>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="space-y-8">
+        {/* Rankings Cards */}
+        <div className="space-y-3">
           {rankedBrokers.map((broker, index) => (
             <motion.div
-              key={broker.rank}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredCard(broker.rank)}
-              onMouseLeave={() => setHoveredCard(null)}
+              key={broker.id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
             >
-              <Card 
-                className="overflow-hidden bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-900/80 dark:to-gray-900/40 backdrop-blur-sm border-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:-z-10 before:bg-gradient-to-br before:from-gray-300 before:via-gray-100 before:to-gray-400 dark:before:from-gray-600 dark:before:via-gray-700 dark:before:to-gray-800 after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20 after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    <div className="md:col-span-3 lg:col-span-2 flex flex-col items-center justify-center">
-                      <div className="text-4xl font-bold bg-gradient-to-br from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-200 bg-clip-text text-transparent mb-4">
-                        #{broker.rank}
-                      </div>
-                      <div className="h-16 w-32 relative bg-gray-100 dark:bg-gray-800 rounded mb-3">
-                        <Image
-                          src={broker.logo}
-                          alt={broker.name}
-                          layout="fill"
-                          objectFit="contain"
-                          className="p-2"
-                        />
-                      </div>
-                      <h3 className="text-xl font-semibold text-center text-gray-900 dark:text-white mb-2">
-                        {broker.name}
-                      </h3>
-                      <div className="flex items-center">
-                        <Award className="h-5 w-5 text-yellow-500 fill-yellow-500 mr-1" />
-                        <span className="font-medium">{broker.rating}</span>
-                      </div>
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+                <CardContent className="p-3">
+                  <div className="flex items-center gap-4">
+                    {/* Rank */}
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                      {index + 1}
                     </div>
 
-                    <div className="md:col-span-7 lg:col-span-7">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* Logo */}
+                    <div className="h-10 w-20 relative bg-gray-50 dark:bg-gray-800 rounded flex-shrink-0 overflow-hidden">
+                      <Image src={broker.logo} alt={broker.name} fill className="object-contain p-1" unoptimized />
+                    </div>
+
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
                         <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Key Features
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.features.map((feature, i) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <TrendingUp className="h-4 w-4 text-blue-500 mr-2 mt-0.5" />
-                                <span className="text-gray-700 dark:text-gray-300">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <h3 className="text-base font-semibold text-gray-900 dark:text-white">{broker.name}</h3>
+                          <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">{broker.bestFor}</p>
                         </div>
-
-                        <div>
-                          <div className="mb-4">
-                            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                              Regulation
-                            </h4>
-                            <div className="flex flex-wrap gap-1">
-                              {broker.regulations.map((reg) => (
-                                <Badge 
-                                  key={reg} 
-                                  variant="outline"
-                                  className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800"
-                                >
-                                  <Shield className="h-3 w-3 mr-1" />
-                                  {reg}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                              Trading Platforms
-                            </h4>
-                            <div className="flex flex-wrap gap-1">
-                              {broker.tradingPlatforms.map((platform) => (
-                                <Badge key={platform} variant="secondary">
-                                  {platform}
-                                </Badge>
-                              ))}
-                            </div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center bg-amber-50 dark:bg-amber-900/20 rounded px-2 py-1">
+                            <Star className="w-4 h-4 text-amber-500 fill-amber-500 mr-1" />
+                            <span className="text-sm font-bold text-amber-700 dark:text-amber-400">{broker.rating}</span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Pros
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.pros.map((pro, i) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <svg className="h-4 w-4 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span className="text-gray-700 dark:text-gray-300">{pro}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
-                            Cons
-                          </h4>
-                          <ul className="space-y-2">
-                            {broker.cons.map((con, i) => (
-                              <li key={i} className="flex items-start text-sm">
-                                <svg className="h-4 w-4 text-red-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span className="text-gray-700 dark:text-gray-300">{con}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-2 lg:col-span-3 flex flex-col justify-center items-center md:items-end">
-                      <div className="mb-4 text-center md:text-right">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Min. Deposit</p>
-                        <p className="text-lg font-semibold text-gray-900 dark:text-white">
-                          ${broker.minDeposit}
-                        </p>
+                      {/* Quick Stats */}
+                      <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 dark:text-gray-400">
+                        <span>Min Deposit: <strong className="text-gray-700 dark:text-gray-300">${broker.minDeposit}</strong></span>
+                        <span>Spreads: <strong className="text-gray-700 dark:text-gray-300">{broker.spreads}</strong></span>
+                        <span>Instruments: <strong className="text-gray-700 dark:text-gray-300">{broker.tradingInstruments}+</strong></span>
                       </div>
 
-                      <div className="space-y-2 w-full">
-                        <Button className="w-full" asChild>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            Visit Broker
-                          </a>
+                      {/* Regulations */}
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {broker.regulations.map(r => (
+                          <span key={r} className="text-[10px] font-medium text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-1.5 py-0.5 rounded">
+                            <Shield className="inline h-2 w-2 mr-0.5" />{r}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Expandable Review */}
+                      {expandedBroker === broker.id && (
+                        <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">{broker.description}</p>
+                          <div className="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                              <h4 className="font-semibold text-green-600 dark:text-green-400 mb-1">Pros</h4>
+                              <ul className="space-y-0.5">
+                                {broker.pros.slice(0, 3).map((p, i) => (
+                                  <li key={i} className="text-gray-600 dark:text-gray-400">✓ {p}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-red-600 dark:text-red-400 mb-1">Cons</h4>
+                              <ul className="space-y-0.5">
+                                {broker.cons.slice(0, 3).map((c, i) => (
+                                  <li key={i} className="text-gray-600 dark:text-gray-400">✗ {c}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Actions */}
+                      <div className="flex items-center gap-2 mt-2">
+                        <Button size="sm" variant="outline" className="h-7 text-xs px-2" onClick={() => setExpandedBroker(expandedBroker === broker.id ? null : broker.id)}>
+                          {expandedBroker === broker.id ? 'Less' : 'More'}
                         </Button>
-                        <Button variant="outline" className="w-full" asChild>
-                          <Link href={`/broker/${broker.slug}`}>
-                            Read Review <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
+                        <Button size="sm" variant="outline" className="h-7 text-xs px-2" asChild>
+                          <Link href={`/broker/${broker.slug}`}>Full Review</Link>
+                        </Button>
+                        <Button size="sm" className="h-7 text-xs px-2 bg-blue-600 hover:bg-blue-700 text-white" asChild>
+                          <a href={broker.affiliateUrl} target="_blank" rel="noopener noreferrer">Visit Broker</a>
                         </Button>
                       </div>
                     </div>

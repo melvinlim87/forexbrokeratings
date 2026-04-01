@@ -15,7 +15,7 @@ const latestReviews = [
   {
     id: 1,
     name: 'XTB',
-    logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    logo: '/logos/xtb.svg',
     rating: 4.6,
     date: 'May 2, 2025',
     summary: 'XTB offers a solid trading experience with excellent research and educational materials, making it ideal for beginners and intermediate traders.',
@@ -25,7 +25,7 @@ const latestReviews = [
   {
     id: 2,
     name: 'AvaTrade',
-    logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    logo: '/logos/avatrade.svg',
     rating: 4.5,
     date: 'April 28, 2025',
     summary: 'AvaTrade provides a feature-rich environment for forex and CFD trading, with competitive spreads and excellent educational resources.',
@@ -35,7 +35,7 @@ const latestReviews = [
   {
     id: 3,
     name: 'OANDA',
-    logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    logo: '/logos/oanda.svg',
     rating: 4.7,
     date: 'April 25, 2025',
     summary: 'OANDA stands out with its transparent pricing, advanced charting tools, and high-quality market analysis for experienced traders.',
@@ -48,12 +48,12 @@ export default function LatestReviews() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950">
+    <section className="py-8 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Latest Broker Reviews</h2>
-            <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Latest Broker Reviews</h2>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 max-w-2xl">
               Fresh insights from our expert analysis of forex brokers.
             </p>
           </div>
@@ -86,17 +86,16 @@ export default function LatestReviews() {
                   "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                   "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
                   "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                  "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                  "shadow-md hover:shadow-lg transition-all duration-300"
                 )}>
-                <CardContent className="p-6">
+                <CardContent className="p-3">
                   <div className="flex items-center justify-between mb-4">
                     <div className="h-12 w-24 relative bg-gray-100 dark:bg-gray-800 rounded">
                       <Image
                         src={review.logo}
                         alt={review.name}
-                        layout="fill"
-                        objectFit="contain"
-                        className="p-1"
+                        fill
+                        className="p-1 object-contain"
                       />
                     </div>
                     <div className="flex items-center gap-1">

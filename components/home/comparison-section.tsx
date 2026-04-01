@@ -3,312 +3,430 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Star, Shield, DollarSign, Monitor, TrendingUp, Award, DollarSign as Dollar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { brokers, getTopBrokers } from '@/lib/brokers';
 
-type Feature = {
-  score?: number;
-  label?: string;
-  value?: string | boolean;
+// Pick top 4 brokers for comparison
+const topBrokers = getTopBrokers(4);
+
+// Regulation flag map
+const regulationFlags: Record<string, string> = {
+  'FCA': '🇬🇧',
+  'ASIC': '🇦🇺',
+  'CySEC': '🇨🇾',
+  'CFTC/NFA': '🇺🇸',
+  'MAS': '🇸🇬',
+  'IIROC': '🇨🇦',
+  'FSCA': '🇿🇦',
+  'DFSA': '🇦🇪',
+  'FSA': '🇯🇵',
+  'CIMA': '🇰🇾',
+  'SCB': '🇧🇸',
+  'VFSC': '🇻🇺',
+  'FMA NZ': '🇳🇿',
+  'CMVM': '🇵🇹',
+  'FSC': '🇲🇺',
+  'FSA Seychelles': '🇸🇨',
+  'BVI FSC': '🇻🇬',
+  'ISA': '🇮🇱',
 };
 
-type BrokerFeatures = {
-  [key: string]: Feature;
-};
-
-type Broker = {
-  id: number;
-  name: string;
-  logo: string;
-  features: BrokerFeatures;
-};
-
-type ComparisonData = {
-  'beginner-friendly': Broker[];
-  'low-fees': Broker[];
-  'advanced-trading': Broker[];
-};
-
-// Sample data - would come from API in real implementation
-const brokerComparisonData: ComparisonData = {
-  'beginner-friendly': [
-    {
-      id: 1,
-      name: 'eToro',
-      logo: 'https://images.pexels.com/photos/7876439/pexels-photo-7876439.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: {
-        userInterface: { score: 9.5, label: 'Excellent' },
-        educationalContent: { score: 9.8, label: 'Extensive' },
-        demoAccount: { value: true },
-        customerSupport: { score: 8.7, label: '24/7 Chat & Email' },
-        minDeposit: { value: '$50' },
-        mobileApp: { score: 9.2, label: 'iOS & Android' }
-      }
-    },
-    {
-      id: 2,
-      name: 'Plus500',
-      logo: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: {
-        userInterface: { score: 8.8, label: 'Very Good' },
-        educationalContent: { score: 7.5, label: 'Good' },
-        demoAccount: { value: true },
-        customerSupport: { score: 7.9, label: '24/7 Chat' },
-        minDeposit: { value: '$100' },
-        mobileApp: { score: 8.7, label: 'iOS & Android' }
-      }
-    },
-    {
-      id: 3,
-      name: 'FXTM',
-      logo: 'https://images.pexels.com/photos/8370578/pexels-photo-8370578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: {
-        userInterface: { score: 8.2, label: 'Good' },
-        educationalContent: { score: 9.5, label: 'Excellent' },
-        demoAccount: { value: true },
-        customerSupport: { score: 9.0, label: '24/7 Multi-language' },
-        minDeposit: { value: '$50' },
-        mobileApp: { score: 8.5, label: 'iOS & Android' }
-      }
-    }
-  ],
-  'low-fees': [
-    {
-      id: 1,
-      name: 'IC Markets',
-      logo: 'https://via.placeholder.com/100x50?text=ICMarkets',
-      features: {
-        spreads: { value: 'From 0.0 pips' },
-        commissions: { value: '$3.50 per lot' },
-        overnightFees: { score: 8.5, label: 'Low' },
-        depositFees: { value: 'Free' },
-        withdrawalFees: { value: 'Free (some methods)' },
-        inactivityFees: { value: 'None' }
-      }
-    },
-    {
-      id: 2,
-      name: 'Pepperstone',
-      logo: 'https://via.placeholder.com/100x50?text=Pepperstone',
-      features: {
-        spreads: { value: 'From 0.0 pips' },
-        commissions: { value: '$3.50 per lot' },
-        overnightFees: { score: 8.0, label: 'Low' },
-        depositFees: { value: 'Free' },
-        withdrawalFees: { value: 'Free' },
-        inactivityFees: { value: 'None' }
-      }
-    },
-    {
-      id: 3,
-      name: 'XM',
-      logo: 'https://via.placeholder.com/100x50?text=XM',
-      features: {
-        spreads: { value: 'From 0.1 pips' },
-        commissions: { value: 'Zero' },
-        overnightFees: { score: 7.8, label: 'Average' },
-        depositFees: { value: 'Free' },
-        withdrawalFees: { value: 'Free (first monthly)' },
-        inactivityFees: { value: 'After 90 days' }
-      }
-    }
-  ],
-  'advanced-trading': [
-    {
-      id: 1,
-      name: 'Saxo Bank',
-      logo: 'https://via.placeholder.com/100x50?text=SaxoBank',
-      features: {
-        tradingPlatforms: { value: 'SaxoTraderGO, SaxoTraderPRO' },
-        technicalTools: { score: 9.8, label: 'Extensive' },
-        apiAccess: { value: true },
-        tradingAlgorithms: { value: true },
-        executionSpeed: { score: 9.5, label: 'Ultra-fast' },
-        advancedOrderTypes: { score: 9.7, label: 'Comprehensive' }
-      }
-    },
-    {
-      id: 2,
-      name: 'Interactive Brokers',
-      logo: 'https://via.placeholder.com/100x50?text=IBKR',
-      features: {
-        tradingPlatforms: { value: 'TWS, IBKR Mobile' },
-        technicalTools: { score: 9.7, label: 'Extensive' },
-        apiAccess: { value: true },
-        tradingAlgorithms: { value: true },
-        executionSpeed: { score: 9.7, label: 'Ultra-fast' },
-        advancedOrderTypes: { score: 9.9, label: 'Most extensive' }
-      }
-    },
-    {
-      id: 3,
-      name: 'Dukascopy',
-      logo: 'https://via.placeholder.com/100x50?text=Dukascopy',
-      features: {
-        tradingPlatforms: { value: 'JForex, JForex Web' },
-        technicalTools: { score: 9.5, label: 'Extensive' },
-        apiAccess: { value: true },
-        tradingAlgorithms: { value: true },
-        executionSpeed: { score: 9.3, label: 'Very fast' },
-        advancedOrderTypes: { score: 9.4, label: 'Very comprehensive' }
-      }
-    }
-  ]
-};
-
-export default function ComparisonSection() {
-  const [activeTab, setActiveTab] = useState<keyof ComparisonData>('beginner-friendly');
-  
-  // Determine which feature fields to show based on active tab
-  const getFeatureRows = () => {
-    switch(activeTab) {
-      case 'beginner-friendly':
-        return [
-          { key: 'userInterface', label: 'User Interface' },
-          { key: 'educationalContent', label: 'Educational Content' },
-          { key: 'demoAccount', label: 'Free Demo Account' },
-          { key: 'customerSupport', label: 'Customer Support' },
-          { key: 'minDeposit', label: 'Minimum Deposit' },
-          { key: 'mobileApp', label: 'Mobile App' }
-        ];
-      case 'low-fees':
-        return [
-          { key: 'spreads', label: 'Spreads' },
-          { key: 'commissions', label: 'Commissions' },
-          { key: 'overnightFees', label: 'Overnight Fees' },
-          { key: 'depositFees', label: 'Deposit Fees' },
-          { key: 'withdrawalFees', label: 'Withdrawal Fees' },
-          { key: 'inactivityFees', label: 'Inactivity Fees' }
-        ];
-      case 'advanced-trading':
-        return [
-          { key: 'tradingPlatforms', label: 'Trading Platforms' },
-          { key: 'technicalTools', label: 'Technical Analysis Tools' },
-          { key: 'apiAccess', label: 'API Access' },
-          { key: 'tradingAlgorithms', label: 'Algorithmic Trading' },
-          { key: 'executionSpeed', label: 'Execution Speed' },
-          { key: 'advancedOrderTypes', label: 'Advanced Order Types' }
-        ];
-      default:
-        return [];
-    }
-  };
-  
-  // Render appropriate cell content based on feature type
-  const renderFeatureCell = (broker: Broker, featureKey: string) => {
-    const feature = broker.features[featureKey];
-    
-    if (!feature) return <span className="text-gray-400">-</span>;
-    
-    if (typeof feature.value === 'boolean') {
-      return feature.value ? 
-        <Check className="h-5 w-5 text-green-500" /> : 
-        <X className="h-5 w-5 text-red-500" />;
-    }
-    
-    if (feature.value) {
-      return <span className="font-medium">{feature.value}</span>;
-    }
-    
-    if (feature.score && feature.label) {
-      return (
-        <div>
-          <div className="font-medium">{feature.label}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">{feature.score}/10</div>
-        </div>
-      );
-    }
-    
-    return <span className="text-gray-400">-</span>;
-  };
+function StarRating({ rating, max = 10 }: { rating: number; max?: number }) {
+  const fullStars = Math.floor(rating / 2);
+  const hasHalf = (rating / 2) - fullStars >= 0.25;
+  const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <div className="flex items-center gap-0.5">
+      {Array.from({ length: fullStars }).map((_, i) => (
+        <Star key={`full-${i}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+      ))}
+      {hasHalf && (
+        <div className="relative h-4 w-4">
+          <Star className="absolute h-4 w-4 text-gray-300 dark:text-gray-600" />
+          <div className="absolute inset-0 overflow-hidden w-1/2">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+          </div>
+        </div>
+      )}
+      {Array.from({ length: emptyStars }).map((_, i) => (
+        <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
+      ))}
+      <span className="ml-1.5 text-sm font-semibold text-gray-900 dark:text-white">{rating.toFixed(1)}</span>
+    </div>
+  );
+}
+
+function SpreadBar({ value, max = 2.5, label }: { value: number; max?: number; label?: string }) {
+  const pct = Math.min((value / max) * 100, 100);
+  const color = value <= 0.5 ? 'bg-green-500' : value <= 1.0 ? 'bg-yellow-500' : 'bg-orange-500';
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full ${color} transition-all duration-500`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <span className="text-xs font-medium text-gray-700 dark:text-gray-300 w-16 text-right">
+        {value.toFixed(1)} pips
+      </span>
+    </div>
+  );
+}
+
+function DepositBar({ value, max = 500 }: { value: number; max?: number }) {
+  const pct = Math.min((value / max) * 100, 100);
+  const color = value === 0 ? 'bg-green-500' : value <= 100 ? 'bg-green-400' : value <= 250 ? 'bg-yellow-500' : 'bg-orange-500';
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full ${color} transition-all duration-500`}
+          style={{ width: `${Math.max(pct, 5)}%` }}
+        />
+      </div>
+      <span className="text-xs font-medium text-gray-700 dark:text-gray-300 w-14 text-right">
+        {value === 0 ? '$0' : `$${value}`}
+      </span>
+    </div>
+  );
+}
+
+/**
+ * Total Cost per Standard Lot (100K units EUR/USD)
+ * Formula: (spread_in_pips × pip_value × 100K) + commission_per_lot
+ * pip_value for EUR/USD ≈ $10 per pip per standard lot
+ * So: cost = spread × $10 + commission (round-turn)
+ */
+function TotalCostBar({ spread, commission }: { spread: number; commission: number }) {
+  const totalCost = spread * 10 + commission; // $ per standard lot
+  const maxCost = 25; // $25 is high, $5 or less is excellent
+  const pct = Math.min((totalCost / maxCost) * 100, 100);
+  const color = totalCost <= 7 ? 'bg-emerald-500' : totalCost <= 12 ? 'bg-green-400' : totalCost <= 17 ? 'bg-yellow-500' : 'bg-orange-500';
+
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full ${color} transition-all duration-500`}
+          style={{ width: `${Math.max(pct, 8)}%` }}
+        />
+      </div>
+      <span className="text-xs font-bold text-gray-800 dark:text-gray-200 w-16 text-right">
+        ${totalCost.toFixed(2)}/lot
+      </span>
+    </div>
+  );
+}
+
+export default function ComparisonSection() {
+  const [hoveredCol, setHoveredCol] = useState<number | null>(null);
+
+  return (
+    <section className="py-12 md:py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Compare Top Forex Brokers</h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Find the perfect broker for your trading style with our detailed side-by-side comparisons.
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <div className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium mb-3 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1 rounded-full">
+            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Verified Data — Updated March 2026
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Compare Top Forex Brokers Side-by-Side
+          </h2>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            Real data from our top-rated brokers. Compare spreads, regulation, deposits, platforms, and ratings at a glance.
           </p>
         </div>
-        
+
         <Card className="border-0 shadow-lg overflow-hidden">
           <CardContent className="p-0">
-            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <div className="bg-gray-100 dark:bg-gray-800 px-4 py-4 sm:px-6">
-                <TabsList className="w-full grid grid-cols-3 bg-gray-200 dark:bg-gray-700">
-                  <TabsTrigger value="beginner-friendly">For Beginners</TabsTrigger>
-                  <TabsTrigger value="low-fees">Lowest Fees</TabsTrigger>
-                  <TabsTrigger value="advanced-trading">Advanced Trading</TabsTrigger>
-                </TabsList>
-              </div>
-              
-              {(['beginner-friendly', 'low-fees', 'advanced-trading'] as const).map((tabValue) => (
-                <TabsContent key={tabValue} value={tabValue} className="mt-0">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="bg-white dark:bg-gray-950">
-                          <th className="px-6 py-5 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-1/4">
-                            Broker
-                          </th>
-                          {brokerComparisonData[tabValue].map((broker) => (
-                            <th key={broker.id} className="px-6 py-5 text-center">
-                              <div className="flex flex-col items-center">
-                                <div className="h-10 w-24 relative mb-2">
-                                  <Image
-                                    src={broker.logo}
-                                    alt={broker.name}
-                                    layout="fill"
-                                    objectFit="contain"
-                                  />
-                                </div>
-                                <span className="font-semibold text-gray-900 dark:text-white">
-                                  {broker.name}
-                                </span>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[700px]">
+                {/* Header Row — Broker Logos & Names */}
+                <thead>
+                  <tr className="bg-white dark:bg-gray-950">
+                    <th className="px-4 py-4 text-left text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider w-40 sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <TrendingUp className="h-3.5 w-3.5" /> Broker
+                      </div>
+                    </th>
+                    {topBrokers.map((broker, idx) => (
+                      <th
+                        key={broker.id}
+                        className={`px-4 py-4 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <Link href={`/broker/${broker.slug}`} className="group flex flex-col items-center">
+                          <div className="h-10 w-24 relative mb-2 mx-auto">
+                            <Image
+                              src={broker.logo}
+                              alt={broker.name}
+                              fill
+                              className="object-contain"
+                              sizes="96px"
+                            />
+                          </div>
+                          <span className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-sm">
+                            {broker.name}
+                          </span>
+                        </Link>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                  {/* Rating Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <Star className="h-3.5 w-3.5 text-yellow-500" /> Rating
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-3 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <StarRating rating={broker.rating} />
+                      </td>
+                    ))}
+                  </tr>
+
+                  {/* Spreads Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <TrendingUp className="h-3.5 w-3.5 text-green-500" /> EUR/USD Spread
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => {
+                      const spread = (broker as any).avgSpreadEurUsd ?? 1.0;
+                      return (
+                        <td
+                          key={broker.id}
+                          className={`px-4 py-3 transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                          onMouseEnter={() => setHoveredCol(idx)}
+                          onMouseLeave={() => setHoveredCol(null)}
+                        >
+                          <SpreadBar value={spread} />
+                        </td>
+                      );
+                    })}
+                  </tr>
+
+                  {/* Regulation Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <Shield className="h-3.5 w-3.5 text-blue-500" /> Regulation
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-3 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <div className="flex flex-wrap justify-center gap-1">
+                          {broker.regulations.map((reg) => (
+                            <span
+                              key={reg}
+                              className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-xs font-medium"
+                              title={reg}
+                            >
+                              {regulationFlags[reg] || '🌐'} {reg}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+
+                  {/* Min Deposit Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <DollarSign className="h-3.5 w-3.5 text-green-600" /> Min Deposit
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-3 transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <DepositBar value={broker.minDeposit} />
+                      </td>
+                    ))}
+                  </tr>
+
+                  {/* Total Cost per Standard Lot Row — NEW */}
+                  {(() => {
+                    const costs = topBrokers.map(b => {
+                      const spread = (b as any).avgSpreadEurUsd ?? 1.0;
+                      const comm = (b as any).commissionRt ?? 0;
+                      return spread * 10 + comm;
+                    });
+                    const cheapest = Math.min(...costs);
+                    return (
+                      <tr className="bg-emerald-50/50 dark:bg-emerald-900/10">
+                        <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-emerald-50/50 dark:bg-emerald-900/10 z-10">
+                          <div className="flex items-center gap-1.5">
+                            <Dollar className="h-3.5 w-3.5 text-emerald-600" /> Total Cost/Lot *
+                          </div>
+                        </td>
+                        {topBrokers.map((broker, idx) => {
+                          const spread = (broker as any).avgSpreadEurUsd ?? 1.0;
+                          const comm = (broker as any).commissionRt ?? 0;
+                          const totalCost = spread * 10 + comm;
+                          const isCheapest = totalCost === cheapest;
+                          return (
+                            <td
+                              key={broker.id}
+                              className={`px-4 py-3 transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                              onMouseEnter={() => setHoveredCol(idx)}
+                              onMouseLeave={() => setHoveredCol(null)}
+                            >
+                              <div className="flex items-center gap-1.5">
+                                <TotalCostBar spread={spread} commission={comm} />
+                                {isCheapest && (
+                                  <Badge className="bg-emerald-600 text-white text-[10px] px-1.5 py-0 h-4 whitespace-nowrap">
+                                    <Award className="h-2.5 w-2.5 mr-0.5" /> Best
+                                  </Badge>
+                                )}
                               </div>
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                        {getFeatureRows().map((row) => (
-                          <tr key={row.key} className="bg-white dark:bg-gray-950">
-                            <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                              {row.label}
                             </td>
-                            {brokerComparisonData[tabValue].map((broker) => (
-                              <td key={broker.id} className="px-6 py-4 text-sm text-center">
-                                {renderFeatureCell(broker, row.key)}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                        <tr className="bg-white dark:bg-gray-950">
-                          <td className="px-6 py-4"></td>
-                          {brokerComparisonData[tabValue].map((broker) => (
-                            <td key={broker.id} className="px-6 py-4 text-center">
-                              <Button size="sm" className="w-full" asChild>
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                  Visit Site
-                                </a>
-                              </Button>
-                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })()}
+
+                  {/* Platforms Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <Monitor className="h-3.5 w-3.5 text-purple-500" /> Platforms
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-3 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <div className="flex flex-wrap justify-center gap-1">
+                          {broker.platforms.map((p) => (
+                            <span
+                              key={p}
+                              className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs"
+                            >
+                              {p}
+                            </span>
                           ))}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </TabsContent>
-              ))}
-            </Tabs>
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+
+                  {/* Instruments Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      <div className="flex items-center gap-1.5">
+                        <svg className="h-3.5 w-3.5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                        Instruments
+                      </div>
+                    </td>
+                    {topBrokers.map((broker, idx) => {
+                      const instruments = (broker as any).tradingInstruments ?? broker.platforms?.length ?? '—';
+                      return (
+                        <td
+                          key={broker.id}
+                          className={`px-4 py-3 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                          onMouseEnter={() => setHoveredCol(idx)}
+                          onMouseLeave={() => setHoveredCol(null)}
+                        >
+                          <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                            {typeof instruments === 'number' ? instruments.toLocaleString() + '+' : instruments}
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+
+                  {/* Best For Row */}
+                  <tr className="bg-white dark:bg-gray-950">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white sticky left-0 bg-white dark:bg-gray-950 z-10">
+                      Best For
+                    </td>
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-3 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <span className="text-xs text-gray-600 dark:text-gray-400 italic">
+                          {broker.bestFor?.replace('Best for ', '') || '—'}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+
+                  {/* CTA Row */}
+                  <tr className="bg-gray-50 dark:bg-gray-900">
+                    <td className="px-4 py-4 sticky left-0 bg-gray-50 dark:bg-gray-900 z-10" />
+                    {topBrokers.map((broker, idx) => (
+                      <td
+                        key={broker.id}
+                        className={`px-4 py-4 text-center transition-colors ${hoveredCol === idx ? 'bg-blue-50/50 dark:bg-blue-900/10' : ''}`}
+                        onMouseEnter={() => setHoveredCol(idx)}
+                        onMouseLeave={() => setHoveredCol(null)}
+                      >
+                        <div className="flex flex-col gap-1.5 items-center">
+                          <Button size="sm" className="w-full max-w-[160px]" asChild>
+                            <a href={broker.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored">
+                              Visit {broker.name}
+                            </a>
+                          </Button>
+                          <Link
+                            href={`/broker/${broker.slug}`}
+                            className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                          >
+                            Read Review →
+                          </Link>
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </CardContent>
         </Card>
-        
-        <div className="mt-8 text-center">
+
+        <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            * Total Cost/Lot = (EUR/USD spread × $10) + round-turn commission per standard lot (100K units).
+            Data verified March 2026. Costs may vary by account type.
+          </p>
           <Button variant="outline" size="lg" asChild>
             <Link href="/compare">
               Create Custom Comparison <ArrowRight className="ml-2 h-4 w-4" />

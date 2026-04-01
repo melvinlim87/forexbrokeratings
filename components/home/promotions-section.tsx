@@ -29,7 +29,7 @@ const promotions = [
       'Trading requirement: 5 standard lots',
       'Time limit: 30 days'
     ],
-    validUntil: '2025-06-30',
+    validUntil: '2026-06-30',
     slug: 'xm'
   },
   {
@@ -44,7 +44,7 @@ const promotions = [
       'Trading requirement: 10 standard lots',
       'Time limit: 60 days'
     ],
-    validUntil: '2025-07-15',
+    validUntil: '2026-07-15',
     slug: 'fxtm'
   },
   {
@@ -59,7 +59,7 @@ const promotions = [
       'Trading requirement: 1 standard lot',
       'Monthly payout'
     ],
-    validUntil: '2025-12-31',
+    validUntil: '2026-12-31',
     slug: 'ironfx'
   },
   {
@@ -74,7 +74,7 @@ const promotions = [
       'Monthly rewards',
       'VIP account service'
     ],
-    validUntil: '2025-12-31',
+    validUntil: '2026-12-31',
     slug: 'pepperstone'
   }
 ];
@@ -83,16 +83,16 @@ export default function PromotionsSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-amber-50 to-white dark:from-amber-950/20 dark:to-gray-950">
+    <section className="py-8 bg-gradient-to-b from-amber-50 to-white dark:from-amber-950/20 dark:to-gray-950">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center p-2 bg-amber-100 dark:bg-amber-900/30 rounded-full mb-4">
             <Gift className="h-6 w-6 text-amber-600 dark:text-amber-500" />
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             Top Broker Promotions
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
             Exclusive bonuses and rewards from leading forex brokers
           </p>
         </div>
@@ -121,10 +121,10 @@ export default function PromotionsSection() {
                   "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                   "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
                   "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                  "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                  "shadow-md hover:shadow-lg transition-all duration-300"
                 )}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-3">
                   <div className="flex items-center justify-between mb-4">
                     <div className="h-10 w-20 relative bg-gray-100 dark:bg-gray-800 rounded">
                       <Image

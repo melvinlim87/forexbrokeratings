@@ -18,6 +18,7 @@ import SidebarTopBrokers from '@/components/widgets/sidebar-top-brokers';
 import BrokerSchema from '@/components/seo/broker-schema';
 import BrokerMobileCTA from '@/components/broker/mobile-sticky-cta';
 import QuickVerdict from '@/components/broker/quick-verdict';
+import TradingCostCalculator from '@/components/home/trading-cost-calculator';
 import { brokers, getBrokerBySlug, getRelatedBrokers } from '@/lib/brokers';
 import { articlesMeta, getRelatedArticles } from '@/lib/articles-meta';
 
@@ -54,11 +55,35 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const broker = getBrokerBySlug(params.slug);
   if (!broker) return { title: 'Broker Not Found' };
   
+  const title = `${broker.name} Review 2026 — Rating ${broker.rating}/10 | Forex Broker Ratings`;
+  const description = broker.description.slice(0, 160);
+  const url = `${SITE_URL}/broker/${broker.slug}`;
+
   return {
-    title: `${broker.name} Review 2026 — Rating ${broker.rating}/10 | Forex Broker Ratings`,
-    description: broker.description.slice(0, 160),
+    title,
+    description,
     alternates: {
-      canonical: `${SITE_URL}/broker/${broker.slug}`,
+      canonical: url,
+    },
+    openGraph: {
+      type: 'article',
+      url,
+      title,
+      description,
+      siteName: 'Forex Broker Ratings',
+      images: [
+        {
+          url: broker.logo.startsWith('/') ? broker.logo : `/logos/${broker.slug}.png`,
+          width: 400,
+          height: 200,
+          alt: `${broker.name} logo`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
@@ -214,7 +239,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
   const companyData = {
     name: broker.name,
     founded: broker.founded,
-    headquarters: broker.headquarters || broker.companyProfileData?.headquarters || 'N/A',
+    headquarters: (broker as any).headquarters || broker.companyProfileData?.headquarters || 'N/A',
     parentCompany: parentCompany || broker.name,
     phone: phone,
     website: broker.affiliateUrl,
@@ -300,7 +325,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* HERO SECTION — Broker name, logo, overall rating, badges */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <div id="overview" className="mb-5">
+        <div id="overview" className="mb-3">
           <BrokerProfile brokerData={brokerData} relatedBrokers={[]} />
         </div>
 
@@ -324,21 +349,21 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
               FB
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">Forex Broker Ratings Research Team</div>
-              <div className="text-xs text-gray-400">8+ years in forex industry research</div>
+              <div className="text-base font-semibold text-white">Forex Broker Ratings Research Team</div>
+              <div className="text-base text-gray-400">8+ years in forex industry research</div>
             </div>
           </div>
-          <div className="flex-1 text-xs text-gray-400 leading-relaxed">
-            <span className="text-emerald-400 font-medium">Methodology:</span> Our team tests each broker with real accounts, verifies spreads against live data, and cross-checks regulatory status with official registrios. We maintain strict editorial independence — our ratings are never influenced by affiliate partnerships. All data is reviewed quarterly.
+          <div className="flex-1 text-base text-gray-400 leading-relaxed">
+            <span className="text-emerald-400 font-medium">Methodology:</span> Our team tests each broker with real accounts, verifies spreads against live data, and cross-checks regulatory status with official registries. We maintain strict editorial independence — our ratings are never influenced by affiliate partnerships. All data is reviewed quarterly.
           </div>
-          <a href="/methodology" className="flex-shrink-0 text-xs text-emerald-400 hover:text-emerald-300 font-medium whitespace-nowrap underline underline-offset-2">
+          <a href="/methodology" className="flex-shrink-0 text-base text-emerald-400 hover:text-emerald-300 font-medium whitespace-nowrap underline underline-offset-2">
             How We Test →
           </a>
         </div>
 
         {/* Mobile Jump Links */}
         <div className="lg:hidden mb-4 overflow-x-auto">
-          <div className="flex gap-2 text-sm pb-2">
+          <div className="flex gap-2 text-base pb-2">
             {JUMP_LINKS.map(({ id, label }) => (
               <a
                 key={id}
@@ -354,7 +379,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* THREE-COLUMN LAYOUT: LEFT TOC + MAIN + RIGHT WIDGETS */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <div className="flex flex-col lg:flex-row lg:items-start gap-5 mt-4">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-4 mt-3">
 
           {/* ───────────────────────────────────────────────────────── */}
           {/* LEFT: Interactive "On This Page" TOC (sticky, scroll-tracking) */}
@@ -366,59 +391,60 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
           {/* ───────────────────────────────────────────────────────── */}
           {/* MAIN CONTENT — All sections in sequence */}
           {/* ───────────────────────────────────────────────────────── */}
-          <div className="flex-1 min-w-0 space-y-5">
+          <div className="flex-1 min-w-0 space-y-2">
 
-            {/* ── SECTION 2: QUICK OVERVIEW ── */}
-            <section className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Quick Overview</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {quickMetrics.map((m) => (
-                  <div key={m.label} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 text-center">
-                    <div className="text-2xl mb-1">{m.icon}</div>
-                    <div className="text-base font-semibold text-white">{m.value}</div>
-                    <div className="text-sm text-gray-300 mt-0.5">{m.label}</div>
+            {/* ── OVERVIEW + PROS/CONS side by side ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* Quick Overview */}
+              <section className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Quick Overview</h2>
+                <div className="grid grid-cols-2 gap-2">
+                  {quickMetrics.map((m) => (
+                    <div key={m.label} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 text-center">
+                      <div className="text-2xl mb-1">{m.icon}</div>
+                      <div className="text-base font-semibold text-white">{m.value}</div>
+                      <div className="text-base text-gray-400 mt-0.5">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Pros & Cons */}
+              <section id="pros-cons" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Pros & Cons</h2>
+                <div className="space-y-2">
+                  <div className="rounded-lg border border-emerald-800/40 bg-emerald-950/20 p-3">
+                    <h3 className="text-base font-semibold text-emerald-400 mb-2 flex items-center gap-2">
+                      <span>✅</span> Pros
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {broker.pros.slice(0, 4).map((pro, i) => (
+                        <li key={i} className="text-base text-gray-300 flex items-start gap-2">
+                          <span className="text-emerald-500 mt-0.5 flex-shrink-0">+</span>
+                          {pro}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            {/* ── SECTION 3: PROS & CONS ── */}
-            <section id="pros-cons" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Pros & Cons</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Pros */}
-                <div className="rounded-lg border border-emerald-800/40 bg-emerald-950/20 p-3">
-                  <h3 className="text-base font-semibold text-emerald-400 mb-2 flex items-center gap-2">
-                    <span className="text-lg">✅</span> Pros
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {broker.pros.map((pro, i) => (
-                      <li key={i} className="text-base text-gray-300 flex items-start gap-2">
-                        <span className="text-emerald-500 mt-0.5 flex-shrink-0">+</span>
-                        {pro}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="rounded-lg border border-red-800/40 bg-red-950/20 p-3">
+                    <h3 className="text-base font-semibold text-red-400 mb-2 flex items-center gap-2">
+                      <span>⚠️</span> Cons
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {broker.cons.slice(0, 3).map((con, i) => (
+                        <li key={i} className="text-base text-gray-300 flex items-start gap-2">
+                          <span className="text-red-400 mt-0.5 flex-shrink-0">−</span>
+                          {con}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                {/* Cons */}
-                <div className="rounded-lg border border-red-800/40 bg-red-950/20 p-3">
-                  <h3 className="text-base font-semibold text-red-400 mb-2 flex items-center gap-2">
-                    <span className="text-lg">⚠️</span> Cons
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {broker.cons.map((con, i) => (
-                      <li key={i} className="text-base text-gray-300 flex items-start gap-2">
-                        <span className="text-red-500 mt-0.5 flex-shrink-0">−</span>
-                        {con}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </section>
+              </section>
+            </div>
 
             {/* ── SECTION 4: REGULATION & SAFETY ── */}
-            <section id="regulation" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="regulation" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Regulation & Safety</h2>
               {stateStatus && (
                 <div className="mb-3">
@@ -437,7 +463,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
             </section>
 
             {/* ── SECTION 5: FEES & TRADING CONDITIONS ── */}
-            <section id="trading-conditions" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="trading-conditions" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Fees & Trading Conditions</h2>
               {tradingConditionsDeep && (
                 <TradingConditionsDeep
@@ -458,8 +484,8 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                     slippage: '< 0.1 pips avg',
                   }}
                   hiddenFees={tradingConditionsDeep.hiddenFees}
-                  avgSpreadEurUsd={avgSpreadEurUsd}
-                  commissionRt={commissionRt}
+                  avgSpreadEurUsd={avgSpreadEurUsd ?? 1.0}
+                  commissionRt={commissionRt ?? 0}
                   minDeposit={broker.minDeposit}
                   leverage={broker.leverage}
                   platforms={broker.platforms}
@@ -467,91 +493,76 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
               )}
             </section>
 
-            {/* ── SECTION 6: TRADING PLATFORMS ── */}
-            <section id="platforms" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Trading Platforms</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {broker.platforms.map((platform) => (
-                  <div key={platform} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">
-                      {platform.slice(0, 2)}
-                    </div>
-                    <div>
-                      <div className="text-base font-medium text-white">{platform}</div>
-                      <div className="text-sm text-gray-300">
-                        {platform.includes('MT4') || platform.includes('MT5') ? 'MetaTrader' :
-                         platform.includes('cTrader') ? 'cTrader' :
-                         platform.includes('TradingView') ? 'Charting' : 'Platform'}
+            {/* ── PLATFORMS + DEPOSITS side by side ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* Trading Platforms */}
+              <section id="platforms" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Trading Platforms</h2>
+                <div className="grid grid-cols-2 gap-3">
+                  {broker.platforms.map((platform) => (
+                    <div key={platform} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 font-bold text-base flex-shrink-0">
+                        {platform.slice(0, 2)}
+                      </div>
+                      <div>
+                        <div className="text-base font-medium text-white">{platform}</div>
+                        <div className="text-base text-gray-300">
+                          {platform.includes('MT4') || platform.includes('MT5') ? 'MetaTrader' :
+                           platform.includes('cTrader') ? 'cTrader' :
+                           platform.includes('TradingView') ? 'Charting' : 'Platform'}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-              {/* Trading features */}
-              <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {[
-                  { label: 'Hedging', supported: brokerData.tradingFeatures.hedging },
-                  { label: 'Scalping', supported: brokerData.tradingFeatures.scalping },
-                  { label: 'Expert Advisors', supported: brokerData.tradingFeatures.expertAdvisors },
-                  { label: 'Demo Account', supported: brokerData.tradingFeatures.demoAccount },
-                ].map((feat) => (
-                  <div key={feat.label} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 text-center">
-                    <div className={`text-base font-medium ${feat.supported ? 'text-emerald-400' : 'text-red-400'}`}>
-                      {feat.supported ? '✓' : '✗'} {feat.label}
+                  ))}
+                </div>
+              </section>
+
+              {/* Deposit & Withdrawal */}
+              <section id="deposit-withdrawal" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Deposit & Withdrawal</h2>
+                <div className="space-y-2">
+                  <div className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3">
+                    <h3 className="text-base font-semibold text-gray-300 mb-2">Deposit</h3>
+                    <div className="space-y-1.5 text-base">
+                      <div className="flex justify-between"><span className="text-gray-400">Methods</span><span className="text-white">{brokerData.depositWithdrawal.methods.join(', ')}</span></div>
+                      <div className="flex justify-between"><span className="text-gray-400">Processing</span><span className="text-white">{brokerData.depositWithdrawal.depositTime}</span></div>
+                      <div className="flex justify-between"><span className="text-gray-400">Fees</span><span className="text-emerald-400">Free</span></div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            {/* ── SECTION 7: DEPOSIT & WITHDRAWAL ── */}
-            <section id="deposit-withdrawal" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Deposit & Withdrawal</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3">
-                  <h3 className="text-base font-semibold text-gray-300 mb-2">Deposit</h3>
-                  <div className="space-y-1.5 text-base">
-                    <div className="flex justify-between"><span className="text-gray-400">Methods</span><span className="text-white">{brokerData.depositWithdrawal.methods.join(', ')}</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Processing</span><span className="text-white">{brokerData.depositWithdrawal.depositTime}</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Fees</span><span className="text-emerald-400">Free</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Min Deposit</span><span className="text-white">{broker.minDeposit === 0 ? '$0' : `$${broker.minDeposit}`}</span></div>
+                  <div className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3">
+                    <h3 className="text-base font-semibold text-gray-300 mb-2">Withdrawal</h3>
+                    <div className="space-y-1.5 text-base">
+                      <div className="flex justify-between"><span className="text-gray-400">Processing</span><span className="text-white">{brokerData.depositWithdrawal.withdrawalTime}</span></div>
+                      <div className="flex justify-between"><span className="text-gray-400">Fees</span><span className="text-emerald-400">Free</span></div>
+                      <div className="flex justify-between"><span className="text-gray-400">Currencies</span><span className="text-white">{brokerData.depositWithdrawal.baseCurrencies.join(', ')}</span></div>
+                    </div>
                   </div>
                 </div>
-                <div className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3">
-                  <h3 className="text-base font-semibold text-gray-300 mb-2">Withdrawal</h3>
-                  <div className="space-y-1.5 text-base">
-                    <div className="flex justify-between"><span className="text-gray-400">Methods</span><span className="text-white">{brokerData.depositWithdrawal.methods.join(', ')}</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Processing</span><span className="text-white">{brokerData.depositWithdrawal.withdrawalTime}</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Fees</span><span className="text-emerald-400">Free</span></div>
-                    <div className="flex justify-between"><span className="text-gray-400">Currencies</span><span className="text-white">{brokerData.depositWithdrawal.baseCurrencies.join(', ')}</span></div>
-                  </div>
-                </div>
-              </div>
-            </section>
+              </section>
+            </div>
 
-            {/* ── SECTION 8: CUSTOMER SUPPORT ── */}
-            <section id="customer-support" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Customer Support</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {brokerData.customerSupport.channels.map((ch) => (
-                  <div key={ch} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 text-center">
-                    <div className="text-base font-medium text-white">{ch}</div>
-                    <div className="text-sm text-gray-300 mt-0.5">{brokerData.customerSupport.hours}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-3 rounded-lg border border-gray-700/50 bg-gray-800/40 p-3">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-base">
-                  <div><span className="text-gray-400">Hours: </span><span className="text-white">{brokerData.customerSupport.hours}</span></div>
+            {/* ── SUPPORT + RATINGS side by side ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* Customer Support */}
+              <section id="customer-support" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Customer Support</h2>
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  {brokerData.customerSupport.channels.map((ch) => (
+                    <div key={ch} className="rounded-lg border border-gray-700/50 bg-gray-800/40 p-3 text-center">
+                      <div className="text-base font-medium text-white">{ch}</div>
+                      <div className="text-base text-gray-400 mt-0.5">{brokerData.customerSupport.hours}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1.5 text-base">
                   <div><span className="text-gray-400">Response: </span><span className="text-white">{brokerData.customerSupport.responseTime}</span></div>
                   <div><span className="text-gray-400">Languages: </span><span className="text-white">{brokerData.customerSupport.languages.join(', ')}</span></div>
                 </div>
-              </div>
-            </section>
+              </section>
 
-            {/* ── SECTION 9: RATINGS BREAKDOWN ── */}
-            <section id="ratings-breakdown" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-              <h2 className="text-xl font-bold text-white mb-3">Ratings Breakdown</h2>
+              {/* Ratings Breakdown */}
+              <section id="ratings-breakdown" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
+                <h2 className="text-xl font-bold text-white mb-3">Ratings Breakdown</h2>
               <div className="flex items-center gap-4 mb-5">
                 <div className={`text-5xl font-bold ${
                   broker.rating >= 9 ? 'text-emerald-400' :
@@ -560,7 +571,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                   'text-orange-400'
                 }`}>{broker.rating.toFixed(1)}</div>
                 <div>
-                  <div className={`text-sm font-medium px-2 py-0.5 rounded-full inline-block mb-1 ${
+                  <div className={`text-base font-medium px-2 py-0.5 rounded-full inline-block mb-1 ${
                     broker.rating >= 9 ? 'bg-emerald-900/40 text-emerald-400' :
                     broker.rating >= 8 ? 'bg-blue-900/40 text-blue-400' :
                     broker.rating >= 7 ? 'bg-yellow-900/40 text-yellow-400' :
@@ -568,10 +579,10 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                   }`}>
                     {broker.rating >= 9 ? 'Excellent' : broker.rating >= 8 ? 'Very Good' : broker.rating >= 7 ? 'Good' : 'Average'}
                   </div>
-                  <div className="text-sm text-gray-400">out of 10 · {ratingCategories.length} categories</div>
+                  <div className="text-base text-gray-400">out of 10 · {ratingCategories.length} categories</div>
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {ratingCategories.map((cat) => {
                   const barColor = cat.score >= 9 ? 'from-emerald-500 to-emerald-400' :
                                    cat.score >= 8 ? 'from-blue-500 to-blue-400' :
@@ -579,7 +590,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                                    'from-orange-500 to-orange-400';
                   return (
                     <div key={cat.label}>
-                      <div className="flex justify-between text-sm mb-1.5">
+                      <div className="flex justify-between text-base mb-1.5">
                         <span className="text-gray-300">{cat.label}</span>
                         <span className="text-white font-medium">{cat.score.toFixed(1)}</span>
                       </div>
@@ -603,9 +614,10 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                 <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-500" /> &lt;7 Average</span>
               </div>
             </section>
+            </div> {/* End Support + Ratings grid */}
 
             {/* ── SECTION 10: USER REVIEWS ── */}
-            <section id="user-reviews" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="user-reviews" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">User Reviews</h2>
               {userReviewsData && (
                 <UserReviews
@@ -631,7 +643,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
             </section>
 
             {/* ── SECTION 11: RISK ANALYSIS ── */}
-            <section id="risk-analysis" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="risk-analysis" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Risk Analysis</h2>
               {riskAnalysisData && (
                 <RiskAnalysis
@@ -647,7 +659,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
             </section>
 
             {/* ── SECTION 12: COMPANY PROFILE ── */}
-            <section id="company-profile" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="company-profile" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Company Profile</h2>
               {companyProfileData && (
                 <CompanyProfile data={companyData} />
@@ -655,14 +667,14 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
               {!companyProfileData && (
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-base">
                   <div><span className="text-gray-400">Founded: </span><span className="text-white">{broker.founded}</span></div>
-                  <div><span className="text-gray-400">Headquarters: </span><span className="text-white">{broker.headquarters || 'N/A'}</span></div>
+                  <div><span className="text-gray-400">Headquarters: </span><span className="text-white">{(broker as any).headquarters || 'N/A'}</span></div>
                   <div><span className="text-gray-400">Type: </span><span className="text-white">{executionType || 'Broker'}</span></div>
                 </div>
               )}
             </section>
 
             {/* ── SECTION 13: FAQ ── */}
-            <section id="faq" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="faq" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Frequently Asked Questions</h2>
               {faqData && faqData.length > 0 && (
                 <FAQSection brokerName={broker.name} faqs={faqData} />
@@ -673,7 +685,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
             </section>
 
             {/* ── SECTION 14: COMPARE BROKERS ── */}
-            <section id="compare" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+            <section id="compare" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
               <h2 className="text-xl font-bold text-white mb-3">Compare {broker.name} with Competitors</h2>
               {comparisonBrokers.length > 0 && (
                 <CompetitorComparison
@@ -685,7 +697,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
 
             {/* ── RELATED BROKERS ── */}
             {relatedBrokers.length > 0 && (
-              <section id="related-brokers" className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+              <section id="related-brokers" className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
                 <h2 className="text-xl font-bold text-white mb-3">Related Brokers</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {relatedBrokers.map((rb) => (
@@ -700,17 +712,17 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                         </div>
                         <div>
                           <h3 className="text-base font-semibold text-white group-hover:text-blue-400 transition-colors">{rb.name}</h3>
-                          <div className="flex items-center gap-1 text-sm text-gray-300">
+                          <div className="flex items-center gap-1 text-base text-gray-300">
                             <span className="text-yellow-500">★</span> {rb.rating.toFixed(1)}/10
                           </div>
                         </div>
                       </div>
-                      <div className="space-y-1 text-sm text-gray-300">
+                      <div className="space-y-1 text-base text-gray-300">
                         <div className="flex justify-between"><span>Min Deposit</span><span className="font-medium text-white">{rb.minDeposit === 0 ? '$0' : `$${rb.minDeposit}`}</span></div>
                         <div className="flex justify-between"><span>Spreads</span><span className="font-medium text-white">{(rb as any).avgSpreadEurUsd?.toFixed(1) || '—'} pips</span></div>
                         <div className="flex justify-between"><span>Regulation</span><span className="font-medium text-white">{rb.regulations.slice(0, 2).join(', ')}</span></div>
                       </div>
-                      <div className="mt-2 text-sm font-medium text-blue-400 group-hover:underline">Read Review →</div>
+                      <div className="mt-2 text-base font-medium text-blue-400 group-hover:underline">Read Review →</div>
                     </Link>
                   ))}
                 </div>
@@ -719,7 +731,7 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
 
             {/* ── YOU MIGHT ALSO LIKE ── */}
             {youMightLike.length > 0 && (
-              <section className="rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+              <section className="rounded-xl border border-gray-800 bg-gray-900/80 p-4">
                 <h2 className="text-xl font-bold text-white mb-3">You Might Also Like</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {youMightLike.map((article) => (
@@ -728,10 +740,10 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
                       href={`/blog/${article.slug}`}
                       className="group rounded-xl border border-gray-700/50 bg-gray-800/40 p-3 hover:shadow-md hover:border-blue-500/30 transition-all"
                     >
-                      <span className="inline-block px-2 py-0.5 bg-blue-500/10 text-blue-400 rounded text-xs font-medium mb-2">{article.category}</span>
+                      <span className="inline-block px-2 py-0.5 bg-blue-500/10 text-blue-400 rounded text-base font-medium mb-2">{article.category}</span>
                       <h3 className="text-base font-semibold text-white group-hover:text-blue-400 transition-colors line-clamp-2 mb-1">{article.title}</h3>
-                      <p className="text-sm text-gray-300 line-clamp-2 mb-2">{article.excerpt}</p>
-                      <div className="flex items-center gap-2 text-xs text-gray-300">
+                      <p className="text-base text-gray-300 line-clamp-2 mb-2">{article.excerpt}</p>
+                      <div className="flex items-center gap-2 text-base text-gray-300">
                         <span>{article.date}</span><span>·</span><span>{article.readTime}</span>
                       </div>
                     </Link>
@@ -746,11 +758,11 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
           {/* RIGHT SIDEBAR — CTA + Widgets */}
           {/* ───────────────────────────────────────────────────────── */}
           <aside className="hidden xl:block w-64 flex-shrink-0">
-            <div className="sticky top-24 space-y-4">
+            <div className="sticky top-16 space-y-3">
               {/* CTA Card */}
               <div className="rounded-xl border border-emerald-800/40 bg-emerald-950/20 p-4 text-center">
                 <div className="text-base font-semibold text-white mb-1">Ready to trade with {broker.name}?</div>
-                <div className="text-sm text-gray-300 mb-3">Overall Rating: {broker.rating}/10</div>
+                <div className="text-base text-gray-300 mb-3">Overall Rating: {broker.rating}/10</div>
                 <a
                   href={broker.affiliateUrl}
                   target="_blank"
@@ -770,6 +782,9 @@ export default function BrokerPage({ params }: { params: { slug: string } }) {
 
         {/* ── COMPARISON TABLE ── Below main content */}
         <ComparisonTable currentBroker={broker} competitors={competitorBrokers} />
+
+        {/* ── TRADING COST CALCULATOR ── Interactive cost comparison */}
+        <TradingCostCalculator />
 
         {/* Mobile Sticky CTA */}
         <BrokerMobileCTA

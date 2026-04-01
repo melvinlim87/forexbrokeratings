@@ -46,7 +46,7 @@
   }
 
   body {
-    background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 25%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%) fixed;
+    background: #f8fafc fixed;
     background-attachment: fixed;
     min-height: 100vh;
     font-feature-settings: "ss01" on, "ss02" on, "cv01" on, "cv02" on;
@@ -54,8 +54,13 @@
     text-rendering: optimizeLegibility;
   }
 
-  section {
-    background: transparent !important;
+  .dark body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) fixed;
+    background-attachment: fixed;
+  }
+
+  section:not([class*="bg-gradient"]):not([class*="bg-\["]) {
+    background: transparent;
     border: none;
     position: relative;
     z-index: 1;
@@ -87,7 +92,7 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
@@ -115,4 +120,33 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Trending strip marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for trending strip */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
 }

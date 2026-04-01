@@ -42,11 +42,11 @@ export default function QuickVerdict({ brokerName, rating, bestFor, pros, cons, 
           <div>
             <div className="flex items-center gap-1.5">
               <Award className={`h-4 w-4 ${verdict.color}`} />
-              <span className={`text-sm font-bold ${verdict.color}`}>
+              <span className={`text-base font-bold ${verdict.color}`}>
                 {verdict.emoji} {verdict.label}
               </span>
             </div>
-            <p className="text-xs text-gray-400 mt-0.5">
+            <p className="text-base text-gray-400 mt-0.5">
               Best for: <span className="text-gray-300 font-medium">{bestFor}</span>
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function QuickVerdict({ brokerName, rating, bestFor, pros, cons, 
             {/* Top pros */}
             <div className="space-y-1">
               {topPros.map((pro, i) => (
-                <div key={i} className="flex items-start gap-1.5 text-xs">
+                <div key={i} className="flex items-start gap-1.5 text-base">
                   <CheckCircle2 className="h-3 w-3 text-emerald-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-300">{pro}</span>
                 </div>
@@ -67,7 +67,7 @@ export default function QuickVerdict({ brokerName, rating, bestFor, pros, cons, 
             {/* Top cons */}
             <div className="space-y-1">
               {topCons.map((con, i) => (
-                <div key={i} className="flex items-start gap-1.5 text-xs">
+                <div key={i} className="flex items-start gap-1.5 text-base">
                   <AlertTriangle className="h-3 w-3 text-amber-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-400">{con}</span>
                 </div>
@@ -77,7 +77,7 @@ export default function QuickVerdict({ brokerName, rating, bestFor, pros, cons, 
           {/* CTA */}
           <div className="flex items-center gap-3">
             <a href={affiliateUrl} target="_blank" rel="noopener noreferrer sponsored">
-              <Button size="sm" className="h-8 text-xs bg-emerald-600 hover:bg-emerald-500 text-white gap-1.5">
+              <Button size="sm" className="h-8 text-base bg-emerald-600 hover:bg-emerald-500 text-white gap-1.5">
                 Open Account with {brokerName} <ArrowRight className="h-3 w-3" />
               </Button>
             </a>

@@ -65,12 +65,12 @@ export function BrokerProfile({ brokerData }: BrokerProfileProps) {
       <div className="absolute -top-16 -right-16 w-48 h-48 sm:-top-24 sm:-right-24 sm:w-64 sm:h-64 bg-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-12 -left-12 w-36 h-36 sm:-bottom-16 sm:-left-16 sm:w-48 sm:h-48 bg-emerald-500/8 rounded-full blur-3xl" />
 
-      <div className="relative z-10 px-4 sm:px-6 py-5">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+      <div className="relative z-10 px-4 sm:px-6 py-4">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
           {/* Left: Logo + Name + Rating */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-4 mb-3">
-              <div className="h-14 w-24 relative bg-white/10 backdrop-blur-sm rounded-xl p-2 flex-shrink-0 border border-white/10">
+              <div className="h-14 w-24 relative bg-white rounded-xl p-2 flex-shrink-0 border border-white/20">
                 <Image
                   src={brokerData.logo}
                   alt={brokerData.name}
@@ -103,15 +103,24 @@ export function BrokerProfile({ brokerData }: BrokerProfileProps) {
                     </span>
                     <span className="ml-1 text-slate-400 text-base">/10</span>
                   </div>
-                  <Badge variant="outline" className="bg-emerald-500/15 text-emerald-300 border-emerald-500/30 text-sm">
+                  <Badge variant="outline" className="bg-emerald-500/15 text-emerald-300 border-emerald-500/30 text-base">
                     Min ${brokerData.minDeposit}
                   </Badge>
                 </div>
               </div>
             </div>
-            <p className="text-base text-slate-300 leading-relaxed max-w-2xl line-clamp-3">
-              {brokerData.summary}
-            </p>
+            <div className="text-base text-slate-300 leading-relaxed">
+              {(brokerData.summary || '').split('. ').reduce((acc: string[], sentence: string, i: number, arr: string[]) => {
+                if (sentence.trim()) acc.push(sentence.trim() + (i < arr.length - 1 ? '.' : ''));
+                return acc;
+              }, []).reduce((acc: string[], sentence: string, i: number) => {
+                if (i % 3 === 0) acc.push(sentence);
+                else acc[acc.length - 1] += ' ' + sentence;
+                return acc;
+              }, []).map((para: string, i: number) => (
+                <p key={i} className={i > 0 ? 'mt-3' : ''}>{para}</p>
+              ))}
+            </div>
           </div>
 
           {/* Right: CTA Buttons */}
@@ -122,7 +131,7 @@ export function BrokerProfile({ brokerData }: BrokerProfileProps) {
                 Visit {brokerData.name}
               </Button>
             </a>
-            <Button size="sm" variant="outline" className="w-full border-slate-600 text-slate-300 hover:bg-slate-700/50 hover:text-white h-9 text-sm">
+            <Button size="sm" className="w-full bg-slate-800 border border-slate-500 text-white hover:bg-slate-700 h-9 text-base font-medium rounded-md">
               Add to Compare
             </Button>
           </div>

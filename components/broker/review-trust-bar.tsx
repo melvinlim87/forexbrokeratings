@@ -38,18 +38,18 @@ export default function ReviewTrustBar({ brokerName }: { brokerName: string }) {
   ];
 
   return (
-    <div className="space-y-3 py-3">
+    <div className="space-y-2 py-2">
       {/* Prominent review date — NerdWallet-style */}
       <div className="flex flex-wrap items-center justify-between gap-3 py-2.5 px-4 rounded-lg bg-gradient-to-r from-emerald-950/40 via-emerald-900/20 to-emerald-950/40 border border-emerald-800/40">
         <div className="flex items-center gap-2">
           <BadgeCheck className="h-4 w-4 text-emerald-400 flex-shrink-0" />
-          <span className="text-sm font-semibold text-emerald-300">
+          <span className="text-base font-semibold text-emerald-300">
             {brokerName} Review
           </span>
-          <span className="text-xs text-emerald-400/70">—</span>
+          <span className="text-base text-emerald-400/70">—</span>
           <div className="flex items-center gap-1.5">
             <Clock className="h-3 w-3 text-emerald-400/70" />
-            <span className="text-xs text-emerald-400/80">
+            <span className="text-base text-emerald-400/80">
               Last reviewed and verified: <strong className="text-emerald-300">{lastVerified}</strong>
             </span>
           </div>
@@ -61,12 +61,12 @@ export default function ReviewTrustBar({ brokerName }: { brokerName: string }) {
 
       {/* Trust stats row */}
       <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-4 rounded-lg bg-gray-900/30 border border-gray-800/60">
-        <span className="text-xs text-gray-400 font-medium">
+        <span className="text-base text-gray-400 font-medium">
           Our {brokerName} review is based on:
         </span>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex items-center gap-1.5 text-xs">
+            <div key={stat.label} className="flex items-center gap-1.5 text-base">
               <stat.icon className="h-3 w-3 text-emerald-500" />
               <span className="font-semibold text-white">{stat.value}</span>
               <span className="text-gray-400">{stat.label}</span>

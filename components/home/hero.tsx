@@ -18,7 +18,8 @@ const heroSlides = [
     rating: 4.9,
     reviews: '3,547',
     features: ['Raw spreads from 0.0 pips', 'Ultra-fast execution', 'Top-tier regulation'],
-    slug: 'pepperstone'
+    slug: 'pepperstone',
+    brokerUrl: 'https://www.pepperstone.com'
   },
   {
     broker: 'IC Markets',
@@ -29,7 +30,8 @@ const heroSlides = [
     rating: 4.8,
     reviews: '2,892',
     features: ['True ECN connectivity', 'Institutional liquidity', '500+ trading instruments'],
-    slug: 'ic-markets'
+    slug: 'ic-markets',
+    brokerUrl: 'https://www.icmarkets.com'
   },
   {
     broker: 'XM',
@@ -40,13 +42,22 @@ const heroSlides = [
     rating: 4.7,
     reviews: '4,124',
     features: ['$5 minimum deposit', 'Extensive education', 'Multi-language support'],
-    slug: 'xm'
+    slug: 'xm',
+    brokerUrl: 'https://www.xm.com'
   }
 ];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      window.location.href = `/brokers?q=${encodeURIComponent(searchQuery.trim())}`;
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -152,9 +163,9 @@ export default function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                 {heroSlides[currentSlide].title}
-              </h1>
+              </h2>
               
               <p className="text-xl text-gray-200 mb-6">
                 {heroSlides[currentSlide].description}
@@ -188,9 +199,9 @@ export default function Hero() {
                   className="px-8 py-6 text-base bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/20"
                   asChild
                 >
-                  <a 
-                    href="https://example.com/broker"
-                    target="_blank" 
+                  <a
+                    href={heroSlides[currentSlide].brokerUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center"
                   >
@@ -209,24 +220,28 @@ export default function Hero() {
         {/* Search bar section at bottom */}
         <div className="absolute bottom-0 left-0 right-0 bg-black/30 backdrop-blur-sm py-6">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4">
+            <form onSubmit={handleSearch} className="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4" role="search" aria-label="Search brokers">
               <div className="relative flex-grow">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <Search className="h-5 w-5 text-gray-400" />
+                  <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </div>
                 <Input
                   type="text"
-                  placeholder="Search for brokers..."
+                  placeholder="Search brokers by name, platform, or feature..."
                   className="pl-10 py-6 w-full bg-white/10 backdrop-blur-sm border-white/20 text-white placeholder:text-gray-400"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Search for forex brokers"
                 />
               </div>
               <Button
                 size="lg"
+                type="submit"
                 className="px-8 py-6 text-base bg-blue-600 hover:bg-blue-700"
               >
                 Find Brokers
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

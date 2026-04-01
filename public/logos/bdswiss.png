@@ -1,0 +1,215 @@
+
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+	<link id="favicon" rel="icon" href="/apple-touch-icon.png?v=2" type="image/png" sizes="16x16">
+	<script type="text/javascript">
+		//trying to detect existence of touch events based on Modernizr
+		if (!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)) {
+			document.documentElement.className += ' no-touch';
+		}
+	</script>
+	<!-- Google Tag Manager -->
+	<!-- Google Tag Manager -->
+<script async>
+  (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+      '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-NK4P6H');
+</script>
+<!-- End Google Tag Manager -->
+
+	<title>404 | BDSwiss</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='cookie-notice-front-css'  href='https://km.bdswiss.com/app/plugins/cookie-notice/css/front.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-css'  href='https://km.bdswiss.com/app/plugins/raa-waterwheel-carousel/css/swiper.min.css?ver=4.3.5' type='text/css' media='all' />
+<link rel='stylesheet' id='rwc-css'  href='https://km.bdswiss.com/app/plugins/raa-waterwheel-carousel/css/style-public.css?ver=1.0.5' type='text/css' media='all' />
+<link rel='stylesheet' id='wpyg_style-css'  href='https://km.bdswiss.com/app/plugins/wp-youtube-gallery/css/wpyg.min.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='if-menu-site-css-css'  href='https://km.bdswiss.com/app/plugins/if-menu/assets/if-menu-site.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='evo_font_icons-css'  href='//km.bdswiss.com/app/plugins/eventON/assets/fonts/font-awesome.css?ver=4.6.2' type='text/css' media='all' />
+<link rel='stylesheet' id='fancybox-css'  href='https://km.bdswiss.com/app/plugins/easy-fancybox/css/jquery.fancybox.css?ver=1.3.24' type='text/css' media='screen' />
+<link rel='stylesheet' id='bdswiss-404-css'  href='https://km.bdswiss.com/app/themes/bdswiss-main/dist/styles/404.css?ver=4.7.2' type='text/css' media='all' />
+<link rel='stylesheet' id='bdswiss/bootstrap-css-css'  href='https://km.bdswiss.com/app/themes/bdswiss-main/dist/styles/bootstrap.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bdswiss/css-css'  href='https://km.bdswiss.com/app/themes/bdswiss-main/dist/styles/main.css' type='text/css' media='all' />
+
+  <script>
+    var rtl = false;
+    var entity = "seychelles";
+    var lang = "en";
+    var dashboard = {
+      "login": {
+        "link": "https://dashboard-km.bdswiss.com/login",
+        "text": "Log In"
+      },
+      "register": {
+        "link": "https://dashboard-km.bdswiss.com/register",
+        "text": "Sign Up"
+      },
+      "logout": {
+        "link": "https://web-api-km.bdswiss.com/auth/logout",
+        "text": "Log Out"
+      },
+      "accounts": {
+        "link": "https://dashboard-km.bdswiss.com/accounts",
+        "text": "My Account"
+      },
+    };
+    var translatedSearchText = "Search";
+    var webAPIUrl = "https://web-api-km.bdswiss.com/auth/session";
+          var qrplayText = "https://p66rc.app.goo.gl/aYDa";
+          var qrapkText = "https://bit.ly/3PsGnyW";
+      </script>
+<script type='text/javascript' src='https://km.bdswiss.com/wp/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/wp/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/custom-search//assets/js/custom-search.js?ver=1'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/vpn-block-table/assets/js/vpn_redirection.js?ver=4.7.2'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/themes/bdswiss-main/dist/scripts/cookies-bd.js'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/themes/bdswiss-main/dist/scripts/cookies.js'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/themes/bdswiss-main/lib/qr-code/qrcode.js?ver=260325-204605'></script>
+<link rel='https://api.w.org/' href='https://km.bdswiss.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://km.bdswiss.com/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://km.bdswiss.com/wp/wp-includes/wlwmanifest.xml" /> 
+      <script type="text/javascript">
+        var crm_sso_login = 'https://dashboard-global.bdswiss.com/login';
+      </script>
+    <meta name="generator" content="WPML ver:3.6.2 stt:5,65,1,4,3,21,25,27,29,64,66,46,2,53,54,58;" />
+      <meta property="og:image" content="https://km.bdswiss.com/app/themes/bdswiss-main/dist/images/logos/seychelles.png">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:type" content="website">
+      <meta prefix="og: http://ogp.me/ns#" name="title" property="og:title" content="Forex & CFD Trading on Shares, Indices & Commodities | BDSwiss">
+      <meta property="og:url" content="">
+      <meta property="og:site_name" content="BDSwiss">
+      <meta prefix="og: http://ogp.me/ns#" name="description" property="og:description" content="Forex & CFD Trading on Shares, Indices & Commodities">
+      <meta name="twitter:card" content="photo">
+      <meta name="twitter:title" content="Forex & CFD Trading on Shares, Indices & Commodities | BDSwiss">
+      <meta name="twitter:image" content="https://km.bdswiss.com/app/themes/bdswiss-main/dist/images/logos/seychelles.png">
+      <link rel="canonical" href="Forex & CFD Trading on Shares, Indices & Commodities">
+  
+
+<!-- EventON Version -->
+<meta name="generator" content="EventON 2.4.6" />
+
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style>		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+		</style>
+	</head>
+<body class="error404 custom_search_enabled ssotype_comoros seychelles specific_brand custom-brand-seychelles">
+  <!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NK4P6H" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager -->
+    <div class="wrap container-fluid" role="document">
+    <div class="content row">
+      <main class="main">
+        
+<div class="error-container">
+  <div class="container">
+    <div class="logo">
+      <img src="https://km.bdswiss.com/app/themes/bdswiss-main/dist/images/logos/logo_transparent.png" alt="Website logo" />
+    </div>
+
+    <div class="text">
+      <h1>Page not found</h1>
+
+      <div class="description">
+        We can’t seem to find the page you are looking for.<br/>It may not exist, be temporarily unavailable, have been removed or renamed.<br/>You can either go back to the previous page, visit our homepage, or contact our support team.      </div>
+
+              <div class="actions">
+                      <div class="col"><a class="buttons_404" href="javascript:history.back()">Go back</a></div>
+                      <div class="col"><a class="buttons_404" href="https://km.bdswiss.com">Visit homepage</a></div>
+                      <div class="col"><a class="buttons_404" href="https://km.bdswiss.com/contact/">Contact us</a></div>
+                  </div>
+          </div>
+  </div>
+</div>
+
+      </main><!-- /.main -->
+          </div><!-- /.content -->
+  </div><!-- /.wrap -->
+  <script type="text/javascript">
+	window.currentLanguage = 'en';
+	window.accountUrl = 'https://account.bdswiss.com/?locale=en';
+	window.depositUrl = 'https://account.bdswiss.com/?locale=en';
+</script>		<script type="text/javascript">
+		/*<![CDATA[*/
+		var gmapstyles = 'default';
+		/* ]]> */
+		</script>		
+		<script type='text/javascript'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/km.bdswiss.com\/wp\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"TRUE","cookieTime":"15811200","cookiePath":"\/","cookieDomain":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/cookie-notice/js/front.js?ver=1.2.37'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/raa-waterwheel-carousel/js/swiper.min.js?ver=4.3.5'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/easy-fancybox/js/jquery.fancybox.js?ver=1.3.24'></script>
+<script type='text/javascript'>
+var fb_timeout, fb_opts={'overlayShow':true,'hideOnOverlayClick':true,'showCloseButton':true,'margin':20,'centerOnScroll':false,'enableEscapeButton':true,'autoScale':true };
+if(typeof easy_fancybox_handler==='undefined'){
+var easy_fancybox_handler=function(){
+jQuery('.nofancybox,a.wp-block-file__button,a.pin-it-button,a[href*="pinterest.com/pin/create"],a[href*="facebook.com/share"],a[href*="twitter.com/share"]').addClass('nolightbox');
+/* IMG */
+var fb_IMG_select='a[href*=".jpg"]:not(.nolightbox,li.nolightbox>a),area[href*=".jpg"]:not(.nolightbox),a[href*=".jpeg"]:not(.nolightbox,li.nolightbox>a),area[href*=".jpeg"]:not(.nolightbox),a[href*=".png"]:not(.nolightbox,li.nolightbox>a),area[href*=".png"]:not(.nolightbox),a[href*=".webp"]:not(.nolightbox,li.nolightbox>a),area[href*=".webp"]:not(.nolightbox)';
+jQuery(fb_IMG_select).addClass('fancybox image');
+var fb_IMG_sections=jQuery('.gallery,.wp-block-gallery,.tiled-gallery,.wp-block-jetpack-tiled-gallery');
+fb_IMG_sections.each(function(){jQuery(this).find(fb_IMG_select).attr('rel','gallery-'+fb_IMG_sections.index(this));});
+jQuery('a.fancybox,area.fancybox,li.fancybox a').each(function(){jQuery(this).fancybox(jQuery.extend({},fb_opts,{'transitionIn':'elastic','easingIn':'easeOutBack','transitionOut':'elastic','easingOut':'easeInBack','opacity':false,'hideOnContentClick':false,'titleShow':true,'titlePosition':'over','titleFromAlt':true,'showNavArrows':true,'enableKeyboardNav':true,'cyclic':false}))});};
+jQuery('a.fancybox-close').on('click',function(e){e.preventDefault();jQuery.fancybox.close()});
+};
+var easy_fancybox_auto=function(){setTimeout(function(){jQuery('#fancybox-auto').trigger('click')},1000);};
+jQuery(easy_fancybox_handler);jQuery(document).on('post-load',easy_fancybox_handler);
+jQuery(easy_fancybox_auto);
+</script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/easy-fancybox/js/jquery.easing.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/plugins/easy-fancybox/js/jquery.mousewheel.js?ver=3.1.13'></script>
+<script type='text/javascript' src='https://km.bdswiss.com/app/themes/bdswiss-main/dist/scripts/bootstrap.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var BDConfig = {"ajaxUrl":"https:\/\/km.bdswiss.com\/wp\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://km.bdswiss.com/app/themes/bdswiss-main/dist/scripts/app.js'></script>
+  <script type="text/javascript">
+    (function($) {
+      $(window).on('load', function() {
+        if (document.body.classList.contains('specific_brand')) {
+          for (className of document.body.classList) {
+            if (className.includes('custom-brand-')) {
+              const brandName = className.split('-').slice(-1).pop();
+              const favicon = document.getElementById("favicon");
+              favicon.setAttribute("href", "/" + brandName + ".ico?v=2");
+            }
+          }
+
+        }
+
+      })
+    })(jQuery);
+  </script>
+
+</body>
+
+</html>

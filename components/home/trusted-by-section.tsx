@@ -39,11 +39,11 @@ const trustFeatures = [
 
 export default function TrustedBySection() {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="py-6 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <motion.h2 
-            className="text-3xl font-bold text-gray-900 dark:text-white"
+            className="text-2xl font-bold text-gray-900 dark:text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,7 +52,7 @@ export default function TrustedBySection() {
             Why Traders Trust Our Ratings
           </motion.h2>
           <motion.p 
-            className="mt-4 text-lg text-gray-600 dark:text-gray-400"
+            className="mt-1 text-sm text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -82,7 +82,7 @@ export default function TrustedBySection() {
                 "after:absolute after:inset-0 after:p-[1px] after:rounded-lg after:-z-20",
                 "after:bg-gradient-to-br after:from-black/20 after:via-black/10 after:to-transparent",
                 "dark:after:from-black/30 dark:after:via-black/20 dark:after:to-transparent",
-                "shadow-metallic hover:shadow-metallic-hover transition-all duration-300"
+                "shadow-md hover:shadow-lg transition-all duration-300"
               )}
             >
               <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-full w-fit mb-4">
