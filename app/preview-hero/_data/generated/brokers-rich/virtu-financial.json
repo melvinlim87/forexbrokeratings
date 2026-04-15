@@ -1,0 +1,50 @@
+{
+  "id": 1657,
+  "name": "Virtu Financial",
+  "slug": "virtu-financial",
+  "logo": "https://www.google.com/s2/favicons?domain=virtu.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000000,
+  "platforms": [
+    "Virtu Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC",
+    "FINRA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Virtu Financial is a USA based broker founded in 2008. With SEC, FINRA, it offers Equities, Options, FX, Fixed Income trading primarily via Virtu Platform.",
+  "fullReview": "## Company Overview\n\nVirtu Financial is a retail forex and CFD broker established in 2008, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2008\n- Equities, Options, FX, Fixed Income\n\nThe broker's trading infrastructure is built on Virtu Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nVirtu Financial operates under SEC and FINRA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** SEC · FINRA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nVirtu Financial provides From 1.0 pips on major currency pairs. Leverage is available at N/A (institutional), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000000 |\n| Spreads | From 1.0 pips |\n| Leverage | N/A (institutional) |\n| Instruments | 500+ |\n| Platforms | Virtu Platform |\n\nTraders have a minimum deposit of $1000000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nVirtu Financial supports Virtu Platform.\n\n**Virtu Platform:** Proprietary or partner trading platform available through Virtu Financial.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports Virtu Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Virtu Financial Best For?\n\nVirtu Financial is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using Virtu Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC and FINRA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Virtu Financial against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nVirtu Financial is a solid choice for traders seeking from 1.0 pips on 500+ instruments via Virtu Platform. Regulation by SEC and FINRA provides a foundational level of oversight. The $1000000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Virtu Financial.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "N/A (institutional)",
+  "features": [
+    "Founded in 2008",
+    "Equities, Options, FX, Fixed Income"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports Virtu Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.virtu.com",
+  "riskLevel": "Medium",
+  "founded": "2008",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\virtu-financial.json",
+        "bytes": 1173
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.919Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

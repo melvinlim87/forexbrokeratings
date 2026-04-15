@@ -1,0 +1,49 @@
+{
+  "id": 1529,
+  "name": "QTrade",
+  "slug": "qtrade",
+  "logo": "https://www.google.com/s2/favicons?domain=qtrade.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000,
+  "platforms": [
+    "QTrade Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "IIROC"
+  ],
+  "bestFor": "New Listing",
+  "description": "QTrade is a Canada based broker founded in 2014. With IIROC, it offers Canadian/US Stocks, ETFs, Options, Bonds trading primarily via QTrade Platform.",
+  "fullReview": "## Company Overview\n\nQTrade is a retail forex and CFD broker established in 2014, headquartered in Canada. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2014\n- Canadian/US Stocks, ETFs, Options, Bonds\n\nThe broker's trading infrastructure is built on QTrade Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nQTrade operates under IIROC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** IIROC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nQTrade provides From 1.0 pips on major currency pairs. Leverage is available at N/A (Canadian stock broker), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000 |\n| Spreads | From 1.0 pips |\n| Leverage | N/A (Canadian stock broker) |\n| Instruments | 500+ |\n| Platforms | QTrade Platform |\n\nTraders have a minimum deposit of $1000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nQTrade supports QTrade Platform.\n\n**QTrade Platform:** Proprietary or partner trading platform available through QTrade.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by IIROC\n- ✅ Low entry barrier\n- ✅ Supports QTrade Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is QTrade Best For?\n\nQTrade is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using QTrade Platform** who want a straightforward account setup\n- **Those based in Canada** or regions served by IIROC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare QTrade against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nQTrade is a solid choice for traders seeking from 1.0 pips on 500+ instruments via QTrade Platform. Regulation by IIROC provides a foundational level of oversight. The $1000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with QTrade.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "N/A (Canadian stock broker)",
+  "features": [
+    "Founded in 2014",
+    "Canadian/US Stocks, ETFs, Options, Bonds"
+  ],
+  "pros": [
+    "Regulated by IIROC",
+    "Low entry barrier",
+    "Supports QTrade Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.qtrade.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Canada",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\qtrade.json",
+        "bytes": 1152
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.654Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

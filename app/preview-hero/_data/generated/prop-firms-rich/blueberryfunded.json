@@ -1,0 +1,210 @@
+{
+  "name": "Blueberry Funded",
+  "slug": "blueberryfunded",
+  "summary": "Blueberry Funded is a broker-backed proprietary trading firm launched in mid-2024 as an extension of Blueberry Markets, an established Australian-based forex and CFD broker. The firm offers evaluation and instant funding paths with account sizes up to $200K and simulated capital scaling to $2 million. With four platform choices (MT4, MT5, cTrader, DXtrade), no time limit on evaluations, and a detailed 25% quarterly scaling plan, Blueberry Funded presents strong infrastructure. However, the firm has attracted significant negative attention on Trustpilot, with widespread complaints about accounts being breached for 'toxic trading' and 'not trading in good faith' — often applied arbitrarily to profitable traders. The broker backing provides more legitimacy than standalone prop firms, but the disconnect between the firm's $7M+ payout claims and the volume of payout-denial complaints warrants caution. Traders should read Clause 12.2 and 12.3 carefully before purchasing any evaluation.",
+  "founded": 2024,
+  "headquarters": "Sydney, Australia",
+  "website": "https://blueberryfunded.com",
+  "logo": "",
+  "affiliateUrl": "https://blueberryfunded.com/",
+  "ceo": "Not publicly disclosed",
+  "parent_company": "Blueberry Markets Group",
+  "legal_entity": "Associated with Blueberry Markets (Australian broker); specific prop firm entity not disclosed",
+  "ratings": {
+    "challenge_rules": 4,
+    "trading_conditions": 7,
+    "payouts": 3,
+    "trust_reputation": 4,
+    "platforms_instruments": 7,
+    "support_education": 4,
+    "overall": 29
+  },
+  "grade": "C",
+  "quickStats": {
+    "accountSizes": "$10K – $200K",
+    "challengeType": "Evaluation (3 Plans) + Instant",
+    "profitSplit": "Up to 90%",
+    "maxAllocation": "$2,000,000",
+    "platforms": "MT4, MT5, cTrader, DXtrade",
+    "instruments": "Forex, Indices, Commodities, Crypto"
+  },
+  "account_sizes": [
+    10000,
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "max_allocation": 2000000,
+  "challenge_type": "evaluation",
+  "challenge_phases": [
+    {
+      "name": "Evaluation Phase 1",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 4,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Evaluation Phase 2",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 4,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80%",
+    "scaled": "Up to 90%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "rise"
+  ],
+  "payout_frequency": "bi-weekly",
+  "payout_speed": "Within 5 business days",
+  "reset_fee": "Full evaluation fee repurchase required",
+  "scaling_plan": true,
+  "scaling_details": "Blueberry Funded offers a detailed scaling plan with 25% capital increases every 3 months. Requirements: 10% net profit over 3 consecutive months with at least 4 payouts during the period. Profit split increases to up to 90% as accounts scale. Maximum allocation per trader reaches $2 million. Starting from $200K, accounts can scale to $600K over 24 months through consistent quarterly increases.",
+  "platforms": [
+    "MetaTrader 4",
+    "MetaTrader 5",
+    "cTrader",
+    "DXtrade"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Commodities",
+    "Cryptocurrencies"
+  ],
+  "leverage": "1:100 (forex), 1:20 (indices), 1:40 (commodities), 1:10 (crypto)",
+  "spreads": "Claims 'smallest spread on XAU/USD in the industry'; standard variable spreads",
+  "commission": "Standard commissions per instrument; varies by asset class",
+  "news_trading": false,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not directly regulated as prop firm",
+      "note": "Blueberry Funded is associated with Blueberry Markets, an established Australian-based broker. While the broker may hold regulatory status, the prop firm operations are separate and not independently regulated. Trader protection is limited to the prop firm's terms and conditions."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "Blueberry Markets",
+      "type": "Parent Broker Partnership",
+      "year": 2024,
+      "detail": "Blueberry Funded operates as the prop trading arm of Blueberry Markets, leveraging the broker's technology infrastructure, execution systems, and payment processing capabilities."
+    },
+    {
+      "partner": "The Trusted Prop",
+      "type": "Industry Directory Listing",
+      "year": 2024,
+      "detail": "Listed on The Trusted Prop (thetrustedprop.com) as a verified prop firm."
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best Broker-Backed Firm",
+      "body": "PropFirmMatch",
+      "year": 2025
+    }
+  ],
+  "charity": {
+    "foundation": "None documented",
+    "initiatives": [
+      "Affiliate program supporting content creators and trading educators"
+    ]
+  },
+  "affiliate": {
+    "program_name": "Blueberry Funded Affiliate Program",
+    "cpa_range": "Not publicly disclosed",
+    "revshare_range": "Not publicly disclosed",
+    "cookie_duration": "Not publicly disclosed"
+  },
+  "special_features": {
+    "free_trial": false,
+    "free_trial_detail": "",
+    "swing_account": false,
+    "swing_account_detail": ""
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 3.2,
+    "trustpilot_review_count": "50+",
+    "years_active": 2,
+    "total_funded_traders": "15,000+ (claimed)",
+    "total_payouts_amount": "$7M+ (claimed)",
+    "controversies": [
+      "Multiple Trustpilot reviews allege accounts are breached for 'toxic trading' or 'not trading in good faith' without specific evidence.",
+      "30% consistency rule reportedly added retroactively to some accounts after purchase.",
+      "Clause 12.2 contains vague language about 'good faith' trading that can be applied arbitrarily.",
+      "Support agents reportedly close chat windows without resolving complaints.",
+      "Accounts of related traders (e.g., couples) allegedly terminated for 'group trading'.",
+      "Profitable traders who never lose a trade have reportedly been breached for suspicious activity."
+    ]
+  },
+  "pros": [
+    "Broker backing from Blueberry Markets provides infrastructure legitimacy and regulated broker association",
+    "Up to $2 million maximum allocation through scaling — among the highest in the industry",
+    "No time limit on evaluations — take as long as needed to pass",
+    "Four platform choices: MT4, MT5, cTrader, and DXtrade",
+    "Detailed scaling plan with 25% increases every 3 months and up to 90% profit split",
+    "24/7 customer support claimed across multiple channels",
+    "Multiple language support: Japanese, Hindi, Spanish, German, Thai",
+    "Instant funding option available for traders who want immediate access",
+    "Discount codes available through the affiliate network",
+    "Website has detailed FAQ and trading information"
+  ],
+  "cons": [
+    "Widespread Trustpilot complaints about arbitrary account breaches for 'toxic trading'",
+    "Vague Clause 12.2 allows the company to breach accounts at its 'exclusive option'",
+    "30% consistency rule reportedly added after some accounts were already purchased",
+    "Support frequently unresponsive — chat closed without resolution according to multiple reviewers",
+    "Disconnect between $7M+ payout claims and volume of payout-denial complaints",
+    "Profitable traders disproportionately targeted with account breaches",
+    "No news trading allowed — restricts fundamental and event-driven strategies",
+    "Relatively new firm (mid-2024) with limited track record",
+    "Parent broker regulation does not extend to prop firm operations",
+    "Full evaluation fee repurchase required on reset — no discounted retry option"
+  ],
+  "sources": [
+    {
+      "name": "Blueberry Funded Official Website",
+      "url": "https://blueberryfunded.com"
+    },
+    {
+      "name": "Blueberry Funded FAQ",
+      "url": "https://blueberryfunded.com/faq/"
+    },
+    {
+      "name": "Blueberry Funded Scaling Plan",
+      "url": "https://blueberryfunded.com/scaling-plan/"
+    },
+    {
+      "name": "Trustpilot Reviews - Blueberry Funded",
+      "url": "https://trustpilot.com/review/blueberryfunded.com"
+    },
+    {
+      "name": "The Trusted Prop Directory",
+      "url": "https://thetrustedprop.com"
+    }
+  ],
+  "review_content": "Blueberry Funded entered the prop trading space in mid-2024 with a compelling proposition: a prop firm backed by an established broker. Blueberry Markets, the parent company, is an Australian-based forex and CFD broker that provides the technology infrastructure, execution systems, and operational backbone for the prop firm. This broker-backed model gives Blueberry Funded a structural advantage over standalone prop firms that must build their own technology stacks from scratch.\n\nThe firm offers two paths to funded trading: a standard evaluation model with multiple plan options, and an 'Instant Funding' path that bypasses the evaluation entirely. Evaluation accounts come with no time limits — a welcome feature that removes the artificial time pressure many traders struggle with. Account sizes range from $10K to $200K, and through the scaling plan, traders can grow their allocation up to $2 million over time.\n\nThe scaling plan is genuinely impressive. Every 3 months, traders who achieve 10% net profit with at least 4 payouts receive a 25% capital increase. Starting from $200K, a consistently profitable trader could reach $600K within 24 months. The profit split increases to up to 90% as accounts scale. This is one of the most detailed and generous scaling programs available.\n\nPlatform selection is excellent: MT4, MT5, cTrader, and DXtrade are all supported, giving traders flexibility regardless of their preferred trading environment. The firm claims the smallest spreads on XAU/USD in the industry, though independent verification of this claim would be valuable.\n\nHowever, Blueberry Funded's execution has been marred by serious operational concerns. Trustpilot reviews reveal a disturbing pattern: traders who become profitable on funded accounts receive emails citing 'Clause 12.2 Restrictions and 12.3 Contraventions' and have their accounts closed for 'toxic trading' or 'not trading in good faith.' These allegations are applied without specific evidence, and support agents reportedly close chat windows without resolution.\n\nMultiple reviewers report the same sequence: pass the challenge, start making profits, receive vague breach notification, lose account and any pending payouts. Some traders report that a 30% consistency rule was added to their accounts after they had already purchased evaluations. Couples who both purchased accounts report having both accounts terminated for 'group trading.'\n\nClause 12.2(viii) of the terms contains particularly concerning language: the company can breach accounts for 'using any other strategy, software or technique that the company considers in its exclusive option to not represent individual trading in good faith.' This gives the firm essentially unlimited discretion to close any account at any time.\n\nThe disconnect between Blueberry Funded's marketing claims (15,000+ funded traders, $7M+ in payouts) and the volume of payout-denial complaints is difficult to reconcile. Either the claims are inflated, or the firm funds many traders but selectively denies payouts to the most profitable ones — both scenarios are concerning.\n\nFor traders considering Blueberry Funded, the broker backing provides legitimate infrastructure advantages, and the scaling plan is excellent. But the arbitrary rule enforcement, vague terms, and payout-denial pattern represent serious red flags. If you do proceed, start with the smallest evaluation, test the payout process thoroughly before scaling up, document all trades meticulously, and read Clause 12.2 in full before purchasing. Consider established alternatives like FTMO or FundedNext if payout reliability is your priority.",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\blueberryfunded.json",
+        "bytes": 12869
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.435Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

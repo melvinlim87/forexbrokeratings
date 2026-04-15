@@ -1,0 +1,51 @@
+{
+  "id": 1405,
+  "name": "Alfa Financials (SA)",
+  "slug": "alfa-financials-sa",
+  "logo": "https://www.google.com/s2/favicons?domain=alfafinancials.co.za&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "Alfa Trader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "FSCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Alfa Financials (SA) is a South Africa based broker founded in 2016. With Offshore License, it offers 30+ FX pairs, CFDs on indices, commodities trading primarily via Alfa Trader.",
+  "fullReview": "## Company Overview\n\nAlfa Financials (SA) is a retail forex and CFD broker established in 2016, headquartered in South Africa. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2016\n- 30+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on Alfa Trader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAlfa Financials (SA) operates under Offshore License and FSCA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · FSCA\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nAlfa Financials (SA) provides From 1.0 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | Alfa Trader |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nAlfa Financials (SA) supports Alfa Trader.\n\n**Alfa Trader:** Proprietary or partner trading platform available through Alfa Financials (SA).\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports Alfa Trader\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Alfa Financials (SA) Best For?\n\nAlfa Financials (SA) is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Alfa Trader** who want a straightforward account setup\n- **Those based in South Africa** or regions served by Offshore License and FSCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Alfa Financials (SA) against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nAlfa Financials (SA) is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via Alfa Trader. Regulation by Offshore License and FSCA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Alfa Financials (SA).*",
+  "spreads": "From 1.0 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 2016",
+    "30+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports Alfa Trader"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.alfafinancials.co.za",
+  "riskLevel": "Medium",
+  "founded": "2016",
+  "headquarters": "South Africa",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\alfa-financials-sa.json",
+        "bytes": 1331
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.995Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

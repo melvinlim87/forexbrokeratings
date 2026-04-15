@@ -1,0 +1,1192 @@
+{
+  "arcs": [
+    {
+      "fromId": "cy-cysec",
+      "toId": "sc-fsa",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 36,
+      "labels": [
+        "XM",
+        "ATFX",
+        "FXGT",
+        "Admirals (Admiral Markets)",
+        "Amana Capital"
+      ],
+      "color": [
+        "#22D3EE",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "au-asic",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": -33.8688,
+      "endLng": 151.2093,
+      "count": 33,
+      "labels": [
+        "IG",
+        "Capital.com",
+        "Tradu",
+        "eToro",
+        "EBC Group"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "cy-cysec",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 34.7071,
+      "endLng": 33.0226,
+      "count": 32,
+      "labels": [
+        "Capital.com",
+        "eToro",
+        "ActivTrades",
+        "ATFX",
+        "ETX Capital"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "ae-dfsa",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 27,
+      "labels": [
+        "IG",
+        "ATFX",
+        "TIOmarkets",
+        "ADSS",
+        "Amana Capital"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "sc-fsa",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 27,
+      "labels": [
+        "ATFX",
+        "Admirals (Admiral Markets)",
+        "Amana Capital",
+        "Axi (AxiTrader)",
+        "Exness"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "sc-fsa",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 26,
+      "labels": [
+        "XM",
+        "ATFX",
+        "PU Prime",
+        "Admirals (Admiral Markets)",
+        "AvaTrade"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "au-asic",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": -33.8688,
+      "endLng": 151.2093,
+      "count": 25,
+      "labels": [
+        "Capital.com",
+        "eToro",
+        "XM",
+        "ATFX",
+        "Eightcap"
+      ],
+      "color": [
+        "#22D3EE",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "ae-dfsa",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 25,
+      "labels": [
+        "XM",
+        "Ultima Markets",
+        "ATFX",
+        "Amana Capital",
+        "AvaTrade"
+      ],
+      "color": [
+        "#22D3EE",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "us-nfa",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 41.8781,
+      "endLng": -87.6298,
+      "count": 21,
+      "labels": [
+        "IG",
+        "Capital.com",
+        "eToro",
+        "ActivTrades",
+        "ATFX"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "ae-dfsa",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 21,
+      "labels": [
+        "IG",
+        "XM",
+        "ATFX",
+        "PU Prime",
+        "AvaTrade"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "sc-fsa",
+      "toId": "ae-dfsa",
+      "startLat": -4.6191,
+      "startLng": 55.4513,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 21,
+      "labels": [
+        "XM",
+        "ATFX",
+        "CMTrading",
+        "StarTrader",
+        "PU Prime"
+      ],
+      "color": [
+        "#A78BFA",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "us-nfa",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 41.8781,
+      "endLng": -87.6298,
+      "count": 17,
+      "labels": [
+        "IG",
+        "Capital.com",
+        "eToro",
+        "ATFX",
+        "Eightcap"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "us-nfa",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": 41.8781,
+      "endLng": -87.6298,
+      "count": 16,
+      "labels": [
+        "Capital.com",
+        "eToro",
+        "ActivTrades",
+        "ATFX",
+        "Eightcap"
+      ],
+      "color": [
+        "#22D3EE",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "ae-dfsa",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 13,
+      "labels": [
+        "IG",
+        "ATFX",
+        "AvaTrade",
+        "BDSwiss",
+        "Exness"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "sg-mas",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 1.3521,
+      "endLng": 103.8198,
+      "count": 12,
+      "labels": [
+        "IG",
+        "City Index",
+        "CMC Markets",
+        "FOREX.com",
+        "Ig Group"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "sg-mas",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 1.3521,
+      "endLng": 103.8198,
+      "count": 11,
+      "labels": [
+        "IG",
+        "City Index",
+        "CMC Markets",
+        "FOREX.com",
+        "Ig Group"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "vu-vfsc",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": -17.7333,
+      "endLng": 168.3273,
+      "count": 11,
+      "labels": [
+        "TitanFX",
+        "Fusion Markets",
+        "Global Prime",
+        "Moneta Markets",
+        "MultiBank Group"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "sc-fsa",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 10,
+      "labels": [
+        "ATFX",
+        "AvaTrade",
+        "BDSwiss",
+        "Exness",
+        "FOREX.com"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "jp-fsa",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 35.6762,
+      "endLng": 139.6503,
+      "count": 9,
+      "labels": [
+        "IG",
+        "Axiory",
+        "Hantec Markets",
+        "Ig Group",
+        "Interactive Brokers"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "jp-fsa",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 35.6762,
+      "endLng": 139.6503,
+      "count": 9,
+      "labels": [
+        "IG",
+        "AvaTrade",
+        "Hantec Markets",
+        "Ig Group",
+        "Interactive Brokers"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "ky-cima",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 19.3133,
+      "endLng": -81.2546,
+      "count": 8,
+      "labels": [
+        "EBC Group",
+        "FOREX.com",
+        "FP Markets",
+        "Mitrade",
+        "Moneta Markets"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "de-bafin",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 50.1109,
+      "endLng": 8.6821,
+      "count": 7,
+      "labels": [
+        "IG",
+        "Ayondo",
+        "CMC Markets",
+        "Ig Group",
+        "Pepperstone"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "nz-fma",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": -36.8485,
+      "endLng": 174.7633,
+      "count": 7,
+      "labels": [
+        "IG",
+        "HFTrading",
+        "MahiMarkets",
+        "Axi (AxiTrader)",
+        "Plus500"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "sg-mas",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": 1.3521,
+      "endLng": 103.8198,
+      "count": 7,
+      "labels": [
+        "IG",
+        "FOREX.com",
+        "Ig Group",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "bs-scb",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 25.0343,
+      "endLng": -77.3963,
+      "count": 7,
+      "labels": [
+        "Capital.com",
+        "ActivTrades",
+        "Taurex",
+        "Infinox",
+        "Pepperstone"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "bs-scb",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": 25.0343,
+      "endLng": -77.3963,
+      "count": 7,
+      "labels": [
+        "Capital.com",
+        "ActivTrades",
+        "Eightcap",
+        "IC Markets",
+        "Pepperstone"
+      ],
+      "color": [
+        "#22D3EE",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "bs-scb",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": 25.0343,
+      "endLng": -77.3963,
+      "count": 7,
+      "labels": [
+        "Capital.com",
+        "ActivTrades",
+        "Eightcap",
+        "IC Markets",
+        "Pepperstone"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "vu-vfsc",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": -17.7333,
+      "endLng": 168.3273,
+      "count": 7,
+      "labels": [
+        "JFD Brokers",
+        "FXPrimus",
+        "LegacyFX",
+        "MultiBank Group",
+        "OneRoyal"
+      ],
+      "color": [
+        "#22D3EE",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "sc-fsa",
+      "toId": "vu-vfsc",
+      "startLat": -4.6191,
+      "startLng": 55.4513,
+      "endLat": -17.7333,
+      "endLng": 168.3273,
+      "count": 7,
+      "labels": [
+        "StarTrader",
+        "Deriv",
+        "Fusion Markets",
+        "MultiBank Group",
+        "AdroFx"
+      ],
+      "color": [
+        "#A78BFA",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "ca-ciro",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 43.6532,
+      "endLng": -79.3832,
+      "count": 6,
+      "labels": [
+        "IG",
+        "CMC Markets",
+        "FOREX.com",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "ca-ciro",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 43.6532,
+      "endLng": -79.3832,
+      "count": 6,
+      "labels": [
+        "IG",
+        "CMC Markets",
+        "FOREX.com",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "sg-mas",
+      "toId": "ae-dfsa",
+      "startLat": 1.3521,
+      "startLng": 103.8198,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 6,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "MultiBank Group",
+        "Saxo Bank",
+        "Swissquote"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "jp-fsa",
+      "toId": "sc-fsa",
+      "startLat": 35.6762,
+      "startLng": 139.6503,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 6,
+      "labels": [
+        "AvaTrade",
+        "Hantec Markets",
+        "Interactive Brokers",
+        "Oanda",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "sc-fsa",
+      "toId": "sg-mas",
+      "startLat": -4.6191,
+      "startLng": 55.4513,
+      "endLat": 1.3521,
+      "endLng": 103.8198,
+      "count": 6,
+      "labels": [
+        "FOREX.com",
+        "Interactive Brokers",
+        "MultiBank Group",
+        "Oanda",
+        "Plus500"
+      ],
+      "color": [
+        "#A78BFA",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "ae-dfsa",
+      "toId": "ky-cima",
+      "startLat": 25.2048,
+      "startLng": 55.2708,
+      "endLat": 19.3133,
+      "endLng": -81.2546,
+      "count": 6,
+      "labels": [
+        "FP Markets",
+        "HYCM",
+        "Mitrade",
+        "Moneta Markets",
+        "MultiBank Group"
+      ],
+      "color": [
+        "#22D3EE",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "nz-fma",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": -36.8485,
+      "endLng": 174.7633,
+      "count": 5,
+      "labels": [
+        "IG",
+        "MahiMarkets",
+        "Axi (AxiTrader)",
+        "Plus500",
+        "Velocity Trade"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "de-bafin",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 50.1109,
+      "endLng": 8.6821,
+      "count": 5,
+      "labels": [
+        "IG",
+        "CMC Markets",
+        "Ig Group",
+        "MultiBank Group",
+        "Pepperstone"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "jp-fsa",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": 35.6762,
+      "endLng": 139.6503,
+      "count": 5,
+      "labels": [
+        "IG",
+        "AvaTrade",
+        "Ig Group",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "sg-mas",
+      "toId": "ch-finma",
+      "startLat": 1.3521,
+      "startLng": 103.8198,
+      "endLat": 47.3769,
+      "endLng": 8.5417,
+      "count": 5,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "Interactive Brokers",
+        "Saxo Bank",
+        "Swissquote"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "sg-mas",
+      "toId": "jp-fsa",
+      "startLat": 1.3521,
+      "startLng": 103.8198,
+      "endLat": 35.6762,
+      "endLng": 139.6503,
+      "count": 5,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "Interactive Brokers",
+        "Oanda",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "sg-mas",
+      "toId": "ca-ciro",
+      "startLat": 1.3521,
+      "startLng": 103.8198,
+      "endLat": 43.6532,
+      "endLng": -79.3832,
+      "count": 5,
+      "labels": [
+        "IG",
+        "CMC Markets",
+        "FOREX.com",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "ch-finma",
+      "toId": "jp-fsa",
+      "startLat": 47.3769,
+      "startLng": 8.5417,
+      "endLat": 35.6762,
+      "endLng": 139.6503,
+      "count": 5,
+      "labels": [
+        "IG",
+        "Dukascopy Bank",
+        "Ig Group",
+        "Interactive Brokers",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "bs-scb",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 25.0343,
+      "endLng": -77.3963,
+      "count": 5,
+      "labels": [
+        "Capital.com",
+        "Eightcap",
+        "IC Markets",
+        "Pepperstone",
+        "Trade Nation"
+      ],
+      "color": [
+        "#4ADE80",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "de-bafin",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": 50.1109,
+      "endLng": 8.6821,
+      "count": 5,
+      "labels": [
+        "JFD Brokers",
+        "NAGA",
+        "MultiBank Group",
+        "Pepperstone",
+        "GKFX"
+      ],
+      "color": [
+        "#22D3EE",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "hk-sfc",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 22.3193,
+      "endLng": 114.1694,
+      "count": 5,
+      "labels": [
+        "Sucden Financial",
+        "Interactive Brokers",
+        "Saxo Bank",
+        "Z.com Trade",
+        "PhillipCapital"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "cy-cysec",
+      "toId": "mu-fsc",
+      "startLat": 34.7071,
+      "startLng": 33.0226,
+      "endLat": -20.1609,
+      "endLng": 57.5012,
+      "count": 5,
+      "labels": [
+        "AvaTrade",
+        "Exness",
+        "Lirunex",
+        "LiteFinance",
+        "GO Markets"
+      ],
+      "color": [
+        "#22D3EE",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "mu-fsc",
+      "toId": "sc-fsa",
+      "startLat": -20.1609,
+      "startLng": 57.5012,
+      "endLat": -4.6191,
+      "endLng": 55.4513,
+      "count": 5,
+      "labels": [
+        "AvaTrade",
+        "Exness",
+        "Fusion Markets",
+        "Lirunex",
+        "GO Markets"
+      ],
+      "color": [
+        "#22D3EE",
+        "#A78BFA"
+      ]
+    },
+    {
+      "fromId": "bs-scb",
+      "toId": "ae-dfsa",
+      "startLat": 25.0343,
+      "startLng": -77.3963,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 5,
+      "labels": [
+        "Infinox",
+        "Pepperstone",
+        "Trade Nation",
+        "FXview",
+        "FxPro"
+      ],
+      "color": [
+        "#A78BFA",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "ch-finma",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 47.3769,
+      "endLng": 8.5417,
+      "count": 4,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "Interactive Brokers",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "ch-finma",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": 47.3769,
+      "endLng": 8.5417,
+      "count": 4,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "Interactive Brokers",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "de-bafin",
+      "toId": "sg-mas",
+      "startLat": 50.1109,
+      "startLng": 8.6821,
+      "endLat": 1.3521,
+      "endLng": 103.8198,
+      "count": 4,
+      "labels": [
+        "IG",
+        "CMC Markets",
+        "Ig Group",
+        "MultiBank Group"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "de-bafin",
+      "toId": "ae-dfsa",
+      "startLat": 50.1109,
+      "startLng": 8.6821,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 4,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "MultiBank Group",
+        "Pepperstone"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "us-nfa",
+      "toId": "ca-ciro",
+      "startLat": 41.8781,
+      "startLng": -87.6298,
+      "endLat": 43.6532,
+      "endLng": -79.3832,
+      "count": 4,
+      "labels": [
+        "IG",
+        "FOREX.com",
+        "Interactive Brokers",
+        "Oanda"
+      ],
+      "color": [
+        "#4ADE80",
+        "#4ADE80"
+      ]
+    },
+    {
+      "fromId": "ch-finma",
+      "toId": "ae-dfsa",
+      "startLat": 47.3769,
+      "startLng": 8.5417,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 4,
+      "labels": [
+        "IG",
+        "Ig Group",
+        "Saxo Bank",
+        "Swissquote"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "jp-fsa",
+      "toId": "ae-dfsa",
+      "startLat": 35.6762,
+      "startLng": 139.6503,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 4,
+      "labels": [
+        "IG",
+        "AvaTrade",
+        "Ig Group",
+        "Saxo Bank"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "ky-cima",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": 19.3133,
+      "endLng": -81.2546,
+      "count": 4,
+      "labels": [
+        "EBC Group",
+        "FOREX.com",
+        "HYCM",
+        "Vantage"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "vu-vfsc",
+      "toId": "ae-dfsa",
+      "startLat": -17.7333,
+      "startLng": 168.3273,
+      "endLat": 25.2048,
+      "endLng": 55.2708,
+      "count": 4,
+      "labels": [
+        "StarTrader",
+        "Moneta Markets",
+        "MultiBank Group",
+        "VT Markets"
+      ],
+      "color": [
+        "#A78BFA",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "au-asic",
+      "toId": "mu-fsc",
+      "startLat": -33.8688,
+      "startLng": 151.2093,
+      "endLat": -20.1609,
+      "endLng": 57.5012,
+      "count": 4,
+      "labels": [
+        "AvaTrade",
+        "Fusion Markets",
+        "Vantage",
+        "GO Markets"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "gb-fca",
+      "toId": "mu-fsc",
+      "startLat": 51.5074,
+      "startLng": -0.1278,
+      "endLat": -20.1609,
+      "endLng": 57.5012,
+      "count": 4,
+      "labels": [
+        "Exness",
+        "Lirunex",
+        "Vantage",
+        "GO Markets"
+      ],
+      "color": [
+        "#4ADE80",
+        "#22D3EE"
+      ]
+    },
+    {
+      "fromId": "ky-cima",
+      "toId": "cy-cysec",
+      "startLat": 19.3133,
+      "startLng": -81.2546,
+      "endLat": 34.7071,
+      "endLng": 33.0226,
+      "count": 4,
+      "labels": [
+        "FOREX.com",
+        "FP Markets",
+        "HYCM",
+        "MultiBank Group"
+      ],
+      "color": [
+        "#22D3EE",
+        "#22D3EE"
+      ]
+    }
+  ]
+}

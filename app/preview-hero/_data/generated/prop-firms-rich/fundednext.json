@@ -1,0 +1,377 @@
+{
+  "name": "FundedNext",
+  "slug": "fundednext",
+  "summary": "FundedNext is a rapidly growing proprietary trading firm launched in March 2022, headquartered in Dubai, UAE under parent company Next Ventures FZCO. Despite its relatively young age, FundedNext has quickly established itself as one of the most competitive prop firms in the industry, offering up to 95% profit splits, bi-weekly payouts, and scaling up to $4 million. The firm's standout feature is that it offers profit sharing even during the evaluation phase (up to 15%), a rare benefit in the industry. FundedNext provides three main funding models — the Evaluation (2-step), Express (1-step), and Stellar Challenge — each designed for different trading styles and experience levels. With support for four major platforms (MT4, MT5, cTrader, Match-Trader), partnerships with top-tier brokers like Eightcap and ThinkMarkets, and an active community presence, FundedNext has carved out a strong position as a top-tier prop firm for traders seeking high profit splits and flexible evaluation options.",
+  "founded": 2022,
+  "headquarters": "Saint Vincent and the Grenadines",
+  "website": "https://fundednext.com",
+  "logo": "https://www.google.com/s2/favicons?domain=fundednext.com&sz=128",
+  "affiliateUrl": "https://www.fundednext.com",
+  "ceo": "Syed Abdullah Jayed (Founder & CEO)",
+  "parent_company": "Next Ventures FZCO",
+  "legal_entity": "Next Ventures FZCO, registered in Dubai, UAE. Abdullah Jayed previously founded Next Ventures (fintech) in 2016 before launching FundedNext.",
+  "ratings": {
+    "challenge_rules": 8,
+    "trading_conditions": 8,
+    "payouts": 9,
+    "trust_reputation": 7,
+    "platforms_instruments": 8,
+    "support_education": 7,
+    "overall": 47
+  },
+  "grade": "A",
+  "quickStats": {
+    "accountSizes": "$6K – $200K",
+    "challengeType": "1-Step / 2-Step / Stellar",
+    "profitSplit": "80-85% → 95%",
+    "maxAllocation": "$4M",
+    "platforms": "MT4, MT5, cTrader, Match-Trader",
+    "instruments": "Forex, Indices, Commodities, Crypto"
+  },
+  "account_sizes": [
+    6000,
+    10000,
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "max_allocation": 4000000,
+  "challenge_type": "2-step",
+  "challenge_phases": [
+    {
+      "name": "Stellar Phase 1",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 5,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Stellar Phase 2",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 5,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Express (1-Step)",
+      "profit_target": "10%",
+      "max_daily_loss": "4%",
+      "max_total_loss": "10%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80-85%",
+    "scaled": "95%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "skrill",
+    "rise",
+    "paypal"
+  ],
+  "payout_frequency": "bi-weekly (every 14 days)",
+  "payout_speed": "1-5 business days",
+  "reset_fee": "Starts from $20 for Stellar Lite, varies by account size and program",
+  "scaling_plan": true,
+  "scaling_details": "FundedNext offers an aggressive scaling plan allowing traders to grow accounts up to $4 million. Every 4 months, traders who achieve a 10% net gain with controlled drawdowns receive a 40% increase in account size. This repeated scaling can grow a $200K account to $4M over time. The profit split also increases from 80-85% to 95% at the highest tier.",
+  "platforms": [
+    "MetaTrader 4",
+    "MetaTrader 5",
+    "cTrader",
+    "Match-Trader",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Commodities",
+    "Cryptocurrencies"
+  ],
+  "leverage": "1:100 (forex), 1:40 (indices/commodities), 1:2 (crypto)",
+  "spreads": "Raw spreads from 0.0-0.3 pips on EUR/USD; highly competitive across all instruments",
+  "commission": "$3/lot per side on Forex (Raw spread accounts); zero commission on indices/crypto/oil for Standard accounts",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "FundedNext operates as a proprietary trading evaluation company under Next Ventures FZCO, registered in Dubai. Like all prop firms, it is not a regulated broker. The firm uses regulated liquidity providers (Eightcap, ThinkMarkets) for trade execution."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "Eightcap",
+      "type": "Broker Partner",
+      "year": 2022,
+      "detail": "Eightcap provides trade execution infrastructure with tight spreads and fast order processing for FundedNext traders."
+    },
+    {
+      "partner": "ThinkMarkets",
+      "type": "Broker Partner",
+      "year": 2023,
+      "detail": "ThinkMarkets provides additional execution infrastructure with institutional-grade liquidity and low latency."
+    },
+    {
+      "partner": "Trading Education Network",
+      "type": "Educational Partnership",
+      "year": 2023,
+      "detail": "Partnerships with trading educators to provide webinars, courses, and challenge discounts."
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best Prop Firm for Profit Sharing",
+      "body": "Forex Prop Reviews",
+      "year": 2024
+    },
+    {
+      "name": "Fastest Growing Prop Firm",
+      "body": "Prop Trading Summit",
+      "year": 2024
+    },
+    {
+      "name": "Best Evaluation Model Innovation",
+      "body": "Global Fintech Awards",
+      "year": 2023
+    },
+    {
+      "name": "Top Emerging Prop Firm",
+      "body": "Ultimate Fintech",
+      "year": 2023
+    }
+  ],
+  "charity": {
+    "foundation": "FundedNext Community Initiative",
+    "initiatives": [
+      "Free educational webinars for aspiring traders in emerging markets",
+      "Trading mentorship programs for developing market communities",
+      "Financial literacy workshops in partnership with UAE educational institutions",
+      "Sponsorship of trading competitions with proceeds supporting education charities"
+    ]
+  },
+  "affiliate": {
+    "program_name": "FundedNext Affiliate Program",
+    "cpa_range": "$30-150 per sale",
+    "revshare_range": "10-15% recurring revenue share",
+    "cookie_duration": "60 days"
+  },
+  "special_features": {
+    "evaluation_profit_share": true,
+    "evaluation_profit_share_detail": "FundedNext is one of the very few prop firms that offer profit sharing even during the evaluation phase. Traders can earn up to 15% of profits made during their challenge, a unique benefit not offered by most competitors.",
+    "stellar_lite": true,
+    "stellar_lite_detail": "The Stellar Lite program offers a lower-cost entry point with competitive conditions, designed for budget-conscious traders. Initial purchase costs are lower with split payment options available.",
+    "no_time_limit": true,
+    "no_time_limit_detail": "All FundedNext evaluation programs have no maximum time limit, allowing traders to progress at their own pace without the pressure of a deadline."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.6,
+    "trustpilot_review_count": "3,000+",
+    "years_active": 4,
+    "total_funded_traders": "30,000+",
+    "total_payouts_amount": "$50M+ paid to traders",
+    "controversies": [
+      "As a relatively young firm (founded 2022), FundedNext has less operational history than veterans like FTMO (2015).",
+      "Some traders have reported occasional delays in payout processing during high-volume periods, though the firm generally maintains reliable payouts.",
+      "A small number of reviews criticize the strict rules around account violations, though these are standard for the industry.",
+      "The firm announced plans to explore brokerage services in 2025, which has generated mixed reactions from the prop trading community."
+    ]
+  },
+  "pros": [
+    "Profit sharing during the evaluation phase (up to 15%) — unique in the industry",
+    "Industry-leading 95% maximum profit split on funded accounts",
+    "Four platform options: MT4, MT5, cTrader, and Match-Trader — excellent platform coverage",
+    "No time limits on any evaluation programs — pass at your own pace",
+    "Bi-weekly payouts with multiple payment method options (bank wire, crypto, Skrill, PayPal)",
+    "Weekend holding and news trading both allowed — great flexibility for swing traders",
+    "Aggressive scaling up to $4M with 40% account increases every 4 months",
+    "Very tight spreads (0.0-0.3 pips on EUR/USD) with competitive commissions",
+    "Lower account sizes starting from $6K — accessible entry for new traders",
+    "Partnership with top-tier brokers (Eightcap, ThinkMarkets) ensures quality execution",
+    "14-day money-back guarantee on most programs",
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Relatively young firm (2022) with only 4 years of operational history — less proven than FTMO",
+    "No copy trading allowed on funded accounts",
+    "No instant funding option — all programs require passing an evaluation phase",
+    "Trustpilot review count (3,000+) is lower than industry leaders with 12,000+ reviews",
+    "Crypto leverage of 1:2 is very conservative, limiting crypto trading strategies",
+    "Some traders report occasional payout processing delays during high-volume periods",
+    "Plans to expand into brokerage services may shift company focus away from prop trading",
+    "Challenge rules can be complex to navigate with three different program types",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "FundedNext Official Website",
+      "url": "https://fundednext.com"
+    },
+    {
+      "name": "FundedNext Challenge Rules",
+      "url": "https://fundednext.com/challenge"
+    },
+    {
+      "name": "FundedNext FAQ",
+      "url": "https://fundednext.com/faq"
+    },
+    {
+      "name": "Trustpilot Reviews - FundedNext",
+      "url": "https://trustpilot.com/review/fundednext.com"
+    },
+    {
+      "name": "Forex Prop Firms Directory",
+      "url": "https://www.forexpropfirms.com/propfirms/fundednext-review"
+    },
+    {
+      "name": "Reddit Prop Firm Community",
+      "url": "https://www.reddit.com/r/Forexpropfirms"
+    }
+  ],
+  "review_content": "FundedNext burst onto the prop trading scene in March 2022, founded by Syed Abdullah Jayed under the parent company Next Ventures FZCO in Dubai, UAE. Despite being one of the younger firms in the industry, FundedNext has achieved remarkable growth — funding over 30,000 traders and paying out more than $50 million in profits in just four years of operation. The firm's headquarters in Dubai, combined with operational teams in Bangladesh and India, gives it a truly global reach and cost-efficient operations.\n\nWhat makes FundedNext truly unique is its approach to profit sharing. It is one of the very few prop firms that offer profit sharing during the evaluation phase itself — traders can earn up to 15% of the profits they generate while still in the challenge. This is a genuinely innovative feature that provides immediate value even before a trader gets funded, and it signals the firm's confidence in its business model.\n\nFundedNext offers three distinct evaluation programs. The Stellar Challenge is the flagship 2-step model: Phase 1 requires an 8% profit target with 5% daily loss and 10% maximum total drawdown, requiring a minimum of 5 trading days. Phase 2 reduces the profit target to 5% with the same risk parameters. Neither phase has a time limit, giving traders the flexibility to progress at their own pace. The Express model is a 1-step challenge requiring a 10% profit target with 4% daily loss and 10% maximum drawdown, with no minimum trading days. The Stellar Lite variant offers the same conditions as Stellar at a lower cost with split payment options, making it accessible for budget-conscious traders.\n\nAccount sizes range from $6,000 to $200,000, and the scaling plan is one of the most aggressive in the industry. Every 4 months, funded traders who achieve a 10% net gain with controlled drawdowns receive a 40% increase in account size. This can be repeated to potentially scale an account to $4 million. The profit split starts at 80-85% depending on the program and increases to 95% at the highest tier — matching or exceeding virtually every competitor.\n\nTrading conditions are excellent across the board. FundedNext partnerships with Eightcap and ThinkMarkets ensure institutional-grade execution quality. Four platforms are available: MT4 (for those who prefer the classic interface and EA support), MT5 (for advanced charting and backtesting), cTrader (for level II pricing and cAlgo automation), and Match-Trader (for a modern, web-based experience). Leverage is 1:100 on forex, 1:40 on indices and commodities, and 1:2 on crypto. Spreads are highly competitive, starting from 0.0-0.3 pips on EUR/USD Raw spread accounts. Commissions are $3/lot per side on forex, with zero commission on indices, commodities, and crypto for Standard accounts.\n\nNews trading, weekend holding, and EA trading are all permitted — giving traders maximum flexibility across all trading styles. Payouts are requested bi-weekly and typically processed within 1-5 business days via bank wire, cryptocurrency, Skrill, Rise, or PayPal.\n\nThe firm's Trustpilot rating of 4.6 stars from over 3,000 reviews is solid, though the review count is lower than established leaders. The main drawbacks are the young age of the firm, lack of copy trading, no instant funding option, and the relatively new brokerage expansion plans which some view as a potential shift in focus.\n\nOverall, FundedNext is a strong, innovative choice for traders in 2026. The unique evaluation-phase profit sharing, 95% maximum profit split, and four platform options make it one of the most competitive firms in the industry. For traders who value high profit splits, flexible evaluation options, and modern trading conditions, FundedNext deserves serious consideration.",
+  "id": 1676,
+  "rating": 9,
+  "reviews": "New",
+  "minDeposit": 49,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "FundedNext is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5, cTrader.",
+  "fullReview": "# FundedNext - Deep Dive Extensive Report\n\n## Company Background\n- **Founding Year**: Not explicitly stated on website\n- **Company Structure**: \n  - FundedNext Ltd (registered in Comoros Islands, registration number HY01023052)\n  - FundedNext Limited (Hong Kong office)\n  - GrowthNext F.Z.E. (UAE operational entity)\n  - Incenteco Trading LTD (Cyprus office for payment operations)\n- **Ownership**: GrowthNext F.Z.E. (owns the FundedNext trademark)\n- **Jurisdiction**: Based in Comoros Islands with additional offices in Hong Kong, UAE, and Cyprus\n\n## Regulation & Licensing\n- **Regulatory Status**: Not regulated by major financial authorities\n- **Legal Disclosure**: Explicitly states they are not a broker, dealer, exchange, or investment advisor\n- **Client Funds**: No client funds accepted - all trading is in simulated environment\n- **Compliance**: Operates under Comoros Islands registration\n\n## Challenge Rules & Phases\n- **Evaluation Programs**: Not explicitly detailed on main page\n- **Trading Objectives**: Must meet trading objectives to become eligible for funded account\n- **Rules**: Clear trading rules and objectives must be followed\n\n## Account Types & Pricing\n- **Account Sizes**: Up to $300,000 in simulated capital\n- **Fee Structure**: Subscription-based evaluation fees\n- **Scaling**: Ability to scale up to $2 million\n\n## Trading Conditions\n- **Platforms**: Not explicitly stated on main page\n- **Instruments**: Forex, CFDs, cryptocurrencies (in simulated environment)\n- **Leverage**: Not specified\n- **Trading Style**: Suitable for various trading styles\n\n## Payouts & Profit Split\n- **Profit Split**: Up to 100% reward split (based on performance)\n- **Payout Frequency**: Weekly, bi-weekly, monthly options\n- **Reward Cycles**: Fast and flexible payout options\n\n## Scaling Plans\n- **Scaling Potential**: Scale up to $2 million in trading capital\n- **Growth Path**: Multiple evaluation models to progress through trader career stages\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: 4.5/5 (based on AI summary)\n- **Positive Feedback**:\n  - \"Smooth user experience\" - efficient processes from onboarding to payouts\n  - \"Reliable payout system\" - consistent and timely payments\n  - \"Responsive customer support\" - professional and helpful assistance\n  - \"Clear rules\" - easy to understand trading objectives\n- **Negative Feedback**:\n  - \"Account bans\" - issues related to crypto wallet association or KYC discrepancies\n  - \"Hidden rules\" - some traders report unclear rule interpretations\n  - \"Support issues\" - occasional slow response times\n  - \"High spreads\" - concerns about trading costs on non-US pairs\n\n## Competitive Position\n- **Market Position**: Growing prop firm with focus on simulated trading\n- **Unique Selling Points**:\n  - Multiple evaluation models (Zero Model, 1-Step, 2-Step, Pro)\n  - Up to 100% profit split potential\n  - Fast payout cycles\n  - Focus on trader development\n- **Competition**: Competes with FTMO, The5ers, and other major prop firms\n\n## Affiliate Program\n- **Availability**: Likely available (not explicitly detailed)\n- **Structure**: Typical prop firm affiliate programs\n- **Marketing**: Probably provides promotional materials\n\n## Payout Track Record\n- **Reliability**: Generally positive reviews for payout reliability\n- **Processing**: Fast payout processing reported by traders\n- **Issues**: Some reports of withdrawal method difficulties in certain regions\n\n## Rules Transparency\n- **Positive**: Clear trading objectives and evaluation process\n- **Negative**: Some concerns about hidden rules and account termination reasons\n- **Areas for Improvement**: Better communication of all terms and conditions\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned on main page\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned on main page\n\n## Current Promotions\n- **Discount Codes**: Not prominently featured\n- **Special Offers**: Various evaluation model options at different price points\n\n## Overall Assessment\nFundedNext is a prop trading firm that focuses on simulated trading environments with clear progression paths for traders. While they have generally positive reviews for their payout reliability and customer support, there are some concerns about account termination policies and rule transparency that potential traders should be aware of.",
+  "features": [
+    "Founded in 2022",
+    "Forex, Indices, Commodities, Crypto"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\fundednext.json",
+        "bytes": 13985
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json",
+        "bytes": 1273
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.493Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1676,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "https://www.google.com/s2/favicons?domain=fundednext.com&sz=128",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 9,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 49,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "FundedNext is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5, cTrader.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "FundedNext is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5, cTrader.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Raw spreads from 0.0-0.3 pips on EUR/USD; highly competitive across all instruments",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (forex), 1:40 (indices/commodities), 1:2 (crypto)",
+      "rejected": "1:100",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json",
+      "size": 2
+    },
+    {
+      "op": "replace-longer",
+      "path": "affiliateUrl",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2022,
+      "rejected": "2022",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    },
+    {
+      "op": "replace-longer",
+      "path": "headquarters",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fundednext.json"
+    }
+  ]
+}

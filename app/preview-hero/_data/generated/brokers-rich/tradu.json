@@ -1,0 +1,221 @@
+{
+  "id": 118,
+  "name": "Tradu",
+  "slug": "tradu",
+  "logo": "/logos/tradu.png",
+  "rating": 8.2,
+  "reviews": "1,500",
+  "minDeposit": 50,
+  "platforms": [
+    "Tradu Proprietary",
+    "TradingView"
+  ],
+  "tradingInstruments": 13000,
+  "regulations": [
+    "FCA",
+    "ASIC"
+  ],
+  "bestFor": "Best for Lowest Trading Fees & Multi-Asset Access",
+  "description": "Tradu is a next-generation multi-asset broker backed by Jefferies Financial Group, offering 13,000+ instruments across forex, stocks, ETFs, crypto, and more. Founded by the Stratos Group and powered by Jefferies' institutional infrastructure, Tradu earned the #1 Trading Fees ranking for 2026 with average EUR/USD spreads of just 0.43 pips. The platform integrates TipRanks for analyst insights, offers fractional share trading, and crypto staking. Regulation through FCA and ASIC provides Tier-1 client protection.",
+  "fullReview": "## Company Overview\n\nTradu is a retail forex and CFD broker established in 2022, headquartered in an undisclosed location. The broker offers access to 13000+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- 13,000+ Trading Instruments\n- Lowest Industry Spreads\n- TipRanks Integration\n\nThe broker's trading infrastructure is built on Tradu Proprietary and TradingView, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nTradu operates under FCA and ASIC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** FCA · ASIC\n\n**Risk Level:** Low — Low risk profile — regulated by 2 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nTradu provides From 0.43 pips on major currency pairs. Leverage is available at Up to 1:200, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $50 |\n| Spreads | From 0.43 pips |\n| Leverage | Up to 1:200 |\n| Instruments | 13000+ |\n| Platforms | Tradu Proprietary and TradingView |\n\nTraders have a minimum deposit of $50, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nTradu supports Tradu Proprietary and TradingView, giving traders flexibility to choose the environment that best suits their strategy.\n\n**Tradu Proprietary:** Proprietary or partner trading platform available through Tradu.\n**TradingView:** Proprietary or partner trading platform available through Tradu.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Lowest average EUR/USD spreads in 2026 (0.43 pips)\n- ✅ 13,000+ instruments\n- ✅ Backed by Jefferies Financial Group\n- ✅ TipRanks analyst integration\n- ✅ Fractional share trading\n\n**Cons:**\n- ❌ No copy trading or algo support\n- ❌ No MetaTrader integration\n- ❌ Newer brand with shorter track record\n- ❌ No cTrader support\n\n## Who Is Tradu Best For?\n\nTradu is best suited for:\n\n- **Entry-level traders** looking for from 0.43 pips execution\n- **Traders using Tradu Proprietary** who want a straightforward account setup\n- **Those based in an undisclosed location** or regions served by FCA and ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Tradu against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 8.2 / 10**\n\nTradu is highly recommended for traders seeking from 0.43 pips on 13000+ instruments via Tradu Proprietary and TradingView. Regulation by FCA and ASIC provides a foundational level of oversight. The $50 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Tradu.*",
+  "spreads": "From 0.43 pips",
+  "leverage": "Up to 1:200",
+  "features": [
+    "13,000+ Trading Instruments",
+    "Lowest Industry Spreads",
+    "TipRanks Integration",
+    "Fractional Shares"
+  ],
+  "pros": [
+    "Lowest average EUR/USD spreads in 2026 (0.43 pips)",
+    "13,000+ instruments",
+    "Backed by Jefferies Financial Group",
+    "TipRanks analyst integration",
+    "Fractional share trading",
+    "Crypto staking available",
+    "FCA + ASIC regulation"
+  ],
+  "cons": [
+    "No copy trading or algo support",
+    "No MetaTrader integration",
+    "Newer brand with shorter track record",
+    "No cTrader support"
+  ],
+  "affiliateUrl": "https://www.tradu.com",
+  "riskLevel": "Low",
+  "founded": "2022",
+  "stateStatus": "actively operating",
+  "avgSpreadEurUsd": 0.43,
+  "commissionRt": 0,
+  "licenseNumbers": [
+    "FCA Authorised",
+    "ASIC Authorised"
+  ],
+  "executionType": "Market Maker / STP",
+  "parentCompany": "Stratos Group / Jefferies Financial Group",
+  "entityRegulations": [
+    {
+      "name": "Tradu Ltd",
+      "status": "regulated",
+      "licenseType": "Authorised",
+      "licenseNumber": "FCA Authorised",
+      "regulator": "FCA",
+      "country": "GB",
+      "flag": "🇬🇧"
+    },
+    {
+      "name": "Tradu Australia Pty Ltd",
+      "status": "regulated",
+      "licenseType": "AFSL",
+      "licenseNumber": "ASIC Authorised",
+      "regulator": "ASIC",
+      "country": "AU",
+      "flag": "🇦🇺"
+    }
+  ],
+  "companyProfileData": {
+    "founded": "2022",
+    "headquarters": "London, United Kingdom",
+    "parentCompany": "Stratos Group / Jefferies Financial Group",
+    "employees": "200-500",
+    "offices": [
+      "London",
+      "Sydney"
+    ],
+    "website": "www.tradu.com",
+    "baseCurrencies": [
+      "USD",
+      "EUR",
+      "GBP",
+      "AUD"
+    ],
+    "tradingInstrumentsList": [
+      "Forex",
+      "Stocks",
+      "ETFs",
+      "Crypto",
+      "Commodities",
+      "Indices"
+    ],
+    "supportedRegions": [
+      "UK",
+      "EU",
+      "Australia",
+      "International"
+    ],
+    "restrictedRegions": [
+      "United States",
+      "Canada"
+    ],
+    "publiclyTraded": false,
+    "brokerType": "Market Maker / STP"
+  },
+  "riskAnalysisData": {
+    "tier": "A",
+    "score": 74,
+    "politicalRisk": "Low",
+    "bankruptcyRisk": "Low",
+    "fundSegregation": true,
+    "segregatedDetails": "Client funds held in segregated accounts at Tier-1 banks. FCA and ASIC regulation mandates fund segregation.",
+    "tierExplanation": "Tradu earns Tier A backed by Jefferies Financial Group and dual FCA/ASIC regulation.",
+    "riskFactors": [
+      {
+        "name": "Regulatory Strength",
+        "score": 80,
+        "maxScore": 100,
+        "detail": "FCA + ASIC dual Tier-1 regulation"
+      },
+      {
+        "name": "Financial Stability",
+        "score": 80,
+        "maxScore": 100,
+        "detail": "Backed by Jefferies Financial Group"
+      },
+      {
+        "name": "User Review Sentiment",
+        "score": 65,
+        "maxScore": 100,
+        "detail": "Generally positive; newer brand"
+      },
+      {
+        "name": "Operational Track Record",
+        "score": 55,
+        "maxScore": 100,
+        "detail": "Founded 2022"
+      },
+      {
+        "name": "Fund Safety",
+        "score": 80,
+        "maxScore": 100,
+        "detail": "FCA + ASIC mandated fund segregation"
+      }
+    ]
+  },
+  "userReviewsData": {
+    "trustpilot": {
+      "rating": 4.2,
+      "reviews": 1500,
+      "url": "https://www.trustpilot.com/review/tradu.com"
+    },
+    "fpa": {
+      "rating": 3.8,
+      "reviews": 100
+    },
+    "reddit": "Positive",
+    "responseTime": "Good",
+    "commonComplaints": [
+      "No MT4/MT5",
+      "No copy trading"
+    ],
+    "redditSentiment": "positive",
+    "redditMentions": "medium",
+    "sources": [
+      {
+        "platform": "TrustPilot",
+        "score": 4.2,
+        "maxScore": 5,
+        "reviewCount": 1500,
+        "url": "https://www.trustpilot.com/review/tradu.com"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Lowest spreads I've found anywhere. The Jefferies backing gives me confidence.",
+        "source": "TrustPilot",
+        "date": "2025",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  "faqData": [
+    {
+      "question": "Is Tradu a legitimate broker?",
+      "answer": "Yes. Tradu is backed by Jefferies Financial Group and regulated by FCA (UK) and ASIC (Australia)."
+    },
+    {
+      "question": "What is the minimum deposit for Tradu?",
+      "answer": "The minimum deposit is $50."
+    }
+  ],
+  "scores": {
+    "overall": 8.2,
+    "tradingInstruments": 9.5,
+    "platforms": 7.5,
+    "fees": 9.5,
+    "security": 8,
+    "deposit": 8,
+    "customerService": 7.5
+  },
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\tradu.json",
+        "bytes": 6002
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.839Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

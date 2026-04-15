@@ -1,0 +1,54 @@
+{
+  "id": 1365,
+  "name": "Sucden Financial",
+  "slug": "sucden",
+  "logo": "https://www.google.com/s2/favicons?domain=sucfin.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 5000,
+  "platforms": [
+    "STAR",
+    "J-Trader",
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA",
+    "NFA",
+    "SFC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Sucden Financial is a UK based broker founded in 1973. With FCA, NFA, SFC, it offers 80+ FX pairs, CFDs on commodities, metals, futures trading primarily via STAR, J-Trader, MT4, MT5.",
+  "fullReview": "## Company Overview\n\nSucden Financial is a retail forex and CFD broker established in 1973, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1973\n- 80+ FX pairs, CFDs on commodities, metals, futures\n\nThe broker's trading infrastructure is built on STAR, J-Trader, MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nSucden Financial operates under FCA, NFA and SFC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** FCA · NFA · SFC\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nSucden Financial provides From 0.1 pips on major currency pairs. Leverage is available at 100:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $5000 |\n| Spreads | From 0.1 pips |\n| Leverage | 100:1 |\n| Instruments | 500+ |\n| Platforms | STAR, J-Trader, MT4 and MT5 |\n\nTraders have a minimum deposit of $5000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nSucden Financial supports STAR, J-Trader, MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**STAR:** Proprietary or partner trading platform available through Sucden Financial.\n**J-Trader:** Proprietary or partner trading platform available through Sucden Financial.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports STAR\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Sucden Financial Best For?\n\nSucden Financial is best suited for:\n\n- **Intermediate traders** looking for from 0.1 pips execution\n- **Traders using STAR** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA, NFA and SFC\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Sucden Financial against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nSucden Financial is a solid choice for traders seeking from 0.1 pips on 500+ instruments via STAR, J-Trader, MT4 and MT5. Regulation by FCA, NFA and SFC provides a foundational level of oversight. The $5000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Sucden Financial.*",
+  "spreads": "From 0.1 pips",
+  "leverage": "100:1",
+  "features": [
+    "Founded in 1973",
+    "80+ FX pairs, CFDs on commodities, metals, futures"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports STAR"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.sucfin.com",
+  "riskLevel": "Medium",
+  "founded": "1973",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\sucden.json",
+        "bytes": 1251
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.763Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

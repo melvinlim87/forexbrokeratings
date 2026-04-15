@@ -1,0 +1,50 @@
+{
+  "id": 1437,
+  "name": "CIM Bank",
+  "slug": "cim-bank",
+  "logo": "https://www.google.com/s2/favicons?domain=cimbanque.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000,
+  "platforms": [
+    "TWS",
+    "WebTrader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FINMA"
+  ],
+  "bestFor": "New Listing",
+  "description": "CIM Bank is a Switzerland based broker founded in 1990. With FINMA, it offers 40+ FX pairs, stocks, ETFs, bonds, options trading primarily via TWS, WebTrader.",
+  "fullReview": "## Company Overview\n\nCIM Bank is a retail forex and CFD broker established in 1990, headquartered in Switzerland. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1990\n- 40+ FX pairs, stocks, ETFs, bonds, options\n\nThe broker's trading infrastructure is built on TWS and WebTrader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCIM Bank operates under FINMA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FINMA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCIM Bank provides From 0.5 pips on major currency pairs. Leverage is available at 100:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000 |\n| Spreads | From 0.5 pips |\n| Leverage | 100:1 |\n| Instruments | 500+ |\n| Platforms | TWS and WebTrader |\n\nTraders have a minimum deposit of $1000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCIM Bank supports TWS and WebTrader, giving traders flexibility to choose the environment that best suits their strategy.\n\n**TWS:** Proprietary or partner trading platform available through CIM Bank.\n**WebTrader:** Proprietary or partner trading platform available through CIM Bank.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FINMA\n- ✅ Low entry barrier\n- ✅ Supports TWS\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is CIM Bank Best For?\n\nCIM Bank is best suited for:\n\n- **Intermediate traders** looking for from 0.5 pips execution\n- **Traders using TWS** who want a straightforward account setup\n- **Those based in Switzerland** or regions served by FINMA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare CIM Bank against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nCIM Bank is a solid choice for traders seeking from 0.5 pips on 500+ instruments via TWS and WebTrader. Regulation by FINMA provides a foundational level of oversight. The $1000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with CIM Bank.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "100:1",
+  "features": [
+    "Founded in 1990",
+    "40+ FX pairs, stocks, ETFs, bonds, options"
+  ],
+  "pros": [
+    "Regulated by FINMA",
+    "Low entry barrier",
+    "Supports TWS"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.cimbanque.com",
+  "riskLevel": "Medium",
+  "founded": "1990",
+  "headquarters": "Switzerland",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\cim-bank.json",
+        "bytes": 1157
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.184Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

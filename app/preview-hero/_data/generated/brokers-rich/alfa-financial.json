@@ -1,0 +1,50 @@
+{
+  "id": 1404,
+  "name": "Alfa Financial",
+  "slug": "alfa-financial",
+  "logo": "https://www.google.com/s2/favicons?domain=alfafinancials.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 500,
+  "platforms": [
+    "AX1 Trader",
+    "MT4"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Alfa Financial is a UAE based broker founded in 1993. With SCA, it offers 40+ FX pairs, stocks, CFDs on indices, commodities trading primarily via AX1 Trader, MT4.",
+  "fullReview": "## Company Overview\n\nAlfa Financial is a retail forex and CFD broker established in 1993, headquartered in UAE. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1993\n- 40+ FX pairs, stocks, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on AX1 Trader and MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAlfa Financial operates under SCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** SCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nAlfa Financial provides From 0.8 pips on major currency pairs. Leverage is available at 100:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $500 |\n| Spreads | From 0.8 pips |\n| Leverage | 100:1 |\n| Instruments | 500+ |\n| Platforms | AX1 Trader and MT4 |\n\nTraders have a minimum deposit of $500, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nAlfa Financial supports AX1 Trader and MT4, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**AX1 Trader:** Proprietary or partner trading platform available through Alfa Financial.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SCA\n- ✅ Low entry barrier\n- ✅ Supports AX1 Trader\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Alfa Financial Best For?\n\nAlfa Financial is best suited for:\n\n- **Intermediate traders** looking for from 0.8 pips execution\n- **Traders using AX1 Trader** who want a straightforward account setup\n- **Those based in UAE** or regions served by SCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Alfa Financial against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nAlfa Financial is a solid choice for traders seeking from 0.8 pips on 500+ instruments via AX1 Trader and MT4. Regulation by SCA provides a foundational level of oversight. The $500 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Alfa Financial.*",
+  "spreads": "From 0.8 pips",
+  "leverage": "100:1",
+  "features": [
+    "Founded in 1993",
+    "40+ FX pairs, stocks, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by SCA",
+    "Low entry barrier",
+    "Supports AX1 Trader"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.alfafinancials.com",
+  "riskLevel": "Medium",
+  "founded": "1993",
+  "headquarters": "UAE",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\alfa-financial.json",
+        "bytes": 1192
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.992Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1634,
+  "name": "Stratton Equities",
+  "slug": "stratton-equities",
+  "logo": "https://www.google.com/s2/favicons?domain=strattonequities.com&sz=128",
+  "rating": 3,
+  "reviews": "New",
+  "minDeposit": 500,
+  "platforms": [
+    "Stratton Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not regulated"
+  ],
+  "bestFor": "New Listing",
+  "description": "Stratton Equities is a USA based broker founded in 2018. With no formal regulation, it offers Forex, Stocks, CFDs, Crypto trading primarily via Stratton Platform.",
+  "fullReview": "## Company Overview\n\nStratton Equities is a retail forex and CFD broker established in 2018, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2018\n- Forex, Stocks, CFDs, Crypto\n\nThe broker's trading infrastructure is built on Stratton Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nStratton Equities currently operates without a major-tier regulatory licence. The broker is registered in USA and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n**Regulatory jurisdictions:** Not regulated\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nStratton Equities provides From 1.0 pips on major currency pairs. Leverage is available at 1:200, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $500 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:200 |\n| Instruments | 500+ |\n| Platforms | Stratton Platform |\n\nTraders have a minimum deposit of $500, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nStratton Equities supports Stratton Platform.\n\n**Stratton Platform:** Proprietary or partner trading platform available through Stratton Equities.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Competitive trading conditions (High Risk)\n- ✅ Low entry barrier\n- ✅ Supports Stratton Platform\n\n**Cons:**\n- ❌ NOT REGULATED (High Risk of Fund Loss)\n\n## Who Is Stratton Equities Best For?\n\nStratton Equities is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using Stratton Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by Not regulated\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Stratton Equities against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 3.0 / 10**\n\nStratton Equities is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Stratton Platform. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $500 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Stratton Equities.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:200",
+  "features": [
+    "Founded in 2018",
+    "Forex, Stocks, CFDs, Crypto"
+  ],
+  "pros": [
+    "Competitive trading conditions (High Risk)",
+    "Low entry barrier",
+    "Supports Stratton Platform"
+  ],
+  "cons": [
+    "NOT REGULATED (High Risk of Fund Loss)"
+  ],
+  "affiliateUrl": "https://www.strattonequities.com",
+  "riskLevel": "Medium",
+  "founded": "2018",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\stratton-equities.json",
+        "bytes": 1210
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.761Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

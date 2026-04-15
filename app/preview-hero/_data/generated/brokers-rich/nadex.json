@@ -1,0 +1,50 @@
+{
+  "id": 1358,
+  "name": "Nadex",
+  "slug": "nadex",
+  "logo": "https://www.google.com/s2/favicons?domain=nadex.com&sz=128",
+  "rating": 2.6,
+  "reviews": "New",
+  "minDeposit": 250,
+  "platforms": [
+    "Nadex Platform",
+    "Nadex Mobile"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CFTC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Nadex is a USA based broker founded in 2004. With CFTC, it offers Binary options, knock-outs, call spreads on FX, indices, commodities, crypto trading primarily via Nadex Platform, Nadex Mobile.",
+  "fullReview": "## Company Overview\n\nNadex is a retail forex and CFD broker established in 2004, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2004\n- Binary options, knock-outs, call spreads on FX, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on Nadex Platform and Nadex Mobile, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nNadex operates under CFTC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CFTC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nNadex provides From N/A pips on major currency pairs. Leverage is available at N/A, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $250 |\n| Spreads | From N/A pips |\n| Leverage | N/A |\n| Instruments | 500+ |\n| Platforms | Nadex Platform and Nadex Mobile |\n\nTraders have a minimum deposit of $250, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nNadex supports Nadex Platform and Nadex Mobile, giving traders flexibility to choose the environment that best suits their strategy.\n\n**Nadex Platform:** Proprietary or partner trading platform available through Nadex.\n**Nadex Mobile:** Proprietary or partner trading platform available through Nadex.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CFTC\n- ✅ Low entry barrier\n- ✅ Supports Nadex Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Nadex Best For?\n\nNadex is best suited for:\n\n- **Intermediate traders** looking for from n/a pips execution\n- **Traders using Nadex Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by CFTC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Nadex against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 2.6 / 10**\n\nNadex is an option worth researching carefully for traders seeking from n/a pips on 500+ instruments via Nadex Platform and Nadex Mobile. Regulation by CFTC provides a foundational level of oversight. The $250 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Nadex.*",
+  "spreads": "From N/A pips",
+  "leverage": "N/A",
+  "features": [
+    "Founded in 2004",
+    "Binary options, knock-outs, call spreads on FX, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by CFTC",
+    "Low entry barrier",
+    "Supports Nadex Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.nadex.com",
+  "riskLevel": "Medium",
+  "founded": "2004",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\nadex.json",
+        "bytes": 1261
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.593Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

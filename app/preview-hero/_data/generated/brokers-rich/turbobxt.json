@@ -1,0 +1,49 @@
+{
+  "id": 1646,
+  "name": "TurboXBT",
+  "slug": "turbobxt",
+  "logo": "https://www.google.com/s2/favicons?domain=turbobxt.com&sz=128",
+  "rating": 3,
+  "reviews": "New",
+  "minDeposit": 10,
+  "platforms": [
+    "TurboXBT Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not regulated"
+  ],
+  "bestFor": "New Listing",
+  "description": "TurboXBT is a Saint Vincent and the Grenadines based broker founded in 2020. With no formal regulation, it offers Synthetic Indices, Forex, Crypto, Commodities trading primarily via TurboXBT Platform.",
+  "fullReview": "## Company Overview\n\nTurboXBT is a retail forex and CFD broker established in 2020, headquartered in Saint Vincent and the Grenadines. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2020\n- Synthetic Indices, Forex, Crypto, Commodities\n\nThe broker's trading infrastructure is built on TurboXBT Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nTurboXBT currently operates without a major-tier regulatory licence. The broker is registered in Saint Vincent and the Grenadines and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n**Regulatory jurisdictions:** Not regulated\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nTurboXBT provides From 1.0 pips on major currency pairs. Leverage is available at N/A (synthetic/CFD), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10 |\n| Spreads | From 1.0 pips |\n| Leverage | N/A (synthetic/CFD) |\n| Instruments | 500+ |\n| Platforms | TurboXBT Platform |\n\nTraders have a minimum deposit of $10, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nTurboXBT supports TurboXBT Platform.\n\n**TurboXBT Platform:** Proprietary or partner trading platform available through TurboXBT.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Competitive trading conditions (High Risk)\n- ✅ Low entry barrier\n- ✅ Supports TurboXBT Platform\n\n**Cons:**\n- ❌ NOT REGULATED (High Risk of Fund Loss)\n\n## Who Is TurboXBT Best For?\n\nTurboXBT is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using TurboXBT Platform** who want a straightforward account setup\n- **Those based in Saint Vincent and the Grenadines** or regions served by Not regulated\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare TurboXBT against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 3.0 / 10**\n\nTurboXBT is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via TurboXBT Platform. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $10 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with TurboXBT.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "N/A (synthetic/CFD)",
+  "features": [
+    "Founded in 2020",
+    "Synthetic Indices, Forex, Crypto, Commodities"
+  ],
+  "pros": [
+    "Competitive trading conditions (High Risk)",
+    "Low entry barrier",
+    "Supports TurboXBT Platform"
+  ],
+  "cons": [
+    "NOT REGULATED (High Risk of Fund Loss)"
+  ],
+  "affiliateUrl": "https://www.turbobxt.com",
+  "riskLevel": "Medium",
+  "founded": "2020",
+  "headquarters": "Saint Vincent and the Grenadines",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\turbobxt.json",
+        "bytes": 1312
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.853Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

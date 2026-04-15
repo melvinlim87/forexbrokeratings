@@ -1,0 +1,52 @@
+{
+  "id": 1321,
+  "name": "HFTrading",
+  "slug": "hftrading",
+  "logo": "https://www.google.com/s2/favicons?domain=hftrading.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 250,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "HFTrading Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC",
+    "NZ FMA"
+  ],
+  "bestFor": "New Listing",
+  "description": "HFTrading is a New Zealand based broker founded in 2019. With ASIC, NZ FMA, it offers 35 FX pairs, CFDs on stocks, indices, commodities, crypto trading primarily via MT4, MT5, HFTrading Platform.",
+  "fullReview": "## Company Overview\n\nHFTrading is a retail forex and CFD broker established in 2019, headquartered in New Zealand. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2019\n- 35 FX pairs, CFDs on stocks, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on MT4, MT5 and HFTrading Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nHFTrading operates under ASIC and NZ FMA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** ASIC · NZ FMA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nHFTrading provides From 0.7 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $250 |\n| Spreads | From 0.7 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and HFTrading Platform |\n\nTraders have a minimum deposit of $250, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nHFTrading supports MT4, MT5 and HFTrading Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**HFTrading Platform:** Proprietary or partner trading platform available through HFTrading.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is HFTrading Best For?\n\nHFTrading is best suited for:\n\n- **Intermediate traders** looking for from 0.7 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in New Zealand** or regions served by ASIC and NZ FMA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare HFTrading against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nHFTrading is a solid choice for traders seeking from 0.7 pips on 500+ instruments via MT4, MT5 and HFTrading Platform. Regulation by ASIC and NZ FMA provides a foundational level of oversight. The $250 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with HFTrading.*",
+  "spreads": "From 0.7 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 2019",
+    "35 FX pairs, CFDs on stocks, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.hftrading.com",
+  "riskLevel": "Medium",
+  "founded": "2019",
+  "headquarters": "New Zealand",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\hftrading.json",
+        "bytes": 1281
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.453Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

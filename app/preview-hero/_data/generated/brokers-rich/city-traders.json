@@ -1,0 +1,49 @@
+{
+  "id": 1683,
+  "name": "City Traders Imperium",
+  "slug": "city-traders",
+  "logo": "https://www.google.com/s2/favicons?domain=citytradersimperium.com&sz=128",
+  "rating": 9.4,
+  "reviews": "New",
+  "minDeposit": 35,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "City Traders Imperium is a UK based broker founded in 2020. With Not a broker (prop firm), it offers Forex, Metals, Indices trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nCity Traders Imperium is a retail forex and CFD broker established in 2020, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2020\n- Forex, Metals, Indices\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCity Traders Imperium operates under Not a broker (prop firm) regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** Not a broker (prop firm)\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCity Traders Imperium provides From 1.0 pips on major currency pairs. Leverage is available at 1:100, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $35 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:100 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $35, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nCity Traders Imperium supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Not a broker (prop firm)\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is City Traders Imperium Best For?\n\nCity Traders Imperium is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by Not a broker (prop firm)\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare City Traders Imperium against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 9.4 / 10**\n\nCity Traders Imperium is highly recommended for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by Not a broker (prop firm) provides a foundational level of oversight. The $35 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with City Traders Imperium.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:100",
+  "features": [
+    "Founded in 2020",
+    "Forex, Metals, Indices"
+  ],
+  "pros": [
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.citytradersimperium.com",
+  "riskLevel": "Medium",
+  "founded": "2020",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\city-traders.json",
+        "bytes": 1163
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.187Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

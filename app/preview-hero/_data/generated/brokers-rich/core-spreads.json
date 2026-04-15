@@ -1,0 +1,50 @@
+{
+  "id": 1562,
+  "name": "Core Spreads",
+  "slug": "core-spreads",
+  "logo": "https://www.google.com/s2/favicons?domain=corespreads.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "Core Spreads Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Core Spreads is a UK based broker founded in 2014. With FCA, it offers Forex, CFDs, Commodities, Indices trading primarily via MT4, Core Spreads Platform.",
+  "fullReview": "## Company Overview\n\nCore Spreads is a retail forex and CFD broker established in 2014, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2014\n- Forex, CFDs, Commodities, Indices\n\nThe broker's trading infrastructure is built on MT4 and Core Spreads Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCore Spreads operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCore Spreads provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and Core Spreads Platform |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCore Spreads supports MT4 and Core Spreads Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**Core Spreads Platform:** Proprietary or partner trading platform available through Core Spreads.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Core Spreads Best For?\n\nCore Spreads is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Core Spreads against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nCore Spreads is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and Core Spreads Platform. Regulation by FCA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Core Spreads.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2014",
+    "Forex, CFDs, Commodities, Indices"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.corespreads.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\core-spreads.json",
+        "bytes": 1149
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.200Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    domains: ['images.pexels.com', 'via.placeholder.com', 'logo.clearbit.com'],
-    unoptimized: true
+    // Static export requires unoptimized images (no server-side image API)
+    unoptimized: true,
+    domains: ['images.pexels.com', 'via.placeholder.com', 'logo.clearbit.com', 'www.google.com'],
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -11,7 +13,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   trailingSlash: true,
-  output: 'export',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,

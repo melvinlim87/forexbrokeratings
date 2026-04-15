@@ -1,0 +1,505 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "layout.tsx",
+      "source_location": "L1",
+      "id": "layout_tsx",
+      "community": 4,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "PreviewHeroLayout()",
+      "file_type": "code",
+      "source_file": "layout.tsx",
+      "source_location": "L9",
+      "id": "layout_previewherolayout",
+      "community": 4,
+      "norm_label": "previewherolayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "page.tsx",
+      "source_location": "L1",
+      "id": "page_tsx",
+      "community": 6,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L1",
+      "id": "firms_slug_page_tsx",
+      "community": 2,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "generateStaticParams()",
+      "file_type": "code",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L31",
+      "id": "page_generatestaticparams",
+      "community": 2,
+      "norm_label": "generatestaticparams()"
+    },
+    {
+      "label": "generateMetadata()",
+      "file_type": "code",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L37",
+      "id": "page_generatemetadata",
+      "community": 2,
+      "norm_label": "generatemetadata()"
+    },
+    {
+      "label": "PropFirmDossierPage()",
+      "file_type": "code",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L47",
+      "id": "page_propfirmdossierpage",
+      "community": 2,
+      "norm_label": "propfirmdossierpage()"
+    },
+    {
+      "label": "CashbackCalculator.tsx",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L1",
+      "id": "components_cashbackcalculator_tsx",
+      "community": 0,
+      "norm_label": "cashbackcalculator.tsx"
+    },
+    {
+      "label": "reducer()",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L54",
+      "id": "cashbackcalculator_reducer",
+      "community": 0,
+      "norm_label": "reducer()"
+    },
+    {
+      "label": "formatMoney()",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L79",
+      "id": "cashbackcalculator_formatmoney",
+      "community": 0,
+      "norm_label": "formatmoney()"
+    },
+    {
+      "label": "calculateBroker()",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L88",
+      "id": "cashbackcalculator_calculatebroker",
+      "community": 0,
+      "norm_label": "calculatebroker()"
+    },
+    {
+      "label": "calculatePropFirm()",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L101",
+      "id": "cashbackcalculator_calculatepropfirm",
+      "community": 0,
+      "norm_label": "calculatepropfirm()"
+    },
+    {
+      "label": "onClick()",
+      "file_type": "code",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L226",
+      "id": "cashbackcalculator_onclick",
+      "community": 0,
+      "norm_label": "onclick()"
+    },
+    {
+      "label": "GlobeA.tsx",
+      "file_type": "code",
+      "source_file": "_components\\GlobeA.tsx",
+      "source_location": "L1",
+      "id": "components_globea_tsx",
+      "community": 7,
+      "norm_label": "globea.tsx"
+    },
+    {
+      "label": "GlobeB.tsx",
+      "file_type": "code",
+      "source_file": "_components\\GlobeB.tsx",
+      "source_location": "L1",
+      "id": "components_globeb_tsx",
+      "community": 8,
+      "norm_label": "globeb.tsx"
+    },
+    {
+      "label": "GlobeStage.tsx",
+      "file_type": "code",
+      "source_file": "_components\\GlobeStage.tsx",
+      "source_location": "L1",
+      "id": "components_globestage_tsx",
+      "community": 9,
+      "norm_label": "globestage.tsx"
+    },
+    {
+      "label": "HowCashbackWorks.tsx",
+      "file_type": "code",
+      "source_file": "_components\\HowCashbackWorks.tsx",
+      "source_location": "L1",
+      "id": "components_howcashbackworks_tsx",
+      "community": 10,
+      "norm_label": "howcashbackworks.tsx"
+    },
+    {
+      "label": "LiveTicker.tsx",
+      "file_type": "code",
+      "source_file": "_components\\LiveTicker.tsx",
+      "source_location": "L1",
+      "id": "components_liveticker_tsx",
+      "community": 5,
+      "norm_label": "liveticker.tsx"
+    },
+    {
+      "label": "LiveTicker()",
+      "file_type": "code",
+      "source_file": "_components\\LiveTicker.tsx",
+      "source_location": "L8",
+      "id": "liveticker_liveticker",
+      "community": 5,
+      "norm_label": "liveticker()"
+    },
+    {
+      "label": "PropFirmDossier.tsx",
+      "file_type": "code",
+      "source_file": "_components\\PropFirmDossier.tsx",
+      "source_location": "L1",
+      "id": "components_propfirmdossier_tsx",
+      "community": 11,
+      "norm_label": "propfirmdossier.tsx"
+    },
+    {
+      "label": "TopRebateRates.tsx",
+      "file_type": "code",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L1",
+      "id": "components_toprebaterates_tsx",
+      "community": 3,
+      "norm_label": "toprebaterates.tsx"
+    },
+    {
+      "label": "pickBestRate()",
+      "file_type": "code",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L31",
+      "id": "toprebaterates_pickbestrate",
+      "community": 3,
+      "norm_label": "pickbestrate()"
+    },
+    {
+      "label": "onMove()",
+      "file_type": "code",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L50",
+      "id": "toprebaterates_onmove",
+      "community": 3,
+      "norm_label": "onmove()"
+    },
+    {
+      "label": "onLeave()",
+      "file_type": "code",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L56",
+      "id": "toprebaterates_onleave",
+      "community": 3,
+      "norm_label": "onleave()"
+    },
+    {
+      "label": "entities.ts",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L1",
+      "id": "data_entities_ts",
+      "community": 1,
+      "norm_label": "entities.ts"
+    },
+    {
+      "label": "isValidBroker()",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L112",
+      "id": "entities_isvalidbroker",
+      "community": 1,
+      "norm_label": "isvalidbroker()"
+    },
+    {
+      "label": "hydrateBroker()",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L120",
+      "id": "entities_hydratebroker",
+      "community": 1,
+      "norm_label": "hydratebroker()"
+    },
+    {
+      "label": "hydratePropFirm()",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L150",
+      "id": "entities_hydratepropfirm",
+      "community": 1,
+      "norm_label": "hydratepropfirm()"
+    },
+    {
+      "label": "initialsOf()",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L210",
+      "id": "entities_initialsof",
+      "community": 1,
+      "norm_label": "initialsof()"
+    },
+    {
+      "label": "isImageLogo()",
+      "file_type": "code",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L217",
+      "id": "entities_isimagelogo",
+      "community": 1,
+      "norm_label": "isimagelogo()"
+    },
+    {
+      "label": "jurisdictions.ts",
+      "file_type": "code",
+      "source_file": "_data\\jurisdictions.ts",
+      "source_location": "L1",
+      "id": "data_jurisdictions_ts",
+      "community": 12,
+      "norm_label": "jurisdictions.ts"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "layout_tsx",
+      "_tgt": "layout_previewherolayout",
+      "source": "layout_tsx",
+      "target": "layout_previewherolayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "firms_slug_page_tsx",
+      "_tgt": "page_generatestaticparams",
+      "source": "firms_slug_page_tsx",
+      "target": "page_generatestaticparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "firms_slug_page_tsx",
+      "_tgt": "page_generatemetadata",
+      "source": "firms_slug_page_tsx",
+      "target": "page_generatemetadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "firms\\[slug]\\page.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_src": "firms_slug_page_tsx",
+      "_tgt": "page_propfirmdossierpage",
+      "source": "firms_slug_page_tsx",
+      "target": "page_propfirmdossierpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_src": "components_cashbackcalculator_tsx",
+      "_tgt": "cashbackcalculator_reducer",
+      "source": "components_cashbackcalculator_tsx",
+      "target": "cashbackcalculator_reducer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_src": "components_cashbackcalculator_tsx",
+      "_tgt": "cashbackcalculator_formatmoney",
+      "source": "components_cashbackcalculator_tsx",
+      "target": "cashbackcalculator_formatmoney",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_src": "components_cashbackcalculator_tsx",
+      "_tgt": "cashbackcalculator_calculatebroker",
+      "source": "components_cashbackcalculator_tsx",
+      "target": "cashbackcalculator_calculatebroker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_src": "components_cashbackcalculator_tsx",
+      "_tgt": "cashbackcalculator_calculatepropfirm",
+      "source": "components_cashbackcalculator_tsx",
+      "target": "cashbackcalculator_calculatepropfirm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\CashbackCalculator.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_src": "components_cashbackcalculator_tsx",
+      "_tgt": "cashbackcalculator_onclick",
+      "source": "components_cashbackcalculator_tsx",
+      "target": "cashbackcalculator_onclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\LiveTicker.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "components_liveticker_tsx",
+      "_tgt": "liveticker_liveticker",
+      "source": "components_liveticker_tsx",
+      "target": "liveticker_liveticker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "components_toprebaterates_tsx",
+      "_tgt": "toprebaterates_pickbestrate",
+      "source": "components_toprebaterates_tsx",
+      "target": "toprebaterates_pickbestrate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_src": "components_toprebaterates_tsx",
+      "_tgt": "toprebaterates_onmove",
+      "source": "components_toprebaterates_tsx",
+      "target": "toprebaterates_onmove",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_components\\TopRebateRates.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_src": "components_toprebaterates_tsx",
+      "_tgt": "toprebaterates_onleave",
+      "source": "components_toprebaterates_tsx",
+      "target": "toprebaterates_onleave",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_src": "data_entities_ts",
+      "_tgt": "entities_isvalidbroker",
+      "source": "data_entities_ts",
+      "target": "entities_isvalidbroker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_src": "data_entities_ts",
+      "_tgt": "entities_hydratebroker",
+      "source": "data_entities_ts",
+      "target": "entities_hydratebroker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_src": "data_entities_ts",
+      "_tgt": "entities_hydratepropfirm",
+      "source": "data_entities_ts",
+      "target": "entities_hydratepropfirm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L210",
+      "weight": 1.0,
+      "_src": "data_entities_ts",
+      "_tgt": "entities_initialsof",
+      "source": "data_entities_ts",
+      "target": "entities_initialsof",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_data\\entities.ts",
+      "source_location": "L217",
+      "weight": 1.0,
+      "_src": "data_entities_ts",
+      "_tgt": "entities_isimagelogo",
+      "source": "data_entities_ts",
+      "target": "entities_isimagelogo",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

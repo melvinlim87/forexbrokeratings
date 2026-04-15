@@ -1,0 +1,52 @@
+{
+  "id": 1713,
+  "name": "Nordnet",
+  "slug": "nordnet",
+  "logo": "https://www.google.com/s2/favicons?domain=nordnet.se&sz=128",
+  "rating": 4.6,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Nordnet Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "Swedish FSA",
+    "Finansinspektionen"
+  ],
+  "bestFor": "New Listing",
+  "description": "Nordnet is a Sweden based broker founded in 1996. With Offshore License, it offers Stocks, ETFs, Mutual Funds, Bonds, Futures, Options trading primarily via Nordnet Platform.",
+  "fullReview": "## Company Overview\n\nNordnet is a retail forex and CFD broker established in 1996, headquartered in Sweden. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1996\n- Stocks, ETFs, Mutual Funds, Bonds, Futures, Options\n\nThe broker's trading infrastructure is built on Nordnet Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nNordnet operates under Offshore License, Swedish FSA and Finansinspektionen regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · Swedish FSA · Finansinspektionen\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nNordnet provides From 1.0 pips on major currency pairs. Leverage is available at 1:5 (equity), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:5 (equity) |\n| Instruments | 500+ |\n| Platforms | Nordnet Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nNordnet supports Nordnet Platform.\n\n**Nordnet Platform:** Proprietary or partner trading platform available through Nordnet.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports Nordnet Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Nordnet Best For?\n\nNordnet is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Nordnet Platform** who want a straightforward account setup\n- **Those based in Sweden** or regions served by Offshore License, Swedish FSA and Finansinspektionen\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Nordnet against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 4.6 / 10**\n\nNordnet is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Nordnet Platform. Regulation by Offshore License, Swedish FSA and Finansinspektionen provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Nordnet.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:5 (equity)",
+  "features": [
+    "Founded in 1996",
+    "Stocks, ETFs, Mutual Funds, Bonds, Futures, Options"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports Nordnet Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.nordnet.se",
+  "riskLevel": "Medium",
+  "founded": "1996",
+  "headquarters": "Sweden",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\nordnet.json",
+        "bytes": 1329
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.610Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

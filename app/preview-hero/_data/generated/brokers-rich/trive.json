@@ -1,0 +1,52 @@
+{
+  "id": 1535,
+  "name": "Trive",
+  "slug": "trive",
+  "logo": "https://www.google.com/s2/favicons?domain=trive.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "Trive Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "AFM",
+    "MFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Trive is a Netherlands based broker founded in 2022. With Offshore License, it offers Forex, CFDs, Stocks, ETFs, Indices trading primarily via Trive Platform.",
+  "fullReview": "## Company Overview\n\nTrive is a retail forex and CFD broker established in 2022, headquartered in Netherlands. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2022\n- Forex, CFDs, Stocks, ETFs, Indices\n\nThe broker's trading infrastructure is built on Trive Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nTrive operates under Offshore License, AFM and MFSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · AFM · MFSA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nTrive provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | Trive Platform |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nTrive supports Trive Platform.\n\n**Trive Platform:** Proprietary or partner trading platform available through Trive.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports Trive Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Trive Best For?\n\nTrive is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Trive Platform** who want a straightforward account setup\n- **Those based in Netherlands** or regions served by Offshore License, AFM and MFSA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Trive against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nTrive is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via Trive Platform. Regulation by Offshore License, AFM and MFSA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Trive.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2022",
+    "Forex, CFDs, Stocks, ETFs, Indices"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports Trive Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.trive.com",
+  "riskLevel": "Medium",
+  "founded": "2022",
+  "headquarters": "Netherlands",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\trive.json",
+        "bytes": 1247
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.841Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

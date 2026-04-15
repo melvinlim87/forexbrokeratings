@@ -1,0 +1,51 @@
+{
+  "id": 1707,
+  "name": "MATSUI FX",
+  "slug": "matsui-fx",
+  "logo": "https://www.google.com/s2/favicons?domain=matsui-fx.co.jp&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "MATSUI FX Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "JFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "MATSUI FX is a Japan based broker founded in 2011. With Offshore License, it offers Forex trading primarily via MATSUI FX Platform.",
+  "fullReview": "## Company Overview\n\nMATSUI FX is a retail forex and CFD broker established in 2011, headquartered in Japan. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2011\n- Forex\n\nThe broker's trading infrastructure is built on MATSUI FX Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nMATSUI FX operates under Offshore License and JFSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · JFSA\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nMATSUI FX provides From 1.0 pips on major currency pairs. Leverage is available at 1:250 (forex), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:250 (forex) |\n| Instruments | 500+ |\n| Platforms | MATSUI FX Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nMATSUI FX supports MATSUI FX Platform.\n\n**MATSUI FX Platform:** Proprietary or partner trading platform available through MATSUI FX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MATSUI FX Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is MATSUI FX Best For?\n\nMATSUI FX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MATSUI FX Platform** who want a straightforward account setup\n- **Those based in Japan** or regions served by Offshore License and JFSA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare MATSUI FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nMATSUI FX is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via MATSUI FX Platform. Regulation by Offshore License and JFSA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with MATSUI FX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:250 (forex)",
+  "features": [
+    "Founded in 2011",
+    "Forex"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MATSUI FX Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.matsui-fx.co.jp",
+  "riskLevel": "Medium",
+  "founded": "2011",
+  "headquarters": "Japan",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\matsui-fx.json",
+        "bytes": 1181
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.565Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

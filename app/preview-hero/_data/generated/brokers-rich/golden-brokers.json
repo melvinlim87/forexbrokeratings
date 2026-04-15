@@ -1,0 +1,52 @@
+{
+  "id": 1590,
+  "name": "Golden Brokers",
+  "slug": "golden-brokers",
+  "logo": "https://www.google.com/s2/favicons?domain=goldenbrokers.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "LFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Golden Brokers is a Malaysia based broker founded in 2019. With Offshore License, it offers Forex, CFDs, Commodities, Indices trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nGolden Brokers is a retail forex and CFD broker established in 2019, headquartered in Malaysia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2019\n- Forex, CFDs, Commodities, Indices\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nGolden Brokers operates under Offshore License and LFSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · LFSA\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nGolden Brokers provides From 1.0 pips on major currency pairs. Leverage is available at 1:200, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:200 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nGolden Brokers supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Golden Brokers Best For?\n\nGolden Brokers is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Malaysia** or regions served by Offshore License and LFSA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Golden Brokers against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nGolden Brokers is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by Offshore License and LFSA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Golden Brokers.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:200",
+  "features": [
+    "Founded in 2019",
+    "Forex, CFDs, Commodities, Indices"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.goldenbrokers.com",
+  "riskLevel": "Medium",
+  "founded": "2019",
+  "headquarters": "Malaysia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\golden-brokers.json",
+        "bytes": 1254
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.438Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

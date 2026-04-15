@@ -1,0 +1,378 @@
+{
+  "name": "MyFundedFX",
+  "slug": "myfundedfx",
+  "status": "closed",
+  "closed": 2026,
+  "closure_reason": "Ceased all proprietary trading operations on February 6, 2026. The firm rebranded as Seacrest Markets and transitioned fully to CFD brokerage services. Funded trading accounts were terminated and traders were given 48 hours to close positions. All prop trading divisions were permanently shut down.",
+  "summary": "MyFundedFX was a proprietary trading firm founded in June 2022 by CEO Matthew Leech, headquartered in Dallas, Texas, United States. The firm operated until February 2026 when it permanently ceased all prop trading operations and rebranded as Seacrest Markets, shifting focus to CFD brokerage services. During its active period, MyFundedFX partnered with brokers EightCap, ThinkMarkets, and Blueberry Markets, offering virtual funded accounts across 1-Step, 2-Step, and 3-Step challenge programs. The firm has since transitioned former clients to Seacrest Markets. This page is preserved for historical reference.",
+  "founded": 2022,
+  "headquarters": "Saint Vincent and the Grenadines",
+  "website": "https://myfundedfx.tech",
+  "logo": "/logos/myfundedfx.png",
+  "affiliateUrl": "https://www.myfundedfx.com",
+  "ceo": "Matthew Leech (Founder & CEO)",
+  "parent_company": "MyFundedFX",
+  "legal_entity": "MyFundedFX, operating since June 2022 from Dallas, Texas",
+  "ratings": {
+    "challenge_rules": 7,
+    "trading_conditions": 7,
+    "payouts": 8,
+    "trust_reputation": 7,
+    "platforms_instruments": 7,
+    "support_education": 5,
+    "overall": 41
+  },
+  "grade": "B",
+  "quickStats": {
+    "accountSizes": "$5K – $300K",
+    "challengeType": "1-Step, 2-Step, 3-Step",
+    "profitSplit": "80%",
+    "maxAllocation": "$300K",
+    "platforms": "DXtrade, cTrader, Match-Trader",
+    "instruments": "Forex, Indices, Commodities"
+  },
+  "account_sizes": [
+    5000,
+    10000,
+    25000,
+    50000,
+    100000,
+    200000,
+    300000
+  ],
+  "max_allocation": 1500000,
+  "challenge_type": "multi",
+  "challenge_phases": [
+    {
+      "name": "1-Step Challenge",
+      "profit_target": "10%",
+      "max_daily_loss": "4%",
+      "max_total_loss": "6%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "2-Step Challenge (Phase 1)",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "8%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "2-Step Challenge (Phase 2)",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "8%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Pro 2-Step Challenge (Phase 1)",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Pro 2-Step Challenge (Phase 2)",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "3-Step Challenge",
+      "profit_target": "6%",
+      "max_daily_loss": "4%",
+      "max_total_loss": "8%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80%",
+    "scaled": "92.75% via VIP program"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "digital_wallets"
+  ],
+  "payout_frequency": "bi-weekly (after 14 consecutive days)",
+  "payout_speed": "1-3 business days",
+  "reset_fee": "$50-300 depending on account size and challenge type",
+  "scaling_plan": true,
+  "scaling_details": "MyFundedFX offers a scaling plan for all challenge types. Traders who achieve an average return of at least 12% over a 3-month period receive a 25% increase in their account balance. This can be repeated, with account balances growing from $200K to $250K, $300K, $350K, and so on, up to a maximum allocation of $1,500,000. Funded accounts have no profit targets, allowing traders flexibility in profit pursuit.",
+  "platforms": [
+    "DXtrade",
+    "cTrader",
+    "Match-Trader",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Commodities",
+    "Cryptocurrencies"
+  ],
+  "leverage": "1:100 (forex, 1-Step, 2-Step, 3-Step), 1:50 (Pro 2-Step)",
+  "spreads": "Floating spreads depending on platform and liquidity conditions, via partner brokers EightCap, ThinkMarkets, Blueberry Markets",
+  "commission": "Varies by account type and platform",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": true,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "As a proprietary trading firm, MyFundedFX is not subject to broker-style financial services regulation. All trading occurs on simulated/demo accounts with virtual funding. The firm operates under general corporate structures without specific financial regulatory oversight."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "EightCap",
+      "type": "Broker Partner",
+      "year": 2022,
+      "detail": "Primary broker partner providing trade execution for MyFundedFX funded accounts."
+    },
+    {
+      "partner": "ThinkMarkets",
+      "type": "Broker Partner",
+      "year": 2022,
+      "detail": "Secondary broker partner offering competitive spreads and execution."
+    },
+    {
+      "partner": "Blueberry Markets",
+      "type": "Broker Partner",
+      "year": 2022,
+      "detail": "Additional broker partner expanding platform and execution options."
+    }
+  ],
+  "awards": [],
+  "affiliate": {
+    "program_name": "MyFundedFX Affiliate",
+    "cpa_range": "N/A",
+    "revshare_range": "N/A",
+    "cookie_duration": "N/A"
+  },
+  "special_features": {
+    "free_trial": false,
+    "free_trial_detail": "MyFundedFX does not offer a free trial. Traders must purchase a challenge to begin evaluation.",
+    "swing_account": false,
+    "swing_account_detail": "No specific swing account option is offered. All accounts follow standard drawdown rules."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.7,
+    "trustpilot_review_count": "400+",
+    "years_active": 4,
+    "total_funded_traders": "N/A",
+    "total_payouts_amount": "N/A",
+    "controversies": [
+      "MyFundedFX only offers virtual funded accounts — no live capital is deployed for funded traders. This creates a conflict of interest as the firm profits primarily from evaluation fees.",
+      "As a young firm (founded in 2022), MyFundedFX has not yet established a multi-year track record compared to industry veterans like FTMO.",
+      "The firm uses Match-Trader, DXtrade, and cTrader but not MT4/MT5, which limits appeal to traders who prefer MetaTrader platforms.",
+      "Lot size restrictions are imposed on traders depending on account size, which can limit position sizing flexibility.",
+      "Third-party copy trading and EA usage carry risks of strategy duplication that could lead to funded account denial if maximum capital allocation rules are breached."
+    ]
+  },
+  "pros": [
+    "Founded by CEO Matthew Leech in June 2022 — modern firm backed by an experienced entrepreneur in financial and technology services",
+    "Multiple challenge options: 1-Step, 2-Step, Pro 2-Step, and 3-Step programs to suit different risk tolerances",
+    "Account sizes from $5,000 to $300,000 provide flexibility for various budgets",
+    "80% initial profit split scaling up to 92.75% through the VIP program — among the highest in the industry",
+    "Zero withdrawal fees — withdrawals are processed without additional deductions",
+    "Unlimited trading periods on all challenge types remove time pressure",
+    "Supports cTrader, DXtrade, and Match-Trader — modern alternative platforms",
+    "Fast digital account opening and verification process for rapid onboarding",
+    "Most payment options are free and instant for challenge purchases",
+    "News trading and weekend holding permitted on funded accounts",
+    "Copy trading allowed from accounts owned by the trader",
+    "Scaling plan offers 25% account growth every 3 months, up to $1,500,000 maximum allocation",
+    "VIP program rewards loyal traders with higher profit splits (up to 92.75%), expanded drawdown limits, and unrestricted withdrawals",
+    "Strong 4.7/5 Trustpilot rating (400+ reviews) signals satisfied traders",
+    "Partnerships with reputable brokers: EightCap, ThinkMarkets, and Blueberry Markets",
+    "10% discounts occasionally offered on challenge purchases",
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Only virtual funded accounts — no live capital is deployed to traders, creating a potential conflict of interest",
+    "Founded in 2022 — young firm with only 4 years of track record compared to industry veterans like FTMO",
+    "Trailing drawdown rules on 1-Step Challenge accounts can be challenging for aggressive traders",
+    "Lot size restrictions are imposed depending on account size, limiting position sizing flexibility",
+    "No free trial option — must purchase a challenge to test the evaluation process",
+    "No MT4/MT5 support — limits appeal to traders who prefer MetaTrader platforms",
+    "No educational resources or structured learning materials provided",
+    "Customer support only offered in English with no multilingual options",
+    "Limited instrument selection compared to top-tier firms — primarily forex, indices, and commodities",
+    "Third-party EA and copy trading carry risks of strategy duplication that could lead to account denial",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "MyFundedFX Official Website",
+      "url": "https://myfundedfx.tech"
+    },
+    {
+      "name": "Trustpilot Reviews - MyFundedFX",
+      "url": "https://www.trustpilot.com/review/myfundedfx.tech"
+    },
+    {
+      "name": "FirmFunded MyFundedFX Review",
+      "url": "https://firmfunded.com/prop-trading/myfundedfx/"
+    },
+    {
+      "name": "TheTrustedProp - MyFundedFX Rules",
+      "url": "https://thetrustedprop.com/blogs/rules-to-keep-in-mind-while-trading-with-my-funded-fx"
+    },
+    {
+      "name": "Funded Firm Reviews - MyFundedFX",
+      "url": "https://fundedfirmreviews.com/blog/myfundedfx-review"
+    },
+    {
+      "name": "Forex Television - MyFundedFX",
+      "url": "https://www.forextelevision.com/proprietary-trading-firm/myfundedfx/"
+    }
+  ],
+  "review_content": "MyFundedFX entered the proprietary trading scene in June 2022, founded by CEO Matthew Leech and headquartered in Dallas, Texas, United States. The firm distinguishes itself by offering virtual funded accounts exclusively — meaning all trades, even on funded stages, occur in simulated environments without real capital backing. This fundamental model choice is critical for traders to understand: MyFundedFX generates revenue primarily from evaluation fees rather than trader profits, which creates a structural conflict of interest. However, the firm has built strong partnerships with reputable brokers including EightCap, ThinkMarkets, and Blueberry Markets, providing competitive execution conditions for its traders.\n\nThe evaluation structure is highly flexible, offering four distinct challenge formats to suit different trader preferences. The 1-Step Challenge requires a 10% profit target with a 4% daily loss limit and 6% maximum trailing drawdown, needing 3 profitable trading days with unlimited time to complete. The normal 2-Step Challenge splits evaluation into two phases: Phase 1 demands 8% profit with 5% daily loss and 8% max drawdown, while Phase 2 targets 5% profit with the same risk parameters, each requiring 3 profitable trading days. The Pro 2-Step Challenge is designed for more aggressive traders, offering 1:50 leverage with 8% Phase 1 target and 5% Phase 2 target, but with a more lenient 10% maximum drawdown. The 3-Step Challenge is the most accessible with a 6% profit target, 4% daily loss limit, 8% max drawdown, and only 1 minimum trading day. All challenges share unlimited time limits, removing the time pressure common at more established firms.\n\nAccount sizes span from $5,000 to $300,000, accommodating traders across budget ranges. While the base maximum allocation is $300,000, MyFundedFX's scaling plan allows successful traders to grow their accounts significantly. Traders who achieve an average return of at least 12% over a 3-month period receive a 25% increase in their account balance. This can be repeated, with balances growing from $200K to $250K, $300K, $350K, and beyond, up to a maximum allocation of $1,500,000. The profit split starts at 80% and can reach up to 92.75% through the VIP program. Payouts are processed bi-weekly after 14 consecutive days, with typical turnaround of 1-3 business days via bank wire, cryptocurrency, or digital wallets. Notably, MyFundedFX charges zero withdrawal fees.\n\nThe VIP program is an exclusive feature that rewards loyal traders who meet specific criteria: minimum of 6 withdrawals, at least 4 months of trading, consistent trading style without all-in or high-risk behavior, and no account violations during the 4-month period. VIP benefits include profit splits up to 92.75%, unrestricted withdrawals at any time, an active payout request button for profitable traders, increased daily drawdown limits (6% for 1-step, 8% for 2-step), and higher maximum drawdown limits (12% for 1-step, 14% for 2-step).\n\nPlatform support includes DXtrade, cTrader, and Match-Trader — modern alternatives that appeal to traders seeking beyond MetaTrader. Leverage is offered up to 1:100 on forex for standard challenges, and 1:50 for Pro 2-Step challenges. Trading conditions permit news trading, weekend holding, and EA usage with standard restrictions. Instrument selection covers forex, indices, commodities, and cryptocurrencies. The firm works through partner brokers EightCap, ThinkMarkets, and Blueberry Markets to provide competitive spreads and execution quality.\n\nThe firm's credibility has grown considerably. MyFundedFX has now maintained a strong 4.7/5 Trustpilot rating from 400+ reviews, signaling satisfied traders. While founded only in 2022 with 4 years of operation, the firm has demonstrated operational reliability and responsiveness to trader needs. Unlike some newer firms, MyFundedFX has established broker partnerships and maintains transparent rules. The firm does not disclose public payout totals or funded trader counts, which traders should note when evaluating long-term stability.\n\nThe absence of a free trial option and the lack of MT4/MT5 support remain limitations. However, the flexible challenge structures, generous scaling plan, VIP program, and strong Trustpilot ratings make MyFundedFX a compelling choice for traders comfortable with the virtual funding model. With zero withdrawal fees, unlimited challenge time, and up to 92.75% profit splits, the firm offers competitive terms that rival more established competitors.\n\nFor traders evaluating MyFundedFX in 2026, the verdict is solid: it provides a mature, well-structured platform for simulated funded trading with competitive profit splits, generous scaling, and excellent VIP rewards. While the virtual funding model and young age remain caveats, the firm's operational track record, broker partnerships, and strong trader feedback suggest it is a legitimate and competitive option in the prop trading space. Traders seeking real capital deployment should look elsewhere, but those prioritizing flexible evaluations, unlimited timelines, and high profit splits will find MyFundedFX a strong contender.",
+  "id": 1678,
+  "rating": 9.2,
+  "reviews": "New",
+  "minDeposit": 55,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "MyFundedFX is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+  "fullReview": "# MyFundedFX - Deep Dive Extensive Report\n\n## Company Background\n- **Current Status**: Ceased operations permanently due to financial insolvency\n- **Former Name**: MyFundedFX (now operating as Seacrest Markets)\n- **Transition**: Converted from prop firm to broker model\n- **Reason for Closure**: Financial insolvency despite extensive efforts to stabilize\n- **Appreciation**: Thanked employees, clients, and partners for their support\n\n## Regulation & Licensing\n- **Current Regulatory Status**: Seacrest Markets is an FSCA Regulated Forex & CFD Broker\n- **Regulatory Authority**: Financial Sector Conduct Authority (FSCA)\n- **Legal Structure**: Registered entity with FSCA oversight\n- **Compliance**: Now operates as a regulated broker rather than a prop firm\n\n## Challenge Rules & Phases\n- **Former Programs**: 1-Step and 2-Step evaluation challenges\n- **Current Status**: No longer offering prop trading challenges\n- **Transition**: Moving all clients to brokerage model\n- **Rules**: Complex rules with daily drawdown limits, overall drawdown limits, consistency rules\n\n## Account Types & Pricing\n- **Former Account Sizes**: $5,000 to $200,000 challenges\n- **Pricing**: $59 to $1,788 depending on account size\n- **Refund Policy**: Fees refundable with first payout (after fourth payout according to some sources)\n- **Current Status**: Refund processing for former clients\n\n## Trading Conditions\n- **Platforms**: MT4, MT5, cTrader, TradeLocker\n- **Instruments**: Forex, Metals, Oil, Indices, Crypto, Stocks\n- **Leverage**: Up to 1:100 for forex, varies by instrument type\n- **Trading Style**: EAs and bots allowed, news trading allowed, weekend holding allowed\n\n## Payouts & Profit Split\n- **Profit Split**: Up to 90% for traders\n- **Payout Frequency**: Daily, weekly, or bi-weekly options\n- **Reliability**: Mixed reviews, some traders report successful payouts while others report issues\n- **Processing**: Aims to process rewards within 1 working day\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: Mixed reviews (2.5/5 based on review content)\n- **Positive Feedback**:\n  - \"Zero payout denials\" - some traders report reliable payouts\n  - \"Fast withdrawals\" - quick payout processing\n  - \"Great trading experience\" - smooth platform operation\n  - \"Crystal transparency\" - clear rules and expectations\n  - \"Full refund processing\" - honorable refund handling during closure\n- **Negative Feedback**:\n  - \"Refund issues\" - selective refund processing, delays\n  - \"Payout rejections\" - rule violations used to deny payouts\n  - \"Account terminations\" - sudden account closures without clear reasons\n  - \"Rule changes\" - unclear rules and post-purchase changes\n  - \"Unprofessional behavior\" - rude staff and poor customer service\n  - \"KYC issues\" - account terminations based on interview performance\n  - \"High spreads\" - trading costs concerns\n\n## Competitive Position\n- **Market Position**: Formerly a major player in the prop firm industry\n- **Unique Selling Points**:\n  - Multiple platform options\n  - Daily reward processing\n  - EAs and bots allowed\n  - News trading and weekend holding\n  - Up to $5 million scaling potential\n- **Challenges**: Financial instability led to closure\n- **Reputation**: Mixed reviews with both strong supporters and detractors\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned on website\n- **Structure**: Not specified\n\n## Payout Track Record\n- **Reliability**: Mixed, with reports of both successful payouts and denied withdrawals\n- **Processing Time**: Some payouts processed within hours, others delayed for weeks\n- **Issues**: Reports of incorrect bank transfers, slow resolution times\n- **Closure Refunds**: Mixed experiences with refund processing during shutdown\n\n## Rules Transparency\n- **Positive**: Comprehensive rules clearly displayed\n- **Negative**: Some traders find rules complex and inconsistently applied\n- **Areas for Improvement**: Better communication of all rules upfront\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Status\n- **Operations**: Ceased all prop trading operations\n- **Future**: Transitioning to brokerage model as Seacrest Markets\n- **Client Funds**: Processing refunds for eligible clients\n- **Recommendation**: Former clients should contact support for refund information\n\n## Overall Assessment\nMyFundedFX (Seacrest Markets) was a significant player in the prop trading industry but has ceased operations due to financial difficulties. The company appears to be handling the transition honorably by processing refunds, though experiences vary among traders. Potential new clients should be aware that the prop firm is no longer operational and exercise caution with any entities claiming to represent the brand.",
+  "features": [
+    "Founded in 2022",
+    "Forex, Indices, Commodities, Crypto"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\myfundedfx.json",
+        "bytes": 15016
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json",
+        "bytes": 1197
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.532Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1678,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/myfundedfx.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 9.2,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 55,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "MyFundedFX is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "MyFundedFX is a Saint Vincent and the Grenadines based broker founded in 2022. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Floating spreads depending on platform and liquidity conditions, via partner brokers EightCap, ThinkMarkets, Blueberry Markets",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (forex, 1-Step, 2-Step, 3-Step), 1:50 (Pro 2-Step)",
+      "rejected": "1:100",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json",
+      "size": 2
+    },
+    {
+      "op": "replace-longer",
+      "path": "affiliateUrl",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2022,
+      "rejected": "2022",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    },
+    {
+      "op": "replace-longer",
+      "path": "headquarters",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\myfundedfx.json"
+    }
+  ]
+}

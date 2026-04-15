@@ -1,0 +1,51 @@
+{
+  "id": 1341,
+  "name": "DIF Broker",
+  "slug": "dif-broker",
+  "logo": "https://www.google.com/s2/favicons?domain=difbroker.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 500,
+  "platforms": [
+    "DIF Platform",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CMVM",
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "DIF Broker is a Portugal based broker founded in 1999. With CMVM, FCA, it offers 50+ FX pairs, stocks, ETFs, CFDs on indices, commodities trading primarily via DIF Platform, MT5.",
+  "fullReview": "## Company Overview\n\nDIF Broker is a retail forex and CFD broker established in 1999, headquartered in Portugal. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1999\n- 50+ FX pairs, stocks, ETFs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on DIF Platform and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nDIF Broker operates under CMVM and FCA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** CMVM · FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nDIF Broker provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $500 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | DIF Platform and MT5 |\n\nTraders have a minimum deposit of $500, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nDIF Broker supports DIF Platform and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**DIF Platform:** Proprietary or partner trading platform available through DIF Broker.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CMVM\n- ✅ Low entry barrier\n- ✅ Supports DIF Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is DIF Broker Best For?\n\nDIF Broker is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using DIF Platform** who want a straightforward account setup\n- **Those based in Portugal** or regions served by CMVM and FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare DIF Broker against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nDIF Broker is a solid choice for traders seeking from 1.0 pips on 500+ instruments via DIF Platform and MT5. Regulation by CMVM and FCA provides a foundational level of oversight. The $500 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with DIF Broker.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 1999",
+    "50+ FX pairs, stocks, ETFs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by CMVM",
+    "Low entry barrier",
+    "Supports DIF Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.difbroker.com",
+  "riskLevel": "Medium",
+  "founded": "1999",
+  "headquarters": "Portugal",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\dif-broker.json",
+        "bytes": 1232
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.239Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

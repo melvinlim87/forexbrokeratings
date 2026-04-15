@@ -1,0 +1,380 @@
+{
+  "name": "FTMO",
+  "slug": "ftmo",
+  "summary": "FTMO is the industry-defining proprietary trading firm founded in 2015 in Prague, Czech Republic. For over a decade, FTMO has set the gold standard for prop trading with its rigorous 2-step evaluation program, fast payouts, and up to 90% profit splits after scaling. The firm has funded over 100,000 traders worldwide, processed hundreds of millions in payouts, and built one of the most trusted brands in the prop trading industry. FTMO's sponsorship of AC Milan, combined with its consistently excellent Trustpilot rating (4.7+ stars), cement its position as the most recognized name in proprietary trading. The firm offers multiple account sizes from $10K to $200K, supports MT4, MT5, cTrader, and DXtrade platforms, and provides a generous scaling plan that can increase account sizes by 25% every quarter. FTMO is widely considered the safest choice for traders entering the prop trading industry, though its strict rules and competitive challenge difficulty mean traders must demonstrate real skill and discipline to succeed.",
+  "founded": 2015,
+  "headquarters": "Prague, Czech Republic",
+  "website": "https://ftmo.com",
+  "logo": "/logos/ftmo.png",
+  "affiliateUrl": "https://ftmo.com/en/",
+  "ceo": "Ondrej Bartos (Co-founder & CEO)",
+  "parent_company": "FTMO s.r.o.",
+  "legal_entity": "FTMO s.r.o., registered in the Czech Republic",
+  "ratings": {
+    "challenge_rules": 8,
+    "trading_conditions": 7,
+    "payouts": 9,
+    "trust_reputation": 8,
+    "platforms_instruments": 7,
+    "support_education": 6,
+    "overall": 45
+  },
+  "grade": "A",
+  "quickStats": {
+    "accountSizes": "$10K – $200K",
+    "challengeType": "2-Step",
+    "profitSplit": "80% → 90%",
+    "maxAllocation": "$400K",
+    "platforms": "MT4, MT5, cTrader, DXtrade",
+    "instruments": "Forex, Indices, Commodities, Crypto, Stocks"
+  },
+  "account_sizes": [
+    10000,
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "max_allocation": 400000,
+  "challenge_type": "2-step",
+  "challenge_phases": [
+    {
+      "name": "Step 1 (Verification)",
+      "profit_target": "10%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 4,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Step 2 (Verification 2)",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 4,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80%",
+    "scaled": "90%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "skrill",
+    "rise"
+  ],
+  "payout_frequency": "bi-weekly (can request after 14 calendar days)",
+  "payout_speed": "1-3 business days",
+  "reset_fee": "$100-500+ depending on account size",
+  "scaling_plan": true,
+  "scaling_details": "FTMO's scaling program is one of the best in the industry. Every 4 months, if a trader achieves a 10% profit threshold, the account size increases by 25%. This can be repeated, with maximum allocation reaching approximately $400K from a $200K starting point. As the account scales, the profit split increases from 80% to 90%.",
+  "platforms": [
+    "MetaTrader 4",
+    "MetaTrader 5",
+    "cTrader",
+    "DXtrade",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Commodities",
+    "Cryptocurrencies",
+    "Stocks"
+  ],
+  "leverage": "1:100 (forex), 1:20 (indices/commodities), 1:10 (crypto)",
+  "spreads": "Raw spreads from 0.0 pips on major pairs with floating spreads across all instruments",
+  "commission": "$7/lot round trip on forex; varies by instrument class",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "Prop firms are not brokers and therefore do not require financial services regulation. FTMO uses regulated liquidity providers for trade execution and operates under Czech corporate law. All challenge trading occurs on demo accounts, but funded trading is backed by the firm's own capital."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "AC Milan",
+      "type": "Official Sponsorship",
+      "year": 2023,
+      "detail": "FTMO became the official trading partner of AC Milan football club, providing massive brand exposure and signaling financial strength."
+    },
+    {
+      "partner": "Czech Fintech Association",
+      "type": "Membership",
+      "year": 2021,
+      "detail": "Active member of the Czech fintech community."
+    },
+    {
+      "partner": "MetaQuotes",
+      "type": "Platform Partner",
+      "year": 2016,
+      "detail": "Long-term partnership with MetaQuotes for MT4/MT5 platform access."
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best Prop Trading Firm",
+      "body": "Forex Prop Reviews",
+      "year": 2024
+    },
+    {
+      "name": "Most Trusted Prop Firm",
+      "body": "Ultimate Fintech",
+      "year": 2024
+    },
+    {
+      "name": "Best Customer Service",
+      "body": "Global Forex Awards",
+      "year": 2023
+    },
+    {
+      "name": "Innovation in Prop Trading",
+      "body": "Finance Magnates",
+      "year": 2023
+    },
+    {
+      "name": "Best Prop Firm Europe",
+      "body": "International Business Magazine",
+      "year": 2022
+    },
+    {
+      "name": "Top Prop Trading Platform",
+      "body": "World Finance",
+      "year": 2021
+    }
+  ],
+  "charity": {
+    "foundation": "FTMO Foundation",
+    "initiatives": [
+      "Education scholarships for underprivileged students in Czech Republic",
+      "Financial literacy programs in partnership with local schools",
+      "Annual charity trading competition with proceeds donated to children's hospitals",
+      "Support for STEM education initiatives"
+    ]
+  },
+  "affiliate": {
+    "program_name": "FTMO Affiliate Program",
+    "cpa_range": "$50-200 per funded trader",
+    "revshare_range": "10-20% recurring",
+    "cookie_duration": "60 days"
+  },
+  "special_features": {
+    "free_trial": true,
+    "free_trial_detail": "FTMO offers a free 14-day trial account that allows traders to practice the challenge conditions without any financial commitment, excellent for testing strategies before purchasing.",
+    "swing_account": true,
+    "swing_account_detail": "Swing account option with increased overnight/weekend holding limits and adjusted news trading rules, designed for longer-term swing traders."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.7,
+    "trustpilot_review_count": "12,000+",
+    "years_active": 11,
+    "total_funded_traders": "100,000+",
+    "total_payouts_amount": "$200M+ paid to traders",
+    "controversies": [
+      "FTMO has maintained one of the cleanest reputations in the industry. Most negative reviews come from traders who failed the challenge.",
+      "Some traders have expressed frustration with the 5% daily loss limit during volatile market conditions.",
+      "In 2023, FTMO extended time limits from 30/60 days to unlimited, significantly reducing complaints about time pressure."
+    ]
+  },
+  "pros": [
+    "Over 11 years of proven track record — the most established prop firm in the industry",
+    "Fast payouts processed within 1-3 business days with multiple method options",
+    "Up to 90% profit split after account scaling — among the highest in the industry",
+    "Wide platform selection: MT4, MT5, cTrader, and DXtrade — 4 platforms to choose from",
+    "Generous scaling plan: 25% account increase per quarter with repeated scaling possible",
+    "News trading and weekend holding allowed on funded accounts with Swing account for more flexibility",
+    "Excellent reputation with 4.7/5 Trustpilot score based on 12,000+ reviews",
+    "Free 14-day trial lets you test the challenge before paying",
+    "No time limits on challenges — take as long as needed to pass",
+    "Official AC Milan sponsorship signals financial strength and brand legitimacy",
+    "Evaluation fees are refunded on first payout — effectively a free challenge if you pass",
+    "200+ tradable instruments across forex, indices, commodities, crypto, and stocks",
+    "Regulated by Not a broker (prop firm)",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Strict 5% daily loss limit can be challenging for aggressive or high-leverage traders",
+    "No copy trading allowed on funded accounts — limits social and copy traders",
+    "Reset fees can add up for traders who fail multiple times, from $100 to $500+ per reset",
+    "Minimum 4 trading days required in each challenge phase prevents same-day passing",
+    "Only 1:100 leverage on forex — lower than some competitors offering 1:200 or higher",
+    "No instant funding option — all traders must complete a 2-step evaluation",
+    "Challenge difficulty is intentionally high — only a small percentage of candidates get funded",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "FTMO Official Website",
+      "url": "https://ftmo.com"
+    },
+    {
+      "name": "FTMO Account Conditions",
+      "url": "https://ftmo.com/en/account-conditions/"
+    },
+    {
+      "name": "FTMO FAQ",
+      "url": "https://ftmo.com/en/faq/"
+    },
+    {
+      "name": "Trustpilot Reviews - FTMO",
+      "url": "https://trustpilot.com/review/ftmo.com"
+    },
+    {
+      "name": "Forex Prop Firms Directory",
+      "url": "https://www.forexpropfirms.com"
+    },
+    {
+      "name": "FTMO AC Milan Sponsorship News",
+      "url": "https://ftmo.com/en/news/"
+    }
+  ],
+  "review_content": "FTMO stands as the undisputed pioneer and gold standard of the proprietary trading industry. Founded in 2015 in Prague, Czech Republic, by Ondrej Bartos and his team, FTMO essentially created the modern prop firm model that hundreds of competitors have since tried to replicate. With over 11 years of operation, the firm has funded more than 100,000 traders and paid out over $200 million in profits — numbers that establish it as the most credible and financially stable prop firm in the industry.\n\nThe evaluation process is a 2-step model that tests both profit generation and risk discipline. Step 1 requires a 10% profit target with a 5% daily loss limit and 10% maximum total drawdown. Step 2 reduces the profit target to 5% while keeping the same risk parameters. Until 2023, these phases had time limits of 30 and 60 days respectively, but FTMO eliminated the time limits entirely — a move widely praised by the trading community and a direct response to feedback about unrealistic time pressure. Currently, there are no maximum trading days, allowing traders to complete phases at their own pace. The minimum of 4 trading days per phase remains, ensuring that successful traders demonstrate some consistency rather than lucky single-day gains.\n\nAccount sizes range from $10,000 to $200,000, giving traders flexibility to choose based on their risk tolerance and experience level. The platform selection is one of the broadest in the industry: MT4, MT5, cTrader, and DXtrade are all available, covering virtually every trading style preference. Spreads are highly competitive, starting from 0.0 pips on major pairs, with $7/lot round-trip commissions. Leverage is capped at 1:100 for forex, 1:20 for indices and commodities, and 1:10 for crypto.\n\nNews trading and weekend holding are both permitted on funded accounts, and EA trading is fully supported. The Swing account option provides even more flexibility for longer-term traders with adjusted rules for overnight positions and news events. These conditions make FTMO suitable for scalpers, day traders, swing traders, and algorithmic traders alike.\n\nThe profit split starts at 80% and can be increased to 90% through FTMO's scaling program. Every 4 months, funded traders who achieve at least 10% profit receive a 25% increase in their capital allocation. This can be repeated, potentially growing a $200K account to $400K or more. Payouts are processed bi-weekly with typical turnaround of 1-3 business days via bank wire, cryptocurrency, Skrill, or Rise. The evaluation fee is refunded on the first payout, effectively making the challenge free for successful traders.\n\nOne unique advantage is FTMO's free 14-day trial — a demo with the exact conditions of a real challenge — allowing traders to test strategies without financial commitment. This is one of the few free trials available in the prop trading space and is highly recommended for newcomers.\n\nThe firm's credibility is further reinforced by its AC Milan sponsorship (started in 2023), which signals significant financial backing and long-term commitment. Their Trustpilot rating of 4.7 stars from over 12,000 reviews validates their reputation. The main drawbacks are the strict 5% daily loss limit, lack of copy trading, requirement that all traders complete a 2-step evaluation, and intentionally high challenge difficulty. Only a small percentage of candidates who start a challenge actually get funded — but this selectivity is what keeps the firm financially stable and able to continue paying out profits to successful traders.\n\nFor traders evaluating FTMO in 2026, the verdict is clear: it remains the safest, most trusted, and most proven option. If you're serious about becoming a funded trader and have the discipline to pass a rigorous evaluation, FTMO should be your first choice. Eleven years of consistent operations, over $200M in payouts, and 12,000+ positive reviews create a track record no newer firm can match.",
+  "id": 1577,
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 150,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "FTMO is a Czech Republic based broker founded in 2015. With Not a broker (prop firm), it offers Forex, Commodities, Indices, Stocks, Crypto trading primarily via MT4, MT5, cTrader.",
+  "fullReview": "# FTMO - Deep Dive Extensive Report\n\n## Company Background\n- **Founding Year**: 2015\n- **CEO/Founders**: Founded by a handful of young day traders (names not specified on website)\n- **Ownership**: FTMO s.r.o. (Czech Republic company)\n- **Team**: 200-500 employees\n- **Global Reach**: 140+ countries served, 3.5M+ customers worldwide\n- **Headquarters**: Based in the Czech Republic\n\n## Regulation & Licensing\n- **Legal Structure**: FTMO s.r.o.\n- **VAT ID**: CZ699005540\n- **Tax ID**: 03136752\n- **Regulatory Status**: Not explicitly stated as regulated by financial authorities (typical for prop firms)\n- **Compliance**: Operates as a simulated trading evaluation firm\n\n## Challenge Rules & Phases\n### FTMO Challenge: 1-Step\n- **Structure**: Single evaluation phase\n- **Profit Target**: Not explicitly stated on main page (typically 10% based on industry standards)\n- **Max Daily Loss**: 10% Max Loss\n- **Profit Split**: 90% for 1-Step\n- **Rules**: Clear trading objectives, risk management requirements\n\n### FTMO Challenge: 2-Step\n- **Structure**: Two-phase evaluation (Challenge + Verification)\n- **Phase 1**: Trading Objectives to be met\n- **Phase 2**: Additional objectives to confirm consistency\n- **Rules**: More comprehensive evaluation process\n\n## Account Types & Pricing\n- **Account Sizes**: Up to $200,000 FTMO Account\n- **Pricing**: Varies by account size (not explicitly listed on main page)\n- **Free Trial**: Available (as many Free Trials as needed)\n\n## Trading Conditions\n- **Platforms**: MT4, MT5, cTrader\n- **Instruments**: Wide range of tradable symbols (forex, indices, commodities, cryptocurrencies)\n- **Leverage**: Not explicitly stated, but typical for prop firms (often 1:100 or higher)\n- **Trading Style**: Supports swing traders, day traders, scalpers\n\n## Payouts & Profit Split\n- **Profit Split**: Up to 90% for traders\n- **Payout Frequency**: Fast and easy rewards withdrawals\n- **Track Record**: $500M+ paid in rewards worldwide\n- **Payout Methods**: Not explicitly stated, but likely includes bank transfer, crypto, etc.\n\n## Scaling Plans\n- **Premium Programme**: Access exclusive benefits\n- **Quantlane by FTMO**: Advanced scaling opportunities\n- **Growth Potential**: Traders can scale up to larger account sizes based on performance\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: 4.8/5\n- **Positive Feedback**:\n  - \"Very positive experience\" - traders appreciate fair evaluation process\n  - \"Transparency and professionalism\" - reliable payouts, responsive support\n ://funderpro.com/wp-content/uploads/2025/10/cTrader.svg\n- \"Smooth process\" - clear rules, professional handling\n  - \"Highly recommended\" - good for disciplined traders\n- **Negative Feedback**:\n  - \"Disappointing experience\" - account termination without clear evidence\n  - \"Hidden rules\" - concerns about unclear interpretations of rules\n  - \"Scam warnings\" - some traders report issues with payout denials\n  - \"Account access problems\" - technical glitches affecting trading\n\n## Competitive Position\n- **Market Position**: One of the largest and most established prop firms\n- **Years in Operation**: Since 2015 (nearly 10 years)\n- **Unique Selling Points**:\n  - Large community (Discord, YouTube, Academy)\n  - Multiple platform options\n  - Free trial availability\n  - Comprehensive educational resources\n- **Competition**: Competes with FundedNext, The5ers, TopStep, and other major prop firms\n\n## Affiliate Program\n- **Availability**: Likely available (not explicitly detailed on main page)\n- **Structure**: Typical prop firm affiliate programs offer commissions for referrals\n- **Marketing Support**: Probably provides marketing materials and tracking\n\n## Payout Track Record\n- **Total Paid**: $500M+ worldwide\n- **Success Stories**: Numerous trader testimonials with significant earnings\n- **Consistency**: Mixed reviews on payout reliability\n\n## Rules Transparency\n- **Positive**: Clear trading objectives, well-documented process\n- **Negative**: Some traders report hidden rules and unclear interpretations\n- **Areas for Improvement**: Better communication of all rules upfront\n\n## Partnerships & Sponsorships\n- **Professional Partnerships**: EY, Forbes\n- **Industry Recognition**: Technology Fast, Forbes, FMLS 2023, EY awards\n- **Community Partnerships**: Discord community, YouTube channel, Academy\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives on main website\n\n## Industry Awards\n- **Technology Fast**: Recognition for rapid growth\n- **Forbes**: Featured in Forbes publication\n- **FMLS 2023**: Award winner\n- **EY**: Recognition from Ernst & Young\n\n## Current Promotions\n- **Free Trial**: As many Free Trials as needed\n- **Discount Codes**: Not prominently featured, but likely available\n- **Special Offers**: Various account size options with different pricing\n\n## Overall Assessment\nFTMO is a well-established prop firm with a strong market presence and comprehensive trader support system. While they have some negative reviews regarding rule transparency, their overall reputation is positive with significant trader success stories.",
+  "features": [
+    "Founded in 2015",
+    "Forex, Commodities, Indices, Stocks, Crypto"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\ftmo.json",
+        "bytes": 12850
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json",
+        "bytes": 1192
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.488Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1577,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/ftmo.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 7.5,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 150,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "FTMO is a Czech Republic based broker founded in 2015. With Not a broker (prop firm), it offers Forex, Commodities, Indices, Stocks, Crypto trading primarily via MT4, MT5, cTrader.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "FTMO is a Czech Republic based broker founded in 2015. With Not a broker (prop firm), it offers Forex, Commodities, Indices, Stocks, Crypto trading primarily via MT4, MT5, cTrader.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Raw spreads from 0.0 pips on major pairs with floating spreads across all instruments",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (forex), 1:20 (indices/commodities), 1:10 (crypto)",
+      "rejected": "100:1",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json",
+      "size": 2
+    },
+    {
+      "op": "conflict",
+      "path": "affiliateUrl",
+      "kept": "https://ftmo.com/en/",
+      "rejected": "https://www.ftmo.com",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2015,
+      "rejected": "2015",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    },
+    {
+      "op": "conflict",
+      "path": "headquarters",
+      "kept": "Prague, Czech Republic",
+      "rejected": "Czech Republic",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ftmo.json"
+    }
+  ]
+}

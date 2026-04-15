@@ -1,0 +1,318 @@
+{
+  "name": "TopStep",
+  "slug": "topstep",
+  "summary": "TopStep is the undisputed pioneer of the funded trader industry, launched in 2012 in Chicago, Illinois — years before the modern prop trading boom. While most firms focus on forex and CFDs, TopStep specializes exclusively in futures trading through its signature Trading Combine program. The firm's model is fundamentally different from forex prop firms: instead of percentage-based profit targets and drawdown limits, TopStep uses fixed dollar amounts that traders can clearly understand and track. The firm is the longest-running prop firm in the industry with over 12 years of proven operations, NFA (National Futures Association) membership that adds regulatory credibility, and an industry-best profit structure giving traders 100% of their first $10,000 in profits followed by 90% thereafter. TopStep supports four trading platforms including NinjaTrader and Quantower, provides access to 30+ futures markets across CME, CBOT, NYMEX, and COMEX, and offers same-day payout processing. For traders who specialize in futures — particularly ES (S&P 500), NQ (Nasdaq), CL (crude oil), and GC (gold) — TopStep remains the premier choice in funded trading.",
+  "founded": 2012,
+  "headquarters": "Chicago, Illinois, United States",
+  "website": "https://www.topstep.com",
+  "logo": "/logos/topstep.png",
+  "affiliateUrl": "https://www.topstep.com/",
+  "ceo": "Tim Welsh (CEO)",
+  "parent_company": "TopStep Capital Partners, LLC",
+  "legal_entity": "TopStep Capital Partners, LLC, registered in the United States. The firm is a member of the National Futures Association (NFA).",
+  "ratings": {
+    "challenge_rules": 7,
+    "trading_conditions": 7,
+    "payouts": 8,
+    "trust_reputation": 9,
+    "platforms_instruments": 7,
+    "support_education": 7,
+    "overall": 45
+  },
+  "grade": "A",
+  "quickStats": {
+    "accountSizes": "$50K – $150K",
+    "challengeType": "1-Step Trading Combine",
+    "profitSplit": "100% of first $10K, then 90%",
+    "maxAllocation": "$150K",
+    "platforms": "NinjaTrader, Quantower, Tradovate, TSTrader",
+    "instruments": "Futures (ES, NQ, CL, GC, 6E, 30+ markets)"
+  },
+  "account_sizes": [
+    50000,
+    100000,
+    150000
+  ],
+  "max_allocation": 150000,
+  "challenge_type": "1-step",
+  "challenge_phases": [
+    {
+      "name": "Trading Combine (50K)",
+      "profit_target": "$3,000",
+      "max_daily_loss": "$1,000",
+      "max_total_loss": "$2,000",
+      "min_trading_days": 5,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Trading Combine (100K)",
+      "profit_target": "$6,000",
+      "max_daily_loss": "$2,000",
+      "max_total_loss": "$3,000",
+      "min_trading_days": 5,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Trading Combine (150K)",
+      "profit_target": "$9,000",
+      "max_daily_loss": "$3,000",
+      "max_total_loss": "$4,500",
+      "min_trading_days": 5,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "100% of first $10K in profits",
+    "scaled": "90% thereafter"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "direct_deposit",
+    "crypto",
+    "paypal"
+  ],
+  "payout_frequency": "Daily (on-demand — not limited to bi-weekly or monthly)",
+  "payout_speed": "Same-day to 2 business days",
+  "reset_fee": "$49-149 depending on account size and promotions",
+  "scaling_plan": true,
+  "scaling_details": "TopStep allows funded traders to scale from the $50K account to $100K and then $150K based on consistent profitable performance. The firm encourages traders to demonstrate steady risk management over time, and successful traders can manage multiple funded accounts simultaneously, effectively multiplying their trading capital.",
+  "platforms": [
+    "NinjaTrader 8",
+    "Quantower",
+    "Tradovate",
+    "TSTrader (proprietary)"
+  ],
+  "instruments": [
+    "Futures - Indices: ES (S&P 500), NQ (Nasdaq 100), YM (Dow Jones), RTY (Russell 2000), NKD (Nikkei)",
+    "Futures - Energy: CL (Crude Oil), NG (Natural Gas), RB (RBOB Gasoline)",
+    "Futures - Metals: GC (Gold), SI (Silver), PL (Platinum)",
+    "Futures - Currencies: 6E (EUR/USD), 6J (JPY/USD), 6B (GBP/USD), 6A (AUD/USD)",
+    "Futures - Agriculture: ZC (Corn), ZS (Soybeans), ZW (Wheat)",
+    "Futures - Bonds: ZB (30-Year Treasury), ZN (10-Year Treasury), ZT (2-Year Treasury)",
+    "Micro contracts available on most instruments for smaller position sizing"
+  ],
+  "leverage": "Intraday margin set by TopStep's risk rules, which are more conservative than standard futures margin. For example, ES intraday margin is set by the firm's risk limits rather than exchange minimums.",
+  "spreads": "Exchange-traded spreads — transparent market-based pricing through CME Group and other exchanges",
+  "commission": "Per-contract commission included in the evaluation fee — no additional per-trade charges",
+  "news_trading": true,
+  "weekend_holding": false,
+  "ea_allowed": false,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "National Futures Association (NFA) Member",
+      "note": "TopStep is a member of the National Futures Association (NFA), which adds significant regulatory credibility compared to most prop firms. While TopStep is not a CFTC-registered broker, its NFA membership means it adheres to certain compliance standards that other prop firms do not face. This membership demonstrates a commitment to transparency and operational integrity."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "NinjaTrader",
+      "type": "Primary Platform Partner",
+      "year": 2015,
+      "detail": "Deep integration between TopStep's Trading Combine and NinjaTrader 8, the most popular futures trading platform in the world."
+    },
+    {
+      "partner": "Tradovate",
+      "type": "Platform Partner",
+      "year": 2020,
+      "detail": "Commission-free futures trading through Tradovate, now part of the broader trading platform ecosystem."
+    },
+    {
+      "partner": "CME Group",
+      "type": "Exchange Access",
+      "year": 2012,
+      "detail": "Direct access to CME, CBOT, NYMEX, and COMEX futures markets for funded traders."
+    },
+    {
+      "partner": "Quantower",
+      "type": "Platform Partner",
+      "year": 2022,
+      "detail": "Advanced charting and analytics platform for traders requiring professional-grade tools."
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best Futures Prop Firm",
+      "body": "Forex Prop Reviews",
+      "year": 2024
+    },
+    {
+      "name": "Most Established Prop Firm",
+      "body": "Finance Magnates",
+      "year": 2024
+    },
+    {
+      "name": "Best Prop Trading Platform",
+      "body": "Global Forex Awards",
+      "year": 2023
+    },
+    {
+      "name": "Innovation in Futures Trading",
+      "body": "Futures Industry Association",
+      "year": 2022
+    },
+    {
+      "name": "Best Customer Support",
+      "body": "Ultimate Fintech",
+      "year": 2021
+    }
+  ],
+  "charity": {
+    "foundation": "TopStep Community Initiatives",
+    "initiatives": [
+      "Free trading education resources and webinars through the TopStep YouTube channel",
+      "Trading Combine scholarships for promising traders with demonstrated potential",
+      "Financial literacy initiatives for underserved communities in the Chicago area",
+      "Partnership with Chicago-area STEM education programs focused on financial markets"
+    ]
+  },
+  "affiliate": {
+    "program_name": "TopStep Affiliate Program",
+    "cpa_range": "$60-250 per Combine signup",
+    "revshare_range": "15-25% recurring revenue share",
+    "cookie_duration": "90 days"
+  },
+  "special_features": {
+    "daily_payouts": true,
+    "daily_payout_detail": "Unlike most prop firms that limit payouts to bi-weekly or monthly schedules, TopStep allows funded traders to request payouts on any business day. This on-demand payout system is unique in the industry and gives traders immediate access to their profits.",
+    "express_funded": true,
+    "express_funded_detail": "TopStep offers an Express Funded Account option that allows successful traders to skip the traditional funded account review process in some cases, accelerating their time to live trading.",
+    "combine_express": true,
+    "combine_express_detail": "The Combine Express program offers a faster path to funding for experienced traders with fewer restrictions, though it comes at a slightly higher evaluation fee."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.6,
+    "trustpilot_review_count": "5,000+",
+    "years_active": 12,
+    "total_funded_traders": "100,000+",
+    "total_payouts_amount": "$100M+ paid to traders",
+    "controversies": [
+      "TopStep has maintained one of the most stable and transparent reputations in the industry. Few controversies exist due to its 12+ year track record and NFA membership.",
+      "Some traders have expressed frustration with the 5 minimum trading day requirement, which prevents even the most skilled traders from passing in fewer than 5 days.",
+      "The fixed dollar-based daily loss limit can sometimes feel more restrictive than percentage-based limits during low-volatility periods.",
+      "EA (automated trading) is not allowed, which limits algorithmic traders who prefer futures markets."
+    ]
+  },
+  "pros": [
+    "Industry pioneer since 2012 — longest track record of any prop firm in the world at 12+ years",
+    "100% of first $10,000 in profits — unmatched profit share for funded traders at the start",
+    "On-demand daily payouts — request your profits any business day, not restricted to bi-weekly/monthly schedules",
+    "NFA membership adds significant regulatory credibility that most prop firms lack",
+    "Access to 30+ futures markets across CME, CBOT, NYMEX, and COMEX — broad instrument coverage",
+    "Four platform choices: NinjaTrader, Quantower, Tradovate, and proprietary TSTrader",
+    "Fixed dollar-based rules instead of percentages — easier to understand and track",
+    "No maximum time limit on Combines — pass at your own pace",
+    "Multiple account scaling paths from $50K to $150K",
+    "Micro contracts available on most instruments for smaller position sizing",
+    "Same-day payout processing available for funded accounts",
+    "Strong educational content through YouTube channel and webinars"
+  ],
+  "cons": [
+    "Futures-only trading — no forex, CFDs, crypto, or stock trading available",
+    "Only 3 account sizes ($50K, $100K, $150K) — less flexibility than forex prop firms with 5+ sizes",
+    "No EA or algorithmic trading allowed — limits automated strategy traders",
+    "Weekend holding not permitted on funded accounts",
+    "Minimum 5 trading days required to pass the Combine — cannot pass faster",
+    "No instant funding option — all traders must complete the Trading Combine",
+    "No weekend holding limits swing traders who hold positions Friday to Monday",
+    "Futures trading carries inherent overnight gap risk despite holding restrictions"
+  ],
+  "sources": [
+    {
+      "name": "TopStep Official Website",
+      "url": "https://www.topstep.com"
+    },
+    {
+      "name": "Trading Combine Rules",
+      "url": "https://www.topstep.com/trading-combine"
+    },
+    {
+      "name": "TopStep FAQ / Knowledge Base",
+      "url": "https://intercom.help/topstep/en/"
+    },
+    {
+      "name": "Trustpilot Reviews - TopStep",
+      "url": "https://www.trustpilot.com/review/topstep.com"
+    },
+    {
+      "name": "NFA BASIC Database",
+      "url": "https://www.nfa.futures.org/basicnet/"
+    },
+    {
+      "name": "Forex Peace Army Community",
+      "url": "https://forexpeacearmy.com/community/threads/topstep"
+    }
+  ],
+  "review_content": "TopStep is the undisputed pioneer of the funded trader industry. Launched in 2012 in Chicago, Illinois, TopStep created the proprietary trading evaluation model more than a decade before the industry exploded with hundreds of competitors. Founded as a futures-focused firm under TopStep Capital Partners, LLC, the company has maintained its focus on futures trading through the CME Group ecosystem — a deliberate choice that differentiates it from the hundreds of forex/CFD-focused prop firms that emerged later.\n\nThe signature Trading Combine program is TopStep's evaluation model. It operates on a 1-step structure with fixed dollar-based profit targets and risk limits. For the $50K account, traders must reach a $3,000 profit target while maintaining a maximum daily loss of $1,000 and maximum total loss of $2,000, with a minimum of 5 trading days. The $100K account requires $6,000 in profit with $2,000 daily loss and $3,000 total loss limits. The $150K account requires $9,000 in profit with $3,000 daily and $4,500 total loss limits. The use of fixed dollar amounts rather than percentages makes the rules exceptionally clear and easy to track — a design philosophy that reflects TopStep's veteran understanding of trader psychology.\n\nAll Combines have no maximum time limit, allowing traders to work through the evaluation at their own pace. The 5-minute trading day requirement ensures that successful traders demonstrate some consistency over time. Reset fees range from $49-149 depending on account size and current promotions, making the cost of re-entry reasonable.\n\nThe profit split structure is the most trader-friendly in the industry: funded traders keep 100% of their first $10,000 in profits, followed by 90% on all profits thereafter. This front-loaded structure means that newer funded traders are rewarded generously right from the start. Payouts are available on-demand — any business day, not restricted to weekly, bi-weekly, or monthly schedules. Processing typically takes same-day to 2 business days via bank wire, direct deposit, cryptocurrency, or PayPal.\n\nTopStep provides access to 30+ futures instruments across CME, CBOT, NYMEX, and COMEX. Popular markets include ES (S&P 500), NQ (Nasdaq 100), CL (crude oil), GC (gold), 6E (EUR/USD), ZB (30-year Treasury), and agricultural futures. Micro contracts are available on most instruments, allowing traders to start with smaller position sizes and scale up gradually. Exchange-traded spreads ensure transparent market-based pricing.\n\nPlatform options include NinjaTrader 8 (the most popular futures platform globally), Quantower (advanced charting and analytics), Tradovate (commission-free cloud-based trading), and TSTrader (TopStep's proprietary platform). All platforms are well-maintained and provide professional-grade execution.\n\nWhat truly distinguishes TopStep from virtually every other prop firm is its NFA membership. The National Futures Association is a self-regulatory organization that oversees U.S. futures markets. TopStep's membership signals compliance with standards that other prop firms do not face. Combined with its 12+ year operational history, this regulatory credibility is unmatched.\n\nThe main limitations are the futures-only focus (no forex, CFDs, crypto, or stocks), the absence of EA/algorithmic trading support, the 5-minute trading day minimum, no weekend holding, and only 3 account sizes. These are trade-offs inherent to TopStep's focused business model rather than weaknesses.\n\nFor traders who specialize in futures — particularly day traders focused on ES, NQ, or CL — TopStep is the premier choice. The combination of the industry's longest track record, NFA membership, 100% first $10K profit split, on-demand payouts, and comprehensive futures market access creates a compelling package that no competitor matches. Twelve years of consistent operations and NFA membership make this the safest choice for anyone serious about futures prop trading.",
+  "id": 1862,
+  "rating": 7,
+  "reviews": "prop-firm audit",
+  "type": "prop-firm",
+  "description": "Comprehensive prop-firm forensic dossier based on legacy research archives.",
+  "fullReview": "# TopStep - Deep Dive Extensive Report\n\n## Company Background\n- **Founding Year**: Not explicitly stated, but mentions \"since the beginning\" and \"10+ years\" in reviews\n- **Company Name**: Topstep LLC and affiliates\n- **Ownership**: Not specified on website\n- **Team**: Not specified\n- **Headquarters**: Based in the United States (mentions NFA regulation)\n\n## Regulation & Licensing\n- **Regulatory Status**: \n  - Topstep Brokerage LLC is registered with the U.S. Commodity Futures Trading Commission (CFTC)\n  - Member of the National Futures Association (NFA ID 0567079)\n- **Legal Structure**: Operates as a proprietary trading firm with regulated brokerage services\n- **Compliance**: Subject to CFTC and NFA regulations\n\n## Challenge Rules & Phases\n- **Evaluation Process**: Trading Combine (simulated trading evaluation)\n- **Structure**: \n  - Evaluation phase (simulated)\n  - Express Funded Account phase\n  - Live Funded Account phase (for successful traders)\n- **Rules**: Strict trading objectives and risk management requirements\n- **Prohibited Conduct**: Rules against exploiting the simulated environment\n\n## Account Types & Pricing\n- **Account Sizes**: Not explicitly stated on main page, but reviews mention various sizes\n- **Pricing**: Evaluation fees vary by account size\n- **Programs**: Trading Combine with different account options\n\n## Trading Conditions\n- **Platforms**: TopstepX (proprietary platform), mentions of TradingView integration\n- **Instruments**: Futures products only (CME, COMEX, NYMEX, CBOT exchanges)\n- **Prohibited**: Stocks, Options, Forex, Spot Cryptocurrency, CFDs\n- **Leverage**: Not explicitly stated, but typical for futures trading\n\n## Payouts & Profit Split\n- **Payout Frequency**: Not explicitly stated, but reviews mention payout delays\n- **Reliability**: Mixed reviews on payout reliability\n- **Track Record**: 2025 statistics show 33.3% of Funded Level participants received payouts\n\n## Scaling Plans\n- **Progression**: Trading Combine → Express Funded Account → Live Funded Account\n- **Scaling**: Potential to scale up trading capital based on performance\n- **Requirements**: Must meet trading objectives at each stage\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: Mixed reviews (both positive and negative)\n- **Positive Feedback**:\n  - \"Well-built platform\" - useful tools like Tilt Indicator, daily loss limit controls\n  - \"Smooth process\" - evaluation process works well for some traders\n  - \"Good support\" - responsive customer service when needed\n  - \"Professional\" - well-organized and reliable for long-term users\n- **Negative Feedback**:\n  - \"Account issues\" - accounts cancelled without notice, rebilling problems\n  - \"Poor customer service\" - slow response times, unhelpful support\n  - \"Platform glitches\" - technical issues affecting trading\n  - \"Rule changes\" - recent changes making it harder for traders\n  - \"Payout problems\" - delays and incorrect payments\n  - \"Scam concerns\" - some traders report suspicious practices\n\n## Competitive Position\n- **Market Position**: One of the original and largest prop firms\n- **Unique Selling Points**:\n  - Long-standing reputation (10+ years)\n  - Regulated by CFTC and NFA\n  - Comprehensive educational resources\n  - TradingCombine evaluation system\n- **Competition**: Competes with FTMO, The5ers, and other major prop firms\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned on website\n- **Structure**: Not specified\n\n## Payout Track Record\n- **2025 Statistics**:\n  - 16.8% of Trading Combines completed successfully\n  - 51.8% of participants advanced to Funded Level\n  - 33.3% of Funded Level participants received payouts\n  - 0.71% of Express Funded Account traders called up to Live Funded Account\n- **Reliability**: Mixed reviews, some traders report consistent payouts while others report issues\n\n## Rules Transparency\n- **Positive**: Clear rules and objectives, comprehensive risk disclosures\n- **Negative**: Some traders report hidden rules and unclear interpretations\n- **Areas for Improvement**: Better communication of all rules and expectations\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Promotions\n- **Discount Offers**: Not prominently featured\n- **Special Programs**: Various account sizes and pricing options\n\n## Overall Assessment\nTopStep is a well-established prop firm with strong regulatory oversight and a comprehensive evaluation system. However, recent reviews indicate growing dissatisfaction with platform issues, rule changes, and customer service problems. While they remain a major player in the industry, potential traders should carefully consider both the positive and negative feedback before committing.",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\topstep.json",
+        "bytes": 15124
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json",
+        "bytes": 5309
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.558Z",
+    "mergeOpCount": 8
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1862,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "conflict",
+      "path": "name",
+      "kept": "TopStep",
+      "rejected": "Topstep",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/topstep.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 7,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "prop-firm audit",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "type",
+      "value": "prop-firm",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "Comprehensive prop-firm forensic dossier based on legacy research archives.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "# TopStep - Deep Dive Extensive Report\n\n## Company Background\n- **Founding Year**: Not explicitly stated, but mentions \"since the beginning\" and \"10+ years\" in reviews\n- **Company Name**: Topstep LLC and affiliates\n- **Ownership**: Not specified on website\n- **Team**: Not specified\n- **Headquarters**: Based in the United States (mentions NFA regulation)\n\n## Regulation & Licensing\n- **Regulatory Status**: \n  - Topstep Brokerage LLC is registered with the U.S. Commodity Futures Trading Commission (CFTC)\n  - Member of the National Futures Association (NFA ID 0567079)\n- **Legal Structure**: Operates as a proprietary trading firm with regulated brokerage services\n- **Compliance**: Subject to CFTC and NFA regulations\n\n## Challenge Rules & Phases\n- **Evaluation Process**: Trading Combine (simulated trading evaluation)\n- **Structure**: \n  - Evaluation phase (simulated)\n  - Express Funded Account phase\n  - Live Funded Account phase (for successful traders)\n- **Rules**: Strict trading objectives and risk management requirements\n- **Prohibited Conduct**: Rules against exploiting the simulated environment\n\n## Account Types & Pricing\n- **Account Sizes**: Not explicitly stated on main page, but reviews mention various sizes\n- **Pricing**: Evaluation fees vary by account size\n- **Programs**: Trading Combine with different account options\n\n## Trading Conditions\n- **Platforms**: TopstepX (proprietary platform), mentions of TradingView integration\n- **Instruments**: Futures products only (CME, COMEX, NYMEX, CBOT exchanges)\n- **Prohibited**: Stocks, Options, Forex, Spot Cryptocurrency, CFDs\n- **Leverage**: Not explicitly stated, but typical for futures trading\n\n## Payouts & Profit Split\n- **Payout Frequency**: Not explicitly stated, but reviews mention payout delays\n- **Reliability**: Mixed reviews on payout reliability\n- **Track Record**: 2025 statistics show 33.3% of Funded Level participants received payouts\n\n## Scaling Plans\n- **Progression**: Trading Combine → Express Funded Account → Live Funded Account\n- **Scaling**: Potential to scale up trading capital based on performance\n- **Requirements**: Must meet trading objectives at each stage\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: Mixed reviews (both positive and negative)\n- **Positive Feedback**:\n  - \"Well-built platform\" - useful tools like Tilt Indicator, daily loss limit controls\n  - \"Smooth process\" - evaluation process works well for some traders\n  - \"Good support\" - responsive customer service when needed\n  - \"Professional\" - well-organized and reliable for long-term users\n- **Negative Feedback**:\n  - \"Account issues\" - accounts cancelled without notice, rebilling problems\n  - \"Poor customer service\" - slow response times, unhelpful support\n  - \"Platform glitches\" - technical issues affecting trading\n  - \"Rule changes\" - recent changes making it harder for traders\n  - \"Payout problems\" - delays and incorrect payments\n  - \"Scam concerns\" - some traders report suspicious practices\n\n## Competitive Position\n- **Market Position**: One of the original and largest prop firms\n- **Unique Selling Points**:\n  - Long-standing reputation (10+ years)\n  - Regulated by CFTC and NFA\n  - Comprehensive educational resources\n  - TradingCombine evaluation system\n- **Competition**: Competes with FTMO, The5ers, and other major prop firms\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned on website\n- **Structure**: Not specified\n\n## Payout Track Record\n- **2025 Statistics**:\n  - 16.8% of Trading Combines completed successfully\n  - 51.8% of participants advanced to Funded Level\n  - 33.3% of Funded Level participants received payouts\n  - 0.71% of Express Funded Account traders called up to Live Funded Account\n- **Reliability**: Mixed reviews, some traders report consistent payouts while others report issues\n\n## Rules Transparency\n- **Positive**: Clear rules and objectives, comprehensive risk disclosures\n- **Negative**: Some traders report hidden rules and unclear interpretations\n- **Areas for Improvement**: Better communication of all rules and expectations\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Promotions\n- **Discount Offers**: Not prominently featured\n- **Special Programs**: Various account sizes and pricing options\n\n## Overall Assessment\nTopStep is a well-established prop firm with strong regulatory oversight and a comprehensive evaluation system. However, recent reviews indicate growing dissatisfaction with platform issues, rule changes, and customer service problems. While they remain a major player in the industry, potential traders should carefully consider both the positive and negative feedback before committing.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\topstep.json"
+    }
+  ]
+}

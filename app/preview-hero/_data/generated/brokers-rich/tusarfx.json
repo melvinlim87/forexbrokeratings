@@ -1,0 +1,50 @@
+{
+  "id": 1346,
+  "name": "TusarFX",
+  "slug": "tusarfx",
+  "logo": "https://www.google.com/s2/favicons?domain=tusarfx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CROFR"
+  ],
+  "bestFor": "New Listing",
+  "description": "TusarFX is a Russia based broker founded in 2014. With CROFR, it offers 30 FX pairs, metals trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nTusarFX is a retail forex and CFD broker established in 2014, headquartered in Russia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2014\n- 30 FX pairs, metals\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nTusarFX operates under CROFR regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CROFR\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nTusarFX provides From 1.0 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nTusarFX supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CROFR\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is TusarFX Best For?\n\nTusarFX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Russia** or regions served by CROFR\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare TusarFX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nTusarFX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by CROFR provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with TusarFX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 2014",
+    "30 FX pairs, metals"
+  ],
+  "pros": [
+    "Regulated by CROFR",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.tusarfx.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Russia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\tusarfx.json",
+        "bytes": 1046
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.856Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

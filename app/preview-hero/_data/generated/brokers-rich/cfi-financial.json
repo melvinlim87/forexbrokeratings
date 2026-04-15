@@ -1,0 +1,52 @@
+{
+  "id": 1435,
+  "name": "CFI Financial Group",
+  "slug": "cfi-financial",
+  "logo": "https://www.google.com/s2/favicons?domain=cfi.trade&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT5",
+    "cTrader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "FSC"
+  ],
+  "bestFor": "New Listing",
+  "description": "CFI Financial Group is a Mauritius based broker founded in 1998. With Offshore License, it offers 80+ FX pairs, CFDs on stocks, indices, commodities, crypto trading primarily via MT5, cTrader.",
+  "fullReview": "## Company Overview\n\nCFI Financial Group is a retail forex and CFD broker established in 1998, headquartered in Mauritius. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 1998\n- 80+ FX pairs, CFDs on stocks, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on MT5 and cTrader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCFI Financial Group operates under Offshore License and FSC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · FSC\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nCFI Financial Group provides From 0.5 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.5 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | MT5 and cTrader |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCFI Financial Group supports MT5 and cTrader, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**cTrader:** ECN-focused platform with level-II pricing, advanced charting, and cAlgo algorithmic trading support.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MT5\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is CFI Financial Group Best For?\n\nCFI Financial Group is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using MT5** who want a straightforward account setup\n- **Those based in Mauritius** or regions served by Offshore License and FSC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare CFI Financial Group against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nCFI Financial Group is a reasonable option for traders seeking from 0.5 pips on 500+ instruments via MT5 and cTrader. Regulation by Offshore License and FSC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with CFI Financial Group.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 1998",
+    "80+ FX pairs, CFDs on stocks, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MT5"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.cfi.trade",
+  "riskLevel": "Medium",
+  "founded": "1998",
+  "headquarters": "Mauritius",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\cfi-financial.json",
+        "bytes": 1341
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.172Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,52 @@
+{
+  "id": 1291,
+  "name": "Robinhood",
+  "slug": "robinhood",
+  "logo": "https://www.google.com/s2/favicons?domain=robinhood.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Robinhood Platform",
+    "Robinhood Mobile"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC",
+    "FINRA",
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Robinhood is a USA based broker founded in 2013. With SEC, FINRA, FCA, it offers FX pairs (limited), stocks, options, ETFs, crypto trading primarily via Robinhood Platform, Robinhood Mobile.",
+  "fullReview": "## Company Overview\n\nRobinhood is a retail forex and CFD broker established in 2013, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2013\n- FX pairs (limited), stocks, options, ETFs, crypto\n\nThe broker's trading infrastructure is built on Robinhood Platform and Robinhood Mobile, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nRobinhood operates under SEC, FINRA and FCA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** SEC · FINRA · FCA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nRobinhood provides From 0.0 pips on major currency pairs. Leverage is available at 2:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 0.0 pips |\n| Leverage | 2:1 |\n| Instruments | 500+ |\n| Platforms | Robinhood Platform and Robinhood Mobile |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nRobinhood supports Robinhood Platform and Robinhood Mobile, giving traders flexibility to choose the environment that best suits their strategy.\n\n**Robinhood Platform:** Proprietary or partner trading platform available through Robinhood.\n**Robinhood Mobile:** Proprietary or partner trading platform available through Robinhood.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports Robinhood Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Robinhood Best For?\n\nRobinhood is best suited for:\n\n- **Entry-level traders** looking for from 0.0 pips execution\n- **Traders using Robinhood Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC, FINRA and FCA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Robinhood against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nRobinhood is a solid choice for traders seeking from 0.0 pips on 500+ instruments via Robinhood Platform and Robinhood Mobile. Regulation by SEC, FINRA and FCA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Robinhood.*",
+  "spreads": "From 0.0 pips",
+  "leverage": "2:1",
+  "features": [
+    "Founded in 2013",
+    "FX pairs (limited), stocks, options, ETFs, crypto"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports Robinhood Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.robinhood.com",
+  "riskLevel": "Medium",
+  "founded": "2013",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\robinhood.json",
+        "bytes": 1276
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.685Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

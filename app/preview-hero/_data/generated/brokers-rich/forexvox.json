@@ -1,0 +1,50 @@
+{
+  "id": 1474,
+  "name": "ForexVox",
+  "slug": "forexvox",
+  "logo": "https://www.google.com/s2/favicons?domain=forexvox.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 50,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "ForexVox is a UK based broker founded in 2020. With FCA, it offers Forex, Metals, Indices, Commodities trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nForexVox is a retail forex and CFD broker established in 2020, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2020\n- Forex, Metals, Indices, Commodities\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nForexVox operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nForexVox provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $50 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $50, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nForexVox supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is ForexVox Best For?\n\nForexVox is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare ForexVox against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nForexVox is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by FCA provides a foundational level of oversight. The $50 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with ForexVox.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2020",
+    "Forex, Metals, Indices, Commodities"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.forexvox.com",
+  "riskLevel": "Medium",
+  "founded": "2020",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\forexvox.json",
+        "bytes": 1078
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.348Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,54 @@
+{
+  "id": 1354,
+  "name": "Invast Global",
+  "slug": "invast",
+  "logo": "https://www.google.com/s2/favicons?domain=invast.com.au&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "IRESS"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "ASIC",
+    "JFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Invast Global is a Australia based broker founded in 1960. With Offshore License, it offers 40+ FX pairs, CFDs on stocks, indices, commodities, futures trading primarily via MT4, MT5, IRESS.",
+  "fullReview": "## Company Overview\n\nInvast Global is a retail forex and CFD broker established in 1960, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1960\n- 40+ FX pairs, CFDs on stocks, indices, commodities, futures\n\nThe broker's trading infrastructure is built on MT4, MT5 and IRESS, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nInvast Global operates under Offshore License, ASIC and JFSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · ASIC · JFSA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nInvast Global provides From 0.0 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.0 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and IRESS |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nInvast Global supports MT4, MT5 and IRESS, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**IRESS:** Proprietary or partner trading platform available through Invast Global.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Invast Global Best For?\n\nInvast Global is best suited for:\n\n- **Entry-level traders** looking for from 0.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Australia** or regions served by Offshore License, ASIC and JFSA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Invast Global against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nInvast Global is a reasonable option for traders seeking from 0.0 pips on 500+ instruments via MT4, MT5 and IRESS. Regulation by Offshore License, ASIC and JFSA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Invast Global.*",
+  "spreads": "From 0.0 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 1960",
+    "40+ FX pairs, CFDs on stocks, indices, commodities, futures"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.invast.com.au",
+  "riskLevel": "Medium",
+  "founded": "1960",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\invast.json",
+        "bytes": 1357
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.489Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

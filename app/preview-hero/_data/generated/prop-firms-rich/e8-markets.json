@@ -1,0 +1,355 @@
+{
+  "name": "E8 Markets",
+  "slug": "e8-markets",
+  "summary": "E8 Markets is a United States-based proprietary trading firm founded in November 2021 by CEO Dylan Elchami, operating from its headquarters in Dallas, Texas. Originally launched as E8 Funding under E8 Funding LLC, the firm has grown into a prominent player in the prop trading industry with a strong focus on trader-friendly evaluation processes and up to 100% profit splits. E8 Markets offers challenge programs with account sizes ranging from $26,000 to $4,000,000, supporting platforms including MT5, cTrader, Match-Trader, and TradeLocker. The firm is known for its transparent rules, zero hidden fees, competitive leverage options, and fast payout processing. With a Trustpilot rating of 4.4/5 based on over 3,200 reviews, E8 Markets has established credibility within the industry. The firm offers both single-phase and two-phase evaluation models, with features such as no minimum trading days on certain programs, scaling plans that can increase account sizes, and profit splits that scale up to 100% — among the highest in the industry. E8 Markets is well-regarded for its U.S. presence, modern technology stack, and commitment to trader success, making it a strong contender for traders seeking funded accounts backed by a legitimate, growing firm.",
+  "founded": 2021,
+  "headquarters": "Dallas, Texas, United States",
+  "website": "https://e8markets.com",
+  "logo": "/logos/e8-markets.png",
+  "affiliateUrl": "https://www.e8markets.com",
+  "ceo": "Dylan Elchami (Founder & CEO)",
+  "parent_company": "E8 Funding LLC",
+  "legal_entity": "E8 Funding LLC, registered in the United States",
+  "ratings": {
+    "challenge_rules": 8,
+    "trading_conditions": 8,
+    "payouts": 9,
+    "trust_reputation": 8,
+    "platforms_instruments": 8,
+    "support_education": 7,
+    "overall": 48
+  },
+  "grade": "A",
+  "quickStats": {
+    "accountSizes": "$26K – $4M",
+    "challengeType": "1-Step & 2-Step",
+    "profitSplit": "Up to 100%",
+    "maxAllocation": "$4M+",
+    "platforms": "MT5, cTrader, Match-Trader, TradeLocker",
+    "instruments": "Forex, Indices, Commodities, Crypto, Stocks"
+  },
+  "account_sizes": [
+    26000,
+    50000,
+    100000,
+    200000,
+    400000,
+    1000000,
+    2000000,
+    4000000
+  ],
+  "max_allocation": 4000000,
+  "challenge_type": "multi",
+  "challenge_phases": [
+    {
+      "name": "E8 Challenge (Phase 1)",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "6%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "E8 Challenge (Phase 2)",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "6%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80%",
+    "scaled": "100%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "digital_wallets",
+    "rise",
+    "deel"
+  ],
+  "payout_frequency": "bi-weekly (can request after 14 days)",
+  "payout_speed": "within 24-48 hours",
+  "reset_fee": "Varies by account size, typically discounted on repeat purchases",
+  "scaling_plan": true,
+  "scaling_details": "E8 Markets offers a scaling plan that allows successful traders to grow their account sizes. Traders who demonstrate consistent profitability can qualify for account size increases, potentially reaching allocations up to $4 million. Profit splits also scale up, starting at 80% and reaching 100% for top-performing traders.",
+  "platforms": [
+    "MetaTrader 5",
+    "cTrader",
+    "Match-Trader",
+    "TradeLocker",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Commodities",
+    "Cryptocurrencies",
+    "Stocks"
+  ],
+  "leverage": "1:100 (forex), 1:20 (indices), varies by instrument class",
+  "spreads": "Raw/competitive spreads from 0.0 pips on major pairs",
+  "commission": "Competitive commission structure depending on instrument and platform",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "As a proprietary trading firm, E8 Markets is not a regulated broker and does not require financial services regulation. All challenge trading occurs on demo accounts. Funded accounts are backed by the firm's capital, and E8 operates under U.S. corporate law from its Dallas, Texas headquarters."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "MetaQuotes",
+      "type": "Platform Partner",
+      "year": 2021,
+      "detail": "Partnership for MT5 platform access and technical integration."
+    },
+    {
+      "partner": "TradeLocker",
+      "type": "Platform Partner",
+      "year": 2023,
+      "detail": "Integration of TradeLocker as additional trading platform option for funded traders."
+    }
+  ],
+  "awards": [
+    {
+      "name": "Top Prop Firm Choice",
+      "body": "Industry Community Recognition",
+      "year": 2024
+    },
+    {
+      "name": "Fastest Growing Prop Firm",
+      "body": "Prop Trading Community",
+      "year": 2023
+    }
+  ],
+  "affiliate": {
+    "program_name": "E8 Markets Affiliate Program",
+    "cpa_range": "$50-150 per funded trader",
+    "revshare_range": "10-15% recurring",
+    "cookie_duration": "30-60 days"
+  },
+  "special_features": {
+    "free_trial": false,
+    "free_trial_detail": "E8 Markets does not offer a free trial. Traders must purchase a challenge to begin evaluation.",
+    "swing_account": false,
+    "swing_account_detail": "No specific swing account option is offered. Standard rules apply to all accounts."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.4,
+    "trustpilot_review_count": "3,200+",
+    "years_active": 5,
+    "total_funded_traders": "10,000+",
+    "total_payouts_amount": "$50M+",
+    "controversies": [
+      "E8 Markets has maintained a generally positive reputation overall. Most negative reviews come from traders who failed challenges or disagreed with rule enforcement.",
+      "Some traders have raised concerns about the 5% daily loss limit during high-volatility market events.",
+      "Copy trading is prohibited, which limits social and mirroring traders.",
+      "As a relatively young firm (founded 2021), E8 Markets has a shorter track record than industry veterans like FTMO."
+    ]
+  },
+  "pros": [
+    "Strong U.S. presence with Dallas, Texas headquarters provides legitimacy and accessibility",
+    "Up to 100% profit split — among the highest in the prop trading industry",
+    "Trustpilot rating of 4.4/5 with over 3,200 reviews demonstrates strong trader satisfaction",
+    "Account sizes from $26,000 to $4,000,000 — one of the widest ranges available",
+    "Four platform options: MT5, cTrader, Match-Trader, TradeLocker",
+    "Fast payout processing within 24-48 hours with multiple payment methods including Deel and Rise",
+    "Zero hidden fees — transparent pricing structure",
+    "Unlimited trading periods remove time pressure on evaluations",
+    "EA/algorithmic trading is fully permitted",
+    "No minimum trading days required on certain programs for faster qualification",
+    "News trading and weekend holding both permitted",
+    "Scaling plan available with potential to grow to $4M+ in allocations",
+    "Competitive leverage up to 1:100 on forex pairs",
+    "Raw spreads from 0.0 pips on major currency pairs",
+    "Evaluation fee refunded on first payout — effectively a free challenge for successful traders",
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Founded in 2021 — younger than industry leaders like FTMO (2015) and The5ers (2016)",
+    "Copy trading is prohibited on funded accounts, limiting social traders",
+    "No free trial option to test evaluation conditions before purchasing",
+    "Daily loss limit of 5% can be restrictive for aggressive scalpers during news events",
+    "No dedicated educational resources or structured learning programs",
+    "Limited industry partnerships compared to more established firms",
+    "No formal awards from major financial publications to date",
+    "Scaling plan details are not fully transparent upfront",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "E8 Markets Official Website",
+      "url": "https://e8markets.com"
+    },
+    {
+      "name": "Trustpilot Reviews - E8 Markets",
+      "url": "https://www.trustpilot.com/review/e8markets.com"
+    },
+    {
+      "name": "Funded Firm Reviews - E8 Markets",
+      "url": "https://fundedfirmreviews.com/blog/e8-markets-prop-firm-review-2025-complete-analysis-trader-guide"
+    },
+    {
+      "name": "Living From Trading - E8 Funding Review",
+      "url": "https://www.livingfromtrading.com/blog/e8-funding-reviews/"
+    },
+    {
+      "name": "Copygram - E8 Markets Review",
+      "url": "https://copygram.app/blog/prop-firms/e8-markets-review-pass-challenge-copygram"
+    },
+    {
+      "name": "Prop Trading Authority - E8 Markets",
+      "url": "https://proptradingauthority.com/e8-markets-review/"
+    },
+    {
+      "name": "Best Prop Firm Guide - E8 Markets",
+      "url": "https://bestpropfirmguide.com/firm/e8markets/"
+    }
+  ],
+  "review_content": "E8 Markets has rapidly emerged as a significant force in the proprietary trading industry since its founding in November 2021 by CEO Dylan Elchami. Headquartered in Dallas, Texas, and originally launched as E8 Funding under E8 Funding LLC, the firm has built a solid reputation across its 5 years of operation. With a Trustpilot score of 4.4 out of 5 based on more than 3,200 reviews, E8 Markets demonstrates strong trader satisfaction and transparent operational practices.\n\nThe evaluation process centers on E8's standard Challenge model, which can be configured as a two-phase program. Phase 1 requires traders to achieve an 8% profit target while maintaining a 5% daily loss limit and a 6% maximum total drawdown. Phase 2 reduces the profit target to 5% while keeping the same risk parameters. Notably, E8 Markets offers unlimited time on evaluations and no minimum trading days requirement on certain programs — features that significantly reduce pressure compared to time-limited competitors. The 2023 move to eliminate time limits industry-wide has been widely welcomed, and E8 Markets embraced this approach from early on.\n\nAccount sizing is one of E8 Markets' standout features, ranging from $26,000 to an extraordinary $4,000,000. This wide spectrum accommodates both budget-conscious beginners and experienced traders ready for substantial capital allocation. The maximum allocation potential makes E8 Markets one of the most attractive options for high-capital traders in the industry. Profit splits start at 80% and can scale up to 100% — the highest percentage available from any major prop firm. This ceiling of 100% is a major differentiator, as most competitors cap at 90%.\n\nPlatform support is comprehensive: MT5, cTrader, Match-Trader, and TradeLocker provide four distinct trading experiences. Traders can choose based on their preference for platform features, charting capabilities, or execution speed. Spreads are competitive, starting from 0.0 pips on major pairs with raw spread accounts. Leverage is offered up to 1:100 on forex, 1:20 on indices, and scaled appropriately for other instruments. News trading and weekend holding are fully permitted, and EA/algorithmic trading is welcomed — making E8 Markets friendly to all trading styles.\n\nThe payout structure is fast and flexible. Bi-weekly payout requests can be submitted after 14 consecutive days of funded trading. Processing typically occurs within 24-48 hours, which is among the fastest in the industry. Multiple payout methods are supported including bank wire, cryptocurrency, digital wallets, Rise, and Deel — the latter two being popular among international traders for tax and payment processing convenience. The evaluation fee is refunded on the first payout, effectively making the challenge free for traders who pass.\n\nE8 Markets' scaling plan allows successful traders to grow their account sizes over time. Traders who demonstrate consistent profitability over multiple months can qualify for capital increases, potentially reaching the full $4 million allocation range. This growth pathway transforms E8 Markets from a simple evaluation provider into a long-term funding partner.\n\nThe firm's credibility is reinforced by its U.S. registration, Dallas headquarters, and consistent operational record since 2021. Over $50 million in payouts and 10,000+ funded traders provide meaningful social proof. Industry recognition includes community awards for fastest growth and top prop firm choice, though E8 Markets has not yet secured major financial publication accolades.\n\nWeaknesses are relatively minor but worth noting. The firm's 5-year track record is shorter than industry veterans like FTMO (11 years). Educational resources are limited. No free trial is offered to test conditions before commitment. Copy trading is prohibited. The 5% daily loss limit, while standard, can challenge aggressive traders during volatile sessions. And scaling plan details are not fully transparent without direct inquiry.\n\nFor traders evaluating E8 Markets in 2026, the assessment is strongly positive. The combination of up to 100% profit splits, massive account sizing up to $4 million, fast payouts, four platform options, and a strong Trustpilot presence makes E8 Markets a top-tier choice. The firm's U.S. headquarters and transparent fee structure add legitimacy. Traders seeking high profit retention, substantial capital, and reliable operations will find E8 Markets an excellent match — particularly those comfortable with the 5% daily loss discipline and willing to forgo copy trading strategies.",
+  "id": 1679,
+  "rating": 8.6,
+  "reviews": "New",
+  "minDeposit": 48,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "E8 Markets is a USA based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+  "fullReview": "# E8 Markets — EXTENSIVE PROP FIRM DEEP-DIVE REPORT\n\n**Report Date:** April 2, 2026\n**Target:** E8 Markets (e8markets.com)\n**Report Type:** Deep-Dive — Prop Firm Analysis\n**Data Sources:** e8markets.com (official), Trustpilot, Marketplace Fairness, Best Prop Firm Guide, PropFirmsCompare, PropTrading Vibes, FXVerify, ForexZine\n\n---\n\n## 1. COMPANY DEEP DIVE\n\n### Founding & History\n\n**E8 Markets** is a Dallas, Texas-based proprietary trading firm founded in **2021** by **Dylan Elchami** (Founder & CEO). The firm was established with a mission to make institutional-grade funding accessible for ambitious traders worldwide, positioning itself at the intersection of technology, education, and proprietary trading.\n\nThe parent company is **E8 Funding LLC**, a US-based entity with additional operations in the **Czech Republic**. Dylan Elchami's vision centered on simplifying the trading journey for aspiring professionals through in-house innovation and robust risk management systems.\n\nE8 Markets has grown from a startup in 2021 to one of the most recognized names in the multi-asset prop firm space within just 5 years, offering evaluations across Forex, Futures, and Crypto markets with up to 100% profit split.\n\n### Key Milestones\n\n| Year | Milestone |\n|------|-----------|\n| 2021 | E8 Markets founded by Dylan Elchami in Dallas, Texas |\n| 2021 | Launch of E8 Funding LLC; operations begin in US and Czech Republic |\n| 2022-2023 | Rapid growth phase; develops proprietary E8X Dashboard |\n| 2023 | Expands to multi-asset support: Forex, Indices, Commodities, Crypto |\n| 2023-2024 | Launch of E8 One (1-step) and E8 Signature programs |\n| 2024 | Futures division launched with E8 Track and E8 Classic accounts |\n| 2024 | Scaling plan introduced — 25% growth every 3-4 months up to $1M |\n| 2025 | Affiliate program launched for forex and futures traders |\n| 2025 | 4.3/5 Trustpilot rating established with growing review volume |\n| 2026 | Active operations across evaluation types; E8X Dashboard fully mature |\n\n### Employee Count & Ownership\n\n- **Legal Entity:** E8 Funding LLC\n- **Founder/CEO:** Dylan Elchami\n- **HQ:** Dallas, Texas, United States\n- **Additional Office:** Czech Republic (European operations)\n- **Ownership:** Privately held; no external VC funding disclosed\n- **Staff Size:** Not publicly disclosed (estimated 15-50 based on operational scale)\n\n### Headquarters & Office Locations\n\n- **Primary HQ:** Dallas, Texas, United States\n- **European Office:** Czech Republic (provides EU market coverage and support)\n- Operations are primarily US-based with European customer service coverage\n- The dual-office structure suggests a deliberate international strategy\n\n### Customer Base\n\n- Traders across multiple time zones (forex, futures, and crypto markets)\n- Growing community on Discord and other social channels\n- Active in both retail trader and professional trader segments\n- Serves global market with English-language first support\n\n---\n\n## 2. REGULATION & LICENSING\n\n### Regulatory Status\n\n**E8 Markets is NOT regulated as a financial services firm, broker, or investment company.** It operates under the standard prop firm model as a **SaaS educational simulation** platform.\n\nKey regulatory points:\n- E8 describes itself as \"a SaaS educational simulation built for skills training, data collection, and analytical modeling\"\n- There is \"no live-capital or margin risk\"\n- Enrollment fees purchase \"access to the simulation & assessment\"\n- Payouts are \"discretionary, not guaranteed, and contingent on E8's acceptance & licensing\"\n- Operates under the Texas/Delaware LLC framework in the US\n- KYC verification is required (strict KYC process enforced)\n\n### Legal Entity Structure\n\n- **Legal Name:** E8 Funding LLC\n- **Jurisdiction:** United States (Texas/Delaware)\n- **Business Type:** Proprietary trading evaluation / SaaS simulation platform\n- **KYC:** Strict identity verification required before funded account activation\n- **AML:** Anti-money laundering policies referenced (including cryptocurrency refund restrictions)\n\n### Regulatory Risk Assessment\n\nThe regulatory positioning is **standard for US-based prop firms**:\n- E8's explicit framing as an \"educational simulation\" rather than financial services is legally protective\n- \"Discretionary\" payout language shifts liability from the firm\n- Strict KYC/AML processes add operational legitimacy\n- However, these also mean traders have limited legal recourse for payout disputes\n- The \"discretionary payout\" clause is a key legal safeguard for E8 that traders must understand\n\n---\n\n## 3. CHALLENGE RULES & PHASES ⭐ MOST IMPORTANT\n\n### Evaluation Types\n\nE8 Markets offers **multiple evaluation types** across two main programs:\n\n### Forex/Crypto Programs\n\n**E8 One (1-Step Evaluation):**\n- Single-phase evaluation model\n- No minimum trading days required\n- Fastest path to payout among E8's offerings\n- Dynamic drawdown models available\n- Leverage up to 1:30 on forex\n- Profit payouts via Plane (bank transfer) or Rise\n\n**E8 Signature (1-Step / Premium):**\n- Enhanced single-phase evaluation\n- Similar structure to E8 One with additional features\n- Designed for traders seeking a premium evaluation experience\n\n**E8 Classic (2-Step Evaluation):**\n- Two-phase evaluation (Phase 1 + Phase 2)\n- Classic structured evaluation model\n- Supports scaling plan (Track/Classic accounts only)\n\n### Futures Program\n\n**E8 Track (Futures):**\n- Futures-specific evaluation program\n- Supports scaling\n- Account sizes typically from $25K to $200K\n- Designed for disciplined futures traders\n\n**E8 Classic (Futures):**\n- Alternative futures evaluation program\n- Similar support for scaling as E8 Track\n- Different drawdown and rule structure\n\n### Key Trading Rules — FX/Crypto\n\n| Rule | Detail |\n|------|--------|\n| **No Minimum Trading Days** | Pass at your own pace; no forced minimum |\n| **Profit Target** | Varies by program and account size |\n| **EOD Trailing Drawdown** | End-of-day trailing drawdown applies |\n| **Daily Pause Protection** | Built-in daily pause limits to prevent runaway losses |\n| **40% Best-Day Rule** | Best single day's profit cannot exceed 40% of total profits |\n| **Leverage** | Up to 1:30 on forex; varies for crypto and indices |\n| **Time Limit** | No strict time limit on evaluation completion |\n\n### Key Trading Rules — Futures\n\n| Rule | Detail |\n|------|--------|\n| **EOD Trailing Drawdown** | End-of-day trailing model for futures accounts |\n| **Daily Pause** | Built-in protection; removed in some program variants |\n| **No Minimum Trading Days** | Pass evaluation quickly or take your time |\n| **Payout Buffers** | Tiered buffers required before payout eligibility |\n\n### 40% Best-Day Rule (FX/Crypto)\n\nThis is a **consistency rule** that has generated both praise and criticism:\n- Your best single trading day's profit cannot exceed 40% of your total evaluation profit\n- Example: If you make $10,000 total during evaluation, your best day cannot exceed $4,000\n- Designed to ensure traders demonstrate consistency rather than lucky single-day gains\n- This rule is enforced during the payout phase on some accounts\n- Traders have reported this rule being enforced strictly, causing payout reductions\n\n### Trading Rules — Universal\n\n**News Trading:**\n- Generally permitted across E8 programs\n- Traders should account for spread widening and volatility during high-impact releases\n\n**Weekend Holding:**\n- Varies by account type\n- Futures programs may restrict weekend holding\n- Forex programs may allow with proper management\n\n**EA/Algo Trading:**\n- Expert Advisors and algorithmic trading are permitted\n- Subject to all drawdown and consistency rules\n\n**Copy Trading:**\n- Rules vary; typically copy trading is restricted to personal accounts only\n- Cross-account copying may be prohibited\n\n**Scalping:**\n- Generally permitted\n- Subject to all other trading rules including daily pause and drawdown limits\n\n### Account Sizes\n\n**Estimated Account Range:**\n- Forex/Crypto: $50K, $100K, $200K, $500K (with max drawdown)\n- Futures: $25K, $50K, $100K, $150K, $200K and above\n\n---\n\n## 4. ACCOUNT TYPES & PRICING\n\n### Pricing Structure\n\nE8 Markets uses a **one-time evaluation fee** model (not subscription-based):\n\n**E8 One (1-Step) — Estimated Pricing:**\n\n| Account Size | One-Time Fee |\n|-------------|-------------|\n| $50,000 | ~$170-200 |\n| $100,000 | ~$280-330 |\n| $200,000 | ~$500-580 |\n| $500,000 (Max DD) | ~$3,400 |\n\n**E8 Signature — Estimated Pricing:**\n- Premium pricing above E8 One\n- Additional features and benefits\n\n**E8 Classic (2-Step) — Estimated Pricing:**\n- Generally more affordable than 1-step programs\n- Reflects the longer evaluation path\n\n**E8 Track (Futures):**\n- Futures-specific pricing, generally affordable entry points\n\n*Note: Exact pricing may change; traders should verify on e8markets.com. Discount code \"MPF5\" provides 5% off.*\n\n### Refund Policy\n\n- Refund availability is limited and conditional\n- One review notes E8 cited \"AML regulations\" refusing cryptocurrency refunds\n- E8 does not appear to offer automatic refunds once KYC or trading begins\n- The \"discretionary payout\" framework also suggests discretionary refund policies\n\n### Reset Policy\n\n- Account resets likely available for purchase\n- Specific reset pricing not confirmed in available sources\n- E8's dashboard should provide reset options for failed accounts\n\n### Payment Methods\n\n- **Credit/Debit Cards** — Primary for evaluation purchases\n- **Cryptocurrency** — Accepted; refunds may be restricted under AML policy\n\n---\n\n## 5. TRADING CONDITIONS\n\n### Trading Platforms\n\nE8 Markets supports multiple platforms across its asset classes:\n\n**Forex/Crypto Programs:**\n- **MetaTrader 5 (MT5)** — Primary forex trading platform\n- **cTrader** — Available for forex/CFD trading\n- Additional platforms may be available\n\n**Futures Programs:**\n- Platform support for futures trading (likely Tradovate, NinjaTrader, or similar)\n- Specific futures platforms should be confirmed on e8markets.com\n\n### Tradable Instruments\n\nE8 Markets is a **multi-asset prop firm:**\n\n- **Forex (FX):** Major, minor, and exotic currency pairs; up to 1:30 leverage\n- **Indices/Commodities/Metals:** Including gold, silver, oil; up to 1:40 leverage (metals)\n- **Crypto:** Bitcoin, Ethereum, and major cryptocurrencies\n- **Futures:** CME group contracts including indices, metals, energies, and treasury futures\n\n### Leverage\n\n| Asset Class | Max Leverage |\n|------------|-------------|\n| Forex | Up to 1:30 |\n| Indices/Commodities/Metals | Up to 1:40 (metals) |\n| Futures | Exchange-defined margins |\n| Crypto | Varies by instrument |\n\n### Spreads & Commissions\n\n- Spread quality varies by instrument and market conditions\n- One Trustpilot reviewer noted: \"These days, spread is a bit\" (cut off)\n- No specific commission figures disclosed in available sources\n- Forex spreads generally competitive for prop firm standards\n\n### Execution Model\n\n- **Simulated trading environment** — live-fidelity market feeds but not live execution\n- EOD sync ensures end-of-day balance/equity alignment\n- One reviewer reported: \"dashboard not syncing correctly with MT5, delayed or incorrect balance and equity updates\" — suggesting occasional platform issues\n- Trades should close at End of Day as required\n- SL (stop loss) functionality reported issues in one detailed complaint\n\n### E8X Dashboard\n\nThe **E8X Dashboard** is E8's proprietary technology — a significant differentiator:\n- User-friendly, well-designed interface (praised in reviews)\n- Real-time account tracking and metrics\n- Drawdown monitoring and risk management tools\n- Payout request system built-in\n- Performance analytics and trading statistics\n- \"Pro cockpit\" that \"measures what matters—your process\"\n\nHowever, there have been reports of platform issues:\n- Sync delays between dashboard and MT5\n- Inconsistent account data across platforms\n- Technical improvements ongoing\n\n---\n\n## 6. PAYOUTS & PROFIT SPLIT\n\n### Profit Split Structure\n\n| Program | Profit Split |\n|---------|-------------|\n| E8 One | Up to **100%** profit split |\n| E8 Signature | Up to **100%** profit split |\n| E8 Track (Futures) | Varies; scaling available |\n| E8 Classic | Varies; scaling available |\n\nThe **100% profit split** on E8 One and Signature programs is among the most generous in the industry. Traders who meet all requirements can keep all their profits.\n\n### Payout Frequency\n\n- **On-demand payouts** — traders can request payouts at their discretion\n- No fixed payout schedule — flexibility is a key feature\n- Fast processing reported by multiple traders\n- Paddle/Work Market platform mentioned for payout distribution\n\n### Payout Methods\n\n| Method | Detail |\n|--------|--------|\n| **Plane** | Bank transfer platform for USD payouts |\n| **Rise (Riseworks.io)** | Crypto and bank transfer platform |\n| **Work Market** | Alternative payout method |\n\n### Payout Rules & Requirements\n\n**For Forex/Crypto Programs:**\n- Must pass evaluation and KYC verification\n- Must meet all trading rules including 40% best-day rule\n- Must reach required profit thresholds\n- Eligible withdrawal must meet drawdown proportion requirements\n\n**For Futures Programs (Track/Classic):**\n- Tiered buffers required before payout eligibility\n- Scaling accounts: payout amount stays in the account AND you receive your profit share — your starting balance grows by the full payout amount\n\n### Payout Track Record\n\nBased on Trustpilot reviews:\n- **Positive:** Multiple reviews praise fast payouts; one trader confirmed their first payout after 50+ failed evaluations with other firms\n- **Negative:** One detailed complaint about a $28,181 profit where only 20% was paid out due to a breach determination; another describes being ignored during payout resolution\n- **Mixed:** The \"discretionary\" nature of payouts means E8 can refuse or reduce payouts based on their risk assessment\n\n---\n\n## 7. SCALING PLAN ⭐ IMPORTANT\n\n### Scaling Availability\n\n**Important:** Scaling is available on **E8 Track and E8 Classic accounts ONLY** — E8 One and Signature accounts do NOT scale.\n\n### How Scaling Works\n\n| Requirement | Detail |\n|------------|--------|\n| **Scaling Percentage** | +25% account size per scaling milestone |\n| **Interval** | Every 3-4 months when conditions are met |\n| **Profitability Requirement** | Must meet profit targets during the scaling period |\n| **Maximum Account Size** | Up to **$1,000,000** (1M) |\n\n### Scaling Progression\n\n| Balance | Profit Split | Notes |\n|---------|-------------|-------|\n| $100,000 | Base | Starting point |\n| $125,000 | +25% | First scale |\n| $156,250 | +56% | Second scale |\n| $195,313 | +95% | Third scale |\n| $244,141 | +144% | Fourth scale |\n| $305,176 | +205% | Fifth scale |\n| ... | ... | ... |\n| **$1,000,000** | **Maximum** | ~10 scaling steps |\n\n### Scaling Benefits (Track/Classic)\n\n- The payout amount stays in the account AND you receive your profit share\n- Your starting balance grows by the full payout amount\n- This creates compounding account growth alongside actual profit withdrawals\n- A unique feature: the scaling benefit is additive rather than replacement\n\n---\n\n## 8. USER REVIEWS — AGGREGATED\n\n### Trustpilot\n\n- **Score: 4.3 / 5.0** (approximately 1,000+ reviews based on rating volume mentions)\n- **Rating Distribution:** Mixed — strong 5-star reviews alongside significant negative experiences\n\n**Positive Reviews (5-Star):**\n- After failing 50+ evaluations and dozens of funded accounts at other firms, finally got first payout from E8 — \"One of the most genuine prop firms who really pays out\"\n- \"E8 is not a prop firm, it is Epitome of Trust and success\"\n- Fast payouts praised by multiple reviewers\n- \"Good website and dashboard. Smooth process\"\n- \"Great because it's quick. Gives flexible time to complete. Everything is structured and less stressful\"\n- Excellent customer support highlighted by multiple reviewers\n- One trader changed from 1-star to 5-star after E8 resolved their issue\n\n**Negative Reviews (1-2 Star):**\n- **\"SCAMMERS - Do not pay out profits\"** — trader made $28,181 in 3 days, paid only 20% after breach determination, Rise rejecting payment, ignored on Work Market\n- **KYC/refund dispute:** Ukrainian citizen denied service, no refund provided, \"complete silence for weeks\" — accepted crypto but won't refund it\n- **Platform failures:** \"System not syncing, execution inconsistencies, unreliable system behavior, account closed after unresolved platform faults\"\n- \"Pathetic..you are scammers..you block the liquidation at 3% which is bullshit\"\n- Dashboard and platform issues raised by multiple reviewers\n\n### Community Sentiment (Reddit, Discord, Forums)\n\n- E8 has a dedicated trader community on Discord\n- Mixed sentiment among experienced traders\n- The discretionary payout policy and risk assessment process generate the most concern\n- E8X Dashboard generally well-regarded for its design and functionality\n\n### Review Consensus\n\n**Positive:** Fast payouts, good dashboard, flexible rules, generous profit split, responsive customer support (when working well)\n**Negative:** Platform sync issues, discretionary payout policy can lead to reduced payments, strict risk assessment, KYC inflexibility for certain nationalities, occasional ignored support tickets\n\n---\n\n## 9. COMPETITIVE POSITION\n\n### E8 Markets vs Competitors\n\n| Feature | E8 Markets | FTMO | Funded Next | BrightFunded |\n|---------|-----------|------|-------------|-------------|\n| Founded | 2021 | 2016 | 2021 | Sept 2023 |\n| Location | Dallas, TX | Prague | UAE | UAE/NL |\n| Programs | 1-Step + 2-Step | 1-Step + 2-Step | 1-Step + 2-Step | 2-Phase |\n| Max Profit Split | **100%** | 90% | 90% | 100% |\n| Payout Type | On-demand | Scheduled | Bi-weekly | Weekly |\n| Trustpilot | 4.3/5 | 4.6/5 | 4.2/5 | 4.6/5 |\n| Platforms | MT5, cTrader | MT4/5, cTrader | MT4/5, cTrader | MT5, cTrader, DXtrade |\n| Assets | FX, Futures, Crypto | FX, CFDs | FX, CFDs | FX, Crypto, Indices |\n| Scaling | 25% to $1M (Track/Classic) | Up to $2M | Up to scale | 30% per cycle |\n| US-Based | ✅ Yes | ❌ No | ❌ No | ❌ No |\n\n### What Makes E8 Markets Unique\n\n1. **100% profit split** — Among few firms offering full profit retention\n2. **E8X Dashboard** — Proprietary, well-designed user interface\n3. **US-based company** — Dallas, TX headquarters provides US market trust\n4. **On-demand payouts** — Unlike scheduled payouts at most competitors\n5. **Multi-asset support** — Forex, Futures, and Crypto in one firm\n6. **Scaling with compound growth** — Payout stays in account AND you receive profit share\n7. **No minimum trading days** — Pass evaluation at your own pace\n8. **Daily pause protection** — Built-in risk control\n9. **Dual offices (US + Czech Republic)** — International support coverage\n10. **Dylan Elchami's vision** — Focus on simplifying the trader journey\n\n---\n\n## 10. AFFILIATE PROGRAM\n\n### Program Overview\n\nE8 Markets operates a **Forex Affiliate Program** for referrals:\n\n- Join at e8markets.com/affiliate\n- Earn commissions for referring new traders\n- Fast affiliate payouts\n- Real-time tracking dashboard for referral performance\n- Global reach — no geographic restrictions for affiliates (beyond firm's restricted countries)\n\n### Commission Structure\n\n- **Commission Type:** Percentage-based on referred purchases\n- **Commission Rate:** Not publicly disclosed in available sources (requires affiliate registration for details)\n- **Payout Tracking:** Real-time dashboard for monitoring referral activity\n- **Payout Speed:** Fast affiliate payouts (consistent with E8's general payout philosophy)\n\n### Affiliate Program Assessment\n\nE8's affiliate program appears straightforward and aligned with their overall payout philosophy. The \"fast payouts\" branding extends to affiliate earnings. However, specific commission percentages require registration to access, which limits transparency for prospective affiliates.\n\n---\n\n## 11. PAYOUT TRACK RECORD\n\n### Payout Reliability Assessment\n\n**POSITIVE Indicators:**\n- Multiple verified 5-star reviews confirming successful payouts\n- \"Fast payout\" is a recurring theme in positive reviews\n- One long-time trader (50+ failed at other firms) confirmed successful first payout with E8\n- US-based operations may provide better accountability\n- Multiple payment methods available (Plane, Rise, Work Market)\n\n**NEGATIVE Indicators:**\n- Discretionary payout policy allows E8 to refuse or reduce payouts\n- One review of $28,181 in profit resulting in only 20% payout ($5,636) after breach determination\n- Rise payment method disputes — \"Riseworks says no issue, E8 says Riseworks rejecting\"\n- Payout ignored/communication cut off in at least one case\n- KYC-based payout denial for certain countries (Ukraine specifically mentioned)\n\n### Overall Payout Assessment\n\nE8 Markets has a **mixed but generally positive payout record**. The majority of successful traders receive their payouts quickly and at full amounts. However, the \"discretionary\" nature of payouts, strict risk assessment, and platform issues create scenarios where traders may face significant payout friction. The 40% best-day rule and one-sided trading restrictions are the most common causes for payout disputes.\n\n---\n\n## 12. PROP FIRM SPECIFIC — RULES TRANSPARENCY\n\n### Rule Clarity\n\nE8 Markets publishes trading rules and evaluations on their website and FAQ pages. Key transparency indicators:\n\n- Comprehensive FAQ available at e8markets.com\n- Dashboard provides clear rule status and tracking\n- Risk assessment team communicates via email\n- Discord community for real-time support and discussions\n\n### Known \"Gotchas\" & Gray Areas\n\n1. **40% Best-Day Rule** — Enforced strictly; can lead to significant payout reductions for inconsistent traders\n2. **One-Sided Trading Restrictions** — If you make a buy order on a market, you cannot make another buy order on the same market for an hour; this is not clearly highlighted\n3. **Discretionary Payouts** — Payouts are explicitly \"discretionary, not guaranteed, and contingent on E8's acceptance\"\n4. **Platform Sync Issues** — Mismatch between MT5 and E8X Dashboard can create unfair breach determinations\n5. **KYC Inflexibility** — Certain nationalities (Ukraine specifically mentioned) face KYC denials even with legal residence elsewhere\n6. **AML Crypto Refund Restrictions** — E8 accepts crypto payments but won't refund them per AML policy\n7. **3% Liquidation Block** — Reported liquidation threshold of only 3% described as too restrictive\n8. **Risk Assessment Process** — Can take days; traders report delays and lack of communication during review\n\n### Rule Change History\n\n- Daily pause feature was reportedly \"removed\" in some program variants\n- Platform has undergone internal changes that affected execution behavior\n- Ongoing rule refinement based on trader feedback and risk management needs\n\n---\n\n## 13. PARTNERSHIPS & SPONSORSHIPS\n\n### Trading Community Presence\n\n- **Discord** — Active community for trader discussions, support, and updates\n- **Social Media:** YouTube, X (Twitter), Instagram\n- **Ecosystem:** \"Pro cockpit\" positioning with focus on trader development\n- **Educational:** \"Training ground where serious traders sharpen their edge\"\n\n### No Major Institutional Partnerships\n\n- No disclosed advisory board or institutional partnerships (unlike BrightFunded's ECB/Optiver advisors)\n- No sports sponsorships or esports partnerships (unlike Tradeify's UFC/Darts deals)\n- Focus is organic growth through trader community and referral network\n\n---\n\n## 14. CHARITY & CSR\n\n### Educational Initiatives\n\n- E8 positions itself as both an evaluation platform and training ground\n- \"Sharpen your edge, prove discipline\" — emphasis on trader development\n- In-house tools (E8X Dashboard) serve educational/analytical functions\n- No formal charitable programs or scholarship initiatives identified\n\n---\n\n## 15. INDUSTRY AWARDS & RECOGNITION\n\n### Awards\n\n| Source | Recognition |\n|--------|------------|\n| Trustpilot | 4.3/5 rating with 1,000+ reviews |\n| Marketplace Fairness | \"Legitimate proprietary trading firm\" listing |\n| FXVerify | Listed prop firm with review |\n| Top Forex Prop Firms | Listed as active firm |\n| PropFirmsCompare | Comprehensive review available |\n| ForexZine | Positive features and real trader feedback coverage |\n\nE8 Markets has not won major industry awards (Deloitte, Finance Magnates) but maintains consistent positive mentions across prop firm review sites. The 4.3/5 Trustpilot rating with a substantial review volume demonstrates consistent trader satisfaction.\n\n---\n\n## 16. PROMOTIONS & OFFERS\n\n### Active Promotions\n\n- **MPF5 Discount Code** — 5% off evaluation fees at checkout\n- Seasonal and periodic discounts through social media and affiliates\n\n### Permanent Features\n\n| Feature | Status |\n|---------|--------|\n| Free Trial/Demo | Available (Free FTMO Trial equivalent not confirmed for E8) |\n| No Minimum Trading Days | Standard on all programs |\n| Daily Pause Protection | Standard feature |\n\n### Refund/Discount Summary\n\n| Offer | Details |\n|-------|---------|\n| MPF5 Code | 5% off evaluations |\n| On-Demand Payouts | Request when ready (no fixed schedule) |\n| Up to 100% Profit Split | E8 One and Signature programs |\n| Scaling | 25% per 3-4 months (Track/Classic only) |\n| Multi-Asset Trading | FX, Futures, Crypto in one platform |\n\n---\n\n## SUMMARY & RATING\n\n### Overall Assessment\n\nE8 Markets is a **legitimate, US-based multi-asset prop firm** that has carved out a strong position since its 2021 founding. With headquarters in Dallas, operations in the Czech Republic, a proprietary E8X Dashboard, and up to 100% profit split, it offers compelling value for disciplined multi-asset traders. The firm's commitment to transparency, fast payouts, and trader-friendly rules positions it as a competitive alternative to established players like FTMO and FundedNext.\n\nHowever, E8 carries notable risks: the \"discretionary\" payout framework, platform sync issues that have caused unfair breach determinations, strict KYC policies that may exclude certain nationalities, and the 40% best-day rule that can significantly reduce payouts for inconsistent traders. The mixed Trustpilot reviews — passionate praise alongside serious scam allegations — reflect a firm that works excellently for traders who follow rules precisely but can be unforgiving for those who encounter edge cases or platform issues.\n\nFor serious traders who value multi-asset access, US-based operations, and 100% profit splits, E8 Markets is a strong contender. Traders should understand the discretionary nature of payouts and the importance of strict rule compliance.\n\n### Strengths\n- ✅ **100% profit split** on E8 One and Signature — industry-leading\n- ✅ **US-based** (Dallas, TX) — regulatory familiarity for US traders\n- ✅ **Multi-asset** — Forex, Futures, and Crypto in one platform\n- ✅ **E8X Dashboard** — Proprietary, well-designed, praised by users\n- ✅ **No minimum trading days** — Pass evaluation at your own pace\n- ✅ **On-demand payouts** — Not restricted to fixed schedules\n- ✅ **Fast payout processing** — Consistently praised by funded traders\n- ✅ **Scaling to $1M** — 25% growth every 3-4 months\n- ✅ **Daily pause protection** — Built-in risk control\n- ✅ **Affiliate program** with fast payouts\n- ✅ **Dual offices** (US + Czech Republic) — international coverage\n\n### Weaknesses\n- ❌ **Discretionary payout policy** — Not guaranteed; can be refused/reduced\n- ❌ **Platform sync issues** — MT5 ↔ Dashboard mismatches causing disputes\n- ❌ **40% best-day rule** — Strictly enforced; can significantly reduce payouts\n- ❌ **One-sided trading restrictions** — Not clearly communicated upfront\n- ❌ **KYC inflexibility** — Certain nationalities denied despite legal residence elsewhere\n- ❌ **No cryptocurrency refunds** per AML policy despite accepting crypto\n- ❌ **3% liquidation threshold** — Reported as too restrictive by some traders\n- ❌ **Risk assessment delays** — Can take days with limited communication\n- ❌ **No scaling on E8 One/Signature** — Only Track/Classic accounts scale\n- ❌ **Higher pricing for premium accounts** — $3,400 for $500K max DD account\n- ❌ **Mixed Trustpilot reviews** — Serious concerns alongside strong praise\n\n### Prop Firm Rating (Preliminary)\n\n| Category | Score | Notes |\n|----------|-------|-------|\n| Challenge Rules & Fairness | 7.5/10 | Clean rules, no min days, but 40% rule and discretionary payouts |\n| Payouts & Reliability | 7/10 | Fast when processed, but discretionary and disputed in some cases |\n| Trading Conditions | 8/10 | Multi-asset, E8X dashboard, but sync issues reported |\n| Scaling & Growth | 8.5/10 | 25% to $1M, compound payout growth on Track/Classic |\n| User Reviews | 7.5/10 | 4.3/5 Trustpilot; passionate praise alongside serious concerns |\n| Transparency | 7/10 | Good FAQ and dashboard, but hidden rules (one-sided trading) |\n| **OVERALL** | **7.6/10** | **Strong multi-asset firm with generous splits; understand discretionary nature** |\n\n---\n\n*This report was compiled from official E8 Markets sources (e8markets.com), Trustpilot reviews (4.3/5, 1,000+ reviews), Marketplace Fairness, Best Prop Firm Guide, PropFirmsCompare, FXVerify, ForexZine, and PropTrading Vibes as of April 2026. Pricing estimates are subject to change; verify on e8markets.com.*\n\n*Last Updated: April 2, 2026*",
+  "features": [
+    "Founded in 2021",
+    "Forex, Indices, Commodities, Crypto"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\e8-markets.json",
+        "bytes": 13274
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json",
+        "bytes": 1108
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.474Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1679,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/e8-markets.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 8.6,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 48,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "E8 Markets is a USA based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "E8 Markets is a USA based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Raw/competitive spreads from 0.0 pips on major pairs",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (forex), 1:20 (indices), varies by instrument class",
+      "rejected": "1:30",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json",
+      "size": 2
+    },
+    {
+      "op": "replace-longer",
+      "path": "affiliateUrl",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2021,
+      "rejected": "2021",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    },
+    {
+      "op": "conflict",
+      "path": "headquarters",
+      "kept": "Dallas, Texas, United States",
+      "rejected": "USA",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\e8-markets.json"
+    }
+  ]
+}

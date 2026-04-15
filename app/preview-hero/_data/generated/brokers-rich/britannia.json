@@ -1,0 +1,49 @@
+{
+  "id": 1483,
+  "name": "Britannia Global Markets",
+  "slug": "britannia",
+  "logo": "https://www.google.com/s2/favicons?domain=britannia-global.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000,
+  "platforms": [
+    "MT4"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Britannia Global Markets is a UK based broker founded in 1986. With FCA, it offers Forex, Commodities, Indices, Shares trading primarily via MT4.",
+  "fullReview": "## Company Overview\n\nBritannia Global Markets is a retail forex and CFD broker established in 1986, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1986\n- Forex, Commodities, Indices, Shares\n\nThe broker's trading infrastructure is built on MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBritannia Global Markets operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nBritannia Global Markets provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | MT4 |\n\nTraders have a minimum deposit of $1000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nBritannia Global Markets supports MT4.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Britannia Global Markets Best For?\n\nBritannia Global Markets is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Britannia Global Markets against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nBritannia Global Markets is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4. Regulation by FCA provides a foundational level of oversight. The $1000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Britannia Global Markets.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 1986",
+    "Forex, Commodities, Indices, Shares"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.britannia-global.com",
+  "riskLevel": "Medium",
+  "founded": "1986",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\britannia.json",
+        "bytes": 1123
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.118Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

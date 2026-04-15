@@ -1,0 +1,50 @@
+{
+  "id": 1315,
+  "name": "IForex",
+  "slug": "iforex",
+  "logo": "https://www.google.com/s2/favicons?domain=iforex.com&sz=128",
+  "rating": 6.8,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "iFOREX Platform",
+    "NetTradeX"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CySEC"
+  ],
+  "bestFor": "New Listing",
+  "description": "IForex is a Cyprus based broker founded in 1996. With CySEC, it offers 80+ FX pairs, CFDs on stocks, indices, commodities, crypto, ETFs trading primarily via iFOREX Platform, NetTradeX.",
+  "fullReview": "## Company Overview\n\nIForex is a retail forex and CFD broker established in 1996, headquartered in Cyprus. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 1996\n- 80+ FX pairs, CFDs on stocks, indices, commodities, crypto, ETFs\n\nThe broker's trading infrastructure is built on iFOREX Platform and NetTradeX, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nIForex operates under CySEC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CySEC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nIForex provides From 1.2 pips on major currency pairs. Leverage is available at 400:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.2 pips |\n| Leverage | 400:1 |\n| Instruments | 500+ |\n| Platforms | iFOREX Platform and NetTradeX |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nIForex supports iFOREX Platform and NetTradeX, giving traders flexibility to choose the environment that best suits their strategy.\n\n**iFOREX Platform:** Proprietary or partner trading platform available through IForex.\n**NetTradeX:** Proprietary or partner trading platform available through IForex.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CySEC\n- ✅ Low entry barrier\n- ✅ Supports iFOREX Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is IForex Best For?\n\nIForex is best suited for:\n\n- **Entry-level traders** looking for from 1.2 pips execution\n- **Traders using iFOREX Platform** who want a straightforward account setup\n- **Those based in Cyprus** or regions served by CySEC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare IForex against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.8 / 10**\n\nIForex is a reasonable option for traders seeking from 1.2 pips on 500+ instruments via iFOREX Platform and NetTradeX. Regulation by CySEC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with IForex.*",
+  "spreads": "From 1.2 pips",
+  "leverage": "400:1",
+  "features": [
+    "Founded in 1996",
+    "80+ FX pairs, CFDs on stocks, indices, commodities, crypto, ETFs"
+  ],
+  "pros": [
+    "Regulated by CySEC",
+    "Low entry barrier",
+    "Supports iFOREX Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.iforex.com",
+  "riskLevel": "Medium",
+  "founded": "1996",
+  "headquarters": "Cyprus",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\iforex.json",
+        "bytes": 1241
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.485Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

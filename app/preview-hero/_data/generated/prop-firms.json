@@ -1,0 +1,6935 @@
+{
+  "propFirms": [
+    {
+      "type": "prop-firm",
+      "slug": "surgetrader",
+      "name": "SurgeTrader",
+      "logo": "https://www.google.com/s2/favicons?domain=surgetrader.com&sz=128",
+      "logoColor": "#FBBF24",
+      "rating": 8.8,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 26,
+      "headquarters": "USA",
+      "founded": "2021",
+      "affiliateUrl": "https://www.surgetrader.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "earn2trade",
+      "name": "Earn2Trade",
+      "logo": "/logos/earn2trade.png",
+      "logoColor": "#A78BFA",
+      "rating": 8.3,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        25000,
+        50000,
+        100000,
+        150000,
+        200000
+      ],
+      "pricing": {
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 80%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 1,
+      "headquarters": "Sheridan, Wyoming, USA",
+      "founded": 2017,
+      "affiliateUrl": "https://earn2trade.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fundingpips",
+      "name": "FundingPips",
+      "logo": "/logos/fundingpips.png",
+      "logoColor": "#34D399",
+      "rating": 8.3,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 100%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 2,
+      "headquarters": "Dubai, UAE (IFZA Business Park, Premises NO. 19948-001)",
+      "founded": 2022,
+      "affiliateUrl": "https://fundingpips.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "apex-trader-funding",
+      "name": "Apex Trader Funding",
+      "logo": "/logos/apex-trader-funding.png",
+      "logoColor": "#C084FC",
+      "rating": 8.2,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        25000,
+        50000,
+        100000,
+        150000,
+        250000,
+        300000
+      ],
+      "pricing": {
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        },
+        "250000": {
+          "standard": 799,
+          "discounted": 679,
+          "additionalRebate": 80
+        },
+        "300000": {
+          "standard": 949,
+          "discounted": 807,
+          "additionalRebate": 95
+        }
+      },
+      "profitSplit": "100% (first $25K) → 90% (after $25K)",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 3,
+      "headquarters": "Austin, Texas, USA",
+      "founded": 2021,
+      "affiliateUrl": "https://apextraderfunding.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "e8-markets",
+      "name": "E8 Markets",
+      "logo": "/logos/e8-markets.png",
+      "logoColor": "#F472B6",
+      "rating": 8,
+      "evaluationModel": "multi",
+      "accountSizes": [
+        26000,
+        50000,
+        100000,
+        200000,
+        400000,
+        1000000,
+        2000000,
+        4000000
+      ],
+      "pricing": {
+        "26000": {
+          "standard": 127,
+          "discounted": 108,
+          "additionalRebate": 13
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "400000": {
+          "standard": 1249,
+          "discounted": 1062,
+          "additionalRebate": 125
+        },
+        "1000000": {
+          "standard": 3049,
+          "discounted": 2592,
+          "additionalRebate": 305
+        },
+        "2000000": {
+          "standard": 6049,
+          "discounted": 5142,
+          "additionalRebate": 605
+        },
+        "4000000": {
+          "standard": 12049,
+          "discounted": 10242,
+          "additionalRebate": 1205
+        }
+      },
+      "profitSplit": "80% → 100%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 4,
+      "headquarters": "Dallas, Texas, United States",
+      "founded": 2021,
+      "affiliateUrl": "https://www.e8markets.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "brightfunded",
+      "name": "BrightFunded",
+      "logo": "/logos/brightfunded.png",
+      "logoColor": "#60A5FA",
+      "rating": 7.8,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → Up to 100%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 5,
+      "headquarters": "Dubai, UAE",
+      "founded": 2023,
+      "affiliateUrl": "https://brightfunded.com/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fundednext",
+      "name": "FundedNext",
+      "logo": "https://www.google.com/s2/favicons?domain=fundednext.com&sz=128",
+      "logoColor": "#34D399",
+      "rating": 7.8,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        6000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "6000": {
+          "standard": 67,
+          "discounted": 57,
+          "additionalRebate": 7
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80-85% → 95%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 6,
+      "headquarters": "Saint Vincent and the Grenadines",
+      "founded": 2022,
+      "affiliateUrl": "https://www.fundednext.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "blueguardian",
+      "name": "Blue Guardian",
+      "logo": "/logos/blueguardian.png",
+      "logoColor": "#34D399",
+      "rating": 7.5,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        400000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "400000": {
+          "standard": 1249,
+          "discounted": 1062,
+          "additionalRebate": 125
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 7,
+      "headquarters": "Dubai Silicon Oasis, UAE (operations); Saint Lucia (legal registration)",
+      "founded": 2021,
+      "affiliateUrl": "https://www.blueguardian.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "ftmo",
+      "name": "FTMO",
+      "logo": "/logos/ftmo.png",
+      "logoColor": "#FB923C",
+      "rating": 7.5,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 8,
+      "headquarters": "Prague, Czech Republic",
+      "founded": 2015,
+      "affiliateUrl": "https://ftmo.com/en/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the5ers",
+      "name": "The5ers",
+      "logo": "/logos/the5ers.png",
+      "logoColor": "#60A5FA",
+      "rating": 7.5,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        5000,
+        20000,
+        40000,
+        60000,
+        100000,
+        250000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "20000": {
+          "standard": 109,
+          "discounted": 93,
+          "additionalRebate": 11
+        },
+        "40000": {
+          "standard": 169,
+          "discounted": 144,
+          "additionalRebate": 17
+        },
+        "60000": {
+          "standard": 229,
+          "discounted": 195,
+          "additionalRebate": 23
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "250000": {
+          "standard": 799,
+          "discounted": 679,
+          "additionalRebate": 80
+        }
+      },
+      "profitSplit": "50-80% (varies by program) → 100%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 9,
+      "headquarters": "Ra'anana, Israel (with additional office in London, UK)",
+      "founded": 2016,
+      "affiliateUrl": "https://www.the5ers.com/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "topstep",
+      "name": "TopStep",
+      "logo": "/logos/topstep.png",
+      "logoColor": "#F87171",
+      "rating": 7.5,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        50000,
+        100000,
+        150000
+      ],
+      "pricing": {
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        }
+      },
+      "profitSplit": "100% of first $10K in profits → 90% thereafter",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 10,
+      "headquarters": "Chicago, Illinois, United States",
+      "founded": 2012,
+      "affiliateUrl": "https://www.topstep.com/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "ftuk",
+      "name": "FTUK",
+      "logo": "/logos/ftuk.png",
+      "logoColor": "#A78BFA",
+      "rating": 7.3,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        150000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        }
+      },
+      "profitSplit": "70-80% (varies by program) → up to 80%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 11,
+      "headquarters": "London, United Kingdom",
+      "founded": 2021,
+      "affiliateUrl": "https://ftuk.com/affiliate-register"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "true-forex-funds",
+      "name": "True Forex Funds",
+      "logo": "https://www.google.com/s2/favicons?domain=trueforexfunds.com&sz=128",
+      "logoColor": "#FBBF24",
+      "rating": 7.3,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 80%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 12,
+      "headquarters": "Győr, Hungary",
+      "founded": 2021,
+      "affiliateUrl": "https://www.trueforexfunds.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "citytradersimperium",
+      "name": "City Traders Imperium",
+      "logo": "/logos/citytradersimperium.png",
+      "logoColor": "#A78BFA",
+      "rating": 7.2,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        5000,
+        10000,
+        30000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "30000": {
+          "standard": 139,
+          "discounted": 118,
+          "additionalRebate": 14
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 13,
+      "headquarters": "Dubai Silicon Oasis, DDP, Building A1, Dubai, UAE (CTI FZCO); registered in Comoros (License L15969)",
+      "founded": 2020,
+      "affiliateUrl": "https://citytradersimperium.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fxify",
+      "name": "FXIFY",
+      "logo": "/logos/fxify.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "multi",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        400000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "400000": {
+          "standard": 1249,
+          "discounted": 1062,
+          "additionalRebate": 125
+        }
+      },
+      "profitSplit": "Up to 90% → Up to 90% (from day 1 with add-ons)",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 14,
+      "headquarters": "London, United Kingdom",
+      "founded": 2023,
+      "affiliateUrl": "https://fxify.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "leeloo-trading",
+      "name": "Leeloo Trading",
+      "logo": "/logos/leeloo-trading.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        25000,
+        50000,
+        100000,
+        150000
+      ],
+      "pricing": {
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        }
+      },
+      "profitSplit": "100% (first $12,500) → 90% (above $12,500)",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 15,
+      "headquarters": "Montana, USA",
+      "founded": 2018,
+      "affiliateUrl": "https://leelootrading.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-capital",
+      "name": "Alpha Capital",
+      "logo": "/logos/alpha-capital.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 27,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-funded-trader",
+      "name": "Alpha Funded Trader",
+      "logo": "/logos/alpha-funded-trader.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 28,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-funded-trading",
+      "name": "Alpha Funded Trading",
+      "logo": "/logos/alpha-funded-trading.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 29,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-futures",
+      "name": "Alpha Futures",
+      "logo": "/logos/alpha-futures.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 30,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-pro",
+      "name": "Alpha Pro",
+      "logo": "/logos/alpha-pro.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 31,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "alpha-trading-fund",
+      "name": "Alpha Trading Fund",
+      "logo": "/logos/alpha-trading-fund.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 32,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "aquafunded",
+      "name": "Aquafunded",
+      "logo": "/logos/aquafunded.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 33,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "bespoke-funding",
+      "name": "Bespoke Funding",
+      "logo": "/logos/bespoke-funding.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 34,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "blueberry-funded",
+      "name": "Blueberry Funded",
+      "logo": "/logos/blueberry-funded.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 35,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "boutique-funded",
+      "name": "Boutique Funded",
+      "logo": "/logos/boutique-funded.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 36,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "capital-funded-trader",
+      "name": "Capital Funded Trader",
+      "logo": "/logos/capital-funded-trader.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 37,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "capital-prop-trading",
+      "name": "Capital Prop Trading",
+      "logo": "/logos/capital-prop-trading.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 38,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "capital-traders-fund",
+      "name": "Capital Traders Fund",
+      "logo": "/logos/capital-traders-fund.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 39,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "capital-trading-fund",
+      "name": "Capital Trading Fund",
+      "logo": "/logos/capital-trading-fund.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 40,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "city-traders-imperium",
+      "name": "City Traders Imperium",
+      "logo": "/logos/city-traders-imperium.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 41,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "crypto-funded-trader",
+      "name": "Crypto Funded Trader",
+      "logo": "/logos/crypto-funded-trader.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 42,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "cryptofundy",
+      "name": "Cryptofundy",
+      "logo": "/logos/cryptofundy.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 43,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "daytraders",
+      "name": "Daytraders",
+      "logo": "/logos/daytraders.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 44,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "dna-funded",
+      "name": "Dna Funded",
+      "logo": "/logos/dna-funded.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 45,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "e8-funding",
+      "name": "E8 Funding",
+      "logo": "/logos/e8-funding.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 46,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "ecko-funding",
+      "name": "Ecko Funding",
+      "logo": "/logos/ecko-funding.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 47,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "elite-capital-trading",
+      "name": "Elite Capital Trading",
+      "logo": "/logos/elite-capital-trading.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 48,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "elite-funded-trader",
+      "name": "Elite Funded Trader",
+      "logo": "/logos/elite-funded-trader.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 49,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "elite-prop-trader",
+      "name": "Elite Prop Trader",
+      "logo": "/logos/elite-prop-trader.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 50,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "elite-trader-funding",
+      "name": "Elite Trader Funding",
+      "logo": "/logos/elite-trader-funding.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 51,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "elite-trading-fund",
+      "name": "Elite Trading Fund",
+      "logo": "/logos/elite-trading-fund.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 52,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "finotive-funding",
+      "name": "Finotive Funding",
+      "logo": "/logos/finotive-funding.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 53,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "forex-capital-fund",
+      "name": "Forex Capital Fund",
+      "logo": "/logos/forex-capital-fund.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 54,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "forex-funded-trader",
+      "name": "Forex Funded Trader",
+      "logo": "/logos/forex-funded-trader.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 55,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "forex-prop-funded",
+      "name": "Forex Prop Funded",
+      "logo": "/logos/forex-prop-funded.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 56,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "forex-prop-trader",
+      "name": "Forex Prop Trader",
+      "logo": "/logos/forex-prop-trader.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 57,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-academy",
+      "name": "Funded Academy",
+      "logo": "/logos/funded-academy.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 58,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-engineer",
+      "name": "Funded Engineer",
+      "logo": "/logos/funded-engineer.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 59,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-forex-club",
+      "name": "Funded Forex Club",
+      "logo": "/logos/funded-forex-club.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 60,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-globally",
+      "name": "Funded Globally",
+      "logo": "/logos/funded-globally.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 61,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-knight",
+      "name": "Funded Knight",
+      "logo": "/logos/funded-knight.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 62,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-market-trader",
+      "name": "Funded Market Trader",
+      "logo": "/logos/funded-market-trader.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 63,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-next-gen",
+      "name": "Funded Next Gen",
+      "logo": "/logos/funded-next-gen.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 64,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-planet",
+      "name": "Funded Planet",
+      "logo": "/logos/funded-planet.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 65,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trade-global",
+      "name": "Funded Trade Global",
+      "logo": "/logos/funded-trade-global.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 66,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trade-pro",
+      "name": "Funded Trade Pro",
+      "logo": "/logos/funded-trade-pro.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 67,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trader-academy",
+      "name": "Funded Trader Academy",
+      "logo": "/logos/funded-trader-academy.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 68,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trader-pro",
+      "name": "Funded Trader Pro",
+      "logo": "/logos/funded-trader-pro.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 69,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-traders-club",
+      "name": "Funded Traders Club",
+      "logo": "/logos/funded-traders-club.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 70,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trading-academy",
+      "name": "Funded Trading Academy",
+      "logo": "/logos/funded-trading-academy.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 71,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-trading-plus",
+      "name": "Funded Trading Plus",
+      "logo": "/logos/funded-trading-plus.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 72,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funded-world",
+      "name": "Funded World",
+      "logo": "/logos/funded-world.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 73,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fundedfx-pro",
+      "name": "Fundedfx Pro",
+      "logo": "/logos/fundedfx-pro.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 74,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fundednext-elite",
+      "name": "Fundednext Elite",
+      "logo": "/logos/fundednext-elite.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 75,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funderpro",
+      "name": "Funderpro",
+      "logo": "/logos/funderpro.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 76,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "funding-traders",
+      "name": "Funding Traders",
+      "logo": "/logos/funding-traders.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 77,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "futures-funded",
+      "name": "Futures Funded",
+      "logo": "/logos/futures-funded.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 78,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fx-replay",
+      "name": "Fx Replay",
+      "logo": "/logos/fx-replay.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 79,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fxreplay",
+      "name": "Fxreplay",
+      "logo": "/logos/fxreplay.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 80,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "global-funded-trading",
+      "name": "Global Funded Trading",
+      "logo": "/logos/global-funded-trading.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 81,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "global-prop-funded",
+      "name": "Global Prop Funded",
+      "logo": "/logos/global-prop-funded.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 82,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "global-prop-trading",
+      "name": "Global Prop Trading",
+      "logo": "/logos/global-prop-trading.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 83,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "global-trading-fund",
+      "name": "Global Trading Fund",
+      "logo": "/logos/global-trading-fund.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 84,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "goat-funded-trader",
+      "name": "Goat Funded Trader",
+      "logo": "/logos/goat-funded-trader.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 85,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "kortanafx",
+      "name": "Kortanafx",
+      "logo": "/logos/kortanafx.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 86,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "lark-funding",
+      "name": "Lark Funding",
+      "logo": "/logos/lark-funding.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 87,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "lux-trading-firm",
+      "name": "Lux Trading Firm",
+      "logo": "/logos/lux-trading-firm.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 88,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "myflashfunding",
+      "name": "Myflashfunding",
+      "logo": "/logos/myflashfunding.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 89,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "next-funded-trader",
+      "name": "Next Funded Trader",
+      "logo": "/logos/next-funded-trader.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 90,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "next-gen-trading",
+      "name": "Next Gen Trading",
+      "logo": "/logos/next-gen-trading.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 91,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "next-level-funding",
+      "name": "Next Level Funding",
+      "logo": "/logos/next-level-funding.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 92,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "next-prop-trader",
+      "name": "Next Prop Trader",
+      "logo": "/logos/next-prop-trader.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 93,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "next-step-funded",
+      "name": "Next Step Funded",
+      "logo": "/logos/next-step-funded.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 94,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "nextrader",
+      "name": "Nextrader",
+      "logo": "/logos/nextrader.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 95,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "nova-funding",
+      "name": "Nova Funding",
+      "logo": "/logos/nova-funding.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 96,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "ofp-funding",
+      "name": "Ofp Funding",
+      "logo": "/logos/ofp-funding.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 97,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "phidias",
+      "name": "Phidias",
+      "logo": "/logos/phidias.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 98,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "pip-hunter",
+      "name": "Pip Hunter",
+      "logo": "/logos/pip-hunter.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 99,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "pip-penguin",
+      "name": "Pip Penguin",
+      "logo": "/logos/pip-penguin.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 100,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "pippenguin",
+      "name": "Pippenguin",
+      "logo": "/logos/pippenguin.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 101,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-capital-fund",
+      "name": "Prop Capital Fund",
+      "logo": "/logos/prop-capital-fund.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 102,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-firm-industry-analysis-summary",
+      "name": "Prop Firm Industry Analysis Summary",
+      "logo": "/logos/prop-firm-industry-analysis-summary.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 103,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-firm-match",
+      "name": "Prop Firm Match",
+      "logo": "/logos/prop-firm-match.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 104,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-funded-trader",
+      "name": "Prop Funded Trader",
+      "logo": "/logos/prop-funded-trader.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 105,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-traders-united",
+      "name": "Prop Traders United",
+      "logo": "/logos/prop-traders-united.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 106,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-trading-academy",
+      "name": "Prop Trading Academy",
+      "logo": "/logos/prop-trading-academy.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 107,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "prop-trading-hub",
+      "name": "Prop Trading Hub",
+      "logo": "/logos/prop-trading-hub.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 108,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "proptraders-elite",
+      "name": "Proptraders Elite",
+      "logo": "/logos/proptraders-elite.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 109,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "rise-funding",
+      "name": "Rise Funding",
+      "logo": "/logos/rise-funding.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 110,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "sabiotrade",
+      "name": "Sabiotrade",
+      "logo": "/logos/sabiotrade.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 111,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "smart-funded-trader",
+      "name": "Smart Funded Trader",
+      "logo": "/logos/smart-funded-trader.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 112,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "smart-prop-traders",
+      "name": "Smart Prop Traders",
+      "logo": "/logos/smart-prop-traders.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 113,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-forex-funder",
+      "name": "The Forex Funder",
+      "logo": "/logos/the-forex-funder.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 114,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-funded-trader",
+      "name": "The Funded Trader",
+      "logo": "/logos/the-funded-trader.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 115,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-prop-trading",
+      "name": "The Prop Trading",
+      "logo": "/logos/the-prop-trading.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 116,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-trading-floor",
+      "name": "The Trading Floor",
+      "logo": "/logos/the-trading-floor.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 117,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-trading-geek",
+      "name": "The Trading Geek",
+      "logo": "/logos/the-trading-geek.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 118,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "the-trading-pit",
+      "name": "The Trading Pit",
+      "logo": "/logos/the-trading-pit.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 119,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "toptiertrader",
+      "name": "Toptiertrader",
+      "logo": "/logos/toptiertrader.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 120,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trade-capital-fund",
+      "name": "Trade Capital Fund",
+      "logo": "/logos/trade-capital-fund.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 121,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trade-funded-pro",
+      "name": "Trade Funded Pro",
+      "logo": "/logos/trade-funded-pro.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 122,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trade-the-pool",
+      "name": "Trade The Pool",
+      "logo": "/logos/trade-the-pool.png",
+      "logoColor": "#F87171",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 123,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "tradeday",
+      "name": "Tradeday",
+      "logo": "/logos/tradeday.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 124,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "tradefundr",
+      "name": "Tradefundr",
+      "logo": "/logos/tradefundr.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 125,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "tradeify",
+      "name": "Tradeify",
+      "logo": "/logos/tradeify.png",
+      "logoColor": "#FBBF24",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 126,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trader-edge-pro",
+      "name": "Trader Edge Pro",
+      "logo": "/logos/trader-edge-pro.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 127,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trader-funding-pro",
+      "name": "Trader Funding Pro",
+      "logo": "/logos/trader-funding-pro.png",
+      "logoColor": "#FB923C",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 128,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "traderedge-pro",
+      "name": "Traderedge Pro",
+      "logo": "/logos/traderedge-pro.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 129,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "traders-edge-fund",
+      "name": "Traders Edge Fund",
+      "logo": "/logos/traders-edge-fund.png",
+      "logoColor": "#22D3EE",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 130,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "traders-way-funded",
+      "name": "Traders Way Funded",
+      "logo": "/logos/traders-way-funded.png",
+      "logoColor": "#A78BFA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 131,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "traderseed",
+      "name": "Traderseed",
+      "logo": "/logos/traderseed.png",
+      "logoColor": "#F472B6",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 132,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trading-capital-elite",
+      "name": "Trading Capital Elite",
+      "logo": "/logos/trading-capital-elite.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 133,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trading-capital-pro",
+      "name": "Trading Capital Pro",
+      "logo": "/logos/trading-capital-pro.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 134,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trading-funded-elite",
+      "name": "Trading Funded Elite",
+      "logo": "/logos/trading-funded-elite.png",
+      "logoColor": "#60A5FA",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 135,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "trading-funded",
+      "name": "Trading Funded",
+      "logo": "/logos/trading-funded.png",
+      "logoColor": "#4ADE80",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 136,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "tradingfunds",
+      "name": "Tradingfunds",
+      "logo": "/logos/tradingfunds.png",
+      "logoColor": "#34D399",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 137,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "true-trader-fund",
+      "name": "True Trader Fund",
+      "logo": "/logos/true-trader-fund.png",
+      "logoColor": "#C084FC",
+      "rating": 7,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 138,
+      "headquarters": null,
+      "founded": null,
+      "affiliateUrl": null
+    },
+    {
+      "type": "prop-firm",
+      "slug": "bulenox",
+      "name": "Bulenox",
+      "logo": "/logos/bulenox.png",
+      "logoColor": "#C084FC",
+      "rating": 6.8,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        150000,
+        250000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        },
+        "250000": {
+          "standard": 799,
+          "discounted": 679,
+          "additionalRebate": 80
+        }
+      },
+      "profitSplit": "Up to 90% → Up to 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 16,
+      "headquarters": "Wilmington, Delaware, USA",
+      "founded": 2022,
+      "affiliateUrl": "https://bulenox.com/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "myfundedfx",
+      "name": "MyFundedFX",
+      "logo": "/logos/myfundedfx.png",
+      "logoColor": "#A78BFA",
+      "rating": 6.8,
+      "evaluationModel": "multi",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        300000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "300000": {
+          "standard": 949,
+          "discounted": 807,
+          "additionalRebate": 95
+        }
+      },
+      "profitSplit": "80% → 92.75% via VIP program",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 17,
+      "headquarters": "Saint Vincent and the Grenadines",
+      "founded": 2022,
+      "affiliateUrl": "https://www.myfundedfx.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "pipfarm",
+      "name": "PipFarm",
+      "logo": "/logos/pipfarm.png",
+      "logoColor": "#F472B6",
+      "rating": 6.8,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → Up to 90% via XP tiers",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 18,
+      "headquarters": "Cyprus",
+      "founded": 2018,
+      "affiliateUrl": "https://pipfarm.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "blufx",
+      "name": "BluFX",
+      "logo": "/logos/blufx.png",
+      "logoColor": "#34D399",
+      "rating": 6.3,
+      "evaluationModel": "subscription",
+      "accountSizes": [
+        50000,
+        100000,
+        200000,
+        300000
+      ],
+      "pricing": {
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "300000": {
+          "standard": 949,
+          "discounted": 807,
+          "additionalRebate": 95
+        }
+      },
+      "profitSplit": "50% → 50%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 19,
+      "headquarters": "London, United Kingdom",
+      "founded": 2016,
+      "affiliateUrl": "https://blufx.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "audacitycapital",
+      "name": "Audacity Capital",
+      "logo": "/logos/audacitycapital.png",
+      "logoColor": "#60A5FA",
+      "rating": 6.2,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        7500,
+        15000,
+        30000,
+        60000,
+        150000
+      ],
+      "pricing": {
+        "7500": {
+          "standard": 73,
+          "discounted": 62,
+          "additionalRebate": 7
+        },
+        "15000": {
+          "standard": 94,
+          "discounted": 80,
+          "additionalRebate": 9
+        },
+        "30000": {
+          "standard": 139,
+          "discounted": 118,
+          "additionalRebate": 14
+        },
+        "60000": {
+          "standard": 229,
+          "discounted": 195,
+          "additionalRebate": 23
+        },
+        "150000": {
+          "standard": 499,
+          "discounted": 424,
+          "additionalRebate": 50
+        }
+      },
+      "profitSplit": "70% → 80%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 20,
+      "headquarters": "London, United Kingdom",
+      "founded": 2012,
+      "affiliateUrl": "https://audacitycapital.co.uk"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "maven-trading",
+      "name": "Maven Trading",
+      "logo": "/logos/maven-trading.png",
+      "logoColor": "#34D399",
+      "rating": 6.2,
+      "evaluationModel": "multi",
+      "accountSizes": [
+        2000,
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        300000
+      ],
+      "pricing": {
+        "2000": {
+          "standard": 55,
+          "discounted": 47,
+          "additionalRebate": 6
+        },
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "300000": {
+          "standard": 949,
+          "discounted": 807,
+          "additionalRebate": 95
+        }
+      },
+      "profitSplit": "80% → Up to 85%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 21,
+      "headquarters": "Dubai, United Arab Emirates",
+      "founded": 2022,
+      "affiliateUrl": "https://maventrading.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "blueberryfunded",
+      "name": "Blueberry Funded",
+      "logo": "https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128",
+      "logoColor": "#FBBF24",
+      "rating": 4.8,
+      "evaluationModel": "evaluation",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → Up to 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 22,
+      "headquarters": "Sydney, Australia",
+      "founded": 2024,
+      "affiliateUrl": "https://blueberryfunded.com/"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "thefundedtrader",
+      "name": "The Funded Trader",
+      "logo": "/logos/thefundedtrader.png",
+      "logoColor": "#F472B6",
+      "rating": 4.3,
+      "evaluationModel": "1-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        400000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "400000": {
+          "standard": 1249,
+          "discounted": 1062,
+          "additionalRebate": 125
+        }
+      },
+      "profitSplit": "70-80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 23,
+      "headquarters": "Not publicly disclosed",
+      "founded": 2022,
+      "affiliateUrl": "https://thefundedtrader.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fundyourfx",
+      "name": "FundYourFX",
+      "logo": "/logos/fundyourfx.png",
+      "logoColor": "#A78BFA",
+      "rating": 3,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        5000,
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "5000": {
+          "standard": 64,
+          "discounted": 54,
+          "additionalRebate": 6
+        },
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "70-80% (varies by program) → up to 95%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 24,
+      "headquarters": "Unknown — jurisdiction not clearly disclosed on public-facing pages",
+      "founded": 2021,
+      "affiliateUrl": "https://fundyourfx.io/affiliate"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "ospreyfx",
+      "name": "OspreyFX",
+      "logo": "https://www.google.com/s2/favicons?domain=ospreyfx.com&sz=128",
+      "logoColor": "#4ADE80",
+      "rating": 3,
+      "evaluationModel": "2-step",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        }
+      },
+      "profitSplit": "80% → 90%",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 139,
+      "headquarters": "Saint Vincent and the Grenadines",
+      "founded": "2019",
+      "affiliateUrl": "https://www.ospreyfx.com"
+    },
+    {
+      "type": "prop-firm",
+      "slug": "fidelcrest",
+      "name": "Fidelcrest",
+      "logo": "/logos/fidelcrest.png",
+      "logoColor": "#22D3EE",
+      "rating": 2,
+      "evaluationModel": "proprietary",
+      "accountSizes": [
+        10000,
+        25000,
+        50000,
+        100000,
+        200000,
+        250000
+      ],
+      "pricing": {
+        "10000": {
+          "standard": 79,
+          "discounted": 67,
+          "additionalRebate": 8
+        },
+        "25000": {
+          "standard": 124,
+          "discounted": 105,
+          "additionalRebate": 12
+        },
+        "50000": {
+          "standard": 199,
+          "discounted": 169,
+          "additionalRebate": 20
+        },
+        "100000": {
+          "standard": 349,
+          "discounted": 297,
+          "additionalRebate": 35
+        },
+        "200000": {
+          "standard": 649,
+          "discounted": 552,
+          "additionalRebate": 65
+        },
+        "250000": {
+          "standard": 799,
+          "discounted": 679,
+          "additionalRebate": 80
+        }
+      },
+      "profitSplit": "Unknown — not consistently documented → Unknown",
+      "lastVerified": "2026-04-15",
+      "popularityRank": 25,
+      "headquarters": "Unknown — no clear physical headquarters disclosed during operations",
+      "founded": 2020,
+      "affiliateUrl": ""
+    }
+  ]
+}

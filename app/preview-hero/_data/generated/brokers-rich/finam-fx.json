@@ -1,0 +1,51 @@
+{
+  "id": 1570,
+  "name": "Finam FX",
+  "slug": "finam-fx",
+  "logo": "https://www.google.com/s2/favicons?domain=finamfx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "QUIK"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CBR"
+  ],
+  "bestFor": "New Listing",
+  "description": "Finam FX is a Russia based broker founded in 2014. With CBR, it offers Forex, Stocks, Bonds, ETFs trading primarily via MT4, MT5, QUIK.",
+  "fullReview": "## Company Overview\n\nFinam FX is a retail forex and CFD broker established in 2014, headquartered in Russia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2014\n- Forex, Stocks, Bonds, ETFs\n\nThe broker's trading infrastructure is built on MT4, MT5 and QUIK, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nFinam FX operates under CBR regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CBR\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nFinam FX provides From 1.0 pips on major currency pairs. Leverage is available at 50:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 50:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and QUIK |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nFinam FX supports MT4, MT5 and QUIK, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**QUIK:** Proprietary or partner trading platform available through Finam FX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CBR\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Finam FX Best For?\n\nFinam FX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Russia** or regions served by CBR\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Finam FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nFinam FX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4, MT5 and QUIK. Regulation by CBR provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Finam FX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "50:1",
+  "features": [
+    "Founded in 2014",
+    "Forex, Stocks, Bonds, ETFs"
+  ],
+  "pros": [
+    "Regulated by CBR",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.finamfx.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Russia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\finam-fx.json",
+        "bytes": 1087
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.283Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

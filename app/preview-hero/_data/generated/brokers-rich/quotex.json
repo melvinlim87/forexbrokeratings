@@ -1,0 +1,49 @@
+{
+  "id": 1619,
+  "name": "Quotex",
+  "slug": "quotex",
+  "logo": "https://www.google.com/s2/favicons?domain=quotex.com&sz=128",
+  "rating": 3,
+  "reviews": "New",
+  "minDeposit": 10,
+  "platforms": [
+    "Quotex Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not regulated"
+  ],
+  "bestFor": "New Listing",
+  "description": "Quotex is a Saint Vincent and the Grenadines based broker founded in 2019. With no formal regulation, it offers Binary Options - Forex, Crypto, Commodities, Indices trading primarily via Quotex Platform.",
+  "fullReview": "## Company Overview\n\nQuotex is a retail forex and CFD broker established in 2019, headquartered in Saint Vincent and the Grenadines. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2019\n- Binary Options - Forex, Crypto, Commodities, Indices\n\nThe broker's trading infrastructure is built on Quotex Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nQuotex currently operates without a major-tier regulatory licence. The broker is registered in Saint Vincent and the Grenadines and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n**Regulatory jurisdictions:** Not regulated\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nQuotex provides From 1.0 pips on major currency pairs. Leverage is available at N/A (binary options), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10 |\n| Spreads | From 1.0 pips |\n| Leverage | N/A (binary options) |\n| Instruments | 500+ |\n| Platforms | Quotex Platform |\n\nTraders have a minimum deposit of $10, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nQuotex supports Quotex Platform.\n\n**Quotex Platform:** Proprietary or partner trading platform available through Quotex.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Competitive trading conditions (High Risk)\n- ✅ Low entry barrier\n- ✅ Supports Quotex Platform\n\n**Cons:**\n- ❌ NOT REGULATED (High Risk of Fund Loss)\n\n## Who Is Quotex Best For?\n\nQuotex is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Quotex Platform** who want a straightforward account setup\n- **Those based in Saint Vincent and the Grenadines** or regions served by Not regulated\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Quotex against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 3.0 / 10**\n\nQuotex is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Quotex Platform. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $10 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Quotex.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "N/A (binary options)",
+  "features": [
+    "Founded in 2019",
+    "Binary Options - Forex, Crypto, Commodities, Indices"
+  ],
+  "pros": [
+    "Competitive trading conditions (High Risk)",
+    "Low entry barrier",
+    "Supports Quotex Platform"
+  ],
+  "cons": [
+    "NOT REGULATED (High Risk of Fund Loss)"
+  ],
+  "affiliateUrl": "https://www.quotex.com",
+  "riskLevel": "Medium",
+  "founded": "2019",
+  "headquarters": "Saint Vincent and the Grenadines",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\quotex.json",
+        "bytes": 1314
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.657Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1335,
+  "name": "Rosenthal Collins Group",
+  "slug": "rosenthal-collins",
+  "logo": "https://www.google.com/s2/favicons?domain=rcg.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 25000,
+  "platforms": [
+    "RCG Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Rosenthal Collins Group is a USA based broker founded in 2010. With SEC, it offers FX pairs, futures trading primarily via RCG Platform.",
+  "fullReview": "## Company Overview\n\nRosenthal Collins Group is a retail forex and CFD broker established in 2010, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2010\n- FX pairs, futures\n\nThe broker's trading infrastructure is built on RCG Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nRosenthal Collins Group operates under SEC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** SEC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nRosenthal Collins Group provides From 0.5 pips on major currency pairs. Leverage is available at 50:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $25000 |\n| Spreads | From 0.5 pips |\n| Leverage | 50:1 |\n| Instruments | 500+ |\n| Platforms | RCG Platform |\n\nTraders have a minimum deposit of $25000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nRosenthal Collins Group supports RCG Platform.\n\n**RCG Platform:** Proprietary or partner trading platform available through Rosenthal Collins Group.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports RCG Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Rosenthal Collins Group Best For?\n\nRosenthal Collins Group is best suited for:\n\n- **Intermediate traders** looking for from 0.5 pips execution\n- **Traders using RCG Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Rosenthal Collins Group against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nRosenthal Collins Group is a solid choice for traders seeking from 0.5 pips on 500+ instruments via RCG Platform. Regulation by SEC provides a foundational level of oversight. The $25000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Rosenthal Collins Group.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "50:1",
+  "features": [
+    "Founded in 2010",
+    "FX pairs, futures"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports RCG Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.rcg.com",
+  "riskLevel": "Medium",
+  "founded": "2010",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\rosenthal-collins.json",
+        "bytes": 1088
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.703Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

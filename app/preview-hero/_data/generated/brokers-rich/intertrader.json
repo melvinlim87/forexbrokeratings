@@ -1,0 +1,53 @@
+{
+  "id": 1333,
+  "name": "InterTrader",
+  "slug": "intertrader",
+  "logo": "https://www.google.com/s2/favicons?domain=intertrader.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "MT4",
+    "InterTrader Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "FCA",
+    "GFSC"
+  ],
+  "bestFor": "New Listing",
+  "description": "InterTrader is a Gibraltar based broker founded in 2009. With Offshore License, it offers 45+ FX pairs, CFDs on stocks, indices, commodities, crypto, spread betting trading primarily via MT4, InterTrader Platform.",
+  "fullReview": "## Company Overview\n\nInterTrader is a retail forex and CFD broker established in 2009, headquartered in Gibraltar. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2009\n- 45+ FX pairs, CFDs on stocks, indices, commodities, crypto, spread betting\n\nThe broker's trading infrastructure is built on MT4 and InterTrader Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nInterTrader operates under Offshore License, FCA and GFSC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · FCA · GFSC\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nInterTrader provides From 0.6 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 0.6 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and InterTrader Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nInterTrader supports MT4 and InterTrader Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**InterTrader Platform:** Proprietary or partner trading platform available through InterTrader.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is InterTrader Best For?\n\nInterTrader is best suited for:\n\n- **Entry-level traders** looking for from 0.6 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Gibraltar** or regions served by Offshore License, FCA and GFSC\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare InterTrader against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nInterTrader is a reasonable option for traders seeking from 0.6 pips on 500+ instruments via MT4 and InterTrader Platform. Regulation by Offshore License, FCA and GFSC provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with InterTrader.*",
+  "spreads": "From 0.6 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 2009",
+    "45+ FX pairs, CFDs on stocks, indices, commodities, crypto, spread betting"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.intertrader.com",
+  "riskLevel": "Medium",
+  "founded": "2009",
+  "headquarters": "Gibraltar",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\intertrader.json",
+        "bytes": 1425
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.488Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,55 @@
+{
+  "id": 1688,
+  "name": "Charles Schwab",
+  "slug": "charles-schwab",
+  "logo": "https://www.google.com/s2/favicons?domain=schwab.com&sz=128",
+  "rating": 6.6,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "thinkorswim",
+    "StreetSmart Edge",
+    "Schwab.com"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC",
+    "FINRA",
+    "CFTC",
+    "NFA",
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Charles Schwab is a USA based broker founded in 1971. With SEC, FINRA, CFTC, NFA, FCA, it offers Stocks, ETFs, Options, Mutual Funds, Bonds, Futures, Forex trading primarily via thinkorswim, StreetSmart Edge, Schwab.com.",
+  "fullReview": "## Company Overview\n\nCharles Schwab is a retail forex and CFD broker established in 1971, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1971\n- Stocks, ETFs, Options, Mutual Funds, Bonds, Futures, Forex\n\nThe broker's trading infrastructure is built on thinkorswim, StreetSmart Edge and Schwab.com, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCharles Schwab operates under SEC, FINRA, CFTC and NFA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** SEC · FINRA · CFTC · NFA · FCA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 5 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nCharles Schwab provides From 1.0 pips on major currency pairs. Leverage is available at 1:2 (margin account), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:2 (margin account) |\n| Instruments | 500+ |\n| Platforms | thinkorswim, StreetSmart Edge and Schwab.com |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nCharles Schwab supports thinkorswim, StreetSmart Edge and Schwab.com, giving traders flexibility to choose the environment that best suits their strategy.\n\n**thinkorswim:** Proprietary or partner trading platform available through Charles Schwab.\n**StreetSmart Edge:** Proprietary or partner trading platform available through Charles Schwab.\n**Schwab.com:** Proprietary or partner trading platform available through Charles Schwab.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports thinkorswim\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Charles Schwab Best For?\n\nCharles Schwab is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using thinkorswim** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC, FINRA, CFTC and NFA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Charles Schwab against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.6 / 10**\n\nCharles Schwab is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via thinkorswim, StreetSmart Edge and Schwab.com. Regulation by SEC, FINRA, CFTC and NFA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Charles Schwab.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:2 (margin account)",
+  "features": [
+    "Founded in 1971",
+    "Stocks, ETFs, Options, Mutual Funds, Bonds, Futures, Forex"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports thinkorswim"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.schwab.com",
+  "riskLevel": "Medium",
+  "founded": "1971",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\charles-schwab.json",
+        "bytes": 1396
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.180Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

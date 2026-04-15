@@ -1,0 +1,50 @@
+{
+  "id": 1692,
+  "name": "Merrill Edge",
+  "slug": "merrill-edge",
+  "logo": "https://www.google.com/s2/favicons?domain=merrilledge.com&sz=128",
+  "rating": 5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Merrill Edge Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC",
+    "FINRA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Merrill Edge is a USA based broker founded in 2010. With SEC, FINRA, it offers Stocks, ETFs, Options, Mutual Funds, Bonds trading primarily via Merrill Edge Platform.",
+  "fullReview": "## Company Overview\n\nMerrill Edge is a retail forex and CFD broker established in 2010, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2010\n- Stocks, ETFs, Options, Mutual Funds, Bonds\n\nThe broker's trading infrastructure is built on Merrill Edge Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nMerrill Edge operates under SEC and FINRA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** SEC · FINRA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nMerrill Edge provides From 1.0 pips on major currency pairs. Leverage is available at 1:2 (margin account), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:2 (margin account) |\n| Instruments | 500+ |\n| Platforms | Merrill Edge Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nMerrill Edge supports Merrill Edge Platform.\n\n**Merrill Edge Platform:** Proprietary or partner trading platform available through Merrill Edge.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports Merrill Edge Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Merrill Edge Best For?\n\nMerrill Edge is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Merrill Edge Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC and FINRA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Merrill Edge against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 5.0 / 10**\n\nMerrill Edge is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Merrill Edge Platform. Regulation by SEC and FINRA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Merrill Edge.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:2 (margin account)",
+  "features": [
+    "Founded in 2010",
+    "Stocks, ETFs, Options, Mutual Funds, Bonds"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports Merrill Edge Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.merrilledge.com",
+  "riskLevel": "Medium",
+  "founded": "2010",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\merrill-edge.json",
+        "bytes": 1217
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.570Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

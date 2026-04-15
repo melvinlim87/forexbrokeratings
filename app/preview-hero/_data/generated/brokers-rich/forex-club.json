@@ -1,0 +1,51 @@
+{
+  "id": 1338,
+  "name": "Forex Club",
+  "slug": "forex-club",
+  "logo": "https://www.google.com/s2/favicons?domain=forexclub.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 10,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "Libertex"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CySEC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Forex Club is a Cyprus based broker founded in 1997. With CySEC, it offers 60+ FX pairs, CFDs on stocks, indices, commodities, crypto trading primarily via MT4, MT5, Libertex.",
+  "fullReview": "## Company Overview\n\nForex Club is a retail forex and CFD broker established in 1997, headquartered in Cyprus. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 1997\n- 60+ FX pairs, CFDs on stocks, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on MT4, MT5 and Libertex, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nForex Club operates under CySEC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CySEC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nForex Club provides From 0.8 pips on major currency pairs. Leverage is available at 1000:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10 |\n| Spreads | From 0.8 pips |\n| Leverage | 1000:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and Libertex |\n\nTraders have a minimum deposit of $10, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nForex Club supports MT4, MT5 and Libertex, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**Libertex:** Proprietary or partner trading platform available through Forex Club.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CySEC\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Forex Club Best For?\n\nForex Club is best suited for:\n\n- **Entry-level traders** looking for from 0.8 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Cyprus** or regions served by CySEC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Forex Club against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nForex Club is a solid choice for traders seeking from 0.8 pips on 500+ instruments via MT4, MT5 and Libertex. Regulation by CySEC provides a foundational level of oversight. The $10 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Forex Club.*",
+  "spreads": "From 0.8 pips",
+  "leverage": "1000:1",
+  "features": [
+    "Founded in 1997",
+    "60+ FX pairs, CFDs on stocks, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by CySEC",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.forexclub.com",
+  "riskLevel": "Medium",
+  "founded": "1997",
+  "headquarters": "Cyprus",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\forex-club.json",
+        "bytes": 1216
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.338Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

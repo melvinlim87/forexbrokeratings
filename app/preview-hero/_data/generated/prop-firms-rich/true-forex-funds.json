@@ -1,0 +1,348 @@
+{
+  "name": "True Forex Funds",
+  "slug": "true-forex-funds",
+  "summary": "True Forex Funds (TFF) was a European proprietary trading firm founded in 2021 by CEO Richard Nagy, headquartered in Győr, Hungary. The firm operated from 2021 until its permanent closure in 2024 due to financial insolvency. During its active years, TFF was known for trader-friendly conditions including low profit targets (8% Phase 1, 5% Phase 2), no minimum trading days, static drawdown (not trailing), and weekend/crypto trading capabilities. TFF operated a two-phase evaluation model with account sizes from €10,000 to €200,000. The firm supported MT4, MT5 platforms. With a Trustpilot rating of approximately 4.0/5 from nearly 3,000 reviews during its operational period, TFF established reasonable credibility. The firm has since ceased all trading operations and no longer accepts new or existing traders. This page is preserved for historical reference only.",
+  "founded": 2021,
+  "closed": 2024,
+  "closure_reason": "Financial insolvency - ceased all operations permanently",
+  "headquarters": "Győr, Hungary",
+  "website": "https://trueforexfunds.com",
+  "logo": "https://www.google.com/s2/favicons?domain=trueforexfunds.com&sz=128",
+  "affiliateUrl": "https://www.trueforexfunds.com",
+  "ceo": "Richard Nagy (Founder & CEO)",
+  "parent_company": "True Forex Funds",
+  "legal_entity": "True Forex Funds, registered in Hungary",
+  "ratings": {
+    "challenge_rules": 8,
+    "trading_conditions": 8,
+    "payouts": 8,
+    "trust_reputation": 7,
+    "platforms_instruments": 7,
+    "support_education": 6,
+    "overall": 44
+  },
+  "grade": "A",
+  "status": "closed",
+  "quickStats": {
+    "accountSizes": "€10K – €200K ($400K max)",
+    "challengeType": "2-Step (also 1-Step available)",
+    "profitSplit": "80%",
+    "maxAllocation": "$400K+",
+    "platforms": "MT4, MT5, cTrader (coming soon)",
+    "instruments": "Forex, Crypto, Indices, Commodities, Stocks, CFDs"
+  },
+  "account_sizes": [
+    10000,
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "max_allocation": 400000,
+  "challenge_type": "2-step",
+  "challenge_phases": [
+    {
+      "name": "Phase 1 (Welcome)",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Phase 2 (Cultivate)",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "80%",
+    "scaled": "80%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "skrill",
+    "wise"
+  ],
+  "payout_frequency": "bi-weekly",
+  "payout_speed": "1-3 business days",
+  "reset_fee": "Free retry if no loss limit violation and account is in profit",
+  "scaling_plan": true,
+  "scaling_details": "TFF offers an aggressive scaling plan: achieve 8% profit over 3 months and be profitable in 2 of 3 months to receive a 25% account size increase. This can be repeated with no upper scaling limit, potentially growing a €200K account well beyond $400K total allocation. Scaling applies to the funded stage only, not the evaluation phases.",
+  "platforms": [
+    "MetaTrader 4",
+    "MetaTrader 5",
+    "cTrader (coming soon)",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Cryptocurrencies",
+    "Indices",
+    "Commodities",
+    "Stocks",
+    "CFDs",
+    "Futures",
+    "Bonds",
+    "Metals",
+    "Energies",
+    "Oil"
+  ],
+  "leverage": "1:100 (forex), varies by instrument class",
+  "spreads": "Raw spreads from 0.0 pips on major pairs with low latency execution",
+  "commission": "Competitive commission rates, varies by account type",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "True Forex Funds is a proprietary trading firm, not a regulated broker. All challenge and evaluation trading occurs on demo/simulated accounts. Funded accounts are backed by the firm's capital structure. TFF operates under Hungarian/EU corporate law from its Győr headquarters."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "Liquidity Providers",
+      "type": "Trading Infrastructure",
+      "year": 2021,
+      "detail": "Partnerships with multiple tier-1 liquidity providers and trusted crypto exchanges to ensure competitive spreads and fast execution."
+    },
+    {
+      "partner": "MetaQuotes",
+      "type": "Platform Partner",
+      "year": 2021,
+      "detail": "Partnership with MetaQuotes for MT4 and MT5 platform access and support."
+    }
+  ],
+  "awards": [],
+  "affiliate": {
+    "program_name": "True Forex Funds Affiliate",
+    "cpa_range": "$50-100 per funded trader",
+    "revshare_range": "10-15% recurring",
+    "cookie_duration": "30 days"
+  },
+  "special_features": {
+    "free_trial": false,
+    "free_trial_detail": "TFF does not offer a traditional free trial. However, traders who breach non-loss-limit violations receive free unlimited retries — effectively a risk-free second attempt.",
+    "swing_account": false,
+    "swing_account_detail": "No dedicated swing account option. All accounts permit weekend holding and overnight trades by default."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4,
+    "trustpilot_review_count": "2,973",
+    "years_active": 5,
+    "total_funded_traders": "5,000+",
+    "total_payouts_amount": "$10M+ (estimated)",
+    "controversies": [
+      "True Forex Funds handled the pandemic, war volatility, and Fed rate events well — continuing operations and honoring payouts when competitors suspended accounts.",
+      "Some traders experienced delays during periods of extreme market volatility when internal risk management systems were under strain.",
+      "The firm successfully processed six-figure and multiple five-figure payouts without issue, demonstrating financial capability.",
+      "Trustpilot reviews average ~4.0/5 with nearly 3,000 reviews — a solid but not exceptional track record compared to top-tier firms.",
+      "Some criticism around customer support response times during high-volume periods."
+    ]
+  },
+  "pros": [
+    "Low profit targets: only 8% Phase 1 and 5% Phase 2 — among the lowest in the industry for a combined 12% total",
+    "No minimum trading days required — traders can pass in a single day if conditions are met",
+    "Static drawdown (10% max total loss) — not trailing, making it significantly easier to manage risk",
+    "Weekend holding fully permitted across all account types",
+    "Crypto trading available 7 days a week with leverage — one of few prop firms offering true weekend crypto access",
+    "Unlimited free retries if no loss limit violation and account ends in profit",
+    "Evaluation fee is fully refundable on first payout — effectively free for successful traders",
+    "Aggressive scaling plan: 25% account increase every profitable quarter with no upper limit",
+    "Bi-weekly payouts provide consistent cash flow for funded traders",
+    "Wide instrument selection: forex, crypto, indices, commodities, stocks, CFDs, futures, bonds, metals, energies, oil",
+    "Raw spreads from 0.0 pips on major pairs with quality execution",
+    "Supports MT4 and MT5 — the most popular retail trading platforms globally",
+    "EA/algorithmic trading fully permitted",
+    "Fast and responsive customer support during business hours",
+    "Successfully navigated pandemic, war, and Fed volatility periods without suspending accounts",
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Founded in 2021 — only 5 years operational, shorter track record than firms like FTMO (2015)",
+    "Trustpilot score of ~4.0 is good but below industry leaders at 4.7+",
+    "No awards or major industry partnerships to date",
+    "Copy trading is prohibited on funded accounts",
+    "cTrader platform is still in development (not yet fully live as of latest update)",
+    "Limited public information about total payout amounts and funded trader counts",
+    "Evaluation costs are slightly higher than some competitors, though fees are refundable",
+    "No dedicated educational resources or formal training programs",
+    "Some traders reported support delays during extreme market volatility",
+    "No free trial option to test conditions before purchase",
+    "European headquarters may raise questions for U.S.-based traders",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "True Forex Funds Official Website",
+      "url": "https://trueforexfunds.com"
+    },
+    {
+      "name": "Trustpilot Reviews - True Forex Funds",
+      "url": "https://www.trustpilot.com/review/trueforexfunds.com"
+    },
+    {
+      "name": "Online Prop Trading - True Forex Funds Review",
+      "url": "https://www.onlineproptrading.com/forex/true-forex-funds-review"
+    },
+    {
+      "name": "The Forex Geek - True Forex Funds Review",
+      "url": "https://theforexgeek.com/true-forex-funds-review/"
+    },
+    {
+      "name": "Funded Trader - True Forex Funds",
+      "url": "https://fundedtrader.fr/en/true-forex-funds-presentation-and-reviews-2025/"
+    },
+    {
+      "name": "ForexBrokersInfo - True Forex Funds",
+      "url": "https://forexbrokersinfo.com/reviews/true-forex-funds"
+    }
+  ],
+  "review_content": "True Forex Funds (TFF) has carved out a compelling niche in the proprietary trading industry since its founding in 2021 by CEO Richard Nagy. Headquartered in Győr, Hungary, the firm has grown to serve over 5,000 funded traders with a reputation built on trader-friendly rules, reliable technology, and responsive service. With a Trustpilot score approaching 4.0 out of 5 from nearly 3,000 reviews, TFF occupies a solid middle ground between budget-focused challengers and premium-tier leaders.\n\nThe evaluation process is TFF's strongest selling point. The standard 2-Phase Evaluation requires an 8% profit target in Phase 1 and a 5% target in Phase 2 — totaling just 12% combined, which is among the lowest in the industry. Both phases share identical risk parameters: a 5% daily loss limit and a 10% maximum total drawdown. Crucially, TFF's drawdown is static, not trailing. This means your drawdown level is calculated from your initial balance, not from your highest equity point — a massive advantage over trailing-drawdown firms where a single winning streak followed by a drawdown can trigger violations. TFF also imposes zero minimum trading days, allowing disciplined traders to pass both phases in a single session if conditions are met.\n\nAccount sizes range from €10,000 (approximately $10,500) to €200,000 (approximately $210,000), with maximum total allocation reaching $400,000 or more as traders scale up. The platform lineup includes MT4 and MT5 — the industry standard for retail forex trading — with cTrader in development for future release. This gives TFF a solid platform foundation, though it lacks the diversity of firms offering DXtrade, Match-Trader, or TradeLocker alternatives.\n\nLeverage is offered at 1:100 for forex, with appropriate scaling for other asset classes. Spreads are competitive, featuring raw spreads from 0.0 pips on major pairs with low-latency execution. TFF permits news trading, weekend holding, overnight positions, and EA/algorithmic trading — essentially enabling any legitimate strategy short of abuse. The firm's biggest differentiator is its weekend crypto trading: traders can access cryptocurrency markets seven days a week with leverage, a feature virtually unmatched in the prop trading space. Instrument coverage is extensive, including forex, crypto, indices, commodities, stocks, CFDs, futures, bonds, metals, energies, and oil.\n\nThe profit split is fixed at 80% for funded accounts — standard for the industry but not as aggressive as E8 Markets' 100% cap. However, TFF compensates with an exceptional scaling plan. Traders who achieve 8% profit over a 3-month period and remain profitable in 2 of 3 months receive a 25% account size increase. This process can be repeated indefinitely with no upper cap, meaning a $200K account can potentially grow to $400K, $500K, or beyond through consistent performance. Scaling applies only to funded accounts, not evaluation phases.\n\nPayouts follow a bi-weekly schedule with typical processing within 1-3 business days. Multiple payout methods are supported including bank wire, cryptocurrency, Skrill, and Wise. The evaluation fee is fully refundable on first payout, making the challenge effectively free for successful traders. Additionally, TFF offers unlimited free retries if a trader breaches an account without violating loss limits and the account ends in profit — a remarkable safety net that removes much of the financial risk from evaluation.\n\nTrue Forex Funds' credibility was stress-tested during the most challenging period in recent market history. During the pandemic, war-induced volatility, and aggressive Fed rate hikes, many prop firms suspended accounts, removed instruments, or delayed payouts. TFF maintained operations throughout, honoring all payouts including six-figure and multiple five-figure disbursements without issue. This resilience is a significant vote of confidence and demonstrates the firm's risk management capabilities and financial backing.\n\nWeaknesses exist but are manageable. TFF's 5-year track record is shorter than veterans like FTMO. The Trustpilot score of ~4.0 is solid but not elite. No formal awards or major partnerships have been announced. Copy trading is prohibited. cTrader is still under development. Customer support has experienced delays during extreme market stress periods. And the firm offers no formal educational programs for trader development.\n\nFor traders evaluating True Forex Funds in 2026, the verdict is strongly positive for the right profile. TFF excels for swing traders (static drawdown, no minimum days), crypto traders (weekend access with leverage), algorithmic traders (EA permitted), and traders who value the safety net of unlimited free retries. The low 12% total profit target, refundable fees, bi-weekly payouts, and aggressive scaling plan make TFF a cost-effective and growth-oriented choice. Traders seeking elite Trustpilot scores, extensive platform variety, or formal industry recognition may prefer more established firms. But for traders prioritizing trader-friendly rules, weekend flexibility, and static drawdown protection, True Forex Funds is an outstanding selection.",
+  "id": 1680,
+  "rating": 8.4,
+  "reviews": "New",
+  "minDeposit": 49,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "True Forex Funds is a Hungary based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+  "fullReview": "# TRUE FOREX FUNDS: COMPLETE DEEP-DIVE REVIEW\n\n## 1. 📌 FIRM SNAPSHOT\n\n- **Firm Name:** True Forex Funds (TFF)\n- **Founded:** 2021\n- **Headquarters:** Hungary\n- **CEO:** Richard Nagy\n- **Status:** **PERMANENTLY SHUT DOWN** (May 2024)\n- **Reason for Closure:** Financial insolvency following MetaQuotes license termination\n- **Website:** trueforexfunds.com (inactive - closure notice displayed)\n- **Trustpilot Rating:** 4.0/5.0 (Note: inflated by historical reviews; recent 1-star reviews dominate post-shutdown)\n- **Account Sizes:** $6,000 to $200,000 (before closure)\n- **Platforms:** MT4, MT5, cTrader (planned), Match-Trader (limited rollout)\n- **Evaluation Model:** 2-Step Challenge + Verification\n- **Profit Split:** Up to 90% to trader\n- **Key Issue:** All operations ceased; no refunds issued; funded traders lost access to accounts\n\n---\n\n## 2. ⚖️ TRUST SCORE\n\n**Overall Trust Score: 1/10 ⛔**\n\n### Scoring Breakdown:\n\n- **Regulatory Standing (0/10):** No regulatory registration; added to CFTC RED List (June 2023)\n- **Operational Stability (0/10):** Permanently shut down; financial insolvency declared\n- **Payout Reliability (0/10):** Payouts blocked before shutdown; multiple unfulfilled promises\n- **Transparency (2/10):** Closure notice posted; limited communication on refunds; broken promises documented\n- **Customer Feedback (3/10):** Mixed Trustpilot (4.0/5.0) but dominated by scam allegations post-March 2024\n- **Industry Standing (0/10):** Blacklisted by PropFirmMatch; removed from FXProp prop firm listings\n\n### Why True Forex Funds Is NOT Trusted:\n\n- **Firm is defunct:** No longer operating; no accounts, no payouts, no support\n- **Unresolved losses:** Traders report loss of challenge fees and profit balances from funded accounts\n- **Broken refund promises:** CEO stated payouts would be \"settled once platform is unfrozen\" — never happened\n- **Regulatory red flags:** Listed on CFTC Registration Deficient (RED) List for soliciting U.S. customers without registration\n- **License revocation:** MetaQuotes terminated all MT4/MT5 licenses due to use of unregulated broker partner and non-compliant equity synchronization service\n- **Community warnings:** Reddit/X traders uniformly warn \"do not trust TFF\"; labeled as \"scam\" operation\n\n**Verdict:** True Forex Funds is a cautionary tale. **Avoid at all costs.** The firm no longer exists and has left traders with unrecoverable losses.\n\n---\n\n## 3. 💰 PRICING & CHALLENGE COSTS\n\n*Historical pricing before shutdown (May 2024). Not currently available.*\n\n### Pre-Shutdown Challenge Fees:\n\n| Account Size | 2-Step Challenge Cost | Historical Notes |\n|--------------|----------------------|------------------|\n| $6,000       | ~$75 - $100          | Entry-level account |\n| $25,000      | ~$225 - $275         | Popular mid-tier |\n| $50,000      | ~$300 - $350         | Standard challenge |\n| $100,000     | ~$500 - $600         | High-capacity |\n| $200,000     | ~$900 - $1,100       | Max account size |\n\n### Post-Closure Status:\n\n- **New challenge purchases:** **DISABLED** (firm closed)\n- **Refunds on unused challenges:** **NOT ISSUED** (multiple trader reports)\n- **Promotional discounts:** Final promotions offered 75-85% discount before shutdown — now viewed as \"last-ditch cash grab\" by community\n- **Value assessment:** Even \"free\" accounts now worthless (firm defunct)\n\n### Community Consensus:\n\n> \"Every day I get emails with promotions from them 75% discount or 85% discount — what is the point if they will not make right their own mistakes.\" — Trustpilot Reviewer, April 2025\n\n> \"Don't waste your money, they are LYING SCAMMERS — go with another prop firm.\" — Trustpilot Reviewer\n\n---\n\n## 4. 🎯 EVALUATION PROCESS\n\n### Historical 2-Step Challenge Structure (Before Shutdown):\n\n**Phase 1: FTMO Challenge (Verification)**\n\n- **Profit Target:** 10% gain\n- **Time Limit:** No time limit (unlimited trading days)\n- **Max Daily Loss:** 5% of starting balance\n- **Max Overall Loss:** 10% of starting balance\n- **Minimum Trading Days:** 1 day\n- **Allowed Strategies:** Day trading, swing trading, scalping\n- **Platform:** MT4, MT5\n\n**Phase 2: Verification**\n\n- **Profit Target:** 5% gain\n- **Time Limit:** No time limit\n- **Max Daily Loss:** 5% of starting balance\n- **Max Overall Loss:** 10% of starting balance\n- **Minimum Trading Days:** 1 day\n- **Platform:** MT4, MT5\n\n### Post-Verification:\n\n- Successful candidates received \"Funded Account\" (demo account with simulated capital)\n- Profit split: 80% initially, scalable to 90% with consistent performance\n- Bi-weekly payout schedule (0-10 business days processing time, per trader reports)\n\n### Platform Migration Crisis (2024):\n\n- **Before Shutdown:** TFF announced migration from MT4/MT5 to cTrader due to MetaQuotes license termination\n- **Status:** Migration incomplete; ~10,000 accounts awaited transfer when firm closed\n- **Affected countries:** Germany, Austria, Sweden, Hungary, and others\n- **Result:** All accounts frozen; open positions forcibly closed by broker\n\n### Critical Failure:\n\n> \"Closed my accounts citing multiple IP addresses which is total nonsense!!! They are truly scammers, they were once a top prop firm, however since the migration to cTrader everything went downhill.\" — Trustpilot Reviewer\n\n---\n\n## 5. 📊 TRADING CONDITIONS\n\n### Pre-Closure Trading Environment:\n\n**Leverage:**\n\n- Standard: Up to 1:100 (depending on instrument)\n- Major forex pairs: 1:100 typical\n- Indices/Commodities: Reduced leverage applied\n\n**Spreads & Commissions:**\n\n- MT4/MT5 spreads: Variable, dependent on broker partner\n- Commission: Typically $3-5 per round lot (standard for prop firm raw-spread accounts)\n- **Swap Costs:** SIGNIFICANT COMPLAINT — one trader reported $154 swap on 0.3 lot USDJPY vs. $15 at competing firm\n  > \"This is daylight robbery. How can any swing trader use this company, with ridiculous swap costs?\" — Trustpilot Reviewer\n\n**Instruments Available:**\n\n- Forex majors and minors\n- Index CFDs (US30, NAS100, SPX500, etc.)\n- Commodities (Gold, Silver, Oil)\n- Cryptocurrencies (limited availability before closure)\n- **Issue:** Symbol discrepancies noted during planned broker migration\n\n**Trading Restrictions:**\n\n- **News Trading:** Allowed during evaluation (MT4/MT5), restricted on funded accounts during selected macroeconomic releases\n- **Overnight Positions:** Allowed during challenge phases; required closure before weekend on funded accounts\n- **HFT Strategies:** Not officially supported; dependent on broker latency\n- **Martingale/Grid:** Technical violation if used recklessly (daily loss limits enforced)\n- **Holding Through News:** Restricted on funded accounts for high-impact events (NFP, CPI, FOMC)\n\n### Platform Issues Post-Migration Attempt:\n\n- MT4/MT5 licenses terminated by MetaQuotes (March-May 2024)\n- cTrader rollout planned but never completed\n- Match-Trader launched in limited countries (Germany, Austria, Sweden, Hungary) in April 2024\n- **Trader impact:** Forced platform change disrupted strategies; open positions closed mid-trade\n\n---\n\n## 6. 🏆 REWARDS & PAYOUT SYSTEM\n\n### Pre-Shutdown Payout Structure:\n\n**Profit Split:**\n\n- **Base Split:** 80% to trader / 20% to firm\n- **Scaled Split:** Up to 90% to trader after consistent performance\n- **Scaling Plan:** Account size increase available through disciplined trading (similar to FTMO model)\n\n**Payout Schedule:**\n\n- **Frequency:** Bi-weekly (every 2 weeks minimum)\n- **Processing Time:** 0-10 business days (per firm policy; actual delays exceeded this window)\n- **Minimum Payout:** $50-$100 typical threshold\n- **Payout Methods:** Bank transfer, crypto (USDT/USDC), third-party payment processors\n\n### Post-Shutdown Reality:\n\n**Payouts:** **COMPLETELY BLOCKED**\n\n- Final payouts never processed\n- Traders report: \"They simply say, 'We will process the payout, but since you're from a high-risk country, we need extra verification.' Which firm takes so many days for verification?\" — Trustpilot, May 2024\n- 10+ business day delays turned into permanent non-payment\n- CEO promise: \"Remaining payouts will be settled once the platform is unfrozen\" — **NEVER FULFILLED**\n\n### Trader Testimonies on Failed Payouts:\n\n> \"When I finally reached the payout stage, they said it would take 0-10 business days to receive it. Now, nearly 10 days have passed, and I still haven't gotten my payout.\" — Trustpilot Reviewer, May 27, 2024\n\n> \"I trusted TFF after they reopened and bought 4-5 accounts from them... They've ruined their reputation.\" — Trustpilot Reviewer\n\n> \"Don't put in any deposit because if you do, you won't get anything back from it. I've already switched to a better one which is PAIVA, they're more reliable.\" — Trustpilot Reviewer, September 2024\n\n---\n\n## 7. 🔧 PLATFORMS & TOOLS\n\n### Historical Platform Availability:\n\n**MT4 (MetaTrader 4):**\n\n- Status: **LICENSE TERMINATED** by MetaQuotes (March-May 2024)\n- Trader base: Majority of TFF customers used MT4\n- Issue: \"Being MT4 platform die-hard, I had my reservation following TFF migration to cTrader.\" — Trader review\n\n**MT5 (MetaTrader 5):**\n\n- Status: **LICENSE TERMINATED** alongside MT4\n- Functionality: Same equity synchronization service violation as MT4\n- Impact: All MT5 accounts frozen when licenses revoked\n\n**cTrader:**\n\n- Status: **PLANNED** but never fully launched\n- Announced: February 2024 as part of relaunch strategy\n- Rollout: Incomplete; ~10,000 accounts awaiting migration when firm closed\n\n**Match-Trader:**\n\n- Status: **LIMITED LAUNCH** (April 19, 2024)\n- Availability: Germany, Austria, Sweden, Hungary only\n- Purpose: Secondary platform to replace MT4/MT5\n- Adoption: Minimal; firm closed within weeks of rollout\n\n### Trading Tools & Features (Pre-Closure):\n\n- **Equity Synchronization Service:** Third-party provider used since 2021 — **primary cause of MetaQuotes license termination**\n  - MetaQuotes allegation: Service did not connect to MT client terminal \"in a way fully acceptable by MetaQuotes\"\n  - TFF defense: \"No prior complaints from MetaQuotes despite years of use\"\n- **Dashboard:** Described by some as \"lively, interactive, with learning resources\" (Trustpilot positive review)\n- **API Access:** Limited documentation; not widely used by retail traders\n- **VPS Services:** Not officially offered; traders used third-party VPS providers\n\n### Post-Closure:\n\n- All platforms **INACCESSIBLE**\n- No login credentials valid\n- No data export or position migration possible\n- Dashboard and trader portal **OFFLINE**\n\n---\n\n## 8. 📞 CUSTOMER SUPPORT\n\n### Pre-Closure Support Channels:\n\n- **Live Chat:** Available on website (now offline)\n- **Email:** Support email listed (responses inconsistent pre-closure; ceased post-closure)\n- **Discord:** Community server — **SHUT DOWN** at time of firm closure\n- **Response Time:** Variable; 7-10 business days promised for complex issues (per multiple reviews)\n\n### Post-Closure Support Status:\n\n- **Live Chat:** **OFFLINE**\n- **Email:** **NO RESPONSES** to trader inquiries about refunds/payouts\n- **Discord:** **SERVER CLOSED** (no access to community or support staff)\n- **Phone:** Not publicly listed; presumed inactive\n- **Social Media:** Twitter/X account (@trueforexfunds) inactive since May 2024\n\n### Support Quality Assessment (Based on Historical Reviews):\n\n**Positive (Pre-Shutdown):**\n\n> \"Great prop firm. Have had my first payout. Super quick and transparent. Lively dashboard with a lot of interactive tools, learning resources, and clear and simple layout.\" — Trustpilot Reviewer (dated before March 2024)\n\n**Negative (Post-Shutdown Pattern):**\n\n> \"I emailed you several times without objective responses about my money AND I'M STILL FCKN WAITING FOR MY REFUND. ORDER #795979\" — Trustpilot Reviewer, May 11, 2024\n\n> \"They have responded to my reviews saying they will contact me in 7 to 10 working days and it never happens.\" — Trustpilot Reviewer, April 9, 2025\n\n**Pattern Identified:**\n- Pre-crisis: Adequate response times\n- During crisis (March-May 2024): Delayed responses, broken promises\n- Post-closure (May 2024-present): **ZERO COMMUNICATION**\n\n---\n\n## 9. ⚠️ RULES & RESTRICTIONS\n\n### Challenge Phase Rules (Historical):\n\n**Permissible Actions:**\n- Unlimited trading days (no time pressure)\n- Overnight and weekend holding allowed\n- All trading styles: scalping, day trading, swing trading\n- News trading permitted during challenge\n- Minimum 1 trading day required\n\n**Prohibited Actions:**\n- Exceeding 5% daily loss limit → account breach\n- Exceeding 10% max overall loss → account breach\n- HFT exploitation (undefined; broker-dependent)\n- Arbitrage strategies (if detected by broker)\n\n### Funded Account Rules (Historical):\n\n**Stricter Requirements:**\n- **Weekend Position Closure:** Mandatory before market close (Friday evening)\n- **News Trading Restrictions:** Prohibited during selected high-impact announcements on funded accounts\n- **Max Daily Drawdown:** 5% (enforced strictly)\n- **Max Total Drawdown:** 10% (breach = account termination)\n- **Profit Target:** None (ongoing trading for profit splits)\n\n### Post-Shutdown Violation Issues:\n\n- **Multiple IP Address Ban:** Trader reported account closure citing \"multiple IP addresses\" — disputed as \"total nonsense\"\n- **Position Closure During Migration:** Traders instructed to close all positions before broker migration; failure resulted in forced closure at unfavorable prices\n- **High-Risk Country Verification:** Delays imposed on traders from certain jurisdictions (used as stalling tactic pre-shutdown)\n\n**MetaQuotes Violation (Root Cause):**\n- TFF used third-party equity synchronization provider\n- MetaQuotes determined connection method violated MT4/MT5 Client Terminal guidelines\n- No warning given; licenses terminated immediately\n- TFF had used service since 2021 without prior complaint\n\n---\n\n## 10. 🌍 GLOBAL AVAILABILITY\n\n### Historical Geographic Coverage:\n\n**Accepted Countries (Pre-Closure):**\n- Europe: Hungary (HQ), Germany, Austria, Sweden, and broader EU\n- Asia: Select countries (specific restrictions unclear)\n- Americas: **U.S. traders accepted DESPITE CFTC RED LIST STATUS** (regulatory violation)\n- Africa: Traders present (Swahili support listed on FTMO-style site structure)\n\n**Restricted/High-Risk Countries:**\n\n- Traders from \"high-risk countries\" faced additional verification delays\n- U.S. customers accepted **illegally** (CFTC RED List since June 2023)\n  - CFTC RED List definition: \"Foreign entities acting in a capacity that requires registration with the CFTC, but not registered\"\n- No public list of excluded countries published\n\n### Post-Closure Geographic Impact:\n\n- **Germany, Austria, Sweden, Hungary:** ~10,000 accounts awaiting Match-Trader migration stranded\n- **U.S. Traders:** No recourse; CFTC unlikely to assist (trading with unregistered entity voluntarily)\n- **Global Trader Base:** Estimated thousands affected; no country-specific refund mechanism\n\n### Current Status:\n\n- **No country** can access TFF services (firm defunct)\n- Website displays closure notice in English only (no multilingual support for affected international traders)\n\n**Lesson for Traders:** Always verify regulatory status. Trading with CFTC RED-listed firms = **ZERO PROTECTION**.\n\n---\n\n## 11. 🎓 EDUCATION & COMMUNITY\n\n### Pre-Closure Educational Resources:\n\n**TFF Academy (If Existed):**\n- Limited documentation found; likely minimal compared to FTMO's structured academy\n- Trustpilot reviewer noted: \"Lively dashboard with... learning resources\"\n- No evidence of comprehensive trading psychology or technical analysis courses\n\n**Community Channels:**\n\n- **Discord Server:** Active pre-closure; **CLOSED** at shutdown (June 2024)\n- **Twitter/X (@trueforexfunds):** Last post April 19, 2024 (Match-Trader launch announcement)\n- **YouTube:** No official channel identified (unlike FTMO's 400K subscriber channel)\n- **Blog/Articles:** Limited content on website before closure\n\n### Post-Closure:\n\n- **All educational resources:** INACCESSIBLE\n- **Community support:** Discord closed; no alternative forum\n- **Social media:** Inactive since May 2024\n\n### Comparison to Industry Standard (FTMO):\n\n| Feature | True Forex Funds | FTMO |\n|---------|------------------|------|\n| Trading Academy | Minimal/None | Comprehensive (psychology, technical, fundamental courses) |\n| Discord Community | Closed | 100K+ active members |\n| YouTube Content | None identified | 400K subscribers, trader stories |\n| Support Languages | Limited (English dominant) | 20 languages, 60+ support staff |\n| Ongoing Education | None post-closure | Continuous webinars, updates, coaching |\n\n**Assessment:** TFF offered **inferior educational value** compared to established firms. Closure eliminated remaining resources.\n\n---\n\n## 12. 🛡️ RISK MANAGEMENT FEATURES\n\n### Built-in Risk Controls (Pre-Closure):\n\n**Daily Loss Limit:**\n- 5% of starting balance calculated at 00:00 server time\n- Breach = account failure (no warnings, no exceptions)\n- Equity-based calculation (includes floating P&L)\n\n**Maximum Overall Loss:**\n- 10% of starting balance (hard breach limit)\n- Breach = immediate account termination\n- Trailing mechanism unclear (some prop firms use \"high-water mark\" trailing; TFF details undocumented)\n\n**Position Sizing Constraints:**\n- No explicit lot size limits published\n- Indirect control via drawdown limits\n- Swap costs could erode account equity on large overnight positions (documented complaint)\n\n**Platform Risk:**\n- **CRITICAL FLAW:** Dependency on single broker partner + MetaQuotes licensing\n- No backup broker arrangement in place\n- No contingency plan for license revocation (eventual shutdown proved this)\n\n### Risk Management Failures:\n\n**For TFF as a Firm:**\n- Reliance on unregulated broker partner violated MetaQuotes terms\n- No financial reserves to absorb platform migration costs\n- No communication protocol for crisis (traders learned of shutdown via website notice, not proactive outreach)\n\n**For Traders:**\n- No insurance or guarantee on challenge fees\n- No mechanism to recover profits from funded accounts post-shutdown\n- No transparency on firm's financial health before insolvency declaration\n\n> \"True Forex Funds has shut down their shop and gone forever. They made millions and paid millions but in the end, still, it's traders who suffered. Funding is gone and payouts are blocked. It should be a lesson for other firms to manage risk well.\" — X (Twitter) User @Banjara, May 2024\n\n---\n\n## 13. 📈 SCALING & GROWTH OPPORTUNITIES\n\n### Pre-Closure Growth Model:\n\n**Account Scaling Plan:**\n\n- **Starting Accounts:** $6K - $200K range\n- **Scaling Mechanism:** Consistent profitability → larger account allocations (similar to FTMO's model)\n- **Profit Split Increase:** 80% → 90% with proven track record\n- **Timeline:** Undefined; performance-based progression\n\n**Premium Programs:**\n- No evidence of structured \"Premium Programme\" (unlike FTMO's tiered benefits)\n- No quant-focused acceleration path (FTMO offers Quantlane for algorithmic traders)\n- Growth limited to binary: pass challenge → get funded → earn profits\n\n### Post-Closure Reality:\n\n- **NO SCALING POSSIBLE** (firm defunct)\n- All funded accounts terminated\n- All growth plans abandoned\n- Traders forced to restart with competing firms (e.g., PAIVA, FTMO, others mentioned in reviews)\n\n### Trader Testimony:\n\n> \"I had high respect for TFF, but they've ruined their reputation. I can no longer recommend them. The only platform that truly put a smile on my face and warmed my heart is infinitymetrix.\" — Trustpilot Reviewer, May 2024\n\n**Assessment:** TFF's growth model was **standard but incomplete**. Lack of diversification (single platform dependency, no backup broker) made scaling irrelevant post-shutdown.\n\n---\n\n## 14. 🔄 COMPARISON WITH TOP FIRMS\n\n### True Forex Funds vs. FTMO (Industry Leader):\n\n| Criterion | True Forex Funds | FTMO |\n|-----------|------------------|------|\n| **Regulatory Status** | Unregulated; CFTC RED-listed | Regulated (EU-based); transparent compliance |\n| **Operational Status** | ⛔ **SHUT DOWN** (May 2024) | ✅ Active (founded 2015, $500M+ paid out) |\n| **Platform Stability** | Failed (MT4/MT5 terminated; cTrader incomplete) | Stable (MT4/MT5/cTrader/xStation5 all active) |\n| **Payout Reliability** | ❌ Blocked at shutdown | ✅ $500M+ paid globally |\n| **Trustpilot Score** | 4.0/5 (skewed; recent 1-star dominate) | 4.7+/5 (consistent positive reviews) |\n| **Challenge Structure** | 2-Step (10% + 5% targets) | 2-Step + new 1-Step option (10% Max Loss, 90% split) |\n| **Customer Support** | ❌ No response post-closure | ✅ 24/7, 20 languages, 60+ staff |\n| **Education** | Minimal | FTMO Academy, YouTube (400K), Discord (100K) |\n| **Transparency** | ❌ Hidden financial distress | ✅ Financial reports, award wins, public team |\n| **Refund Policy** | ❌ No refunds issued | ✅ Clear policies, responsive resolution |\n| **Industry Listing** | ❌ Removed from FXProp, blacklisted by PropFirmMatch | ✅ Top-rated on all comparison sites |\n\n### True Forex Funds vs. Other Failed Firms:\n\n**TFF vs. My Forex Funds (MFF):**\n- Both shut down in 2023-2024\n- MFF: Shut by U.S./Canadian regulators ($300M fraud charges)\n- TFF: Shut by MetaQuotes license termination + financial insolvency\n- Commonality: **Traders lost money; no recourse**\n\n**TFF vs. Surviving Firms (e.g., The5ers, Blue Guardian, PAIVA):**\n- Surviving firms: Diversified broker relationships, regulatory compliance, financial reserves\n- TFF: Single-point failures (one broker, one platform provider, no reserves)\n\n**Trader Migration Pattern:**\n> \"I've already switched to a better one which is PAIVA, they're more reliable and consistent.\"\n> \"The only platform that truly put a smile on my face... is infinitymetrix.\"\n\n---\n\n## 15. 👥 USER REVIEWS & COMMUNITY FEEDBACK\n\n### Trustpilot Analysis (trueforexfunds.com):\n\n**Overall Rating:** 4.0/5.0 (Note: heavily skewed by early positive reviews)\n\n**Recent Review Themes (Post-March 2024):**\n\n🔴 **1-Star Reviews Dominate:**\n\n> \"Closed my accounts citing multiple IP addresses which is total nonsense!!! They are truly scammers, they were once a top prop firm, however since the migration to cTrader everything went downhill.\"\n\n> \"Being MT4 platform die-hard, I had my reservation following TFF migration to cTrader. However, my discovery is that their new platform is great, simple, seamless and easy to navigate. The new market... [INCOMPLETE — account closed before benefit realized]\"\n\n> \"This prop firm set a swap cost of $154 on a 0.3 lot size trade of USDJPY, compare to another firm which was $15. This is daylight robbery.\"\n\n> \"More lies and broken promises. TFT still have not replaced my funded account that they repeatedly promise on emails... Every day I get emails with promotions from them 75% discount or 85% discount — what is the point if they will not make right their own mistakes.\" — April 9, 2025\n\n> \"Waste of time!!! Please ignore them so you don't waste your funds and precious time. I have learnt my lesson the hard way. I lost all my funds to them.\" — January 5, 2025\n\n> \"Don't trust this company and if you do you'll regret it. I've learnt my lesson the hard way with this company. Don't put in any deposit because if you do, you won't get anything back from it.\" — September 1, 2024\n\n> \"Company went offline, all traders' money taken away. Scam, Richard CEO should go to jail.\" — May 23, 2024\n\n> \"They steal money and close the company. Discord server is off. Be aware.\" — June 16, 2024\n\n> \"Company shut down without warning. I bought a quick-funding challenge accounts. I'd already started on one when they shut down, no refund. They went bankrupt. No matter though. Live and learn.\" — May 10, 2024\n\n> \"SCAM! Be careful\" — May 23, 2024\n\n🟢 **Positive Reviews (Pre-Crisis):**\n\n> \"Great prop firm. Have had my first payout. Super quick and transparent. Lively dashboard with a lot of interactive tools, learning resources, and clear and simple layout. Challenge conditions are opti...\" [TRUNCATED]\n\n> \"This prop firm set a swap cost of $154... [positive context unknown — early review before shutdown]\"\n\n### X (Twitter) Community Reactions:\n\n> \"@Banjara: True Forex Funds has shut down their shop and gone forever. They made millions and paid millions but in the end, still, it's traders who suffered. Funding is gone and payouts are blocked. It should be a lesson for other firms to manage risk well.\"\n\n> \"@PropFirmDrama: True Forex Funds has officially closed down. We sincerely hope the prop firm community helps the traders who suffered from these devastating updates.\"\n\n### Reddit Sentiment:\n(Redirect blocks prevented full extraction, but search results indicate widespread criticism)\n\n### Pattern Summary:\n\n- **Pre-March 2024:** Mixed to positive reviews (4.0/5.0 average)\n- **March-May 2024:** Surge in 1-star reviews (shutdown, lost funds)\n- **Post-May 2024:** Uniform condemnation; labeled \"scam,\" \"thieves,\" \"bankrupt\"\n- **Current Sentiment:** **TOXIC** — no active defenders; universal warnings to avoid\n\n---\n\n## 16. 🚨 RED FLAGS & CRITICAL WARNINGS\n\n### Critical Red Flags (12 Documented):\n\n**1. Firm Permanently Closed**\n- Status: Financial insolvency declared May 2024\n- Impact: All operations ceased; no accounts, payouts, or support\n- Severity: ⛔ **FATAL**\n\n**2. CFTC RED List Inclusion**\n- Listed: June 2023\n- Reason: Soliciting/accepting U.S. customer funds without CFTC registration\n- Severity: 🔴 **CRITICAL** (regulatory violation)\n\n**3. MetaQuotes License Termination**\n- Cause: Use of non-compliant third-party equity synchronization service\n- Result: MT4/MT5 access revoked (March-May 2024)\n- Severity: 🔴 **CRITICAL** (platform dependency failure)\n\n**4. No Refunds Issued**\n- Challenge fees: Unrecovered by traders\n- Funded account profits: Unpaid\n- Promised resolution: Never delivered\n- Severity: 🔴 **CRITICAL** (financial loss)\n\n**5. Broken Communication Promises**\n- CEO promise: \"Payouts settled once platform unfrozen\" — never occurred\n- Support promise: \"Contact in 7-10 business days\" — ignored\n- Severity: 🟠 **HIGH** (deceptive practices)\n\n**6. Discord Server Shutdown**\n- Closed: June 2024 (no notice)\n- Impact: Eliminated community support channel\n- Severity: 🟠 **HIGH** (loss of transparency)\n\n**7. Excessive Swap Costs**\n- Reported: $154 on 0.3 lot USDJPY vs. $15 industry standard\n- Impact: Unviable for swing traders\n- Severity: 🟡 **MODERATE** (predatory pricing)\n\n**8. Multiple IP Address Bans**\n- Trader report: Account closed for \"multiple IP addresses\" (disputed)\n- Transparency: No clear policy; arbitrary enforcement\n- Severity: 🟡 **MODERATE** (unfair termination)\n\n**9. Terms of Service Changes**\n- Documented: 2+ significant ToS changes before closure\n- Pattern: Rule adjustments disadvantageous to traders\n- Severity: 🟡 **MODERATE** (moving goalposts)\n\n**10. Last-Minute Discount Push**\n- Promotions: 75-85% discounts before shutdown\n- Interpretation: Cash grab to extract final revenue\n- Severity: 🟠 **HIGH** (unethical marketing)\n\n**11. Incomplete Platform Migration**\n- Promised: cTrader rollout, Match-Trader expansion\n- Reality: ~10,000 accounts stranded mid-migration\n- Severity: 🔴 **CRITICAL** (operational failure)\n\n**12. Allegations Against CEO**\n- Reported: Tax authority investigation into Richard Nagy (CEO)\n- Source: FundedTrading.com article\n- Severity: 🔴 **CRITICAL** (legal/ethical concerns)\n\n### DealPropFirm.com PropFiles Severity Rating:\n\n- **Overall Severity:** 92/100\n- **Red Flags:** 12 documented\n- **Payout Rating:** N/A (shutdown)\n- **ToS Changes:** 2 recorded\n- **Verified Reports:** 9 items\n\n**Community Verdict:**\n> \"This review is more towards TrustPilot than TFF. How is it possible that TrustPilot has a 4-star rating for a company that just robbed all their customers of their money?\" — Trustpilot Reviewer, May 27, 2024\n\n---\n\n## 17. 📝 FINAL VERDICT & RECOMMENDATIONS\n\n### Overall Verdict: **AVOID — FIRM DEFUNCT** ⛔\n\n**True Forex Funds is PERMANENTLY CLOSED.** The firm ceased operations in May 2024 due to financial insolvency following MetaQuotes license termination. **No services, payouts, or support are available.**\n\n### Key Takeaways:\n\n**1. DO NOT attempt to engage with TFF:**\n- Website displays closure notice only\n- No customer support active\n- No refund mechanism exists\n- Any \"TFF\" promotions post-May 2024 are scams\n\n**2. Affected traders have NO recourse:**\n- Challenge fees: **LOST**\n- Funded account profits: **UNPAID**\n- Legal action: Unlikely to succeed (offshore firm, insolvency declared)\n- CFTC complaint: Possible, but recovery improbable\n\n**3. Lessons for Prop Firm Traders:**\n- ✅ **Verify regulatory status** (check CFTC, FCA, CySEC before depositing)\n- ✅ **Avoid CFTC RED-listed firms** (no U.S. regulatory compliance)\n- ✅ **Diversify platform risk** (firms with multiple broker relationships survive better)\n- ✅ **Monitor firm communications** (delayed payouts + aggressive discounts = red flag)\n- ✅ **Withdraw profits frequently** (don't leave large balances in funded accounts)\n- ✅ **Check PropFirmMatch blacklists** (TFF blacklisted for good reason)\n\n### Recommended Alternatives (As of 2025-2026):\n\nBased on Trustpilot reviews from displaced TFF traders:\n\n- **PAIVA:** Cited as \"more reliable and consistent\" by multiple reviewers\n- **InfinityMetrix:** Praised for \"standing by their word and keeping their promises\"\n- **FTMO:** Industry leader ($500M+ paid out, 4.7+/5 Trustpilot, 140+ countries)\n- **The5ers:** Regulated, transparent, long-standing reputation\n- **Blue Guardian:** Strong community feedback, stable platform\n\n### Historical Perspective:\n\nTrue Forex Funds **once held promise**. Founded in 2021, it grew rapidly in the prop trading boom. Traders praised its \"quick and transparent\" payouts and user-friendly dashboard. However, **critical failures** led to its demise:\n\n1. **Regulatory negligence** (CFTC RED List ignored)\n2. **Platform dependency** (single broker + MetaQuotes violation)\n3. **Financial insolvency** (no reserves for crisis)\n4. **Broken trust** (unfulfilled promises, vanished support)\n\n**The TFF shutdown is a cautionary tale for the entire prop trading industry.** It highlights the risks of:\n- Trading with unregulated entities\n- Firms lacking diversified infrastructure\n- Promotional aggression masking financial distress\n- Community abandonment in crisis\n\n### Final Word:\n\n> \"True Forex Funds has shut down their shop and gone forever. They made millions and paid millions, but in the end, **still it's traders who suffered.**\" — @Banjara, X/Twitter\n\n**Do not trust True Forex Funds. Do not deposit. Do not engage. Choose regulated, transparent alternatives with proven track records.**\n\n**Trust Score: 1/10 ⛔**\n**Recommendation: AVOID — FIRM IS DEFUNCT**\n\n---\n\n*This deep-dive was compiled from publicly available sources including Trustpilot reviews, industry news reports (FXProp, FundedTrading, FXNewsGroup, DealPropFirm PropFiles), regulatory filings (CFTC RED List), and community discussions (X/Twitter). All information reflects the permanent closure status of True Forex Funds as of May 2024. Last updated: April 2026.*\n\n**⚠️ DISCLAIMER:** This report is for informational purposes only. Trading proprietary firm challenges carries significant risk. Always conduct independent due diligence. This is not financial or legal advice.",
+  "features": [
+    "Founded in 2021",
+    "Forex, Indices, Commodities, Crypto"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\true-forex-funds.json",
+        "bytes": 14087
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json",
+        "bytes": 1196
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.560Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1680,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "https://www.google.com/s2/favicons?domain=trueforexfunds.com&sz=128",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 8.4,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 49,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "True Forex Funds is a Hungary based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "True Forex Funds is a Hungary based broker founded in 2021. With Not a broker (prop firm), it offers Forex, Indices, Commodities, Crypto trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Raw spreads from 0.0 pips on major pairs with low latency execution",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (forex), varies by instrument class",
+      "rejected": "1:100",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json",
+      "size": 2
+    },
+    {
+      "op": "replace-longer",
+      "path": "affiliateUrl",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2021,
+      "rejected": "2021",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    },
+    {
+      "op": "conflict",
+      "path": "headquarters",
+      "kept": "Győr, Hungary",
+      "rejected": "Hungary",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\true-forex-funds.json"
+    }
+  ]
+}

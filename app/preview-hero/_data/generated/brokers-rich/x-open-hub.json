@@ -1,0 +1,53 @@
+{
+  "id": 1367,
+  "name": "X Open Hub",
+  "slug": "x-open-hub",
+  "logo": "https://www.google.com/s2/favicons?domain=xhub.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "XOH Trader",
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA",
+    "CySEC",
+    "KNF"
+  ],
+  "bestFor": "New Listing",
+  "description": "X Open Hub is a Poland based broker founded in 2002. With FCA, CySEC, KNF, it offers 80+ FX pairs, CFDs on stocks, indices, commodities, crypto trading primarily via XOH Trader, MT4, MT5.",
+  "fullReview": "## Company Overview\n\nX Open Hub is a retail forex and CFD broker established in 2002, headquartered in Poland. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2002\n- 80+ FX pairs, CFDs on stocks, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on XOH Trader, MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nX Open Hub operates under FCA, CySEC and KNF regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** FCA · CySEC · KNF\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nX Open Hub provides From 0.2 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.2 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | XOH Trader, MT4 and MT5 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nX Open Hub supports XOH Trader, MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**XOH Trader:** Proprietary or partner trading platform available through X Open Hub.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports XOH Trader\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is X Open Hub Best For?\n\nX Open Hub is best suited for:\n\n- **Entry-level traders** looking for from 0.2 pips execution\n- **Traders using XOH Trader** who want a straightforward account setup\n- **Those based in Poland** or regions served by FCA, CySEC and KNF\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare X Open Hub against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nX Open Hub is a solid choice for traders seeking from 0.2 pips on 500+ instruments via XOH Trader, MT4 and MT5. Regulation by FCA, CySEC and KNF provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with X Open Hub.*",
+  "spreads": "From 0.2 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 2002",
+    "80+ FX pairs, CFDs on stocks, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports XOH Trader"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.xhub.com",
+  "riskLevel": "Medium",
+  "founded": "2002",
+  "headquarters": "Poland",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\x-open-hub.json",
+        "bytes": 1261
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.956Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

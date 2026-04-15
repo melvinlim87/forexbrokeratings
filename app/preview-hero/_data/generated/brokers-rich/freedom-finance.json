@@ -1,0 +1,49 @@
+{
+  "id": 1389,
+  "name": "Freedom Finance",
+  "slug": "freedom-finance",
+  "logo": "https://www.google.com/s2/favicons?domain=ffin.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "Freedom24"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CySEC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Freedom Finance is a Cyprus based broker founded in 2013. With CySEC, it offers FX pairs, stocks, ETFs, bonds trading primarily via Freedom24.",
+  "fullReview": "## Company Overview\n\nFreedom Finance is a retail forex and CFD broker established in 2013, headquartered in Cyprus. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2013\n- FX pairs, stocks, ETFs, bonds\n\nThe broker's trading infrastructure is built on Freedom24, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nFreedom Finance operates under CySEC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CySEC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nFreedom Finance provides From 0.5 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.5 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | Freedom24 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nFreedom Finance supports Freedom24.\n\n**Freedom24:** Proprietary or partner trading platform available through Freedom Finance.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CySEC\n- ✅ Low entry barrier\n- ✅ Supports Freedom24\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Freedom Finance Best For?\n\nFreedom Finance is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using Freedom24** who want a straightforward account setup\n- **Those based in Cyprus** or regions served by CySEC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Freedom Finance against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nFreedom Finance is a solid choice for traders seeking from 0.5 pips on 500+ instruments via Freedom24. Regulation by CySEC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Freedom Finance.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2013",
+    "FX pairs, stocks, ETFs, bonds"
+  ],
+  "pros": [
+    "Regulated by CySEC",
+    "Low entry barrier",
+    "Supports Freedom24"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://ffin.com",
+  "riskLevel": "Medium",
+  "founded": "2013",
+  "headquarters": "Cyprus",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\freedom-finance.json",
+        "bytes": 1099
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.353Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

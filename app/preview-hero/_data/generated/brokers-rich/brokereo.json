@@ -1,0 +1,50 @@
+{
+  "id": 1555,
+  "name": "Brokereo",
+  "slug": "brokereo",
+  "logo": "https://www.google.com/s2/favicons?domain=brokereo.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "Brokereo Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CySEC (renounced)"
+  ],
+  "bestFor": "New Listing",
+  "description": "Brokereo is a Cyprus based broker founded in 2021. With CySEC (renounced), it offers Forex, CFDs, Commodities, Stocks trading primarily via MT4, Brokereo Platform.",
+  "fullReview": "## Company Overview\n\nBrokereo is a retail forex and CFD broker established in 2021, headquartered in Cyprus. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2021\n- Forex, CFDs, Commodities, Stocks\n\nThe broker's trading infrastructure is built on MT4 and Brokereo Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBrokereo operates under CySEC (renounced) regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CySEC (renounced)\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nBrokereo provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and Brokereo Platform |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nBrokereo supports MT4 and Brokereo Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**Brokereo Platform:** Proprietary or partner trading platform available through Brokereo.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CySEC (renounced)\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Brokereo Best For?\n\nBrokereo is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Cyprus** or regions served by CySEC (renounced)\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Brokereo against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nBrokereo is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and Brokereo Platform. Regulation by CySEC (renounced) provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Brokereo.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2021",
+    "Forex, CFDs, Commodities, Stocks"
+  ],
+  "pros": [
+    "Regulated by CySEC (renounced)",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.brokereo.com",
+  "riskLevel": "Medium",
+  "founded": "2021",
+  "headquarters": "Cyprus",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\brokereo.json",
+        "bytes": 1180
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.143Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

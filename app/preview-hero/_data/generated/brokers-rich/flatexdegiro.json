@@ -1,0 +1,78 @@
+{
+  "id": 88,
+  "name": "flatexDEGIRO",
+  "slug": "flatexdegiro",
+  "logo": "/logos/flatexdegiro.png",
+  "rating": 6,
+  "reviews": "800",
+  "minDeposit": 0,
+  "platforms": [
+    "flatex Web",
+    "flatex App",
+    "DEGIRO Platform"
+  ],
+  "tradingInstruments": 50000,
+  "regulations": [
+    "BaFin",
+    "AFM",
+    "FCA"
+  ],
+  "bestFor": "Best for Integrated Banking & Trading",
+  "description": "flatexDEGIRO (est. 2013 Flatex / 2020 merger with DEGIRO) is a publicly listed German banking and trading group offering stock and ETF investing across 50+ global exchanges. Regulated by BaFin (Germany) with a full banking license, flatexDEGIRO provides integrated banking and trading services. Commission-free ETF trading on select funds and low per-trade commissions make it competitive for European investors. Like DEGIRO, flatexDEGIRO does NOT offer forex or CFD trading.",
+  "fullReview": "## Company Overview\n\nflatexDEGIRO is a retail forex and CFD broker established in 2013, headquartered in an undisclosed location. The broker offers access to 50000+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- 50,000+ Instruments\n- German Banking License\n- Commission-Free ETFs\n\nThe broker's trading infrastructure is built on flatex Web, flatex App and DEGIRO Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nflatexDEGIRO operates under BaFin, AFM and FCA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** BaFin · AFM · FCA\n\n**Risk Level:** Low — Low risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nflatexDEGIRO provides N/A (no forex) on major currency pairs. Leverage is available at 1:1 (no leverage), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | N/A (no forex) |\n| Leverage | 1:1 (no leverage) |\n| Instruments | 50000+ |\n| Platforms | flatex Web, flatex App and DEGIRO Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nflatexDEGIRO supports flatex Web, flatex App and DEGIRO Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**flatex Web:** Proprietary or partner trading platform available through flatexDEGIRO.\n**flatex App:** Proprietary or partner trading platform available through flatexDEGIRO.\n**DEGIRO Platform:** Proprietary or partner trading platform available through flatexDEGIRO.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ German bank-grade regulation (BaFin license)\n- ✅ Commission-free ETF trading on select funds\n- ✅ Publicly listed parent company (flatexDEGIRO AG)\n- ✅ Access to multiple European exchanges\n- ✅ Integrated banking and trading\n\n**Cons:**\n- ❌ NO Forex/CFD trading — purely an investing platform\n- ❌ No leveraged products\n- ❌ Limited international market access outside Europe\n\n## Who Is flatexDEGIRO Best For?\n\nflatexDEGIRO is best suited for:\n\n- **Entry-level traders** looking for n/a (no forex) execution\n- **Traders using flatex Web** who want a straightforward account setup\n- **Those based in an undisclosed location** or regions served by BaFin, AFM and FCA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare flatexDEGIRO against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.0 / 10**\n\nflatexDEGIRO is a reasonable option for traders seeking n/a (no forex) on 50000+ instruments via flatex Web, flatex App and DEGIRO Platform. Regulation by BaFin, AFM and FCA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with flatexDEGIRO.*",
+  "spreads": "N/A (no forex)",
+  "leverage": "1:1 (no leverage)",
+  "features": [
+    "50,000+ Instruments",
+    "German Banking License",
+    "Commission-Free ETFs",
+    "Publicly Listed"
+  ],
+  "pros": [
+    "German bank-grade regulation (BaFin license)",
+    "Commission-free ETF trading on select funds",
+    "Publicly listed parent company (flatexDEGIRO AG)",
+    "Access to multiple European exchanges",
+    "Integrated banking and trading"
+  ],
+  "cons": [
+    "NO Forex/CFD trading — purely an investing platform",
+    "No leveraged products",
+    "Limited international market access outside Europe"
+  ],
+  "affiliateUrl": "https://www.flatex.de",
+  "riskLevel": "Low",
+  "founded": "2013",
+  "entityRegulations": [
+    {
+      "name": "flatexDEGIRO Bank AG",
+      "status": "regulated",
+      "licenseType": "Banking License",
+      "licenseNumber": "BaFin HRB 105192",
+      "regulator": "BaFin",
+      "country": "DE",
+      "flag": "🇩🇪"
+    }
+  ],
+  "scores": {
+    "overall": 6,
+    "tradingInstruments": 8,
+    "platforms": 5,
+    "fees": 8,
+    "security": 9,
+    "deposit": 9,
+    "customerService": 5
+  },
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\flatexdegiro.json",
+        "bytes": 2527
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.336Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

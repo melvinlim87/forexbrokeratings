@@ -1,0 +1,51 @@
+{
+  "id": 1418,
+  "name": "BAXTER-FX",
+  "slug": "baxter-fx",
+  "logo": "https://www.google.com/s2/favicons?domain=baxter-fx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 10000,
+  "platforms": [
+    "Currenex",
+    "Hotspot",
+    "FxAll"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC"
+  ],
+  "bestFor": "New Listing",
+  "description": "BAXTER-FX is a Australia based broker founded in 2012. With ASIC, it offers 50+ FX pairs, CFDs on commodities trading primarily via Currenex, Hotspot, FxAll.",
+  "fullReview": "## Company Overview\n\nBAXTER-FX is a retail forex and CFD broker established in 2012, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2012\n- 50+ FX pairs, CFDs on commodities\n\nThe broker's trading infrastructure is built on Currenex, Hotspot and FxAll, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBAXTER-FX operates under ASIC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** ASIC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nBAXTER-FX provides From 0.1 pips on major currency pairs. Leverage is available at 100:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10000 |\n| Spreads | From 0.1 pips |\n| Leverage | 100:1 |\n| Instruments | 500+ |\n| Platforms | Currenex, Hotspot and FxAll |\n\nTraders have a minimum deposit of $10000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nBAXTER-FX supports Currenex, Hotspot and FxAll, giving traders flexibility to choose the environment that best suits their strategy.\n\n**Currenex:** Proprietary or partner trading platform available through BAXTER-FX.\n**Hotspot:** Proprietary or partner trading platform available through BAXTER-FX.\n**FxAll:** Proprietary or partner trading platform available through BAXTER-FX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports Currenex\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is BAXTER-FX Best For?\n\nBAXTER-FX is best suited for:\n\n- **Intermediate traders** looking for from 0.1 pips execution\n- **Traders using Currenex** who want a straightforward account setup\n- **Those based in Australia** or regions served by ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare BAXTER-FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nBAXTER-FX is a solid choice for traders seeking from 0.1 pips on 500+ instruments via Currenex, Hotspot and FxAll. Regulation by ASIC provides a foundational level of oversight. The $10000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with BAXTER-FX.*",
+  "spreads": "From 0.1 pips",
+  "leverage": "100:1",
+  "features": [
+    "Founded in 2012",
+    "50+ FX pairs, CFDs on commodities"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports Currenex"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.baxter-fx.com",
+  "riskLevel": "Medium",
+  "founded": "2012",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\baxter-fx.json",
+        "bytes": 1167
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.055Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

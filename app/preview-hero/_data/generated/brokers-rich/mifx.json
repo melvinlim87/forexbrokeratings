@@ -1,0 +1,50 @@
+{
+  "id": 1609,
+  "name": "MIFX",
+  "slug": "mifx",
+  "logo": "https://www.google.com/s2/favicons?domain=mifx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100000,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "BAPPEBTI"
+  ],
+  "bestFor": "New Listing",
+  "description": "MIFX is a Indonesia based broker founded in 2000. With BAPPEBTI, it offers Forex, Gold, Oil, Index trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nMIFX is a retail forex and CFD broker established in 2000, headquartered in Indonesia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2000\n- Forex, Gold, Oil, Index\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nMIFX operates under BAPPEBTI regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** BAPPEBTI\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nMIFX provides From 1.0 pips on major currency pairs. Leverage is available at 1:400, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100000 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:400 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $100000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nMIFX supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by BAPPEBTI\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is MIFX Best For?\n\nMIFX is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Indonesia** or regions served by BAPPEBTI\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare MIFX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nMIFX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by BAPPEBTI provides a foundational level of oversight. The $100000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with MIFX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:400",
+  "features": [
+    "Founded in 2000",
+    "Forex, Gold, Oil, Index"
+  ],
+  "pros": [
+    "Regulated by BAPPEBTI",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.mifx.com",
+  "riskLevel": "Medium",
+  "founded": "2000",
+  "headquarters": "Indonesia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\mifx.json",
+        "bytes": 1064
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.582Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

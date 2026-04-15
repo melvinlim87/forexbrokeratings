@@ -1,0 +1,204 @@
+{
+  "id": 122,
+  "name": "RS Finance",
+  "slug": "rs-finance",
+  "logo": "/logos/rs-finance.png",
+  "rating": 6.5,
+  "reviews": "320",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC",
+    "FSA Seychelles"
+  ],
+  "bestFor": "Best for ASIC-Regulated ECN Trading with Trading Central",
+  "description": "RS Finance is a New Zealand/Australia-headquartered broker founded in 2013. ASIC regulation (AFSL #441277) provides Tier-1 client protection. Trading Central integration offers professional analysis. Two account types — ECN (raw spreads) and Standard (spread-only) — cater to different trading styles. Over 10 years of operation in the Asia-Pacific region.",
+  "fullReview": "## Company Overview\n\nRS Finance is a retail forex and CFD broker established in 2013, headquartered in an undisclosed location. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- 500+ Trading Instruments\n- ASIC Regulated\n- Trading Central\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nRS Finance operates under ASIC and FSA Seychelles regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** ASIC · FSA Seychelles\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nRS Finance provides From 0.1 pips (ECN) on major currency pairs. Leverage is available at Up to 1:500, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.1 pips (ECN) |\n| Leverage | Up to 1:500 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nRS Finance supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ ASIC-regulated (AFSL #441277)\n- ✅ Trading Central integration\n- ✅ MT4 and MT5 support\n- ✅ Two account types\n- ✅ 10+ year track record\n\n**Cons:**\n- ❌ Limited public transparency\n- ❌ No Trustpilot reviews\n- ❌ SVG offshore entity adds complexity\n- ❌ Small brand with limited recognition\n- ❌ No cTrader or TradingView\n\n## Who Is RS Finance Best For?\n\nRS Finance is best suited for:\n\n- **Entry-level traders** looking for from 0.1 pips (ecn) execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in an undisclosed location** or regions served by ASIC and FSA Seychelles\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare RS Finance against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nRS Finance is a reasonable option for traders seeking from 0.1 pips (ecn) on 500+ instruments via MT4 and MT5. Regulation by ASIC and FSA Seychelles provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with RS Finance.*",
+  "spreads": "From 0.1 pips (ECN)",
+  "leverage": "Up to 1:500",
+  "features": [
+    "500+ Trading Instruments",
+    "ASIC Regulated",
+    "Trading Central",
+    "ECN & Standard Accounts"
+  ],
+  "pros": [
+    "ASIC-regulated (AFSL #441277)",
+    "Trading Central integration",
+    "MT4 and MT5 support",
+    "Two account types",
+    "10+ year track record"
+  ],
+  "cons": [
+    "Limited public transparency",
+    "No Trustpilot reviews",
+    "SVG offshore entity adds complexity",
+    "Small brand with limited recognition",
+    "No cTrader or TradingView"
+  ],
+  "affiliateUrl": "https://rs-fin.com",
+  "riskLevel": "Medium",
+  "founded": "2013",
+  "stateStatus": "actively operating",
+  "avgSpreadEurUsd": 0.1,
+  "commissionRt": 7,
+  "licenseNumbers": [
+    "ASIC AFSL #441277",
+    "FSA Seychelles SD219"
+  ],
+  "executionType": "ECN/STP",
+  "parentCompany": "R S Finance Pty Ltd",
+  "entityRegulations": [
+    {
+      "name": "R S Finance Pty Ltd",
+      "status": "regulated",
+      "licenseType": "AFSL",
+      "licenseNumber": "ASIC AFSL #441277",
+      "regulator": "ASIC",
+      "country": "AU",
+      "flag": "🇦🇺"
+    },
+    {
+      "name": "RS Finance Ltd (SC)",
+      "status": "regulated",
+      "licenseType": "Securities Dealer",
+      "licenseNumber": "FSA Seychelles SD219",
+      "regulator": "FSA",
+      "country": "SC",
+      "flag": "🇸🇨"
+    }
+  ],
+  "companyProfileData": {
+    "founded": "2013",
+    "headquarters": "Auckland, New Zealand / Adelaide, Australia",
+    "parentCompany": "R S Finance Pty Ltd",
+    "employees": "50-100",
+    "offices": [
+      "Auckland",
+      "Adelaide"
+    ],
+    "website": "rs-fin.com",
+    "baseCurrencies": [
+      "USD",
+      "AUD",
+      "NZD"
+    ],
+    "tradingInstrumentsList": [
+      "Forex",
+      "Metals",
+      "Energy",
+      "Indices",
+      "Stock CFDs"
+    ],
+    "supportedRegions": [
+      "Australia",
+      "New Zealand",
+      "Asia",
+      "International"
+    ],
+    "restrictedRegions": [
+      "United States",
+      "Canada",
+      "Iran",
+      "North Korea"
+    ],
+    "publiclyTraded": false,
+    "brokerType": "ECN/STP"
+  },
+  "riskAnalysisData": {
+    "tier": "B",
+    "score": 55,
+    "politicalRisk": "Low",
+    "bankruptcyRisk": "Medium",
+    "fundSegregation": true,
+    "segregatedDetails": "ASIC-mandated fund segregation at Tier-1 Australian banks.",
+    "tierExplanation": "RS Finance earns Tier B based on verifiable ASIC regulation.",
+    "riskFactors": [
+      {
+        "name": "Regulatory Strength",
+        "score": 70,
+        "maxScore": 100,
+        "detail": "ASIC AFSL #441277 is verifiable Tier-1"
+      },
+      {
+        "name": "Financial Stability",
+        "score": 50,
+        "maxScore": 100,
+        "detail": "10+ year track record"
+      },
+      {
+        "name": "User Review Sentiment",
+        "score": 40,
+        "maxScore": 100,
+        "detail": "Very limited reviews"
+      },
+      {
+        "name": "Operational Track Record",
+        "score": 55,
+        "maxScore": 100,
+        "detail": "Founded 2013"
+      },
+      {
+        "name": "Fund Safety",
+        "score": 65,
+        "maxScore": 100,
+        "detail": "ASIC-mandated fund segregation"
+      }
+    ]
+  },
+  "userReviewsData": {
+    "trustpilot": {
+      "rating": 0,
+      "reviews": 0,
+      "url": ""
+    },
+    "fpa": {
+      "rating": 3,
+      "reviews": 50
+    },
+    "reddit": "Very limited discussion",
+    "responseTime": "Unknown",
+    "commonComplaints": [
+      "Limited public information"
+    ],
+    "redditSentiment": "neutral",
+    "redditMentions": "very low",
+    "sources": [],
+    "quotes": []
+  },
+  "faqData": [
+    {
+      "question": "Is RS Finance legitimate?",
+      "answer": "Yes. RS Finance holds ASIC AFSL #441277, verifiable on ASIC Connect."
+    },
+    {
+      "question": "What platforms does RS Finance offer?",
+      "answer": "MT4, MT5, and Trading Central analysis tools."
+    }
+  ],
+  "scores": {
+    "overall": 6.5,
+    "tradingInstruments": 6,
+    "platforms": 7,
+    "fees": 7,
+    "security": 6.5,
+    "deposit": 6,
+    "customerService": 5.5
+  },
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\rs-finance.json",
+        "bytes": 5179
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.707Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

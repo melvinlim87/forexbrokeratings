@@ -1,0 +1,49 @@
+{
+  "id": 1442,
+  "name": "CPT Markets UK",
+  "slug": "cpt-markets-uk",
+  "logo": "https://www.google.com/s2/favicons?domain=cptmarkets.co.uk&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "CPT Markets UK is a UK based broker founded in 2008. With FCA, it offers 50+ FX pairs, CFDs on indices, commodities trading primarily via MT4.",
+  "fullReview": "## Company Overview\n\nCPT Markets UK is a retail forex and CFD broker established in 2008, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2008\n- 50+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCPT Markets UK operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCPT Markets UK provides From 0.5 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.5 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | MT4 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCPT Markets UK supports MT4.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is CPT Markets UK Best For?\n\nCPT Markets UK is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare CPT Markets UK against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nCPT Markets UK is a solid choice for traders seeking from 0.5 pips on 500+ instruments via MT4. Regulation by FCA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with CPT Markets UK.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2008",
+    "50+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.cptmarkets.co.uk",
+  "riskLevel": "Medium",
+  "founded": "2008",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\cpt-markets-uk.json",
+        "bytes": 1110
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.202Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

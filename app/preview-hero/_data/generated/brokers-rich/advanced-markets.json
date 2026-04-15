@@ -1,0 +1,54 @@
+{
+  "id": 1400,
+  "name": "Advanced Markets",
+  "slug": "advanced-markets",
+  "logo": "https://www.google.com/s2/favicons?domain=advancedmarkets.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "Fortex",
+    "VertexFX"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA",
+    "NFA",
+    "CFTC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Advanced Markets is a USA based broker founded in 2006. With FCA, NFA, CFTC, it offers 60+ FX pairs, CFDs on commodities, metals trading primarily via MT4, MT5, Fortex, VertexFX.",
+  "fullReview": "## Company Overview\n\nAdvanced Markets is a retail forex and CFD broker established in 2006, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2006\n- 60+ FX pairs, CFDs on commodities, metals\n\nThe broker's trading infrastructure is built on MT4, MT5, Fortex and VertexFX, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAdvanced Markets operates under FCA, NFA and CFTC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** FCA · NFA · CFTC\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nAdvanced Markets provides From 0.2 pips on major currency pairs. Leverage is available at 50:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000 |\n| Spreads | From 0.2 pips |\n| Leverage | 50:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5, Fortex and VertexFX |\n\nTraders have a minimum deposit of $1000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nAdvanced Markets supports MT4, MT5, Fortex and VertexFX, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**Fortex:** Proprietary or partner trading platform available through Advanced Markets.\n**VertexFX:** Proprietary or partner trading platform available through Advanced Markets.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Advanced Markets Best For?\n\nAdvanced Markets is best suited for:\n\n- **Intermediate traders** looking for from 0.2 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in USA** or regions served by FCA, NFA and CFTC\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Advanced Markets against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nAdvanced Markets is a solid choice for traders seeking from 0.2 pips on 500+ instruments via MT4, MT5, Fortex and VertexFX. Regulation by FCA, NFA and CFTC provides a foundational level of oversight. The $1000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Advanced Markets.*",
+  "spreads": "From 0.2 pips",
+  "leverage": "50:1",
+  "features": [
+    "Founded in 2006",
+    "60+ FX pairs, CFDs on commodities, metals"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.advancedmarkets.com",
+  "riskLevel": "Medium",
+  "founded": "2006",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\advanced-markets.json",
+        "bytes": 1262
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.984Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

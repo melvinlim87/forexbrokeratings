@@ -1,0 +1,49 @@
+{
+  "id": 1444,
+  "name": "Crystal Ball Markets",
+  "slug": "crystal-ball",
+  "logo": "https://www.google.com/s2/favicons?domain=crystalballmarkets.com&sz=128",
+  "rating": 3,
+  "reviews": "New",
+  "minDeposit": 10,
+  "platforms": [
+    "Mobius Trader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not regulated"
+  ],
+  "bestFor": "New Listing",
+  "description": "Crystal Ball Markets is a Saint Vincent and the Grenadines based broker founded in 2020. With no formal regulation, it offers 40+ FX pairs, CFDs on indices, commodities trading primarily via Mobius Trader.",
+  "fullReview": "## Company Overview\n\nCrystal Ball Markets is a retail forex and CFD broker established in 2020, headquartered in Saint Vincent and the Grenadines. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2020\n- 40+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on Mobius Trader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCrystal Ball Markets currently operates without a major-tier regulatory licence. The broker is registered in Saint Vincent and the Grenadines and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n**Regulatory jurisdictions:** Not regulated\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCrystal Ball Markets provides From 0.5 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10 |\n| Spreads | From 0.5 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | Mobius Trader |\n\nTraders have a minimum deposit of $10, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nCrystal Ball Markets supports Mobius Trader.\n\n**Mobius Trader:** Proprietary or partner trading platform available through Crystal Ball Markets.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Competitive trading conditions (High Risk)\n- ✅ Low entry barrier\n- ✅ Supports Mobius Trader\n\n**Cons:**\n- ❌ NOT REGULATED (High Risk of Fund Loss)\n\n## Who Is Crystal Ball Markets Best For?\n\nCrystal Ball Markets is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using Mobius Trader** who want a straightforward account setup\n- **Those based in Saint Vincent and the Grenadines** or regions served by Not regulated\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Crystal Ball Markets against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 3.0 / 10**\n\nCrystal Ball Markets is an option worth researching carefully for traders seeking from 0.5 pips on 500+ instruments via Mobius Trader. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $10 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Crystal Ball Markets.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 2020",
+    "40+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Competitive trading conditions (High Risk)",
+    "Low entry barrier",
+    "Supports Mobius Trader"
+  ],
+  "cons": [
+    "NOT REGULATED (High Risk of Fund Loss)"
+  ],
+  "affiliateUrl": "https://www.crystalballmarkets.com",
+  "riskLevel": "Medium",
+  "founded": "2020",
+  "headquarters": "Saint Vincent and the Grenadines",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\crystal-ball.json",
+        "bytes": 1333
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.222Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

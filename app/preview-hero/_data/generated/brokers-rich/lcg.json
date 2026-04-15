@@ -1,0 +1,50 @@
+{
+  "id": 1361,
+  "name": "LCG (London Capital Group)",
+  "slug": "lcg",
+  "logo": "https://www.google.com/s2/favicons?domain=lcg.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "MT4",
+    "LCG Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "LCG (London Capital Group) is a UK based broker founded in 1996. With FCA, it offers 60+ FX pairs, CFDs on stocks, indices, commodities trading primarily via MT4, LCG Platform.",
+  "fullReview": "## Company Overview\n\nLCG (London Capital Group) is a retail forex and CFD broker established in 1996, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1996\n- 60+ FX pairs, CFDs on stocks, indices, commodities\n\nThe broker's trading infrastructure is built on MT4 and LCG Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nLCG (London Capital Group) operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nLCG (London Capital Group) provides From 0.6 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 0.6 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and LCG Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nLCG (London Capital Group) supports MT4 and LCG Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**LCG Platform:** Proprietary or partner trading platform available through LCG (London Capital Group).\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is LCG (London Capital Group) Best For?\n\nLCG (London Capital Group) is best suited for:\n\n- **Entry-level traders** looking for from 0.6 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare LCG (London Capital Group) against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nLCG (London Capital Group) is a solid choice for traders seeking from 0.6 pips on 500+ instruments via MT4 and LCG Platform. Regulation by FCA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with LCG (London Capital Group).*",
+  "spreads": "From 0.6 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 1996",
+    "60+ FX pairs, CFDs on stocks, indices, commodities"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.lcg.com",
+  "riskLevel": "Medium",
+  "founded": "1996",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\lcg.json",
+        "bytes": 1189
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.546Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

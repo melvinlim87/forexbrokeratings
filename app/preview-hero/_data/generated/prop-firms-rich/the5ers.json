@@ -1,0 +1,407 @@
+{
+  "name": "The5ers",
+  "slug": "the5ers",
+  "summary": "The5ers is one of the oldest and most respected proprietary trading firms in the industry, founded in 2016 in Ra'anana, Israel by Gil Ben Hur and currently led by CEO Saul Lokier. Operating under Five Percent Online LTD, The5ers has built a unique approach to prop trading that offers three distinct funding programs: the High Stakes two-step evaluation, the Hyper Growth instant funding program, and the Bootcamp budget-friendly multi-phase challenge. What sets The5ers apart is its aggressive scaling plan that can grow accounts up to $4 million, profit splits that reach 100% at the highest tiers (unmatched in the industry), no time limits on evaluations, and round-the-clock support. With over 9 years of operation, a 4.8/5 Trustpilot rating from 20,000+ reviews, and a strong educational community via The5ers Academy, this firm is a top choice for traders seeking long-term growth potential and flexible evaluation options.",
+  "founded": 2016,
+  "headquarters": "Ra'anana, Israel (with additional office in London, UK)",
+  "website": "https://www.the5ers.com",
+  "logo": "/logos/the5ers.png",
+  "affiliateUrl": "https://www.the5ers.com/",
+  "ceo": "Saul Lokier (CEO); Gil Ben Hur (Co-founder)",
+  "parent_company": "Five Percent Online LTD",
+  "legal_entity": "Five Percent Online LTD, registered in Israel",
+  "ratings": {
+    "challenge_rules": 7,
+    "trading_conditions": 8,
+    "payouts": 8,
+    "trust_reputation": 8,
+    "platforms_instruments": 6,
+    "support_education": 8,
+    "overall": 45
+  },
+  "grade": "A",
+  "quickStats": {
+    "accountSizes": "$5K – $250K",
+    "challengeType": "Instant / 1-Step / 3-Step",
+    "profitSplit": "50% → 100%",
+    "maxAllocation": "$4M",
+    "platforms": "MT5, cTrader, MatchTrader",
+    "instruments": "Forex, Indices, Metals, Energies, Crypto"
+  },
+  "account_sizes": [
+    5000,
+    20000,
+    40000,
+    60000,
+    100000,
+    250000
+  ],
+  "max_allocation": 4000000,
+  "challenge_type": "1-step",
+  "challenge_phases": [
+    {
+      "name": "Hyper Growth (Instant Funding)",
+      "profit_target": "10%",
+      "max_daily_loss": "3% (pause rule)",
+      "max_total_loss": "6%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "High Stakes Phase 1",
+      "profit_target": "8%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "High Stakes Phase 2",
+      "profit_target": "5%",
+      "max_daily_loss": "5%",
+      "max_total_loss": "10%",
+      "min_trading_days": 3,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Bootcamp Phase 1",
+      "profit_target": "10%",
+      "max_daily_loss": "2% (stop-loss required)",
+      "max_total_loss": "5%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Bootcamp Phase 2",
+      "profit_target": "7%",
+      "max_daily_loss": "3% (pause rule)",
+      "max_total_loss": "5%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    },
+    {
+      "name": "Bootcamp Phase 3",
+      "profit_target": "5%",
+      "max_daily_loss": "3% (pause rule)",
+      "max_total_loss": "5%",
+      "min_trading_days": 1,
+      "time_limit": "Unlimited"
+    }
+  ],
+  "profit_split": {
+    "initial": "50-80% (varies by program)",
+    "scaled": "100%"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto",
+    "paypal",
+    "rise"
+  ],
+  "payout_frequency": "bi-weekly (every 14 days)",
+  "payout_speed": "1-3 business days (within 72 hours)",
+  "reset_fee": "Starts from $50; Bootcamp initial cost only $95 upfront",
+  "scaling_plan": true,
+  "scaling_details": "The5ers offers the most aggressive scaling in the industry. Every time a trader hits a 10% profit milestone, the account doubles in size. Through High Stakes, accounts can scale +25% per 10% profit to reach $1M+. Through Hyper Growth, accounts double at each +10% milestone, potentially reaching $4M. Profit split increases from 50-80% initial to 100% at the highest tier — the only firm offering 100% profit split.",
+  "platforms": [
+    "MetaTrader 5",
+    "cTrader",
+    "MatchTrader",
+    "MT4",
+    "MT5"
+  ],
+  "instruments": [
+    "Forex",
+    "Indices",
+    "Metals",
+    "Energies",
+    "Cryptocurrencies"
+  ],
+  "leverage": "1:100 (High Stakes forex), 1:30 (Hyper Growth forex), 1:10 (Bootcamp forex); 1:10 for indices/commodities on most programs",
+  "spreads": "Raw spreads from 0.2 pips (EUR/USD); no markups on spreads",
+  "commission": "Commission-free on most programs (spreads only); ~$4/lot for forex, indices, metals on High Stakes; zero commission on oil and crypto",
+  "news_trading": true,
+  "weekend_holding": false,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated (prop firm model)",
+      "note": "The5ers operates as a proprietary trading firm under Five Percent Online LTD, registered in Israel. Like all prop firms, it is not a regulated financial services provider. All challenge and funded trading occurs on demo/simulated accounts."
+    }
+  ],
+  "partnerships": [
+    {
+      "partner": "MetaQuotes",
+      "type": "Platform Partner",
+      "year": 2018,
+      "detail": "Official MetaTrader 5 integration for trading infrastructure"
+    },
+    {
+      "partner": "The5ers Academy",
+      "type": "Education",
+      "year": 2020,
+      "detail": "Built-in trading education platform with webinars, courses, weekly masterminds, and mentorship programs"
+    },
+    {
+      "partner": "cTrader",
+      "type": "Platform Partner",
+      "year": 2024,
+      "detail": "Added cTrader platform support to give traders more optionality beyond MT5"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best Prop Firm for Scaling",
+      "body": "Forex Prop Reviews",
+      "year": 2024
+    },
+    {
+      "name": "Most Trusted Prop Firm",
+      "body": "Finance Magnates",
+      "year": 2023
+    },
+    {
+      "name": "Best Educational Program",
+      "body": "Global Forex Awards",
+      "year": 2023
+    },
+    {
+      "name": "Innovation in Trader Development",
+      "body": "Ultimate Fintech",
+      "year": 2022
+    }
+  ],
+  "charity": {
+    "foundation": "The5ers Community Impact",
+    "initiatives": [
+      "Free trading education for developing market traders via The5ers Academy",
+      "Financial literacy workshops in partnership with Israeli fintech community",
+      "Support for trading mentorship programs globally",
+      "Free demo challenges and scholarships for student traders"
+    ]
+  },
+  "affiliate": {
+    "program_name": "The5ers Affiliate Program",
+    "cpa_range": "$50-200 per funded trader",
+    "revshare_range": "10-15% recurring",
+    "cookie_duration": "60 days"
+  },
+  "special_features": {
+    "instant_funding": true,
+    "instant_funding_detail": "The Hyper Growth program offers instant funding with no evaluation phase required. Traders pay the program fee and immediately receive a live funded account with a $20K starting point. This is rare in the industry and ideal for experienced traders who want to skip challenges entirely.",
+    "no_time_limits": true,
+    "no_time_limits_detail": "All evaluation programs at The5ers have no maximum time limit. Traders can complete phases at their own pace without any deadline pressure.",
+    "bootcamp_split_payments": true,
+    "bootcamp_split_payment_detail": "The Bootcamp program allows split payments. The initial cost is only $95 upfront with a $205 payment after funding, making it the lowest-risk entry point of any major prop firm.",
+    "trader_success_team": true,
+    "trader_success_team_detail": "The5ers provides a dedicated Trader Success Team available 24/7 via live chat, email, and phone — more comprehensive support options than most competitors."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 4.8,
+    "trustpilot_review_count": "20,000+",
+    "years_active": 9,
+    "total_funded_traders": "80,000+",
+    "total_payouts_amount": "$100M+ paid to traders",
+    "controversies": [
+      "The5ers has maintained an excellent reputation over its 9-year history with very few controversies.",
+      "Some traders have expressed frustration with the lower initial profit split on the Hyper Growth program (50%), though this increases with scaling.",
+      "Traders from the United States are not eligible to participate due to regulatory restrictions.",
+      "A few complaints about the lack of MT4 support — the firm transitioned exclusively to MT5, cTrader, and MatchTrader."
+    ]
+  },
+  "pros": [
+    "Industry-best scaling up to $4M total allocation — no other firm offers this growth potential",
+    "Up to 100% profit split at the highest tier — unique in the entire prop trading industry",
+    "Established since 2016 with strong reputation — 9 years of proven operations",
+    "Excellent educational resources via The5ers Academy with live webinars and mentorship",
+    "Three distinct funding programs: instant (Hyper Growth), traditional (High Stakes), and budget (Bootcamp)",
+    "No time limits on any evaluation program — pass at your own pace",
+    "24/7 support via live chat, email, and phone — more channels than most competitors",
+    "Bootcamp program starts at only $95 upfront with split payments available",
+    "14-day risk-free money-back guarantee on most programs",
+    "Commission-free trading on most programs reduces overall trading costs",
+    "Tight raw spreads from 0.2 pips on major pairs with no markups",
+    "Exceptional 4.8/5 Trustpilot rating from 20,000+ reviews",
+    "Regulated by Not a broker (prop firm)",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Lower initial profit split (50% on Hyper Growth, 80% on High Stakes) compared to competitors offering 80-85% from day one",
+    "Weekend holding not allowed on funded accounts",
+    "Only MT5, cTrader, and MatchTrader platforms — no MT4 support",
+    "Lower leverage on Hyper Growth (1:30) and Bootcamp (1:10) programs",
+    "U.S. traders are not eligible — limited geographic accessibility",
+    "Bootcamp requires completing 3 phases with mandatory stop-losses on every trade",
+    "No cryptocurrency denominated accounts or crypto-specific funding programs",
+    "News trading restricted during High Stakes evaluation phase only",
+    "Spreads may vary based on market conditions"
+  ],
+  "sources": [
+    {
+      "name": "The5ers Official Website",
+      "url": "https://www.the5ers.com"
+    },
+    {
+      "name": "The5ers Funding Programs",
+      "url": "https://www.the5ers.com/funding-programs"
+    },
+    {
+      "name": "The5ers FAQ",
+      "url": "https://www.the5ers.com/faq/"
+    },
+    {
+      "name": "Trustpilot Reviews - The5ers",
+      "url": "https://www.trustpilot.com/review/the5ers.com"
+    },
+    {
+      "name": "Forex Prop Firms - The5ers Review",
+      "url": "https://www.forexpropfirms.com/propfirms/the5ers-review"
+    },
+    {
+      "name": "Reddit Prop Firm Community",
+      "url": "https://www.reddit.com/r/Forexpropfirms"
+    }
+  ],
+  "review_content": "The5ers has earned its place as one of the most respected and longest-running proprietary trading firms in the industry. Founded in 2016 by Gil Ben Hur and currently led by CEO Saul Lokier, the firm operates under Five Percent Online LTD from its headquarters in Ra'anana, Israel, with an additional office in London. Over its 9-year history, The5ers has funded over 80,000 traders and paid out more than $100 million in profits — a track record second only to industry veterans like FTMO.\n\nWhat truly sets The5ers apart is its diverse portfolio of funding programs. The High Stakes program is a traditional two-step evaluation: Phase 1 requires an 8% profit target with 5% daily loss and 10% maximum total drawdown, while Phase 2 reduces the profit target to 5% with the same risk parameters. Both phases have no time limits, requiring only 3 profitable days each. The High Stakes program offers leverage up to 1:100 on forex.\n\nThe Hyper Growth program offers instant funding with no evaluation required — simply pay the program fee and immediately receive a funded account starting at $20K. The tradeoff is lower leverage (1:30), a stricter daily loss pause of 3%, and a 6% maximum drawdown. However, the scaling is aggressive: the account doubles at every +10% profit milestone, potentially reaching $4 million.\n\nThe Bootcamp program is the budget-friendly three-phase option. The initial cost is only $95 upfront, with a $205 payment after funding. Phase 1 requires a 10% profit target with 5% maximum drawdown. Phase 2 requires 7% with 5% drawdown. Phase 3 requires 5% with 5% drawdown. Each phase requires mandatory stop-losses with a maximum 2% risk per trade. This program is ideal for traders who want to minimize upfront costs while proving consistency over multiple stages.\n\nThe5ers profit split structure is the most ambitious in the industry. It starts at 50-80% depending on the program (the lowest initial split among top firms) but can scale to a full 100% profit split at the highest tier — no other prop firm offers traders the opportunity to keep 100% of their profits. The scaling plan rewards consistent performance: accounts can double at each +10% profit milestone for Hyper Growth, or grow by 25% per milestone for High Stakes, potentially scaling to $4 million total allocation.\n\nTrading conditions are solid: MT5, cTrader, and MatchTrader platform options cover most trading needs. Spreads are raw with no markups, averaging around 0.2-0.3 pips on EUR/USD. Commissions are approximately $4 per standard lot for forex, indices, and metals on High Stakes, with zero commission on oil and crypto. The Bootcamp program is commission-free, with costs built into the spreads. News trading is allowed on funded accounts, and EA trading is fully supported across all platforms.\n\nWhat truly differentiates The5ers is its commitment to education and community. The5ers Academy offers comprehensive trading courses, live webinars, weekly masterminds, and one-on-one mentorship opportunities. The firm maintains active presence on YouTube, Twitter, Facebook, and Instagram, regularly posting market analysis, strategy tips, and trader success stories. The Trader Success Team provides 24/7 support via live chat, email, and phone — more touchpoints than almost any competitor.\n\nThe firm's 4.8/5 Trustpilot rating from over 20,000 reviews is the highest in the industry, reflecting consistently excellent trader satisfaction. The main drawbacks are the lower initial profit split, no weekend holding, no MT4 support, and the geographic restriction that excludes U.S. traders.\n\nFor traders in 2026 seeking long-term growth potential, The5ers is arguably the best option in the industry. The combination of three distinct funding programs, aggressive scaling to $4M, 100% profit split potential, and world-class educational resources creates a career development platform that no other prop firm matches.",
+  "id": 1677,
+  "rating": 8.8,
+  "reviews": "New",
+  "minDeposit": 39,
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not a broker (prop firm)"
+  ],
+  "bestFor": "New Listing",
+  "description": "The5ers is a Israel based broker founded in 2016. With Not a broker (prop firm), it offers Forex, Metals, Indices trading primarily via MT4, MT5.",
+  "fullReview": "# The5ers - Deep Dive Extensive Report\n\n## Company Background\n- **Founding Year**: Not explicitly stated on website\n- **Company Name**: The5ers (The Proprietary Trading Firm)\n- **Ownership**: Not specified on website\n- **Team**: Not specified\n- **Global Reach**: Serves traders worldwide (based on customer reviews)\n\n## Regulation & Licensing\n- **Regulatory Status**: Not explicitly stated on website\n- **Legal Structure**: Not specified\n- **Compliance**: Operates as a proprietary trading firm\n\n## Challenge Rules & Phases\n- **Evaluation Process**: Not explicitly detailed on main page\n- **Trading Objectives**: Must meet trading objectives to become eligible for funded account\n- **Rules**: Fair play commitment, transparency in operations\n\n## Account Types & Pricing\n- **Account Sizes**: Up to $4 million in funded trading\n- **Fee Structure**: One-time fees for programs\n- **Scaling**: Fastest growth plans available\n\n## Trading Conditions\n- **Platforms**: Not explicitly stated on main page\n- **Instruments**: Forex and other trading instruments (based on customer reviews)\n- **Leverage**: Industry-leading spreads\n- **Trading Style**: Suitable for various trading styles\n\n## Payouts & Profit Split\n- **Payout Frequency**: Instant, simple payouts\n- **Reliability**: Generally positive reviews for payout processing\n- **Issues**: Some reports of delayed payouts (10 days in some cases)\n\n## Scaling Plans\n- **Maximum Allocation**: Up to $4 million\n- **Growth Path**: Scaling plans for successful traders\n- **Programs**: Premium Programme for advanced traders\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: 4.8/5 (based on numerous 5-star reviews)\n- **Positive Feedback**:\n  - \"Great experience\" - smooth process from evaluation to payout\n  - \"Fast and helpful support\" - responsive customer service\n  - \"Trusted and genuine\" - reliable operations\n  - \"Transparent terms\" - clear rules and business practices\n  - \"Timely payouts\" - consistent payment processing\n- **Negative Feedback**:\n  - \"Payout delays\" - some traders report waiting periods\n  - \"Technical issues\" - platform glitches affecting trading\n  - \"Account access problems\" - occasional login difficulties\n\n## Competitive Position\n- **Market Position**: Well-established prop firm with strong reputation\n- **Unique Selling Points**:\n  - Commitment to honesty and transparency\n  - Prime trading conditions with industry-leading spreads\n  - 24/7 support and guidance\n  - Comprehensive educational resources\n- **Competition**: Competes with FTMO, TopStep, and other major prop firms\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned on website\n- **Structure**: Not specified\n\n## Payout Track Record\n- **Reliability**: Generally positive with some isolated delays\n- **Processing Time**: Typically fast, though some cases took 10+ days\n- **Consistency**: Most traders report successful payouts\n\n## Rules Transparency\n- **Positive**: Clear rules and acceptable business practices\n- **Negative**: Some concerns about technical platform issues\n- **Areas for Improvement**: Better platform stability and technical support\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Promotions\n- **Discount Offers**: Not prominently featured\n- **Special Programs**: Various account sizes and pricing options\n\n## Overall Assessment\nThe5ers is a reputable prop trading firm with a strong focus on trader development and transparent operations. While they have an excellent overall reputation with fast payouts and responsive support, there are some isolated reports of technical issues and payout delays that potential traders should consider.",
+  "features": [
+    "Founded in 2016",
+    "Forex, Metals, Indices"
+  ],
+  "riskLevel": "Medium",
+  "type": "prop-firm",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\the5ers.json",
+        "bytes": 14938
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json",
+        "bytes": 1062
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.543Z",
+    "mergeOpCount": 17
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1677,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/the5ers.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 8.8,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "New",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "minDeposit",
+      "value": 39,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "tradingInstruments",
+      "value": 500,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set-array",
+      "path": "regulations",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json",
+      "size": 1
+    },
+    {
+      "op": "set",
+      "path": "bestFor",
+      "value": "New Listing",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "The5ers is a Israel based broker founded in 2016. With Not a broker (prop firm), it offers Forex, Metals, Indices trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "The5ers is a Israel based broker founded in 2016. With Not a broker (prop firm), it offers Forex, Metals, Indices trading primarily via MT4, MT5.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "conflict",
+      "path": "spreads",
+      "kept": "Raw spreads from 0.2 pips (EUR/USD); no markups on spreads",
+      "rejected": "From 1.0 pips",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "conflict",
+      "path": "leverage",
+      "kept": "1:100 (High Stakes forex), 1:30 (Hyper Growth forex), 1:10 (Bootcamp forex); 1:10 for indices/commodities on most programs",
+      "rejected": "1:100",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set-array",
+      "path": "features",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json",
+      "size": 2
+    },
+    {
+      "op": "conflict",
+      "path": "affiliateUrl",
+      "kept": "https://www.the5ers.com/",
+      "rejected": "https://www.the5ers.com",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "set",
+      "path": "riskLevel",
+      "value": "Medium",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "conflict",
+      "path": "founded",
+      "kept": 2016,
+      "rejected": "2016",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    },
+    {
+      "op": "conflict",
+      "path": "headquarters",
+      "kept": "Ra'anana, Israel (with additional office in London, UK)",
+      "rejected": "Israel",
+      "rejectedFrom": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\the5ers.json"
+    }
+  ]
+}

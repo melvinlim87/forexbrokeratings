@@ -1,0 +1,49 @@
+{
+  "id": 1464,
+  "name": "Spread Co",
+  "slug": "spreadco",
+  "logo": "https://www.google.com/s2/favicons?domain=spreadco.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "SpreadCo Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Spread Co is a UK based broker founded in 2006. With FCA, it offers Spread betting, CFDs, Forex, Indices, Shares, Commodities trading primarily via SpreadCo Platform.",
+  "fullReview": "## Company Overview\n\nSpread Co is a retail forex and CFD broker established in 2006, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2006\n- Spread betting, CFDs, Forex, Indices, Shares, Commodities\n\nThe broker's trading infrastructure is built on SpreadCo Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nSpread Co operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nSpread Co provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | SpreadCo Platform |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nSpread Co supports SpreadCo Platform.\n\n**SpreadCo Platform:** Proprietary or partner trading platform available through Spread Co.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports SpreadCo Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Spread Co Best For?\n\nSpread Co is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using SpreadCo Platform** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Spread Co against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nSpread Co is a solid choice for traders seeking from 1.0 pips on 500+ instruments via SpreadCo Platform. Regulation by FCA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Spread Co.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2006",
+    "Spread betting, CFDs, Forex, Indices, Shares, Commodities"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports SpreadCo Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.spreadco.com",
+  "riskLevel": "Medium",
+  "founded": "2006",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\spreadco.json",
+        "bytes": 1182
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.755Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

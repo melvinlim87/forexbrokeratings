@@ -1,0 +1,51 @@
+{
+  "id": 1668,
+  "name": "Zerodha",
+  "slug": "zerodha",
+  "logo": "https://www.google.com/s2/favicons?domain=zerodha.com&sz=128",
+  "rating": 8.2,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Kite",
+    "Coin",
+    "Console"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEBI"
+  ],
+  "bestFor": "New Listing",
+  "description": "Zerodha is a India based broker founded in 2010. With SEBI, it offers Equity, F&O, Commodity, Currency, IPO, Mutual Funds trading primarily via Kite, Coin, Console.",
+  "fullReview": "## Company Overview\n\nZerodha is a retail forex and CFD broker established in 2010, headquartered in India. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2010\n- Equity, F&O, Commodity, Currency, IPO, Mutual Funds\n\nThe broker's trading infrastructure is built on Kite, Coin and Console, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nZerodha operates under SEBI regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** SEBI\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nZerodha provides From 1.0 pips on major currency pairs. Leverage is available at 1:5 (equity), 1:2 (F&O), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:5 (equity), 1:2 (F&O) |\n| Instruments | 500+ |\n| Platforms | Kite, Coin and Console |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nZerodha supports Kite, Coin and Console, giving traders flexibility to choose the environment that best suits their strategy.\n\n**Kite:** Proprietary or partner trading platform available through Zerodha.\n**Coin:** Proprietary or partner trading platform available through Zerodha.\n**Console:** Proprietary or partner trading platform available through Zerodha.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEBI\n- ✅ Low entry barrier\n- ✅ Supports Kite\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Zerodha Best For?\n\nZerodha is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Kite** who want a straightforward account setup\n- **Those based in India** or regions served by SEBI\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Zerodha against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 8.2 / 10**\n\nZerodha is highly recommended for traders seeking from 1.0 pips on 500+ instruments via Kite, Coin and Console. Regulation by SEBI provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Zerodha.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:5 (equity), 1:2 (F&O)",
+  "features": [
+    "Founded in 2010",
+    "Equity, F&O, Commodity, Currency, IPO, Mutual Funds"
+  ],
+  "pros": [
+    "Regulated by SEBI",
+    "Low entry barrier",
+    "Supports Kite"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.zerodha.com",
+  "riskLevel": "Medium",
+  "founded": "2010",
+  "headquarters": "India",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\zerodha.json",
+        "bytes": 1192
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.985Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

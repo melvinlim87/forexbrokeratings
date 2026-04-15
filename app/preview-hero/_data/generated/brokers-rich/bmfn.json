@@ -1,0 +1,52 @@
+{
+  "id": 1425,
+  "name": "BMFN",
+  "slug": "bmfn",
+  "logo": "https://www.google.com/s2/favicons?domain=bmfn.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "UniTrader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "VFSC"
+  ],
+  "bestFor": "New Listing",
+  "description": "BMFN is a Vanuatu based broker founded in 1988. With Offshore License, it offers 40+ FX pairs, CFDs on indices, commodities trading primarily via MT4, UniTrader.",
+  "fullReview": "## Company Overview\n\nBMFN is a retail forex and CFD broker established in 1988, headquartered in Vanuatu. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1988\n- 40+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on MT4 and UniTrader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBMFN operates under Offshore License and VFSC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · VFSC\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nBMFN provides From 0.5 pips on major currency pairs. Leverage is available at 400:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 0.5 pips |\n| Leverage | 400:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and UniTrader |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nBMFN supports MT4 and UniTrader, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**UniTrader:** Proprietary or partner trading platform available through BMFN.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is BMFN Best For?\n\nBMFN is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Vanuatu** or regions served by Offshore License and VFSC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare BMFN against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nBMFN is a reasonable option for traders seeking from 0.5 pips on 500+ instruments via MT4 and UniTrader. Regulation by Offshore License and VFSC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with BMFN.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "400:1",
+  "features": [
+    "Founded in 1988",
+    "40+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.bmfn.com",
+  "riskLevel": "Medium",
+  "founded": "1988",
+  "headquarters": "Vanuatu",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\bmfn.json",
+        "bytes": 1238
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.109Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

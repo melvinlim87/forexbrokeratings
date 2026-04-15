@@ -1,0 +1,55 @@
+{
+  "id": 1697,
+  "name": "Questrade",
+  "slug": "questrade",
+  "logo": "https://www.google.com/s2/favicons?domain=questrade.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "MT5",
+    "QuestradeFX Platform",
+    "MT4",
+    "Questrade Platform",
+    "IQ Edge"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CIRO",
+    "IIROC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Questrade is a Canada based broker founded in 1999. With IIROC, CIRO, it offers Stocks, ETFs, Options, Forex, CFDs, GICs, Bonds, Mutual Funds trading primarily via Questrade Platform, IQ Edge.",
+  "fullReview": "## Company Overview\n\nQuestrade is a retail forex and CFD broker established in 1999, headquartered in Canada. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1999\n- Stocks, ETFs, Options, Forex, CFDs, GICs, Bonds, Mutual Funds\n\nThe broker's trading infrastructure is built on MT5, QuestradeFX Platform, MT4 and Questrade Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nQuestrade operates under CIRO and IIROC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** CIRO · IIROC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nQuestrade provides From 1.0 pips on major currency pairs. Leverage is available at 1:2 (margin account), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:2 (margin account) |\n| Instruments | 500+ |\n| Platforms | MT5, QuestradeFX Platform, MT4 and Questrade Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nQuestrade supports MT5, QuestradeFX Platform, MT4 and Questrade Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**QuestradeFX Platform:** Proprietary or partner trading platform available through Questrade.\n**Questrade Platform:** Proprietary or partner trading platform available through Questrade.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Supports Questrade Platform\n- ✅ Supports QuestradeFX Platform\n- ✅ Low entry barrier\n- ✅ Regulated by IIROC\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Questrade Best For?\n\nQuestrade is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT5** who want a straightforward account setup\n- **Those based in Canada** or regions served by CIRO and IIROC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Questrade against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nQuestrade is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT5, QuestradeFX Platform, MT4 and Questrade Platform. Regulation by CIRO and IIROC provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Questrade.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:2 (margin account)",
+  "features": [
+    "Founded in 1999",
+    "Stocks, ETFs, Options, Forex, CFDs, GICs, Bonds, Mutual Funds"
+  ],
+  "pros": [
+    "Supports Questrade Platform",
+    "Supports QuestradeFX Platform",
+    "Low entry barrier",
+    "Regulated by IIROC"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.questrade.com",
+  "riskLevel": "Medium",
+  "founded": "1999",
+  "headquarters": "Canada",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\questrade.json",
+        "bytes": 1385
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.655Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

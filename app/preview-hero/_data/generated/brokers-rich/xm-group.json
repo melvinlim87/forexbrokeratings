@@ -1,0 +1,22 @@
+{
+  "id": 1745,
+  "name": "Xm Group",
+  "slug": "xm-group",
+  "logo": "/logos/xm-group.png",
+  "rating": 6.5,
+  "reviews": "verified investigation",
+  "type": "broker",
+  "description": "Investigative forensic dossier pending high-fidelity injection.",
+  "fullReview": "## Company Overview\n\nXm Group is a retail forex and CFD broker, headquartered in an undisclosed location. The broker offers access to a range of tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\nXm Group targets retail and semi-professional traders seeking competitive spreads and flexible leverage options.\n\nThe broker's trading infrastructure is built on MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nXm Group currently operates without a major-tier regulatory licence. The broker is registered in an undisclosed location and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nXm Group provides variable spreads on major currency pairs. Leverage is available at up to 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $undefined |\n| Spreads | variable spreads |\n| Leverage | up to 500:1 |\n| Instruments | a range of |\n| Platforms | MT4 |\n\nTraders have a minimum deposit of $undefined, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nXm Group supports MT4.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n\n\n## Who Is Xm Group Best For?\n\nXm Group is best suited for:\n\n- **Intermediate traders** looking for variable spreads execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in an undisclosed location** or regions served by offshore licence\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Xm Group against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nXm Group is a reasonable option for traders seeking variable spreads on a range of instruments via MT4. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $undefined minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Xm Group.*",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\brokers\\xm-group.json",
+        "bytes": 2876
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.924Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,55 @@
+{
+  "id": 1556,
+  "name": "Bybit",
+  "slug": "bybit",
+  "logo": "https://www.google.com/s2/favicons?domain=bybit.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 1,
+  "platforms": [
+    "Bybit Platform",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "VARA",
+    "CySEC",
+    "FSC",
+    "SFC",
+    "JFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Bybit is a Dubai based broker founded in 2018. With Offshore License, it offers 1000+ (Crypto, Forex derivatives, Stocks, Options, NFTs) trading primarily via Bybit Platform, MT5.",
+  "fullReview": "## Company Overview\n\nBybit is a retail forex and CFD broker established in 2018, headquartered in Dubai. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2018\n- 1000+ (Crypto, Forex derivatives, Stocks, Options, NFTs)\n\nThe broker's trading infrastructure is built on Bybit Platform and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBybit operates under Offshore License, VARA, CySEC and FSC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · VARA · CySEC · FSC · SFC · JFSA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 6 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nBybit provides From 1.0 pips on major currency pairs. Leverage is available at 100:1 (crypto), 500:1 (forex via derivatives), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1 |\n| Spreads | From 1.0 pips |\n| Leverage | 100:1 (crypto), 500:1 (forex via derivatives) |\n| Instruments | 500+ |\n| Platforms | Bybit Platform and MT5 |\n\nTraders have a minimum deposit of $1, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nBybit supports Bybit Platform and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**Bybit Platform:** Proprietary or partner trading platform available through Bybit.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Supports Bybit Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Bybit Best For?\n\nBybit is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Bybit Platform** who want a straightforward account setup\n- **Those based in Dubai** or regions served by Offshore License, VARA, CySEC and FSC\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Bybit against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nBybit is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via Bybit Platform and MT5. Regulation by Offshore License, VARA, CySEC and FSC provides a foundational level of oversight. The $1 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Bybit.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "100:1 (crypto), 500:1 (forex via derivatives)",
+  "features": [
+    "Founded in 2018",
+    "1000+ (Crypto, Forex derivatives, Stocks, Options, NFTs)"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Supports Bybit Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.bybit.com",
+  "riskLevel": "Medium",
+  "founded": "2018",
+  "headquarters": "Dubai",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\bybit.json",
+        "bytes": 1369
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.147Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

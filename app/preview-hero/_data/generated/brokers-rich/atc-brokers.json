@@ -1,0 +1,49 @@
+{
+  "id": 1411,
+  "name": "ATC Brokers",
+  "slug": "atc-brokers",
+  "logo": "https://www.google.com/s2/favicons?domain=atcbrokers.com&sz=128",
+  "rating": 5.6,
+  "reviews": "New",
+  "minDeposit": 5000,
+  "platforms": [
+    "MT4"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CIMA"
+  ],
+  "bestFor": "New Listing",
+  "description": "ATC Brokers is a Cayman Islands based broker founded in 2005. With CIMA, it offers 50+ FX pairs, CFDs on indices, commodities trading primarily via MT4.",
+  "fullReview": "## Company Overview\n\nATC Brokers is a retail forex and CFD broker established in 2005, headquartered in Cayman Islands. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2005\n- 50+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nATC Brokers operates under CIMA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** CIMA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nATC Brokers provides From 0.3 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $5000 |\n| Spreads | From 0.3 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4 |\n\nTraders have a minimum deposit of $5000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nATC Brokers supports MT4.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CIMA\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is ATC Brokers Best For?\n\nATC Brokers is best suited for:\n\n- **Intermediate traders** looking for from 0.3 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Cayman Islands** or regions served by CIMA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare ATC Brokers against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 5.6 / 10**\n\nATC Brokers is an option worth researching carefully for traders seeking from 0.3 pips on 500+ instruments via MT4. Regulation by CIMA provides a foundational level of oversight. The $5000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with ATC Brokers.*",
+  "spreads": "From 0.3 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 2005",
+    "50+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by CIMA",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.atcbrokers.com",
+  "riskLevel": "Medium",
+  "founded": "2005",
+  "headquarters": "Cayman Islands",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\atc-brokers.json",
+        "bytes": 1136
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.031Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1491,
+  "name": "Baxter FX",
+  "slug": "baxterfx",
+  "logo": "https://www.google.com/s2/favicons?domain=baxterfx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1000,
+  "platforms": [
+    "Baxter FX Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Baxter FX is a Australia based broker founded in 1996. With ASIC, it offers Forex, CFDs, Commodities, Indices trading primarily via Baxter FX Platform.",
+  "fullReview": "## Company Overview\n\nBaxter FX is a retail forex and CFD broker established in 1996, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1996\n- Forex, CFDs, Commodities, Indices\n\nThe broker's trading infrastructure is built on Baxter FX Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nBaxter FX operates under ASIC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** ASIC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nBaxter FX provides From 1.0 pips on major currency pairs. Leverage is available at 100:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1000 |\n| Spreads | From 1.0 pips |\n| Leverage | 100:1 |\n| Instruments | 500+ |\n| Platforms | Baxter FX Platform |\n\nTraders have a minimum deposit of $1000, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nBaxter FX supports Baxter FX Platform.\n\n**Baxter FX Platform:** Proprietary or partner trading platform available through Baxter FX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports Baxter FX Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Baxter FX Best For?\n\nBaxter FX is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using Baxter FX Platform** who want a straightforward account setup\n- **Those based in Australia** or regions served by ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Baxter FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nBaxter FX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via Baxter FX Platform. Regulation by ASIC provides a foundational level of oversight. The $1000 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Baxter FX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "100:1",
+  "features": [
+    "Founded in 1996",
+    "Forex, CFDs, Commodities, Indices"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports Baxter FX Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.baxterfx.com",
+  "riskLevel": "Medium",
+  "founded": "1996",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\baxterfx.json",
+        "bytes": 1141
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.062Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

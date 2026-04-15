@@ -1,0 +1,51 @@
+{
+  "id": 1303,
+  "name": "FXtrading.com",
+  "slug": "fxtrading",
+  "logo": "https://www.google.com/s2/favicons?domain=fxtrading.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 200,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "cTrader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC"
+  ],
+  "bestFor": "New Listing",
+  "description": "FXtrading.com is a Australia based broker founded in 2014. With ASIC, it offers 50+ FX pairs, CFDs on indices, commodities, crypto trading primarily via MT4, MT5, cTrader.",
+  "fullReview": "## Company Overview\n\nFXtrading.com is a retail forex and CFD broker established in 2014, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2014\n- 50+ FX pairs, CFDs on indices, commodities, crypto\n\nThe broker's trading infrastructure is built on MT4, MT5 and cTrader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nFXtrading.com operates under ASIC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** ASIC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nFXtrading.com provides From 0.0 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $200 |\n| Spreads | From 0.0 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and cTrader |\n\nTraders have a minimum deposit of $200, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nFXtrading.com supports MT4, MT5 and cTrader, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**cTrader:** ECN-focused platform with level-II pricing, advanced charting, and cAlgo algorithmic trading support.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is FXtrading.com Best For?\n\nFXtrading.com is best suited for:\n\n- **Intermediate traders** looking for from 0.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Australia** or regions served by ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare FXtrading.com against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nFXtrading.com is a solid choice for traders seeking from 0.0 pips on 500+ instruments via MT4, MT5 and cTrader. Regulation by ASIC provides a foundational level of oversight. The $200 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with FXtrading.com.*",
+  "spreads": "From 0.0 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 2014",
+    "50+ FX pairs, CFDs on indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.fxtrading.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fxtrading.json",
+        "bytes": 1202
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.398Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

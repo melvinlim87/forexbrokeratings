@@ -1,0 +1,22 @@
+{
+  "id": 1744,
+  "name": "Vantage Fx",
+  "slug": "vantage-fx",
+  "logo": "/logos/vantage-fx.png",
+  "rating": 6.5,
+  "reviews": "verified investigation",
+  "type": "broker",
+  "description": "Investigative forensic dossier pending high-fidelity injection.",
+  "fullReview": "## Company Overview\n\nVantage Fx is a retail forex and CFD broker, headquartered in an undisclosed location. The broker offers access to a range of tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\nVantage Fx targets retail and semi-professional traders seeking competitive spreads and flexible leverage options.\n\nThe broker's trading infrastructure is built on MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nVantage Fx currently operates without a major-tier regulatory licence. The broker is registered in an undisclosed location and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nVantage Fx provides variable spreads on major currency pairs. Leverage is available at up to 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $undefined |\n| Spreads | variable spreads |\n| Leverage | up to 500:1 |\n| Instruments | a range of |\n| Platforms | MT4 |\n\nTraders have a minimum deposit of $undefined, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nVantage Fx supports MT4.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n\n\n## Who Is Vantage Fx Best For?\n\nVantage Fx is best suited for:\n\n- **Intermediate traders** looking for variable spreads execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in an undisclosed location** or regions served by offshore licence\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Vantage Fx against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nVantage Fx is a reasonable option for traders seeking variable spreads on a range of instruments via MT4. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $undefined minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Vantage Fx.*",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\brokers\\vantage-fx.json",
+        "bytes": 2545
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.906Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

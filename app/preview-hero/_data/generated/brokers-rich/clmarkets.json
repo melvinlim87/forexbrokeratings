@@ -1,0 +1,50 @@
+{
+  "id": 1351,
+  "name": "CLMarkets",
+  "slug": "clmarkets",
+  "logo": "https://www.google.com/s2/favicons?domain=clmarkets.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "CLMarkets Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC"
+  ],
+  "bestFor": "New Listing",
+  "description": "CLMarkets is a Australia based broker founded in 2013. With ASIC, it offers 40 FX pairs, CFDs on indices, commodities trading primarily via MT4, CLMarkets Platform.",
+  "fullReview": "## Company Overview\n\nCLMarkets is a retail forex and CFD broker established in 2013, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2013\n- 40 FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on MT4 and CLMarkets Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCLMarkets operates under ASIC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** ASIC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nCLMarkets provides From 1.0 pips on major currency pairs. Leverage is available at 400:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 400:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and CLMarkets Platform |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCLMarkets supports MT4 and CLMarkets Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**CLMarkets Platform:** Proprietary or partner trading platform available through CLMarkets.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is CLMarkets Best For?\n\nCLMarkets is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Australia** or regions served by ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare CLMarkets against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nCLMarkets is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and CLMarkets Platform. Regulation by ASIC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with CLMarkets.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "400:1",
+  "features": [
+    "Founded in 2013",
+    "40 FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.clmarkets.com",
+  "riskLevel": "Medium",
+  "founded": "2013",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\clmarkets.json",
+        "bytes": 1174
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.190Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,50 @@
+{
+  "id": 1296,
+  "name": "Varengold Bank",
+  "slug": "varengold",
+  "logo": "https://www.google.com/s2/favicons?domain=varengold.de&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 500,
+  "platforms": [
+    "MT4",
+    "Varengold Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "BaFin"
+  ],
+  "bestFor": "New Listing",
+  "description": "Varengold Bank is a Germany based broker founded in 1995. With BaFin, it offers 50+ FX pairs, CFDs on indices, commodities trading primarily via MT4, Varengold Platform.",
+  "fullReview": "## Company Overview\n\nVarengold Bank is a retail forex and CFD broker established in 1995, headquartered in Germany. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1995\n- 50+ FX pairs, CFDs on indices, commodities\n\nThe broker's trading infrastructure is built on MT4 and Varengold Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nVarengold Bank operates under BaFin regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** BaFin\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nVarengold Bank provides From 1.5 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $500 |\n| Spreads | From 1.5 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4 and Varengold Platform |\n\nTraders have a minimum deposit of $500, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nVarengold Bank supports MT4 and Varengold Platform, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**Varengold Platform:** Proprietary or partner trading platform available through Varengold Bank.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by BaFin\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Varengold Bank Best For?\n\nVarengold Bank is best suited for:\n\n- **Intermediate traders** looking for from 1.5 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Germany** or regions served by BaFin\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Varengold Bank against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nVarengold Bank is a solid choice for traders seeking from 1.5 pips on 500+ instruments via MT4 and Varengold Platform. Regulation by BaFin provides a foundational level of oversight. The $500 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Varengold Bank.*",
+  "spreads": "From 1.5 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 1995",
+    "50+ FX pairs, CFDs on indices, commodities"
+  ],
+  "pros": [
+    "Regulated by BaFin",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.varengold.de",
+  "riskLevel": "Medium",
+  "founded": "1995",
+  "headquarters": "Germany",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\varengold.json",
+        "bytes": 1188
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.874Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

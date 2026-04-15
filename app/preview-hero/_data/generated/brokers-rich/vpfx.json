@@ -1,0 +1,49 @@
+{
+  "id": 1659,
+  "name": "VPFX",
+  "slug": "vpfx",
+  "logo": "https://www.google.com/s2/favicons?domain=vpfx.com&sz=128",
+  "rating": 3,
+  "reviews": "New",
+  "minDeposit": 50,
+  "platforms": [
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Not regulated"
+  ],
+  "bestFor": "New Listing",
+  "description": "VPFX is a Saint Vincent and the Grenadines based broker founded in 2021. With no formal regulation, it offers Forex, Metals, Indices trading primarily via MT5.",
+  "fullReview": "## Company Overview\n\nVPFX is a retail forex and CFD broker established in 2021, headquartered in Saint Vincent and the Grenadines. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2021\n- Forex, Metals, Indices\n\nThe broker's trading infrastructure is built on MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nVPFX currently operates without a major-tier regulatory licence. The broker is registered in Saint Vincent and the Grenadines and holds an offshore licence, which provides limited investor protection compared to FCA, ASIC, or CySEC-regulated alternatives.\n\n**Regulatory jurisdictions:** Not regulated\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nVPFX provides From 1.0 pips on major currency pairs. Leverage is available at 1:500, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $50 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:500 |\n| Instruments | 500+ |\n| Platforms | MT5 |\n\nTraders have a minimum deposit of $50, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nVPFX supports MT5.\n\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Competitive trading conditions (High Risk)\n- ✅ Low entry barrier\n- ✅ Supports MT5\n\n**Cons:**\n- ❌ NOT REGULATED (High Risk of Fund Loss)\n\n## Who Is VPFX Best For?\n\nVPFX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT5** who want a straightforward account setup\n- **Those based in Saint Vincent and the Grenadines** or regions served by Not regulated\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare VPFX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 3.0 / 10**\n\nVPFX is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via MT5. The offshore regulation model means traders should proceed with appropriate caution and position-size accordingly. The $50 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with VPFX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:500",
+  "features": [
+    "Founded in 2021",
+    "Forex, Metals, Indices"
+  ],
+  "pros": [
+    "Competitive trading conditions (High Risk)",
+    "Low entry barrier",
+    "Supports MT5"
+  ],
+  "cons": [
+    "NOT REGULATED (High Risk of Fund Loss)"
+  ],
+  "affiliateUrl": "https://www.vpfx.com",
+  "riskLevel": "Medium",
+  "founded": "2021",
+  "headquarters": "Saint Vincent and the Grenadines",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\vpfx.json",
+        "bytes": 1149
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.922Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,54 @@
+{
+  "id": 1546,
+  "name": "AMP Global",
+  "slug": "amp-global",
+  "logo": "https://www.google.com/s2/favicons?domain=ampfutures.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "AMP Platform",
+    "MT4",
+    "MT5",
+    "NinjaTrader",
+    "Sierra Chart"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CFTC",
+    "NFA"
+  ],
+  "bestFor": "New Listing",
+  "description": "AMP Global is a USA based broker founded in 2009. With CFTC, NFA, it offers Futures, Options on Futures, CFDs trading primarily via AMP Platform, MT4, MT5, NinjaTrader, Sierra Chart.",
+  "fullReview": "## Company Overview\n\nAMP Global is a retail forex and CFD broker established in 2009, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2009\n- Futures, Options on Futures, CFDs\n\nThe broker's trading infrastructure is built on AMP Platform, MT4, MT5 and NinjaTrader, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAMP Global operates under CFTC and NFA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** CFTC · NFA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nAMP Global provides From 1.0 pips on major currency pairs. Leverage is available at 50:1 (futures varies by contract), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 50:1 (futures varies by contract) |\n| Instruments | 500+ |\n| Platforms | AMP Platform, MT4, MT5 and NinjaTrader |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nAMP Global supports AMP Platform, MT4, MT5 and NinjaTrader, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**AMP Platform:** Proprietary or partner trading platform available through AMP Global.\n**NinjaTrader:** Proprietary or partner trading platform available through AMP Global.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CFTC\n- ✅ Low entry barrier\n- ✅ Supports AMP Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is AMP Global Best For?\n\nAMP Global is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using AMP Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by CFTC and NFA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare AMP Global against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nAMP Global is a solid choice for traders seeking from 1.0 pips on 500+ instruments via AMP Platform, MT4, MT5 and NinjaTrader. Regulation by CFTC and NFA provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with AMP Global.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "50:1 (futures varies by contract)",
+  "features": [
+    "Founded in 2009",
+    "Futures, Options on Futures, CFDs"
+  ],
+  "pros": [
+    "Regulated by CFTC",
+    "Low entry barrier",
+    "Supports AMP Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.ampfutures.com",
+  "riskLevel": "Medium",
+  "founded": "2009",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\amp-global.json",
+        "bytes": 1296
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.005Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

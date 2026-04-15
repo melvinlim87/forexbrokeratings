@@ -1,0 +1,49 @@
+{
+  "id": 1696,
+  "name": "Wealthsimple",
+  "slug": "wealthsimple",
+  "logo": "https://www.google.com/s2/favicons?domain=wealthsimple.com&sz=128",
+  "rating": 4.2,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Wealthsimple Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "IIROC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Wealthsimple is a Canada based broker founded in 2014. With IIROC, it offers Stocks, ETFs, Options, Crypto, GICs, Mutual Funds trading primarily via Wealthsimple Platform.",
+  "fullReview": "## Company Overview\n\nWealthsimple is a retail forex and CFD broker established in 2014, headquartered in Canada. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2014\n- Stocks, ETFs, Options, Crypto, GICs, Mutual Funds\n\nThe broker's trading infrastructure is built on Wealthsimple Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nWealthsimple operates under IIROC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** IIROC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nWealthsimple provides From 1.0 pips on major currency pairs. Leverage is available at 1:1 (cash account only), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:1 (cash account only) |\n| Instruments | 500+ |\n| Platforms | Wealthsimple Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nWealthsimple supports Wealthsimple Platform.\n\n**Wealthsimple Platform:** Proprietary or partner trading platform available through Wealthsimple.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by IIROC\n- ✅ Low entry barrier\n- ✅ Supports Wealthsimple Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Wealthsimple Best For?\n\nWealthsimple is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Wealthsimple Platform** who want a straightforward account setup\n- **Those based in Canada** or regions served by IIROC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Wealthsimple against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 4.2 / 10**\n\nWealthsimple is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Wealthsimple Platform. Regulation by IIROC provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Wealthsimple.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:1 (cash account only)",
+  "features": [
+    "Founded in 2014",
+    "Stocks, ETFs, Options, Crypto, GICs, Mutual Funds"
+  ],
+  "pros": [
+    "Regulated by IIROC",
+    "Low entry barrier",
+    "Supports Wealthsimple Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.wealthsimple.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Canada",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\wealthsimple.json",
+        "bytes": 1232
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.936Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

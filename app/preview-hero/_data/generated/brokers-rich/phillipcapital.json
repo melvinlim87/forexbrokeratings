@@ -1,0 +1,55 @@
+{
+  "id": 1332,
+  "name": "PhillipCapital",
+  "slug": "phillipcapital",
+  "logo": "https://www.google.com/s2/favicons?domain=phillipcapital.com&sz=128",
+  "rating": 4.6,
+  "reviews": "New",
+  "minDeposit": 500,
+  "platforms": [
+    "MT4",
+    "POEMS",
+    "Phillip Nova"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "MAS",
+    "CFTC",
+    "FCA",
+    "ASIC",
+    "SFC"
+  ],
+  "bestFor": "New Listing",
+  "description": "PhillipCapital is a Singapore based broker founded in 1975. With MAS, CFTC, FCA, ASIC, SFC, it offers 40+ FX pairs, stocks, CFDs on indices, commodities, options, futures trading primarily via MT4, POEMS, Phillip Nova.",
+  "fullReview": "## Company Overview\n\nPhillipCapital is a retail forex and CFD broker established in 1975, headquartered in Singapore. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1975\n- 40+ FX pairs, stocks, CFDs on indices, commodities, options, futures\n\nThe broker's trading infrastructure is built on MT4, POEMS and Phillip Nova, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nPhillipCapital operates under MAS, CFTC, FCA and ASIC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** MAS · CFTC · FCA · ASIC · SFC\n\n**Risk Level:** Medium — Medium risk profile — regulated by 5 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nPhillipCapital provides From 1.0 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $500 |\n| Spreads | From 1.0 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4, POEMS and Phillip Nova |\n\nTraders have a minimum deposit of $500, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nPhillipCapital supports MT4, POEMS and Phillip Nova, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**POEMS:** Proprietary or partner trading platform available through PhillipCapital.\n**Phillip Nova:** Proprietary or partner trading platform available through PhillipCapital.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by MAS\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is PhillipCapital Best For?\n\nPhillipCapital is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Singapore** or regions served by MAS, CFTC, FCA and ASIC\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare PhillipCapital against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 4.6 / 10**\n\nPhillipCapital is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via MT4, POEMS and Phillip Nova. Regulation by MAS, CFTC, FCA and ASIC provides a foundational level of oversight. The $500 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with PhillipCapital.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 1975",
+    "40+ FX pairs, stocks, CFDs on indices, commodities, options, futures"
+  ],
+  "pros": [
+    "Regulated by MAS",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.phillipcapital.com",
+  "riskLevel": "Medium",
+  "founded": "1975",
+  "headquarters": "Singapore",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\phillipcapital.json",
+        "bytes": 1385
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.635Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

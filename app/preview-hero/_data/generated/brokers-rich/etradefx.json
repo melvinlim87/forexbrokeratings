@@ -1,0 +1,53 @@
+{
+  "id": 1345,
+  "name": "ETrade FX",
+  "slug": "etradefx",
+  "logo": "https://www.google.com/s2/favicons?domain=etrade.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "ETrade Platform",
+    "Power ETrade"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "NFA",
+    "CFTC",
+    "SEC",
+    "FINRA"
+  ],
+  "bestFor": "New Listing",
+  "description": "ETrade FX is a USA based broker founded in 1982. With NFA, CFTC, SEC, FINRA, it offers FX pairs, stocks, options, futures, bonds, ETFs trading primarily via ETrade Platform, Power ETrade.",
+  "fullReview": "## Company Overview\n\nETrade FX is a retail forex and CFD broker established in 1982, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1982\n- FX pairs, stocks, options, futures, bonds, ETFs\n\nThe broker's trading infrastructure is built on ETrade Platform and Power ETrade, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nETrade FX operates under NFA, CFTC, SEC and FINRA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** NFA · CFTC · SEC · FINRA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 4 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nETrade FX provides From 1.0 pips on major currency pairs. Leverage is available at 50:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 50:1 |\n| Instruments | 500+ |\n| Platforms | ETrade Platform and Power ETrade |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nETrade FX supports ETrade Platform and Power ETrade, giving traders flexibility to choose the environment that best suits their strategy.\n\n**ETrade Platform:** Proprietary or partner trading platform available through ETrade FX.\n**Power ETrade:** Proprietary or partner trading platform available through ETrade FX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by NFA\n- ✅ Low entry barrier\n- ✅ Supports ETrade Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is ETrade FX Best For?\n\nETrade FX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using ETrade Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by NFA, CFTC, SEC and FINRA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare ETrade FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nETrade FX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via ETrade Platform and Power ETrade. Regulation by NFA, CFTC, SEC and FINRA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with ETrade FX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "50:1",
+  "features": [
+    "Founded in 1982",
+    "FX pairs, stocks, options, futures, bonds, ETFs"
+  ],
+  "pros": [
+    "Regulated by NFA",
+    "Low entry barrier",
+    "Supports ETrade Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.etrade.com",
+  "riskLevel": "Medium",
+  "founded": "1982",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\etradefx.json",
+        "bytes": 1265
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.264Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

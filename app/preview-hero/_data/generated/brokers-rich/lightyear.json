@@ -1,0 +1,49 @@
+{
+  "id": 1717,
+  "name": "Lightyear",
+  "slug": "lightyear",
+  "logo": "https://www.google.com/s2/favicons?domain=lightyear.com&sz=128",
+  "rating": 8.6,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Lightyear App"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "FCA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Lightyear is a UK based broker founded in 2020. With FCA, it offers Stocks, ETFs, Money Market Funds trading primarily via Lightyear App.",
+  "fullReview": "## Company Overview\n\nLightyear is a retail forex and CFD broker established in 2020, headquartered in UK. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2020\n- Stocks, ETFs, Money Market Funds\n\nThe broker's trading infrastructure is built on Lightyear App, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nLightyear operates under FCA regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** FCA\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nLightyear provides From 1.0 pips on major currency pairs. Leverage is available at 1:1 (cash account), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:1 (cash account) |\n| Instruments | 500+ |\n| Platforms | Lightyear App |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nLightyear supports Lightyear App.\n\n**Lightyear App:** Proprietary or partner trading platform available through Lightyear.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by FCA\n- ✅ Low entry barrier\n- ✅ Supports Lightyear App\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Lightyear Best For?\n\nLightyear is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Lightyear App** who want a straightforward account setup\n- **Those based in UK** or regions served by FCA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Lightyear against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 8.6 / 10**\n\nLightyear is highly recommended for traders seeking from 1.0 pips on 500+ instruments via Lightyear App. Regulation by FCA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Lightyear.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:1 (cash account)",
+  "features": [
+    "Founded in 2020",
+    "Stocks, ETFs, Money Market Funds"
+  ],
+  "pros": [
+    "Regulated by FCA",
+    "Low entry barrier",
+    "Supports Lightyear App"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.lightyear.com",
+  "riskLevel": "Medium",
+  "founded": "2020",
+  "headquarters": "UK",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\lightyear.json",
+        "bytes": 1106
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.548Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

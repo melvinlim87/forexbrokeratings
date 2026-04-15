@@ -1,0 +1,50 @@
+{
+  "id": 1610,
+  "name": "Moga FX",
+  "slug": "moga-fx",
+  "logo": "https://www.google.com/s2/favicons?domain=mogafx.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 100,
+  "platforms": [
+    "MT4",
+    "MT5"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "ASIC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Moga FX is a Australia based broker founded in 2017. With ASIC, it offers Forex, Metals, Indices, Commodities trading primarily via MT4, MT5.",
+  "fullReview": "## Company Overview\n\nMoga FX is a retail forex and CFD broker established in 2017, headquartered in Australia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2017\n- Forex, Metals, Indices, Commodities\n\nThe broker's trading infrastructure is built on MT4 and MT5, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nMoga FX operates under ASIC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** ASIC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nMoga FX provides From 1.0 pips on major currency pairs. Leverage is available at 1:500, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $100 |\n| Spreads | From 1.0 pips |\n| Leverage | 1:500 |\n| Instruments | 500+ |\n| Platforms | MT4 and MT5 |\n\nTraders have a minimum deposit of $100, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nMoga FX supports MT4 and MT5, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by ASIC\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Moga FX Best For?\n\nMoga FX is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Australia** or regions served by ASIC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Moga FX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nMoga FX is a solid choice for traders seeking from 1.0 pips on 500+ instruments via MT4 and MT5. Regulation by ASIC provides a foundational level of oversight. The $100 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Moga FX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:500",
+  "features": [
+    "Founded in 2017",
+    "Forex, Metals, Indices, Commodities"
+  ],
+  "pros": [
+    "Regulated by ASIC",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.mogafx.com",
+  "riskLevel": "Medium",
+  "founded": "2017",
+  "headquarters": "Australia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\moga-fx.json",
+        "bytes": 1097
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.586Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

@@ -1,0 +1,51 @@
+{
+  "id": 1693,
+  "name": "Ally Invest",
+  "slug": "ally-invest",
+  "logo": "https://www.google.com/s2/favicons?domain=ally.com&sz=128",
+  "rating": 5.4,
+  "reviews": "New",
+  "minDeposit": 0,
+  "platforms": [
+    "Ally Invest Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "SEC",
+    "FINRA",
+    "NFA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Ally Invest is a USA based broker founded in 2016. With SEC, FINRA, NFA, it offers Stocks, ETFs, Options, Bonds, Forex trading primarily via Ally Invest Platform.",
+  "fullReview": "## Company Overview\n\nAlly Invest is a retail forex and CFD broker established in 2016, headquartered in USA. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2016\n- Stocks, ETFs, Options, Bonds, Forex\n\nThe broker's trading infrastructure is built on Ally Invest Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAlly Invest operates under SEC, FINRA and NFA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** SEC · FINRA · NFA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 3 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nAlly Invest provides From 1.0 pips on major currency pairs. Leverage is available at 1:2 (margin account), which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | None |\n| Spreads | From 1.0 pips |\n| Leverage | 1:2 (margin account) |\n| Instruments | 500+ |\n| Platforms | Ally Invest Platform |\n\nTraders have no minimum deposit requirement, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nAlly Invest supports Ally Invest Platform.\n\n**Ally Invest Platform:** Proprietary or partner trading platform available through Ally Invest.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by SEC\n- ✅ Low entry barrier\n- ✅ Supports Ally Invest Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Ally Invest Best For?\n\nAlly Invest is best suited for:\n\n- **Entry-level traders** looking for from 1.0 pips execution\n- **Traders using Ally Invest Platform** who want a straightforward account setup\n- **Those based in USA** or regions served by SEC, FINRA and NFA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Ally Invest against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 5.4 / 10**\n\nAlly Invest is an option worth researching carefully for traders seeking from 1.0 pips on 500+ instruments via Ally Invest Platform. Regulation by SEC, FINRA and NFA provides a foundational level of oversight. The no-minimum-deposit policy makes it easy to open a small live account and test the execution quality.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Ally Invest.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "1:2 (margin account)",
+  "features": [
+    "Founded in 2016",
+    "Stocks, ETFs, Options, Bonds, Forex"
+  ],
+  "pros": [
+    "Regulated by SEC",
+    "Low entry barrier",
+    "Supports Ally Invest Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.ally.com/invest",
+  "riskLevel": "Medium",
+  "founded": "2016",
+  "headquarters": "USA",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\ally-invest.json",
+        "bytes": 1203
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.001Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

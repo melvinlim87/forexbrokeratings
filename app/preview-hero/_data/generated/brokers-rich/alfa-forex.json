@@ -1,0 +1,51 @@
+{
+  "id": 1391,
+  "name": "Alfa-Forex",
+  "slug": "alfa-forex",
+  "logo": "https://www.google.com/s2/favicons?domain=alfa-forex.ru&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 1,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "QUIK"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "CBR",
+    "CySEC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Alfa-Forex is a Russia based broker founded in 1996. With CBR, CySEC, it offers 40+ FX pairs, stocks, bonds, ETFs trading primarily via MT4, MT5, QUIK.",
+  "fullReview": "## Company Overview\n\nAlfa-Forex is a retail forex and CFD broker established in 1996, headquartered in Russia. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 1996\n- 40+ FX pairs, stocks, bonds, ETFs\n\nThe broker's trading infrastructure is built on MT4, MT5 and QUIK, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nAlfa-Forex operates under CBR and CySEC regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** CBR · CySEC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nAlfa-Forex provides From 0.5 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $1 |\n| Spreads | From 0.5 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5 and QUIK |\n\nTraders have a minimum deposit of $1, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nAlfa-Forex supports MT4, MT5 and QUIK, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**QUIK:** Proprietary or partner trading platform available through Alfa-Forex.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by CBR\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Alfa-Forex Best For?\n\nAlfa-Forex is best suited for:\n\n- **Entry-level traders** looking for from 0.5 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Russia** or regions served by CBR and CySEC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Alfa-Forex against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nAlfa-Forex is a solid choice for traders seeking from 0.5 pips on 500+ instruments via MT4, MT5 and QUIK. Regulation by CBR and CySEC provides a foundational level of oversight. The $1 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Alfa-Forex.*",
+  "spreads": "From 0.5 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 1996",
+    "40+ FX pairs, stocks, bonds, ETFs"
+  ],
+  "pros": [
+    "Regulated by CBR",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.alfa-forex.ru",
+  "riskLevel": "Medium",
+  "founded": "1996",
+  "headquarters": "Russia",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\alfa-forex.json",
+        "bytes": 1121
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:16.998Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

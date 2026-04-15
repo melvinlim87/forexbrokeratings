@@ -1,0 +1,52 @@
+{
+  "id": 1430,
+  "name": "CAPEX",
+  "slug": "capex",
+  "logo": "https://www.google.com/s2/favicons?domain=capex.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 250,
+  "platforms": [
+    "WebTrader",
+    "Trading Central"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "FSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "CAPEX is a Seychelles based broker founded in 2016. With Offshore License, it offers 50+ FX pairs, CFDs on stocks, indices, commodities, crypto trading primarily via WebTrader, Trading Central.",
+  "fullReview": "## Company Overview\n\nCAPEX is a retail forex and CFD broker established in 2016, headquartered in Seychelles. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2016\n- 50+ FX pairs, CFDs on stocks, indices, commodities, crypto\n\nThe broker's trading infrastructure is built on WebTrader and Trading Central, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nCAPEX operates under Offshore License and FSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · FSA\n\n**Risk Level:** Medium — Higher risk profile due to offshore regulation. Traders should exercise caution and only risk capital they can afford to lose. No investor compensation scheme typically applies to offshore-regulated brokers.\n\n## Trading Conditions\n\nCAPEX provides From 1.0 pips on major currency pairs. Leverage is available at 300:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $250 |\n| Spreads | From 1.0 pips |\n| Leverage | 300:1 |\n| Instruments | 500+ |\n| Platforms | WebTrader and Trading Central |\n\nTraders have a minimum deposit of $250, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nCAPEX supports WebTrader and Trading Central, giving traders flexibility to choose the environment that best suits their strategy.\n\n**WebTrader:** Proprietary or partner trading platform available through CAPEX.\n**Trading Central:** Proprietary or partner trading platform available through CAPEX.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports WebTrader\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is CAPEX Best For?\n\nCAPEX is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using WebTrader** who want a straightforward account setup\n- **Those based in Seychelles** or regions served by Offshore License and FSA\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare CAPEX against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nCAPEX is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via WebTrader and Trading Central. Regulation by Offshore License and FSA provides a foundational level of oversight. The $250 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with CAPEX.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "300:1",
+  "features": [
+    "Founded in 2016",
+    "50+ FX pairs, CFDs on stocks, indices, commodities, crypto"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports WebTrader"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.capex.com",
+  "riskLevel": "Medium",
+  "founded": "2016",
+  "headquarters": "Seychelles",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\capex.json",
+        "bytes": 1342
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.151Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

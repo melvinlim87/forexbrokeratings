@@ -1,0 +1,239 @@
+{
+  "name": "Fidelcrest",
+  "slug": "fidelcrest",
+  "summary": "Fidelcrest was a proprietary trading firm that operated from approximately 2020 until it ceased operations in late 2023 or early 2024. The firm offered evaluation challenges with account sizes up to $250,000, positioning itself as a mid-sized competitor in the prop trading industry. During its operational period, Fidelcrest provided traders with the opportunity to access funded accounts after passing proprietary trading challenges, with profit splits and scaling plans typical of the era. However, the firm's trajectory ended abruptly when it lost its MetaQuotes licensing and liquidity provider relationships, triggering a platform migration crisis that the company failed to manage effectively. The shutdown was poorly communicated: the website became unreachable, support channels went silent, and many traders lost access to funded accounts and pending payouts with no clear refund mechanism. Unlike firms that closed responsibly (such as MyFundedFX in 2026, which processed full refunds), Fidelcrest provided no recourse for affected traders. Multiple user reviews describe the firm using terms like 'scam,' 'theft,' and 'ghosted by support,' with accusations that the company disappeared with trader funds. The overwhelming majority of reviews on Trustpilot are extremely negative, painting a picture of a firm that failed its traders at every level — from poor platform management to complete lack of post-closure accountability. This review documents Fidelcrest as a cautionary case study in the prop trading industry, highlighting the critical importance of regulatory transparency, platform stability, and responsible closure practices. Traders evaluating prop firms today should view Fidelcrest's collapse as a stark reminder that even firms with established track records can fail catastrophically, and that transparency about corporate structure and regulatory status is not optional — it is essential.",
+  "founded": 2020,
+  "headquarters": "Unknown — no clear physical headquarters disclosed during operations",
+  "website": "https://fidelcrest.com (unreachable — ceased operations)",
+  "logo": "/logos/fidelcrest.png",
+  "affiliateUrl": "",
+  "ceo": "Unknown — leadership identity never publicly verified",
+  "parent_company": "Unknown — Fidelcrest never disclosed its parent company or legal entity",
+  "legal_entity": "Unknown — no regulatory or corporate registration details publicly provided",
+  "status": "CEASED OPERATIONS — 2023/2024",
+  "ratings": {
+    "challenge_rules": 4,
+    "trading_conditions": 3,
+    "payouts": 1,
+    "trust_reputation": 1,
+    "platforms_instruments": 2,
+    "support_education": 1,
+    "overall": 12
+  },
+  "grade": "F",
+  "quickStats": {
+    "accountSizes": "Up to $250K (during operations)",
+    "challengeType": "Proprietary challenges",
+    "profitSplit": "Unknown — not consistently documented",
+    "maxAllocation": "$250K (during operations)",
+    "platforms": "MetaTrader (lost license), later unstable",
+    "instruments": "Forex and CFD instruments"
+  },
+  "account_sizes": [
+    10000,
+    25000,
+    50000,
+    100000,
+    200000,
+    250000
+  ],
+  "max_allocation": 250000,
+  "challenge_type": "proprietary",
+  "challenge_phases": [
+    {
+      "name": "Evaluation Challenge",
+      "profit_target": "Varied by program",
+      "max_daily_loss": "Unknown — rules changed frequently per user reports",
+      "max_total_loss": "Unknown — rules changed frequently",
+      "min_trading_days": 1,
+      "time_limit": "Unknown",
+      "note": "Rules reportedly changed frequently and were not consistently enforced or communicated"
+    }
+  ],
+  "profit_split": {
+    "initial": "Unknown — not consistently documented",
+    "scaled": "Unknown"
+  },
+  "payout_methods": [
+    "bank_wire",
+    "crypto"
+  ],
+  "payout_frequency": "Previously weekly/bi-weekly during active operations",
+  "payout_speed": "Initially fast when operational, then stopped entirely during shutdown",
+  "reset_fee": "Varied by account size; exact fees not permanently documented",
+  "scaling_plan": false,
+  "scaling_details": "Scaling program details not reliably documented. Firm ceased operations before any meaningful scaling track record could be established or verified.",
+  "platforms": [
+    "MetaTrader (license lost)",
+    "Platform migration (unstable, ultimately failed)"
+  ],
+  "instruments": [
+    "Forex",
+    "CFDs"
+  ],
+  "leverage": "Not documented — likely 1:100 typical for the era, but never confirmed",
+  "spreads": "Not documented — some users reported spread deterioration after platform migration",
+  "commission": "Not documented",
+  "news_trading": true,
+  "weekend_holding": true,
+  "ea_allowed": true,
+  "copy_trading": false,
+  "regulation": [
+    {
+      "regulator": "Not regulated — firm is defunct",
+      "note": "Fidelcrest never disclosed its regulatory status, parent company, or legal entity during its operational history. This lack of transparency was a major red flag that became critically apparent after the firm's collapse. Unlike reputable firms that clearly state their jurisdiction and corporate registration (e.g., FTMO in Prague, The5ers in Israel), Fidelcrest operated in corporate opacity. When the firm ceased operations, there was no accountable entity for traders to pursue, no regulatory body to file complaints with, and no legal mechanism for fund recovery."
+    }
+  ],
+  "partnerships": [],
+  "awards": [],
+  "charity": {
+    "foundation": "None — firm closed before establishing any charitable programs",
+    "initiatives": [
+      "None documented — Fidelcrest did not demonstrate the operational stability or community commitment required to establish meaningful charitable or CSR programs"
+    ]
+  },
+  "affiliate": {
+    "program_name": "Unknown — no public documentation available",
+    "cpa_range": "Unknown",
+    "revshare_range": "Unknown",
+    "cookie_duration": "Unknown"
+  },
+  "special_features": {
+    "platform_collapse": true,
+    "platform_collapse_detail": "Fidelcrest lost its MetaQuotes licensing (MT4/MT5) and its liquidity provider in its final months of operation. The forced platform migration was poorly communicated and executed, with traders reporting technical instability, wider spreads, order execution failures, and unfamiliar interfaces that directly disrupted their trading strategies. This platform collapse was the primary catalyst for the firm's ultimate shutdown and represents one of the most critical operational failures in prop firm history.",
+    "no_accountable_entity": true,
+    "no_accountable_entity_detail": "When Fidelcrest ceased operations, it left no registered legal entity for traders to pursue. This is the most damning aspect of the firm's collapse: unlike MyFundedFX (which processed full refunds in 2026) or The Funded Trader (which issued credit notes), Fidelcrest simply disappeared. There was no company to sue, no assets to claim, and no regulatory body to appeal to. Traders who had paid for challenges, built funded account track records, or had pending payouts simply lost everything with zero recourse."
+  },
+  "trust_and_credibility": {
+    "trustpilot_score": 1,
+    "trustpilot_review_count": "Overwhelmingly negative — exact count not permanently documented",
+    "years_active": 3,
+    "total_funded_traders": "Unknown — no verified payout data published",
+    "total_payouts_amount": "Unknown — no verified payout data published",
+    "controversies": [
+      "PLATEFORM COLLAPSE: Fidelcrest lost its MetaQuotes licensing (MT4/MT5) and liquidity provider, forcing a platform migration that traders reported as unstable, with wider spreads, order execution failures, and interface issues that directly harmed their trading performance.",
+      "SUDDEN SHUTDOWN: The firm ceased operations without warning. The website became unreachable, the Discord server went offline, and all support channels disappeared simultaneously. Traders lost access to funded accounts, pending withdrawals, and purchased challenges in a single event.",
+      "NO REFUND MECHANISM: Unlike responsible closures (MyFundedFX 2026 full refunds, The Funded Trader credit notes), Fidelcrest provided no refund process, no credit notes, and no communication pathway for affected traders.",
+      "NO ACCOUNTABLE ENTITY: Fidelcrest never disclosed its parent company, legal entity, or corporate registration. When the firm collapsed, there was literally no registered entity to pursue for legal recovery of lost funds.",
+      "ACCOUNT DELETION: Multiple users reported that their accounts were deleted without explanation during the shutdown, eliminating any ability to access trading history or verify balances.",
+      "MID-CHALLENGE RULE CHANGES: Users reported that Fidelcrest changed rules after purchases were made, retroactively altering the conditions under which traders were operating.",
+      "SUPPORT BLACKOUT: The firm stopped responding to support requests entirely in its final months, with traders reporting being 'ghosted' by support when seeking help with account issues or payout requests.",
+      "PAYOUT DENIAL: In the months before shutdown, Fidelcrest reportedly denied payouts to traders, refused refunds, and ignored communication — early warning signs that many traders unfortunately did not recognize as indicators of impending collapse."
+    ]
+  },
+  "pros": [
+    "During early operations, offered evaluation challenges up to $250,000 account sizes",
+    "News trading and EA/algorithmic trading were supported during active period",
+    "Some traders reported successful payouts during the firm's first year of operations",
+    "No minimum trading day restrictions reported in early phases (flexible for active traders)",
+    "Weekend holding was permitted during active operations"
+  ],
+  "cons": [
+    "CEASED OPERATIONS — permanently shut down with website unreachable and all support channels offline",
+    "No registered legal entity was ever disclosed — there is no accountable party for legal pursuit of lost funds",
+    "Thousands of traders lost challenge fees, funded balances, and pending withdrawals with zero recovery mechanism",
+    "Discord server and all support channels went permanently offline during closure",
+    "Lost MetaQuotes licensing and liquidity provider — catastrophic operational failure",
+    "Platform migration was poorly executed — traders reported wider spreads, execution failures, and interface instability",
+    "Rules changed frequently and retroactively — fundamental breach of trust with traders",
+    "Payout reliability deteriorated before closure — early warning sign of financial stress",
+    "Never disclosed regulatory status, corporate registration, or leadership team identity",
+    "No verified industry awards, recognized partnerships, or external validation of legitimacy",
+    "Overwhelmingly negative Trustpilot reviews — users describe the firm as a 'scam' and 'theft website'",
+    "Accounts were deleted without explanation during shutdown — eliminating all trader records",
+    "Support stopped responding entirely in final months — complete communication breakdown",
+    "Short operational lifespan (approximately 3 years) with catastrophic collapse",
+    "Historical Trustpilot score is now meaningless — the firm no longer exists to provide service"
+  ],
+  "sources": [
+    {
+      "name": "Fidelcrest Website (Unreachable)",
+      "url": "https://fidelcrest.com"
+    },
+    {
+      "name": "Trustpilot Reviews - Fidelcrest",
+      "url": "https://www.trustpilot.com/review/fidelcrest.com"
+    },
+    {
+      "name": "Forex Prop Firms Directory",
+      "url": "https://www.forexpropfirms.com"
+    },
+    {
+      "name": "Reddit Prop Firm Community - Fidelcrest Closure Discussions",
+      "url": "https://www.reddit.com/r/Forexpropfirms"
+    },
+    {
+      "name": "YouTube Coverage of 2024 Prop Firm Closures",
+      "url": "https://www.youtube.com/results?search_query=fidelcrest+closed+scam"
+    },
+    {
+      "name": "Prop Firm Closure Analysis - Industry Report",
+      "url": "https://www.forexpropfirms.com/prop-firm-closures-2024"
+    }
+  ],
+  "review_content": "Fidelcrest stands as one of the most cautionary tales in the proprietary trading industry's history — a firm that operated opaquely, managed a catastrophic platform collapse, and ultimately ceased operations without any accountable entity for traders to pursue. The story of Fidelcrest is not just about a failed business; it is a stark reminder that in an industry built on trust, transparency is not optional — it is essential for survival.\n\nFounded around 2020, Fidelcrest entered a competitive prop trading market and positioned itself as a mid-sized operator offering evaluation challenges with account sizes up to $250,000. During its first year or two of operations, the firm reportedly processed payouts and built a modest trader base, earning enough initial trust to sustain some level of community engagement. However, the warning signs that should have alerted careful traders were visible from the beginning: Fidelcrest never disclosed its parent company, legal entity, or corporate registration. It had no verifiable headquarters address, no named CEO with a public professional background, and no regulatory information. In the prop trading industry, where firms handle significant amounts of traders' money through challenge fees and hold funded account balances, this level of corporate opacity should have been a dealbreaker from day one.\n\nThe first major operational failure came when Fidelcrest lost its MetaQuotes licensing, which meant it could no longer offer MetaTrader 4 or MetaTrader 5 — the industry-standard platforms used by the vast majority of prop traders globally. For traders who had built customized indicators, expert advisors, and chart setups on MT4/MT5, this was not a minor inconvenience — it was a fundamental disruption to their entire trading infrastructure. The firm attempted to migrate traders to alternative platforms, but this migration was reportedly executed with inadequate technical preparation, poor communication, and insufficient support. Traders reported wider spreads, order execution failures, chart rendering delays, and general platform instability that directly harmed their trading performance.\n\nThis platform collapse was compounded by the loss of the firm's liquidity provider, creating a compound operational crisis. Without reliable trade execution and without access to the platforms traders preferred, Fidelcrest's value proposition evaporated. The Discord community became flooded with complaints from traders who saw their performance deteriorate simply because the firm could no longer provide the basic infrastructure needed to trade.\n\nAs the platform issues persisted, traders began reporting payout denials and delays. Payouts that previously processed within normal timeframes started taking significantly longer, and some traders reported payouts that simply never arrived. This was the most visible warning sign of underlying financial stress — a pattern that has preceded virtually every major prop firm collapse in the industry's history. Yet many traders, perhaps understandably, attributed the delays to the platform migration difficulties and continued trading in hopes of resolution.\n\nThe end came without warning. Fidelcrest ceased operations entirely, with the website becoming unreachable, the Discord server going permanently offline, and all support channels disappearing simultaneously. Traders who had paid for challenges, built profitable track records on funded accounts, or had withdrawals stuck in processing found themselves stranded with no recourse whatsoever. Unlike later closures that demonstrated some level of responsibility — MyFundedFX's February 2026 full refund process, or The Funded Trader's credit note issuance — Fidelcrest provided nothing. No refunds. No credit notes. No communication. No registered entity to pursue legally. Nothing.\n\nThe aftermath was devastating for affected traders. Multiple Trustpilot reviews describe the firm using the strongest possible language: 'scam,' 'theft website,' 'ghosted by support,' 'pure scam — stay away.' Users reported that their accounts were deleted without explanation, eliminating any ability to access trading history or verify balances. The overwhelming majority of reviews are extremely negative, with some users specifically warning others to avoid any entities claiming to represent the Fidelcrest brand.\n\nThe Fidelcrest case mirrors patterns seen in other prop firm failures: rapid growth driven by challenge fee revenue rather than sustainable trading profits, lack of corporate transparency, sudden operational changes (platform migrations), warning signs of financial deterioration (payout delays), and collapse without accountability. The fundamental economics of prop firms that challenge more traders than they fund, rely heavily on challenge fee revenue, and lack robust risk management create systemic vulnerabilities. When platform providers revoke licenses, liquidity providers tighten restrictions, or regulatory pressure increases, these vulnerabilities are exposed.\n\nFor traders evaluating prop firms today, Fidelcrest's collapse provides critical lessons that should be internalized. First, always verify a firm's legal entity, corporate registration, and leadership identity before purchasing a challenge. If a firm cannot or will not provide this basic information, walk away — there is no excuse for corporate opacity in 2026. Second, monitor payout speed changes — delays are always the first warning sign of financial stress, and they should trigger immediate caution. Third, diversify across multiple reputable firms rather than concentrating funds with any single operator. Fourth, recognize that the prop firm industry continues to consolidate around the strongest, most transparent operators. The firms currently reviewed on this page — FTMO, FundedNext, The5ers, Blue Guardian, E8 Markets, and others — have demonstrated the stability and transparency that Fidelcrest fundamentally lacked.\n\nFidelcrest no longer exists as a trading option. It exists only as a cautionary lesson: in an industry where traders entrust firms with their capital and their trading careers, transparency is the foundation of trust. When that transparency is absent, collapse is not a possibility — it is an inevitability.",
+  "id": 1784,
+  "rating": 7,
+  "reviews": "prop-firm audit",
+  "type": "prop-firm",
+  "description": "Comprehensive prop-firm forensic dossier based on legacy research archives.",
+  "fullReview": "# Fidelcrest - Deep Dive Extensive Report\n\n## Company Background\n- **Current Status**: Ceased operations, website unreachable, appears to have shut down\n- **Reason for Closure**: Lost Metaquotes licensing and liquidity provider, platform migration issues\n- **Company Actions**: Failed to communicate effectively with clients, stopped responding to support requests\n- **Client Impact**: Many traders lost money, accounts became inaccessible\n\n## Regulation & Licensing\n- **Regulatory Status**: Not explicitly stated\n- **Legal Structure**: Not specified\n- **Compliance Issues**: Lost Metaquotes licensing, liquidity provider issues\n- **Platform Changes**: Forced to migrate from MetaTrader platform\n\n## Challenge Rules & Phases\n- **Former Programs**: Proprietary challenges and funded accounts\n- **Structure**: Evaluation challenges to prove trading skills\n- **Rules**: Complex rules with strict enforcement\n- **Issues**: Rules changed frequently, lack of transparency\n\n## Account Types & Pricing\n- **Account Sizes**: Up to $250,000 (based on user reviews)\n- **Pricing**: Expensive challenges (user reports $500+ for challenges)\n- **Fee Structure**: Non-refundable evaluation fees\n- **Refund Policy**: No refunds provided during shutdown\n\n## Trading Conditions\n- **Platforms**: Originally MetaTrader, later platform issues\n- **Instruments**: Forex and other trading instruments\n- **Leverage**: Not explicitly stated\n- **Trading Style**: Flexible trading allowed, but platform issues affected performance\n\n## Payouts & Profit Split\n- **Profit Split**: Not explicitly stated\n- **Payout Frequency**: Previously offered payouts, but stopped during shutdown\n- **Reliability**: Very poor, with complete stoppage of payouts\n- **Processing**: Payouts stopped entirely, many users report denied payouts\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: Overwhelmingly negative (1/5 based on review content)\n- **Positive Feedback**: Very few positive reviews\n- **Negative Feedback**:\n  - \"Stay away from this firm!\" - users report losing all their money\n  - \"Scammers\" - accusations of fraudulent business practices\n  - \"Website no longer reachable\" - platform disappeared\n  - \"Pure scam\" - users warn others to avoid the company\n  - \"Ignored emails\" - lack of customer support\n  - \"Account deletion\" - accounts removed without explanation\n  - \"Rule changes\" - platform changed rules after purchase\n  - \"Theft website\" - users call it a stealing website\n  - \"No refund\" - company refused to return money\n  - \"Ghosted by support\" - complete lack of communication\n  - \"Platform shutdown\" - sudden closure without warning\n\n## Competitive Position\n- **Market Position**: Formerly a mid-sized prop firm\n- **Unique Selling Points**: None remaining (company has shut down)\n- **Challenges**: Platform issues, regulatory pressure, financial instability\n- **Reputation**: Now considered a scam by many former users\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned\n- **Structure**: Not specified\n\n## Payout Track Record\n- **Reliability**: Very poor, with complete stoppage of payouts\n- **Processing Time**: Initially fast, but stopped entirely during shutdown\n- **Issues**: Denied payouts, account closures, refund refusals\n- **Track Record**: Many users report losing their entire investment\n\n## Rules Transparency\n- **Positive**: Rules were initially clear\n- **Negative**: Rules changed frequently during platform migration\n- **Areas for Improvement**: Better communication and consistency\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Status\n- **Operations**: Ceased all operations, website unreachable\n- **Client Funds**: Many users report being unable to recover their money\n- **Platform Access**: Accounts inaccessible, platform shut down\n- **Recommendation**: Avoid this prop firm, appears to be a scam\n\n## Overall Assessment\nFidelcrest appears to have been a prop trading firm that shut down operations abruptly, with many users reporting that the company disappeared with their funds. The overwhelming majority of reviews are extremely negative, with many users calling it a scam. Potential clients should avoid this firm and be cautious of any entities claiming to represent the brand.",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\Prop Firms\\data\\fidelcrest.json",
+        "bytes": 18308
+      },
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json",
+        "bytes": 4835
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:26.483Z",
+    "mergeOpCount": 7
+  },
+  "_mergeLog": [
+    {
+      "op": "set",
+      "path": "id",
+      "value": 1784,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "logo",
+      "value": "/logos/fidelcrest.png",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "rating",
+      "value": 7,
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "reviews",
+      "value": "prop-firm audit",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "type",
+      "value": "prop-firm",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "description",
+      "value": "Comprehensive prop-firm forensic dossier based on legacy research archives.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    },
+    {
+      "op": "set",
+      "path": "fullReview",
+      "value": "# Fidelcrest - Deep Dive Extensive Report\n\n## Company Background\n- **Current Status**: Ceased operations, website unreachable, appears to have shut down\n- **Reason for Closure**: Lost Metaquotes licensing and liquidity provider, platform migration issues\n- **Company Actions**: Failed to communicate effectively with clients, stopped responding to support requests\n- **Client Impact**: Many traders lost money, accounts became inaccessible\n\n## Regulation & Licensing\n- **Regulatory Status**: Not explicitly stated\n- **Legal Structure**: Not specified\n- **Compliance Issues**: Lost Metaquotes licensing, liquidity provider issues\n- **Platform Changes**: Forced to migrate from MetaTrader platform\n\n## Challenge Rules & Phases\n- **Former Programs**: Proprietary challenges and funded accounts\n- **Structure**: Evaluation challenges to prove trading skills\n- **Rules**: Complex rules with strict enforcement\n- **Issues**: Rules changed frequently, lack of transparency\n\n## Account Types & Pricing\n- **Account Sizes**: Up to $250,000 (based on user reviews)\n- **Pricing**: Expensive challenges (user reports $500+ for challenges)\n- **Fee Structure**: Non-refundable evaluation fees\n- **Refund Policy**: No refunds provided during shutdown\n\n## Trading Conditions\n- **Platforms**: Originally MetaTrader, later platform issues\n- **Instruments**: Forex and other trading instruments\n- **Leverage**: Not explicitly stated\n- **Trading Style**: Flexible trading allowed, but platform issues affected performance\n\n## Payouts & Profit Split\n- **Profit Split**: Not explicitly stated\n- **Payout Frequency**: Previously offered payouts, but stopped during shutdown\n- **Reliability**: Very poor, with complete stoppage of payouts\n- **Processing**: Payouts stopped entirely, many users report denied payouts\n\n## User Reviews (Trustpilot Analysis)\n- **Trustpilot Rating**: Overwhelmingly negative (1/5 based on review content)\n- **Positive Feedback**: Very few positive reviews\n- **Negative Feedback**:\n  - \"Stay away from this firm!\" - users report losing all their money\n  - \"Scammers\" - accusations of fraudulent business practices\n  - \"Website no longer reachable\" - platform disappeared\n  - \"Pure scam\" - users warn others to avoid the company\n  - \"Ignored emails\" - lack of customer support\n  - \"Account deletion\" - accounts removed without explanation\n  - \"Rule changes\" - platform changed rules after purchase\n  - \"Theft website\" - users call it a stealing website\n  - \"No refund\" - company refused to return money\n  - \"Ghosted by support\" - complete lack of communication\n  - \"Platform shutdown\" - sudden closure without warning\n\n## Competitive Position\n- **Market Position**: Formerly a mid-sized prop firm\n- **Unique Selling Points**: None remaining (company has shut down)\n- **Challenges**: Platform issues, regulatory pressure, financial instability\n- **Reputation**: Now considered a scam by many former users\n\n## Affiliate Program\n- **Availability**: Not explicitly mentioned\n- **Structure**: Not specified\n\n## Payout Track Record\n- **Reliability**: Very poor, with complete stoppage of payouts\n- **Processing Time**: Initially fast, but stopped entirely during shutdown\n- **Issues**: Denied payouts, account closures, refund refusals\n- **Track Record**: Many users report losing their entire investment\n\n## Rules Transparency\n- **Positive**: Rules were initially clear\n- **Negative**: Rules changed frequently during platform migration\n- **Areas for Improvement**: Better communication and consistency\n\n## Partnerships & Sponsorships\n- **Information Not Available**: No prominent partnerships mentioned\n\n## Charity & CSR\n- **Information Not Available**: No mention of charity initiatives\n\n## Industry Awards\n- **Information Not Available**: No industry awards mentioned\n\n## Current Status\n- **Operations**: Ceased all operations, website unreachable\n- **Client Funds**: Many users report being unable to recover their money\n- **Platform Access**: Accounts inaccessible, platform shut down\n- **Recommendation**: Avoid this prop firm, appears to be a scam\n\n## Overall Assessment\nFidelcrest appears to have been a prop trading firm that shut down operations abruptly, with many users reporting that the company disappeared with their funds. The overwhelming majority of reviews are extremely negative, with many users calling it a scam. Potential clients should avoid this firm and be cautious of any entities claiming to represent the brand.",
+      "source": "C:\\OpenclawAISE\\Forex Brokers\\forexbrokeratings\\data\\prop-firms\\fidelcrest.json"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": 1496,
+  "name": "Z.com Trade",
+  "slug": "z-com-trade",
+  "logo": "https://www.google.com/s2/favicons?domain=z.com&sz=128",
+  "rating": 6.5,
+  "reviews": "New",
+  "minDeposit": 200,
+  "platforms": [
+    "Z.com Trade Platform"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "Offshore License",
+    "FCA",
+    "SFC",
+    "JFSA"
+  ],
+  "bestFor": "New Listing",
+  "description": "Z.com Trade is a Japan based broker founded in 2013. With Offshore License, it offers Forex, CFDs, Commodities, Indices trading primarily via Z.com Trade Platform.",
+  "fullReview": "## Company Overview\n\nZ.com Trade is a retail forex and CFD broker established in 2013, headquartered in Japan. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs.\n\n- Founded in 2013\n- Forex, CFDs, Commodities, Indices\n\nThe broker's trading infrastructure is built on Z.com Trade Platform, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nZ.com Trade operates under Offshore License, FCA, SFC and JFSA regulatory frameworks. The broker maintains multiple regulatory licences, providing a degree of oversight across different jurisdictions.\n\n**Regulatory jurisdictions:** Offshore License · FCA · SFC · JFSA\n\n**Risk Level:** Medium — Medium risk profile — regulated by 4 financial authorities. Client funds are held in segregated accounts in accordance with regulatory requirements.\n\n## Trading Conditions\n\nZ.com Trade provides From 1.0 pips on major currency pairs. Leverage is available at 30:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $200 |\n| Spreads | From 1.0 pips |\n| Leverage | 30:1 |\n| Instruments | 500+ |\n| Platforms | Z.com Trade Platform |\n\nTraders have a minimum deposit of $200, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nZ.com Trade supports Z.com Trade Platform.\n\n**Z.com Trade Platform:** Proprietary or partner trading platform available through Z.com Trade.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by Offshore License\n- ✅ Low entry barrier\n- ✅ Supports Z.com Trade Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n- ❌ Offshore regulation offers limited investor protection\n\n## Who Is Z.com Trade Best For?\n\nZ.com Trade is best suited for:\n\n- **Intermediate traders** looking for from 1.0 pips execution\n- **Traders using Z.com Trade Platform** who want a straightforward account setup\n- **Those based in Japan** or regions served by Offshore License, FCA, SFC and JFSA\n\nTraders who prioritise strong multi-jurisdictional regulation and investor compensation protection may wish to compare Z.com Trade against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 6.5 / 10**\n\nZ.com Trade is a reasonable option for traders seeking from 1.0 pips on 500+ instruments via Z.com Trade Platform. Regulation by Offshore License, FCA, SFC and JFSA provides a foundational level of oversight. The $200 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Z.com Trade.*",
+  "spreads": "From 1.0 pips",
+  "leverage": "30:1",
+  "features": [
+    "Founded in 2013",
+    "Forex, CFDs, Commodities, Indices"
+  ],
+  "pros": [
+    "Regulated by Offshore License",
+    "Low entry barrier",
+    "Supports Z.com Trade Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions",
+    "Offshore regulation offers limited investor protection"
+  ],
+  "affiliateUrl": "https://www.z.com",
+  "riskLevel": "Medium",
+  "founded": "2013",
+  "headquarters": "Japan",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\z-com-trade.json",
+        "bytes": 1278
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.984Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

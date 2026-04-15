@@ -1,0 +1,50 @@
+{
+  "id": 1247,
+  "name": "Olymp Trade",
+  "slug": "olymp-trade",
+  "logo": "https://www.google.com/s2/favicons?domain=olymptrade.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 10,
+  "platforms": [
+    "Olymp Trade Platform",
+    "MT4"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "IFC"
+  ],
+  "bestFor": "New Listing",
+  "description": "Olymp Trade is a Saint Vincent and the Grenadines based broker founded in 2014. With IFC, it offers 35 FX pairs, CFDs on stocks, indices, commodities, crypto, fixed time trades trading primarily via Olymp Trade Platform, MT4.",
+  "fullReview": "## Company Overview\n\nOlymp Trade is a retail forex and CFD broker established in 2014, headquartered in Saint Vincent and the Grenadines. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 2014\n- 35 FX pairs, CFDs on stocks, indices, commodities, crypto, fixed time trades\n\nThe broker's trading infrastructure is built on Olymp Trade Platform and MT4, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nOlymp Trade operates under IFC regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** IFC\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nOlymp Trade provides From 1.1 pips on major currency pairs. Leverage is available at 500:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $10 |\n| Spreads | From 1.1 pips |\n| Leverage | 500:1 |\n| Instruments | 500+ |\n| Platforms | Olymp Trade Platform and MT4 |\n\nTraders have a minimum deposit of $10, making the broker accessible to beginners and those testing a new trading approach.\n\n## Trading Platforms\n\nOlymp Trade supports Olymp Trade Platform and MT4, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**Olymp Trade Platform:** Proprietary or partner trading platform available through Olymp Trade.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by IFC\n- ✅ Low entry barrier\n- ✅ Supports Olymp Trade Platform\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is Olymp Trade Best For?\n\nOlymp Trade is best suited for:\n\n- **Entry-level traders** looking for from 1.1 pips execution\n- **Traders using Olymp Trade Platform** who want a straightforward account setup\n- **Those based in Saint Vincent and the Grenadines** or regions served by IFC\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare Olymp Trade against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nOlymp Trade is a solid choice for traders seeking from 1.1 pips on 500+ instruments via Olymp Trade Platform and MT4. Regulation by IFC provides a foundational level of oversight. The $10 minimum deposit is low and accessible.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with Olymp Trade.*",
+  "spreads": "From 1.1 pips",
+  "leverage": "500:1",
+  "features": [
+    "Founded in 2014",
+    "35 FX pairs, CFDs on stocks, indices, commodities, crypto, fixed time trades"
+  ],
+  "pros": [
+    "Regulated by IFC",
+    "Low entry barrier",
+    "Supports Olymp Trade Platform"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://olymptrade.com",
+  "riskLevel": "Medium",
+  "founded": "2014",
+  "headquarters": "Saint Vincent and the Grenadines",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\olymp-trade.json",
+        "bytes": 1372
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.620Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}

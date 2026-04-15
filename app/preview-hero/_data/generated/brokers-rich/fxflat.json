@@ -1,0 +1,53 @@
+{
+  "id": 1294,
+  "name": "FXFlat",
+  "slug": "fxflat",
+  "logo": "https://www.google.com/s2/favicons?domain=fxflat.com&sz=128",
+  "rating": 7.5,
+  "reviews": "New",
+  "minDeposit": 200,
+  "platforms": [
+    "MT4",
+    "MT5",
+    "AgenaTrader",
+    "Guidants",
+    "FlatTrader"
+  ],
+  "tradingInstruments": 500,
+  "regulations": [
+    "BaFin"
+  ],
+  "bestFor": "New Listing",
+  "description": "FXFlat is a Germany based broker founded in 1997. With BaFin, it offers 60+ FX pairs, CFDs on stocks, indices, commodities, crypto, futures trading primarily via MT4, MT5, AgenaTrader, Guidants, FlatTrader.",
+  "fullReview": "## Company Overview\n\nFXFlat is a retail forex and CFD broker established in 1997, headquartered in Germany. The broker offers access to 500+ tradeable instruments spanning forex currency pairs, commodities, indices, and CFDs, as well as cryptocurrency pairs.\n\n- Founded in 1997\n- 60+ FX pairs, CFDs on stocks, indices, commodities, crypto, futures\n\nThe broker's trading infrastructure is built on MT4, MT5, AgenaTrader and Guidants, providing traders with access to professional charting, automated trading, and order execution capabilities.\n\n## Regulation & Licensing\n\nFXFlat operates under BaFin regulation. Traders should verify the specific licence number directly with the relevant regulatory authority before opening an account.\n\n**Regulatory jurisdictions:** BaFin\n\n**Risk Level:** Medium — Medium risk profile. Traders are advised to verify regulation status through the relevant regulator's public register before depositing funds.\n\n## Trading Conditions\n\nFXFlat provides From 0.8 pips on major currency pairs. Leverage is available at 200:1, which allows traders to control larger positions with a smaller initial margin — though higher leverage amplifies both potential gains and losses.\n\n| Condition | Details |\n|-----------|---------|\n| Minimum Deposit | $200 |\n| Spreads | From 0.8 pips |\n| Leverage | 200:1 |\n| Instruments | 500+ |\n| Platforms | MT4, MT5, AgenaTrader and Guidants |\n\nTraders have a minimum deposit of $200, making the broker accessible to a broad range of retail traders.\n\n## Trading Platforms\n\nFXFlat supports MT4, MT5, AgenaTrader and Guidants, giving traders flexibility to choose the environment that best suits their strategy.\n\n**MetaTrader 4 (MT4):** Industry-standard platform with full support for Expert Advisors (EAs), custom indicators, and one-click trading. Available on desktop, web browser, and mobile (iOS/Android).\n**MetaTrader 5 (MT5):** MT4's successor offering additional order types, more timeframes, and a built-in economic calendar alongside full EA compatibility.\n**AgenaTrader:** Proprietary or partner trading platform available through FXFlat.\n**Guidants:** Proprietary or partner trading platform available through FXFlat.\n\n\n## Pros & Cons\n\n**Pros:**\n- ✅ Regulated by BaFin\n- ✅ Low entry barrier\n- ✅ Supports MT4\n\n**Cons:**\n- ❌ Spreads may vary based on market conditions\n\n## Who Is FXFlat Best For?\n\nFXFlat is best suited for:\n\n- **Intermediate traders** looking for from 0.8 pips execution\n- **Traders using MT4** who want a straightforward account setup\n- **Those based in Germany** or regions served by BaFin\n\nTraders who prioritise tier-1 FCA or ASIC regulation and guaranteed fund segregation may wish to compare FXFlat against more heavily regulated alternatives.\n\n## Verdict & Rating\n\n**Overall Rating: 7.5 / 10**\n\nFXFlat is a solid choice for traders seeking from 0.8 pips on 500+ instruments via MT4, MT5, AgenaTrader and Guidants. Regulation by BaFin provides a foundational level of oversight. The $200 minimum deposit is within the industry standard range.\n\n*Review last verified: 2026-04-15. Conditions are subject to change — always verify current terms directly with FXFlat.*",
+  "spreads": "From 0.8 pips",
+  "leverage": "200:1",
+  "features": [
+    "Founded in 1997",
+    "60+ FX pairs, CFDs on stocks, indices, commodities, crypto, futures"
+  ],
+  "pros": [
+    "Regulated by BaFin",
+    "Low entry barrier",
+    "Supports MT4"
+  ],
+  "cons": [
+    "Spreads may vary based on market conditions"
+  ],
+  "affiliateUrl": "https://www.fxflat.com",
+  "riskLevel": "Medium",
+  "founded": "1997",
+  "headquarters": "Germany",
+  "type": "broker",
+  "_provenance": {
+    "sources": [
+      {
+        "path": "C:\\OpenclawAISE\\Forex Brokers\\bestforexbrokers\\data\\brokers\\fxflat.json",
+        "bytes": 1313
+      }
+    ],
+    "mergedAt": "2026-04-15T12:42:17.375Z",
+    "mergeOpCount": 0
+  },
+  "_mergeLog": []
+}
