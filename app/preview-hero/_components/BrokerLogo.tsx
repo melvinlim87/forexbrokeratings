@@ -33,9 +33,9 @@ export function BrokerLogo({
         width: size,
         height: size,
         background: showImage
-          ? 'rgba(255,255,255,0.08)'
+          ? 'rgba(255,255,255,0.96)'
           : `linear-gradient(135deg,${logoColor}33 0%,${logoColor}11 100%)`,
-        border: `1px solid ${showImage ? 'rgba(255,255,255,0.12)' : `${logoColor}55`}`,
+        border: `1px solid ${showImage ? 'rgba(255,255,255,0.3)' : `${logoColor}55`}`,
         padding: showImage ? Math.round(size * 0.08) : 0,
         color: logoColor,
       }}
