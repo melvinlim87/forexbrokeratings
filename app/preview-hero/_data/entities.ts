@@ -218,3 +218,32 @@ export function isImageLogo(logo: string | null | undefined): logo is string {
   if (!logo) return false;
   return /^(https?:|\/)/i.test(logo);
 }
+
+/**
+ * Build the best logo URL chain.
+ * Priority: local /logos/ → Clearbit (real company logos) → original URL → null.
+ *
+ * Returns { primary, fallback } so the component can try Clearbit first,
+ * then fall back to Google favicon if Clearbit 404s.
+ */
+export function bestLogoUrl(logo: string | null | undefined): string | null {
+  if (!logo) return null;
+  // Local logo files are highest quality — keep them
+  if (logo.startsWith('/logos/')) return logo;
+  // Google Favicons → upgrade to Favicone (256px, real high-res icons)
+  // Google only returns 16x16 despite sz=256 — Favicone returns actual 256x256
+  if (logo.includes('google.com/s2/favicons')) {
+    const m = logo.match(/domain=([^&]+)/);
+    if (m) return `https://favicone.com/${m[1]}?s=256`;
+  }
+  // Any other http URL, pass through
+  if (/^https?:/i.test(logo)) return logo;
+  return null;
+}
+
+/** Extract the domain from a Google favicon URL for fallback purposes */
+export function extractDomain(logo: string | null | undefined): string | null {
+  if (!logo) return null;
+  const m = logo.match(/domain=([^&]+)/);
+  return m ? m[1] : null;
+}

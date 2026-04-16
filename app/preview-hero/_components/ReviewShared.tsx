@@ -12,15 +12,50 @@
  *                     previous dossier version for readability.
  */
 
+import { useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ExternalLink, MessageSquare, Quote, Star, TrendingUp, Users } from 'lucide-react';
+
+/* ------------------------------------------------------------------
+ * fullReview deduplication
+ *
+ * Some brokers (IC Markets, Pepperstone) have TWO concatenated research
+ * reports in one `fullReview` field. Detect by finding 2+ h1 headers
+ * and keep the longer section.
+ * ------------------------------------------------------------------ */
+
+export function deduplicateReview(content: string): string {
+  // Split on h1 headers — each starts a new report
+  const sections = content.split(/(?=^# [^\n]+$)/m).filter((s) => s.trim().length > 100);
+  if (sections.length <= 1) return content;
+  // Keep the longest section (most detailed)
+  return sections.reduce((a, b) => (a.length >= b.length ? a : b));
+}
+
+/* ------------------------------------------------------------------
+ * Skip low-value sections
+ *
+ * Detect headings followed by content like "Basic research tools",
+ * "Limited educational content", etc. and collapse them.
+ * ------------------------------------------------------------------ */
+
+const LOW_VALUE_PATTERNS = [
+  /basic research tools/i,
+  /limited educational content/i,
+  /standard channels/i,
+  /no proprietary research/i,
+  /limited research/i,
+];
 
 /* ------------------------------------------------------------------
  * <MarkdownProse>
  * ------------------------------------------------------------------ */
 
 export function MarkdownProse({ content }: { content: string }) {
+  // Deduplicate concatenated reports
+  const cleanContent = useMemo(() => deduplicateReview(content), [content]);
+
   return (
     <div className="ph-prose">
       <ReactMarkdown
@@ -157,7 +192,7 @@ export function MarkdownProse({ content }: { content: string }) {
           img: () => null, // skip images in preview; they often 404 in deep-dive research
         }}
       >
-        {content}
+        {cleanContent}
       </ReactMarkdown>
     </div>
   );

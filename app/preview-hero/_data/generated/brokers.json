@@ -7096,7 +7096,7 @@
       "type": "broker",
       "slug": "ic-markets",
       "name": "IC Markets",
-      "logo": "https://www.google.com/s2/favicons?domain=icmarkets.com&sz=128",
+      "logo": "/logos/icmarkets.svg",
       "logoColor": "#FB923C",
       "rating": 6.5,
       "minDeposit": 200,
