@@ -1056,7 +1056,7 @@ export default function BrokerReview({ summary, rich }: { summary: Summary; rich
                   </span>
                 </div>
               </div>
-              <MarkdownProse content={fullReview} />
+              <MarkdownProse content={fullReview} hasEntityRegulations={entityRegs.length > 0} />
             </div>
           </motion.section>
         )}

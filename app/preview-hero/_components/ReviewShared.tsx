@@ -33,6 +33,23 @@ export function deduplicateReview(content: string): string {
   return sections.reduce((a, b) => (a.length >= b.length ? a : b));
 }
 
+/**
+ * Strip sections from fullReview that are already shown as structured UI.
+ * When `hasEntityRegulations` is true, remove the regulation section from
+ * the markdown to avoid duplication.
+ */
+export function stripRedundantSections(content: string, opts: { hasEntityRegulations?: boolean } = {}): string {
+  if (!content) return content;
+  let out = content;
+
+  if (opts.hasEntityRegulations) {
+    // Remove h2-level "Regulation" sections (## Regulation ... up to next ##)
+    out = out.replace(/^#{1,3}\s+Regulation[^\n]*\n[\s\S]*?(?=^#{1,3}\s|\s*$)/gim, '');
+  }
+
+  return out.trim();
+}
+
 /* ------------------------------------------------------------------
  * Skip low-value sections
  *
@@ -52,9 +69,60 @@ const LOW_VALUE_PATTERNS = [
  * <MarkdownProse>
  * ------------------------------------------------------------------ */
 
-export function MarkdownProse({ content }: { content: string }) {
-  // Deduplicate concatenated reports
-  const cleanContent = useMemo(() => deduplicateReview(content), [content]);
+/** Detect if a table looks like a milestones/history table */
+function isMilestoneTable(rows: string[][]): boolean {
+  if (rows.length < 2) return false;
+  const headers = rows[0].map((h) => h.toLowerCase());
+  return (
+    (headers.some((h) => /year|date/.test(h)) && headers.some((h) => /mile|event|achieve|history/.test(h))) ||
+    rows.slice(1).filter((r) => /^\d{4}$/.test(r[0]?.trim())).length >= 2
+  );
+}
+
+/** Render milestone table as a visual timeline */
+function MilestoneTimeline({ rows }: { rows: string[][] }) {
+  const dataRows = rows.slice(1).filter((r) => r.length >= 2);
+  return (
+    <div className="my-6 space-y-0">
+      <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.12em]" style={{ color: 'var(--ph-text-3)' }}>
+        Company milestones
+      </div>
+      <div className="relative pl-6">
+        {/* vertical line */}
+        <div className="absolute left-[7px] top-2 bottom-2 w-[2px] rounded-full" style={{ background: 'rgba(34,211,238,0.18)' }} />
+        {dataRows.map((row, i) => (
+          <div key={i} className="relative mb-4 flex items-start gap-3">
+            {/* dot */}
+            <div
+              className="absolute -left-6 mt-[5px] h-3 w-3 rounded-full border-2 shrink-0"
+              style={{ borderColor: 'var(--ph-cyan)', background: i === 0 ? 'var(--ph-cyan)' : 'var(--ph-bg-card)' }}
+            />
+            <div>
+              <span className="mr-2 font-mono text-[12px] font-bold" style={{ color: 'var(--ph-cyan)' }}>
+                {row[0]?.trim()}
+              </span>
+              <span className="text-[14px] leading-[1.6]" style={{ color: 'var(--ph-text-2)' }}>
+                {row[1]?.trim()}
+              </span>
+              {row[2] && (
+                <div className="mt-0.5 text-[12px]" style={{ color: 'var(--ph-text-3)' }}>
+                  {row[2].trim()}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function MarkdownProse({ content, hasEntityRegulations }: { content: string; hasEntityRegulations?: boolean }) {
+  // Deduplicate concatenated reports + strip redundant structured sections
+  const cleanContent = useMemo(() => {
+    const deduped = deduplicateReview(content);
+    return stripRedundantSections(deduped, { hasEntityRegulations });
+  }, [content, hasEntityRegulations]);
 
   return (
     <div className="ph-prose">
@@ -162,11 +230,40 @@ export function MarkdownProse({ content }: { content: string }) {
               </pre>
             );
           },
-          table: ({ children }) => (
-            <div className="my-4 overflow-x-auto rounded-xl ph-glass">
-              <table className="w-full border-collapse text-[13px]">{children}</table>
-            </div>
-          ),
+          table: ({ children, node }) => {
+            // Extract rows from the AST to detect milestone tables
+            try {
+              const rows: string[][] = [];
+              const extractText = (n: any): string => {
+                if (!n) return '';
+                if (typeof n === 'string') return n;
+                if (n.type === 'text') return n.value ?? '';
+                if (Array.isArray(n.children)) return n.children.map(extractText).join('');
+                return '';
+              };
+              const visitTable = (n: any) => {
+                if (!n?.children) return;
+                for (const child of n.children) {
+                  if (child.type === 'tableHead' || child.type === 'tableBody') {
+                    for (const row of (child.children ?? [])) {
+                      if (row.type === 'tableRow') {
+                        rows.push((row.children ?? []).map((cell: any) => extractText(cell)));
+                      }
+                    }
+                  }
+                }
+              };
+              visitTable(node);
+              if (isMilestoneTable(rows)) {
+                return <MilestoneTimeline rows={rows} />;
+              }
+            } catch { /* fall through to default */ }
+            return (
+              <div className="my-4 overflow-x-auto rounded-xl ph-glass">
+                <table className="w-full border-collapse text-[13px]">{children}</table>
+              </div>
+            );
+          },
           thead: ({ children }) => (
             <thead style={{ background: 'rgba(255,255,255,0.03)' }}>{children}</thead>
           ),
